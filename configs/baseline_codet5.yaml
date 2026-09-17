@@ -1,0 +1,50 @@
+# 基线配置：CodeT5（整段上下文编码，**微调**）+ masked 池化 + 线性分类（纯样本级二分类，无 U-Net / 无 token 头）
+# 用法：
+#   微调基线      : python train.py --config configs/baseline_codet5.yaml --tag base_codet5_ft
+#   带报告         : python train.py --config configs/baseline_codet5.yaml --tag base_codet5_ft_report --report handcrafted --max-length 448
+#   冻结对照      : python train.py --config configs/baseline_codet5.yaml --tag base_codet5_frozen --freeze-encoder --lr 1e-3
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+
+encoder:
+  name: codet5                                 # 整段上下文编码（n_positions=512），受长度限制
+  path: checkpoints/codet5-base
+  dtype: float32
+  freeze: false                                # 不冻结：微调编码器（梯度检查点显存不够时置 true）
+  gradient_checkpointing: false
+  max_length: 512
+
+model:
+  name: codet5cls                              # 直接二分类基线（BASELINE_MODELS）
+  baseline:
+    pooling: mean                              # mean / max / first（masked 池化）
+    hidden: null                               # null = 直接线性投影；如 256 则加一层 MLP
+    dropout: 0.0
+
+report:
+  name: none                                   # 纯基线不带报告；带报告见文件头注释
+
+loss:
+  sample: 1.0
+  token: 0.0                                   # 基线无 token 任务
+
+train:
+  streams: [m4]                                # 仅样本级任务（m4：human 1w / ai 1w）
+  epochs: 3
+  batch_size: {m4: 16}
+  max_length: {m4: 512}                        # 带报告时用 --max-length 448（448 + 53 报告 ≤ 512）
+  eval_max_length: 512
+  eval_batch_size: 16
+  lr: 2.0e-5                                   # 微调学习率（编码器与分类头统一）
+  lr_encoder: 2.0e-5
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 20
+  monitor: m4_f1
+  seed: 0
+  out_dir: runs

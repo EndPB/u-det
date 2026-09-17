@@ -1,17 +1,24 @@
 """CodeT5 编码器（单文件实现）。
 
-只使用 CodeT5 的 encoder 部分作为特征提取器：
+两种模式（对应 u-det 的消融开关 ``encoder.name``）：
+
+    codet5     上下文编码：整个序列进编码器，返回 (B, L, D)（受 512 位置/attention 限制）。
+    codet5tok  逐 token 编码：每个 token 独立过冻结编码器（长度=1），可预算成查表；
+               训练零编码开销、长度无上限（U-Det 默认）。
+
+两者都只使用 CodeT5 的 encoder 部分：
     * 默认从 checkpoints/codet5-base 加载（由 scripts/prepare.py 下载）；
-    * 返回 token 级表示 (B, L, D)，可直接喂给 models/unet.py；
-    * 支持冻结、混合精度加载、输出各层隐状态（多尺度跳连备用）。
+    * 返回 token 级表示 (B, L, D)，可直接嗂给 models/unet.py。
 """
 
 from __future__ import annotations
 
 import os
+from pathlib import Path
 
 import torch
 import torch.nn as nn
+import torch.nn.functional as F
 from transformers import T5EncoderModel
 
 _DTYPES = {
@@ -131,3 +138,110 @@ class CodeT5Encoder(nn.Module):
     def get_input_embeddings(self) -> nn.Module:
         """词嵌入层（拼接手工特征等改动用）。"""
         return self.model.get_input_embeddings()
+
+
+class CodeT5TokenEncoder(nn.Module):
+    """逐 token 独立编码（长度=1）的 CodeT5。
+
+    每个 token 单独送进编码器（序列长度 1、无上下文），等价于一个固定函数
+    f(token)：attention 无交互，只剩逐 token 的非线性变换。因此可以预先算好
+    (vocab, D) 查表（LUT）缓存到磁盘，前向退化为一次 ``F.embedding``：
+
+        * 训练零编码开销（不用加载 850MB 权重、不用跑 transformer）；
+        * 输入长度无上限（不受 n_positions / attention O(L^2) 限制），
+          长短程上下文完全交给后面的 U-Net 与瓶颈 Transformer。
+
+    两种模式（``freeze``）：
+        freeze=True （默认）LUT 作为固定 buffer（非持久，不进 state_dict）；
+        freeze=False       LUT 作为可训练嵌入表（用编码器逐 token 特征初始化），
+                          等价于“不冻结的编码器”，但参数量只有 24.7M 且无 O(L²) 开销。
+
+    Args:
+        path: 权重目录（默认 checkpoints/codet5-base）或 HF 模型名。
+        dtype: 构建 LUT 时加载权重用的精度（缓存后失效）。
+        lut: LUT 缓存路径；存在则直接加载（此时不加载编码器权重）。
+        layer: 取第几层隐状态（-1 = 最后一层，0 = 词嵌入本身）。
+        chunk: 构建 LUT 时的分块大小（vocab 逐块前向，控制显存）。
+        freeze: True = LUT 固定；False = LUT 可训练（微调）。
+    """
+
+    def __init__(
+        self,
+        path: str = "checkpoints/codet5-base",
+        dtype: str = "float32",
+        lut: str = "data/processed/codet5_lut.pt",
+        layer: int = -1,
+        chunk: int = 8192,
+        freeze: bool = True,
+        **ignored,
+    ):
+        # max_length / gradient_checkpointing 等全局配置项在这里无意义（逐 token 查表无长度上限、不跑 attention），
+        # 统一接收并忽略，方便在 cfg 里直接切换 encoder.name。
+        super().__init__()
+        self.path = path
+        self.layer = layer
+        self.chunk = chunk
+        self.freeze = bool(freeze)
+
+        cache = Path(lut)
+        if cache.exists():
+            blob = torch.load(cache, map_location="cpu", weights_only=True)
+            self.hidden_size = int(blob["hidden_size"])
+            self.vocab_size = int(blob["vocab_size"])
+            table = blob["lut"].float()
+            print(f"[codet5tok] 加载 LUT 缓存：{cache}（{tuple(table.shape)}，来自 {blob.get('path', path)}）")
+        else:
+            table = self._build_lut(dtype)
+            cache.parent.mkdir(parents=True, exist_ok=True)
+            torch.save(
+                {"lut": table, "hidden_size": self.hidden_size, "vocab_size": self.vocab_size, "path": path},
+                cache,
+            )
+            print(f"[codet5tok] LUT 已缓存：{cache}（{tuple(table.shape)}）")
+
+        # 固定特征或可训练嵌入表（persistent=False 时不进 state_dict）
+        if self.freeze:
+            self.register_buffer("lut", table, persistent=False)
+        else:
+            self.lut = nn.Parameter(table.clone())
+            print(f"[codet5tok] 可训练模式：LUT {tuple(table.shape)} 将参与微调")
+
+    # ------------------------------------------------------------------ #
+    def _build_lut(self, dtype: str) -> torch.Tensor:
+        """逐块前向冻结编码器，得到 (vocab, D) 查表。"""
+        model = CodeT5Encoder(path=self.path, dtype=dtype, freeze=True, max_length=1)
+        model.eval()
+        device = "cuda" if torch.cuda.is_available() else "cpu"
+        model.to(device)
+
+        self.hidden_size = int(model.hidden_size)
+        self.vocab_size = int(model.vocab_size)
+        table = torch.zeros(self.vocab_size, self.hidden_size, dtype=torch.float32)
+        print(f"[codet5tok] 构建 LUT：vocab={self.vocab_size} dim={self.hidden_size} layer={self.layer} device={device}")
+        with torch.no_grad():
+            for start in range(0, self.vocab_size, self.chunk):
+                ids = torch.arange(start, min(start + self.chunk, self.vocab_size), device=device)[:, None]
+                states = model(input_ids=ids, attention_mask=torch.ones_like(ids), output_hidden_states=True)
+                h = states[-1] if self.layer == -1 else states[self.layer]
+                table[start:start + ids.shape[0]] = h[:, 0].float().cpu()
+        del model
+        if device == "cuda":
+            torch.cuda.empty_cache()
+        return table
+
+    # ------------------------------------------------------------------ #
+    @property
+    def num_layers(self) -> int:
+        return 0  # 无上下文堆叠，逐 token 查表
+
+    def forward(
+        self,
+        input_ids: torch.Tensor = None,
+        attention_mask: torch.Tensor = None,
+        **kwargs,
+    ) -> torch.Tensor:
+        """(B, L) token id -> (B, L, D) 逐 token 特征（padding 位置置零）。"""
+        out = F.embedding(input_ids, self.lut)
+        if attention_mask is not None:
+            out = out * attention_mask.unsqueeze(-1).to(out.dtype)
+        return out
