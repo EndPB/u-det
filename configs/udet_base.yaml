@@ -1,49 +1,24 @@
-# U-Det 基础配置
-# 说明：所有路径均相对于项目根目录；编码器名称对应 udet/encoders/registry.py 中注册的名字。
-project: u-det
-seed: 42
+# U-Det 配置（数据 / 编码器 / 网络），路径相对于项目根目录。
 
 data:
-  name: codet_m4
-  raw_dir: data/raw/CoDET-M4            # 原始 parquet 存放位置
-  processed_dir: data/processed         # 划分/清洗后的数据集
-  parquet_file: dataset_without_comments.parquet
-  text_column: cleaned_code             # 可选：code / cleaned_code
-  label_column: target                  # 标签列（human / machine 等）
+  raw_dir: data/raw/CoDET-M4                    # 由 scripts/prepare.py data 下载
+  file: dataset_without_comments.parquet        # 全量数据（500,552 行）
+  text_column: cleaned_code                     # 输入列：cleaned_code（去注释）/ code
   max_length: 512
-  tokenizer_name_or_path: checkpoints/codet5-base
 
 encoder:
-  name: codet5                          # 注册名（udet/encoders/registry.py）
-  model_name_or_path: checkpoints/codet5-base
-  torch_dtype: float32                  # float32 / float16 / bfloat16
-  freeze: false                         # 是否冻结编码器
-  freeze_embeddings: false
-  freeze_layers: 0                      # 冻结前 N 层
-  output_hidden_states: true            # 输出各层隐状态（供多尺度跳连使用）
+  name: codet5                                  # 对应 encoders/__init__.py 中 ENCODERS 的键
+  path: checkpoints/codet5-base                 # 权重目录（scripts/prepare.py encoder 下载）
+  dtype: float32                                # float32 / float16 / bfloat16
+  freeze: false
   gradient_checkpointing: false
-  layer_selection: last                 # last / all / 形如 [0, 3, 6, 9] 的层索引列表
 
 model:
-  name: unet1d                          # unet1d（序列）/ unet2d（图像）
-  in_channels: 768                      # 与编码器 hidden_size 对齐（codet5-base = 768）
-  out_channels: 2                       # 类别数（后续按任务调整）
-  features: [64, 128, 256, 512]         # 各层级通道数
+  name: unet1d                                  # unet1d（序列）/ unet2d（图像），见 models/unet.py
+  in_channels: 768                              # 与编码器 hidden_size 一致（CodeT5-base = 768）
+  out_channels: 2                               # 类别数，按任务调整
+  features: [64, 128, 256, 512]                 # 各层通道数
   kernel_size: 3
   use_batchnorm: true
   dropout: 0.0
-  bilinear: false                       # true 使用插值上采样（unet2d）
-
-train:
-  batch_size: 32
-  lr: 2.0e-4
-  weight_decay: 0.01
-  epochs: 10
-  warmup_ratio: 0.05
-  grad_clip: 1.0
-  device: auto                          # auto / cpu / cuda
-  amp: false                            # 无卡实例请保持 false
-
-paths:
-  output_dir: outputs/udet_base
-  log_dir: runs/udet_base
+  bilinear: false                               # 仅 2D：双线性插值上采样 / 转置卷积

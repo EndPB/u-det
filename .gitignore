@@ -1,51 +1,28 @@
-# ---- Python ----
+# Python
 __pycache__/
 *.py[cod]
-*.egg-info/
-.eggs/
-build/
-dist/
 .ipynb_checkpoints/
 .pytest_cache/
-.mypy_cache/
-.ruff_cache/
-
-# ---- 虚拟环境 ----
 .venv/
-venv/
-env/
 
-# ---- 数据（体积大，不入库；用 scripts/download_data.py 重新下载）----
+# 大文件：数据与权重（用 scripts/prepare.py 重新下载，不入库）
 data/raw/
 data/processed/
-data/cache/
-data/*.parquet
-data/**/*.parquet
-data/**/*.arrow
-
-# ---- 模型权重 / 检查点 ----
-checkpoints/*
-!checkpoints/README.md
-models/*
-!models/README.md
+checkpoints/
 *.pt
 *.pth
-*.ckpt
 *.bin
 *.safetensors
-*.h5
 *.onnx
+*.parquet
 
-# ---- 训练产物 ----
+# 训练产物
 runs/
-logs/
 outputs/
 wandb/
-lightning_logs/
 *.log
 
-# ---- 系统 / 编辑器 ----
+# 系统 / 编辑器
 .DS_Store
 .vscode/
 .idea/
-*.swp
