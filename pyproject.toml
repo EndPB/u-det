@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "udet"
+version = "0.1.0"
+description = "U-Det: CodeT5 编码器 + U-Net 的代码检测/分割实验框架"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "u-det" }]
+
+[tool.setuptools.packages.find]
+include = ["udet*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

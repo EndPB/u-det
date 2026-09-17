@@ -1,0 +1,17 @@
+# 使用方式（推荐）：
+#   conda create -n udet python=3.12 -y && conda activate udet && pip install -r requirements.txt
+#
+# 也可以直接用环境文件：
+#   conda env create -f environment.yml
+#
+# 说明：
+#   * Python 3.12（与 AutoDL 基础环境保持一致）
+#   * GPU 目标环境：RTX 3080 Ti (12GB) / CUDA 12.8 驱动，torch 由 requirements.txt 固定为 cu128 轮子
+name: udet
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - -r requirements.txt
