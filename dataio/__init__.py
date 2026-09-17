@@ -39,8 +39,9 @@ def build_dataset(name: str, **kwargs):
     return DATASETS[name](**kwargs)
 
 
-def collate(batch: list[dict], pad_id: int = 0, multiple: int = 8) -> dict:
-    """动态 padding 到 batch 内最长（并对齐到 multiple 的倍数，保证多尺度池化整齐）。"""
+def collate(batch: list[dict], pad_id: int = 0, multiple: int = 1) -> dict:
+    """组装 batch。v0.2 起一律 **batch=1**（FFT 是全局算子，padding 会污染频谱语义），
+    因此默认不对长度做任何对齐（multiple=1）；保留参数以备小样本批量评测。"""
     longest = max(len(b["input_ids"]) for b in batch)
     length = int(math.ceil(longest / multiple) * multiple)
 

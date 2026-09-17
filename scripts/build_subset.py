@@ -33,8 +33,9 @@ sys.path.insert(0, str(ROOT))
 from dataio.hybrid import read_hybrid, tokenize_with_line_labels  # noqa: E402
 
 # token 长度分桶边界（用于"各种长度均衡"）；字符桶按约 3.5 字符/token 对齐
-TOKEN_EDGES = [32, 64, 128, 256, 512, 1024, 2048, 4096, 8192]
-CHAR_EDGES = [100, 200, 400, 900, 1800, 3600, 7200, 14000, 28000]
+# v0.2：不截断代码，桶边界一直开到 32768 token / 11 万字符（覆盖全量分布）
+TOKEN_EDGES = [32, 64, 128, 256, 512, 1024, 2048, 4096, 8192, 16384, 32768]
+CHAR_EDGES = [100, 200, 400, 900, 1800, 3600, 7200, 14000, 28000, 56000, 110000]
 SPLITS = (("train", 8), ("val", 1), ("test", 1))   # 按哈希取模 10 分组
 
 
@@ -160,12 +161,11 @@ def build_m4(args, tokenizer) -> Path:
     candidates = [it for group in reservoirs.values() for it in group if it["lang"] in top_langs]
     print(f"  [m4] 候选池 {len(candidates)} 条（{len(top_langs)} 种语言）-> 预分词…")
 
-    # 预分词：得到精确 token 长度，同时直接存下 input_ids
+    # 预分词：得到精确 token 长度（**不截断**，整段代码），同时直接存下 input_ids
     final: list[dict] = []
     for start in range(0, len(candidates), 512):
         chunk = candidates[start:start + 512]
-        enc = tokenizer([c["code"] for c in chunk], add_special_tokens=False,
-                        truncation=True, max_length=args.max_tokens)
+        enc = tokenizer([c["code"] for c in chunk], add_special_tokens=False)
         for item, ids in zip(chunk, enc["input_ids"]):
             n = len(ids)
             if n < args.min_tokens:
@@ -174,6 +174,10 @@ def build_m4(args, tokenizer) -> Path:
             item["n_tokens"] = n
             item["bucket"] = bucket_of(n, TOKEN_EDGES)
             final.append(item)
+    lens = sorted(it["n_tokens"] for it in final)
+    if lens:
+        print(f"  [m4] 候选 token 长度：min {lens[0]} / 中位 {lens[len(lens)//2]} / max {lens[-1]}"
+              f"（>4096：{sum(1 for x in lens if x > 4096)} 条，>16384：{sum(1 for x in lens if x > 16384)} 条）")
 
     # 二次均衡：类别 × token 长度桶 × 语言
     per_class = args.n
@@ -230,7 +234,7 @@ def build_hybrid(args, tokenizer) -> Path:
         if n < args.min_tokens:
             skipped["过短"] += 1
             continue
-        if n > args.hybrid_max_tokens:
+        if args.hybrid_max_tokens and n > args.hybrid_max_tokens:   # 0 = 不限制
             skipped["过长"] += 1
             continue
         tokens.update({
@@ -269,8 +273,8 @@ def main() -> int:
     parser.add_argument("--n", type=int, default=10000, help="m4 每类目标数量（默认 1w）")
     parser.add_argument("--langs", type=int, default=6, help="m4 保留的语言数（按供给排名）")
     parser.add_argument("--min-tokens", type=int, default=32)
-    parser.add_argument("--max-tokens", type=int, default=4096, help="m4 单条 token 上限（超出截断）")
-    parser.add_argument("--hybrid-max-tokens", type=int, default=16384, help="hybrid 单条 token 上限（超长丢弃）")
+    parser.add_argument("--hybrid-max-tokens", type=int, default=0,
+                        help="hybrid 单条 token 上限，0 = 不限制（v0.2 默认不丢）")
     parser.add_argument("--cand-per-cell", type=int, default=1200, help="m4 每个 (类别×语言×字符桶) 蓄水池大小")
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--processed-dir", default=str(ROOT / "data" / "processed"))

@@ -1,33 +1,33 @@
-# U-Det 配置（数据 / 编码器 / 网络 / 报告 / 损失 / 训练），路径相对于项目根目录。
-# 消融开关：encoder.name（codet5tok/codet5）、model.mid.name（transformer/none）、
-#           report.name（handcrafted/none）、loss.token（0 则退化为纯样本级）、train.streams。
+# U-Det v0.2 配置：频域 U-Net（FFT 上下采样 + 8 层瓶颈）+ 逐 token 编码器 + 双任务训练。
+# 关键设定：不截断代码（整段进模型）、训练/评测 batch=1 + 梯度累积（FFT 是全局算子，padding 会污染频谱）。
+# 消融开关：encoder.freeze（微调/冻结 LUT）、encoder.name（codet5tok/codet5）、
+#           model.{mid,depth,dim,rank,control}、report.name（handcrafted/none）、loss.token、train.streams。
 
 data:
-  processed_dir: data/processed                 # scripts/build_subset.py 产出
+  processed_dir: data/processed                 # scripts/build_subset.py 产出（不截断）
   m4_file: m4.parquet                           # 样本级：human/AI 各 1w，长度×语言均衡
   hybrid_file: hybrid.parquet                   # token 级：行级标注（全量）
 
 encoder:
-  name: codet5tok                               # 逐 token 独立编码（长度=1，可查表）
-  path: checkpoints/codet5-base                 # 权重目录（scripts/prepare.py encoder 下载）
+  name: codet5tok                               # 逐 token 独立编码（长度=1，查表）
+  path: checkpoints/codet5-base
   dtype: float32                                # 构建 LUT 时的加载精度
   lut: data/processed/codet5_lut.pt             # LUT 缓存（首次自动构建）
   layer: -1                                     # 取第几层隐状态（-1 最后一层，0 词嵌入）
-  freeze: false                                 # false = LUT 作为可训练嵌入表（微调编码器）；true = 固定 LUT
+  freeze: false                                 # false = LUT 作为可训练嵌入表（微调编码器）
   max_length: 512                               # 仅 encoder.name=codet5（整段上下文）时生效
 
 model:
-  name: unet1d                                  # unet1d（序列）/ unet2d（图像），见 models/unet.py
-  features: [64, 128, 256, 512]                 # 各层通道数（len-1 = 下采样次数 = 3）
-  kernel_size: 3
-  use_batchnorm: true
+  name: hier                                    # 频域 U-Net（models/hier.py）
+  dim: 768                                      # 隐藏维度恒定（各级不变）
+  depth: 4                                      # 上下采样 4 次
+  mid: 8                                        # 瓶颈（最粗分辨率）注意力层数
+  heads: 12
+  mlp_ratio: 4
   dropout: 0.0
-  mid:                                          # U-Net 瓶颈模块（双向语义交互）
-    name: transformer                           # transformer / none（消融）
-    layers: 2
-    heads: 8
-    dropout: 0.0
-    mlp_ratio: 4
+  rank: 64                                      # 频域低秩混合维 r
+  control: 33                                   # 逐频率调制的控制点数 m
+  up_residual: false                            # 上采样是否加最近邻残差
 
 heads:
   sample_hidden: 256                            # 样本级头 MLP 隐层
@@ -35,29 +35,27 @@ heads:
 
 report:
   name: handcrafted                             # handcrafted / none（消融）
-  max_tokens: 64                                # 报告 token 上限（超长截断）
+  max_tokens: 64                                # 报告 token 上限
 
 loss:
   sample: 1.0                                   # 样本级 CE 权重
   token: 1.0                                    # token 级 BCE 总权重（0 = 只用样本级）
-  scale_weights: [0.25, 0.5, 0.75, 1.0]         # 各上采样尺度权重，由粗到细（L/8, L/4, L/2, L）
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]      # 5 个尺度（L/16, L/8, L/4, L/2, L）由粗到细
   class_weights: null                           # 样本级类别权重，如 [1.0, 1.0]
 
 train:
-  streams: [m4, hybrid]                         # 双流并行：每 step 两流各取一个 batch、同时参与（只留一个即单任务）
+  streams: [m4, hybrid]                         # 双流并行（每个 step 两流各取一个样本）
+  sample_streams: [m4]                          # 只在这些流上算样本级 CE：hybrid 样本标签恒为 1（只留含 AI 行的文件），计入会让样本头退化为“恒正类”
   epochs: 3
-  batch_size: {m4: 16, hybrid: 4}               # hybrid 序列长，批小
-  max_length: {m4: 512, hybrid: 2048}           # 训练窗口（超长样本随机截取）
-  eval_max_length: 2048                         # 评测窗口（超长样本滑窗合并）
-  eval_batch_size: 16
-  lr: 0.001
-  lr_encoder: 0.0001                            # 编码器（可训练 LUT）单独学习率（encoder.freeze=true 时无此项）
+  grad_accum: 8                                 # batch=1，每 8 个样本更新一次参数
+  lr: 0.0003                                    # 主干学习率
+  lr_encoder: 0.0001                            # 编码器（可训练 LUT）学习率
   weight_decay: 0.01
   warmup: 0.05
   grad_clip: 1.0
   amp: true                                     # bf16 自动混合精度
   num_workers: 4
-  log_every: 20
+  log_every: 200
   monitor: mean                                 # mean / m4_f1 / line_f1（选 best.pt 用）
   seed: 0
   out_dir: runs
