@@ -7,6 +7,12 @@
 数据：双流并行（m4 样本级 / hybrid token 级），**不截断代码**；训练与评测一律 batch=1，
       用梯度累积凑有效批大小（FFT 是全局算子，批内 padding 会污染频谱语义）。
 损失：样本级 CE + 各尺度 token 级 BCE（标签按尺度池化，权重由粗到细）。
+v0.4 另加两项可关的辅助损失（见 `loss` 段）：
+
+  * ``cons_pool`` A 层级一致性：粗尺度 ← 细化预测的池化（自蒸馏 / 池化可交换）；
+  * ``cons_pos``  B2 跳跃引导下采样：下采样路径的窗口内**逐 token 位置探针**。
+
+另外 ``token_target`` 可把粗尺度的聚合目标从 mean（比例）换成 max / lse（是否有 AI）。
 
 用法::
 
@@ -21,6 +27,7 @@ import argparse
 import csv
 import json
 import math
+import shutil
 import time
 from pathlib import Path
 
@@ -34,11 +41,14 @@ from transformers import AutoTokenizer
 
 from dataio import build_dataset, collate
 from encoders import build_encoder
-from models import PooledClassifier, SampleHead, TokenHeads, build_hier
+from models import (PooledClassifier, PositionProbes, SampleHead, TokenHeads,
+                    build_hier, position_targets)
 from report import build_report
 
 ROOT = Path(__file__).resolve().parent
 IGNORE = -100
+#: batch_losses 返回的"非样本级"损失项名（用于日志/轮均）
+LOSS_KEYS = ("token", "cons_pool", "cons_pos")
 
 
 # --------------------------------------------------------------------------- #
@@ -76,10 +86,23 @@ def apply_overrides(cfg: dict, args) -> dict:
         cfg["report"]["name"] = args.report
     if args.model is not None:
         cfg["model"]["name"] = args.model
+    if args.encoder is not None:
+        cfg["encoder"]["name"] = args.encoder
     if args.freeze_encoder:
         cfg["encoder"]["freeze"] = True
     if args.unfreeze_encoder:
         cfg["encoder"]["freeze"] = False
+    if args.layer is not None:
+        cfg["encoder"]["layer"] = args.layer
+    if args.no_cons:                                   # v0.4 消融：关掉 A（池化自蒸馏）+ B2（位置探针）
+        cfg.setdefault("loss", {})
+        cfg["loss"]["cons_pool"] = 0.0
+        cfg["loss"]["cons_pos"] = 0.0
+    if args.token_target is not None:                  # v0.4 消融：统一覆盖各尺度聚合目标
+        cfg.setdefault("loss", {})
+        cfg["loss"]["token_target"] = [args.token_target] * 5
+    if args.no_gate:                                   # v0.4 消融：退回 v0.3 的纯跨注意力跳连
+        cfg.setdefault("model", {})["gate"] = False
     return cfg
 
 
@@ -118,22 +141,41 @@ BASELINE_MODELS = ("codet5cls", "pooled")
 
 
 class UDet(nn.Module):
-    """逐 token 编码器 -> 频域 U-Net -> 样本级头 + 多尺度 token 级头（整段序列，batch=1）。"""
+    """逐 token 编码器 -> 窗口注意力 U-Net -> 样本级头 + 多尺度 token 级头（整段序列，batch=1）。
+
+    v0.4 额外可挂一组 **下采样位置探针**（``pos_probes``）：从下采样路径的每一级解出
+    "窗口内逐 token"的 logits，逼下采样保留窗口内的位置结构（loss.cons_pos > 0 时启用）。
+    """
+
+    accepts_aux = True
 
     def __init__(self, encoder: nn.Module, backbone: nn.Module, sample_head: nn.Module,
-                 token_heads: nn.Module):
+                 token_heads: nn.Module, pos_probes: nn.Module | None = None):
         super().__init__()
         self.encoder = encoder
         self.backbone = backbone
         self.sample_head = sample_head
         self.token_heads = token_heads
+        self.pos_probes = pos_probes
 
-    def forward(self, input_ids: torch.Tensor, attention_mask: torch.Tensor | None = None):
+    def forward(self, input_ids: torch.Tensor, attention_mask: torch.Tensor | None = None,
+                return_aux: bool = False):
+        """返回 ``(sample_logits, token_logits)``；``return_aux=True`` 时多返一个 aux dict。"""
         feats = self.encoder(input_ids)                          # (B, L, D)，整段不截断
-        levels, _ = self.backbone(feats, return_features=True)   # 由粗到细（L/16 … L）
+        if return_aux and self.pos_probes is not None:
+            levels, _, downs = self.backbone(feats, return_features=True, return_down=True)
+        else:
+            levels, _ = self.backbone(feats, return_features=True)
+            downs = None
         sample_logits = self.sample_head(levels[0])              # 瓶颈池化 -> (B, 2)
         token_logits = self.token_heads(levels)                  # 每个尺度 (B, 1, L_k)
-        return sample_logits, token_logits
+        if not return_aux:
+            return sample_logits, token_logits
+        aux = {"downs": downs, "pos_logits": None, "spans": None}
+        if downs is not None:
+            aux["pos_logits"] = self.pos_probes(downs)
+            aux["spans"] = self.pos_probes.spans
+        return sample_logits, token_logits, aux
 
 
 def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
@@ -156,46 +198,183 @@ def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
     sample_head = SampleHead(backbone.dim, hidden=heads.get("sample_hidden"),
                              dropout=heads.get("sample_dropout", 0.0))
     token_heads = TokenHeads([backbone.dim] * (backbone.depth + 1), out=1)
-    return UDet(encoder, backbone, sample_head, token_heads), encoder
+    loss_cfg = cfg.get("loss", {})
+    pos_probes = None
+    if float(loss_cfg.get("cons_pos", 0.0) or 0.0) > 0:            # 只在启用位置探针时才建参数
+        spans = getattr(backbone, "down_strides", None)
+        if not spans:
+            raise SystemExit(f"model.name={name!r} 不支持 loss.cons_pos（无 down_strides）")
+        pos_probes = PositionProbes(backbone.dim, spans=spans,
+                                    hidden=int(loss_cfg.get("cons_pos_hidden", 256)),
+                                    dropout=float(heads.get("sample_dropout", 0.0)))
+        print(f"[model] 位置探针 spans={pos_probes.spans}（下采样路径逐 token 位置约束）")
+    return UDet(encoder, backbone, sample_head, token_heads, pos_probes), encoder
 
 
 # --------------------------------------------------------------------------- #
 # 损失
 # --------------------------------------------------------------------------- #
+def _aggregate_target(t: torch.Tensor, v: torch.Tensor, k: int, mode: str, beta: float):
+    """把 (B, L) 的硬标签按窗口 k 聚合成 (B, 1, L_k) 目标。
+
+    ``mean``：窗口内 AI **比例**（v0.3 原行为）；``max``：窗口内**是否有** AI；
+    ``lse``：软 max（β 越大越接近 max，β→0 退化为 mean）。
+    无效位由 ``v`` 掩掉，分母只数有效 token。
+    """
+    if mode == "mean" or k == 1:
+        num = F.avg_pool1d((t * v).unsqueeze(1), k, k)
+        den = F.avg_pool1d(v.unsqueeze(1), k, k)
+        return num / den.clamp(min=1e-6)
+    if mode == "max":
+        masked = (t + (1.0 - v) * -1e4).unsqueeze(1)
+        return F.max_pool1d(masked, k, k).clamp(0.0, 1.0)
+    if mode == "lse":
+        num = F.avg_pool1d((torch.exp(beta * t) * v).unsqueeze(1), k, k) * k      # Σ exp(β·y)
+        den = F.avg_pool1d(v.unsqueeze(1), k, k) * k                              # |valid|
+        return torch.log(num.clamp(min=1e-6) / den.clamp(min=1.0)) / beta
+    raise ValueError(f"未知 token_target 模式 {mode!r}，可选：mean / max / lse")
+
+
 def token_loss(logit_scales: list[torch.Tensor], tok_labels: torch.Tensor,
-               weights: list[float], ignore: int = IGNORE) -> torch.Tensor | None:
-    """各尺度 token 级 BCE：标签按尺度平均池化成软标签（不同文本长度精度）。"""
+               weights: list[float], ignore: int = IGNORE,
+               modes: list[str] | None = None, beta: float = 4.0) -> torch.Tensor | None:
+    """各尺度 token 级 BCE：标签按尺度池化成目标（默认平均池化软标签）。
+
+    Args:
+        modes: 逐尺度（由粗到细）的聚合方式，见 `_aggregate_target`；None = 全部 mean。
+        beta: ``lse`` 模式的锐化系数。
+    """
     valid = (tok_labels != ignore)
     if not valid.any():
         return None
     target = tok_labels.clamp(min=0).float()
     length = tok_labels.shape[-1]
+    modes = list(modes or ["mean"] * len(logit_scales))
+    if len(modes) != len(logit_scales):
+        raise ValueError(f"token_target 长度必须等于尺度数 {len(logit_scales)}（收到 {len(modes)}）")
     total, total_w = 0.0, 0.0
-    for logits, weight in zip(logit_scales, weights):
+    for logits, weight, mode in zip(logit_scales, weights, modes):
         want = logits.shape[-1]                                  # 该尺度真实长度（可能 ceil 过）
         k = max(1, math.ceil(length / want))
         pad = max(0, want * k - length)                          # 补齐到整数倍，池化后恰好 want 个 bin
         t = F.pad(target, (0, pad)) if pad else target
         v = F.pad(valid.float(), (0, pad)) if pad else valid.float()
-        num = F.avg_pool1d((t * v).unsqueeze(1), k, k)
         den = F.avg_pool1d(v.unsqueeze(1), k, k)
         keep = (den > 0).float()
         if keep.sum() == 0:
             continue
-        soft = num / den.clamp(min=1e-6)
+        soft = _aggregate_target(t, v, k, mode, beta)
         loss = F.binary_cross_entropy_with_logits(logits, soft, weight=keep, reduction="sum") / keep.sum()
         total = total + weight * loss
         total_w += weight
     return None if total_w == 0 else total / total_w
 
 
+def _pool_ratio(length: int, length_target: int) -> tuple[int, int]:
+    """从长度 ``length`` 平均池化到 ``length_target``：返回 (池化核 k, 末尾补齐量)。"""
+    k = max(1, math.ceil(length / length_target))
+    return k, max(0, length_target * k - length)
+
+
+def _mask_at(tok_labels: torch.Tensor, length_target: int, ignore: int = IGNORE) -> torch.Tensor:
+    """把"是否有效 token"掩码池化到 ``length_target``，返回 (B, 1, L_t) 的有效比例。"""
+    valid = (tok_labels != ignore).float().unsqueeze(1)
+    length = valid.shape[-1]
+    k, pad = _pool_ratio(length, length_target)
+    if pad:
+        valid = F.pad(valid, (0, pad))
+    return F.avg_pool1d(valid, k, k)[:, :, :length_target]
+
+
+def cons_pool_loss(logit_scales: list[torch.Tensor], tok_labels: torch.Tensor,
+                   weights: list[float] | None = None, detach: bool = True,
+                   ignore: int = IGNORE) -> torch.Tensor | None:
+    """v0.4 · A：层级一致性（池化可交换 / 自蒸馏）。
+
+    要求**更粗一级**的预测等于**更细一级**预测的窗口池化值：
+
+        BCE(logits_k,  pool(σ(logits_{k+1})).detach())
+
+    与现有 token 级损失的区别在**目标**：现在粗尺度的目标是把标签池化成比例（一个 64 长的窗口
+    只有 1 个 AI token 时目标 0.016，糊且带标注噪声），这里的目标是**模型自己更细一级的预测**池化而来
+    ——更细一级能看到全分辨率特征（下采样前），它的池化是一个更锐、方差更小的估计。
+    信号从"细/skip 侧"流向"粗/下采样侧"，这正是"跳跃连接引导下采样"。
+
+    Args:
+        weights: 相邻尺度对的权重（长度 = 尺度数 - 1）。
+        detach: True = 自蒸馏（目标不回传，防止两侧一起塌到常数）。
+    """
+    if len(logit_scales) < 2:
+        return None
+    total, total_w = 0.0, 0.0
+    for k in range(len(logit_scales) - 1):
+        coarse, fine = logit_scales[k], logit_scales[k + 1]
+        length_c, length_f = coarse.shape[-1], fine.shape[-1]
+        mask = _mask_at(tok_labels, length_f, ignore)                     # (B, 1, L_f)
+        keep_f = (mask > 0).float()
+        p = torch.sigmoid(fine.detach() if detach else fine)
+        p = (p * keep_f)
+        r, pad = _pool_ratio(length_f, length_c)                          # L_f -> L_c
+        if pad:
+            p, keep_f = F.pad(p, (0, pad)), F.pad(keep_f, (0, pad))
+        num = F.avg_pool1d(p, r, r)
+        den = F.avg_pool1d(keep_f, r, r)
+        keep = (den > 0).float()
+        if keep.sum() == 0:
+            continue
+        pooled = (num / den.clamp(min=1e-6))[:, :, :length_c]
+        keep = keep[:, :, :length_c]
+        if pooled.shape[-1] < length_c:                                   # r 取整造成的尾部长度差
+            pad_c = length_c - pooled.shape[-1]
+            pooled, keep = F.pad(pooled, (0, pad_c)), F.pad(keep, (0, pad_c))
+        loss = F.binary_cross_entropy_with_logits(coarse, pooled, weight=keep,
+                                                  reduction="sum") / keep.sum().clamp(min=1)
+        w = 1.0 if not weights else float(weights[k])
+        total = total + w * loss
+        total_w += w
+    return None if total_w == 0 else total / total_w
+
+
+def position_loss(probe_logits: list[torch.Tensor], spans, tok_labels: torch.Tensor,
+                  weights: list[float] | None = None, ignore: int = IGNORE) -> torch.Tensor | None:
+    """v0.4 · B2：跳跃连接引导下采样（下采样路径的窗口内逐 token 位置探针）。
+
+    ``probe_logits[i]`` 形状 ``(B, L_k, span)``，第 j 个位置的第 t 个偏移对应原始 token
+    ``j * span + t``；直接对该 token 的硬标签算 BCE。于是下采样**自己**必须保住窗口内的位置/边界，
+    而不是只交出"窗口内 AI 比例"这一个数。
+
+    注意这条约束挂在**下采样路径**上（不是上采样/skip 那一侧），skip 无法替它兜底。
+    """
+    if not probe_logits:
+        return None
+    total, total_w = 0.0, 0.0
+    for i, (logits, span) in enumerate(zip(probe_logits, spans)):
+        target, keep = position_targets(tok_labels, int(span), ignore)     # (B, L_k, span)
+        length_k = min(logits.shape[1], target.shape[1])
+        logits, target, keep = logits[:, :length_k], target[:, :length_k], keep[:, :length_k]
+        if keep.sum() == 0:
+            continue
+        loss = F.binary_cross_entropy_with_logits(logits.float(), target, weight=keep,
+                                                  reduction="sum") / keep.sum()
+        w = 1.0 if not weights else float(weights[i])
+        total = total + w * loss
+        total_w += w
+    return None if total_w == 0 else total / total_w
+
+
 def batch_losses(cfg: dict, sample_logits: torch.Tensor, token_logits: list[torch.Tensor] | None,
-                 batch: dict, device: str, use_sample: bool = True) -> tuple[torch.Tensor, dict]:
-    """一个样本的总损失与分项（样本级 + token 级；基线模型无 token 头时只算样本级）。
+                 batch: dict, device: str, use_sample: bool = True,
+                 aux: dict | None = None) -> tuple[torch.Tensor, dict]:
+    """一个样本的总损失与分项（样本级 + token 级 + v0.4 辅助项；基线模型无 token 头时只算样本级）。
 
     Args:
         use_sample: 是否计入样本级 CE。hybrid 流的样本标签恒为 1（只保留含 AI 行的文件），
             若计入会把样本头拉向“永远输出正类”的退化解，故只对 m4（human/AI 均衡）生效。
+        aux: ``UDet.forward(..., return_aux=True)`` 的第三返回值（下采样位置 probe 的 logits）。
+
+    损失组成（v0.4）::
+
+        L = sample·CE + token·BCE(多尺度) + cons_pool·A + cons_pos·B2
     """
     loss_cfg = cfg.get("loss", {})
     labels = batch["labels"].to(device)
@@ -203,16 +382,35 @@ def batch_losses(cfg: dict, sample_logits: torch.Tensor, token_logits: list[torc
     weight = None if not class_weights else torch.tensor(class_weights, device=device, dtype=torch.float32)
     l_sample = F.cross_entropy(sample_logits.float(), labels, weight=weight)
 
+    tok_labels = None
     l_token = None
     if token_logits is not None and loss_cfg.get("token", 1.0) > 0:
         tok_labels = batch["tok_labels"].to(device)
         l_token = token_loss(token_logits, tok_labels,
-                             loss_cfg.get("scale_weights", [1.0] * len(token_logits)))
-    parts = {"sample": float(l_sample.detach()), "token": 0.0}
+                             loss_cfg.get("scale_weights", [1.0] * len(token_logits)),
+                             modes=loss_cfg.get("token_target"),
+                             beta=float(loss_cfg.get("token_target_beta", 4.0)))
+    parts = {"sample": float(l_sample.detach()), "token": 0.0, "cons_pool": 0.0, "cons_pos": 0.0}
     total = loss_cfg.get("sample", 1.0) * l_sample if use_sample else torch.zeros((), device=device)
     if l_token is not None:
         total = total + loss_cfg.get("token", 1.0) * l_token
         parts["token"] = float(l_token.detach())
+
+    # ---------------- v0.4 辅助损失 ---------------- #
+    if tok_labels is not None and token_logits is not None and loss_cfg.get("cons_pool", 0.0) > 0:
+        l_cons = cons_pool_loss(token_logits, tok_labels,
+                                weights=loss_cfg.get("cons_pool_weights"),
+                                detach=bool(loss_cfg.get("cons_pool_detach", True)))
+        if l_cons is not None:
+            total = total + float(loss_cfg["cons_pool"]) * l_cons
+            parts["cons_pool"] = float(l_cons.detach())
+    if (loss_cfg.get("cons_pos", 0.0) > 0 and tok_labels is not None
+            and aux and aux.get("pos_logits")):
+        l_pos = position_loss(aux["pos_logits"], aux["spans"], tok_labels,
+                              weights=loss_cfg.get("cons_pos_weights"))
+        if l_pos is not None:
+            total = total + float(loss_cfg["cons_pos"]) * l_pos
+            parts["cons_pos"] = float(l_pos.detach())
     return total, parts
 
 
@@ -279,7 +477,8 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str) -> di
         item = dataset[i]                                          # 已含报告前缀 / token 标签
         ids = torch.tensor([item["input_ids"]], dtype=torch.long, device=device)
         with torch.autocast("cuda", dtype=torch.bfloat16, enabled=amp):
-            logits_sample, token_logits = model(ids, torch.ones_like(ids))
+            out = model(ids, torch.ones_like(ids))
+        logits_sample, token_logits = out[0], out[1]
         has_token = token_logits is not None
         sample_logits[i] += logits_sample[0].float().cpu()
         if not has_token or not is_hybrid:
@@ -357,6 +556,18 @@ def train(cfg: dict, args) -> None:
     report = build_report(cfg["report"]["name"], tokenizer=tokenizer,
                           max_tokens=cfg["report"].get("max_tokens", 64))
     model, encoder = build_model(cfg, tokenizer)
+
+    # ---- 续跑（补 epoch 用）：只载模型权重，优化器 / LR 计划重新起 ----
+    resume_epoch, resume_score = -1, -1.0
+    if args.resume:
+        ckpt = torch.load(resolve(args.resume), map_location="cpu", weights_only=False)
+        missing, unexpected = model.load_state_dict(ckpt.get("state", {}), strict=False)
+        if missing or unexpected:
+            print(f"[resume] 注意：未匹配 {len(missing)} 项（如 {missing[:3]}）、多余 {len(unexpected)} 项")
+        resume_epoch = int(ckpt.get("epoch", -1))
+        resume_score = float(ckpt.get("score", -1.0))
+        print(f"[resume] 载入 {args.resume}（已训到 epoch {resume_epoch}，monitor={resume_score:.4f}）"
+              f"，本次追加 {cfg['train']['epochs']} 个 epoch")
     model.to(device)
 
     streams = cfg["train"]["streams"]
@@ -401,37 +612,53 @@ def train(cfg: dict, args) -> None:
     run_dir.mkdir(parents=True, exist_ok=True)
     with open(run_dir / "config.yaml", "w", encoding="utf-8") as f:
         yaml.safe_dump(cfg, f, allow_unicode=True, sort_keys=False)
-    log_file = open(run_dir / "metrics.csv", "w", newline="", encoding="utf-8")
+    append_log = bool(args.resume) and (run_dir / "metrics.csv").exists()   # 续跑：保留原 csv 追加
+    log_file = open(run_dir / "metrics.csv", "a" if append_log else "w", newline="", encoding="utf-8")
     logger = csv.writer(log_file)
-    logger.writerow(["epoch", "step", "loss", "loss_sample", "loss_token", "lr", "sec"])
+    if not append_log:
+        logger.writerow(["epoch", "step", "loss", "loss_sample", "loss_token",
+                         "loss_cons_pool", "loss_cons_pos", "lr", "sec"])
 
     amp = cfg["train"].get("amp", True) and device == "cuda"
     monitor = cfg["train"].get("monitor", "mean")
+    # 只有启用位置探针（B2）时才额外走 return_down 分支，其余情况与 v0.3 完全相同
+    want_aux = float(cfg.get("loss", {}).get("cons_pos", 0.0) or 0.0) > 0 and getattr(model, "accepts_aux", False)
+    if want_aux:
+        print("[loss] 启用下采样位置探针（B2）；以及："
+              f"cons_pool={cfg['loss'].get('cons_pool', 0.0)} cons_pos={cfg['loss'].get('cons_pos', 0.0)} "
+              f"token_target={cfg['loss'].get('token_target')}")
     tokens_seen = 0
-    best = -1.0
+    best = resume_score                                       # 续跑时不把已存的好权重覆盖掉
+    epochs = int(cfg["train"]["epochs"])
+    start_epoch = resume_epoch + 1
     print(f"[train] streams={streams} steps/epoch={steps_per_epoch} accum={accum} "
-          f"updates/epoch={updates_per_epoch} epochs={cfg['train']['epochs']} amp={amp}")
+          f"updates/epoch={updates_per_epoch} epochs={epochs}"
+          f"（epoch {start_epoch}…{start_epoch + epochs - 1}）amp={amp}")
 
-    for epoch in range(cfg["train"]["epochs"]):
+    for offset in range(epochs):
+        epoch = start_epoch + offset
         model.train()
         if frozen:
             model.encoder.eval()                           # 冻结编码器保持 eval（关掉其 dropout）
         iters = {name: cycle(loader) for name, loader in loaders.items()}
-        running = {"loss": 0.0, "sample": 0.0, "token": 0.0}
+        running = {"loss": 0.0, "sample": 0.0, **{k: 0.0 for k in LOSS_KEYS}}
         start_time = time.time()
         opt.zero_grad(set_to_none=True)
         bar = tqdm(range(steps_per_epoch), desc=f"epoch {epoch}", unit="it")
         for step in bar:
-            step_parts = {"sample": 0.0, "token": 0.0}
+            step_parts = {"sample": 0.0, **{k: 0.0 for k in LOSS_KEYS}}
             for name in streams:                           # 两流各取一个样本，同时参与
                 batch = next(iters[name])
                 batch = {k: (v.to(device) if torch.is_tensor(v) else v) for k, v in batch.items()}
+                extra = {"return_aux": True} if want_aux else {}
                 with torch.autocast("cuda", dtype=torch.bfloat16, enabled=amp):
-                    sample_logits, token_logits = model(batch["input_ids"], batch.get("attention_mask"))
-                    loss, parts = batch_losses(cfg, sample_logits, token_logits, batch, device,
-                                               use_sample=name in sample_streams)
+                    out = model(batch["input_ids"], batch.get("attention_mask"), **extra)
+                    loss, parts = batch_losses(cfg, out[0], out[1], batch, device,
+                                               use_sample=name in sample_streams,
+                                               aux=out[2] if len(out) > 2 else None)
                 (loss / (accum * len(streams))).backward()          # 归一到全部流的样本均值
-                step_parts["token"] += parts["token"]
+                for key in LOSS_KEYS:
+                    step_parts[key] += parts[key]
                 if name in sample_streams:                         # 只记录真正回传的样本级损失
                     step_parts["sample"] += parts["sample"]
                 tokens_seen += int(batch["input_ids"].numel())
@@ -444,18 +671,21 @@ def train(cfg: dict, args) -> None:
 
             for key, value in step_parts.items():
                 running[key] += value
-            running["loss"] += step_parts["sample"] + step_parts["token"]
+            running["loss"] += step_parts["sample"] + sum(step_parts[k] for k in LOSS_KEYS)
             if (step + 1) % cfg["train"].get("log_every", 20) == 0 or step == steps_per_epoch - 1:
                 elapsed = time.time() - start_time
                 done = step + 1
                 bar.set_postfix(loss=f"{running['loss'] / done:.3f}",
                                 sample=f"{running['sample'] / done:.3f}",
                                 token=f"{running['token'] / done:.3f}",
+                                cons=f"{running['cons_pool'] / done:.3f}/{running['cons_pos'] / done:.3f}",
                                 lr=f"{scheduler.get_last_lr()[0]:.2e}",
                                 tok_s=f"{tokens_seen / max(elapsed, 1e-6):.0f}")
                 logger.writerow([epoch, done, f"{running['loss'] / done:.6f}",
                                  f"{running['sample'] / done:.6f}",
                                  f"{running['token'] / done:.6f}",
+                                 f"{running['cons_pool'] / done:.6f}",
+                                 f"{running['cons_pos'] / done:.6f}",
                                  f"{scheduler.get_last_lr()[0]:.3e}", f"{elapsed:.1f}"])
                 log_file.flush()
         bar.close()
@@ -472,14 +702,16 @@ def train(cfg: dict, args) -> None:
         train_avg = {k: v / max(steps_per_epoch, 1) for k, v in running.items()}
         with open(run_dir / "metrics.jsonl", "a", encoding="utf-8") as f:
             f.write(json.dumps({"epoch": epoch, "train": train_avg, "val": results}) + "\n")
+        # 只存可训练的编码器参数（冻结底座/LUT buffer 不入库，checkpoint 保持小体积）
+        trainable = {name for name, p in model.named_parameters() if p.requires_grad}
+        state = {k: v for k, v in model.state_dict().items()
+                 if not k.startswith("encoder.") or k in trainable}
+        # 每轮都存 last.pt（便于反复续跑）；best.pt 直接复制，不再重复序列化 475MB
+        torch.save({"cfg": cfg, "epoch": epoch, "score": score, "metrics": results, "state": state},
+                   run_dir / "last.pt")
         if score > best:
             best = score
-            # 只存可训练的编码器参数（冻结底座/LUT buffer 不入库，checkpoint 保持小体积）
-            trainable = {name for name, p in model.named_parameters() if p.requires_grad}
-            state = {k: v for k, v in model.state_dict().items()
-                     if not k.startswith("encoder.") or k in trainable}
-            torch.save({"cfg": cfg, "epoch": epoch, "score": score, "metrics": results, "state": state},
-                       run_dir / "best.pt")
+            shutil.copyfile(run_dir / "last.pt", run_dir / "best.pt")
             print(f"[ckpt] 保存 best.pt（{monitor}={score:.4f}）")
 
     log_file.close()
@@ -536,7 +768,7 @@ def run_eval(cfg: dict, args) -> None:
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="U-Det 训练/评测（v0.2 频域 U-Net）")
+    parser = argparse.ArgumentParser(description="U-Det 训练/评测（窗口注意力 U-Net + 双任务）")
     parser.add_argument("--config", default="configs/udet_base.yaml")
     parser.add_argument("--tag", default="udet-base")
     parser.add_argument("--epochs", type=int, default=None)
@@ -546,9 +778,17 @@ def main() -> int:
     parser.add_argument("--no-m4", action="store_true")
     parser.add_argument("--no-hybrid", action="store_true")
     parser.add_argument("--report", default=None, help="覆盖 report.name（none/handcrafted）")
-    parser.add_argument("--model", default=None, help="覆盖 model.name（hier / codet5cls 基线）")
+    parser.add_argument("--model", default=None, help="覆盖 model.name（codec / hier / codet5cls）")
+    parser.add_argument("--encoder", default=None, help="覆盖 encoder.name（codet5lora / codet5tok / codet5）")
+    parser.add_argument("--layer", type=int, default=None, help="覆盖 encoder.layer（-1 最后一层 / 0 词嵌入层）")
     parser.add_argument("--freeze-encoder", action="store_true", help="冻结编码器")
     parser.add_argument("--unfreeze-encoder", action="store_true", help="解冻编码器（微调）")
+    parser.add_argument("--no-cons", action="store_true", help="v0.4：关掉 cons_pool + cons_pos")
+    parser.add_argument("--token-target", default=None,
+                        help="v0.4：覆盖 loss.token_target（mean / max / lse，全尺度统一）")
+    parser.add_argument("--no-gate", action="store_true", help="v0.4：关掉跳跃融合门控")
+    parser.add_argument("--resume", default=None,
+                        help="从该 checkpoint 续跑（只载模型权重；--epochs 变成“本次追加几个 epoch”）")
     parser.add_argument("--eval", action="store_true")
     parser.add_argument("--ckpt", default=None)
     parser.add_argument("--cpu", action="store_true")

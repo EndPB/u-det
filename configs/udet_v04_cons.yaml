@@ -1,0 +1,92 @@
+# U-Det v0.4.1 配置：在 v0.4.0（跳跃融合门控）基础上加**两项损失改造**。
+# 与 configs/udet_v04.yaml 的唯一区别就在 loss 段（其它全部相同），所以 v0.4.0 → v0.4.1
+# 的差值就是这两项损失的净效应。
+#
+#   A  cons_pool：层级一致性（池化可交换 / 自蒸馏）
+#        BCE(logits_k, pool(σ(logits_{k+1})).detach())
+#        粗尺度的目标从"标签按窗口平均池化"（一个 64 长窗口只有 1 个 AI token 时目标 0.016）
+#        换成"模型自己更细一级预测的池化"——更锐、方差更小。
+#
+#   B2 cons_pos：跳跃连接引导下采样（下采样路径的窗口内逐 token 位置探针）
+#        logit[b,j,t] = <proj(down_k[b,j]), W[t]> / sqrt(h)
+#        要求下采样路径**自己**能解出窗口内第 t 个 token 的硬标签。
+#        现有 token 级损失只要求它交出"窗口内 AI 比例"这一个数，位置/边界完全没被约束；
+#        这条约束挂在**下采样**侧，skip 无法替它兜底。
+#
+#   B3 token_target：粗尺度聚合目标由 mean 改成 lse（软 max，β=4）
+#        "窗口内 AI 比例" -> "窗口内是否有 AI"。行级/片段级评测是阈值 0.5 的检测，
+#        一段里只要有几个 AI token 就算正，mean 会把这个信号稀释掉。
+#        只在粗的三级上用（最细两级窗口太小，lse 会过度锐化）。
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+
+encoder:
+  name: codet5lora
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]
+  chunk: 2048
+  ckpt: true
+  compile: true
+  freeze: false
+  max_length: 512
+
+model:
+  name: codec
+  dim: 768
+  depth: 4
+  mid: 4
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  divs: [4, 4, 2, 2]
+  wins: [16, 16, 16, 32]
+  share: false
+  gate: true                                    # v0.4.0 的结构改造
+  gate_init: -1.0
+
+heads:
+  sample_hidden: 256
+  sample_dropout: 0.0
+
+report:
+  name: handcrafted
+  max_tokens: 64
+
+loss:
+  sample: 1.0
+  token: 1.0
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]
+  class_weights: null
+  token_target: [lse, lse, lse, mean, mean]     # ★ B3：粗三级换成软 max（由粗到细）
+  token_target_beta: 4.0                        # lse 锐化系数
+  cons_pool: 0.3                                # ★ A：层级一致性
+  cons_pool_weights: [1, 1, 1, 1]
+  cons_pool_detach: true                        # 自蒸馏（目标不回传）
+  cons_pos: 0.2                                 # ★ B2：下采样位置探针
+  cons_pos_weights: [1, 1, 1, 1]
+  cons_pos_hidden: 256
+
+train:
+  streams: [m4, hybrid]
+  sample_streams: [m4]
+  epochs: 2
+  grad_accum: 8
+  lr: 0.0003
+  lr_encoder: 0.00005
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 200
+  monitor: mean
+  seed: 0
+  out_dir: runs

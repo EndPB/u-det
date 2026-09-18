@@ -1,0 +1,80 @@
+# U-Det v0.4.0 配置：跳跃融合门控（每个上采样级独立一套），**不加 refine 块、不改扩张算子**。
+# 与 v0.3（configs/udet_v03.yaml）的唯一区别：
+#   `_up` 末尾多加一道门控  out = g ⊙ u + (1-g) ⊙ skip,  g = σ(Linear([u, skip]))
+#   权重零初始化 + 偏置 -1.0 ⇒ 起点 g≈0.27（偏向 skip，注意力只当修正）。
+# 损失段与 v0.3 完全一致（v0.4.1 才动损失）——所以这一版是**干净的结构消融**。
+#
+# 对照：v0.3.1（同结构但无门控，LoRA）/ v0.3.2（同结构但无门控，冻结编码器）
+
+data:
+  processed_dir: data/processed                 # scripts/build_subset.py 产出（不截断）
+  m4_file: m4.parquet                           # 样本级：human/AI 各 1w，长度×语言均衡
+  hybrid_file: hybrid.parquet                   # token 级：行级标注（全量）
+
+encoder:
+  name: codet5lora                              # 逐 token 独立编码（长度=1）+ peft LoRA
+  path: checkpoints/codet5-base
+  dtype: float32                                # 底座加载精度（前向走 bf16 autocast）
+  layer: -1                                     # 取第几层隐状态（-1 最后一层）
+  r: 16                                         # LoRA 秩
+  alpha: 32                                     # LoRA 缩放（scale = alpha / r）
+  dropout: 0.0                                  # 0 = 起点与冻结 LUT 逐位一致
+  targets: [v, o, wi, wo]                       # seq_len=1 时 q/k 梯度恒 0，只能挂 v/o 与 wi/wo
+  chunk: 2048                                   # 每块 token 数（内部补齐到该长度以固定形状）
+  ckpt: true                                    # 每块梯度检查点（长序列必须开）
+  compile: true                                 # torch.compile 固定形状的逐 token 前向
+  freeze: false                                 # false = LoRA 参数参与训练
+  max_length: 512                               # 仅 encoder.name=codet5（整段上下文）时生效
+
+model:
+  name: codec                                   # models/hier2.py
+  dim: 768                                      # 隐藏维度恒定（各级不变）
+  depth: 4                                      # 上下采样级数
+  mid: 4                                        # 瓶颈（最粗分辨率）自注意力层数
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  divs: [4, 4, 2, 2]                            # 各级下采样除数（累计 64x）
+  wins: [16, 16, 16, 32]                        # 各级窗口大小
+  share: false                                  # 层间不共享、上下不共享（下 4 + 上 4 = 8 套，主干 85.04M）
+  gate: true                                    # ★ v0.4.0：跳跃融合门控（每级独立，4 套，+4.72M）
+  gate_init: -1.0                               # 门控偏置初值 ⇒ 起点 g≈0.27，偏向 skip
+
+heads:
+  sample_hidden: 256                            # 样本级头 MLP 隐层
+  sample_dropout: 0.0
+
+report:
+  name: handcrafted                             # handcrafted / none（消融）
+  max_tokens: 64                                # 报告 token 上限
+
+loss:
+  sample: 1.0                                   # 样本级 CE 权重
+  token: 1.0                                    # token 级 BCE 总权重（0 = 只用样本级）
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]      # 5 个尺度（L/64 … L）由粗到细
+  class_weights: null                           # 样本级类别权重，如 [1.0, 1.0]
+  token_target: [mean, mean, mean, mean, mean]  # 各尺度聚合目标：mean（比例）/ max / lse（软 max）
+  token_target_beta: 4.0                        # lse 的锐化系数（越大越接近 max）
+  cons_pool: 0.0                                # ★ v0.4.1 才启用：A 层级一致性（池化自蒸馏）
+  cons_pool_weights: [1, 1, 1, 1]               # 4 对相邻尺度（L/64←L/32 … L/4←L）
+  cons_pool_detach: true                        # 目标不回传（自蒸馏）
+  cons_pos: 0.0                                 # ★ v0.4.1 才启用：B2 下采样位置探针
+  cons_pos_weights: [1, 1, 1, 1]                # 下采样 4 级（跨度 4 / 16 / 32 / 64）
+  cons_pos_hidden: 256                          # 位置探针的分解维度
+
+train:
+  streams: [m4, hybrid]                         # 双流并行（每个 step 两流各取一个样本）
+  sample_streams: [m4]                          # hybrid 样本标签恒为 1，计入会让样本头退化
+  epochs: 2                                     # 与 v0.3.1 / v0.3.2 同预算（2 epoch）
+  grad_accum: 8                                 # batch=1，每 8 个样本更新一次参数
+  lr: 0.0003                                    # 主干学习率
+  lr_encoder: 0.00005                           # LoRA 参数学习率（3e-4 会一 epoch 改写编码器特征）
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true                                     # bf16 自动混合精度
+  num_workers: 4
+  log_every: 200
+  monitor: mean                                 # mean / m4_f1 / line_f1（选 best.pt 用）
+  seed: 0
+  out_dir: runs

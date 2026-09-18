@@ -137,25 +137,44 @@ class TransformerCodec(nn.Module):
         dropout: dropout 概率。
         divs: 各级下采样除数（默认 ``(4, 4, 2, 2)``，累计 64x）。
         wins: 各级窗口大小（默认 ``(16, 16, 16, 32)``）。
-        share: True（默认）= 同一栈内四级共享一个 Block（像卷积核在层上跑）；
-               False = 每级独立 Block（上下各 4 个，共 8 个）。
+        share: True = 同一栈内四级共享一个 Block（像卷积核在层上跑）；
+               False（默认）= 每级独立 Block（上下各 4 个，共 8 个）。
+        gate: v0.4 跳跃融合门控。True = `_up` 末尾再过一个每级独立的门
+              ``out = g ⊙ u + (1-g) ⊙ skip``，``g = σ(Linear([u, skip]))``；
+              位置对齐的融合交给逐元素门控，跨注意力只负责"扩张算子"本身。
+        gate_init: 门控偏置初值（权重零初始化）。默认 -1.0 ⇒ 起点 g≈0.27，偏向 skip。
+
+    位置/跨度（供位置探针使用）::
+
+        down_strides  = (4, 16, 32, 64)      # downs[k] 每个位置代表多少个原始 token
+        level_strides = (64, 32, 16, 4, 1)   # levels  每个位置代表多少个原始 token（由粗到细）
     """
 
     def __init__(self, dim: int = 768, depth: int = 4, mid: int = 4, heads: int = 12,
                  mlp_ratio: float = 4.0, dropout: float = 0.0,
                  divs: Sequence[int] = (4, 4, 2, 2), wins: Sequence[int] = (16, 16, 16, 32),
-                 share: bool = True, **ignored):
+                 share: bool = False, gate: bool = False, gate_init: float = -1.0, **ignored):
         super().__init__()
         divs, wins = tuple(int(d) for d in divs), tuple(int(w) for w in wins)
         if not (len(divs) == len(wins) == depth):
             raise ValueError(f"divs/wins 长度必须等于 depth={depth}（收到 {divs} / {wins}）")
         self.dim, self.depth, self.mid_layers = dim, depth, mid
         self.divs, self.wins, self.share = divs, wins, bool(share)
+        # "一个输出位置代表多少个原始 token"：ceil 的复合是精确的，故等于各级除数连乘
+        self.down_strides = tuple(int(math.prod(divs[: i + 1])) for i in range(depth))
+        self.level_strides = tuple(int(math.prod(divs[: depth - i])) for i in range(depth)) + (1,)
         n = 1 if self.share else depth
         self.down_blocks = nn.ModuleList([WindowBlock(dim, heads, mlp_ratio, dropout) for _ in range(n)])
         self.up_blocks = nn.ModuleList([WindowBlock(dim, heads, mlp_ratio, dropout) for _ in range(n)])
         self.mid_blocks = nn.ModuleList([SelfBlock(dim, heads, mlp_ratio, dropout) for _ in range(mid)])
         self.pe = SinusoidalPE(dim)
+        self.gate_init = float(gate_init)
+        self.gate = None
+        if gate:
+            self.gate = nn.ModuleList([nn.Linear(2 * dim, dim) for _ in range(depth)])
+            for lin in self.gate:
+                nn.init.zeros_(lin.weight)                    # 起点 g 与内容无关 = σ(gate_init)
+                nn.init.constant_(lin.bias, self.gate_init)
 
     # ------------------------------------------------------------------ #
     def _down(self, x: torch.Tensor, level: int) -> Tuple[torch.Tensor, int]:
@@ -167,30 +186,47 @@ class TransformerCodec(nn.Module):
         return block(seq, dst, idx), length_out
 
     def _up(self, x: torch.Tensor, skip: torch.Tensor, level: int) -> torch.Tensor:
-        """一级上采样：最近邻重复当捷径与 query，kv = **下采样前存下的细层（skip）**。"""
+        """一级上采样：最近邻重复当捷径与 query，kv = **下采样前存下的细层（skip）**。
+
+        v0.4 起末尾多一道**门控融合**（``gate=True`` 时）：跨注意力的 kv 是 skip，
+        它同时承担"扩张"和"跳跃融合"两件事；门控把后者单独拿出来，
+        让 skip 以"逐通道加权残差"的形式参与，而不是必须穿过 softmax 对齐映射。
+        """
         stride, window = self.divs[level], self.wins[level]
         seq, _, idx = window_pad(skip, 1, window)                # kv 侧：细层，步长 1
         dst = x.repeat_interleave(stride, dim=1)[:, : skip.size(1)]
         block = self.up_blocks[0 if self.share else level]
-        return block(seq, dst, idx)
+        out = block(seq, dst, idx)                               # 扩张算子（跨注意力）
+        if self.gate is None:
+            return out
+        g = torch.sigmoid(self.gate[level](torch.cat([out, skip], dim=-1)))
+        return g * out + (1.0 - g) * skip
 
     # ------------------------------------------------------------------ #
-    def forward(self, x: torch.Tensor, return_features: bool = True):
-        """x: (B, L, D)（整段序列，长度任意）；返回 levels 由粗到细。"""
+    def forward(self, x: torch.Tensor, return_features: bool = True, return_down: bool = False):
+        """x: (B, L, D)（整段序列，长度任意）；返回 levels 由粗到细。
+
+        return_down=True 时额外返回**下采样路径**的各级输出（供位置探针使用），
+        第 k 个元素的下标对应 ``down_strides[k]`` 前多少个原始 token。
+        """
         lengths = [x.size(1)]
         skips: List[torch.Tensor] = []
-        for level in range(self.depth):                          # ===== 下采样（共享 Block）=====
+        downs: List[torch.Tensor] = []
+        for level in range(self.depth):                          # ===== 下采样 =====
             skips.append(x)                                      # tap：下采样前的细层特征
             x, length_out = self._down(x, level)
             lengths.append(length_out)
             x = self.pe(x)                                       # 每级入口重加正弦 PE
+            downs.append(x)
         for block in self.mid_blocks:                            # ===== 瓶颈 =====
             x = block(x)
         levels = [x]
-        for level in reversed(range(self.depth)):                # ===== 上采样（共享 Block）=====
-            x = self._up(x, skips[level], level)                 # 跨注意力即跳连
+        for level in reversed(range(self.depth)):                # ===== 上采样 =====
+            x = self._up(x, skips[level], level)                 # 跨注意力（+ v0.4 门控）即跳连
             x = self.pe(x)
             levels.append(x)
+        if return_down:
+            return levels, x, downs
         return (levels, x) if return_features else levels
 
 
