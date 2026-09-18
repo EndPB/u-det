@@ -1,44 +1,64 @@
 # U-Det
 
-AI 代码检测（二分类）实验：**逐 token 冻结编码 + 1D U-Net 双任务**。
+AI 代码检测实验：**逐 token 无上下文编码 + 序列级编解码主干 + 样本级/token 级双任务**。
 
-- 每 token 独立过冻结 CodeT5（长度=1，无上下文）→ 预计算成 `vocab×768` 查表（LUT），
-  训练零编码开销、输入长度无上限（绕开 `n_positions=512` 与 attention $O(L^2)$）；
-- 1D U-Net 下采样/上采样替代长上下文滑动窗口，瓶颈插 Transformer 做双向语义交互；
-- 瓶颈出**样本级**分类；各上采样层出 **token 级**分类（多尺度深监督：标签按尺度池化，
-  对应不同文本长度精度，用跳跃连接引导上下采样）；
+- 每 token 独立过 CodeT5（长度=1，无跨 token attention）→ 特征对长度无假设，**整段代码不截断**；
+- 主干把"下采样/上采样"做成**可学算子**，用多级压缩替代长上下文滑动窗口；
+- **样本级**分类接在主干最底部（瓶颈）；各上采样层出 **token 级**分类（多尺度深监督）；
 - 代码前注入**短报告**（结构偏置 / 词汇可预测性 / 句法方差）；
-- 数据：CoDET-M4 均衡子集（human 类 + 样本级）+ HybridCodeAuthorship（行级标注 -> token 级引导），
-  两流**并行、每个 optimizer step 同时参与**（同一模型、同一次反向与更新）。
+- 数据：CoDET-M4（样本级）+ HybridCodeAuthorship（行级标注 → token 级），两流**并行**、
+  每个 optimizer step 同时参与。
+
+当前默认版本为 **v0.3**（`configs/udet_v03.yaml`）。
+
+## 版本演进与结果（test 集，同一份数据/切分）
+
+| 版本 | 主干 | 编码器 | m4 sample F1 | hybrid line F1 | chunk F1 | token F1 |
+| --- | --- | --- | --- | --- | --- | --- |
+| 基线 | — | CodeT5 整段上下文（**微调**） | **0.9756** | — | — | — |
+| 基线 | — | CodeT5 整段上下文（冻结） | 0.7651 | — | — | — |
+| v0.1 | 卷积 U-Net（窗口训练 + 滑窗评测） | 查表 LUT（冻结） | 0.8665 | 0.4740 | 0.1269 | 0.5465 |
+| v0.1 | 同上 | 查表 LUT（可训练） | 0.8744 | 0.5416 | 0.1499 | 0.6208 |
+| v0.2 | 频域 U-Net（FFT 上下采样） | 查表 LUT（可训练） | 0.7686 | 0.6341 | 0.3094 | 0.6666 |
+| v0.2 | 同上 | CodeT5 + **peft LoRA** | 0.7705 | 0.6535 | **0.3698** | 0.6801 |
+| **v0.3** | **窗口注意力编解码器** | CodeT5 + peft LoRA | **0.8863** | 0.6462 | 0.3056 | **0.6864** |
+
+- 主干参数量：v0.1 约 9M（LUT 冻结）/ v0.2 **122.35M** / **v0.3 42.52M**（栈内 4 级共享权重）。
+- 逐版本设计说明与逐组件参数量见 `docx/u-det-v0.1.md`、`docx/u-det-v0.2.md`、`docx/u-det-v0.3.md`；
+  总设计见 `docx/u-det.md`。
 
 ## 目录结构
 
 ```
 u-det/
-├── train.py                     # 主干：训练 / 验证 / 评测（双流并行 + 多尺度损失）
-├── configs/udet_base.yaml       # U-Det 配置：data / encoder / model / heads / report / loss / train
-├── configs/baseline_codet5.yaml # 基线配置：CodeT5（微调）+ 池化 + 线性头（纯样本级）
+├── train.py                     # 主干：训练 / 验证 / 评测（双流并行 + 多尺度损失 + 梯度累积）
+├── configs/
+│   ├── udet_v03.yaml            # ★ 当前默认：窗口注意力编解码器（v0.3）
+│   ├── udet_lora.yaml           # v0.2 频域 U-Net + CodeT5 LoRA
+│   └── udet_base.yaml           # v0.2 频域 U-Net + 可训练 LUT
 ├── encoders/                    # 编码器（按名称切换，单文件实现）
 │   ├── __init__.py              #   build_encoder() 注册表
-│   └── codet5.py                #   codet5tok（逐 token 查表，默认）/ codet5（整段上下文）
+│   └── codet5.py                #   codet5tok（逐 token 查表）/ codet5lora（逐 token + LoRA）
+│                                #   / codet5（整段上下文，受 512 限制）
 ├── models/                      # 网络（单文件实现）
-│   ├── __init__.py              #   build_unet / build_mid / SampleHead / TokenHeads / PooledClassifier
-│   ├── unet.py                  #   U-Net（1D/2D，mid 插槽，return_features 给多尺度特征）
-│   ├── transformer.py           #   瓶颈 Transformer（双向交互，正弦位置编码）
-│   ├── heads.py                 #   样本级头（池化+MLP）/ 多尺度 token 头（1x1 卷积）
+│   ├── __init__.py              #   build_hier() 按名称分发
+│   ├── hier.py                  #   v0.2 频域 U-Net（name=hier）
+│   ├── hier2.py                 #   v0.3 窗口注意力编解码器（name=codec）★
+│   ├── heads.py                 #   样本级头 + 5 尺度 token 头
 │   └── baseline.py              #   直接二分类基线：编码器 + masked 池化 + 线性/MLP 头
 ├── dataio/                      # 数据（单文件实现）
-│   ├── __init__.py              #   build_dataset() 注册表 + collate（动态 padding）
-│   ├── base.py                  #   基类：报告前缀 + 窗口裁剪 + 组装
+│   ├── __init__.py              #   build_dataset() 注册表 + collate
+│   ├── base.py                  #   基类：报告前缀 + 组装（不截断）
 │   ├── m4.py                    #   CoDET-M4 样本级（human/ai）
 │   └── hybrid.py                #   HybridCodeAuthorship 行级（token 标签 + 行级评测信息）
-├── report/                      # 报告注入
-│   ├── __init__.py              #   build_report() 注册表（handcrafted / none）
-│   └── handcrafted.py           #   三类手工统计 -> 一行短报告
+├── report/                      # 报告注入（handcrafted / none）
 ├── scripts/
 │   ├── prepare.py               # 下载数据与权重（m4 / encoder / hybrid）
 │   ├── build_subset.py          # 均衡子集 + 预分词 + 划分（写 data/processed/）
-│   └── compare.py               # 汇总 runs/ 下的 val/test 指标
+│   ├── compare.py               # 汇总 runs/ 下所有实验的 val/test 指标
+│   ├── diag_m4.py               # 诊断：按长度分桶 + 各尺度特征的线性探针
+│   └── probe_m4.py              # 诊断：train 拟合 → val 评测的线性探针
+├── docx/                        # 设计与实验报告
 ├── data/                        # 原始与处理后数据（不入库）
 └── checkpoints/                 # 编码器权重与 LUT 缓存（不入库）
 ```
@@ -50,7 +70,8 @@ u-det/
 | Python | 3.12 |
 | torch | 2.9.1（PyPI 默认 wheel 自带 CUDA 12.8） |
 | transformers | 4.57.x |
-| GPU 目标 | RTX 3080 Ti 12GB / CUDA 12.8 驱动 |
+| peft | ≥0.17（`codet5lora` 需要） |
+| GPU 目标 | RTX 3080 Ti 12GB |
 
 ```bash
 conda create -n udet python=3.12 -y
@@ -64,102 +85,78 @@ pip install -r requirements.txt
 python scripts/prepare.py data       # CoDET-M4 全量：437MB / 500,552 行
 python scripts/prepare.py encoder    # CodeT5-base 权重：约 850MB
 source /etc/network_turbo            # GitHub 需要代理
-python scripts/prepare.py hybrid     # HybridCodeAuthorship：8 个 CSV 约 408MB -> hybrid.parquet
+python scripts/prepare.py hybrid     # HybridCodeAuthorship -> hybrid.parquet
 
 python scripts/build_subset.py       # 均衡子集 + 预分词 + 划分（约 3~5 分钟）
-# 产出：data/processed/m4.parquet（human/AI 各 1w）、data/processed/hybrid.parquet（全量 1w+）
+# 产出：data/processed/m4.parquet（human/AI 各 1w）、data/processed/hybrid.parquet
 ```
 
-`build_subset.py` 的均衡策略：长度分桶（token 数，8 档）× 类别（human/AI）× 语言（java/python/cpp），
-二次均衡后按 **code 哈希**切 train/val/test = 8:1:1（同一段代码不跨集）；hybrid 按 RecordId 分组切分。
-
-数据集字段：CoDET-M4 用 `cleaned_code`（去注释）作输入，`target` 为 human/ai；
-HybridCodeAuthorship 用 `AICode` + 逐行 `Attribution`（AI/Human，映射为 token 级标签）。
+`build_subset.py` 的均衡策略：长度分桶（token 数）× 类别（human/AI）× 语言（java/python/cpp），
+按 **code 哈希**切 train/val/test = 8:1:1（同一段代码不跨集）；hybrid 按 RecordId 分组切分。
+**不做任何截断**。
 
 ## 训练 / 评测
 
 ```bash
-python train.py --config configs/udet_base.yaml --tag base            # 训练（默认 3 epoch）
-python train.py --config configs/udet_base.yaml --eval --ckpt runs/base/best.pt
-python train.py --limit 200 --epochs 1 --max-length 512 --tag smoke  # 冒烟
+# v0.3（默认）：窗口注意力编解码器 + 逐 token CodeT5 LoRA
+OMP_NUM_THREADS=8 python train.py --config configs/udet_v03.yaml --tag v03
+python train.py --config configs/udet_v03.yaml --eval --ckpt runs/v03/best.pt
+
+# 冒烟
+OMP_NUM_THREADS=8 python train.py --config configs/udet_v03.yaml --tag smoke --limit 40 --epochs 1
+
+# 汇总所有实验
+python scripts/compare.py
 ```
 
-产物：`runs/<tag>/{config.yaml, metrics.csv, metrics.jsonl, best.pt}`（best 按 `train.monitor` 选）。
+产物：`runs/<tag>/{config.yaml, metrics.csv, metrics.jsonl, best.pt, eval.json}`。
 
-指标：m4 -> 样本级 ACC/F1；hybrid -> 行级 P/R/F1、token 级 F1、片段级 F1（连续 AI 行段按 IoU≥0.5 逐文件匹配）。
-超长样本训练时随机截窗，评测时滑窗（stride = max_length/2）合并。
+指标：m4 → 样本级 ACC/F1；hybrid → 行级 P/R/F1、token 级 F1、片段级 F1（连续 AI 行段按 IoU≥0.5 匹配）。
+训练与评测一律 **batch=1 整段**（不截断、不滑窗）。
 
-### 首版基线（3 epoch，约 8 分钟，9.19M 可训练参数）
+> **`train.monitor` 注意**：默认 `mean` 只统计**标签有意义**的流（`train.sample_streams`）的样本级 F1
+> 加上各流的行级 F1。hybrid 的样本标签恒为 1，其 `sample_f1` 会随 token 级变好而下降，
+> 计入会把真正更好的 epoch 压下去（v0.3 首跑就踩过，见 `docx/u-det-v0.3.md` §6.4）。
 
-| 数据集/任务 | 指标 | val | test |
-| --- | --- | --- | --- |
-| m4 样本级（1926/2001 条） | ACC / F1 | 0.850 / 0.864 | **0.849 / 0.867** |
-| hybrid 行级（797/883 条） | P / R / F1 | 0.494 / 0.426 / 0.458 | **0.496 / 0.454 / 0.474** |
-| hybrid token 级 | F1 | 0.513 | 0.547 |
-| hybrid 片段级 | F1 | 0.130 | 0.127 |
-
-片段级 F1 偏低是本架构下一步的主要改进点（预测碎片化），可尝试：token 概率滑动平滑后再阈值、
-片段级后处理（合并/最小段长）、或调大 `loss.scale_weights` 里粗尺度的权重。
-
-## 直接二分类基线（CodeT5 微调 + 池化）
-
-```bash
-# 基线：整段代码过 CodeT5（微调）-> masked 池化 -> 线性头（纯样本级二分类）
-python train.py --config configs/baseline_codet5.yaml --tag base_codet5_ft
-python train.py --config configs/baseline_codet5.yaml --eval --ckpt runs/base_codet5_ft/best.pt
-# 带报告：--report handcrafted --max-length 448（448 + 53 报告 ≤ 512）
-# 冻结对照：--freeze-encoder --lr 1e-3
-python scripts/compare.py        # 汇总 runs/ 下所有实验的 val/test 指标
-```
-
-### 对比（同一份 m4 子集、同样 3 epoch / 1004 step、L=512、bf16；test 集）
-
-| 实验 | 模型 | 编码器 | m4 ACC | m4 F1 | hybrid 行级 F1 | hybrid token F1 |
-| --- | --- | --- | --- | --- | --- | --- |
-| `base_codet5_ft` | CodeT5 + 池化 + 线性 | codet5（微调 109.6M） | **0.975** | **0.976** | — | — |
-| `udet_m4` | U-Det（样本级单任务） | codet5tok（LUT 可训练 24.7M） | 0.948 | 0.949 | — | — |
-| `base_lut` | U-Det（样本级+token 级） | codet5tok（LUT 可训练） | 0.859 | 0.874 | **0.542** | **0.621** |
-| `base`（v0.1） | U-Det（样本级+token 级） | codet5tok（LUT 冻结） | 0.849 | 0.867 | 0.474 | 0.547 |
-
-结论：
-- **样本级**任务上，微调上下文编码器 + 池化明显强于 U-Det（0.976 vs 0.949）——逐 token 无上下文特征
-  在单任务上信息不足；
-- **token 级 / 片段级**任务只有 U-Det 能做（基线受 512 位置限制，无法直接输出 token 级标注）；
-- **不冻结编码器**对 U-Det 很关键：行级 F1 0.474 → 0.542、token F1 0.547 → 0.621；
-- 加了 hybrid 流后 m4 样本级会下降（用 `--no-hybrid` 可回到 0.949），因为 hybrid 的样本级标签恒为 AI
-  且长序列 token 任务占主导。
-
-## 消融开关（都在 yaml 里，或用命令行覆盖）
+## 消融开关
 
 | 开关 | 取值 | 说明 |
 | --- | --- | --- |
-| `encoder.name` | `codet5tok` / `codet5` | 逐 token 查表 / 整段上下文编码 |
-| `encoder.freeze` | `false` / `true` | false = 微调编码器（codet5tok 时 LUT 变可训练嵌入表） |
-| `train.lr_encoder` | 如 `1e-4` / `2e-5` | 编码器单独学习率（参数分组） |
-| `model.name` | `unet1d` / `codet5cls` | U-Det / 直接二分类基线（`--model`） |
-| `model.mid.name` | `transformer` / `none` | 瓶颈是否做双向交互（`--mid none`） |
-| `report.name` | `handcrafted` / `none` | 是否注入手工统计报告（`--report none`） |
-| `loss.token` | 0 / 1.0 | token 级监督权重（0 = 纯样本级） |
+| `encoder.name` | `codet5tok` / `codet5lora` / `codet5` | 逐 token 查表 / 逐 token + LoRA / 整段上下文 |
+| `encoder.freeze` | `true` / `false` | `codet5tok`：LUT 固定 buffer / 可训练嵌入表；`codet5lora`：固定 LoRA / 训练 LoRA |
+| `encoder.targets` | `[v, o, wi, wo]` | LoRA 目标层。**逐 token（seq_len=1）时 q/k 对输出无影响**（softmax 单元素恒为 1），只能挂 v/o/wi/wo |
+| `encoder.chunk` / `compile` | `2048` / `true` | 分块大小（内部补齐到固定长度）与 `torch.compile` |
+| `train.lr_encoder` | `5e-5` | 编码器/LoRA 单独学习率（**3e-4 会一 epoch 改写编码器特征**） |
+| `model.name` | `codec` / `hier` / `codet5cls` | v0.3 / v0.2 / 直接二分类基线 |
+| `model.share` | `true` / `false` | 采样栈内 4 级是否共享同一个 Block |
+| `model.divs` / `wins` | `[4,4,2,2]` / `[16,16,16,32]` | 各级下采样除数（累计 64×）与感受野 |
+| `report.name` | `handcrafted` / `none` | 是否注入手工统计报告 |
+| `loss.token` | `0` / `1.0` | token 级监督权重（0 = 纯样本级） |
+| `train.sample_streams` | `[m4]` | 只在标签有意义的流上算样本级 CE |
 | `train.streams` | `[m4, hybrid]` | 双流；`--no-m4` / `--no-hybrid` 单流 |
-| `model.features` | 如 `[64,128,256,512]` | U-Net 深度/宽度（len-1 = 下采样次数） |
 
 ## 实现要点
 
-- **逐 token 编码器**（`encoders/codet5.py:CodeT5TokenEncoder`）：分块跑冻结编码器得到 `(vocab, D)` 查表，
-  首次约 2.4s 并缓存到 `data/processed/codet5_lut.pt`，之后启动直接加载（不加载 850MB 权重）。
-- **多尺度损失**（`train.py:token_loss`）：各解码层 logits 长度为 $L/2^k$，标签用 mask-aware 平均池化
-  到对应长度作为软标签（不同文本长度精度），权重 `loss.scale_weights` 由粗到细。
-- **报告注入**（`report/handcrafted.py`）：空行率/缩进一致性/尾部空行 + 字符与二元组香农熵 +
-  命名惯例多样性/行长方差，渲染成一行短文本（数值量化，≤`report.max_tokens`），拼在代码 token 前，
-  报告位置不计 token 损失（-100）。
-- **行级标签对齐**（`dataio/hybrid.py`）：整段分词（fast tokenizer + offset mapping），
-  每个 token 取起始字符所在行的 `Attribution`（AI=1 / Human=0）。
+- **逐 token 编码器**：`codet5tok` 分块跑冻结 CodeT5 得到 `(vocab, D)` 查表并缓存
+  （`data/processed/codet5_lut.pt`）；`codet5lora` 保持同样语义但每步现算，用 peft LoRA 让梯度回流进
+  CodeT5（`lora_B` 零初始化 ⇒ 起点与冻结 LUT 逐位相同）。
+- **v0.3 采样块**（`models/hier2.py`）：`out = 算子捷径 + 注意力校正 + FFN`；
+  下采样捷径 = 同窗口均值池化、kv = 细层自己；**上采样捷径 = 最近邻重复、kv = 下采样前的细层 skip**
+  —— 上采样的跨注意力就是跳连。窗口越界两侧补 `[PAD]` 零向量，无需注意力掩码。
+- **v0.2 采样核**（`models/hier.py`）：rfft → 逐频率低秩复数混合 → 低半频截断（下）/ 谱零延拓（上）
+  → irfft → 裁剪。**FFT 一律在 ≥ 真实长度的 2 的幂上做**（否则 cuFFT plan 无界增长会吃光显存）。
+- **多尺度损失**（`train.py:token_loss`）：各尺度 logits 长度不同，标签用 mask-aware 平均池化到对应
+  长度作为软标签，权重 `loss.scale_weights` 由粗到细。
+- **报告注入**（`report/handcrafted.py`）：空行率/缩进一致性 + 字符与二元组香农熵 + 命名惯例多样性，
+  渲染成一行短文本（≤`report.max_tokens`）拼在代码 token 前，报告位置不计 token 损失（-100）。
+- **行级标签对齐**（`dataio/hybrid.py`）：整段分词（fast tokenizer + offset mapping），每个 token 取
+  起始字符所在行的 `Attribution`（AI=1 / Human=0）。
 
-## 编码器 / 网络 / 数据 / 报告切换接口
+## 切换接口
 
 ```python
-from encoders import build_encoder, list_encoders      # ['codet5', 'codet5tok']
-from models import build_unet, build_mid               # 'unet1d'/'unet2d'，'none'/'transformer'
+from encoders import build_encoder, list_encoders      # ['codet5', 'codet5lora', 'codet5tok']
+from models import build_hier                          # 'codec'（v0.3）/ 'hier'（v0.2）
 from dataio import build_dataset, collate              # 'm4' / 'hybrid'
 from report import build_report                        # 'handcrafted' / 'none'
 ```
@@ -170,10 +167,15 @@ from report import build_report                        # 'handcrafted' / 'none'
 
 - HuggingFace 直连不通 → `scripts/prepare.py` 默认走 hf-mirror；GitHub 需 `source /etc/network_turbo`；
 - pip 走阿里云镜像；开代理后 pip 更慢，装依赖前 `unset http_proxy https_proxy`；
-- 本机 `OMP_NUM_THREADS` 环境变量异常（libgomp 报错），运行时建议显式 `OMP_NUM_THREADS=8`；
-- 逐 token 查表后显存占用很低：L=2048 / batch=4 前向+反向峰值约 0.35GB（12GB 卡可再加长）。
-- CoDET-M4 原始 parquet 自带 `split` 列（train 37.4w / val 4.4w / test 4.4w），当前子集
-  **未采用**（按 code 哈希重切，防跨集泄漏）；如需对齐官方划分，可在 `build_subset.py` 里保留该列并改用。
+- 本机 `OMP_NUM_THREADS` 环境变量异常（libgomp 报错），运行时显式加 `OMP_NUM_THREADS=8`；
+- 长序列用 `torch.cuda.cufft_plan_cache.max_size` 与"2 的幂内部 FFT"控制 plan 数量；
+- CoDET-M4 原始 parquet 自带 `split` 列，当前子集未采用（按 code 哈希重切，防跨集泄漏）。
+
+## 已知数据特性
+
+- **hybrid 样本标签恒为 1**：`build_subset.py` 只保留含 AI 行的文件 ⇒ 样本级 CE 只在 m4 上回传；
+- **m4 长度与标签强混淆**：ai 样本全部 <2048 token，≥4096 的样本 100% 是 human
+  ⇒ 单靠长度规则 val acc 就有 0.659，报告样本级指标时需注意。
 
 ## 数据与许可
 

@@ -468,7 +468,7 @@ def train(cfg: dict, args) -> None:
             metrics = evaluate(model, dataset, name, cfg, device)
             results[name] = metrics
             print(f"[val {epoch}] {name}: " + json.dumps({k: round(v, 4) for k, v in metrics.items()}))
-        score = _monitor_score(results, monitor)
+        score = _monitor_score(results, monitor, sample_streams)
         train_avg = {k: v / max(steps_per_epoch, 1) for k, v in running.items()}
         with open(run_dir / "metrics.jsonl", "a", encoding="utf-8") as f:
             f.write(json.dumps({"epoch": epoch, "train": train_avg, "val": results}) + "\n")
@@ -486,12 +486,19 @@ def train(cfg: dict, args) -> None:
     print(f"[train] 完成，产物目录：{run_dir}")
 
 
-def _monitor_score(results: dict, monitor: str) -> float:
+def _monitor_score(results: dict, monitor: str, sample_streams=None) -> float:
+    """选 best.pt 用的综合分。
+
+    ``mean`` 只统计**有意义的**指标：样本级 F1 只取 `sample_streams` 里的流
+   （hybrid 样本标签恒为 1，它的 sample_f1 随模型变好反而下降，会把好 epoch 压下去），
+    再加上各流的 line_f1。
+    """
     if monitor == "m4_f1":
         return results.get("m4", {}).get("sample_f1", 0.0)
     if monitor == "line_f1":
         return results.get("hybrid", {}).get("line_f1", 0.0)
-    values = [v.get("sample_f1", 0.0) for v in results.values()]
+    keep = set(sample_streams) if sample_streams else set(results)
+    values = [v.get("sample_f1", 0.0) for k, v in results.items() if k in keep]
     values += [v.get("line_f1", 0.0) for v in results.values() if "line_f1" in v]
     return sum(values) / max(len(values), 1)
 

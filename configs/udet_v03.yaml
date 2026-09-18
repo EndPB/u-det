@@ -1,0 +1,70 @@
+# U-Det v0.3 配置：Transformer 上下采样（窗口化跨注意力）+ 4 层瓶颈 + 逐 token LoRA 编码器。
+# 与 v0.2（configs/udet_lora.yaml）的唯一区别在 model 段：
+#   频域 FFT 上下采样 -> 窗口化跨注意力的 Transformer 层（下/上各一个 Block 反复用 4 次）。
+# 其余全部不变：不截断代码、batch=1 + 梯度累积、5 尺度 token 头、样本头接瓶颈。
+
+data:
+  processed_dir: data/processed                 # scripts/build_subset.py 产出（不截断）
+  m4_file: m4.parquet                           # 样本级：human/AI 各 1w，长度×语言均衡
+  hybrid_file: hybrid.parquet                   # token 级：行级标注（全量）
+
+encoder:
+  name: codet5lora                              # 逐 token 独立编码（长度=1）+ peft LoRA
+  path: checkpoints/codet5-base
+  dtype: float32                                # 底座加载精度（前向走 bf16 autocast）
+  layer: -1                                     # 取第几层隐状态（-1 最后一层）
+  r: 16                                         # LoRA 秩
+  alpha: 32                                     # LoRA 缩放（scale = alpha / r）
+  dropout: 0.0                                  # 0 = 起点与冻结 LUT 逐位一致
+  targets: [v, o, wi, wo]                       # ★ 逐 token（seq_len=1）时 attention 退化为
+                                                # softmax(单元素)=1，q/k 对输出完全无影响（实测梯度恒 0），
+                                                # 故只能挂 v/o（注意力输出路径）与 wi/wo（FFN）。
+  chunk: 2048                                   # 每块 token 数（内部补齐到该长度以固定形状）
+  ckpt: true                                    # 每块梯度检查点（长序列必须开）
+  compile: true                                 # torch.compile 固定形状的逐 token 前向
+  freeze: false                                 # false = LoRA 参数参与训练
+  max_length: 512                               # 仅 encoder.name=codet5（整段上下文）时生效
+
+model:
+  name: codec                                   # v0.3 主干（models/hier2.py）
+  dim: 768                                      # 隐藏维度恒定（各级不变）
+  depth: 4                                      # 上下采样级数
+  mid: 4                                        # 瓶颈（最粗分辨率）自注意力层数
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  divs: [4, 4, 2, 2]                            # 各级下采样除数（累计 64x；需与 wins 等长）
+  wins: [16, 16, 16, 32]                        # 各级窗口大小（= 该级感受野）
+  share: true                                   # true = 同一栈内四级共享一个 Block；
+                                                # false = 每级独立（上下共 8 个块）
+
+heads:
+  sample_hidden: 256                            # 样本级头 MLP 隐层
+  sample_dropout: 0.0
+
+report:
+  name: handcrafted                             # handcrafted / none（消融）
+  max_tokens: 64                                # 报告 token 上限
+
+loss:
+  sample: 1.0                                   # 样本级 CE 权重
+  token: 1.0                                    # token 级 BCE 总权重（0 = 只用样本级）
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]      # 5 个尺度（L/64 … L）由粗到细
+  class_weights: null                           # 样本级类别权重，如 [1.0, 1.0]
+
+train:
+  streams: [m4, hybrid]                         # 双流并行（每个 step 两流各取一个样本）
+  sample_streams: [m4]                          # 只在这些流上算样本级 CE：hybrid 样本标签恒为 1，计入会让样本头退化
+  epochs: 3
+  grad_accum: 8                                 # batch=1，每 8 个样本更新一次参数
+  lr: 0.0003                                    # 主干学习率
+  lr_encoder: 0.00005                           # LoRA 参数学习率（3e-4 会一 epoch 改写编码器特征）
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true                                     # bf16 自动混合精度
+  num_workers: 4
+  log_every: 200
+  monitor: mean                                 # mean / m4_f1 / line_f1（选 best.pt 用）
+  seed: 0
+  out_dir: runs
