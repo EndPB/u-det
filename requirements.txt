@@ -13,6 +13,7 @@ sentencepiece>=0.1.99
 protobuf>=4.25
 datasets>=3.0,<5
 accelerate>=1.0
+peft>=0.17                                     # codet5lora：逐 token CodeT5 的 LoRA 适配器
 
 # ===== 数据与工具 =====
 numpy>=1.26

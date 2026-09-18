@@ -1,0 +1,71 @@
+# U-Det v0.2 + LoRA 配置：频域 U-Net + **逐 token（无上下文）的 LoRA 版 CodeT5**。
+# 与 configs/udet_base.yaml 的唯一区别在 encoder 段：
+#   codet5tok（冻结/可训练查表） -> codet5lora（每步现算 (L,1) 前向，梯度回流进 CodeT5 的 LoRA 适配器）。
+# 长度=1 时 attention 无跨 token 交互 => 仍然"无上下文"，但不再零开销。
+# 其余一切不变：不截断代码、batch=1 + 梯度累积（FFT 是全局算子，padding 会污染频谱）。
+
+data:
+  processed_dir: data/processed                 # scripts/build_subset.py 产出（不截断）
+  m4_file: m4.parquet                           # 样本级：human/AI 各 1w，长度×语言均衡
+  hybrid_file: hybrid.parquet                   # token 级：行级标注（全量）
+
+encoder:
+  name: codet5lora                              # 逐 token 独立编码（长度=1）+ peft LoRA
+  path: checkpoints/codet5-base
+  dtype: float32                                # 底座加载精度（前向走 bf16 autocast）
+  layer: -1                                     # 取第几层隐状态（-1 最后一层）
+  r: 16                                         # LoRA 秩
+  alpha: 32                                     # LoRA 缩放（scale = alpha / r）
+  dropout: 0.0                                  # 0 = 起点与冻结 LUT 逐位一致（推荐保持 0）
+  targets: [v, o, wi, wo]                       # 注入 LoRA 的线性层。★ 逐 token（seq_len=1）时 attention 退化为
+                                                # softmax(单元素)=1，q/k 对输出完全无影响（实测梯度恒 0），
+                                                # 故只能挂 v/o（注意力输出路径）与 wi/wo（FFN）。
+  chunk: 2048                                   # 每块 token 数（内部补齐到该长度以固定形状）；实测 2048 最优：~19 min/epoch
+  ckpt: true                                    # 每块梯度检查点（长序列必须开）
+  compile: true                                 # torch.compile 固定形状的逐 token 前向（L=293 快 ~2.9x）
+  freeze: false                                 # false = LoRA 参数参与训练
+  max_length: 512                               # 仅 encoder.name=codet5（整段上下文）时生效
+
+model:
+  name: hier                                    # 频域 U-Net（models/hier.py）
+  dim: 768                                      # 隐藏维度恒定（各级不变）
+  depth: 4                                      # 上下采样 4 次
+  mid: 8                                        # 瓶颈（最粗分辨率）注意力层数
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  rank: 64                                      # 频域低秩混合维 r
+  control: 33                                   # 逐频率调制的控制点数 m
+  up_residual: false                            # 上采样是否加最近邻残差
+
+heads:
+  sample_hidden: 256                            # 样本级头 MLP 隐层
+  sample_dropout: 0.0
+
+report:
+  name: handcrafted                             # handcrafted / none（消融）
+  max_tokens: 64                                # 报告 token 上限
+
+loss:
+  sample: 1.0                                   # 样本级 CE 权重
+  token: 1.0                                    # token 级 BCE 总权重（0 = 只用样本级）
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]      # 5 个尺度（L/16, L/8, L/4, L/2, L）由粗到细
+  class_weights: null                           # 样本级类别权重，如 [1.0, 1.0]
+
+train:
+  streams: [m4, hybrid]                         # 双流并行（每个 step 两流各取一个样本）
+  sample_streams: [m4]                          # 只在这些流上算样本级 CE：hybrid 样本标签恒为 1（只留含 AI 行的文件），计入会让样本头退化为“恒正类”
+  epochs: 3
+  grad_accum: 8                                 # batch=1，每 8 个样本更新一次参数
+  lr: 0.0003                                    # 主干学习率
+  lr_encoder: 0.00005                           # LoRA 参数学习率：3e-4 时实测一 epoch 就把编码器输出改了 139%（
+                                                # token 损失在 LR 峰值后回升 = 特征被打崩），降到 5e-5
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true                                     # bf16 自动混合精度
+  num_workers: 4
+  log_every: 200
+  monitor: mean                                 # mean / m4_f1 / line_f1（选 best.pt 用）
+  seed: 0
+  out_dir: runs

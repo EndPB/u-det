@@ -54,9 +54,11 @@ class PooledClassifier(nn.Module):
         layer += [nn.Linear(int(hidden) if hidden else dim, out)]
         self.net = nn.Sequential(*layer)
 
-    def forward(self, input_ids: torch.Tensor, attention_mask: torch.Tensor):
+    def forward(self, input_ids: torch.Tensor, attention_mask: Optional[torch.Tensor] = None):
+        if attention_mask is None:                                      # batch=1 整段时无 padding
+            attention_mask = torch.ones_like(input_ids)
         hidden = self.encoder(input_ids, attention_mask)                 # (B, L, D)
-        mask = attention_mask.unsqueeze(-1).to(hidden.dtype)             # (B, L, 1)
+        mask = attention_mask[:, : hidden.shape[1]].unsqueeze(-1).to(hidden.dtype)   # 编码器可能已截断
         if self.pooling == "mean":
             pooled = (hidden * mask).sum(1) / mask.sum(1).clamp(min=1.0)
         elif self.pooling == "max":

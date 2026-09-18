@@ -279,7 +279,7 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str) -> di
         item = dataset[i]                                          # 已含报告前缀 / token 标签
         ids = torch.tensor([item["input_ids"]], dtype=torch.long, device=device)
         with torch.autocast("cuda", dtype=torch.bfloat16, enabled=amp):
-            logits_sample, token_logits = model(ids)
+            logits_sample, token_logits = model(ids, torch.ones_like(ids))
         has_token = token_logits is not None
         sample_logits[i] += logits_sample[0].float().cpu()
         if not has_token or not is_hybrid:
@@ -361,11 +361,12 @@ def train(cfg: dict, args) -> None:
 
     streams = cfg["train"]["streams"]
     loaders = {}
-    for name in streams:                                   # batch=1：整段序列，不做 padding
+    for name in streams:                                   # 默认 batch=1：整段序列，不做 padding
         dataset = make_dataset(cfg, name, "train", report, True, args.limit)
-        print(f"[data] {name} train: {split_counts(dataset)}")
+        bs = int(cfg["train"].get("batch_size", {}).get(name, 1)) if isinstance(cfg["train"].get("batch_size"), dict) else 1
+        print(f"[data] {name} train: {split_counts(dataset)}  batch={bs}")
         loaders[name] = DataLoader(
-            dataset, batch_size=1, shuffle=True, collate_fn=collate,
+            dataset, batch_size=bs, shuffle=True, collate_fn=collate,
             num_workers=cfg["train"].get("num_workers", 0),
         )
 
@@ -426,7 +427,7 @@ def train(cfg: dict, args) -> None:
                 batch = next(iters[name])
                 batch = {k: (v.to(device) if torch.is_tensor(v) else v) for k, v in batch.items()}
                 with torch.autocast("cuda", dtype=torch.bfloat16, enabled=amp):
-                    sample_logits, token_logits = model(batch["input_ids"])
+                    sample_logits, token_logits = model(batch["input_ids"], batch.get("attention_mask"))
                     loss, parts = batch_losses(cfg, sample_logits, token_logits, batch, device,
                                                use_sample=name in sample_streams)
                 (loss / (accum * len(streams))).backward()          # 归一到全部流的样本均值
@@ -473,9 +474,10 @@ def train(cfg: dict, args) -> None:
             f.write(json.dumps({"epoch": epoch, "train": train_avg, "val": results}) + "\n")
         if score > best:
             best = score
-            keep_encoder = any(p.requires_grad for p in model.encoder.parameters())
+            # 只存可训练的编码器参数（冻结底座/LUT buffer 不入库，checkpoint 保持小体积）
+            trainable = {name for name, p in model.named_parameters() if p.requires_grad}
             state = {k: v for k, v in model.state_dict().items()
-                     if keep_encoder or not k.startswith("encoder.")}
+                     if not k.startswith("encoder.") or k in trainable}
             torch.save({"cfg": cfg, "epoch": epoch, "score": score, "metrics": results, "state": state},
                        run_dir / "best.pt")
             print(f"[ckpt] 保存 best.pt（{monitor}={score:.4f}）")
