@@ -35,8 +35,8 @@ model:
   dropout: 0.0
   divs: [4, 4, 2, 2]                            # 各级下采样除数（累计 64x；需与 wins 等长）
   wins: [16, 16, 16, 32]                        # 各级窗口大小（= 该级感受野）
-  share: true                                   # true = 同一栈内四级共享一个 Block；
-                                                # false = 每级独立（上下共 8 个块）
+  share: false                                  # false = **每级独立 Block**（下 4 套 + 上 4 套 = 8 套，层间不共享）
+                                                # true  = 同一栈内四级共享一个 Block（v0.3.0 首跑用的就是它）
 
 heads:
   sample_hidden: 256                            # 样本级头 MLP 隐层

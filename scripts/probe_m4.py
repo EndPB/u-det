@@ -82,12 +82,22 @@ def main() -> int:
     ftr, ytr = collect(model, tr, device, 0)
     fva, yva = collect(model, va, device, 0)
 
-    print("\n尺度  特征dim   val acc   val f1   （线性探针：train 拟合）")
+    print("\n尺度  实际长度  特征dim   val acc   val f1   （线性探针：train 拟合）")
+    # levels 由粗到细：levels[0] 是瓶颈（最小），levels[-1] 是满分辨率。
+    # 分母按主干真实的 divs 累乘（v0.2 的频域主干没有 divs，退化为每级 2x）。
+    divs = getattr(getattr(model, "backbone", None), "divs", None)
+    depth = len(ftr) - 1
+    labels = []
+    for k in range(len(ftr)):
+        j = depth - k                                   # 该级之前经过了几次下采样
+        denom = 1
+        for i in range(j):
+            denom *= int(divs[i]) if divs is not None and i < len(divs) else 2
+        labels.append(denom)
     for k in sorted(ftr):
         Xtr, Xva = torch.stack(ftr[k]), torch.stack(fva[k])
         acc, f1 = fit_eval(Xtr, ytr, Xva, yva)
-        name = "瓶颈L/16" if k == 0 else f"L/{2 ** (len(ftr) - 1 - k)}"
-        print(f"  {k}  {Xtr.shape[1]:5d}   {acc:.4f}  {f1:.4f}   ({name})")
+        print(f"  {k}   {f'1/{labels[k]}':>7s}  {Xtr.shape[1]:5d}   {acc:.4f}  {f1:.4f}")
 
     idx = torch.randint(0, len(va), (len(va),))
     print(f"\n参照：朴素规则 全部预测正类 val acc={float(yva.mean()):.4f}")
