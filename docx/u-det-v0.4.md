@@ -235,9 +235,35 @@ L = 1.0·样本级CE  +  1.0·多尺度tokenBCE(target: lse, lse, lse, mean, mea
 | + CodeT5 LoRA | 2.06M（冻结时不计） | 2.06M | 2.06M |
 | **可训练参数** | 85.24M | **92.03M** | **92.85M** |
 
-显存：`v0.4.0` 实测 **7.6 GB**（v0.3 峰值 11.4 GB，12GB 卡），门控带来的
-`(B, L, 2D)` 拼接在 `L=24576` 时只有 ~75 MB。位置探针的开销可忽略
-（最大一级是 `(1, 16, 64)` 的输出）。
+显存：见 §4.1。位置探针的开销可忽略（最大一级输出只有 `(1, 16, 64)`）。
+
+### 4.1 显存：门控吃掉了最后 3% 的余量（实测）
+
+单卡 12 GiB（`memory.total = 12288 MiB`）。本工作负载的真实峰值由**最长样本**决定
+（m4 训练集长度：中位 293 / 90 分位 3676 / 99.9 分位 22230 / `max` 32948，
+**超过 24000 的只有 3 条**）。用 60 s 间隔的 `nvidia-smi` 采样比对
+（PyTorch 的 caching allocator 只增不减，因此偶发采样也足以拿到 reserved 峰值）：
+
+| 组 | 主干 | 稳定峰值（reserved） |
+| --- | --- | --- |
+| v0.2 + LoRA | FrequencyUNet | 11854 MiB |
+| v0.3.0 | codec（栈内共享权重） | **11428 MiB** ← 跑满 3 epoch，必含最长样本 |
+| v0.3.1 | codec（8 套权重 + LoRA） | 11424 MiB |
+| **v0.4.0** | codec（8 套权重 + **门控**） | **11900 MiB** |
+
+* **门控的代价 = +472 MiB**，与它在 `L = 32948` 时的理论开销吻合：
+  `torch.cat([u, skip])` 的反向输入（~101 MB）+ sigmoid 输出 + 两个乘法中间量
+  + 反向的 `grad_cat` ≈ 450 MB。
+* 余量只剩 **388 MiB**（11900 / 12288 = 96.8%），但**是安全的**：
+  v0.3.0 的 11428 是 3 个完整 epoch 的峰值，必然已包含最长的 32948 样本；
+  最坏情况按长度线性外推 `11428 + 472 × (32948 / 29000) ≈ 11964 MiB`，仍在 12288 以内。
+* 实测轨迹也支持这个判断：v0.4.0 在第 ~2100 步就到了 11880 MiB，
+  之后 4500 步只再涨 20 MiB ⇒ 已经收敛到峰值。
+
+> **教训**：`L` 越长，"逐位置拼接"这类操作越贵，12 GiB 卡上的余量是**按 MB 算**的。
+> 后续真要加 refine 块（§2.3）之前，必须先上 `expandable_segments` 或梯度检查点。
+> 排查时还发现有两个上一天遗留的 `nvidia-smi` 采样循环仍在写 `v03*_mem.log`，
+> 把 v0.4.0 的数字混进了 v0.3 的记录里 —— 清理后才有上面这张干净的表。
 
 ---
 
@@ -262,10 +288,14 @@ L = 1.0·样本级CE  +  1.0·多尺度tokenBCE(target: lse, lse, lse, mean, mea
 | ② | **v0.3.2 续跑** +2 epoch（`codet5tok` 冻结） | `--resume runs/v0.3.2/best.pt --epochs 2 --encoder codet5tok --freeze-encoder` | +2 epoch | ⏳ 排队 |
 | ③ | **v0.3.1 续跑** +2 epoch（LoRA 微调） | `--resume runs/v0.3.1/best.pt --epochs 2` | +2 epoch | ⏳ 排队 |
 
-队列脚本 `/tmp/queue_extend.sh`：轮询 ① 的日志，出现 `结果已写入` 后自动接力 ② → ③
-（每组跑完自动 `--eval`）。
+队列脚本 `scripts/queue_extend.sh`（PID 见 `pgrep -af queue_extend.sh`）：
+轮询 ① 的日志，出现 `结果已写入` **或**失败标志（`out of memory` / `CUDA error` /
+`RuntimeError` / `Killed`）后自动接力 ② → ③，每组跑完自动 `--eval`。
+②③ 的日志分别落在 `/tmp/v032x.log`、`/tmp/v031x.log`。
+
 ②③ 的配置文件都是 `configs/udet_v03.yaml`（`share: false`、无门控、无辅助损失），
-所以能与 v0.3.1/v0.3.2 的既有 epoch 无缝接续。
+所以能与 v0.3.1/v0.3.2 的既有 epoch 无缝接续。**续跑用的编码器必须复现原配置**：
+③ 是 `codet5lora`（yaml 默认），② 是 `--encoder codet5tok --freeze-encoder`。
 
 ### 6.1 续跑（补 epoch）的实现与代价
 
