@@ -286,7 +286,11 @@ L = 1.0·样本级CE  +  1.0·多尺度tokenBCE(target: lse, lse, lse, mean, mea
    `downs = [254, 64, 32, 16]`，与 `ceil(L/S)`（`S = 64, 32, 16, 4, 1`）逐一相等 ✓
 2. **参数量**：主干 85.04M → 89.76M（+4.72M 门控）；可训练 92.03M（v0.4.0）/ 92.85M（v0.4.1）✓
 3. **损失真的在算**：冒烟日志 `token=1.362 / cons_pool=1.398 / cons_pos=0.691` ✓
-4. **回退等价性**：`--no-gate --no-cons --token-target mean` 应完全等价于 v0.3.2 的前向（待补）
+4. **回退等价性**：`gate=False` 时 backbone 与 v0.3.2 权重**零缺失、零多余**；
+   `gate=True` 只多 8 项（4 级 × weight/bias）。`gate=None` 时 `_up` 直接返回，
+   `cons_*=0` 时不建探针参数 ⇒ v0.3 配置/权重完全不受影响 ✓
+5. **续跑权重完整性**：ckpt 含 96 条 LoRA + 176 条 backbone/头；日志里那句
+   `未匹配 100 项` 是**正常的**（冻结底座权重从 `checkpoints/codet5-base` 确定性加载）✓
 5. **A/B2 对 v0.3 权重无影响**：`gate=None` 时 `_up` 直接返回，`cons_* = 0` 时不建探针参数 ✓
 
 ---
@@ -297,14 +301,28 @@ L = 1.0·样本级CE  +  1.0·多尺度tokenBCE(target: lse, lse, lse, mean, mea
 
 | # | 实验 | 命令 | 预算 | 状态 |
 | --- | --- | --- | --- | --- |
-| ① | **v0.4.0** @2ep（只改结构） | `configs/udet_v04.yaml` | 2 epoch | ✅ m4 0.9223 / line 0.6718 / chunk 0.3643 / token 0.7117 |
-| ② | **v0.3.2 续跑** @4ep（`codet5tok` 冻结） | `--resume runs/v0.3.2/best.pt --epochs 2 --encoder codet5tok --freeze-encoder` | +2 epoch | ✅ m4 0.9086 / line 0.6696 / chunk 0.3487 / token 0.7076 |
-| ③ | **v0.3.1 续跑** @4ep（LoRA） | `--resume runs/v0.3.1/best.pt --epochs 2` | +2 epoch | ✅ m4 0.9307 / line 0.6922 / chunk 0.3733 / token 0.7279 |
-| ④ | **v0.3.1 续跑** @6ep（判停用） | `--resume runs/v0.3.1/last.pt --epochs 2` | +2 epoch | ✅ 未创新高 ⇒ **e3 到顶**（§7.3.1） |
-| ⑤ | **v0.4.0 续跑** @4ep（同协议对照） | `--resume runs/v0.4.0/best.pt --epochs 2` | +2 epoch | ✅ m4 **0.9324** / line **0.7006** / chunk **0.3901** / token **0.7372** |
+| ① | **v0.4.0** @2ep（只改结构） | `configs/udet_v04.yaml` | 2 epoch | ✅ |
+| ② | **v0.3.2 续跑** @4ep（`codet5tok` 冻结） | `--resume runs/v0.3.2/best.pt --epochs 2 --encoder codet5tok --freeze-encoder` | +2 epoch | ✅ |
+| ③ | **v0.3.1 续跑** @4ep（LoRA） | `--resume runs/v0.3.1/best.pt --epochs 2` | +2 epoch | ✅ |
+| ④ | **v0.3.1 续跑** @6ep（判停用） | `--resume runs/v0.3.1/last.pt --epochs 2` | +2 epoch | ✅ 未创新高 ⇒ **e3 到顶** |
+| ⑤ | **v0.4.0 续跑** @4ep（同协议对照） | `--resume runs/v0.4.0/best.pt --epochs 2` | +2 epoch | ✅ |
+| ⑥ | **v0.4.0 续跑** @6ep（测上限） | `--resume runs/v0.4.0/last.pt --epochs 2` | +2 epoch | ✅ 仍在涨 ⇒ **6ep 不是上限** |
+| ⑦ | **v0.4.1 全流程** @6ep（结构 + **损失**） | `configs/udet_v04_cons.yaml`，三段热重启 | 6 epoch | 🟡 运行中 |
 
-前五段全部完成。①→ ②→ ③→ ④ 由 `scripts/queue_extend.sh` 串行接力；
-④ → ⑤ 由 `scripts/queue_round2.sh` 接力。
+（test 集，格式：m4 sample F1 / line F1 / chunk F1 / token F1）
+
+| # | test | mean（周期末端） |
+| --- | --- | --- |
+| ① | 0.9223 / 0.6718 / 0.3643 / 0.7117 | 0.7865 |
+| ② | 0.9086 / 0.6696 / 0.3487 / 0.7076 | — |
+| ③ | 0.9307 / 0.6922 / 0.3733 / 0.7279 | 0.8021 |
+| ④ | 同上（e3 最佳） | 0.7989（到顶） |
+| ⑤ | 0.9324 / 0.7006 / 0.3901 / 0.7372 | 0.8037 |
+| ⑥ | **0.9380 / 0.7071 / 0.3907 / 0.7431** | **0.8138**（未到顶） |
+| ⑦ | 待填 | 待填 |
+
+队列脚本：①→②→③→④ 由 `scripts/queue_extend.sh`；④→⑤ 由 `scripts/queue_round2.sh`；
+⑥ 由 `scripts/queue_round3.sh`；⑦ 由 `scripts/queue_v041.sh`。
 
 队列脚本 `scripts/queue_extend.sh`（PID 见 `pgrep -af queue_extend.sh`）：
 轮询 ① 的日志，出现 `结果已写入` **或**失败标志（`out of memory` / `CUDA error` /
@@ -382,26 +400,28 @@ epoch 1 收敛到 `p 0.6979 / r 0.6105`。原因很清楚：
 > （`sample 0.286 / token 0.518` vs `0.277 / 0.522`），说明**门控没有拖慢收敛**，
 > 只是把"先跳过深路径"这个先验显式化了。
 
-### 7.2 v0.3.1 / v0.3.2 补到 4 epoch（热重启续训）
+### 7.2 v0.3.1 / v0.3.2 补 epoch（热重启续训）
 
 逐 epoch（val，m4 / line / chunk / token）：
 
-| 组 | e0 | e1 | **e2（续）** | **e3（续）** |
-| --- | --- | --- | --- | --- |
-| v0.3.2 | 0.8463 / 0.5364 / 0.2600 / 0.5768 | 0.8979 / 0.6371 / 0.3402 / 0.6686 | **0.8438 / 0.5968 / 0.2968 / 0.6286** | 0.8971 / 0.6512 / 0.3432 / 0.6843 |
-| v0.3.1 | 0.8263 / 0.6510 / 0.3357 / 0.6903 | 0.9008 / 0.6509 / 0.3394 / 0.6838 | 待填 | 待填 |
+| 组 | e0 | e1 | **e2（续）** | **e3（续）** | **e4（续）** | **e5（续）** |
+| --- | --- | --- | --- | --- | --- | --- |
+| v0.3.2 | 0.8463 / 0.5364 / 0.2600 / 0.5768 | 0.8979 / 0.6371 / 0.3402 / 0.6686 | **0.8438 / 0.5968 / 0.2968 / 0.6286** | **0.8971 / 0.6512 / 0.3432 / 0.6843** | —（已平台） | — |
+| v0.3.1 | 0.8263 / 0.6510 / 0.3357 / 0.6903 | 0.9008 / 0.6509 / 0.3394 / 0.6838 | **0.7931 / 0.6424 / 0.3108 / 0.6776** | **0.9338 / 0.6703 / 0.3524 / 0.7029** | 0.9220 / 0.6567 / 0.3156 / 0.6946 | **0.9274 / 0.6704 / 0.3517 / 0.7042** |
 
-test（新 best）：
+test（取 best.pt）：
 
-| 组 | 2 epoch | 4 epoch | 差 |
+| 组 | 2 epoch | 4 epoch | 6 epoch |
 | --- | --- | --- | --- |
-| v0.3.2 | 0.9047 / 0.6528 / 0.3357 / 0.6903 | **0.9086 / 0.6696 / 0.3487 / 0.7076** | +0.39 / +1.68 / +1.30 / +1.73 |
-| v0.3.1 | 0.8999 / 0.6754 / 0.3449 / 0.7122 | 待填 | 待填 |
+| v0.3.2 | 0.9047 / 0.6528 / 0.3357 / 0.6903 | **0.9086 / 0.6696 / 0.3487 / 0.7076** | — |
+| v0.3.1 | 0.8999 / 0.6754 / 0.3449 / 0.7122 | **0.9307 / 0.6922 / 0.3733 / 0.7279** | 同上（**e3 已是最佳，e5 未创新高**） |
 
 **两个结论：**
 
-1. **热重启会先砸一个坑。** v0.3.2 的 e2（续跑第一轮）四项全跌 ——
-   m4 −5.4 / line −4.0 / chunk −4.3 / token −4.0，train loss 从 0.834 反弹到 0.940。
+1. **热重启会先砸一个坑。** 两组的 e2（续跑第一轮）四项全跌 ——
+   v0.3.2 的 m4 −5.4 / line −4.0 / chunk −4.3 / token −4.0，
+   v0.3.1 的 m4 **−10.8** / line −0.9 / chunk −3.0 / token −0.6，
+   train loss 也从 0.799 反弹到 0.849。
    原因是 OneCycleLR 在新计划里重新爬坡到 `3e-4`，把已经收敛的状态踹了出去；
    e3 才收回来并小幅超过 e1。**所以 §6.1 那条可比性警告不是多余的。**
 2. **收益递减明显。** e1→e3 的净收益（test：m4 +0.39 / line +1.68 / chunk +1.30 / token +1.73）
@@ -542,24 +562,35 @@ v0.4.0 e5 的 train loss **0.642**（全程最低），val 也最高，**没有�
 
 ## 8. 待跑计划
 
-### 8.1 v0.4.0 对齐 epoch（必须，否则无法与 §7.2 比较）
+> 下列 §8.1 / §8.2 已执行完毕，保留原命令作为复现记录。
 
-v0.4.0 现在只跑 2 epoch，而 v0.3.1/v0.3.2 补到了 4 epoch。要让"门控"这个变量干净，
-需要 ：
-
-```
-python train.py --config configs/udet_v04.yaml --tag v0.4.0-4ep --epochs 4
-python train.py --config configs/udet_v04.yaml --tag v0.4.0-4ep --eval --ckpt runs/v0.4.0-4ep/best.pt
-```
-
-### 8.2 v0.4.1 = 结构 + 损失（暂不跑）
+### 8.1 v0.4.0 对齐 epoch（✅ 已完成）
 
 ```
-python train.py --config configs/udet_v04_cons.yaml --tag v0.4.1 --epochs 2
-python train.py --config configs/udet_v04_cons.yaml --tag v0.4.1 --eval --ckpt runs/v0.4.1/best.pt
+# 实际用的命令（与 v0.3.1/v0.3.2 补 epoch 完全同一协议：热重启续跑，而非 --epochs 4 从头跑）
+python train.py --config configs/udet_v04.yaml --tag v0.4.0 --resume runs/v0.4.0/best.pt --epochs 2
+python train.py --config configs/udet_v04.yaml --tag v0.4.0 --resume runs/v0.4.0/last.pt --epochs 2
+python train.py --config configs/udet_v04.yaml --tag v0.4.0 --eval --ckpt runs/v0.4.0/best.pt
+```
+
+结果见 §7.4（4ep / 6ep 两组）与 §7.4.1（到 6ep 仍在涨）。
+
+### 8.2 v0.4.1 = 结构 + 损失（🟡 正在跑）
+
+按与 v0.4.0 **完全相同**的 6-epoch 协议（三段热重启）执行，
+由 `scripts/queue_v041.sh` 串行接力：
+
+```
+py=python train.py --config configs/udet_v04_cons.yaml --tag v0.4.1
+$py --epochs 2                                        # 周期 1（e0/e1，从头）
+$py --resume runs/v0.4.1/last.pt --epochs 2           # 周期 2（e2/e3）
+$py --resume runs/v0.4.1/last.pt --epochs 2           # 周期 3（e4/e5）
+$py --eval --ckpt runs/v0.4.1/best.pt
 ```
 
 与 v0.4.0 的差值 = **A（层级一致性）+ B2（位置探针）+ B3（lse 目标）三项的净效应**。
+可训练参数 92.85M（v0.4.0 的 92.03M + 0.82M 位置探针），
+其余配置逐字相同 ⇒ 是干净的单变量对照。
 
 ### 8.3 损失逐项消融（v0.4.1 有正收益才做）
 
@@ -589,13 +620,14 @@ v0.4.1 训完后，用 `runs/v0.4.1/best.pt` 里的位置探针做与 `docx/u-de
 
 ### 8.5 其他已记录但暂缓的方向
 
-* **v0.4.0 后续 epoch**（用户指定暂不跑，只记录）；
+* ~~**v0.4.0 后续 epoch**~~ → 已完成（§7.4.1：到 6 epoch 仍在涨，8 epoch 可选但边际收窄）；
 * **`refine` 窗口自注意力块**（§2.3 已说明为何先放弃：最细一级 L=24576、窗口 16 时会再吃
-  ~1.2GB gather，而 12GB 卡的训练峰值已到 11.4GB）。若要做，先上
-  `torch.utils.checkpoint` 或把 refine 窗口缩到 `wins[level] // 2`；
+  ~1.2GB gather，而 12GB 卡的训练峰值已到 **11.9GB**，只剩 388 MiB）。若要做，先上
+  `expandable_segments` 或 `torch.utils.checkpoint`，或把 refine 窗口缩到 `wins[level] // 2`；
 * **扩张算子改 kv = 粗层自己**（把扩张与融合彻底解耦）；
-* **样本级目标**：§7.3 的闭式解 0.9069 与 SGD 0.8309 差 7.6 分，
-  是纯优化差距 —— 换 `lr / schedule` 或更长训练可能直接吃下这部分。
+* **样本级目标**：闭式解 0.9069 与同结构 SGD 头 0.8309 差 7.6 分，原本被判为"纯优化差距"；
+  但门控把样本级推到了 **0.9380**（越过底线 3.1 分），说明那 7.6 分里**有一部分是架构能吃的**。
+  剩下多少，要靠换 `lr / schedule` 或更长训练才能分出来。
 
 ---
 
