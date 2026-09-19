@@ -132,6 +132,22 @@ def main() -> None:  # noqa: PLR0915
     print(f"      形状正确、无 NaN、屏蔽仍生效；输出 dtype={out5.dtype}")
     print("      （T5 末层 LayerNorm 在 fp32 里算，所以 autocast 下输出是 fp32 —— 与 codet5lora 一致，不是缺陷）✓")
 
+    banner("⑨ static（静态形状）与默认路径在有效位置上必须逐位一致")
+    encs = CodeT5BlockEncoder(path=PATH, block=K, block_batch=16, ckpt=False,
+                              static=True, targets=TARGETS).eval()
+    _miss, unexp = encs.load_state_dict(enc.state_dict(), strict=False)
+    assert not unexp, f"多余的键：{list(unexp)[:5]}"
+    for length in (1, 100, 129, 300, 1000):
+        ids7 = new_ids(length, seed=4)
+        d = (enc(ids7) - encs(ids7)).abs().max().item()
+        assert d <= 1e-6, f"L={length}: static 与默认路径差了 {d:.3e}"
+        print(f"      L={length:>4}：max|diff|={d:.3e} ✓")
+    mask7 = torch.ones(1, 300, dtype=torch.long)
+    mask7[0, 200:] = 0
+    out7 = encs(new_ids(300), mask7)
+    assert out7[0, 200:].abs().max().item() == 0, "static 下 padding 未被清零"
+    print("      static 下 padding 位置仍严格为 0 ✓")
+
     print("\n全部通过 ✓")
 
 

@@ -441,7 +441,13 @@ class CodeT5BlockEncoder(nn.Module):
         r / alpha / dropout / targets: 传给 peft ``LoraConfig``（attention 已"复活"，q/k 可以放进来了）。
         ckpt: 是否对每个前向分片做梯度检查点。
         pad_id: 补齐用的 token id（0 = ``<pad>``）。
-        compile: 是否对分片前向做 ``torch.compile``（块数随样本长度变化，故用 ``dynamic=True``）。
+        static: 是否把**块数**补齐到 ``block_batch`` 的整数倍。
+            开启后每次前向的形状恒为 ``(block_batch, K)``，形状静态 ⇒ 可以安全地
+            ``compile``（不会因块数变化而反复重编译）。代价是短样本会多算几个全 pad 的块
+            （被 mask 屏蔽并最后裁掉，不影响任何有效输出）。
+        compile: 是否对分片前向做 ``torch.compile``。
+            ★ 强烈建议与 ``static=True`` 一起用：动态形状下 compile 会频繁重编译。
+            本项目实测：逐 token 前向不开 compile 时，固定开销能占去 2/3 以上。
     """
 
     def __init__(
@@ -457,6 +463,7 @@ class CodeT5BlockEncoder(nn.Module):
         targets=("q", "k", "v", "o"),
         ckpt: bool = True,
         pad_id: int = 0,
+        static: bool = False,
         compile: bool = False,
         **ignored,
     ):
@@ -475,13 +482,16 @@ class CodeT5BlockEncoder(nn.Module):
         self.block_batch = max(1, int(block_batch))
         self.ckpt = bool(ckpt)
         self.pad_id = int(pad_id)
+        self.static = bool(static)
         self.model.eval()                            # 底座恒 eval，关掉 CodeT5 内部 dropout
         if compile:
-            self._blocks = torch.compile(self._blocks, dynamic=True)
+            # static=True 时形状恒定 ⇒ dynamic=False 拿到单一静态图（最快）；
+            # 否则块数随长度变化，只能退而用 dynamic=True，会有重编译开销。
+            self._blocks = torch.compile(self._blocks, dynamic=not self.static)
         print(f"[codet5blk] 分块过 LoRA CodeT5：block={self.block} block_batch={self.block_batch}"
-              f"（每前向 {self.block * self.block_batch} token）r={r} alpha={alpha} "
+              f"（每前向最多 {self.block * self.block_batch} token）r={r} alpha={alpha} "
               f"targets={list(targets)}；可训练 {self.n_lora / 1e6:.3f}M，底座 {self._n_layers} 层冻结；"
-              f"ckpt={self.ckpt} compile={compile}")
+              f"ckpt={self.ckpt} static={self.static} compile={compile}")
 
     # ------------------------------------------------------------------ #
     @property
@@ -524,6 +534,11 @@ class CodeT5BlockEncoder(nn.Module):
 
         k = self.block
         nblk = (length + k - 1) // k
+        if self.static:
+            # 把块数抬到 block_batch 的整数倍 ⇒ 每次前向形状恒为 (block_batch, K)。
+            # 多出来的块全是 pad（mask 全 0），被下面的兜底逻辑保住不产生 NaN，
+            # 最后又在 [:, :length] 被裁掉，因此不影响任何有效输出。
+            nblk = -(-nblk // self.block_batch) * self.block_batch
         pad_len = nblk * k - length
         ids, mask = input_ids, attention_mask
         if pad_len:
