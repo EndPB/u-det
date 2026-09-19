@@ -15,7 +15,7 @@
     logits, _ = clf(input_ids, attention_mask)      # (B, 2)；第二个返回值恒为 None（无 token 头）
 
     clf = WindowedContextClassifier(encoder, window=512, stride=256, token_head=True)
-    logits, (tok,) = clf(input_ids, attention_mask)  # (B, 2) 与 (B, L)，L = 真实长度
+    logits, (tok,) = clf(input_ids, attention_mask)  # (B, 2) 与 (B, 1, L)，L = 真实长度
 """
 
 from __future__ import annotations
@@ -109,7 +109,8 @@ class WindowedContextClassifier(nn.Module):
     window_batch
         一次过编码器的窗口数（控制显存）。
     token_head
-        是否加逐 token 头；True 时返回 ``[token_logits]``（长度 = L），
+        是否加逐 token 头；True 时返回 ``[token_logits]``（形状 ``(B, 1, L)``，
+        与 `TokenHeads` 的输出一致，直接契合 `token_loss` 与 `evaluate`），
         False 时返回 ``None``（与 `PooledClassifier` 同接口）。
     pooling / hidden / out / dropout
         与 `PooledClassifier` 同义（只作用于样本头）。
@@ -203,11 +204,15 @@ class WindowedContextClassifier(nn.Module):
         if self.token_head is not None:
             tok = self.token_head(h).squeeze(-1)                            # (N_win, W_e)
             flat = (batch_idx[:, None] * length + adv)[valid]               # 展平下标（去重前）
-            total = torch.zeros(batch * length, device=h.device, dtype=h.dtype)
-            total = total.index_add(0, flat, tok[valid])                    # 重叠区求和
-            count = torch.zeros(batch * length, device=h.device, dtype=h.dtype)
-            count = count.index_add(0, flat, torch.ones_like(tok[valid]))
-            token_logits = (total / count.clamp(min=1)).view(batch, length)  # 重叠区取平均
+            # ★ 累加器一律用 float32：autocast 下 h 可能是 fp32 而 token_head 的输出是 bf16，
+            #   两边夹不准；同时 bf16 累加在长序列上也会丢精度。tok 是 bf16 也没关系，
+            #   下两行的 .float() 会把它提上来。
+            vals = tok[valid].float()
+            total = torch.zeros(batch * length, device=h.device, dtype=torch.float32)
+            total = total.index_add(0, flat, vals)                          # 重叠区求和
+            count = torch.zeros(batch * length, device=h.device, dtype=torch.float32)
+            count = count.index_add(0, flat, torch.ones_like(vals))
+            token_logits = (total / count.clamp(min=1)).view(batch, 1, length)   # (B,1,L)：与 TokenHeads 同形状
 
         w = valid.unsqueeze(-1).to(h.dtype)                                 # (N_win, W_e, 1)
         if self.pooling == "mean":

@@ -587,7 +587,7 @@ v0.4.1 = v0.4.0 的结构（门控）+ **A cons_pool + B2 cons_pos + B3 lse 目�
 
 | 模型 | epoch | m4 sample F1 | line F1 | chunk F1 | token F1 |
 | --- | --- | --- | --- | --- | --- |
-| base_codet5_ft（整段上下文微调，109.6M） | — | **0.9756** | — | — | — |
+| base_codet5_ft（整段上下文微调，109.6M，**旧口径**） | — | **0.9756** | — | — | — |
 | **v0.4.1（LoRA + 门控 + A/B2/B3）** | **4** | **0.9408** | **0.7139** | **0.3970** | **0.7489** |
 | v0.4.0（LoRA + 门控） | 6 | 0.9380 | 0.7071 | 0.3907 | 0.7431 |
 | v0.4.1（LoRA + 门控 + A/B2/B3） | 2 | 0.9190★ | 0.6591★ | 0.3615★ | 0.6892★ |
@@ -605,8 +605,8 @@ v0.4.1 = v0.4.0 的结构（门控）+ **A cons_pool + B2 cons_pos + B3 lse 目�
 ★ v0.4.1 只跑到 4 epoch（时间预算止损），此行是它的 val 值（无该预算的 test）。
 
 离整段上下文微调的 CodeT5（0.9756）还差 **3.5 分**（v0.3.1 时代是 4.5 分）——
-但那个数字与 U-Det 的口径不同（无报告、512 截断、仅 m4），真正的可比数字
-要等 §8 的滑动窗口基线。
+但那个数字与 U-Det 的口径不同（**512 截断、无手工特征报告、只报 m4 样本级**），
+真正的可比数字要等 §8.6 的滑动窗口基线（**正在跑**）。
 
 比闭式线性底线（0.9069）高 **3.4 分**。
 
@@ -627,10 +627,11 @@ python train.py --config configs/udet_v04.yaml --tag v0.4.0 --eval --ckpt runs/v
 
 结果见 §7.4（4ep / 6ep 两组）与 §7.4.1（到 6ep 仍在涨）。
 
-### 8.2 v0.4.1 = 结构 + 损失（🟡 正在跑）
+### 8.2 v0.4.1 = 结构 + 损失（✅ 实际跑到 4 epoch 止损）
 
-按与 v0.4.0 **完全相同**的 6-epoch 协议（三段热重启）执行，
-由 `scripts/queue_v041.sh` 串行接力：
+按与 v0.4.0 **完全相同**的热重启续跑协议执行，由 `scripts/queue_v041.sh` 串行接力。
+**实际只跑了前 2 个周期（4 epoch）** —— 时间预算止损，理由见 §7.4.2；
+第 3 个周期的命令保留在下面作为可复现记录：
 
 ```
 py=python train.py --config configs/udet_v04_cons.yaml --tag v0.4.1
@@ -680,6 +681,91 @@ v0.4.1 训完后，用 `runs/v0.4.1/best.pt` 里的位置探针做与 `docx/u-de
 * **样本级目标**：闭式解 0.9069 与同结构 SGD 头 0.8309 差 7.6 分，原本被判为"纯优化差距"；
   但门控把样本级推到了 **0.9380**（越过底线 3.1 分），说明那 7.6 分里**有一部分是架构能吃的**。
   剩下多少，要靠换 `lr / schedule` 或更长训练才能分出来。
+
+### 8.6 CodeT5 滑动窗口基线（🟡 正在跑）—— 补齐 line / chunk / token 三列
+
+§7.5 表里的 `base_codet5_ft`（0.9756）只报了 m4 样本级，口径还是**512 截断 + 无手工特征报告**。
+要判断 U-Det 到底赢没赢，必须让**同一个微调 CodeT5** 在**同一份数据、同一套指标、同一个 epoch 预算**
+上跑出 line / chunk / token 三列。这是本节的全部目的。
+
+#### 8.6.1 为什么不直接把 `max_length` 开大
+
+`CodeT5Encoder.forward` 会把输入**硬截断到 `max_length`**，而 m4 的长度分布是
+中位 293 / 90 分位 3676 / max 32948 —— 截断等于把长文档的内容直接丢掉。
+`n_positions=512` 是 CodeT5-base 的**硬上限**（位置嵌入表就这么大），**训不长**。
+
+所以基线也必须**滑动窗口**：窗口 512，逐窗口编码，再把逐 token logits
+**按覆盖次数加权平均**回真实长度。实现为 `models/baseline.py:WindowedContextClassifier`：
+
+* 首窗口对齐 0，末窗口**贴住末尾**（`_starts`），保证全长覆盖且不丢尾；
+* token logits 的累加**在 float32 里做**，最后除以覆盖计数 ⇒ 每个 token 恰好融合
+  它被覆盖到的所有窗口（重叠区自动平滑）；
+* 样本级头 = 各窗口池化后的**均值**，与 `PooledClassifier` 同接口；
+* `window: 0` 退化为单窗口，与 `PooledClassifier` **逐位等价**（自检里保留这一条，
+  用来保证"老截断池化路径"没被改坏）。
+
+#### 8.6.2 步长取舍：重叠是买 chunk 级 F1 的
+
+| stride | m4 窗口数 | hybrid 窗口数 | 合计/epoch |
+| --- | --- | --- | --- |
+| 256 | 77,448 | 47,157 | 124,605 |
+| 512 | 48,636 | 28,660 | 77,296 |
+| **混合**（m4@512，hybrid@256） | 48,636 | 47,157 | **95,793** |
+
+m4 的 chunk 级信号本来就弱（U-Det 最好只有 0.397），步长取满（无重叠）够用；
+hybrid 是真正的 length-generalization 测试集，重叠能明显改善边界 ⇒ 取 win/2。
+
+#### 8.6.3 实测成本（400 步探针，真实数据）
+
+| 项 | 实测 |
+| --- | --- |
+| 步速 | **0.259 s/步**（≈ 4.25 it/s） |
+| 每步消耗 | 1 个 m4 样本 + 1 个 hybrid 样本 |
+| `steps/epoch` | 16,069（= `max(len(loader))`，hybrid 被 `cycle` 放大 2.33×） |
+| **单 epoch** | **≈ 63 分钟**（含验证约 68 分钟） |
+| 峰值显存 | **10,032 / 12,288 MiB** |
+| 可训练参数 | 109.61M（含 handcrafted 报告头） |
+
+显存只由 `window_batch`(32) × 512 决定，**与样本长度无关** ⇒ 再长的文档也不会 OOM。
+这既是窗口化的实现便利，也正好是它的局限（见 §8.6.5）。
+
+#### 8.6.4 执行计划（对齐 4 epoch，与 v0.4.1 同预算）
+
+```bash
+py=/root/miniconda3/envs/udet/bin/python
+$py train.py --config configs/baseline_codet5_tok.yaml --tag base_codet5_tok --epochs 2
+$py train.py --config configs/baseline_codet5_tok.yaml --tag base_codet5_tok \
+    --resume runs/base_codet5_tok/last.pt --epochs 2
+$py train.py --config configs/baseline_codet5_tok.yaml --tag base_codet5_tok \
+    --eval --ckpt runs/base_codet5_tok/best.pt
+```
+
+第二段由 `scripts/queue_baseline.sh <pid> 2` 接力，**等待条件 = 指定 PID 退出**、
+**放行条件 = `metrics.csv` 里 epoch 数恰好等于 2**，双条件都满足才启动。
+之所以这么写：本项目曾用"日志行数 ≥ N"做等待条件，而该条件在启动瞬间就已为真，
+于是并发起了第二个 `--resume`，差点把产物目录写坏（本次吸取教训）。
+
+#### 8.6.5 口径提醒（写结论时必须带上）
+
+即使这条基线跑出来，比较也**不是**"完全同条件"，两点都要写进结论：
+
+* 基线每个 token 只看得到 **512 的局部上下文**（重叠窗口被平均掉，不构成更长的感受野），
+  而 U-Det 的卖点是**线性复杂度的全长上下文**；
+* 基线是 **109.61M 全量微调**，U-Det 主干 92.85M 且编码器侧是 LoRA；
+
+因此：**基线赢 ⇒ U-Det 输得干净；U-Det 赢 ⇒ 赢在参数效率与长度可扩展性，不是赢在绝对算力。**
+
+#### 8.6.6 实现踩坑（两个只有真跑起来才暴露的 bug）
+
+1. **float32 / bf16 的 `index_add` 冲突**：autocast 下编码器输出 `h` 是 float32，
+   而 `token_head(h)` 是 bf16；若用 `h.dtype` 当累加器 dtype，会报
+   `index_add_(): self (Float) and source (BFloat16) must have the same scalar type`。
+   离线 float32 自检**结构上不可能**发现它 ⇒ 已在自检里补一条"CPU bf16 autocast"用例。
+2. **token logits 形状必须是 `(B, 1, L)`**，与 `TokenHeads` 一致：`evaluate` 用
+   `zip(probs, tok_labels, line_of_token)` 逐位对齐，`token_loss` 的 BCE 还要求与
+   `(B, 1, L_k)` 的软目标同形状。写成 `(B, L)` 会直接 `ValueError: Target size ... must be the same`。
+
+教训与 §7.3 一致：**推理出来的"等价"挡不住 dtype / 形状这类实现层的错**，必须有一条端到端的真跑。
 
 ---
 

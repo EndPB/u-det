@@ -67,8 +67,9 @@ def check_logic(dim: int = 8, window: int = 512, window_batch: int = 7) -> None:
                 mask = torch.ones_like(ids)
                 _, (tok,) = net(ids, mask)
 
-                # ① token logits 长度必须**恰好**等于输入长度（evaluate 用 zip 逐位对齐）
-                assert tok.shape == (1, length), f"长度不符：{tuple(tok.shape)} vs {length}"
+                # ① token logits 形状必须是 (B,1,L)：evaluate 用 zip 逐位对齐，
+                #    token_loss 的 BCE 还要求与 (B,1,L_k) 的 soft 目标同形状
+                assert tok.shape == (1, 1, length), f"形状不符：{tuple(tok.shape)} vs (1,1,{length})"
 
                 # ② 覆盖率：每个位置至少被一个窗口覆盖（count>0）
                 starts = net._starts(length)
@@ -89,7 +90,7 @@ def check_logic(dim: int = 8, window: int = 512, window_batch: int = 7) -> None:
                 # ⑤ 步长覆盖（按流区分用）：显式传 stride 时形状/覆盖/接缝仍必须正确
                 for s in (window, window // 4):
                     _, (tok_s,) = net(uniform, mask, stride=s)
-                    assert tok_s.shape == (1, length), f"stride={s} 长度不符：{tuple(tok_s.shape)}"
+                    assert tok_s.shape == (1, 1, length), f"stride={s} 形状不符：{tuple(tok_s.shape)}"
                     if length > 1:
                         sp = (tok_s.max() - tok_s.min()).item()
                         assert sp < 1e-4, f"stride={s} 接缝不平滑：极差={sp:.2e}"
@@ -112,6 +113,23 @@ def check_logic(dim: int = 8, window: int = 512, window_batch: int = 7) -> None:
             assert t is None, "token_head=False 时应返回 None"
             assert torch.allclose(a, b, atol=1e-6), f"window=0 不等价于截断池化：L={length}"
     print(f"  ✓ window=0 与 PooledClassifier 逐位等价（截断池化路径未被改坏）")
+
+    # ⑥ mixed dtype：autocast 下编码器输出可能是 fp32 而 Linear 输出 bf16，
+    #    两者夹不准会让 index_add 报 "self (Float) and source (BFloat16)"（真实踩过）。
+    #    这里用 CPU bf16 autocast 重现那个混合 dtype 场景。
+    enc = DummyEncoder(dim=dim, max_length=window)
+    net = WindowedContextClassifier(enc, dim=dim, window=window, window_batch=window_batch,
+                                    token_head=True, out=2)
+    net.eval()
+    try:
+        with torch.no_grad(), torch.autocast("cpu", dtype=torch.bfloat16):
+            for length in (1, 700, 2000):
+                ids = torch.randint(1, 100, (1, length))
+                _, (tok,) = net(ids, torch.ones_like(ids))
+                assert tok.shape == (1, 1, length), f"autocast 下形状不符：{tuple(tok.shape)}"
+        print("  ✓ mixed dtype（autocast bf16）下长度对齐、无 dtype 冲突")
+    except RuntimeError as exc:                              # CPU 可能不支持某些 bf16 算子
+        print(f"  · 跳过 mixed dtype 用例（本机 CPU autocast 不支持：{str(exc)[:60]}）")
 
 
 def check_cost(m4_file: str, hybrid_file: str, window: int, stride: int,
