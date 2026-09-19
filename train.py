@@ -94,6 +94,8 @@ def apply_overrides(cfg: dict, args) -> dict:
         cfg["encoder"]["freeze"] = False
     if args.layer is not None:
         cfg["encoder"]["layer"] = args.layer
+    if args.block_batch is not None:                   # 分块编码器：降低显存的自保守旋钮
+        cfg["encoder"]["block_batch"] = args.block_batch
     if args.no_cons:                                   # v0.4 消融：关掉 A（池化自蒸馏）+ B2（位置探针）
         cfg.setdefault("loss", {})
         cfg["loss"]["cons_pool"] = 0.0
@@ -808,8 +810,10 @@ def main() -> int:
     parser.add_argument("--no-hybrid", action="store_true")
     parser.add_argument("--report", default=None, help="覆盖 report.name（none/handcrafted）")
     parser.add_argument("--model", default=None, help="覆盖 model.name（codec / hier / codet5cls）")
-    parser.add_argument("--encoder", default=None, help="覆盖 encoder.name（codet5lora / codet5tok / codet5）")
+    parser.add_argument("--encoder", default=None, help="覆盖 encoder.name（codet5blk / codet5lora / codet5tok / codet5）")
     parser.add_argument("--layer", type=int, default=None, help="覆盖 encoder.layer（-1 最后一层 / 0 词嵌入层）")
+    parser.add_argument("--block-batch", type=int, default=None,
+                        help="覆盖 encoder.block_batch（分块编码器每次前向并几块，越小越省显存）")
     parser.add_argument("--freeze-encoder", action="store_true", help="冻结编码器")
     parser.add_argument("--unfreeze-encoder", action="store_true", help="解冻编码器（微调）")
     parser.add_argument("--no-cons", action="store_true", help="v0.4：关掉 cons_pool + cons_pos")
