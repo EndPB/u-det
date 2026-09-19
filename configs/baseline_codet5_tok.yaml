@@ -1,0 +1,72 @@
+# 基线（最强）：整段覆盖的 CodeT5 微调 + 手工报告 + 样本头 & 逐 token 头。
+#
+# 与 configs/baseline_codet5.yaml（旧基线）的三个区别：
+#   1. **不截断**：CodeT5 位置上限 512，旧基线会硬截断到 512；而 hybrid 长度中位 1274 /
+#      max 10475、m4 max 32948 ⇒ 截断只看到开头一小段。这里改**滑动窗口全长覆盖**。
+#   2. **带手工报告**：与 U-Det 主线（configs/udet_v03.yaml / udet_v04.yaml）一致，
+#      否则 line/chunk/token 与 U-Det 不可比。
+#   3. **加逐 token 头**：旧基线只有样本级，结构上跑不出 line/chunk/token F1。
+#
+# 用法：
+#   成本探针 : python train.py --config configs/baseline_codet5_tok.yaml --tag probe --limit 200 --epochs 1
+#   正式跑   : python train.py --config configs/baseline_codet5_tok.yaml --tag base_codet5_tok --epochs 2
+#   评测     : python train.py --config configs/baseline_codet5_tok.yaml --tag base_codet5_tok \
+#                --eval --ckpt runs/base_codet5_tok/best.pt
+#   回归测试 : python train.py --config configs/baseline_codet5.yaml --tag reg --report none
+#              （应逐位复现旧基线的 m4 test sample F1 0.9756）
+#
+# 注意：旧配置里的 train.max_length / train.eval_max_length / train.eval_batch_size
+# 在 train.py 里**从未被读取**（死配置，已 grep 确认），本文件不再写这三个键。
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+
+encoder:
+  name: codet5                                 # 整段上下文编码（CodeT5 n_positions=512）
+  path: checkpoints/codet5-base
+  dtype: float32
+  freeze: false                                # 微调编码器 —— "最强基线"的关键
+  gradient_checkpointing: true                 # ★ 必须：窗口数多，不开会 OOM
+  max_length: 512                              # 窗口长度 = CodeT5 的位置上限
+
+model:
+  name: codet5win                              # 滑动窗口全长覆盖（models/baseline.py）
+  baseline:
+    window: 512                                # 窗口长度
+    stride: 256                                # 步长 = window/2（50% 重叠，接缝平滑）
+                                               # 改成 512 即不重叠：省一半算力，但每个
+                                               # 接缝处的 token 上下文变成单边，逐 token 指标会掉
+    window_batch: 32                           # 一次过编码器的窗口数（控制显存）
+    token_head: true                           # 逐 token 头 -> line/chunk/token F1
+    pooling: mean                              # 样本头：逐窗池化 -> 跨窗平均
+    hidden: null                               # null = 直接线性投影
+    dropout: 0.0
+
+report:
+  name: handcrafted                            # ★ 与 U-Det 主线一致，否则不可比
+  max_tokens: 64
+
+loss:
+  sample: 1.0                                  # 样本级 CE（只在 m4 上回传）
+  token: 1.0                                   # token 级 BCE（只在 hybrid 上有标签）
+  scale_weights: [1.0]                         # 只有 1 个尺度（全分辨率，池化系数 1）
+
+train:
+  streams: [m4, hybrid]                        # 双流：m4 样本级 / hybrid token 级
+  sample_streams: [m4]                         # hybrid 样本标签恒为 1，计入会让样本头退化
+  epochs: 2                                    # 每次 2 epoch 一轮（与 v0.4.x 同协议）
+  batch_size: {m4: 1, hybrid: 1}               # batch=1：窗口在模型内部攒批，外层不必凑批
+  grad_accum: 8                                # 用梯度累积凑有效批大小
+  lr: 0.00002                                  # 微调学习率（旧基线也是 2e-5）
+  lr_encoder: 0.00002
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 20
+  monitor: mean                                # 与 v0.4.x 同口径，便于选 best.pt
+  seed: 0
+  out_dir: runs

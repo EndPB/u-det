@@ -42,7 +42,7 @@ from transformers import AutoTokenizer
 from dataio import build_dataset, collate
 from encoders import build_encoder
 from models import (PooledClassifier, PositionProbes, SampleHead, TokenHeads,
-                    build_hier, position_targets)
+                    WindowedContextClassifier, build_hier, position_targets)
 from report import build_report
 
 ROOT = Path(__file__).resolve().parent
@@ -137,7 +137,9 @@ def cycle(loader):
 # --------------------------------------------------------------------------- #
 # 模型组装
 # --------------------------------------------------------------------------- #
-BASELINE_MODELS = ("codet5cls", "pooled")
+BASELINE_MODELS = ("codet5cls", "pooled", "codet5win", "window")
+#: 用滑动窗口全长覆盖（而非 max_length 截断）的基线名
+WINDOW_MODELS = ("codet5win", "window")
 
 
 class UDet(nn.Module):
@@ -188,8 +190,14 @@ def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
 
     mcfg = dict(cfg["model"])
     name = mcfg.pop("name", "hier")
-    if name in BASELINE_MODELS:                                  # 基线：编码器 -> 池化 -> 线性分类
+    if name in BASELINE_MODELS:                                  # 基线：编码器 -> 池化(可滑窗) -> 分类
         bcfg = dict(mcfg.get("baseline", {}))
+        if name in WINDOW_MODELS:
+            print(f"[model] 基线 WindowedContextClassifier（滑动窗口全长覆盖）"
+                  f"window={bcfg.get('window')} stride={bcfg.get('stride') or 'win/2'} "
+                  f"window_batch={bcfg.get('window_batch', 32)} "
+                  f"token_head={bool(bcfg.get('token_head', True))}")
+            return WindowedContextClassifier(encoder, dim=encoder.hidden_size, **bcfg), encoder
         return PooledClassifier(encoder, dim=encoder.hidden_size, **bcfg), encoder
 
     mcfg.pop("baseline", None)

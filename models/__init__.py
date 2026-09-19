@@ -12,7 +12,7 @@
 新增网络：在 models/ 下新建单文件，并在这里加一个 build_xxx 函数或映射。
 """
 
-from .baseline import PooledClassifier
+from .baseline import PooledClassifier, WindowedContextClassifier
 from .heads import SampleHead, TokenHeads
 from .hier import FrequencyUNet, build_hier as _build_frequnet
 from .hier2 import TransformerCodec, build_codec
@@ -29,5 +29,5 @@ def build_hier(name: str = "hier", **kwargs):
 
 
 __all__ = ["FrequencyUNet", "TransformerCodec", "build_hier", "build_codec",
-           "SampleHead", "TokenHeads", "PooledClassifier",
+           "SampleHead", "TokenHeads", "PooledClassifier", "WindowedContextClassifier",
            "PositionProbe", "PositionProbes", "position_targets"]
