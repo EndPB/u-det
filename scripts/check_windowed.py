@@ -85,6 +85,14 @@ def check_logic(dim: int = 8, window: int = 512, window_batch: int = 7) -> None:
                 if length > 1:
                     spread = (tok_u.max() - tok_u.min()).item()
                     assert spread < 1e-4, f"接缝不平滑：L={length} stride={stride} 极差={spread:.2e}"
+
+                # ⑤ 步长覆盖（按流区分用）：显式传 stride 时形状/覆盖/接缝仍必须正确
+                for s in (window, window // 4):
+                    _, (tok_s,) = net(uniform, mask, stride=s)
+                    assert tok_s.shape == (1, length), f"stride={s} 长度不符：{tuple(tok_s.shape)}"
+                    if length > 1:
+                        sp = (tok_s.max() - tok_s.min()).item()
+                        assert sp < 1e-4, f"stride={s} 接缝不平滑：极差={sp:.2e}"
         print(f"  ✓ window={window} stride={stride or 'win//2'} window_batch={window_batch}："
               f"长度/覆盖/接缝全部通过")
 

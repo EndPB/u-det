@@ -113,7 +113,19 @@ class WindowedContextClassifier(nn.Module):
         False 时返回 ``None``（与 `PooledClassifier` 同接口）。
     pooling / hidden / out / dropout
         与 `PooledClassifier` 同义（只作用于样本头）。
+
+    按流覆盖步长
+    ------------
+    类的属性 ``accepts_stride = True`` 声明本模块接受 ``forward(..., stride=)``。
+    样本级流（m4）不需要重叠 —— 只做池化时接缝毫无意义，而 50% 重叠会让窗口数翻倍。
+    因此 `train.py` 会按 ``model.baseline.stride_by_stream`` 逐流传入：
+    ``m4 -> 512``（不重叠，省一半）、``hybrid -> 256``（50% 重叠，逐 token 接缝平滑）。
+    做成**显式参数**而非可变的内部状态：忘传时只会回退到默认步长（结果仍然正确、
+    只是更慢），不会出现"训练用一种步长、评测用另一种"的静默不一致。
     """
+
+    #: 声明接受 forward(..., stride=)（train.py 按此属性决定要不要传）
+    accepts_stride = True
 
     def __init__(self, encoder: nn.Module, dim: Optional[int] = None, window: int = 512,
                  stride: int = 0, window_batch: int = 32, token_head: bool = True,
@@ -135,17 +147,24 @@ class WindowedContextClassifier(nn.Module):
         self.token_head = nn.Linear(dim, 1) if token_head else None
 
     # ------------------------------------------------------------------ #
-    def _starts(self, length: int) -> list[int]:
-        """窗口起点：首窗贴左端、末窗贴右端、无重复（保证每个位置至少被覆盖一次）。"""
+    def _starts(self, length: int, stride: int | None = None) -> list[int]:
+        """窗口起点：首窗贴左端、末窗贴右端、无重复（保证每个位置至少被覆盖一次）。
+
+        ``stride`` 给定时覆盖 ``self.stride``（用于按流区分：样本级流不需要重叠）。
+        """
+        stride = int(stride) if stride else self.stride
+        if self.window > 0:
+            stride = max(1, min(stride, self.window))       # 步长 > 窗口会漏掉位置，直接夹住
         if self.window <= 0 or length <= self.window:
             return [0]
         last = length - self.window
-        starts = list(range(0, last + 1, self.stride))
+        starts = list(range(0, last + 1, stride))
         if starts[-1] != last:
             starts.append(last)
         return starts
 
-    def _encode(self, input_ids: torch.Tensor, attention_mask: torch.Tensor):
+    def _encode(self, input_ids: torch.Tensor, attention_mask: torch.Tensor,
+                stride: int | None = None):
         """切窗 -> 分批过编码器，返回窗口级特征与原序列下标。
 
         Returns:
@@ -155,7 +174,7 @@ class WindowedContextClassifier(nn.Module):
         """
         batch, length = input_ids.shape
         device = input_ids.device
-        starts = self._starts(length)
+        starts = self._starts(length, stride)
         width = self.window if self.window > 0 else length
         n_win = batch * len(starts)
         batch_idx = torch.arange(batch, device=device).repeat_interleave(len(starts))
@@ -172,11 +191,12 @@ class WindowedContextClassifier(nn.Module):
         width_enc = h.shape[1]                                             # 可能被 max_length 截断
         return h, batch_idx, adv[:, :width_enc], valid[:, :width_enc], length
 
-    def forward(self, input_ids: torch.Tensor, attention_mask: Optional[torch.Tensor] = None):
+    def forward(self, input_ids: torch.Tensor, attention_mask: Optional[torch.Tensor] = None,
+                stride: Optional[int] = None):
         if attention_mask is None:
             attention_mask = torch.ones_like(input_ids)
         batch = input_ids.shape[0]
-        h, batch_idx, adv, valid, length = self._encode(input_ids, attention_mask)
+        h, batch_idx, adv, valid, length = self._encode(input_ids, attention_mask, stride)
         n_win = h.shape[0]
 
         token_logits = None

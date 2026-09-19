@@ -35,9 +35,13 @@ model:
   name: codet5win                              # 滑动窗口全长覆盖（models/baseline.py）
   baseline:
     window: 512                                # 窗口长度
-    stride: 256                                # 步长 = window/2（50% 重叠，接缝平滑）
-                                               # 改成 512 即不重叠：省一半算力，但每个
-                                               # 接缝处的 token 上下文变成单边，逐 token 指标会掉
+    stride: 256                                # 默认步长 = window/2（50% 重叠，接缝平滑），
+                                               # stride_by_stream 里没列到的流用它
+    stride_by_stream: {m4: 512, hybrid: 256}   # ★ 按流覆盖：
+                                               #   m4 是样本级流，只做池化 ⇒ 接缝毫无意义，
+                                               #   用 512（不重叠）把窗口数从 77k 减到 49k；
+                                               #   hybrid 是逐 token 流 ⇒ 保留 256 的 50% 重叠，
+                                               #   否则每个接缝处的 token 上下文变成单边
     window_batch: 32                           # 一次过编码器的窗口数（控制显存）
     token_head: true                           # 逐 token 头 -> line/chunk/token F1
     pooling: mean                              # 样本头：逐窗池化 -> 跨窗平均

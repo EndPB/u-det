@@ -193,9 +193,10 @@ def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
     if name in BASELINE_MODELS:                                  # 基线：编码器 -> 池化(可滑窗) -> 分类
         bcfg = dict(mcfg.get("baseline", {}))
         if name in WINDOW_MODELS:
+            strides = bcfg.pop("stride_by_stream", None) or None           # 只给 train/evaluate 读
             print(f"[model] 基线 WindowedContextClassifier（滑动窗口全长覆盖）"
                   f"window={bcfg.get('window')} stride={bcfg.get('stride') or 'win/2'} "
-                  f"window_batch={bcfg.get('window_batch', 32)} "
+                  f"按流覆盖={strides} window_batch={bcfg.get('window_batch', 32)} "
                   f"token_head={bool(bcfg.get('token_head', True))}")
             return WindowedContextClassifier(encoder, dim=encoder.hidden_size, **bcfg), encoder
         return PooledClassifier(encoder, dim=encoder.hidden_size, **bcfg), encoder
@@ -468,12 +469,26 @@ def prf1(pred: list[int], gold: list[int]) -> dict:
     return {"p": precision, "r": recall, "f1": 2 * precision * recall / max(precision + recall, 1e-9)}
 
 
+def stream_strides(cfg: dict, model: nn.Module) -> dict:
+    """按流覆盖窗口步长（只有 `WindowedContextClassifier` 支持）。
+
+    样本级流（m4）不需要重叠 ⇒ 用 stride=window 可把窗口数减半；
+    token 级流（hybrid）需要接缝平滑 ⇒ 用 window//2。
+    模型不支持时返回空 dict，调用方据此决定要不要传 ``stride=``。
+    """
+    if not getattr(model, "accepts_stride", False):
+        return {}
+    bcfg = cfg.get("model", {}).get("baseline") or {}
+    return dict(bcfg.get("stride_by_stream") or {})
+
+
 @torch.no_grad()
 def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str) -> dict:
     """整段序列逐样本评测（不截断、不滑窗）：m4 出样本级指标；hybrid 出行级/token/片段级指标。"""
     model.eval()
     amp = cfg["train"].get("amp", True) and device == "cuda"
     is_hybrid = name == "hybrid"
+    strides = stream_strides(cfg, model)                          # 按流覆盖窗口步长（空=不传）
 
     sample_logits = torch.zeros(len(dataset), 2)
     token_hits = [[0, 0, 0, 0] for _ in range(len(dataset))]       # tp/fp/fn/tn
@@ -484,8 +499,9 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str) -> di
     for i in tqdm(range(len(dataset)), desc=f"eval {name}", leave=False):
         item = dataset[i]                                          # 已含报告前缀 / token 标签
         ids = torch.tensor([item["input_ids"]], dtype=torch.long, device=device)
+        extra = {"stride": strides.get(name)} if strides else {}
         with torch.autocast("cuda", dtype=torch.bfloat16, enabled=amp):
-            out = model(ids, torch.ones_like(ids))
+            out = model(ids, torch.ones_like(ids), **extra)
         logits_sample, token_logits = out[0], out[1]
         has_token = token_logits is not None
         sample_logits[i] += logits_sample[0].float().cpu()
@@ -631,6 +647,9 @@ def train(cfg: dict, args) -> None:
     monitor = cfg["train"].get("monitor", "mean")
     # 只有启用位置探针（B2）时才额外走 return_down 分支，其余情况与 v0.3 完全相同
     want_aux = float(cfg.get("loss", {}).get("cons_pos", 0.0) or 0.0) > 0 and getattr(model, "accepts_aux", False)
+    strides = stream_strides(cfg, model)                          # 按流覆盖窗口步长（空=不传）
+    if strides:
+        print(f"[model] 按流覆盖窗口步长：{strides}")
     if want_aux:
         print("[loss] 启用下采样位置探针（B2）；以及："
               f"cons_pool={cfg['loss'].get('cons_pool', 0.0)} cons_pos={cfg['loss'].get('cons_pos', 0.0)} "
@@ -659,6 +678,8 @@ def train(cfg: dict, args) -> None:
                 batch = next(iters[name])
                 batch = {k: (v.to(device) if torch.is_tensor(v) else v) for k, v in batch.items()}
                 extra = {"return_aux": True} if want_aux else {}
+                if strides:
+                    extra["stride"] = strides.get(name)           # 样本级流不需要重叠
                 with torch.autocast("cuda", dtype=torch.bfloat16, enabled=amp):
                     out = model(batch["input_ids"], batch.get("attention_mask"), **extra)
                     loss, parts = batch_losses(cfg, out[0], out[1], batch, device,
