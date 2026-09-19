@@ -1,0 +1,100 @@
+# U-Det v0.4.2 配置：在 v0.4.1（门控 + A/B2/B3 损失）基础上，**只改编码器的使用方式**。
+#
+# 唯一变量：编码器的输入从"逐位置单独"改成"分块"
+#   v0.4.1  encoder.name: codet5lora
+#           每个 token 单独前向（序列长度 = 1）⇒ softmax 只有一个元素恒为 1，
+#           **attention 完全退化，q/k 是死参数**（这也是它的 LoRA 目标里没有 q/k 的原因）。
+#   v0.4.2  encoder.name: codet5blk
+#           每 block=128 个 token 作为一个块一起前向（序列长度 = 128）⇒ 块内 attention
+#           真实存在，每个 token 能看到同块内其余 127 个 token 的上下文。
+#
+# ★ 块的输入 / 输出向量数严格 1:1（128 进 128 出，不池化、不重叠、不跨样本边界），
+#   所以对下游完全透明：仍返回 (B, L, D)，models/hier2.py 与 heads 都不用动。
+#   长度也仍然无上限（块间独立，不受 n_positions=512 限制，也没有 O(L²) 整段 attention）。
+#
+# block=128 的取舍：
+#   * 块内 attention 只占全模型 FLOPs 的约 8%（12 层、128² 的 QK^T/AV 相对 FFN 可忽略）；
+#   * 反而**比 v0.4.1 更快**：v0.4.1 受 compile 静态图约束，每个样本都要补齐到 chunk=2048
+#     个位置（中位数只有 293 token 的 m4 样本要浪费 6 倍算力）；分块后只需 ceil(L/128) 个块，
+#     中位样本 m4 用 384、hybrid 用 1280 个位置，总 token 处理量约降到 0.44 倍；
+#   * 128 是"块内足以消歧、又远小于 512 硬上限"的折中；64 / 256 是下一步的扫描点。
+#
+# LoRA 目标**特意与 v0.4.1 保持一致**（[v, o, wi, wo]），以保证只有一个变量在变。
+# 注意：分块让 q/k 从"死参数"变成"活参数"，所以把 q/k 加进 LoRA 目标是本次改动解锁的
+# 新能力 —— 但那是第二个变量，留作后续消融（configs/udet_v042_qk.yaml）。
+#
+# loss 段与 configs/udet_v04_cons.yaml 逐字相同（门控 + A + B2 + B3 全开）。
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+
+encoder:
+  name: codet5blk                               # ← 与 v0.4.1 的唯一区别
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  block: 128                                    # 块大小 K（输入输出各 K 个向量）
+  block_batch: 16                               # 一次前向并 16 块 = 2048 个位置
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]                       # 与 v0.4.1 一致（单变量对照）
+  ckpt: true
+  compile: false                                # 块数随长度变化，静态图收益不明确，先关
+  freeze: false
+  max_length: 512                               # 对 codet5blk 是空操作（分块无长度上限）
+
+model:
+  name: codec
+  dim: 768
+  depth: 4
+  mid: 4
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  divs: [4, 4, 2, 2]
+  wins: [16, 16, 16, 32]
+  share: false
+  gate: true                                    # v0.4.0 的结构改造
+  gate_init: -1.0
+
+heads:
+  sample_hidden: 256
+  sample_dropout: 0.0
+
+report:
+  name: handcrafted
+  max_tokens: 64
+
+loss:
+  sample: 1.0
+  token: 1.0
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]
+  class_weights: null
+  token_target: [lse, lse, lse, mean, mean]     # ★ B3：粗三级换成软 max（由粗到细）
+  token_target_beta: 4.0                        # lse 锐化系数
+  cons_pool: 0.3                                # ★ A：层级一致性
+  cons_pool_weights: [1, 1, 1, 1]
+  cons_pool_detach: true                        # 自蒸馏（目标不回传）
+  cons_pos: 0.2                                 # ★ B2：下采样位置探针
+  cons_pos_weights: [1, 1, 1, 1]
+  cons_pos_hidden: 256
+
+train:
+  streams: [m4, hybrid]
+  sample_streams: [m4]
+  epochs: 2
+  grad_accum: 8
+  lr: 0.0003
+  lr_encoder: 0.00005
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 200
+  monitor: mean
+  seed: 0
+  out_dir: runs

@@ -1,11 +1,13 @@
 """编码器模块：按名称一键切换。
 
-内置三种（对应同一套 CodeT5 权重）：
+内置四种（对应同一套 CodeT5 权重）：
 
     codet5tok  逐 token 独立编码（长度=1）→ 预计算 (vocab, D) 查表；
                训练零编码开销、长度无上限，U-Det 默认。
     codet5lora 逐 token 独立编码（长度=1）+ peft LoRA；同样无上下文，
                但每步现算、梯度回流进 CodeT5 的 LoRA 适配器。
+    codet5blk  分块编码（长度=K）+ peft LoRA；**块内 attention 真实存在**、
+               块间独立，输入/输出向量数严格 1:1（不池化），长度仍无上限。
     codet5     上下文编码（整段进编码器，受 512 位置 / attention 限制）。
 
 新增编码器只需两步：
@@ -18,17 +20,18 @@
 
     from encoders import build_encoder, list_encoders
 
-    print(list_encoders())                                   # ['codet5', 'codet5lora', 'codet5tok']
+    print(list_encoders())                        # ['codet5', 'codet5blk', 'codet5lora', 'codet5tok']
     encoder = build_encoder("codet5tok", path="checkpoints/codet5-base")
 """
 
-from .codet5 import CodeT5Encoder, CodeT5LoRAEncoder, CodeT5TokenEncoder
+from .codet5 import CodeT5BlockEncoder, CodeT5Encoder, CodeT5LoRAEncoder, CodeT5TokenEncoder
 
 # 编码器注册表：名称 -> 类（切换编码器只需要改这里的 name）
 ENCODERS = {
     "codet5": CodeT5Encoder,
     "codet5tok": CodeT5TokenEncoder,
     "codet5lora": CodeT5LoRAEncoder,
+    "codet5blk": CodeT5BlockEncoder,
 }
 
 

@@ -388,3 +388,167 @@ class CodeT5LoRAEncoder(nn.Module):
         if attention_mask is not None:
             out = out * attention_mask.unsqueeze(-1).to(out.dtype)
         return out
+
+
+def _build_lora_t5(path: str, dtype, r: int, alpha: int, dropout: float, targets):
+    """加载**全冻结**的 CodeT5 encoder 并注入 peft LoRA。
+
+    ``codet5lora`` 与 ``codet5blk`` 共用同一套底座构造（差别只在 forward 怎么切序列）。
+    返回 ``(peft_model, base_config)``；两者的 ``state_dict`` 键结构完全一致，
+    因此可以互相 ``load_state_dict``（自检里用来做逐位回归）。
+    """
+    torch_dtype = _DTYPES.get(dtype, dtype) if isinstance(dtype, str) else dtype
+    load_kwargs = {"local_files_only": os.path.isdir(path)}
+    try:
+        base = T5EncoderModel.from_pretrained(path, **{_dtype_kwarg(): torch_dtype}, **load_kwargs)
+    except (TypeError, ValueError):
+        base = T5EncoderModel.from_pretrained(path, **load_kwargs).to(torch_dtype)
+
+    base.requires_grad_(False)                       # 底座先全冻，再由 peft 开适配器
+    lora_cfg = LoraConfig(
+        task_type=TaskType.FEATURE_EXTRACTION,
+        r=int(r),
+        lora_alpha=int(alpha),
+        lora_dropout=float(dropout),
+        bias="none",
+        target_modules=[str(t) for t in targets],
+    )
+    return get_peft_model(base, lora_cfg), base.config
+
+
+class CodeT5BlockEncoder(nn.Module):
+    """**分块**过 LoRA 版 CodeT5：块内 token 之间有真正的 attention，块间彼此独立。
+
+    与 ``codet5lora`` 的**唯一**区别是"一次喂几个 token"：
+
+        codet5lora  每个 token 单独前向（序列长度 = **1**）⇒ softmax 只有一个元素恒为 1，
+                    **attention 完全退化，q / k 是死参数**（所以它的 LoRA 目标里没有 q/k）。
+        codet5blk   每 ``block`` 个 token 作为一个**块**一起前向（序列长度 = **K**）⇒ 块内
+                    attention 真实存在，每个 token 能看到同块内其余 K-1 个 token 的上下文。
+
+    ★ **块的输入 / 输出向量数严格 1:1**（K 进 K 出，不池化、不重叠、不跨样本边界），
+    所以对下游完全透明：返回的仍是 ``(B, L, D)``，``models/hier2.py`` 一行都不用改。
+    长度也仍然无上限 —— 块与块相互独立，既不受 ``n_positions=512`` 限制，
+    也没有 O(L²) 的整段 attention。
+
+    长度处理：每条的序列按 K 切块，**只有末块**用 ``pad_id`` 补齐并在 attention 里屏蔽
+    （末块之前的所有块都是满的）；输出里所有 padding 位置最后被 ``attention_mask`` 置零。
+
+    Args:
+        block: 块大小 K（默认 128）。
+        block_batch: 一次前向并多少个块（默认 16 ⇒ 16×128 = 2048 个 token）。
+        path / dtype / layer: 与 ``CodeT5Encoder`` 一致。
+        r / alpha / dropout / targets: 传给 peft ``LoraConfig``（attention 已"复活"，q/k 可以放进来了）。
+        ckpt: 是否对每个前向分片做梯度检查点。
+        pad_id: 补齐用的 token id（0 = ``<pad>``）。
+        compile: 是否对分片前向做 ``torch.compile``（块数随样本长度变化，故用 ``dynamic=True``）。
+    """
+
+    def __init__(
+        self,
+        path: str = "checkpoints/codet5-base",
+        dtype: str = "float32",
+        layer: int = -1,
+        block: int = 128,
+        block_batch: int = 16,
+        r: int = 16,
+        alpha: int = 32,
+        dropout: float = 0.0,
+        targets=("q", "k", "v", "o"),
+        ckpt: bool = True,
+        pad_id: int = 0,
+        compile: bool = False,
+        **ignored,
+    ):
+        # lut / freeze / max_length / chunk 等在分块语义下无意义，统一接收并忽略，
+        # 方便在 cfg 里直接改一行 encoder.name 就切过来。
+        super().__init__()
+        self.model, base_cfg = _build_lora_t5(path, dtype, r, alpha, dropout, targets)
+        self.n_lora = sum(p.numel() for p in self.model.parameters() if p.requires_grad)
+        if self.n_lora == 0:
+            raise ValueError(f"LoRA 未命中任何层（targets={targets}）")
+
+        self._d_model = int(base_cfg.d_model)
+        self._n_layers = int(base_cfg.num_layers)
+        self.layer = int(layer)
+        self.block = max(1, int(block))
+        self.block_batch = max(1, int(block_batch))
+        self.ckpt = bool(ckpt)
+        self.pad_id = int(pad_id)
+        self.model.eval()                            # 底座恒 eval，关掉 CodeT5 内部 dropout
+        if compile:
+            self._blocks = torch.compile(self._blocks, dynamic=True)
+        print(f"[codet5blk] 分块过 LoRA CodeT5：block={self.block} block_batch={self.block_batch}"
+              f"（每前向 {self.block * self.block_batch} token）r={r} alpha={alpha} "
+              f"targets={list(targets)}；可训练 {self.n_lora / 1e6:.3f}M，底座 {self._n_layers} 层冻结；"
+              f"ckpt={self.ckpt} compile={compile}")
+
+    # ------------------------------------------------------------------ #
+    @property
+    def hidden_size(self) -> int:
+        return self._d_model
+
+    @property
+    def num_layers(self) -> int:
+        return self._n_layers
+
+    def train(self, mode: bool = True):
+        """底座恒为 eval（关掉 CodeT5 内部 dropout），块内特征保持确定。"""
+        super().train(mode)
+        self.model.eval()
+        return self
+
+    def _blocks(self, ids: torch.Tensor, mask: torch.Tensor) -> torch.Tensor:
+        """(nb, K) -> (nb, K, D)：块内带 attention 的前向。"""
+        out = self.model(
+            input_ids=ids,
+            attention_mask=mask,
+            output_hidden_states=self.layer != -1,
+            return_dict=True,
+        )
+        return out.last_hidden_state if self.layer == -1 else out.hidden_states[self.layer]
+
+    def forward(
+        self,
+        input_ids: torch.Tensor = None,
+        attention_mask: torch.Tensor = None,
+        **kwargs,
+    ) -> torch.Tensor:
+        """(B, L) token id -> (B, L, D) 分块上下文特征（padding 位置置零）。"""
+        batch, length = input_ids.shape
+        if length == 0:                                     # 空序列（理论边界，保证不报错）
+            return input_ids.new_zeros(batch, 0, self._d_model).to(torch.float32)
+        if attention_mask is None:
+            attention_mask = input_ids.new_ones(batch, length)
+        keep = attention_mask                               # 原始 mask（B, L），最后用来清零
+
+        k = self.block
+        nblk = (length + k - 1) // k
+        pad_len = nblk * k - length
+        ids, mask = input_ids, attention_mask
+        if pad_len:
+            ids = F.pad(ids, (0, pad_len), value=self.pad_id)
+            mask = F.pad(mask, (0, pad_len), value=0)
+
+        ids = ids.reshape(batch * nblk, k)                  # (B·nblk, K)：块与块不跨样本
+        mask = mask.reshape(batch * nblk, k)
+        # 整块全 pad 在正常路径下不会出现（末块之前都是满块），但全 0 的 attention mask 会让
+        # softmax 全 -inf 得到 NaN，所以兜一手：给这种块留一个"可看"的位置。
+        # 这些位置随后仍会被 keep 置零，因此不改变任何有效输出。
+        dead = mask.sum(-1) == 0
+        if bool(dead.any()):
+            mask = mask.clone()
+            mask[dead, 0] = 1
+        pieces = []
+        for start in range(0, ids.shape[0], self.block_batch):
+            ids_b = ids[start:start + self.block_batch]
+            mask_b = mask[start:start + self.block_batch]
+            if self.training and self.ckpt:
+                hidden = checkpoint(self._blocks, ids_b, mask_b, use_reentrant=False)
+            else:
+                hidden = self._blocks(ids_b, mask_b)
+            pieces.append(hidden)
+        out = pieces[0] if len(pieces) == 1 else torch.cat(pieces, 0)
+        out = out.reshape(batch, nblk * k, -1)[:, :length]
+        return out * keep.unsqueeze(-1).to(out.dtype)
+
