@@ -1511,6 +1511,48 @@ P2 全部是**在冻结的 v0.4.5 上做"事后重加权"**：它回答的是
 * ⇒ **改动 2 的动机从"语义上有问题"升级为"实测代价巨大"**：
   在短文档上，报告正在争夺主干**最稀缺**的资源。
 
+#### 8.12.8 实现与验证（✅ 已完成，2ep 训练中）
+
+**改动清单**（`report.mode: prefix` + `token_weight_mode: static` 时**逐位保持旧行为**）：
+
+| 位置 | 改动 |
+| --- | --- |
+| `train.py: scale_weights_length` | 新增：$w_i=\sigma((\log_2 n_i-\log_2 N_{\min})/\tau)$，$n_i$ 取 `logits.shape[-1]` |
+| `train.py: token_loss` | 新增 `weight_mode / nmin / tau`，默认 `static` |
+| `train.py: batch_losses` | 透传 `loss.token_weight_mode / nmin / tau` |
+| `train.py: make_report` | **报告构造的唯一入口**（否则 vector 模式的标准化常数会对不上，**而且不报错**） |
+| `train.py: UDet.forward` | 接受 `report`，**只传给样本头** |
+| `report/handcrafted.py` | 新增 `VECTOR_KEYS` 与 `vector(code)`（7 维、固定标准化、截断 ±5） |
+| `dataio/base.py` | 新增 `report_mode`：`prefix` / `vector` / `none`；`vector` **不改** `input_ids`/`tok_labels` |
+| `models/heads.py: SampleHead` | 新增 `report_dim`；为 `0` 时该分支不存在 |
+| `configs/udet_v046.yaml` | `N_min=64, τ=0.5`；`report.mode=vector`；`heads.report_dim=7` |
+
+**验证**（`scripts/check_v046.py`，全部通过）：
+
+| 检查 | 结果 |
+| --- | --- |
+| `weight_mode="static"` == 历史 | ✅ **逐位相同** |
+| `SampleHead(report_dim=0)` == 历史 | ✅ **逐位相同** |
+| `report_dim=0` 却收到 report ⇒ 报错 | ✅（防静默忽略） |
+| `report_dim>0` 却没收到 ⇒ 报错 | ✅ |
+| `vector` 模式的 `input_ids` / `tok_labels` == 不带报告 | ✅ **完全一致** |
+| 参数量增量 | ✅ **+8512** |
+| **端到端回归**：用 `udet_v045.yaml` 重评 v0.4.5 的 `best.pt` | ✅ **`metrics` 逐位一致** |
+
+**实际生效的权重形状**（$N_{\min}=64,\ \tau=0.5$）：
+
+| L | $n_i$ | 归一化权重（由粗到细） |
+| --- | --- | --- |
+| 512 | 8 / 16 / 32 / 128 / 512 | 0.0012 / 0.0089 / 0.0591 / 0.4365 / **0.4943** |
+| 1274（hybrid 中位） | 20 / 40 / 80 / 319 / 1274 | 0.012 / 0.071 / 0.227 / 0.344 / **0.347** |
+| 静态对照 | — | 0.067 / 0.133 / 0.200 / 0.267 / 0.333 |
+
+⚠️ 注意 L=512 一档：**最粗三级几乎被压到 0** ⇒ 短文档上多尺度深监督等同于只剩两级。
+（hybrid 中位长度下是温和偏移，不是极端值 —— 所以这个副作用在平均指标上可能看不出来。）
+
+**运行**：`scripts/queue_v046.sh`（2 epoch + `--eval --dump-raw`），看门狗 `v0.4.6`。
+预计 ~2h10m。评测后要做的判据见 §8.12.4 的表。
+
 ---
 
 ## 9. 结论与后续

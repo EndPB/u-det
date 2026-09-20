@@ -56,11 +56,17 @@ def collate(batch: list[dict], pad_id: int = 0, multiple: int = 1) -> dict:
         if item["tok_labels"] is not None:
             tok_labels[row, :n] = torch.tensor(item["tok_labels"], dtype=torch.long)
 
+    # v0.4.6：报告向量（report.mode=vector 时才有值；其余模式一律为 None）
+    rep_vec = None
+    if any(b.get("report") is not None for b in batch):
+        rep_vec = torch.tensor([b["report"] for b in batch], dtype=torch.float32)
+
     return {
         "input_ids": input_ids,
         "attention_mask": attention_mask,
         "tok_labels": tok_labels,
         "labels": torch.tensor([b["label"] for b in batch], dtype=torch.long),
         "codes": [b["code"] for b in batch],
+        "report": rep_vec,
         "meta": [b["meta"] for b in batch],
     }

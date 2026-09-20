@@ -40,11 +40,19 @@ class SampleHead(nn.Module):
     """
 
     def __init__(self, dim: int, hidden: Optional[int] = None, out: int = 2, dropout: float = 0.0,
-                 n_levels: int = 1):
+                 n_levels: int = 1, report_dim: int = 0, report_proj: int = 32):
         super().__init__()
         hidden = int(hidden or dim)
         self.n_levels = max(1, int(n_levels))
-        width = int(dim) * self.n_levels
+        self.report_dim = max(0, int(report_dim))
+        # v0.4.6：手工统计报告作为**文档级全局向量**注入，不再作为前缀 token 进序列。
+        #   report_dim = 0 ⇒ 整条分支不存在，权重形状与历史**逐位一致**（老 ckpt 可直接载）。
+        self.report_width = 0
+        if self.report_dim > 0:
+            self.report_width = max(1, int(report_proj))
+            self.report_mlp = nn.Sequential(
+                nn.Linear(self.report_dim, self.report_width), nn.GELU())
+        width = int(dim) * self.n_levels + self.report_width
         self.dim, self.width = int(dim), width
         self.norm = nn.LayerNorm(width)
         self.net = nn.Sequential(
@@ -59,12 +67,17 @@ class SampleHead(nn.Module):
         w = mask.unsqueeze(-1).to(x.dtype)
         return (x * w).sum(dim=1) / w.sum(dim=1).clamp(min=1.0)
 
-    def forward(self, x, mask: Optional[torch.Tensor] = None) -> torch.Tensor:
+    def forward(self, x, mask: Optional[torch.Tensor] = None,
+                report: Optional[torch.Tensor] = None) -> torch.Tensor:
         """返回 (B, out)。
 
         ``x`` 可以是单尺度 (B, L, D)，也可以是 ``[(B, L_k, D)] * n_levels`` 的多尺度列表。
         注意 ``mask`` 只适用于**单尺度**（各尺度长度不同，无法共用一个 mask）；
         U-Det 全流程 batch=1 且不补 padding，所以一直是 mask=None。
+
+        ``report``：v0.4.6 的文档级手工统计向量 (B, report_dim)。
+        配了 report_dim 时**必需**；未配时必须为空 —— 两边都用报错而非静默忽略，
+        避免出现"以为接上了其实没接"这种只有看指标才能发现的错误。
         """
         if isinstance(x, (list, tuple)):
             xs = list(x[: self.n_levels])
@@ -76,6 +89,17 @@ class SampleHead(nn.Module):
             pooled = parts[0] if len(parts) == 1 else torch.cat(parts, dim=-1)
         else:
             pooled = self._pool(x, mask)
+        if self.report_dim > 0:
+            if report is None:
+                raise ValueError(f"SampleHead 配了 report_dim={self.report_dim}，但没有收到 report 向量")
+            r = torch.as_tensor(report, dtype=pooled.dtype, device=pooled.device)
+            if r.dim() == 1:
+                r = r.unsqueeze(0)
+            if r.shape[-1] != self.report_dim:
+                raise ValueError(f"report 维度 {r.shape[-1]} != report_dim {self.report_dim}")
+            pooled = torch.cat([pooled, self.report_mlp(r)], dim=-1)
+        elif report is not None:
+            raise ValueError("SampleHead 未配 report_dim，却收到了 report 向量（配置不一致）")
         return self.net(self.norm(pooled))
 
 

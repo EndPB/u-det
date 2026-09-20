@@ -18,8 +18,10 @@ import torch.utils.data as tud
 
 
 class BaseTokenDataset(tud.Dataset):
-    def __init__(self, report=None, train: bool = True, seed: int = 0):
+    def __init__(self, report=None, train: bool = True, seed: int = 0, report_mode: str = "prefix"):
         self.report = report
+        # v0.4.6：prefix（默认、历史行为）/ vector（数值向量，**不进序列**）/ none
+        self.report_mode = report_mode
         self.train = train
         self.seed = seed
         self.ids: List[List[int]] = []
@@ -34,17 +36,25 @@ class BaseTokenDataset(tud.Dataset):
     def __getitem__(self, index: int) -> dict:
         ids = list(self.ids[index])                 # 整段代码，不截断
         tok = None if self.tok is None else list(self.tok[index])
+        rep_vec = None
 
-        if self.report is not None:                 # 报告 token 前缀（整段代码统计，不含标签）
-            prefix = self.report.ids(self.codes[index])
+        mode = self.report_mode
+        if self.report is not None and mode == "prefix":
+            prefix = self.report.ids(self.codes[index])      # 报告 token 前缀（统计整段，不含标签）
             if prefix:
                 ids = prefix + ids
                 tok = None if tok is None else [-100] * len(prefix) + tok
+        elif self.report is not None and mode == "vector":
+            # ★ 关键：**不改 input_ids / tok_labels**，报告完全不占序列位置。
+            rep_vec = self.report.vector(self.codes[index])
+            if rep_vec is None:
+                raise ValueError(f"report_mode='vector' 但报告 {self.report.name!r} 不支持 vector()")
 
         return {
             "input_ids": ids,
             "tok_labels": tok,
             "label": int(self.labels[index]),
             "code": self.codes[index],
+            "report": rep_vec,
             "meta": dict(self.meta[index]) if index < len(self.meta) else {},
         }

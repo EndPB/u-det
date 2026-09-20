@@ -1,0 +1,131 @@
+# U-Det v0.4.6：**两项互不重叠的改动** —— 长度感知的 token 尺度权重 + 报告改文档级向量。
+#
+# 基线 = v0.4.5（configs/udet_v045.yaml）。相对它只有这几处不同：
+#   loss.token_weight_mode / token_weight_nmin / token_weight_tau   ← 改动 1（只动 token 级）
+#   report.mode / report.stats_mean / report.stats_std              ← 改动 2（只动文档级头）
+#   heads.report_dim / heads.report_proj
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# 改动 1：把静态尺度权重 [0.2,0.4,0.6,0.8,1.0] 换成
+#         w_i = σ( (log2 n_i − log2 N_min) / τ )，n_i = 该尺度的**真实位置数**
+#   直觉（用户提出）：短文本、更细粒度的判断应该更参考**高分辨率**的尺度。
+#
+#   ★★ 取值来自零训练探针（docx/u-det-v0.4.md §8.12.5），不是拍脑袋：
+#       在冻结 v0.4.5 上做「只换权重、不换预测」的加权 BCE（越小越好）：
+#         静态 [0.2..1.0]      0.3994
+#         N_min=8,  τ=1        0.4199   ← 原提案，**四个长度桶全部更差**
+#         N_min=64, τ=0.5      0.3921   ← 本配置（短桶最优，整体优于静态）
+#         N_min=8192,τ=0.5     0.3702   （探针最优，但等于废掉多尺度深监督，不采用）
+#
+#   ⚠️ 已知局限（已记入 §8.12.2 / §8.12.5-④，用户要求「先试但记下」）：
+#      该公式只有两个退化 regime ——
+#        n_i ≫ N_min ⇒ 5 个权重全趋 1（**均匀**）；n_i ≪ N_min ⇒ 权重 **与 L 无关**。
+#      实测：N_min=8192,τ=0.5 时 L=293 与 L=8192 的归一化权重几乎逐位相同
+#      ⇒ **它无法表达「短文档温和、长文档激进」**；长度依赖只在过渡带 L ~ N_min·s_i。
+#      长文档恰好是本项目样本最少的区间（>8192 只有 5 个）⇒ 最容易漏掉问题。
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# 改动 2：报告**不再作为前缀 token 进序列**，改为
+#         「7 维统计量 → 固定标准化 → 小 MLP → 拼到文档级头的多尺度池化向量上」。
+#   动机来自实测（§8.12.7）：m4 有 **48% 的样本 L<256（中位仅 91 token）**，
+#   而报告前缀固定约 55 token ⇒ **占掉瓶颈整整一半的位置**（占比中位 0.500，
+#   其中 66% 的样本 ≥50%）。原估「最多 20%」是低估。
+#
+#   ★ 按要求：**不过编码器、不接瓶颈输入**（接瓶颈会改动整条上采样通路、连带改 token 级）、
+#     小 MLP、只喂文档级头。旧行为用 `report.mode: prefix` 完全保留。
+#   ★ 参数增量：Linear(7→32) + 首层加宽 32 维 ≈ **8.2K**。
+#
+#   ⚠️ 预期收益有限：P3 显示统计量**确有信号**（分桶 acc 全面优于纯长度规则），
+#      但对 v0.4.5 **分错**的样本几乎无互补（acc 0.5333 ≈ 随机）
+#      ⇒ 收益主要来自「移走前缀的代价」，而不是「补上新的信息」。
+#   ⚠️ 另两个实测事实：`tail`（尾部空行）在 m4 train 上**恒为 0**（死特征）；
+#      `linev` 重尾（std 6.9e5 被极端值主导）⇒ vector() 里截断到 ±5。
+#
+# 预期：短文档（报告占瓶颈最多的区间）的**文档级**应改善；token 级看权重改动是否生效。
+# 只跑 2 epoch 看方向。
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+
+encoder:
+  name: codet5blk
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  block: 128
+  block_batch: 16
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]
+  static: true
+  ckpt: true
+  compile: true
+  freeze: false
+  max_length: 512
+
+model:
+  name: codec
+  dim: 768
+  depth: 4
+  mid: 4
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  divs: [4, 4, 2, 2]
+  wins: [16, 16, 16, 32]
+  share: false
+  gate: true
+  gate_init: -1.0
+
+heads:
+  sample_hidden: 256
+  sample_dropout: 0.0
+  sample_levels: 5
+  token_bypass: true
+  report_dim: 7                                 # ★ 改动 2：样本头接入 7 维报告向量
+  report_proj: 32                               #   小 MLP 的宽度（参数量 +8.2K）
+
+report:
+  name: handcrafted
+  mode: vector                                  # ★ 改动 2：prefix（默认）/ vector / none
+  max_tokens: 64                                #   仅 prefix 模式使用
+  # 固定标准化常数：在 m4 train(16069) 上算得（见 §8.12.7 与 scripts/probe_report.py）
+  stats_mean: [0.258469, 0.739953, 0.0, 4.29721, 6.38067, 0.25501, 15715.4]
+  stats_std: [0.223064, 0.259723, 0.0, 0.415286, 0.737291, 0.198037, 694916.0]
+
+loss:
+  sample: 1.0
+  token: 1.0
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]     # 仅 weight_mode=static 时使用
+  token_weight_mode: length                     # ★ 改动 1：static / length
+  token_weight_nmin: 64                         #   N_min
+  token_weight_tau: 0.5                         #   τ
+  class_weights: null
+  token_target: [lse, lse, lse, mean, mean]
+  token_target_beta: 4.0
+  cons_pool: 0.3
+  cons_pool_weights: [1, 1, 1, 1]
+  cons_pool_detach: true
+  cons_pos: 0.2
+  cons_pos_weights: [1, 1, 1, 1]
+  cons_pos_hidden: 256
+
+train:
+  streams: [m4, hybrid]
+  sample_streams: [m4]
+  epochs: 2
+  grad_accum: 8
+  lr: 0.0003
+  lr_encoder: 0.00005
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 200
+  monitor: mean
+  seed: 0
+  out_dir: runs

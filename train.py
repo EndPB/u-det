@@ -163,15 +163,19 @@ class UDet(nn.Module):
         self.pos_probes = pos_probes
 
     def forward(self, input_ids: torch.Tensor, attention_mask: torch.Tensor | None = None,
-                return_aux: bool = False):
-        """返回 ``(sample_logits, token_logits)``；``return_aux=True`` 时多返一个 aux dict。"""
+                return_aux: bool = False, report: torch.Tensor | None = None):
+        """返回 ``(sample_logits, token_logits)``；``return_aux=True`` 时多返一个 aux dict。
+
+        ``report``：v0.4.6 的文档级统计向量，**只喂样本头** ——
+        按要求不接瓶颈输入，因为那会改动整条上采样通路、连带改变 token 级。
+        """
         feats = self.encoder(input_ids)                          # (B, L, D)，整段不截断
         if return_aux and self.pos_probes is not None:
             levels, _, downs = self.backbone(feats, return_features=True, return_down=True)
         else:
             levels, _ = self.backbone(feats, return_features=True)
             downs = None
-        sample_logits = self.sample_head(levels)                 # 多尺度池化 -> (B, 2)
+        sample_logits = self.sample_head(levels, report=report)   # 多尺度池化 (+报告) -> (B, 2)
         token_logits = None if self.token_heads is None else self.token_heads(levels, feats)
         if not return_aux:
             return sample_logits, token_logits
@@ -213,11 +217,19 @@ def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
     n_levels = max(1, min(n_req, n_avail))
     if n_levels != n_req:
         print(f"[model] heads.sample_levels 请求 {n_req}，但主干只有 {n_avail} 个尺度 ⇒ 夹到 {n_levels}")
+    # v0.4.6：报告改为文档级向量时，从 heads 段读它的维度（0 = 不接，与历史逐位一致）
+    rep_dim = int(heads.get("report_dim", 0) or 0)
+    rep_proj = int(heads.get("report_proj", 32))
     sample_head = SampleHead(backbone.dim, hidden=heads.get("sample_hidden"),
-                             dropout=heads.get("sample_dropout", 0.0), n_levels=n_levels)
+                             dropout=heads.get("sample_dropout", 0.0), n_levels=n_levels,
+                             report_dim=rep_dim, report_proj=rep_proj)
+    if rep_dim > 0:
+        print(f"[model] 样本头接入**文档级报告向量**（{rep_dim} -> {rep_proj} 维，"
+              f"只喂样本头、不进序列、不进瓶颈）")
     if n_levels > 1:
         print(f"[model] 样本头读 {n_levels} 个尺度（由粗到细，跨度 64→1）：各自池化后拼接，"
-              f"宽度 {backbone.dim * n_levels}（vs 只读瓶颈的 {backbone.dim}）")
+              f"宽度 {backbone.dim * n_levels}" + (f" + {rep_proj}（报告）" if rep_dim > 0 else "")
+              + f"（vs 只读瓶颈的 {backbone.dim}）")
     if getattr(backbone, "sample_only", False):
         token_heads = None
         print("[model] 单任务模式（主干 sample_only=True）：不建 token 头、不建上采样/跳连路径，"
@@ -266,18 +278,48 @@ def _aggregate_target(t: torch.Tensor, v: torch.Tensor, k: int, mode: str, beta:
     raise ValueError(f"未知 token_target 模式 {mode!r}，可选：mean / max / lse")
 
 
+def scale_weights_length(logit_scales: list[torch.Tensor], nmin: float = 64.0,
+                         tau: float = 0.5) -> list[float]:
+    """v0.4.6：长度感知的逐尺度权重  w_i = σ((log2 n_i − log2 N_min) / τ)。
+
+    ``n_i`` 取**该尺度的真实位置数** ``logits.shape[-1]``（而不是 L/s_i）——
+    它就是 `_aggregate_target` 用的同一个量，两者必须一致。
+    短文档的粗尺度位置数少 ⇒ w 被压低 ⇒ 权重自动向**高分辨率尺度**集中，
+    与「短文本更该参考浅层/高分辨率」的直觉一致。
+
+    ★ 已知局限（探针实测确认，见 docx/u-det-v0.4.md §8.12.5-④）：
+      本函数只有两个退化 regime ——
+        · n_i ≫ N_min  ⇒ 5 个权重全趋 1（**均匀**，实测是最差的非退化解）；
+        · n_i ≪ N_min  ⇒ 权重 ∝ (1/s_i)^(1/τ)（**与 L 无关**，实测 L=293 与 L=8192 几乎逐位相同）。
+      所以它**无法表达“短文档温和、长文档激进”**；长度依赖只存在于过渡带 L ~ N_min·s_i。
+      当前取值 N_min=64 / τ=0.5 是探针在冻结 v0.4.5 上扫出来的加权 BCE：
+      静态 0.3994 / N_min=8 0.4199（**更差**）/ N_min=64 0.3921（更优）。
+    """
+    lo = math.log2(max(float(nmin), 1e-9))
+    return [1.0 / (1.0 + math.exp(-((math.log2(max(float(t.shape[-1]), 1.0)) - lo) / tau)))
+            for t in logit_scales]
+
+
 def token_loss(logit_scales: list[torch.Tensor], tok_labels: torch.Tensor,
                weights: list[float], ignore: int = IGNORE,
-               modes: list[str] | None = None, beta: float = 4.0) -> torch.Tensor | None:
+               modes: list[str] | None = None, beta: float = 4.0,
+               weight_mode: str = "static", nmin: float = 64.0,
+               tau: float = 0.5) -> torch.Tensor | None:
     """各尺度 token 级 BCE：标签按尺度池化成目标（默认平均池化软标签）。
 
     Args:
         modes: 逐尺度（由粗到细）的聚合方式，见 `_aggregate_target`；None = 全部 mean。
         beta: ``lse`` 模式的锐化系数。
+        weight_mode: ``static``（默认，直接用 ``weights``，与历史**逐位一致**）
+            或 ``length``（v0.4.6，改用 `scale_weights_length`）。
     """
     valid = (tok_labels != ignore)
     if not valid.any():
         return None
+    if weight_mode == "length":
+        weights = scale_weights_length(logit_scales, nmin, tau)
+    elif weight_mode != "static":
+        raise ValueError(f"未知 weight_mode {weight_mode!r}，可选：static / length")
     target = tok_labels.clamp(min=0).float()
     length = tok_labels.shape[-1]
     modes = list(modes or ["mean"] * len(logit_scales))
@@ -420,7 +462,10 @@ def batch_losses(cfg: dict, sample_logits: torch.Tensor, token_logits: list[torc
         l_token = token_loss(token_logits, tok_labels,
                              loss_cfg.get("scale_weights", [1.0] * len(token_logits)),
                              modes=loss_cfg.get("token_target"),
-                             beta=float(loss_cfg.get("token_target_beta", 4.0)))
+                             beta=float(loss_cfg.get("token_target_beta", 4.0)),
+                             weight_mode=str(loss_cfg.get("token_weight_mode", "static")),
+                             nmin=float(loss_cfg.get("token_weight_nmin", 64.0)),
+                             tau=float(loss_cfg.get("token_weight_tau", 0.5)))
     parts = {"sample": float(l_sample.detach()), "token": 0.0, "cons_pool": 0.0, "cons_pos": 0.0}
     total = loss_cfg.get("sample", 1.0) * l_sample if use_sample else torch.zeros((), device=device)
     if l_token is not None:
@@ -533,7 +578,7 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str,
         ids = torch.tensor([item["input_ids"]], dtype=torch.long, device=device)
         extra = {"stride": strides.get(name)} if strides else {}
         with torch.autocast("cuda", dtype=torch.bfloat16, enabled=amp):
-            out = model(ids, torch.ones_like(ids), **extra)
+            out = model(ids, torch.ones_like(ids), **extra, report=report_tensor(item, device))
         logits_sample, token_logits = out[0], out[1]
         has_token = token_logits is not None
         sample_logits[i] += logits_sample[0].float().cpu()
@@ -618,6 +663,29 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str,
 # --------------------------------------------------------------------------- #
 # 训练
 # --------------------------------------------------------------------------- #
+def make_report(cfg: dict, tokenizer):
+    """按 ``cfg["report"]`` 构建报告对象（v0.4.6：额外支持 mode / stats_mean / stats_std）。
+
+    ★ **唯一入口** —— train 与各诊断脚本都必须走这里。
+      否则 `report.mode=vector` 时标准化常数会对不上：模型会拿到**未标准化**的向量，
+      而**不会报任何错**（这正是本项目的 B 类陷阱）。
+    """
+    rcfg = dict(cfg.get("report", {}))
+    name = rcfg.pop("name", "handcrafted")
+    rcfg.pop("mode", None)                    # mode 由 dataset 读，不传给报告类
+    kwargs = {"max_tokens": int(rcfg.pop("max_tokens", 64))}
+    for k in ("precision", "stats_mean", "stats_std"):
+        if rcfg.get(k) is not None:
+            kwargs[k] = rcfg[k]
+    return build_report(name, tokenizer=tokenizer, **kwargs)
+
+
+def report_tensor(item: dict, device: str):
+    """从 dataset item 取报告向量并转成 (1, d) 张量；没有（prefix/none 模式）则返回 None。"""
+    r = item.get("report")
+    return None if r is None else torch.tensor([r], dtype=torch.float32, device=device)
+
+
 def make_dataset(cfg: dict, name: str, split: str, report, train: bool, limit: int | None):
     data_cfg = cfg["data"]
     return limit_dataset(
@@ -627,6 +695,7 @@ def make_dataset(cfg: dict, name: str, split: str, report, train: bool, limit: i
             split=split,
             report=report,
             train=train,
+            report_mode=cfg.get("report", {}).get("mode", "prefix"),
         ),
         limit,
     )
@@ -637,8 +706,7 @@ def train(cfg: dict, args) -> None:
     setup_cuda()
     torch.manual_seed(cfg["train"].get("seed", 0))
     tokenizer = AutoTokenizer.from_pretrained(str(resolve(cfg["encoder"]["path"])))
-    report = build_report(cfg["report"]["name"], tokenizer=tokenizer,
-                          max_tokens=cfg["report"].get("max_tokens", 64))
+    report = make_report(cfg, tokenizer)
     model, encoder = build_model(cfg, tokenizer)
 
     # ---- 续跑（补 epoch 用）：只载模型权重，优化器 / LR 计划重新起 ----
@@ -742,7 +810,8 @@ def train(cfg: dict, args) -> None:
                 if strides:
                     extra["stride"] = strides.get(name)           # 样本级流不需要重叠
                 with torch.autocast("cuda", dtype=torch.bfloat16, enabled=amp):
-                    out = model(batch["input_ids"], batch.get("attention_mask"), **extra)
+                    out = model(batch["input_ids"], batch.get("attention_mask"), **extra,
+                                report=batch.get("report"))
                     loss, parts = batch_losses(cfg, out[0], out[1], batch, device,
                                                use_sample=name in sample_streams,
                                                aux=out[2] if len(out) > 2 else None)
@@ -842,8 +911,7 @@ def run_eval(cfg: dict, args) -> None:
     device = "cuda" if torch.cuda.is_available() and not args.cpu else "cpu"
     setup_cuda()
     tokenizer = AutoTokenizer.from_pretrained(str(resolve(cfg["encoder"]["path"])))
-    report = build_report(cfg["report"]["name"], tokenizer=tokenizer,
-                          max_tokens=cfg["report"].get("max_tokens", 64))
+    report = make_report(cfg, tokenizer)
     model, _ = build_model(cfg, tokenizer)
     ckpt = torch.load(resolve(args.ckpt), map_location="cpu", weights_only=False)
     missing, unexpected = model.load_state_dict(ckpt["state"], strict=False)

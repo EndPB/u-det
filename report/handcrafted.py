@@ -22,6 +22,9 @@ from typing import List
 
 _IDENT = re.compile(r"[A-Za-z_][A-Za-z0-9_]*")
 
+# v0.4.6：`vector()` 输出的固定维度顺序（同时也是标准化常数的顺序）
+VECTOR_KEYS = ("void", "indent", "tail", "charh", "bigh", "namev", "linev")
+
 _TEMPLATE = (
     "STATS blank_ratio={void} indent_consistency={indent} trailing_blank={tail} "
     "char_entropy={charh} bigram_entropy={bigh} naming_diversity={namev} line_length_var={linev}"
@@ -127,17 +130,51 @@ def text(code: str, precision: int = 3) -> str:
 # 报告对象（报告模块的统一下游接口）
 # --------------------------------------------------------------------------- #
 class HandcraftedReport:
-    """把手工统计渲染成 token 前缀；统计针对整段代码（与窗口无关，保持一致）。"""
+    """手工统计报告。两种接法（由 ``report.mode`` 选）：
+
+    * ``prefix``（默认、历史行为）：把统计渲染成文本、分词后**拼在代码 token 前**；
+    * ``vector``（v0.4.6）：直接返回 7 维数值向量，**不进序列**，
+      由 ``SampleHead`` 的 ``report_dim`` 分支接进文档级头。
+
+    第二种接法的动机：前缀方案下报告会**和代码一起被下采样**。
+    实测（§8.12.7）：m4 有 48% 的样本 L < 256（中位仅 91 token），
+    而报告固定约 55 个 token ⇒ **占掉瓶颈整整一半的位置**。
+    """
 
     name = "handcrafted"
+    stat_dim = len(VECTOR_KEYS)
 
-    def __init__(self, tokenizer=None, max_tokens: int = 64, precision: int = 3):
+    def __init__(self, tokenizer=None, max_tokens: int = 64, precision: int = 3,
+                 stats_mean=None, stats_std=None, **ignored):
         self.tokenizer = tokenizer
         self.max_tokens = max_tokens
         self.precision = precision
+        # 7 维统计量的量级差很大（熵 ~2-5 bit、行长方差可能很大），固定标准化更稳。
+        # ★ 用数据集固定常数而不是 LayerNorm：后者会在 7 个维度**之间**做归一化，
+        #   会把"所有统计量都偏低"这类整体信息抹掉。
+        self.stats_mean = [float(x) for x in (stats_mean or [0.0] * self.stat_dim)]
+        self.stats_std = [float(x) for x in (stats_std or [1.0] * self.stat_dim)]
 
     def render(self, code: str) -> str:
         return text(code, self.precision)
+
+    def vector(self, code: str) -> List[float]:
+        """v0.4.6：定长数值向量（按 VECTOR_KEYS 顺序，已标准化并截断到 ±5）。不渲染、不分词。
+
+        ★ 为什么要截断：`linev`（行长方差，字符数²）是**重尾**的 —— m4 train 上
+          mean=1.57e4 / std=6.95e5 / max=6.09e7，std 完全被极端值主导，
+          标准化后最大值仍可达 ~88。截到 ±5 避免个别样本把首个 Linear 打飞。
+
+        ★ 另一个实测事实：`tail`（尾部空行数）在 m4 train 上**恒为 0**
+          （min = max = 0）⇒ 它对文档级分类**没有任何信息**。
+          标准化时 `std=0` 走 `1.0` 兜底，恒返回 0，等价于该维被废掉。
+        """
+        s = stats(code)
+        out = []
+        for k, m, d in zip(VECTOR_KEYS, self.stats_mean, self.stats_std):
+            z = (float(s[k]) - m) / (d if abs(d) > 1e-9 else 1.0)
+            out.append(max(-5.0, min(5.0, z)))
+        return out
 
     def ids(self, code: str) -> List[int]:
         if self.tokenizer is None:
@@ -150,12 +187,16 @@ class NullReport:
     """消融用：不注入报告。"""
 
     name = "none"
+    stat_dim = 0
 
     def __init__(self, **kwargs):
         pass
 
     def render(self, code: str) -> str:
         return ""
+
+    def vector(self, code: str):
+        return None
 
     def ids(self, code: str) -> List[int]:
         return []
