@@ -846,6 +846,35 @@ def run_eval(cfg: dict, args) -> None:
         print(f"[eval] 注意：未加载 {len(missing)} 项（如 {missing[:3]}）、多余 {len(unexpected)} 项")
     model.to(device)
     print(f"[eval] 载入 {args.ckpt}（epoch {ckpt.get('epoch')}），配置来自当前 yaml/命令行")
+    # ★ 防呆：评测配置必须与**训练时**的配置一致，否则会**静默**产出垃圾结果。
+    #   实测踩过（2026-09-20）：用 v0.4.1 的 config（编码器 codet5lora，逐 token）
+    #   去评测 v0.4.2 的权重（编码器 codet5blk，分块），编码器语义完全不同，
+    #   m4 从 0.97 掉到 0.67、line 从 0.79 掉到 0.01 —— 而 state_dict 的键基本对齐，
+    #   所以**不报任何错**。这里比对训练产物目录里的 config.yaml，不一致直接中止。
+    #   只比对决定「前向语义」的段；loss/train 段不影响评测，不查。
+    #   数学无关的键（分块大小/是否静态/compile/ckpt/分块前向的 chunk）允许不同。
+    trained_cfg_path = Path(resolve(args.ckpt)).parent / "config.yaml"
+    if trained_cfg_path.exists():
+        with open(trained_cfg_path, encoding="utf-8") as f:
+            trained_cfg = yaml.safe_load(f) or {}
+        neutral = {"block_batch", "static", "compile", "ckpt", "chunk"}
+        diffs = []
+        for sec in ("encoder", "model", "heads", "report"):
+            old, new = (trained_cfg.get(sec) or {}), (cfg.get(sec) or {})
+            for key in sorted(set(old) | set(new)):
+                if key in neutral:
+                    continue
+                if old.get(key) != new.get(key):
+                    diffs.append(f"{sec}.{key}: 训练={old.get(key)!r}  评测={new.get(key)!r}")
+        if diffs:
+            print("[eval] ⚠⚠ 评测配置与训练配置不一致 —— 这会静默产出错误结果，已中止：")
+            for d in diffs[:15]:
+                print(f"          {d}")
+            if len(diffs) > 15:
+                print(f"          ...（共 {len(diffs)} 处）")
+            print(f"[eval]  训练配置：{trained_cfg_path}")
+            raise SystemExit(2)
+        print(f"[eval] 配置一致性检查通过（比对自 {trained_cfg_path}）")
     result = {}
     for name in cfg["train"]["streams"]:
         for split in ("val", "test"):
