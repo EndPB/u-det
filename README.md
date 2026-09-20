@@ -1,31 +1,52 @@
 # U-Det
 
-AI 代码检测实验：**逐 token 无上下文编码 + 序列级编解码主干 + 样本级/token 级双任务**。
+> ## ⚠️ 动手之前先读 [`docx/lessons.md`](docx/lessons.md)
+>
+> 里面是本项目**踩过的坑与由此总结出的规则**，按「方法论 / 评测与产物 / 数据特性 /
+> 工程运维」分类，每条都注明证据来源。
+>
+> * **A 类（方法论）每一条都让本项目的结论翻过车** —— 改代码或跑任何对比之前务必先扫一遍；
+> * **B 类（评测与产物）全是「静默出错」** —— 不报错，但结果是垃圾；写评测相关代码前必读。
 
-- 每 token 独立过 CodeT5（长度=1，无跨 token attention）→ 特征对长度无假设，**整段代码不截断**；
+AI 代码检测实验：**分块上下文编码 + 序列级编解码主干 + 样本级/token 级双任务**。
+
+- 每 **128 个 token 为一个块**过 CodeT5（块内 attention 真实存在、块间独立）→ 特征对长度无假设，**整段代码不截断**；
 - 主干把"下采样/上采样"做成**可学算子**，用多级压缩替代长上下文滑动窗口；
-- **样本级**分类接在主干最底部（瓶颈）；各上采样层出 **token 级**分类（多尺度深监督）；
+- **样本级**分类读**全部 5 个尺度**（各自池化后拼接）；各尺度出 **token 级**分类（多尺度深监督），最细尺度额外拼接编码器全长特征；
 - 代码前注入**短报告**（结构偏置 / 词汇可预测性 / 句法方差）；
 - 数据：CoDET-M4（样本级）+ HybridCodeAuthorship（行级标注 → token 级），两流**并行**、
   每个 optimizer step 同时参与。
 
-当前默认版本为 **v0.3**（`configs/udet_v03.yaml`）。
+当前最优版本为 **v0.4.4**（`configs/udet_v044.yaml`）：4 epoch 下
+m4 sample F1 **0.9775**、hybrid line **0.7878** / chunk **0.5076** / token **0.8187**。
+★ 这是**首次在 m4 上超过微调 CodeT5 滑窗基线**（0.9736），chunk 基本打平（−0.06）；
+且参数少 16M、长度无上限。§8.10 显示剩余的 line/token 差距里**有六成来自固定阈值 0.5**。
 
 ## 版本演进与结果（test 集，同一份数据/切分）
 
 | 版本 | 主干 | 编码器 | m4 sample F1 | hybrid line F1 | chunk F1 | token F1 |
 | --- | --- | --- | --- | --- | --- | --- |
-| 基线 | — | CodeT5 整段上下文（**微调**） | **0.9756** | — | — | — |
+| **CodeT5 滑窗基线** | — | CodeT5 **全量微调**，window=512 / stride 按流（同数据同指标同预算） | 0.9736 | **0.7978** | **0.5081** | **0.8270** |
+| base_codet5_ft（旧口径） | — | CodeT5 整段上下文（512 截断） | 0.9756 | — | — | — |
 | 基线 | — | CodeT5 整段上下文（冻结） | 0.7651 | — | — | — |
-| v0.1 | 卷积 U-Net（窗口训练 + 滑窗评测） | 查表 LUT（冻结） | 0.8665 | 0.4740 | 0.1269 | 0.5465 |
-| v0.1 | 同上 | 查表 LUT（可训练） | 0.8744 | 0.5416 | 0.1499 | 0.6208 |
-| v0.2 | 频域 U-Net（FFT 上下采样） | 查表 LUT（可训练） | 0.7686 | 0.6341 | 0.3094 | 0.6666 |
-| v0.2 | 同上 | CodeT5 + **peft LoRA** | 0.7705 | 0.6535 | **0.3698** | 0.6801 |
-| **v0.3** | **窗口注意力编解码器** | CodeT5 + peft LoRA | **0.8863** | 0.6462 | 0.3056 | **0.6864** |
+| **v0.4.4** | 窗口注意力编解码器 + **门控** | **分块 CodeT5（K=128）+ LoRA** | **0.9775** | 0.7878 | 0.5076 | 0.8187 |
+| v0.4.2 | 同上 | 分块 CodeT5 + LoRA | 0.9700 | 0.7895 | 0.5035 | 0.8190 |
+| v0.4.1 | 同上 | 逐 token CodeT5 + LoRA | 0.9408 | 0.7139 | 0.3970 | 0.7489 |
+| v0.4.0 | 同上 | 逐 token CodeT5 + LoRA | 0.9380 | 0.7071 | 0.3907 | 0.7431 |
+| v0.3.1 | 同上（无门控） | 逐 token CodeT5 + LoRA | 0.9307 | 0.6922 | 0.3733 | 0.7279 |
+| v0.3 | 窗口注意力编解码器（栈内共享） | CodeT5 + peft LoRA | 0.8863 | 0.6462 | 0.3056 | 0.6864 |
+| v0.2 | 频域 U-Net（FFT 上下采样） | CodeT5 + peft LoRA | 0.7705 | 0.6535 | 0.3698 | 0.6801 |
+| v0.2 | 同上 | 查表 LUT（可训练） | 0.7686 | 0.6341 | 0.3094 | 0.6666 |
+| v0.1 | 卷积 U-Net | 查表 LUT（可训练） | 0.8744 | 0.5416 | 0.1499 | 0.6208 |
+| v0.1 | 同上 | 查表 LUT（冻结） | 0.8665 | 0.4740 | 0.1269 | 0.5465 |
 
-- 主干参数量：v0.1 约 9M（LUT 冻结）/ v0.2 **122.35M** / **v0.3 42.52M**（栈内 4 级共享权重）。
-- 逐版本设计说明与逐组件参数量见 `docx/u-det-v0.1.md`、`docx/u-det-v0.2.md`、`docx/u-det-v0.3.md`；
-  总设计见 `docx/u-det.md`。
+> 除第一行外的「同数据同指标同预算」基准见 `docx/u-det-v0.4.md` §8.6；
+> v0.4.x 的逐代差距分析见 §8.9 / §8.10；⚠️ 2 epoch 的读数在本项目已四次指向错误结论（lessons A1）。
+
+- 主干参数量：v0.1 约 9M（LUT 冻结）/ v0.2 **122.35M** / **v0.3 42.52M**（栈内 4 级共享权重）/ **v0.4.4 93.65M**（含门控与多尺度样本头）。
+- 逐版本设计说明与逐组件参数量见 `docx/u-det-v0.1.md`、`docx/u-det-v0.2.md`、
+  `docx/u-det-v0.3.md`、**`docx/u-det-v0.4.md`**（最新）；总设计见 `docx/u-det.md`；
+- ★ **踩过的坑与规则见 `docx/lessons.md`**（改代码前必读）。
 
 ## 目录结构
 
@@ -33,13 +54,20 @@ AI 代码检测实验：**逐 token 无上下文编码 + 序列级编解码主�
 u-det/
 ├── train.py                     # 主干：训练 / 验证 / 评测（双流并行 + 多尺度损失 + 梯度累积）
 ├── configs/
-│   ├── udet_v03.yaml            # ★ 当前默认：窗口注意力编解码器（v0.3）
+│   ├── udet_v045.yaml           # v0.4.5：+ token 头旁路（最新实验）
+│   ├── udet_v044.yaml           # ★ 当前最优：v0.4.4 多尺度样本头
+│   ├── udet_v04_cons.yaml       # v0.4.1：门控 + A/B2/B3 损失
+│   ├── udet_v042.yaml           # v0.4.2：+ 分块编码器（static+compile）
+│   ├── udet_v043.yaml           # v0.4.3：单任务消融（负结果）
+│   ├── udet_v04.yaml            # v0.4.0：门控
+│   ├── baseline_codet5_tok.yaml # CodeT5 滑窗基线（同口径对照基准）
+│   ├── udet_v03.yaml            # v0.3：窗口注意力编解码器（栈内共享）
 │   ├── udet_lora.yaml           # v0.2 频域 U-Net + CodeT5 LoRA
 │   └── udet_base.yaml           # v0.2 频域 U-Net + 可训练 LUT
 ├── encoders/                    # 编码器（按名称切换，单文件实现）
 │   ├── __init__.py              #   build_encoder() 注册表
 │   └── codet5.py                #   codet5tok（逐 token 查表）/ codet5lora（逐 token + LoRA）
-│                                #   / codet5（整段上下文，受 512 限制）
+│                                #   / codet5blk（★ 分块 K=128 + LoRA）/ codet5（整段，受 512 限制）
 ├── models/                      # 网络（单文件实现）
 │   ├── __init__.py              #   build_hier() 按名称分发
 │   ├── hier.py                  #   v0.2 频域 U-Net（name=hier）
@@ -55,10 +83,13 @@ u-det/
 ├── scripts/
 │   ├── prepare.py               # 下载数据与权重（m4 / encoder / hybrid）
 │   ├── build_subset.py          # 均衡子集 + 预分词 + 划分（写 data/processed/）
-│   ├── compare.py               # 汇总 runs/ 下所有实验的 val/test 指标
-│   ├── diag_m4.py               # 诊断：按长度分桶 + 各尺度特征的线性探针
+│   ├── compare.py               # 汇总 runs/ 下所有实验的 val/test 指标│   ├── analyze_raw.py           #   ★ 离线分析 raw_*.pt：长度分桶 + 阈值扫描（不占 GPU）
+│   ├── queue_*.sh               #   接力队列（追加 epoch / 批量落盘）
+│   ├── watchdog.sh              #   夜间看门狗（空闲时自动补救，从不杀进程）│   ├── diag_m4.py               # 诊断：按长度分桶 + 各尺度特征的线性探针
 │   └── probe_m4.py              # 诊断：train 拟合 → val 评测的线性探针
 ├── docx/                        # 设计与实验报告
+│   ├── lessons.md              #   ★★ 经验教训（动手前必读）
+│   └── u-det*.md               #   总设计 + 逐版本报告（最新 u-det-v0.4.md）
 ├── data/                        # 原始与处理后数据（不入库）
 └── checkpoints/                 # 编码器权重与 LUT 缓存（不入库）
 ```
@@ -98,12 +129,22 @@ python scripts/build_subset.py       # 均衡子集 + 预分词 + 划分（约 3
 ## 训练 / 评测
 
 ```bash
-# v0.3（默认）：窗口注意力编解码器 + 逐 token CodeT5 LoRA
-OMP_NUM_THREADS=8 python train.py --config configs/udet_v03.yaml --tag v03
-python train.py --config configs/udet_v03.yaml --eval --ckpt runs/v03/best.pt
+# v0.4.4（当前最优）：分块 CodeT5 + LoRA + 窗口注意力编解码器（门控）+ 多尺度样本头
+OMP_NUM_THREADS=8 python train.py --config configs/udet_v044.yaml --tag v0.4.4
+python train.py --config configs/udet_v044.yaml --eval --ckpt runs/v0.4.4/best.pt
 
-# 冒烟
-OMP_NUM_THREADS=8 python train.py --config configs/udet_v03.yaml --tag smoke --limit 40 --epochs 1
+# 续跑追加 epoch（metrics.csv 里已出现的 epoch 不重复计，见 lessons D3）
+OMP_NUM_THREADS=8 python train.py --config configs/udet_v044.yaml --tag v0.4.4 \
+  --resume runs/v0.4.4/last.pt --epochs 4
+
+# 冒烟（★ 只写 eval_limit<N>.json，绝不覆盖 eval.json，见 lessons B2）
+OMP_NUM_THREADS=8 python train.py --config configs/udet_v044.yaml --tag smoke --limit 40 --epochs 1
+
+# 落盘全量原始概率（供离线分析）
+python train.py --config configs/udet_v044.yaml --eval --ckpt runs/v0.4.4/best.pt --dump-raw
+
+# 离线分析（纯 CPU、不占 GPU）：长度分桶 + 阈值扫描，见 §8.10
+python scripts/analyze_raw.py runs/v0.4.4 runs/v0.4.2
 
 # 汇总所有实验
 python scripts/compare.py
@@ -122,14 +163,20 @@ python scripts/compare.py
 
 | 开关 | 取值 | 说明 |
 | --- | --- | --- |
-| `encoder.name` | `codet5tok` / `codet5lora` / `codet5` | 逐 token 查表 / 逐 token + LoRA / 整段上下文 |
-| `encoder.freeze` | `true` / `false` | `codet5tok`：LUT 固定 buffer / 可训练嵌入表；`codet5lora`：固定 LoRA / 训练 LoRA |
-| `encoder.targets` | `[v, o, wi, wo]` | LoRA 目标层。**逐 token（seq_len=1）时 q/k 对输出无影响**（softmax 单元素恒为 1），只能挂 v/o/wi/wo |
-| `encoder.chunk` / `compile` | `2048` / `true` | 分块大小（内部补齐到固定长度）与 `torch.compile` |
+| `encoder.name` | `codet5blk` / `codet5tok` / `codet5lora` / `codet5` | **分块 K=128（v0.4.2 起默认）** / 逐 token 查表 / 逐 token + LoRA / 整段上下文 |
+| `encoder.freeze` | `true` / `false` | `codet5tok`：LUT 固定 buffer / 可训练嵌入表；`codet5lora`/`codet5blk`：固定 LoRA / 训练 LoRA |
+| `encoder.targets` | `[v, o, wi, wo]` | LoRA 目标层。**逐 token（seq_len=1）时 q/k 对输出无影响**（softmax 单元素恒为 1），只能挂 v/o/wi/wo；**分块后块内 attention 真实存在，q/k 重新有意义**（尚未启用，见 §8.11） |
+| `encoder.block` / `block_batch` | `128` / `16` | 分块编码器的块长与打包批大小（每前向 ≤2048 token） |
+| `encoder.static` / `compile` | `true` / `true` | `static` 把块数补齐到 `block_batch` 的整数倍以取得**固定形状**——这是 `compile` 生效的前提（否则反而 1.62× 变慢，见 lessons A6） |
+| `encoder.ckpt` | `true` / `false` | 分块前向是否逐片重算以省显存 |
 | `train.lr_encoder` | `5e-5` | 编码器/LoRA 单独学习率（**3e-4 会一 epoch 改写编码器特征**） |
-| `model.name` | `codec` / `hier` / `codet5cls` | v0.3 / v0.2 / 直接二分类基线 |
+| `model.name` | `codec` / `hier` / `codet5cls` | v0.3+ / v0.2 / 直接二分类基线 |
 | `model.share` | `true` / `false` | 采样栈内 4 级是否共享同一个 Block |
+| `model.gate` / `gate_init` | `true` / `-1.0` | 上采样融合用**门控**（`g*out+(1-g)*skip`）而非加法；`gate_init=-1` 使起点≈纯跳连 |
 | `model.divs` / `wins` | `[4,4,2,2]` / `[16,16,16,32]` | 各级下采样除数（累计 64×）与感受野 |
+| `model.sample_only` | `true` / `false` | 只留样本级通路、跳过全部上采样（v0.4.3 消融：省 35M 参数但掉 2.3 分，**已否决**） |
+| `heads.sample_levels` | `1` / `5` | 样本头读取的尺度数。`1`=只看瓶颈；`5`=**每尺度各自池化后拼接**（v0.4.4 起默认，宽度 768→3840） |
+| `heads.token_bypass` | `true` / `false` | 最细尺度 token 头额外拼接**编码器全长逐 token 特征**（768→1536，v0.4.5） |
 | `report.name` | `handcrafted` / `none` | 是否注入手工统计报告 |
 | `loss.token` | `0` / `1.0` | token 级监督权重（0 = 纯样本级） |
 | `train.sample_streams` | `[m4]` | 只在标签有意义的流上算样本级 CE |
@@ -137,6 +184,13 @@ python scripts/compare.py
 
 ## 实现要点
 
+- **分块编码器**（`encoders/codet5.py: CodeT5BlockEncoder`，v0.4.2 起默认）：把整段切成
+  `block=128` 的块、打包成 `(block_batch, 128)` 一批过 LoRA CodeT5 —— **块内 attention 真实存在，
+  块间彼此独立**。★ **块的输入/输出向量数严格 1:1**（K 进 K 出，不池化、不重叠、不跨样本边界），
+  所以对下游完全透明（仍返回 `(B, L, D)`，`models/hier2.py` 一行都不用改）；长度也仍然无上限 ——
+  既不受 `n_positions=512` 限制，也没有整段 O(L²) attention。只有**末块**用 `pad_id` 补齐并在
+  attention 里屏蔽，输出再按 mask 置零；`static: true` 额外把**块数**补齐到 `block_batch` 的整数倍
+  以取得固定形状 —— 这是 `compile` 能生效的前提（见 lessons A6）。
 - **逐 token 编码器**：`codet5tok` 分块跑冻结 CodeT5 得到 `(vocab, D)` 查表并缓存
   （`data/processed/codet5_lut.pt`）；`codet5lora` 保持同样语义但每步现算，用 peft LoRA 让梯度回流进
   CodeT5（`lora_B` 零初始化 ⇒ 起点与冻结 LUT 逐位相同）。
@@ -175,7 +229,11 @@ from report import build_report                        # 'handcrafted' / 'none'
 
 - **hybrid 样本标签恒为 1**：`build_subset.py` 只保留含 AI 行的文件 ⇒ 样本级 CE 只在 m4 上回传；
 - **m4 长度与标签强混淆**：ai 样本全部 <2048 token，≥4096 的样本 100% 是 human
-  ⇒ 单靠长度规则 val acc 就有 0.659，报告样本级指标时需注意。
+  ⇒ 单靠长度规则 val acc 就有 0.659，报告样本级指标时需注意；**因此 m4 的 `>2048` 分桶毫无意义**
+  （F1 退化成 0/0，见 lessons C2）。
+- **短文档才是当前瓶颈**：v0.4.4 在 hybrid 三个短桶上全面落后基线、只在 `[8192,∞)`（**仅 5 个样本**）
+  反超 ⇒ 详见 `docx/u-det-v0.4.md` §8.10.2，方法论见 lessons A4。
+- 更多数据陷阱（恒定标签、退化流会污染 `monitor`）见 **`docx/lessons.md` C 类**。
 
 ## 数据与许可
 
