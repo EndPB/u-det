@@ -892,10 +892,18 @@ def run_eval(cfg: dict, args) -> None:
             metrics = evaluate(model, dataset, name, cfg, device, dump_path=dump)
             result[f"{name}/{split}"] = metrics
             print(f"[eval] {name}/{split}: " + json.dumps({k: round(v, 4) for k, v in metrics.items()}))
-    out = Path(resolve(args.ckpt)).parent / "eval.json"
+    # ★ 防呆：带 --limit 的是**冒烟评测**，绝不能覆盖正式的 eval.json。
+    #   实测踩过（2026-09-21）：为验证配置一致性防呆而跑的一条 `--eval --limit 3`，
+    #   把 v0.4.4 正式的 eval.json 与 raw_*.pt 全部覆盖成了 3 样本版本（m4 显示 1.0000），
+    #   而它**不报任何错**。现在冒烟结果写到 eval_limit<N>.json。
+    suffix = f"_limit{args.limit}" if args.limit else ""
+    out = Path(resolve(args.ckpt)).parent / f"eval{suffix}.json"
     with open(out, "w", encoding="utf-8") as f:
         json.dump({"ckpt": str(args.ckpt), "epoch": ckpt.get("epoch"), "metrics": result},
                   f, ensure_ascii=False, indent=2)
+    if args.limit:
+        print(f"[eval] ⚠ 检测到 --limit {args.limit}（冒烟评测）⇒ 结果写入 {out.name}，"
+              f"**不会覆盖**正式的 eval.json")
     print(f"[eval] 结果已写入 {out}")
 
 
