@@ -500,8 +500,14 @@ def stream_strides(cfg: dict, model: nn.Module) -> dict:
 
 
 @torch.no_grad()
-def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str) -> dict:
-    """整段序列逐样本评测（不截断、不滑窗）：m4 出样本级指标；hybrid 出行级/token/片段级指标。"""
+def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str,
+             dump_path: str | None = None) -> dict:
+    """整段序列逐样本评测（不截断、不滑窗）：m4 出样本级指标；hybrid 出行级/token/片段级指标。
+
+    ``dump_path`` 非空时，额外把**逐样本的原始输出**存成 ``.pt``（见函数末尾）：
+    长度 / 标签 / 样本概率 / 逐行概率 / 逐 token 概率。这样后续的**阈值扫描、长度分桶、
+    错误分析**都能离线做，不必再占 GPU 重跑一遍评测。
+    """
     model.eval()
     amp = cfg["train"].get("amp", True) and device == "cuda"
     is_hybrid = name == "hybrid"
@@ -511,6 +517,10 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str) -> di
     token_hits = [[0, 0, 0, 0] for _ in range(len(dataset))]       # tp/fp/fn/tn
     line_sum = [None] * len(dataset)
     line_cnt = [None] * len(dataset)
+    lengths = [0] * len(dataset)                                  # 原始 token 数（长度分桶用）
+    line_prob = [None] * len(dataset)
+    token_probs = [None] * len(dataset)
+    token_labels = [None] * len(dataset)
     has_token = True
 
     for i in tqdm(range(len(dataset)), desc=f"eval {name}", leave=False):
@@ -522,9 +532,13 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str) -> di
         logits_sample, token_logits = out[0], out[1]
         has_token = token_logits is not None
         sample_logits[i] += logits_sample[0].float().cpu()
+        lengths[i] = int(ids.shape[1])
         if not has_token or not is_hybrid:
             continue
         probs = torch.sigmoid(token_logits[-1].float())[0, 0].cpu().tolist()   # 最细尺度 = L
+        if dump_path:                                             # 原始逐 token 概率与标签
+            token_probs[i] = torch.tensor(probs, dtype=torch.float16)
+            token_labels[i] = torch.tensor(item["tok_labels"], dtype=torch.int16)
         if line_sum[i] is None:
             line_sum[i], line_cnt[i] = {}, {}
         for prob, tok_label, line in zip(probs, item["tok_labels"], item["line_of_token"]):
@@ -552,6 +566,10 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str) -> di
             line_label = dataset.line_label[i]
             picked = [int(line_sum[i].get(k, 0.0) / max(line_cnt[i].get(k, 0), 1) > 0.5)
                       for k in range(len(line_label))]
+            if dump_path:
+                line_prob[i] = torch.tensor(
+                    [line_sum[i].get(k, 0.0) / max(line_cnt[i].get(k, 0), 1)
+                     for k in range(len(line_label))], dtype=torch.float16)
             pred_lines.extend(picked)
             gold_lines.extend(line_label)
             tp_i, pred_i, gold_i = chunk_match(picked, line_label)
@@ -569,6 +587,26 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str) -> di
         metrics["token_f1"] = 2 * precision * recall / max(precision + recall, 1e-9)
     elif is_hybrid:
         print("[eval] 提示：当前模型无 token 头，hybrid 只能出样本级指标")
+
+    if dump_path:                                     # ★ 原始逐样本数据落盘（离线分析用）
+        blob = {
+            "name": name,
+            "n": len(dataset),
+            "length": torch.tensor(lengths, dtype=torch.int32),
+            "label": torch.tensor([dataset.labels[i] for i in range(len(dataset))],
+                                  dtype=torch.int8),
+            "sample_prob": torch.softmax(sample_logits, dim=-1)[:, 1],   # 类别 1 的概率
+        }
+        if is_hybrid and has_token:
+            blob["line_label"] = [torch.tensor(dataset.line_label[i], dtype=torch.int8)
+                                  for i in range(len(dataset))]
+            blob["line_prob"] = line_prob
+            blob["token_prob"] = token_probs          # 最细尺度（= 原始 token 数）的逐 token 概率
+            blob["token_label"] = token_labels
+        out_path = Path(dump_path)
+        out_path.parent.mkdir(parents=True, exist_ok=True)
+        torch.save(blob, out_path)
+        print(f"[eval] 逐样本原始数据已存：{out_path}（n={blob['n']}）")
     return metrics
 
 
@@ -814,7 +852,10 @@ def run_eval(cfg: dict, args) -> None:
             dataset = make_dataset(cfg, name, split, report, False, args.limit)
             if len(dataset) == 0:
                 continue
-            metrics = evaluate(model, dataset, name, cfg, device)
+            dump = None
+            if getattr(args, "dump_raw", False):
+                dump = str(Path(resolve(args.ckpt)).parent / f"raw_{name}_{split}.pt")
+            metrics = evaluate(model, dataset, name, cfg, device, dump_path=dump)
             result[f"{name}/{split}"] = metrics
             print(f"[eval] {name}/{split}: " + json.dumps({k: round(v, 4) for k, v in metrics.items()}))
     out = Path(resolve(args.ckpt)).parent / "eval.json"
@@ -850,6 +891,9 @@ def main() -> int:
                         help="从该 checkpoint 续跑（只载模型权重；--epochs 变成“本次追加几个 epoch”）")
     parser.add_argument("--eval", action="store_true")
     parser.add_argument("--ckpt", default=None)
+    parser.add_argument("--dump-raw", action="store_true",
+                        help="评测时把逐样本原始输出（长度/标签/样本概率/逐行概率/逐 token 概率）"
+                             "存到 runs/<tag>/raw_<流>_<split>.pt，供离线做阈值扫描与分桶分析")
     parser.add_argument("--cpu", action="store_true")
     args = parser.parse_args()
 
