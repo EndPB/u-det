@@ -85,7 +85,8 @@ u-det/
 │   ├── build_subset.py          # 均衡子集 + 预分词 + 划分（写 data/processed/）
 │   ├── compare.py               # 汇总 runs/ 下所有实验的 val/test 指标│   ├── analyze_raw.py           #   ★ 离线分析 raw_*.pt：长度分桶 + 阈值扫描（不占 GPU）
 │   ├── queue_*.sh               #   接力队列（追加 epoch / 批量落盘）
-│   ├── watchdog.sh              #   夜间看门狗（空闲时自动补救，从不杀进程）│   ├── diag_m4.py               # 诊断：按长度分桶 + 各尺度特征的线性探针
+│   ├── watchdog*.sh             #   夜间看门狗（`watchdog_run.sh <TAG> <CFG> <EPOCHS>` 已参数化；
+│   │                            #   空闲时自动补跑 + 补评测，**从不杀进程**）│   ├── diag_m4.py               # 诊断：按长度分桶 + 各尺度特征的线性探针
 │   └── probe_m4.py              # 诊断：train 拟合 → val 评测的线性探针
 ├── docx/                        # 设计与实验报告
 │   ├── lessons.md              #   ★★ 经验教训（动手前必读）
