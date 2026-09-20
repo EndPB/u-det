@@ -1,0 +1,109 @@
+# U-Det v0.4.5：**把「绕过瓶颈」从样本头推广到 token 头**。
+#
+# 与 v0.4.4 的唯一区别：
+#   heads.token_bypass: true
+#   ⇒ 最细尺度的 token 头额外拼接一份**编码器的全长逐 token 输出**（768 -> 1536）。
+#
+# ★ 动机（实测驱动，见 docx/u-det-v0.4.md §8.10.2）
+#   主干所有尺度都是**瓶颈之后**的产物，而瓶颈跨度是 64 个 token：
+#   一篇 300 token 的文档只剩 ceil(300/64) = 5 个位置。
+#   长度分桶显示 U-Det 的弱项**恰好集中在短文档的 token 级指标**：
+#     [0,512)  桶（n=77）  line −5.22 / chunk −6.23 / token −4.47
+#     [512,2048) 桶（n=560）line −1.82 / token −1.84
+#   而在 m4 样本级上，U-Det 已经在这个桶里 **+0.40 领先**（因为 v0.4.4 的多尺度样本头
+#   已经绕过瓶颈了）⇒ **同一篇文档，样本级因绕过瓶颈而领先、token 级因仍在瓶颈后而落后。**
+#   这就是本次改动的直接依据。
+#
+# ★ 为什么这样做、而不是「把各尺度 logits 融合起来给最细尺度」
+#   粗尺度的目标经过 `lse`/`mean` 聚合（§3.4），它的语义是「窗口内是否有 AI」，
+#   不是逐 token 判断。把它升采样后当逐 token 预测去融合，会**模糊**细尺度结果。
+#   而编码器的 `feats` 是 stride 1、长度正好等于 L，与最细尺度**同语义、同长度**，
+#   可以直接拼接 —— 没有这个问题。
+#
+# ★ 为什么保留 v0.4.4 的多尺度样本头
+#   §8.9 显示它带来稳定的 m4 +0.75（唯一变量只动样本头，收益也只落在 m4）。
+#   所以 v0.4.5 是在它之上再加一个变量，而不是回退。
+#
+# ★ 代价
+#   最细尺度的头从 Linear(768→1) 变成 Linear(1536→1)（参数 +769，可忽略）；
+#   拼接需要一份 (B, L, 768) 的额外张量 —— 但 `feats` 本来就在显存里（
+#   它是编码器的输出，也是跳连的 kv），最坏情况多约 100MB（bf16，L=32948）。
+#
+# 预期：短文档的 token 级指标改善。只跑 2 epoch 看方向。
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+
+encoder:
+  name: codet5blk
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  block: 128
+  block_batch: 16
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]
+  static: true
+  ckpt: true
+  compile: true
+  freeze: false
+  max_length: 512
+
+model:
+  name: codec
+  dim: 768
+  depth: 4
+  mid: 4
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  divs: [4, 4, 2, 2]
+  wins: [16, 16, 16, 32]
+  share: false
+  gate: true
+  gate_init: -1.0
+
+heads:
+  sample_hidden: 256
+  sample_dropout: 0.0
+  sample_levels: 5                              # v0.4.4：样本头读全部 5 个尺度
+  token_bypass: true                            # ★ v0.4.5：最细 token 头拼接编码器全长相征
+
+report:
+  name: handcrafted
+  max_tokens: 64
+
+loss:
+  sample: 1.0
+  token: 1.0
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]
+  class_weights: null
+  token_target: [lse, lse, lse, mean, mean]
+  token_target_beta: 4.0
+  cons_pool: 0.3
+  cons_pool_weights: [1, 1, 1, 1]
+  cons_pool_detach: true
+  cons_pos: 0.2
+  cons_pos_weights: [1, 1, 1, 1]
+  cons_pos_hidden: 256
+
+train:
+  streams: [m4, hybrid]
+  sample_streams: [m4]
+  epochs: 2
+  grad_accum: 8
+  lr: 0.0003
+  lr_encoder: 0.00005
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 200
+  monitor: mean
+  seed: 0
+  out_dir: runs

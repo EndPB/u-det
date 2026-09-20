@@ -172,7 +172,7 @@ class UDet(nn.Module):
             levels, _ = self.backbone(feats, return_features=True)
             downs = None
         sample_logits = self.sample_head(levels)                 # 多尺度池化 -> (B, 2)
-        token_logits = None if self.token_heads is None else self.token_heads(levels)
+        token_logits = None if self.token_heads is None else self.token_heads(levels, feats)
         if not return_aux:
             return sample_logits, token_logits
         aux = {"downs": downs, "pos_logits": None, "spans": None}
@@ -223,7 +223,12 @@ def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
         print("[model] 单任务模式（主干 sample_only=True）：不建 token 头、不建上采样/跳连路径，"
               "只做样本级分类（token 级损失会被 batch_losses 自动跳过）")
     else:
-        token_heads = TokenHeads([backbone.dim] * (backbone.depth + 1), out=1)
+        token_heads = TokenHeads(
+            [backbone.dim] * (backbone.depth + 1), out=1,
+            bypass_dim=backbone.dim if heads.get("token_bypass") else None)
+        if heads.get("token_bypass"):
+            print(f"[model] token 头旁路（v0.4.5）：最细尺度额外拼接**编码器全长特征**"
+                  f"（{backbone.dim} -> {2 * backbone.dim}），因为主干各尺度都在瓶颈之后")
     loss_cfg = cfg.get("loss", {})
     pos_probes = None
     if float(loss_cfg.get("cons_pos", 0.0) or 0.0) > 0:            # 只在启用位置探针时才建参数

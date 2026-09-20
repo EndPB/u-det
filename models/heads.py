@@ -85,15 +85,43 @@ class TokenHeads(nn.Module):
     Args:
         dims: 各尺度输入维度（v0.2 隐藏维度恒定，通常都是同一个值）。
         out: 输出通道数（二分类取 1，配合 BCEWithLogits）。
+        bypass_dim: **最细尺度的旁路**（v0.4.5）。非空时，最细尺度的头额外拼接一份
+            维度为 ``bypass_dim`` 的特征（U-Det 传的是**编码器的全长逐 token 输出**）。
+
+            动机（与 v0.4.4 给样本头加多尺度是同一个原理）：主干所有尺度都是
+            **瓶颈之后**的产物，而瓶颈跨度是 64 个 token —— 一篇 300 token 的短文档
+            只賸 ⌈300/64⌉ = 5 个位置。实测（§8.10.2）显示 U-Det 的弱项恰好集中在
+            **短文档的 token 级指标**（`[0,512)` 桶 line −5.22 / chunk −6.23），
+            与这个瓶颈诊断吻合。旁路让最细尺度直接看到未经压缩的编码器特征。
+
+            ★ 为什么不做“把各尺度 logits 融合起来”：粗尺度的目标经过
+            `lse`/`mean` 聚合，它的语义是“窗口内是否有 AI”而非逐 token 判断，
+            升采样后当成逐 token 预测融合会**模糊**细尺度结果。
     """
 
-    def __init__(self, dims: Sequence[int], out: int = 1):
+    def __init__(self, dims: Sequence[int], out: int = 1, bypass_dim: Optional[int] = None):
         super().__init__()
         self.dims = tuple(int(d) for d in dims)
-        self.heads = nn.ModuleList([nn.Linear(d, out) for d in self.dims])
+        self.bypass_dim = None if bypass_dim is None else int(bypass_dim)
+        head_dims = list(self.dims)
+        if self.bypass_dim:                          # 只有**最细**尺度拼接旁路
+            head_dims[-1] = self.dims[-1] + self.bypass_dim
+        self.heads = nn.ModuleList([nn.Linear(d, out) for d in head_dims])
 
-    def forward(self, feats: Sequence[torch.Tensor]) -> List[torch.Tensor]:
-        """feats: 由粗到细的特征列表 [(B, L_k, D), ...] -> [(B, out, L_k), ...]。"""
+    def forward(self, feats: Sequence[torch.Tensor],
+                bypass: Optional[torch.Tensor] = None) -> List[torch.Tensor]:
+        """feats: 由粗到细 [(B, L_k, D), ...]；bypass: (B, L, D_by)（仅最细尺度用）。
+
+        返回 [(B, out, L_k), ...]。
+        """
         if len(feats) != len(self.heads):
             raise ValueError(f"期望 {len(self.heads)} 个尺度特征，收到 {len(feats)} 个")
-        return [head(f).transpose(1, 2) for head, f in zip(self.heads, feats)]
+        xs = list(feats)
+        if self.bypass_dim:
+            if bypass is None:
+                raise ValueError("TokenHeads 配置了 bypass_dim，但 forward 未收到 bypass 特征")
+            if tuple(bypass.shape[:2]) != tuple(xs[-1].shape[:2]):
+                raise ValueError(
+                    f"旁路特征必须与最细尺度同长：{tuple(bypass.shape)} vs {tuple(xs[-1].shape)}")
+            xs[-1] = torch.cat([xs[-1], bypass], dim=-1)
+        return [head(f).transpose(1, 2) for head, f in zip(self.heads, xs)]
