@@ -143,6 +143,13 @@ class TransformerCodec(nn.Module):
               ``out = g ⊙ u + (1-g) ⊙ skip``，``g = σ(Linear([u, skip]))``；
               位置对齐的融合交给逐元素门控，跨注意力只负责"扩张算子"本身。
         gate_init: 门控偏置初值（权重零初始化）。默认 -1.0 ⇒ 起点 g≈0.27，偏向 skip。
+        sample_only: **单任务消融开关**。True 时不构建``up_blocks``与``gate``，
+            ``forward`` 也跳过整个上采样循环 ⇒ 主干只剩「下采样 → 瓶颈」。
+            注意这**不会改变样本头的输入**（它读的``levels[0]``就是瓶颈输出，
+            与上采样无关），变的只是：
+              ① 下采样路径收不到 token 级损失的梯度；
+              ② 省掉上采样与本级的参数量／算量。
+            用于回答“后面的跳连 + token 级分类是不是在拖累样本级”。
 
     位置/跨度（供位置探针使用）::
 
@@ -153,7 +160,8 @@ class TransformerCodec(nn.Module):
     def __init__(self, dim: int = 768, depth: int = 4, mid: int = 4, heads: int = 12,
                  mlp_ratio: float = 4.0, dropout: float = 0.0,
                  divs: Sequence[int] = (4, 4, 2, 2), wins: Sequence[int] = (16, 16, 16, 32),
-                 share: bool = False, gate: bool = False, gate_init: float = -1.0, **ignored):
+                 share: bool = False, gate: bool = False, gate_init: float = -1.0,
+                 sample_only: bool = False, **ignored):
         super().__init__()
         divs, wins = tuple(int(d) for d in divs), tuple(int(w) for w in wins)
         if not (len(divs) == len(wins) == depth):
@@ -164,17 +172,22 @@ class TransformerCodec(nn.Module):
         self.down_strides = tuple(int(math.prod(divs[: i + 1])) for i in range(depth))
         self.level_strides = tuple(int(math.prod(divs[: depth - i])) for i in range(depth)) + (1,)
         n = 1 if self.share else depth
+        self.sample_only = bool(sample_only)
         self.down_blocks = nn.ModuleList([WindowBlock(dim, heads, mlp_ratio, dropout) for _ in range(n)])
-        self.up_blocks = nn.ModuleList([WindowBlock(dim, heads, mlp_ratio, dropout) for _ in range(n)])
+        # 单任务消融：完全不建上采样路径（省参数、也省掉无梯度的死权重）
+        self.up_blocks = nn.ModuleList(
+            [] if self.sample_only else [WindowBlock(dim, heads, mlp_ratio, dropout) for _ in range(n)])
         self.mid_blocks = nn.ModuleList([SelfBlock(dim, heads, mlp_ratio, dropout) for _ in range(mid)])
         self.pe = SinusoidalPE(dim)
         self.gate_init = float(gate_init)
         self.gate = None
-        if gate:
+        if gate and not self.sample_only:
             self.gate = nn.ModuleList([nn.Linear(2 * dim, dim) for _ in range(depth)])
             for lin in self.gate:
                 nn.init.zeros_(lin.weight)                    # 起点 g 与内容无关 = σ(gate_init)
                 nn.init.constant_(lin.bias, self.gate_init)
+        elif gate and self.sample_only:
+            print("[codec] sample_only=True：已忽略 gate（无上采样路径可加门）")
 
     # ------------------------------------------------------------------ #
     def _down(self, x: torch.Tensor, level: int) -> Tuple[torch.Tensor, int]:
@@ -221,10 +234,11 @@ class TransformerCodec(nn.Module):
         for block in self.mid_blocks:                            # ===== 瓶颈 =====
             x = block(x)
         levels = [x]
-        for level in reversed(range(self.depth)):                # ===== 上采样 =====
-            x = self._up(x, skips[level], level)                 # 跨注意力（+ v0.4 门控）即跳连
-            x = self.pe(x)
-            levels.append(x)
+        if not self.sample_only:
+            for level in reversed(range(self.depth)):            # ===== 上采样 =====
+                x = self._up(x, skips[level], level)             # 跨注意力（+ v0.4 门控）即跳连
+                x = self.pe(x)
+                levels.append(x)
         if return_down:
             return levels, x, downs
         return (levels, x) if return_features else levels

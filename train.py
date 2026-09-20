@@ -172,7 +172,7 @@ class UDet(nn.Module):
             levels, _ = self.backbone(feats, return_features=True)
             downs = None
         sample_logits = self.sample_head(levels[0])              # 瓶颈池化 -> (B, 2)
-        token_logits = self.token_heads(levels)                  # 每个尺度 (B, 1, L_k)
+        token_logits = None if self.token_heads is None else self.token_heads(levels)
         if not return_aux:
             return sample_logits, token_logits
         aux = {"downs": downs, "pos_logits": None, "spans": None}
@@ -208,7 +208,12 @@ def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
     heads = dict(cfg.get("heads", {}))
     sample_head = SampleHead(backbone.dim, hidden=heads.get("sample_hidden"),
                              dropout=heads.get("sample_dropout", 0.0))
-    token_heads = TokenHeads([backbone.dim] * (backbone.depth + 1), out=1)
+    if getattr(backbone, "sample_only", False):
+        token_heads = None
+        print("[model] 单任务模式（主干 sample_only=True）：不建 token 头、不建上采样/跳连路径，"
+              "只做样本级分类（token 级损失会被 batch_losses 自动跳过）")
+    else:
+        token_heads = TokenHeads([backbone.dim] * (backbone.depth + 1), out=1)
     loss_cfg = cfg.get("loss", {})
     pos_probes = None
     if float(loss_cfg.get("cons_pos", 0.0) or 0.0) > 0:            # 只在启用位置探针时才建参数
@@ -671,6 +676,7 @@ def train(cfg: dict, args) -> None:
             model.encoder.eval()                           # 冻结编码器保持 eval（关掉其 dropout）
         iters = {name: cycle(loader) for name, loader in loaders.items()}
         running = {"loss": 0.0, "sample": 0.0, **{k: 0.0 for k in LOSS_KEYS}}
+        warned_nograd: set[str] = set()
         start_time = time.time()
         opt.zero_grad(set_to_none=True)
         bar = tqdm(range(steps_per_epoch), desc=f"epoch {epoch}", unit="it")
@@ -687,7 +693,17 @@ def train(cfg: dict, args) -> None:
                     loss, parts = batch_losses(cfg, out[0], out[1], batch, device,
                                                use_sample=name in sample_streams,
                                                aux=out[2] if len(out) > 2 else None)
-                (loss / (accum * len(streams))).backward()          # 归一到全部流的样本均值
+                if loss.requires_grad:
+                    (loss / (accum * len(streams))).backward()          # 归一到全部流的样本均值
+                else:
+                    # v0.4.3 单任务消融会走到这里：该流既不在 sample_streams、又没有 token 头
+                    # ⇒ batch_losses 返回常量 zeros，无 grad_fn。
+                    # ★ 注意保留除法的 len(streams) 因子：不 backwar d 与"除以 2"是两件事，
+                    #   前者只是跳过零梯度，后者才是梯度尺度 ⇒ 这样另一流的尺度与 v0.4.2 完全一致。
+                    if name not in warned_nograd:
+                        warned_nograd.add(name)
+                        print(f"[loss] 流 {name} 本步无可回传损失（无 token 头且样本级不计该流）"
+                              f"⇒ 跳过 backward；len(streams) 因子保留以维持另一个流的梯度尺度")
                 for key in LOSS_KEYS:
                     step_parts[key] += parts[key]
                 if name in sample_streams:                         # 只记录真正回传的样本级损失

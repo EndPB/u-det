@@ -1,0 +1,100 @@
+# U-Det v0.4.3：**单任务消融** —— 只保留样本级分类。
+#
+# 目的（用户指定）：确认「后面的跳连（上采样路径）+ token 级分类」是不是在拖累样本级表现。
+#
+# 与 v0.4.2 的唯一区别就三处：
+#   model.sample_only: true   ⇒ 不建 up_blocks / gate，forward 跳过整个上采样循环
+#                               主干只剩「编码器 → 下采样 → 瓶颈 → 样本头」
+#   loss.token / cons_pool / cons_pos = 0   ⇒ 关掉全部 token 级损失
+#   train.monitor: m4_f1      ⇒ hybrid 不再产出 line_f1，monitor 只能看 m4
+#
+# ★ 关键：这**不会改变样本头的输入**。样本头读 `levels[0]` = 瓶颈输出，
+#   而瓶颈在 forward 里位于上采样**之前** ⇒ 与 v0.4.2 逐位相同（见 models/hier2.py 的 forward）。
+#   真正变的只有一件事：**下采样路径收不到任何 token 级损失的梯度**。
+#   所以若 m4 明显变好，就说明 token 级任务/跳连确实在拖累样本级 ——
+#   这与 v0.1 时代「双任务让 m4 样本级掉 7.5 分」的记录一致。
+#
+# ★ 为什么**保留** hybrid 流（不改成 streams: [m4] 来提速）：
+#   训练循环里梯度是 `loss / (accum * len(streams))`（train.py）。
+#   若去掉 hybrid，m4 的梯度尺度会直接**翻倍**，与 v0.4.2 就不可比了。
+#   保留两流则梯度尺度、更新次数（2008/epoch）、LR 计划全部与 v0.4.2 严格一致，
+#   只差"有没有 token 损失"这一个变量。代价是 hybrid 的 forward 仍要跑一遍 ——
+#   这部分算量换来的是**可比性**，对消融实验是划算的。
+#
+# ★ 预期可以省下的算量：上采样路径（4 个 WindowBlock ≈ 28M 参数）不再前向。
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+
+encoder:
+  name: codet5blk                               # 与 v0.4.2 相同（分块编码器）
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  block: 128
+  block_batch: 16
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]
+  static: true
+  ckpt: true
+  compile: true
+  freeze: false
+  max_length: 512
+
+model:
+  name: codec
+  dim: 768
+  depth: 4
+  mid: 4
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  divs: [4, 4, 2, 2]
+  wins: [16, 16, 16, 32]
+  share: false
+  sample_only: true                             # ★ v0.4.3：只做样本级
+  gate: false                                   # 上采样路径都不建了，gate 无意义
+  gate_init: -1.0
+
+heads:
+  sample_hidden: 256
+  sample_dropout: 0.0
+
+report:
+  name: handcrafted
+  max_tokens: 64
+
+loss:
+  sample: 1.0
+  token: 0.0                                    # ★ 关掉 token 级 BCE
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]
+  class_weights: null
+  token_target: [lse, lse, lse, mean, mean]
+  token_target_beta: 4.0
+  cons_pool: 0.0                                # ★ 关掉 A（层级一致性）
+  cons_pool_weights: [1, 1, 1, 1]
+  cons_pool_detach: true
+  cons_pos: 0.0                                 # ★ 关掉 B2（位置探针）
+  cons_pos_weights: [1, 1, 1, 1]
+  cons_pos_hidden: 256
+
+train:
+  streams: [m4, hybrid]                         # ★ 保留两流：梯度尺度与 v0.4.2 严格一致
+  sample_streams: [m4]
+  epochs: 2
+  grad_accum: 8
+  lr: 0.0003
+  lr_encoder: 0.00005
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 200
+  monitor: m4_f1                                # ★ hybrid 没有 line_f1 了，只能看 m4
+  seed: 0
+  out_dir: runs
