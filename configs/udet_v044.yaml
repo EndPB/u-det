@@ -1,0 +1,104 @@
+# U-Det v0.4.4：**让样本级看到所有尺度的能力**。
+#
+# 与 v0.4.2 的唯一区别：
+#   heads.sample_levels: 1  ->  5
+#   即样本头从「只读瓶颈 levels[0]」改成「读全部 5 个尺度，各自池化后拼接」。
+#
+# ★ 动机（实测支持的瓶颈诊断，见 docx/u-det-v0.4.md §8.8.3）：
+#   主干把整篇文档压进 levels[0]，而它的跨度是 **64 个原始 token**。
+#   m4 的中位长度只有 293 ⇒ **瓶颈只剩 ceil(293/64) = 5 个位置**，
+#   样本头就是把这 5 个向量做均值池化 —— 而同一篇文档在整段编码器里是完整的 293 个 token。
+#   v0.2 的零训练诊断早就指出：**瓶颈的线性探针上限 0.669 ≈ 样本头实测 0.673**
+#   （当时判为"头已到顶"），而**最细一级 L/1 可达 0.832** ——
+#   即样本级信号在上游是够的，是被瓶颈掐掉的。
+#
+#   现在读的 5 个尺度（levels 由粗到细）跨度分别是 64 / 32 / 16 / 4 / 1：
+#   最细一级是带着**跳连**重建出来的全分辨率特征，样本头以前完全看不到它。
+#   各尺度各自均值池化后拼接（宽度 768×5 = 3840），再进 MLP。
+#
+# ★ 为什么保留 token 头与 A/B2/B3 损失：§8.8 的单任务消融已经证明
+#   去掉它们会让样本级掉 1.76 分（token 级任务在逼主干保留细粒度信息）。
+#   所以这次的唯一变量就是"样本头能看到几个尺度"。
+#
+# ★ 代价：样本头参数 0.197M -> 0.98M（宽度 768 -> 3840），主干与编码器完全不变；
+#   前向只多 4 次 mean-pool + 一次拼接，可忽略。
+#   注意 `--resume` 旧 ckpt 会因 norm/net 宽度变化而"不匹配"，
+#   这是**预期**的（默认 sample_levels=1 时权重键与形状都保持不变，老 ckpt 仍可载）。
+#
+# 预期：短文档（瓶颈被压得最狠的区间）样本级提升。只跑 2 epoch 看方向。
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+
+encoder:
+  name: codet5blk                               # 与 v0.4.2 相同（分块编码器）
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  block: 128
+  block_batch: 16
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]
+  static: true
+  ckpt: true
+  compile: true
+  freeze: false
+  max_length: 512
+
+model:
+  name: codec
+  dim: 768
+  depth: 4
+  mid: 4
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  divs: [4, 4, 2, 2]
+  wins: [16, 16, 16, 32]
+  share: false
+  gate: true                                    # v0.4.0 的结构改造，保留
+  gate_init: -1.0
+
+heads:
+  sample_hidden: 256
+  sample_dropout: 0.0
+  sample_levels: 5                              # ★ v0.4.4：读全部 5 个尺度（深度 4 ⇒ 5 级）
+
+report:
+  name: handcrafted
+  max_tokens: 64
+
+loss:
+  sample: 1.0
+  token: 1.0                                    # 保留（§8.8 证明去掉会掉分）
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]
+  class_weights: null
+  token_target: [lse, lse, lse, mean, mean]
+  token_target_beta: 4.0
+  cons_pool: 0.3
+  cons_pool_weights: [1, 1, 1, 1]
+  cons_pool_detach: true
+  cons_pos: 0.2
+  cons_pos_weights: [1, 1, 1, 1]
+  cons_pos_hidden: 256
+
+train:
+  streams: [m4, hybrid]
+  sample_streams: [m4]
+  epochs: 2
+  grad_accum: 8
+  lr: 0.0003
+  lr_encoder: 0.00005
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 200
+  monitor: mean                                 # 与 v0.4.2 一致（token 头在，line_f1 存在）
+  seed: 0
+  out_dir: runs

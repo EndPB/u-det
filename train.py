@@ -171,7 +171,7 @@ class UDet(nn.Module):
         else:
             levels, _ = self.backbone(feats, return_features=True)
             downs = None
-        sample_logits = self.sample_head(levels[0])              # 瓶颈池化 -> (B, 2)
+        sample_logits = self.sample_head(levels)                 # 多尺度池化 -> (B, 2)
         token_logits = None if self.token_heads is None else self.token_heads(levels)
         if not return_aux:
             return sample_logits, token_logits
@@ -206,8 +206,18 @@ def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
     mcfg.pop("baseline", None)
     backbone = build_hier(name, **mcfg)
     heads = dict(cfg.get("heads", {}))
+    # v0.4.4：样本头可以读多个尺度（默认 1 = 只读瓶颈，与历史行为一致）。
+    # 主干只有瓶颈 1 个尺度时（sample_only）自动夹紧，避免 LayerNorm 宽度不匹配。
+    n_avail = 1 if getattr(backbone, "sample_only", False) else backbone.depth + 1
+    n_req = int(heads.get("sample_levels", 1))
+    n_levels = max(1, min(n_req, n_avail))
+    if n_levels != n_req:
+        print(f"[model] heads.sample_levels 请求 {n_req}，但主干只有 {n_avail} 个尺度 ⇒ 夹到 {n_levels}")
     sample_head = SampleHead(backbone.dim, hidden=heads.get("sample_hidden"),
-                             dropout=heads.get("sample_dropout", 0.0))
+                             dropout=heads.get("sample_dropout", 0.0), n_levels=n_levels)
+    if n_levels > 1:
+        print(f"[model] 样本头读 {n_levels} 个尺度（由粗到细，跨度 64→1）：各自池化后拼接，"
+              f"宽度 {backbone.dim * n_levels}（vs 只读瓶颈的 {backbone.dim}）")
     if getattr(backbone, "sample_only", False):
         token_heads = None
         print("[model] 单任务模式（主干 sample_only=True）：不建 token 头、不建上采样/跳连路径，"
