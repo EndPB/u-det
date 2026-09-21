@@ -183,11 +183,49 @@ def t4_report_vector_mode() -> None:
     check("prefix 模式下 collate 的 report 为 None", bp["report"] is None)
 
 
+def t5_nmin_rel() -> None:
+    """★ v0.4.7：锚点随长度缩放 N_min = rel×L ⇒ 权重只取决于压缩倍率，与 L 无关。
+
+    ⚠️ **「与 L 无关」是近似**：$n_i$ 含 $\\lceil L/s_i \\rceil$，自身仍带一点长度的痕迹，
+       偏差在短文档上最明显（ceil 的相对影响最大），但只落在很小的权重上。
+       期望值一律取**解析式** $\\sigma((3-\\log_2 s_i)/\\tau)$ 归一化后的值，不手写舍入值（lessons A10）。
+    """
+    print("\n=== 5. nmin_rel 模式：锚点 = rel × L（v0.4.7）===")
+    ref = norm([1 / (1 + math.exp(-((3 - math.log2(s)) / 0.5))) for s in (64, 32, 16, 4, 1)])
+    print(f"  解析参考 σ((3−log2 s_i)/0.5) 归一化 = {[round(x, 5) for x in ref]}")
+    worst = 0.0
+    worst_L = 0
+    for L in (293, 512, 1274, 2048, 8192, 32768):
+        ns = [torch.zeros(1, 1, max(1, math.ceil(L / s))) for s in (64, 32, 16, 4, 1)]
+        nw = norm(scale_weights_length(ns, tau=0.5, nmin_rel=0.125))
+        d = max(abs(a - b) for a, b in zip(nw, ref))
+        if d > worst:
+            worst, worst_L = d, L
+        # 容差 1e-2：偏差只来自 ceil，且落在很小的权重上；短文档上最大（ceil 相对影响最大）
+        check(f"L={L:<6} ≈ 解析式（容许 ceil 带来的偏差）", d < 1e-2,
+              f"最大偏差 {d:.2e}  {[round(x, 4) for x in nw]}")
+    print(f"  → 各长度最大偏差 = {worst:.2e}（出现在 L={worst_L}，来源：n_i 的 ceil）。")
+    print("    偏差集中在很小的粗尺度权重上（如 L=293 最细 0.4894 vs 0.4943），量级 <0.5 个百分点。")
+
+    big = [torch.zeros(1, 1, max(1, math.ceil(8192 / s))) for s in (64, 32, 16, 4, 1)]
+    nw_abs = norm(scale_weights_length(big, nmin=64.0, tau=0.5))
+    check("对照组：固定锚点 N_min=64 在 L=8192 退化成近似均匀（饱和）",
+          all(abs(x - 0.2) < 0.03 for x in nw_abs), f"{[round(x, 4) for x in nw_abs]}")
+    small = [torch.zeros(1, 1, max(1, math.ceil(512 / s))) for s in (64, 32, 16, 4, 1)]
+    nw_512 = norm(scale_weights_length(small, nmin=64.0, tau=0.5))
+    check("★ 短文档（L=512）上 nmin_rel 与旧固定锚点**形状一致** ⇒ 短桶收益应当保住",
+          max(abs(a - b) for a, b in zip(nw_512, ref)) < 1e-6, f"{[round(x, 4) for x in nw_512]}")
+    check("长文档（L=8192）上两者形状差别很大 ⇒ 饱和确实被修掉",
+          max(abs(a - b) for a, b in zip(nw_abs, ref)) > 0.2,
+          f"最大形状差 {max(abs(a-b) for a,b in zip(nw_abs, ref)):.3f}")
+
+
 def main() -> int:
     t1_weight_function()
     t2_token_loss_static_identical()
     t3_sample_head_backcompat()
     t4_report_vector_mode()
+    t5_nmin_rel()
     print(f"\n{'=' * 60}\n{'全部通过' if bad == 0 else f'{bad} 项失败'}\n{'=' * 60}")
     return 1 if bad else 0
 

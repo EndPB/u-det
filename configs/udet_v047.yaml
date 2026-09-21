@@ -1,0 +1,121 @@
+# U-Det v0.4.7：**单变量**改动 —— 把尺度权重的锚点改成随长度缩放。
+#
+# 基线 = v0.4.6（configs/udet_v046.yaml）。相对它**只有一处不同**：
+#   loss.token_weight_nmin_rel: 0.125   （即 N_min = L/8）
+#
+# ─────────────────────────────────────────────────────────────────────────
+# 为什么改（实测驱动，见 docx/u-det-v0.4.md §8.12.11）：
+#
+# v0.4.6（固定 N_min=64, τ=0.5）的 4 轮分桶结果：
+#   · 短桶（[0,512)、[512,2048)）**全面优于** v0.4.5 与 v0.4.4  ✓ 改动 2 有效
+#   · 长桶（[2048,8192)、[8192,∞)）**全面劣于** v0.4.5          ✗ 要修的
+#
+# 长桶退化的机制就是 §8.12.2 记下的 **σ 饱和**：
+#   固定锚点下，L ≥ 2048 时 5 个权重全部趋近 1 ⇒ **均匀**
+#   （L=8192 实测 [0.181, 0.202, 0.205, 0.206, 0.206]）
+#   ⇒ 粗尺度被**额外**加权；而 P1 探针显示长桶里最细尺度比最粗高 **+0.196**
+#     （是所有长度桶里落差最大的）⇒ 把权重从细尺度挪向粗尺度，代价在长文档上最大。
+#
+# 改法：把锚点定成文档长度的固定比例 N_min = L/8。代入 n_i = L/s_i 得
+#   w_i = σ((3 − log2 s_i)/τ)  ⇒ **只取决于压缩倍率 s_i、与 L 无关**
+#   即固定相对权重 [0.0012, 0.0089, 0.0591, 0.4365, 0.4943]（τ=0.5）
+#
+# 它恰好就是 v0.4.6 在 **L=512 时的形状**，只是推广到所有长度：
+#   · 短文档：形状**不变** ⇒ 保住改动 2 带来的短桶收益
+#   · 长文档：**不再均匀** ⇒ 回到细尺度主导（与 P2 探针偏好一致：
+#     该桶加权 BCE 0.3184 对 均匀的 0.3824）
+#
+# ⚠️ 代价：这等于**放弃“长度自适应”**。锚点固定成 L/8 后，权重对所有文档都一样。
+#    这正好印证了先前的解析结论 —— 该公式族要么退化成“均匀”、
+#    要么退化成“与 L 无关的固定相对权重”，
+#    中间那个“短文档温和、长文档激进”的 regime **在数学上不存在**。
+#
+# 预期：短桶保住 v0.4.6 的水平，长桶回到 v0.4.5 水平或更好
+#       ⇒ 整体取到 v0.4.4 / v0.4.5 / v0.4.6 三者的**上包络**。
+# 只跑 2 epoch 看方向（与前几版同预算）。
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+
+encoder:
+  name: codet5blk
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  block: 128
+  block_batch: 16
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]
+  static: true
+  ckpt: true
+  compile: true
+  freeze: false
+  max_length: 512
+
+model:
+  name: codec
+  dim: 768
+  depth: 4
+  mid: 4
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  divs: [4, 4, 2, 2]
+  wins: [16, 16, 16, 32]
+  share: false
+  gate: true
+  gate_init: -1.0
+
+heads:
+  sample_hidden: 256
+  sample_dropout: 0.0
+  sample_levels: 5
+  token_bypass: true
+  report_dim: 7
+  report_proj: 32
+
+report:
+  name: handcrafted
+  mode: vector
+  max_tokens: 64
+  stats_mean: [0.258469, 0.739953, 0.0, 4.29721, 6.38067, 0.25501, 15715.4]
+  stats_std: [0.223064, 0.259723, 0.0, 0.415286, 0.737291, 0.198037, 694916.0]
+
+loss:
+  sample: 1.0
+  token: 1.0
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]     # 仅 weight_mode=static 时使用
+  token_weight_mode: length
+  token_weight_nmin: 64                         # 仅 nmin_rel 为空时使用
+  token_weight_nmin_rel: 0.125                  # ★ 本版唯一改动：N_min = L/8
+  token_weight_tau: 0.5
+  class_weights: null
+  token_target: [lse, lse, lse, mean, mean]
+  token_target_beta: 4.0
+  cons_pool: 0.3
+  cons_pool_weights: [1, 1, 1, 1]
+  cons_pool_detach: true
+  cons_pos: 0.2
+  cons_pos_weights: [1, 1, 1, 1]
+  cons_pos_hidden: 256
+
+train:
+  streams: [m4, hybrid]
+  sample_streams: [m4]
+  epochs: 2
+  grad_accum: 8
+  lr: 0.0003
+  lr_encoder: 0.00005
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 200
+  monitor: mean
+  seed: 0
+  out_dir: runs

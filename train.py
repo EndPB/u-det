@@ -279,23 +279,44 @@ def _aggregate_target(t: torch.Tensor, v: torch.Tensor, k: int, mode: str, beta:
 
 
 def scale_weights_length(logit_scales: list[torch.Tensor], nmin: float = 64.0,
-                         tau: float = 0.5) -> list[float]:
-    """v0.4.6：长度感知的逐尺度权重  w_i = σ((log2 n_i − log2 N_min) / τ)。
+                         tau: float = 0.5, nmin_rel: float | None = None) -> list[float]:
+    """长度感知的逐尺度权重  w_i = σ((log2 n_i − log2 N_min) / τ)。
 
     ``n_i`` 取**该尺度的真实位置数** ``logits.shape[-1]``（而不是 L/s_i）——
     它就是 `_aggregate_target` 用的同一个量，两者必须一致。
-    短文档的粗尺度位置数少 ⇒ w 被压低 ⇒ 权重自动向**高分辨率尺度**集中，
-    与「短文本更该参考浅层/高分辨率」的直觉一致。
 
-    ★ 已知局限（探针实测确认，见 docx/u-det-v0.4.md §8.12.5-④）：
+    Args:
+        nmin: **固定**锚点（"多少个位置才算够"），默认 64。
+        nmin_rel: **★ v0.4.7：锚点随长度缩放**，``N_min = nmin_rel × L``（非空时覆盖 ``nmin``）。
+
+    ★ 固定锚点的已知局限（探针实测，见 docx/u-det-v0.4.md §8.12.5-④）：
       本函数只有两个退化 regime ——
         · n_i ≫ N_min  ⇒ 5 个权重全趋 1（**均匀**，实测是最差的非退化解）；
-        · n_i ≪ N_min  ⇒ 权重 ∝ (1/s_i)^(1/τ)（**与 L 无关**，实测 L=293 与 L=8192 几乎逐位相同）。
-      所以它**无法表达“短文档温和、长文档激进”**；长度依赖只存在于过渡带 L ~ N_min·s_i。
-      当前取值 N_min=64 / τ=0.5 是探针在冻结 v0.4.5 上扫出来的加权 BCE：
-      静态 0.3994 / N_min=8 0.4199（**更差**）/ N_min=64 0.3921（更优）。
+        · n_i ≪ N_min  ⇒ 权重 ∝ (1/s_i)^(1/τ)（**与 L 无关**）。
+      所以固定锚点**无法表达"短文档温和、长文档激进"**；长度依赖只在过渡带 L ~ N_min·s_i。
+      N_min=64 / τ=0.5 是探针在冻结 v0.4.5 上扫出的加权 BCE（静态 0.3994 / 64 → 0.3921）。
+
+    ★★ 为什么需要 ``nmin_rel``（4 轮分桶驱动，见 §8.12.11）：
+      固定 N_min=64 时 **L ≥ 2048 就退化成均匀**（L=8192 得到
+      `[0.181, 0.202, 0.205, 0.206, 0.206]`）⇒ **粗尺度被额外加权**；
+      而 P1 探针显示长桶里最细尺度比最粗高 **+0.196**（所有桶里落差最大）
+      ⇒ 代价在长文档上最大。4 轮实测印证：v0.4.6 的长桶全面劣于 v0.4.5。
+
+      改成 $N_{\\min}=L/8$ 后，代入 $n_i = L/s_i$ 得
+      $w_i = \\sigma((3-\\log_2 s_i)/\\tau)$ ⇒ **只取决于压缩倍率 $s_i$、与 L 无关**，
+      即固定相对权重 `[0.0012, 0.0089, 0.0591, 0.4365, 0.4943]`（τ=0.5）——
+      **恰好就是原先 L=512 时的形状**，只是推广到所有长度：
+      短文档形状**不变**（保住短桶收益），长文档**不再均匀**（修掉饱和）。
+
+      ⚠️ 代价：这等于**放弃"长度自适应"** —— 锚点固定成 L/8 后权重对所有文档都一样。
+      这印证了上面的解析结论：该公式族要么退化成"均匀"、要么退化成"与 L 无关的
+      固定相对权重"，中间那个 regime **在数学上不存在**。
     """
-    lo = math.log2(max(float(nmin), 1e-9))
+    if nmin_rel is not None:
+        # 最细尺度的长度就是 L（`evaluate` / `token_loss` 的长度契约）
+        lo = math.log2(max(float(nmin_rel) * float(logit_scales[-1].shape[-1]), 1e-9))
+    else:
+        lo = math.log2(max(float(nmin), 1e-9))
     return [1.0 / (1.0 + math.exp(-((math.log2(max(float(t.shape[-1]), 1.0)) - lo) / tau)))
             for t in logit_scales]
 
@@ -304,20 +325,21 @@ def token_loss(logit_scales: list[torch.Tensor], tok_labels: torch.Tensor,
                weights: list[float], ignore: int = IGNORE,
                modes: list[str] | None = None, beta: float = 4.0,
                weight_mode: str = "static", nmin: float = 64.0,
-               tau: float = 0.5) -> torch.Tensor | None:
+               tau: float = 0.5, nmin_rel: float | None = None) -> torch.Tensor | None:
     """各尺度 token 级 BCE：标签按尺度池化成目标（默认平均池化软标签）。
 
     Args:
         modes: 逐尺度（由粗到细）的聚合方式，见 `_aggregate_target`；None = 全部 mean。
         beta: ``lse`` 模式的锐化系数。
         weight_mode: ``static``（默认，直接用 ``weights``，与历史**逐位一致**）
-            或 ``length``（v0.4.6，改用 `scale_weights_length`）。
+            或 ``length``（v0.4.6+，改用 `scale_weights_length`）。
+        nmin_rel: 非空时锚点随长度缩放（$N_{\min}=$ ``nmin_rel`` × L），见 `scale_weights_length`。
     """
     valid = (tok_labels != ignore)
     if not valid.any():
         return None
     if weight_mode == "length":
-        weights = scale_weights_length(logit_scales, nmin, tau)
+        weights = scale_weights_length(logit_scales, nmin, tau, nmin_rel)
     elif weight_mode != "static":
         raise ValueError(f"未知 weight_mode {weight_mode!r}，可选：static / length")
     target = tok_labels.clamp(min=0).float()
@@ -465,7 +487,8 @@ def batch_losses(cfg: dict, sample_logits: torch.Tensor, token_logits: list[torc
                              beta=float(loss_cfg.get("token_target_beta", 4.0)),
                              weight_mode=str(loss_cfg.get("token_weight_mode", "static")),
                              nmin=float(loss_cfg.get("token_weight_nmin", 64.0)),
-                             tau=float(loss_cfg.get("token_weight_tau", 0.5)))
+                             tau=float(loss_cfg.get("token_weight_tau", 0.5)),
+                             nmin_rel=loss_cfg.get("token_weight_nmin_rel"))
     parts = {"sample": float(l_sample.detach()), "token": 0.0, "cons_pool": 0.0, "cons_pos": 0.0}
     total = loss_cfg.get("sample", 1.0) * l_sample if use_sample else torch.zeros((), device=device)
     if l_token is not None:
