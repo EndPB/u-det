@@ -15,10 +15,41 @@
 
 from __future__ import annotations
 
-from typing import List, Optional, Sequence
+from typing import List, Optional, Sequence, Tuple
 
 import torch
 import torch.nn as nn
+
+
+class _GradScale(torch.autograd.Function):
+    """前向恒等、反向把梯度乘 ``lam`` 的算子。
+
+    用途：v0.4.9 的「文档级损失 → 主干」梯度缩放。
+
+        * ``lam = 1.0``：与不加它**逐位相同**（``grad_scale`` 直接返回原张量，连算子都不建）；
+        * ``lam = 0.0``：等价于 ``stop-gradient``（文档级损失不再改写主干）；
+        * ``0 < lam < 1``：可扫的旋钮。
+
+    ★ 为什么需要它：§8.15.1 发现两个目标**在共享主干上结构性竞争**（三次“给文档级
+    加表达力”的改动全部拉低 token 三项）。一个直接的解释是“文档级头能改写多少主干”
+    这个量没有被显式控制。本算子把这个量变成一个**单一、可扫**的旋钮，
+    而且只影响梯度、不改前向 —— 因而不是“加表达力”（A11 里那个已知有害的旋钮）。
+    """
+
+    @staticmethod
+    def forward(ctx, x: torch.Tensor, lam: float) -> torch.Tensor:
+        ctx.lam = float(lam)
+        return x.view_as(x)
+
+    @staticmethod
+    def backward(ctx, g: torch.Tensor):
+        return g * ctx.lam, None
+
+
+def grad_scale(x: torch.Tensor, lam: float) -> torch.Tensor:
+    """恒等前向 + 梯度乘 ``lam``；``lam == 1.0`` 时**完全不介入**（保逐位一致）。"""
+    lam = float(lam)
+    return x if lam == 1.0 else _GradScale.apply(x, lam)
 
 
 class GatedAttentionPool(nn.Module):
@@ -76,10 +107,11 @@ class SampleHead(nn.Module):
 
     def __init__(self, dim: int, hidden: Optional[int] = None, out: int = 2, dropout: float = 0.0,
                  n_levels: int = 1, report_dim: int = 0, report_proj: int = 32,
-                 pool: str = "mean", attn_dim: int = 128):
+                 pool: str = "mean", attn_dim: int = 128, grad_scale: float = 1.0):
         super().__init__()
         hidden = int(hidden or dim)
         self.n_levels = max(1, int(n_levels))
+        self.grad_scale = float(grad_scale)
         self.pool = str(pool)
         if self.pool not in ("mean", "abmil"):
             raise ValueError(f"未知 pool {pool!r}，可选：mean / abmil")
@@ -124,6 +156,9 @@ class SampleHead(nn.Module):
         配了 report_dim 时**必需**；未配时必须为空 —— 两边都用报错而非静默忽略，
         避免出现"以为接上了其实没接"这种只有看指标才能发现的错误。
         """
+        if self.grad_scale != 1.0:                       # v0.4.9：只改梯度，不改前向
+            x = ([grad_scale(t, self.grad_scale) for t in x[: self.n_levels]]
+                 if isinstance(x, (list, tuple)) else grad_scale(x, self.grad_scale))
         if isinstance(x, (list, tuple)):
             xs = list(x[: self.n_levels])
             if len(xs) != self.n_levels:
@@ -169,22 +204,52 @@ class TokenHeads(nn.Module):
             ★ 为什么不做“把各尺度 logits 融合起来”：粗尺度的目标经过
             `lse`/`mean` 聚合，它的语义是“窗口内是否有 AI”而非逐 token 判断，
             升采样后当成逐 token 预测融合会**模糊**细尺度结果。
+
+        bypass_mode: 旁路的接法（v0.4.9）。``token_bypass: true`` 时才生效：
+
+            ``concat``（默认、历史行为）：把旁路特征**拼进**最细尺度的头
+                ⇒ 该头输入 768+768=1536。代价：这个头可以完全依赖旁路，
+                **主干那一级就不再需要保留细粒度信息** ⇒ §8.11.6 猜测的
+                “信息保值”正则化被削弱，于是文档级掉分。
+            ``separate``（v0.4.9）：主干 5 个尺度的头**完全不变**（最细仍是
+                `Linear(768,1)`，与 v0.4.4 逐位一致），旁路改走一个**独立的**
+                `Linear(bypass_dim, out)` 头。两个头**各自**被监督
+                （见 `train.batch_losses` 的 `loss.token_bypass`），
+                **报告/评测时取两者 logits 的均值** ——
+                ⇒ 主干那一级继续承受全部 token 级压力（信息保值机制恢复），
+                同时保留旁路带来的细粒度收益。
+                ★ 参数几乎不变：1537 → 769 + 769 = 1538（**+1**）。
     """
 
-    def __init__(self, dims: Sequence[int], out: int = 1, bypass_dim: Optional[int] = None):
+    def __init__(self, dims: Sequence[int], out: int = 1, bypass_dim: Optional[int] = None,
+                 bypass_mode: str = "concat"):
         super().__init__()
         self.dims = tuple(int(d) for d in dims)
         self.bypass_dim = None if bypass_dim is None else int(bypass_dim)
+        self.bypass_mode = str(bypass_mode) if self.bypass_dim else "concat"
+        if self.bypass_dim and self.bypass_mode not in ("concat", "separate"):
+            raise ValueError(f"未知 bypass_mode {bypass_mode!r}，可选：concat / separate")
         head_dims = list(self.dims)
-        if self.bypass_dim:                          # 只有**最细**尺度拼接旁路
+        if self.bypass_dim and self.bypass_mode == "concat":   # 只有**最细**尺度拼接旁路
             head_dims[-1] = self.dims[-1] + self.bypass_dim
         self.heads = nn.ModuleList([nn.Linear(d, out) for d in head_dims])
+        # v0.4.9 的「额外一路头」：独立参数，与主干那一级的头**不共享**
+        self.bypass_head = None
+        if self.bypass_dim and self.bypass_mode == "separate":
+            self.bypass_head = nn.Linear(self.bypass_dim, out)
+
+    @property
+    def separate(self) -> bool:
+        return self.bypass_head is not None
 
     def forward(self, feats: Sequence[torch.Tensor],
-                bypass: Optional[torch.Tensor] = None) -> List[torch.Tensor]:
+                bypass: Optional[torch.Tensor] = None
+                ) -> Tuple[List[torch.Tensor], Optional[torch.Tensor]]:
         """feats: 由粗到细 [(B, L_k, D), ...]；bypass: (B, L, D_by)（仅最细尺度用）。
 
-        返回 [(B, out, L_k), ...]。
+        返回 ``(主干 5 个尺度的 logits 列表, 额外一路头的 logits 或 None)``；
+        **两者都是 (B, out, L_k) 的原始 logits，不做任何融合** ——
+        融合（取均值）由调用方 `UDet.forward` 做，且**只用于报告**。
         """
         if len(feats) != len(self.heads):
             raise ValueError(f"期望 {len(self.heads)} 个尺度特征，收到 {len(feats)} 个")
@@ -195,5 +260,8 @@ class TokenHeads(nn.Module):
             if tuple(bypass.shape[:2]) != tuple(xs[-1].shape[:2]):
                 raise ValueError(
                     f"旁路特征必须与最细尺度同长：{tuple(bypass.shape)} vs {tuple(xs[-1].shape)}")
-            xs[-1] = torch.cat([xs[-1], bypass], dim=-1)
-        return [head(f).transpose(1, 2) for head, f in zip(self.heads, xs)]
+            if self.bypass_mode == "concat":
+                xs[-1] = torch.cat([xs[-1], bypass], dim=-1)
+        trunk = [head(f).transpose(1, 2) for head, f in zip(self.heads, xs)]
+        extra = None if self.bypass_head is None else self.bypass_head(bypass).transpose(1, 2)
+        return trunk, extra

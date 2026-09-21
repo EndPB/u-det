@@ -48,7 +48,7 @@ from report import build_report
 ROOT = Path(__file__).resolve().parent
 IGNORE = -100
 #: batch_losses 返回的"非样本级"损失项名（用于日志/轮均）
-LOSS_KEYS = ("token", "cons_pool", "cons_pos")
+LOSS_KEYS = ("token", "bypass", "cons_pool", "cons_pos")
 
 
 # --------------------------------------------------------------------------- #
@@ -105,6 +105,17 @@ def apply_overrides(cfg: dict, args) -> dict:
         cfg["loss"]["token_target"] = [args.token_target] * 5
     if args.no_gate:                                   # v0.4 消融：退回 v0.3 的纯跨注意力跳连
         cfg.setdefault("model", {})["gate"] = False
+    if getattr(args, "set", None):                     # v0.4.9：通用覆盖，供"单变量"实验用
+        for item in args.set:
+            key, _, raw = str(item).partition("=")
+            if not _ or not key:
+                raise SystemExit(f"--set 的格式应为 段.键=值，收到 {item!r}")
+            path = key.split(".")
+            node = cfg
+            for p in path[:-1]:
+                node = node.setdefault(p, {})
+            node[path[-1]] = yaml.safe_load(raw)       # 用 YAML 解析 ⇒ true/null/数字/列表都能写
+            print(f"[cfg] --set {key} = {node[path[-1]]!r}")
     return cfg
 
 
@@ -176,10 +187,20 @@ class UDet(nn.Module):
             levels, _ = self.backbone(feats, return_features=True)
             downs = None
         sample_logits = self.sample_head(levels, report=report)   # 多尺度池化 (+报告) -> (B, 2)
-        token_logits = None if self.token_heads is None else self.token_heads(levels, feats)
+        scales, bypass_logits = None, None
+        token_logits = None
+        if self.token_heads is not None:
+            scales, bypass_logits = self.token_heads(levels, feats)
+            token_logits = list(scales)
+            if bypass_logits is not None:
+                # ★ v0.4.9：额外一路头与主干最细尺度**取均值，但只用于报告/评测**。
+                #   损失仍然分别施加在两者**各自**的 logits 上（见 batch_losses）——
+                #   否则主干那一级可以“搭便车”，§8.11.6 的「信息保值」机制就恢复不了。
+                token_logits[-1] = 0.5 * (token_logits[-1] + bypass_logits)
         if not return_aux:
             return sample_logits, token_logits
-        aux = {"downs": downs, "pos_logits": None, "spans": None}
+        aux = {"downs": downs, "pos_logits": None, "spans": None,
+               "token_scales": scales, "bypass_logits": bypass_logits}
         if downs is not None:
             aux["pos_logits"] = self.pos_probes(downs)
             aux["spans"] = self.pos_probes.spans
@@ -208,7 +229,19 @@ def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
         return PooledClassifier(encoder, dim=encoder.hidden_size, **bcfg), encoder
 
     mcfg.pop("baseline", None)
+    mid_init = str(mcfg.pop("mid_init", "none") or "none")
     backbone = build_hier(name, **mcfg)
+    if mid_init not in ("none", ""):
+        from encoders.codet5 import init_selfblocks_from_codet5
+        faithful = (str(mcfg.get("mid_norm", "layernorm")) == "rms"
+                    and str(mcfg.get("mid_act", "gelu")) == "relu")
+        init_selfblocks_from_codet5(backbone.mid_blocks, path=cfg["encoder"]["path"],
+                                    spec=mid_init)
+        if not faithful:
+            print("[mid_init] ⚠️ 当前 model.mid_norm/mid_act 是历史值（layernorm / gelu），"
+                  "移植保真度只有 cos≈0.864；若允许瓶颈改用 T5 语义"
+                  "（mid_norm: rms + mid_act: relu，参数不变）可达 cos≈0.999。"
+                  "实测见 `scripts/check_v049.py --encoder`。")
     heads = dict(cfg.get("heads", {}))
     # v0.4.4：样本头可以读多个尺度（默认 1 = 只读瓶颈，与历史行为一致）。
     # 主干只有瓶颈 1 个尺度时（sample_only）自动夹紧，避免 LayerNorm 宽度不匹配。
@@ -221,10 +254,16 @@ def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
     rep_dim = int(heads.get("report_dim", 0) or 0)
     rep_proj = int(heads.get("report_proj", 32))
     s_pool = str(heads.get("sample_pool", "mean"))
+    # v0.4.9：文档级损失 → 主干的**梯度缩放**（1.0 = 不介入，与历史逐位一致；0.0 = stop-gradient）
+    g_scale = float(heads.get("sample_grad_scale", 1.0))
     sample_head = SampleHead(backbone.dim, hidden=heads.get("sample_hidden"),
                              dropout=heads.get("sample_dropout", 0.0), n_levels=n_levels,
                              report_dim=rep_dim, report_proj=rep_proj,
-                             pool=s_pool, attn_dim=int(heads.get("sample_attn_dim", 128)))
+                             pool=s_pool, attn_dim=int(heads.get("sample_attn_dim", 128)),
+                             grad_scale=g_scale)
+    if g_scale != 1.0:
+        print(f"[model] ★ 文档级头 → 主干的**梯度缩放 λ={g_scale:g}**"
+              f"（0 = stop-gradient；只改梯度、不改前向 ⇒ 不属于「加表达力」那类改动）")
     if s_pool == "abmil":
         n_attn = sum(p.numel() for p in sample_head.attn.parameters())
         print(f"[model] 文档级头的池化：**ABMIL 门控注意力**（逐尺度各自一套，"
@@ -242,10 +281,24 @@ def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
         print("[model] 单任务模式（主干 sample_only=True）：不建 token 头、不建上采样/跳连路径，"
               "只做样本级分类（token 级损失会被 batch_losses 自动跳过）")
     else:
+        # v0.4.9：旁路有两种接法 —— concat（历史）/ separate（额外一路头）
+        byp_mode = str(heads.get("token_bypass_mode", "concat"))
         token_heads = TokenHeads(
             [backbone.dim] * (backbone.depth + 1), out=1,
-            bypass_dim=backbone.dim if heads.get("token_bypass") else None)
-        if heads.get("token_bypass"):
+            bypass_dim=backbone.dim if heads.get("token_bypass") else None,
+            bypass_mode=byp_mode)
+        if heads.get("token_bypass") and byp_mode == "separate":
+            if float(cfg.get("loss", {}).get("token_bypass", 1.0) or 0.0) <= 0:
+                raise SystemExit(
+                    "[model] token_bypass_mode='separate' 时 loss.token_bypass 必须 > 0，"
+                    "否则额外一路头**永远不会被训练** —— 这是不会报错的静默失效（B 类陷阱）")
+            print(f"[model] token 头旁路（v0.4.9）：**额外一路头** —— 主干 5 个尺度的头"
+                  f"**不再**拼接编码器特征（最细仍是 {backbone.dim}->1，与 v0.4.4 逐位一致），"
+                  f"编码器特征改走一个独立的 Linear({backbone.dim}->1) 头；"
+                  f"两者各自被监督，**报告时取 logits 均值**")
+            print(f"[loss] 额外一路头的独立监督权重 loss.token_bypass="
+                  f"{cfg.get('loss', {}).get('token_bypass', 1.0)}")
+        elif heads.get("token_bypass"):
             print(f"[model] token 头旁路（v0.4.5）：最细尺度额外拼接**编码器全长特征**"
                   f"（{backbone.dim} -> {2 * backbone.dim}），因为主干各尺度都在瓶颈之后")
     loss_cfg = cfg.get("loss", {})
@@ -484,27 +537,51 @@ def batch_losses(cfg: dict, sample_logits: torch.Tensor, token_logits: list[torc
     weight = None if not class_weights else torch.tensor(class_weights, device=device, dtype=torch.float32)
     l_sample = F.cross_entropy(sample_logits.float(), labels, weight=weight)
 
+    # ★ v0.4.9：`token_logits[-1]` 在「额外一路头」模式下是
+    #   “主干最细尺度 ⊕ 额外头”的**均值**（只用于报告/评测）。
+    #   损失必须打在两者**各自**的 logits 上 —— 否则主干那一级可以搭便车，
+    #   §8.11.6 的「token 级任务替主干做信息保值」就恢复不了。
+    loss_scales = token_logits
+    if aux and aux.get("token_scales") is not None:
+        loss_scales = aux["token_scales"]
+    bypass_logits = (aux or {}).get("bypass_logits")
+
+    tok_kw = dict(modes=loss_cfg.get("token_target"),
+                  beta=float(loss_cfg.get("token_target_beta", 4.0)),
+                  weight_mode=str(loss_cfg.get("token_weight_mode", "static")),
+                  nmin=float(loss_cfg.get("token_weight_nmin", 64.0)),
+                  tau=float(loss_cfg.get("token_weight_tau", 0.5)),
+                  nmin_rel=loss_cfg.get("token_weight_nmin_rel"))
     tok_labels = None
     l_token = None
-    if token_logits is not None and loss_cfg.get("token", 1.0) > 0:
+    if loss_scales is not None and loss_cfg.get("token", 1.0) > 0:
         tok_labels = batch["tok_labels"].to(device)
-        l_token = token_loss(token_logits, tok_labels,
-                             loss_cfg.get("scale_weights", [1.0] * len(token_logits)),
-                             modes=loss_cfg.get("token_target"),
-                             beta=float(loss_cfg.get("token_target_beta", 4.0)),
-                             weight_mode=str(loss_cfg.get("token_weight_mode", "static")),
-                             nmin=float(loss_cfg.get("token_weight_nmin", 64.0)),
-                             tau=float(loss_cfg.get("token_weight_tau", 0.5)),
-                             nmin_rel=loss_cfg.get("token_weight_nmin_rel"))
-    parts = {"sample": float(l_sample.detach()), "token": 0.0, "cons_pool": 0.0, "cons_pos": 0.0}
+        l_token = token_loss(loss_scales, tok_labels,
+                             loss_cfg.get("scale_weights", [1.0] * len(loss_scales)), **tok_kw)
+    parts = {"sample": float(l_sample.detach()), "token": 0.0, "bypass": 0.0,
+             "cons_pool": 0.0, "cons_pos": 0.0}
     total = loss_cfg.get("sample", 1.0) * l_sample if use_sample else torch.zeros((), device=device)
     if l_token is not None:
         total = total + loss_cfg.get("token", 1.0) * l_token
         parts["token"] = float(l_token.detach())
 
+    # ---------------- v0.4.9：额外一路头的独立监督 ---------------- #
+    w_by = float(loss_cfg.get("token_bypass", 1.0) or 0.0)
+    if w_by > 0 and bypass_logits is not None:
+        if tok_labels is None:
+            tok_labels = batch["tok_labels"].to(device)
+        modes = tok_kw["modes"]
+        sw = loss_cfg.get("scale_weights")          # 与主干最细尺度**同权重**，保持口径一致
+        l_by = token_loss([bypass_logits], tok_labels,
+                          [float(sw[-1])] if sw else [1.0],
+                          **{**tok_kw, "modes": [modes[-1]] if modes else None})
+        if l_by is not None:
+            total = total + w_by * l_by
+            parts["bypass"] = float(l_by.detach())
+
     # ---------------- v0.4 辅助损失 ---------------- #
-    if tok_labels is not None and token_logits is not None and loss_cfg.get("cons_pool", 0.0) > 0:
-        l_cons = cons_pool_loss(token_logits, tok_labels,
+    if tok_labels is not None and loss_scales is not None and loss_cfg.get("cons_pool", 0.0) > 0:
+        l_cons = cons_pool_loss(loss_scales, tok_labels,
                                 weights=loss_cfg.get("cons_pool_weights"),
                                 detach=bool(loss_cfg.get("cons_pool_detach", True)))
         if l_cons is not None:
@@ -798,13 +875,17 @@ def train(cfg: dict, args) -> None:
     log_file = open(run_dir / "metrics.csv", "a" if append_log else "w", newline="", encoding="utf-8")
     logger = csv.writer(log_file)
     if not append_log:
-        logger.writerow(["epoch", "step", "loss", "loss_sample", "loss_token",
+        logger.writerow(["epoch", "step", "loss", "loss_sample", "loss_token", "loss_bypass",
                          "loss_cons_pool", "loss_cons_pos", "lr", "sec"])
 
     amp = cfg["train"].get("amp", True) and device == "cuda"
     monitor = cfg["train"].get("monitor", "mean")
     # 只有启用位置探针（B2）时才额外走 return_down 分支，其余情况与 v0.3 完全相同
-    want_aux = float(cfg.get("loss", {}).get("cons_pos", 0.0) or 0.0) > 0 and getattr(model, "accepts_aux", False)
+    # ★ v0.4.9：额外一路头也必须走 return_aux（否则 loss 拿不到 token_scales / bypass_logits，
+    #   额外头会静默地永远不训练）。
+    sep_bypass = bool(getattr(getattr(model, "token_heads", None), "separate", False))
+    want_aux = getattr(model, "accepts_aux", False) and (
+        float(cfg.get("loss", {}).get("cons_pos", 0.0) or 0.0) > 0 or sep_bypass)
     strides = stream_strides(cfg, model)                          # 按流覆盖窗口步长（空=不传）
     if strides:
         print(f"[model] 按流覆盖窗口步长：{strides}")
@@ -877,12 +958,14 @@ def train(cfg: dict, args) -> None:
                 bar.set_postfix(loss=f"{running['loss'] / done:.3f}",
                                 sample=f"{running['sample'] / done:.3f}",
                                 token=f"{running['token'] / done:.3f}",
+                                byp=f"{running['bypass'] / done:.3f}",
                                 cons=f"{running['cons_pool'] / done:.3f}/{running['cons_pos'] / done:.3f}",
                                 lr=f"{scheduler.get_last_lr()[0]:.2e}",
                                 tok_s=f"{tokens_seen / max(elapsed, 1e-6):.0f}")
                 logger.writerow([epoch, done, f"{running['loss'] / done:.6f}",
                                  f"{running['sample'] / done:.6f}",
                                  f"{running['token'] / done:.6f}",
+                                 f"{running['bypass'] / done:.6f}",
                                  f"{running['cons_pool'] / done:.6f}",
                                  f"{running['cons_pos'] / done:.6f}",
                                  f"{scheduler.get_last_lr()[0]:.3e}", f"{elapsed:.1f}"])
@@ -1027,6 +1110,9 @@ def main() -> int:
     parser.add_argument("--token-target", default=None,
                         help="v0.4：覆盖 loss.token_target（mean / max / lse，全尺度统一）")
     parser.add_argument("--no-gate", action="store_true", help="v0.4：关掉跳跃融合门控")
+    parser.add_argument("--set", action="append", default=None, metavar="段.键=值",
+                        help="通用配置覆盖，可重复；例：--set heads.sample_grad_scale=0.3 "
+                             "（供单变量实验用，以免为每个变量抄一份配置）")
     parser.add_argument("--resume", default=None,
                         help="从该 checkpoint 续跑（只载模型权重；--epochs 变成“本次追加几个 epoch”）")
     parser.add_argument("--eval", action="store_true")

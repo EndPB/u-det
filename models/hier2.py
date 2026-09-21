@@ -161,7 +161,8 @@ class TransformerCodec(nn.Module):
                  mlp_ratio: float = 4.0, dropout: float = 0.0,
                  divs: Sequence[int] = (4, 4, 2, 2), wins: Sequence[int] = (16, 16, 16, 32),
                  share: bool = False, gate: bool = False, gate_init: float = -1.0,
-                 sample_only: bool = False, **ignored):
+                 sample_only: bool = False, mid_norm: str = "layernorm", mid_act: str = "gelu",
+                 **ignored):
         super().__init__()
         divs, wins = tuple(int(d) for d in divs), tuple(int(w) for w in wins)
         if not (len(divs) == len(wins) == depth):
@@ -177,7 +178,10 @@ class TransformerCodec(nn.Module):
         # 单任务消融：完全不建上采样路径（省参数、也省掉无梯度的死权重）
         self.up_blocks = nn.ModuleList(
             [] if self.sample_only else [WindowBlock(dim, heads, mlp_ratio, dropout) for _ in range(n)])
-        self.mid_blocks = nn.ModuleList([SelfBlock(dim, heads, mlp_ratio, dropout) for _ in range(mid)])
+        self.mid_blocks = nn.ModuleList([SelfBlock(dim, heads, mlp_ratio, dropout,
+                                                   norm=mid_norm, act=mid_act)
+                                        for _ in range(mid)])
+        self.mid_norm, self.mid_act = str(mid_norm), str(mid_act)
         self.pe = SinusoidalPE(dim)
         self.gate_init = float(gate_init)
         self.gate = None

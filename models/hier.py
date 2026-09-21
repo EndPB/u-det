@@ -58,16 +58,55 @@ class SinusoidalPE(nn.Module):
         return x + self.pe[: x.size(1)].to(x.dtype)
 
 
-class SelfBlock(nn.Module):
-    """pre-LN 双向自注意力 + FFN。"""
+class RMSNorm(nn.Module):
+    """T5 的 ``T5LayerNorm``：只除 RMS、**不减均值**、**无偏置**。
 
-    def __init__(self, dim: int, heads: int, mlp_ratio: float = 4.0, dropout: float = 0.0):
+    与 ``nn.LayerNorm`` 的语义不同（后者先减均值再除以标准差，还有 bias）。
+    v0.4.9 引入它**只**为了把 CodeT5 的预训练层移植得忠实：
+    实测（``scripts/check_v049.py --encoder``）保真度 cos 从 **0.864 → 0.962**
+    只靠换这一处，再换 FFN 激活（GELU→ReLU）到 **0.999**。
+    默认不启用 ⇒ 与历史逐位一致。
+    """
+
+    def __init__(self, dim: int, eps: float = 1e-6):
+        super().__init__()
+        self.weight = nn.Parameter(torch.ones(dim))
+        self.eps = float(eps)
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        return x * torch.rsqrt(x.pow(2).mean(dim=-1, keepdim=True) + self.eps) * self.weight
+
+
+class SelfBlock(nn.Module):
+    """pre-LN 双向自注意力 + FFN。
+
+    ``norm`` / ``act`` 是 v0.4.9 为「移植 CodeT5 预训练层」加的两个开关，
+    **默认值 ``layernorm`` / ``gelu`` 与历史逐位一致**：
+
+        norm: ``layernorm``（默认）| ``rms``（T5 语义，不减均值、无偏置）
+        act:  ``gelu``（默认）| ``relu``（CodeT5-base 的 FFN 激活）
+    """
+
+    def __init__(self, dim: int, heads: int, mlp_ratio: float = 4.0, dropout: float = 0.0,
+                 norm: str = "layernorm", act: str = "gelu"):
         super().__init__()
         hidden = int(dim * mlp_ratio)
-        self.norm1 = nn.LayerNorm(dim)
+        norm = str(norm)
+        if norm == "layernorm":
+            make_norm = lambda: nn.LayerNorm(dim)                     # noqa: E731（历史行为）
+        elif norm == "rms":
+            make_norm = lambda: RMSNorm(dim, eps=1e-6)                # noqa: E731（T5 语义）
+        else:
+            raise ValueError(f"未知 norm {norm!r}，可选：layernorm / rms")
+        act = str(act)
+        make_act = {"gelu": nn.GELU, "relu": nn.ReLU}.get(act)
+        if make_act is None:
+            raise ValueError(f"未知 act {act!r}，可选：gelu / relu")
+        self.norm1 = make_norm()
         self.attn = nn.MultiheadAttention(dim, heads, dropout=dropout, batch_first=True)
-        self.norm2 = nn.LayerNorm(dim)
-        self.mlp = nn.Sequential(nn.Linear(dim, hidden), nn.GELU(), nn.Dropout(dropout), nn.Linear(hidden, dim))
+        self.norm2 = make_norm()
+        self.mlp = nn.Sequential(nn.Linear(dim, hidden), make_act(), nn.Dropout(dropout),
+                                 nn.Linear(hidden, dim))
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         h = self.norm1(x)

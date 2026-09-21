@@ -1,0 +1,117 @@
+# U-Det v0.4.9：把 token 旁路从「拼进原头」改成 **「额外一路头」**（单变量）。
+#
+# 基线 = v0.4.5（configs/udet_v045.yaml）。相对它**只有两处**，且是同一件事的两面：
+#   heads.token_bypass_mode: separate      # 旁路不再拼进最细尺度的头
+#   loss.token_bypass: 1.0                 # 额外一路头自己的监督权重（新项）
+#
+# ─────────────────────────────────────────────────────────────────────────
+# 为什么改（§8.11.6 的机制假设，v0.4.5 时就提出、一直没做）
+#
+# v0.4.5 让最细尺度的 token 头**拼接编码器的全长逐 token 输出**（feats，stride=1）。
+# 于是这个头可以**完全依赖旁路**给出好预测 ⇒ **主干那一级不再需要保留细粒度信息**
+# ⇒ 削弱了 §8.8 发现的「token 级任务替主干做**信息保值**」那个正则化作用
+# （v0.4.3 消融：去掉 token 级损失，样本级反而掉 1.76 分）。
+# 观测到的结果与这个假设一致：token 三项全面反超基线，但 **m4 掉 0.82**（v0.4.5 − v0.4.4 @4ep）。
+#
+# 本次改法：
+#   * 主干 5 个尺度的头**完全回到 v0.4.4 的形状**（最细仍是 `Linear(768→1)`，不拼接）；
+#   * 编码器特征改走一个**独立的** `Linear(768→1)` 头；
+#   * **两者各自被监督**（主干那一级拿 `scale_weights[-1]`，额外头拿 `loss.token_bypass`）
+#     —— 这一条是关键：主干那一级必须**自己**把 token 预测做好，
+#     「信息保值」的压力就恢复了；
+#   * **报告 / 评测时取两者 logits 的均值**（纯推理期集成）⇒ 旁路的细粒度收益仍然保留。
+#
+# ★ 参数几乎不变：最细头 1537 → 769（主干）+ 769（额外）= 1538，**+1**。
+#
+# ★ 为什么不是「对旁路加 stop-gradient」：那也能恢复主干的压力，但它把
+#   "读得到但学不到"变成一个隐晦的梯度技巧；「额外一路头」是**结构上**说明
+#   "两个读出器并列"，更易于解释，也便于把两者分别做消融。
+#
+# ★ 主指标口径没变：最细尺度长度仍严格等于 L（取均值不改变长度）⇒
+#   `evaluate` / `analyze_raw` / 阈值扫描全都照旧可用。
+#
+# 判据（对齐 4 epoch 才能下结论，lessons A1/A3）：
+#   期望 **m4 回到 v0.4.4 的水平（≈0.9775）而 line/chunk/token 保持 v0.4.5 的水平
+#   （≈0.7980/0.5114/0.8281）** —— 即「同时拿住两边」。
+#   若 m4 回来了但 token 三项也回到 v0.4.4 水平，说明均值集成没起作用（额外头没学到东西）；
+#   若 m4 没回来，说明「信息保值」这个机制假设是错的 —— 那本身也是重要信息。
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+
+encoder:
+  name: codet5blk
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  block: 128
+  block_batch: 16
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]
+  static: true
+  ckpt: true
+  compile: true
+  freeze: false
+  max_length: 512
+
+model:
+  name: codec
+  dim: 768
+  depth: 4
+  mid: 4
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  divs: [4, 4, 2, 2]
+  wins: [16, 16, 16, 32]
+  share: false
+  gate: true
+  gate_init: -1.0
+
+heads:
+  sample_hidden: 256
+  sample_dropout: 0.0
+  sample_levels: 5
+  token_bypass: true
+  token_bypass_mode: separate                   # ★ 本版改动 1：额外一路头
+  sample_grad_scale: 1.0                        # 梯度缩放旋钮（本版不动，留给 v0.4.10 扫）
+
+report:
+  name: handcrafted
+  max_tokens: 64
+
+loss:
+  sample: 1.0
+  token: 1.0
+  token_bypass: 1.0                             # ★ 本版改动 2：额外一路头的监督权重
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]
+  class_weights: null
+  token_target: [lse, lse, lse, mean, mean]
+  token_target_beta: 4.0
+  cons_pool: 0.3
+  cons_pool_weights: [1, 1, 1, 1]
+  cons_pool_detach: true
+  cons_pos: 0.2
+  cons_pos_weights: [1, 1, 1, 1]
+  cons_pos_hidden: 256
+
+train:
+  streams: [m4, hybrid]
+  sample_streams: [m4]
+  epochs: 2
+  grad_accum: 8
+  lr: 0.0003
+  lr_encoder: 0.00005
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 200
+  monitor: mean
+  seed: 0
+  out_dir: runs

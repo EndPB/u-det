@@ -567,3 +567,119 @@ class CodeT5BlockEncoder(nn.Module):
         out = out.reshape(batch, nblk * k, -1)[:, :length]
         return out * keep.unsqueeze(-1).to(out.dtype)
 
+
+# --------------------------------------------------------------------------- #
+# 预训练层 → 瓶颈：把 CodeT5 的若干层**按位置拷进 SelfBlock**（v0.4.9）
+# --------------------------------------------------------------------------- #
+def _parse_block_spec(spec: str) -> tuple[int, int]:
+    """``"codet5@8-11"`` -> ``(8, 11)``（含两端，CodeT5 encoder 的 0-based block 索引）。"""
+    text = str(spec).strip()
+    if "@" not in text:
+        raise ValueError(f"mid_init 格式应为 'codet5@8-11'，收到 {spec!r}")
+    head, rng = text.split("@", 1)
+    if head.strip() not in ("codet5", "t5"):
+        raise ValueError(f"mid_init 只支持 codet5@a-b，收到 {spec!r}")
+    lo, _, hi = rng.partition("-")
+    lo, hi = int(lo), int(hi or lo)
+    if lo > hi:
+        raise ValueError(f"mid_init 区间写反了：{spec!r}")
+    return lo, hi
+
+
+def init_selfblocks_from_codet5(selfblocks, path: str = "checkpoints/codet5-base",
+                                spec: str = "codet5@8-11", verbose: bool = True) -> list:
+    """把 CodeT5 第 ``[lo, hi]`` 层的权重**按位置拷贝**进瓶颈的 ``SelfBlock``。
+
+    ★ **不改结构、不改参数量** —— 只换初始化来源。这是 §8.16.9 选定的做法：
+      「叠加」会 +28.3M 参数且正好加在 §8.15.1 证明有害的文档级路径上；
+      「减到 2/3 层」会同时动深度，而 §8.16.6 的 P6 已说明深度不是瓶颈。
+
+    ⚠️ **这是近似移植**，两处语义对不上（函数会打印一个保真度读数）：
+      * T5 用 ``T5LayerNorm``（RMS、**不减均值**、无偏置），``SelfBlock`` 用 ``nn.LayerNorm``
+        （减均值 + 偏置）⇒ **只拷 weight、bias 置零**；
+      * CodeT5-base 的 FFN 激活是 **ReLU**（``feed_forward_proj: "relu"``），
+        ``SelfBlock`` 用 **GELU** ⇒ 保持 GELU（改它就是改结构）。
+    **被忠实拷贝的是全部线性映射**（``q/k/v/o`` 与 ``wi/wo``）—— 它们承载了绝大部分预训练知识。
+    另外 ``SelfBlock.attn`` 带 bias 而 T5 的 ``q/k/v/o`` 不带 ⇒ 所有 bias 置零。
+
+    ⚠️ 预期收益是**加快收敛，不是抬高上限**（本项目 v0.3.1 vs v0.3.2 的直接结论：
+    LoRA 微调在 epoch 0 大幅领先，到周期末端收敛到同一水平）。
+    ⇒ 判据必须看**周期末端**（lessons A1/A2），不能拿前两轮说事。
+
+    Returns:
+        拷贝过的 ``T5Block`` 列表（供保真度诊断使用）。
+    """
+    from transformers import T5EncoderModel
+
+    lo, hi = _parse_block_spec(spec)
+    blocks = list(selfblocks)
+    want = hi - lo + 1
+    if len(blocks) != want:
+        raise ValueError(f"mid_init={spec!r} 要拷 {want} 层，但瓶颈有 {len(blocks)} 层 "
+                         f"（本项目的做法是「替换」而不是「叠加」，两者必须相等）")
+    load_kwargs = {"local_files_only": os.path.isdir(path)}
+    model = T5EncoderModel.from_pretrained(path, **load_kwargs)
+    model.eval()
+
+    def _zero_bias(mod) -> None:
+        """``SelfBlock`` 默认的 ``nn.LayerNorm`` 带 bias；``RMSNorm``（T5 语义）不带。"""
+        bias = getattr(mod, "bias", None)
+        if bias is not None:
+            bias.zero_()
+
+    torch.set_grad_enabled(False)
+    try:
+        srcs = []
+        for i, b in enumerate(range(lo, hi + 1)):
+            blk = model.encoder.block[b]
+            attn = blk.layer[0].SelfAttention
+            ffn = blk.layer[1].DenseReluDense
+            dst = blocks[i]
+            dst.norm1.weight.copy_(blk.layer[0].layer_norm.weight)
+            _zero_bias(dst.norm1)
+            dst.attn.in_proj_weight.copy_(
+                torch.cat([attn.q.weight, attn.k.weight, attn.v.weight], dim=0))
+            dst.attn.in_proj_bias.zero_()
+            dst.attn.out_proj.weight.copy_(attn.o.weight)
+            dst.attn.out_proj.bias.zero_()
+            dst.norm2.weight.copy_(blk.layer[1].layer_norm.weight)
+            _zero_bias(dst.norm2)
+            dst.mlp[0].weight.copy_(ffn.wi.weight)
+            dst.mlp[0].bias.zero_()
+            dst.mlp[3].weight.copy_(ffn.wo.weight)
+            dst.mlp[3].bias.zero_()
+            srcs.append(blk)
+    finally:
+        torch.set_grad_enabled(True)
+
+    n = sum(p.numel() for p in blocks[0].parameters()) if blocks else 0
+    if verbose:
+        print(f"[mid_init] 已把 CodeT5 blocks {lo}..{hi} 的权重**按位置**拷进瓶颈的 "
+              f"{len(blocks)} 个 SelfBlock（结构不变、参数不变）")
+        print(f"[mid_init] ⚠️ 近似移植：T5LayerNorm(RMS)→nn.LayerNorm(减均值) 与 ReLU→GELU 两处语义不同；"
+              f"线性映射(q/k/v/o, wi/wo)是忠实拷贝；所有 bias 置零")
+        print(f"[mid_init] ⚠️ 预期是**加快收敛**而不是抬高上限 ⇒ 判据看周期末端（A1/A2），不看前两轮")
+    return srcs
+
+
+@torch.no_grad()
+def port_fidelity(selfblock, t5block, x: torch.Tensor) -> dict:
+    """保真度诊断：同一输入下，移植后的 ``SelfBlock`` 与原始 ``T5Block`` 输出的接近程度。
+
+    ``x`` 应当用**真实的瓶颈输入**（stride-64 的均值池化特征）而不是随机噪声 ——
+    归一化与激活的差异是与输入分布相关的，用真数据量才有意义。
+
+    Returns:
+        ``{"cos": 余弦相似度, "rel": 相对 L2 误差}``（都是逐 token 平均）。
+    """
+    selfblock.eval()
+    t5block.eval()
+    # transformers ≥ 4.5x 的 T5Block 需要 cache_position（否则内部取 [-1] 报 TypeError）
+    pos = torch.arange(x.shape[1], device=x.device)
+    y_ref = t5block(x, cache_position=pos)[0].float()
+    y_new = selfblock(x).float()
+    cos = torch.nn.functional.cosine_similarity(y_ref.reshape(-1, y_ref.shape[-1]),
+                                                y_new.reshape(-1, y_new.shape[-1]), dim=-1)
+    rel = (y_ref - y_new).norm(dim=-1) / y_ref.norm(dim=-1).clamp(min=1e-9)
+    return {"cos": float(cos.mean()), "rel": float(rel.mean()), "cos_min": float(cos.min())}
+
