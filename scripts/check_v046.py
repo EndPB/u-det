@@ -220,12 +220,56 @@ def t5_nmin_rel() -> None:
           f"最大形状差 {max(abs(a-b) for a,b in zip(nw_abs, ref)):.3f}")
 
 
+def t6_abmil() -> None:
+    """★ v0.4.8：文档级头的池化 mean -> ABMIL。
+
+    核心断言：**w 零初始化 ⇒ 初始 α 均匀 ⇒ 输出与平均池化逐位相同**（可迁移、可对比）。
+    """
+    print("\n=== 6. ABMIL 池化（v0.4.8）===")
+    torch.manual_seed(0)
+    n_lv = 5
+    xs = [torch.randn(1, k, 768) for k in (8, 16, 32, 128, 512)]
+    ha = SampleHead(768, hidden=256, n_levels=n_lv, pool="abmil", attn_dim=128)
+    hm = SampleHead(768, hidden=256, n_levels=n_lv, pool="mean")
+    check("pool='mean' 时不建任何注意力模块", hm.attn is None)
+    check("pool='abmil' 时每个尺度各一套注意力", ha.attn is not None and len(ha.attn) == n_lv)
+    n_add = sum(p.numel() for p in ha.parameters()) - sum(p.numel() for p in hm.parameters())
+    check("参数增量 ≈ 0.985M（attn_dim=128）", abs(n_add - 984_960) < 2000, f"实际 +{n_add} 参数")
+
+    # ★ 关键：把两者的**非注意力**权重对齐，才是公平的“同一模型、只换池化”比较
+    sd = {k: v for k, v in ha.state_dict().items() if not k.startswith("attn.")}
+    missing, unexpected = hm.load_state_dict(sd, strict=False)
+    check("mean 版的非注意力权重可完全从 abmil 版继承",
+          len(unexpected) == 0, f"missing={len(missing)} unexpected={len(unexpected)}")
+    om, oa = hm(xs), ha(xs)
+    d0 = float((om - oa).abs().max())
+    check("★ 初始时 ABMIL 输出 == 平均池化（逐位）", d0 == 0.0, f"max|diff|={d0:.2e}")
+
+    al = torch.softmax(ha.attn[2].w(torch.tanh(ha.attn[2].V(xs[2]))
+                                    * torch.sigmoid(ha.attn[2].U(xs[2]))).squeeze(-1), dim=1)
+    check("各尺度注意力权重和 = 1", abs(float(al.sum()) - 1.0) < 1e-5, f"sum={float(al.sum()):.6f}")
+    check("初始 α 均匀（= 1/L）", abs(float(al.max()) - 1.0 / xs[2].shape[1]) < 1e-6)
+
+    with torch.no_grad():
+        ha.attn[0].w.weight.normal_(0, 0.1)
+    check("w 非零后输出与平均池化不同（确实在学权重）",
+          float((hm(xs) - ha(xs)).abs().max()) > 1e-6)
+    out = ha.attn[3](xs[3], torch.ones(1, xs[3].shape[1]))
+    check("ABMIL 支持 mask（全 1 时前向正常）", tuple(out.shape) == (1, 768))
+    try:
+        SampleHead(768, n_levels=5, pool="nope")
+        check("非法 pool 应报错", False)
+    except ValueError:
+        check("非法 pool 报错", True)
+
+
 def main() -> int:
     t1_weight_function()
     t2_token_loss_static_identical()
     t3_sample_head_backcompat()
     t4_report_vector_mode()
     t5_nmin_rel()
+    t6_abmil()
     print(f"\n{'=' * 60}\n{'全部通过' if bad == 0 else f'{bad} 项失败'}\n{'=' * 60}")
     return 1 if bad else 0
 

@@ -220,9 +220,16 @@ def build_model(cfg: dict, tokenizer) -> tuple[nn.Module, nn.Module]:
     # v0.4.6：报告改为文档级向量时，从 heads 段读它的维度（0 = 不接，与历史逐位一致）
     rep_dim = int(heads.get("report_dim", 0) or 0)
     rep_proj = int(heads.get("report_proj", 32))
+    s_pool = str(heads.get("sample_pool", "mean"))
     sample_head = SampleHead(backbone.dim, hidden=heads.get("sample_hidden"),
                              dropout=heads.get("sample_dropout", 0.0), n_levels=n_levels,
-                             report_dim=rep_dim, report_proj=rep_proj)
+                             report_dim=rep_dim, report_proj=rep_proj,
+                             pool=s_pool, attn_dim=int(heads.get("sample_attn_dim", 128)))
+    if s_pool == "abmil":
+        n_attn = sum(p.numel() for p in sample_head.attn.parameters())
+        print(f"[model] 文档级头的池化：**ABMIL 门控注意力**（逐尺度各自一套，"
+              f"attn_dim={int(heads.get('sample_attn_dim', 128))}，参数 +{n_attn / 1e6:.3f}M）；"
+              f"w 零初始化 ⇒ 起点与平均池化**逐位相同**")
     if rep_dim > 0:
         print(f"[model] 样本头接入**文档级报告向量**（{rep_dim} -> {rep_proj} 维，"
               f"只喂样本头、不进序列、不进瓶颈）")

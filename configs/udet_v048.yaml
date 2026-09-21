@@ -1,0 +1,121 @@
+# U-Det v0.4.8：**单变量**改动 —— 文档级头的"逐尺度平均池化"换成 **ABMIL**。
+#
+# 基线 = v0.4.7（configs/udet_v047.yaml）。相对它**只有一处不同**：
+#   heads.sample_pool: abmil        （并新增 heads.sample_attn_dim: 128）
+#
+# ─────────────────────────────────────────────────────────────────────────
+# 为什么是这个算子
+#
+# 文档级头现在读全部 5 个尺度、**各自做序列维平均池化**、再拼接进 MLP。
+# "平均"是一个**固定、无权**的聚合算子 —— 它假定窗口内每个位置对文档级判定同等重要。
+# 但主干各尺度都在瓶颈之后，一篇文档在粗尺度上只剩几个位置，其中很可能**有些位置
+# 与"是不是 AI"高度相关、另一些无关**（例如人类/AI 都常见的样板段落）。
+#
+# ABMIL（Ilse et al. 2018 的门控注意力多示例学习）把这一步换成**学出来的加权和**：
+#
+#     a_i = w^T ( tanh(V h_i) ⊙ σ(U h_i) ) ;  α = softmax(a) ;  z = Σ α_i h_i
+#
+# 每个尺度各自一套 V/U/w（因为各尺度的长度与语义都不同）。
+#
+# ★ 为什么起点可控：**w 零初始化** ⇒ 起始 a_i ≡ 0 ⇒ α 均匀 ⇒
+#   输出**与平均池化逐位相同**。这与 peft 的 lora_B 零初始化、
+#   主干门控的 gate_init=-1 是同一个套路：新算子从"旧行为"起步。
+#   （副作用：第一步 V/U 梯度为 0、只有 w 先动，这是标准的"末层零初始化"行为。）
+#
+# ★ 参数量：attn_dim=128，D=768 ⇒ 每尺度 2×768×128 + 128 ≈ 197K，5 个尺度共 **+0.985M**
+#   （93.66M → 94.64M，+1.05%）。
+#
+# 预期：文档级（m4）应受益（"哪些窗口重要"本来就是文档级该学的东西）；
+#       token 级不受影响（这个算子只在文档级头里，不进主干、不进上采样）。
+# 判据：m4 是否超过 v0.4.7 的基线水平；line/chunk/token 应基本不动（若明显变化，
+#       说明"文档级头的池化"与 token 级有耦合，那本身是个发现）。
+#
+# 只跑 2 epoch 看方向，**排在 v0.4.7 之后**（用户要求）。
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+
+encoder:
+  name: codet5blk
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  block: 128
+  block_batch: 16
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]
+  static: true
+  ckpt: true
+  compile: true
+  freeze: false
+  max_length: 512
+
+model:
+  name: codec
+  dim: 768
+  depth: 4
+  mid: 4
+  heads: 12
+  mlp_ratio: 4
+  dropout: 0.0
+  divs: [4, 4, 2, 2]
+  wins: [16, 16, 16, 32]
+  share: false
+  gate: true
+  gate_init: -1.0
+
+heads:
+  sample_hidden: 256
+  sample_dropout: 0.0
+  sample_levels: 5
+  token_bypass: true
+  report_dim: 7
+  report_proj: 32
+  sample_pool: abmil                            # ★ 本版唯一改动：mean -> abmil
+  sample_attn_dim: 128                          #   ABMIL 的注意力隐层维度 M
+
+report:
+  name: handcrafted
+  mode: vector
+  max_tokens: 64
+  stats_mean: [0.258469, 0.739953, 0.0, 4.29721, 6.38067, 0.25501, 15715.4]
+  stats_std: [0.223064, 0.259723, 0.0, 0.415286, 0.737291, 0.198037, 694916.0]
+
+loss:
+  sample: 1.0
+  token: 1.0
+  scale_weights: [0.2, 0.4, 0.6, 0.8, 1.0]
+  token_weight_mode: length
+  token_weight_nmin: 64
+  token_weight_nmin_rel: 0.125                  # 同 v0.4.7（N_min = L/8）
+  token_weight_tau: 0.5
+  class_weights: null
+  token_target: [lse, lse, lse, mean, mean]
+  token_target_beta: 4.0
+  cons_pool: 0.3
+  cons_pool_weights: [1, 1, 1, 1]
+  cons_pool_detach: true
+  cons_pos: 0.2
+  cons_pos_weights: [1, 1, 1, 1]
+  cons_pos_hidden: 256
+
+train:
+  streams: [m4, hybrid]
+  sample_streams: [m4]
+  epochs: 2
+  grad_accum: 8
+  lr: 0.0003
+  lr_encoder: 0.00005
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 200
+  monitor: mean
+  seed: 0
+  out_dir: runs

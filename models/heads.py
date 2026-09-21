@@ -21,6 +21,41 @@ import torch
 import torch.nn as nn
 
 
+class GatedAttentionPool(nn.Module):
+    """ABMIL 的门控注意力池化（Ilse et al. 2018）：把序列维的**平均**换成**注意力加权和**。
+
+    $$a_i = w^\\top\\big(\\tanh(V h_i)\\odot\\sigma(U h_i)\\big),\\quad
+       \\alpha = \\mathrm{softmax}(a),\\quad z = \\sum_i \\alpha_i h_i$$
+
+    ★ **`w` 零初始化** ⇒ 起始时所有 $a_i = 0$ ⇒ $\\alpha$ 均匀 ⇒ **输出与平均池化逐位相同**。
+    这和 peft 的 `lora_B` 零初始化、主干门控的 `gate_init=-1` 是同一个套路：
+    让新算子从"旧行为"起步，既便于对比，也避免冷启动。
+    （副作用：第一步 $V/U$ 的梯度为 0（$\\partial a/\\partial V \\propto w = 0$），
+    只有 $w$ 先动；$w$ 一非零 $V/U$ 就开始学 —— 这是标准的"末层零初始化"行为。）
+
+    Args:
+        dim: 输入特征维度。
+        attn_dim: 注意力隐层维度 $M$（同时决定 $V,U$ 的参数量：$2\\cdot D\\cdot M$）。
+        dropout: 注意力分支的 dropout。
+    """
+
+    def __init__(self, dim: int, attn_dim: int = 128, dropout: float = 0.0):
+        super().__init__()
+        self.V = nn.Linear(int(dim), int(attn_dim))
+        self.U = nn.Linear(int(dim), int(attn_dim))
+        self.w = nn.Linear(int(attn_dim), 1, bias=False)
+        self.drop = nn.Dropout(dropout)
+        nn.init.zeros_(self.w.weight)
+
+    def forward(self, x: torch.Tensor, mask: Optional[torch.Tensor] = None) -> torch.Tensor:
+        """(B, L, D) -> (B, D)。``mask`` 为 (B, L) 的 0/1，0 的位置不参与注意力。"""
+        a = self.w(torch.tanh(self.V(x)) * torch.sigmoid(self.U(x))).squeeze(-1)   # (B, L)
+        if mask is not None:
+            a = a.masked_fill(mask.to(torch.bool) == 0, float("-inf"))
+        alpha = self.drop(torch.softmax(a, dim=1))                                 # (B, L)
+        return (alpha.unsqueeze(-1) * x).sum(dim=1)
+
+
 class SampleHead(nn.Module):
     """样本级二分类头：序列维池化（可多尺度）+ MLP。
 
@@ -40,10 +75,20 @@ class SampleHead(nn.Module):
     """
 
     def __init__(self, dim: int, hidden: Optional[int] = None, out: int = 2, dropout: float = 0.0,
-                 n_levels: int = 1, report_dim: int = 0, report_proj: int = 32):
+                 n_levels: int = 1, report_dim: int = 0, report_proj: int = 32,
+                 pool: str = "mean", attn_dim: int = 128):
         super().__init__()
         hidden = int(hidden or dim)
         self.n_levels = max(1, int(n_levels))
+        self.pool = str(pool)
+        if self.pool not in ("mean", "abmil"):
+            raise ValueError(f"未知 pool {pool!r}，可选：mean / abmil")
+        # v0.4.8：把**逐尺度平均池化**换成 ABMIL（门控注意力）。
+        #   pool="mean"（默认）⇒ 不建任何注意力模块，权重形状与历史**逐位一致**。
+        self.attn = None
+        if self.pool == "abmil":
+            self.attn = nn.ModuleList(
+                [GatedAttentionPool(int(dim), attn_dim, dropout) for _ in range(self.n_levels)])
         self.report_dim = max(0, int(report_dim))
         # v0.4.6：手工统计报告作为**文档级全局向量**注入，不再作为前缀 token 进序列。
         #   report_dim = 0 ⇒ 整条分支不存在，权重形状与历史**逐位一致**（老 ckpt 可直接载）。
@@ -85,10 +130,13 @@ class SampleHead(nn.Module):
                 raise ValueError(f"SampleHead 配置了 {self.n_levels} 个尺度，实际收到 {len(xs)} 个")
             if mask is not None:
                 raise ValueError("多尺度 SampleHead 不支持共用 mask（各尺度长度不同）")
-            parts = [self._pool(t) for t in xs]
+            if self.attn is not None:                       # v0.4.8：逐尺度各自做 ABMIL
+                parts = [m(t) for m, t in zip(self.attn, xs)]
+            else:
+                parts = [self._pool(t) for t in xs]
             pooled = parts[0] if len(parts) == 1 else torch.cat(parts, dim=-1)
         else:
-            pooled = self._pool(x, mask)
+            pooled = self.attn[0](x, mask) if self.attn is not None else self._pool(x, mask)
         if self.report_dim > 0:
             if report is None:
                 raise ValueError(f"SampleHead 配了 report_dim={self.report_dim}，但没有收到 report 向量")
