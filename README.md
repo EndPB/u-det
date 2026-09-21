@@ -103,7 +103,7 @@ u-det/
 │   ├── watchdog*.sh             #   夜间看门狗（`watchdog_run.sh <TAG> <CFG> <EPOCHS>` 已参数化；
 │   │                            #   空闲时自动补跑 + 补评测，**从不杀进程**）
 │   ├── diag_m4.py               #   诊断：按长度分桶 + 各尺度特征的线性探针
-│   └── probe_m4.py              # 诊断：train 拟合 → val 评测的线性探针
+│   └── probe_m4.py              #   诊断：train 拟合 → val 评测的线性探针
 ├── docx/                        # 设计与实验报告
 │   ├── report.md               #   ★ 面向专家读者的现状汇报（模型 / 实验 / 结果 / 下一步）
 │   ├── lessons.md              #   ★★ 经验教训（动手前必读）
