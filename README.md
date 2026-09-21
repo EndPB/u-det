@@ -25,6 +25,12 @@ AI 代码检测实验：**分块上下文编码 + 序列级编解码主干 + 样
 * **v0.4.4**（`configs/udet_v044.yaml`）：m4 **0.9775** ⇒ ★ **首次在 m4 上反超基线**。
 * 两者都是**参数少 16M、长度无上限**；§8.10 显示差距里**有六成来自固定阈值 0.5**。
 
+🟡 **v0.4.6 进行中**（两项改动，取值均由零训练探针定下）：
+① `loss.token_weight_mode: length`——尺度权重改成与**该尺度还剩多少个位置**有关；
+② `report.mode: vector`——报告不再占序列位置，改成 7 维向量只喂文档级头
+（探针实测：报告前缀在近一半样本上**占掉瓶颈一半的位置**）。
+2 轮暂定值见 `docx/u-det-v0.4.md` §8.12.10，**4 轮出来前不得引用**。
+
 ## 版本演进与结果（test 集，同一份数据/切分）
 
 | 版本 | 主干 | 编码器 | m4 sample F1 | hybrid line F1 | chunk F1 | token F1 |
@@ -32,6 +38,7 @@ AI 代码检测实验：**分块上下文编码 + 序列级编解码主干 + 样
 | CodeT5 滑窗基线 | — | CodeT5 **全量微调**，window=512 / stride 按流（同数据同指标同预算） | 0.9736 | 0.7978 | 0.5081 | 0.8270 |
 | base_codet5_ft（旧口径） | — | CodeT5 整段上下文（512 截断） | 0.9756 | — | — | — |
 | 基线 | — | CodeT5 整段上下文（冻结） | 0.7651 | — | — | — |
+| 🟡 **v0.4.6**（+ 长度感知尺度权重 + 报告改文档级向量） | 同上 | 同上 | 4 轮补跑中 | 🟡 | 🟡 | 🟡 |
 | ★ **v0.4.5**（+ token 头旁路） | 窗口注意力编解码器 + 门控 | 分块 CodeT5（K=128）+ LoRA | 0.9693 | ★ **0.7980** | ★ **0.5114** | ★ **0.8281** |
 | ★ **v0.4.4**（+ 多尺度样本头） | 同上 | 同上 | ★ **0.9775** | 0.7878 | 0.5076 | 0.8187 |
 | v0.4.2 | 同上 | 分块 CodeT5 + LoRA | 0.9700 | 0.7895 | 0.5035 | 0.8190 |
@@ -87,10 +94,15 @@ u-det/
 ├── scripts/
 │   ├── prepare.py               # 下载数据与权重（m4 / encoder / hybrid）
 │   ├── build_subset.py          # 均衡子集 + 预分词 + 划分（写 data/processed/）
-│   ├── compare.py               # 汇总 runs/ 下所有实验的 val/test 指标│   ├── analyze_raw.py           #   ★ 离线分析 raw_*.pt：长度分桶 + 阈值扫描（不占 GPU）
+│   ├── compare.py               #   汇总 runs/ 下所有实验的 val/test 指标
+│   ├── analyze_raw.py           #   ★ 离线分析 raw_*.pt：长度分桶 + 阈值扫描（不占 GPU）
+│   ├── probe_scales.py          #   ★ 零训练探针：逐尺度 token 表现 + 尺度权重离线定标
+│   ├── probe_report.py          #   ★ 零训练探针：报告统计量信息量（CPU）+ 报告污染量化
+│   ├── check_v046.py            #   自检：长度权重 + 报告向量，含**向后兼容逐位回归**
 │   ├── queue_*.sh               #   接力队列（追加 epoch / 批量落盘）
 │   ├── watchdog*.sh             #   夜间看门狗（`watchdog_run.sh <TAG> <CFG> <EPOCHS>` 已参数化；
-│   │                            #   空闲时自动补跑 + 补评测，**从不杀进程**）│   ├── diag_m4.py               # 诊断：按长度分桶 + 各尺度特征的线性探针
+│   │                            #   空闲时自动补跑 + 补评测，**从不杀进程**）
+│   ├── diag_m4.py               #   诊断：按长度分桶 + 各尺度特征的线性探针
 │   └── probe_m4.py              # 诊断：train 拟合 → val 评测的线性探针
 ├── docx/                        # 设计与实验报告
 │   ├── report.md               #   ★ 面向专家读者的现状汇报（模型 / 实验 / 结果 / 下一步）
@@ -183,8 +195,13 @@ python scripts/compare.py
 | `model.sample_only` | `true` / `false` | 只留样本级通路、跳过全部上采样（v0.4.3 消融：省 35M 参数但掉 2.3 分，**已否决**） |
 | `heads.sample_levels` | `1` / `5` | 样本头读取的尺度数。`1`=只看瓶颈；`5`=**每尺度各自池化后拼接**（v0.4.4 起默认，宽度 768→3840） |
 | `heads.token_bypass` | `true` / `false` | 最细尺度 token 头额外拼接**编码器全长逐 token 特征**（768→1536，v0.4.5） |
+| `heads.report_dim` / `report_proj` | `7` / `32` | ★ v0.4.6：样本头接入**文档级报告向量**（`0` = 不接，与历史**逐位一致**） |
 | `report.name` | `handcrafted` / `none` | 是否注入手工统计报告 |
+| `report.mode` | `prefix` / `vector` / `none` | ★ v0.4.6：`prefix`（默认、历史行为，报告作为 token 前缀进序列）/ `vector`（**不进序列**，7 维数值喂文档级头） |
+| `report.stats_mean` / `stats_std` | 7 个数 | v0.4.6：7 维统计量的**固定**标准化常数（在 m4 train 上算得，见 `scripts/probe_report.py`） |
 | `loss.token` | `0` / `1.0` | token 级监督权重（0 = 纯样本级） |
+| `loss.token_weight_mode` | `static` / `length` | ★ v0.4.6：`static`（默认、历史行为）/ `length`（$w_i=\sigma((\log_2 n_i-\log_2 N_{\min})/\tau)$，短文档自动向高分辨率尺度集中） |
+| `loss.token_weight_nmin` / `token_weight_tau` | `64` / `0.5` | ★ v0.4.6：`length` 模式的锚点与温度（取值由零训练探针扫得，见 §8.12.5） |
 | `train.sample_streams` | `[m4]` | 只在标签有意义的流上算样本级 CE |
 | `train.streams` | `[m4, hybrid]` | 双流；`--no-m4` / `--no-hybrid` 单流 |
 
