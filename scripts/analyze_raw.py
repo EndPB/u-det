@@ -118,6 +118,88 @@ def sweep(blob, fn, thr_grid) -> None:
 
 
 # --------------------------------------------------------------------------- #
+# v0.4.9：「额外一路头」的三路消融（用 dump 里分开存的 logits，**不需要重训**）
+# --------------------------------------------------------------------------- #
+def hybrid_metrics_from_tokens(blob, thr: float, probs_fn) -> dict:
+    """从**逐 token 概率**重算行级 / 片段级 / token 级（与 ``evaluate`` 完全同构）。
+
+    ``probs_fn(i) -> (L,) 概率``。行级用 dump 里的 ``line_of_token`` 聚合，
+    只统计 ``token_label >= 0``（即非 IGNORE）的位置 —— 与 ``train.evaluate`` 一致。
+    """
+    pred_lines, gold_lines = [], []
+    chunk_tp = chunk_pred = chunk_gold = 0
+    token_tp = token_fp = token_fn = 0
+    for i in range(blob["n"]):
+        prob = probs_fn(i)
+        gold = blob["token_label"][i].long()
+        lo = blob["line_of_token"][i].long()
+        keep = gold >= 0
+        p, g, l = prob[keep], gold[keep], lo[keep]
+        # token 级
+        ok = p > thr
+        gi = g == 1
+        token_tp += int((ok & gi).sum())
+        token_fp += int((ok & ~gi).sum())
+        token_fn += int((~ok & gi).sum())
+        # 行级：逐行取该行所有 token 概率的均值
+        n_line = len(blob["line_label"][i])
+        ssum = torch.zeros(n_line, dtype=torch.float64)
+        scnt = torch.zeros(n_line, dtype=torch.float64)
+        ssum.scatter_add_(0, l, p.double())
+        scnt.scatter_add_(0, l, torch.ones_like(p).double())
+        picked = [int(ssum[k] / scnt[k].item() > thr) if scnt[k] > 0 else 0
+                  for k in range(n_line)]
+        gold_l = blob["line_label"][i].long().tolist()
+        pred_lines.extend(picked)
+        gold_lines.extend(gold_l)
+        tp, np_, ng = chunk_match(picked, gold_l)
+        chunk_tp += tp
+        chunk_pred += np_
+        chunk_gold += ng
+    line = prf1(pred_lines, gold_lines)
+    cp = chunk_tp / max(chunk_pred, 1e-9)
+    cr = chunk_tp / max(chunk_gold, 1e-9)
+    tp_ = token_tp / max(token_tp + token_fp, 1e-9)
+    tr_ = token_tp / max(token_tp + token_fn, 1e-9)
+    return {"line_f1": line["f1"], "chunk_f1": 2 * cp * cr / max(cp + cr, 1e-9),
+            "token_f1": 2 * tp_ * tr_ / max(tp_ + tr_, 1e-9)}
+
+
+def head_ablation(blob, thr: float, weights=(0.0, 0.25, 0.5, 0.75, 1.0)) -> None:
+    """主干那一级 / 额外一路头 / 两者加权混合 —— 三种读出的对比。
+
+    ★ 这是「只跑一次训练」也能拿到消融的办法：``--dump-raw`` 时把两个头的逐 token
+      logits 分开存，离线在 **logit 空间**按权重 ``w`` 混合
+      （``w`` = 主干权重，``1−w`` = 额外头权重）再 sigmoid。
+      ``w=0.5`` 就是 v0.4.9 的官方口径（两者取均值）。
+    """
+    tr = blob.get("token_logit_trunk")
+    by = blob.get("token_logit_bypass")
+    print("\n  ── ★ 额外一路头的三路消融（离线，零 GPU；logit 空间混合 w·trunk + (1−w)·bypass）")
+
+    # 自检：w=0.5 的混合应当复现官方存下来的 token_prob（B8：评测是确定性的）
+    def mix(i, w):
+        a = tr[i].float()
+        b = by[i].float()
+        return torch.sigmoid(w * a + (1 - w) * b)
+
+    ref = hybrid_metrics_from_tokens(blob, thr, lambda i: blob["token_prob"][i].float())
+    half = hybrid_metrics_from_tokens(blob, thr, lambda i: mix(i, 0.5))
+    d = max(abs(ref[k] - half[k]) for k in ref)
+    print(f"    自检：w=0.5 离线重算 vs 官方 token_prob 的最大差 = {d:.2e}"
+          f"  [{'OK' if d < 2e-3 else '!! 不一致，离线重算逻辑有漂移'}]")
+
+    print(f"    {'主干权重 w':>10}{'额外头权重':>12}{'行级 F1':>10}{'片段 F1':>10}{'token F1':>10}")
+    for w in weights:
+        m = hybrid_metrics_from_tokens(blob, thr, lambda i, w=w: mix(i, w))
+        tag = "   ← 官方口径" if abs(w - 0.5) < 1e-9 else ""
+        print(f"    {w:>10.2f}{1 - w:>12.2f}{m['line_f1']:>10.4f}"
+              f"{m['chunk_f1']:>10.4f}{m['token_f1']:>10.4f}{tag}")
+    print("    （w=1 = 只用主干那一级；w=0 = 只用额外头；" 
+          "若 0.5 明显不如 1.0 ⇒ 额外头在**拖后腿**，应把权重调小或直接去掉）")
+
+
+# --------------------------------------------------------------------------- #
 def main() -> int:
     ap = argparse.ArgumentParser(description="离线分析 raw_*.pt：长度分桶 + 阈值扫描")
     ap.add_argument("runs", nargs="+", help="run 目录，如 runs/v0.4.4")
@@ -127,6 +209,8 @@ def main() -> int:
     ap.add_argument("--thr", type=float, nargs="+",
                     default=[0.30, 0.35, 0.40, 0.45, 0.50, 0.55, 0.60, 0.65, 0.70])
     ap.add_argument("--thr-opt", type=float, default=0.50, help="分桶报告使用的阈值")
+    ap.add_argument("--heads", action="store_true",
+                    help="v0.4.9：若 dump 里分开存了主干头/额外头的 logits，做三路消融")
     args = ap.parse_args()
 
     for spec in args.runs:
@@ -151,6 +235,11 @@ def main() -> int:
             sweep(blob, hybrid_metrics, args.thr)
             print(f"  ── 长度分桶（thr={args.thr_opt}）")
             by_bucket(blob, args.edges, hybrid_metrics, args.thr_opt)
+            if args.heads and blob.get("token_logit_trunk") and blob.get("token_logit_bypass"):
+                head_ablation(blob, args.thr_opt)
+            elif args.heads:
+                print("  (该 run 的 dump 里没有分开存的两路 logits ⇒ 跳过三路消融；"
+                      "只有 v0.4.9 之后的 run 才有)")
         else:
             print("  (无 raw_hybrid_*.pt，跳过 hybrid)")
     return 0

@@ -678,15 +678,25 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str,
     line_prob = [None] * len(dataset)
     token_probs = [None] * len(dataset)
     token_labels = [None] * len(dataset)
+    # ★ v0.4.9：「额外一路头」模式下，把**主干那一级**与**额外头**的 logits 分开落盘。
+    #   报告用的 `token_prob` 是两者的均值；分开存之后，**一次训练就能离线做三路消融**
+    #   （主干头单独 / 额外头单独 / 均值），不必再跑两次。
+    token_logit_trunk = [None] * len(dataset)
+    token_logit_bypass = [None] * len(dataset)
+    line_of = [None] * len(dataset)                               # 行 index（供离线重算）
+    want_aux = dump_path is not None and getattr(model, "accepts_aux", False)
     has_token = True
 
     for i in tqdm(range(len(dataset)), desc=f"eval {name}", leave=False):
         item = dataset[i]                                          # 已含报告前缀 / token 标签
         ids = torch.tensor([item["input_ids"]], dtype=torch.long, device=device)
         extra = {"stride": strides.get(name)} if strides else {}
+        if want_aux:
+            extra["return_aux"] = True                    # 只要 loss/诊断需要的那两个张量
         with torch.autocast("cuda", dtype=torch.bfloat16, enabled=amp):
             out = model(ids, torch.ones_like(ids), **extra, report=report_tensor(item, device))
         logits_sample, token_logits = out[0], out[1]
+        aux = out[2] if len(out) > 2 else None
         has_token = token_logits is not None
         sample_logits[i] += logits_sample[0].float().cpu()
         lengths[i] = int(ids.shape[1])
@@ -696,6 +706,14 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str,
         if dump_path:                                             # 原始逐 token 概率与标签
             token_probs[i] = torch.tensor(probs, dtype=torch.float16)
             token_labels[i] = torch.tensor(item["tok_labels"], dtype=torch.int16)
+            line_of[i] = torch.tensor(item["line_of_token"], dtype=torch.int16)
+            if aux:
+                sc = aux.get("token_scales")
+                by = aux.get("bypass_logits")
+                if sc is not None:                                # 主干那一级（不拼旁路）
+                    token_logit_trunk[i] = sc[-1].float()[0, 0].cpu().half()
+                if by is not None:                                # 额外一路头
+                    token_logit_bypass[i] = by.float()[0, 0].cpu().half()
         if line_sum[i] is None:
             line_sum[i], line_cnt[i] = {}, {}
         for prob, tok_label, line in zip(probs, item["tok_labels"], item["line_of_token"]):
@@ -760,6 +778,11 @@ def evaluate(model: nn.Module, dataset, name: str, cfg: dict, device: str,
             blob["line_prob"] = line_prob
             blob["token_prob"] = token_probs          # 最细尺度（= 原始 token 数）的逐 token 概率
             blob["token_label"] = token_labels
+            if any(t is not None for t in token_logit_trunk):
+                blob["token_logit_trunk"] = token_logit_trunk    # v0.4.9：主干那一级（单独）
+            if any(t is not None for t in token_logit_bypass):
+                blob["token_logit_bypass"] = token_logit_bypass   # v0.4.9：额外一路头（单独）
+            blob["line_of_token"] = line_of                      # 行 index（与 token_prob 同长）
         out_path = Path(dump_path)
         out_path.parent.mkdir(parents=True, exist_ok=True)
         torch.save(blob, out_path)
