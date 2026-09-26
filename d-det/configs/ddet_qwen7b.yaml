@@ -1,0 +1,29 @@
+# d-det × Qwen2.5-Coder-7B-Instruct（GPTQ-Int4，QLoRA）
+#   用法：python scripts/semeval_finetune.py --task b --config configs/ddet_qwen7b.yaml \
+#            --data-dir data/processed/semeval_qwen --init none --batch 2 --lr-encoder 1e-4
+#   需先下载：huggingface-cli download Qwen/Qwen2.5-Coder-7B-Instruct-GPTQ-Int4 \
+#            --local-dir checkpoints/qwen2.5-coder-7b-instruct-gptq-int4
+encoder:
+  name: qwen
+  path: checkpoints/qwen2.5-coder-7b-instruct-gptq-int4
+  dtype: bfloat16
+  quant: gptq
+  layer: -1
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+  full_ft: false
+  ckpt: true
+  compile: false
+
+model:
+  name: dual
+  pool: mean
+  attn_dim: 128
+  dropout: 0.0
+  mlp_layers: 0
+  s2_rank: 1
+
+train:
+  epochs: 2

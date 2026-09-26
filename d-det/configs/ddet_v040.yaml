@@ -1,0 +1,71 @@
+# d-det v0.4.0（几何损失单实验：s1 固定 margin 斥力 + Fisher 判别比引力 + 跨族 Δ 方向引力）
+#   基座 = v0.3.0_fullft 4ep 权重（--resume runs/v0.3.0_fullft/last.pt --epochs 2，LR 计划重起）
+#   新增：loss.rep / loss.fisher（m4 流）+ loss.xfam（pairxf 流）；loss.cov=0（v0.4.1 对照臂开）
+#   文献对照见 /memories 与 docx/（L-Softmax/CosFace/ArcFace 的 margin 家族、center/Fisher、DMHM）
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+  pair_file: pairs.parquet
+  pairxf_files: [pairs.parquet, pairs_qwen15.parquet]   # 跨族 Δ 方向（qwen15=已见族；ds13 held-out）
+
+encoder:
+  name: codet5blk
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  block: 512
+  block_batch: 8
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]
+  full_ft: true
+  static: false
+  ckpt: true
+  compile: false
+  freeze: false
+
+model:
+  name: dual
+  pool: mean
+  attn_dim: 128
+  dropout: 0.0
+  mlp_layers: 0
+  s2_rank: 1
+
+loss:
+  s1: 1.0
+  s2: 1.0
+  margin: 1.0
+  orth: 0.05
+  mlm: 0.2
+  mlm_prob: 0.15
+  token: 1.0
+  anchor: 0.0
+  rep: 1.0                 # 固定 margin 饱和斥力：softplus(m − (2y−1)·s1)
+  rep_margin: 1.5          # 由 scripts/calibrate_margin.py 标定（P5 分位，下限 0.5）；队列 --set 覆盖
+  fisher: 1.0              # Fisher 判别比（EMA 在线）：softplus(log_target − log R)
+  fisher_momentum: 0.95
+  fisher_target: 1.386     # log(4)
+  fisher_warmup: 24
+  fisher_min_gap: 0.05
+  xfam: 0.5                # 跨族方向引力：1 − cos(Δh_A, Δh_B)（pairxf 流）
+  cov: 0.0                 # 去冗余（EMA 协方差非对角平方；v0.4.1 开）
+
+train:
+  streams: [m4, hybrid, pair, pairxf]
+  epochs: 2
+  grad_accum: 8
+  lr: 0.0003
+  lr_encoder: 2.0e-05
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 2
+  num_workers_pairxf: 1
+  log_every: 200
+  monitor: mean
+  seed: 0
+  out_dir: runs

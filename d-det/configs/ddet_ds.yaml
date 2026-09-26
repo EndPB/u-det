@@ -1,0 +1,26 @@
+# d-det × DeepSeek-Coder-1.3B-Instruct（第三骨干；Llama 架构，复用 qwen 包装）
+#   用法：python scripts/semeval_finetune.py --task b --config configs/ddet_ds.yaml \
+#            --data-dir data/processed/semeval_qwen --init none --lr-encoder 2e-4
+encoder:
+  name: qwen
+  path: checkpoints/deepseek-coder-1.3b-instruct
+  dtype: bfloat16
+  layer: -1
+  r: 32
+  alpha: 64
+  dropout: 0.0
+  targets: [q_proj, k_proj, v_proj, o_proj, gate_proj, up_proj, down_proj]
+  full_ft: false
+  ckpt: true
+  compile: false
+
+model:
+  name: dual
+  pool: mean
+  attn_dim: 128
+  dropout: 0.0
+  mlp_layers: 0
+  s2_rank: 1
+
+train:
+  epochs: 2

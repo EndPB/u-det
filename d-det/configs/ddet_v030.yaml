@@ -1,0 +1,60 @@
+# d-det v0.3.0（全参微调单实验；先跑 2 epoch）：
+#   四路监督 = m4 样本 BCE(s1) + hybrid token BCE(tok_head) + pair hinge(s2) + 掩码复原(m4)
+#   载体 = CodeT5-base 全参解冻（full_ft）+ 分块上下文 K=512
+#   评测 = m4 sample + hybrid line/chunk/token + pair dir + 片段/跨规模探针
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  hybrid_file: hybrid.parquet
+  pair_file: pairs.parquet
+
+encoder:
+  name: codet5blk
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  block: 512                 # 块内上下文 512（对齐 CodeT5 位置上限；v0.1 是 128）
+  block_batch: 8             # 每前向 4096 token
+  r: 16                      # full_ft=true 时忽略（保留便于切回 LoRA）
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]
+  full_ft: true              # ★ 全参微调（解冻全部 12 层、不注入 LoRA）
+  static: false              # 动态块数（避免短样本 pad 浪费；不开 compile）
+  ckpt: true                 # 逐分片梯度检查点
+  compile: false
+  freeze: false              # 说明用；codet5blk 由 full_ft 决定
+
+model:
+  name: dual
+  pool: mean
+  attn_dim: 128
+  dropout: 0.0
+  mlp_layers: 0
+  s2_rank: 1
+
+loss:
+  s1: 1.0
+  s2: 1.0
+  margin: 1.0
+  orth: 0.05
+  mlm: 0.2                   # ★ 掩码复原辅助（m4 流，15% 掩码 → 绑定嵌入重建）
+  mlm_prob: 0.15
+  token: 1.0                 # ★ hybrid 的 token BCE
+  anchor: 0.0
+
+train:
+  streams: [m4, hybrid, pair]
+  epochs: 2                  # 先跑 2 轮；看涨再 --resume +2
+  grad_accum: 8
+  lr: 0.0003                 # 读出/头
+  lr_encoder: 2.0e-05        # ★ 全参微调 LR（与 u-det 微调基线一致）
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 2
+  log_every: 200
+  monitor: mean              # mean(m4 auc, pair dir_acc, hybrid line_f1)
+  seed: 0
+  out_dir: runs

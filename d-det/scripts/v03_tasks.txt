@@ -1,0 +1,30 @@
+# v0.3 任务列表 —— 「指标下降归因 + 修复实验」
+# 每行一条命令（bash -c 执行；顺序运行；失败不阻塞）。参照 queue_v02b.sh 的调用口径。
+# 顺序设计：特征归因 → 补逐样本（配对统计）→ 修复实验①detach → ②λb↓ → ③梯度冲突全记录+seed2 → ④abA seed2（噪声底线）
+PY=/root/miniconda3/envs/udet/bin/python
+
+# T0 特征侧归因（GPU，零训练 ~10min）：oracle 读出 / 方向几何 / Δh 尺度 / 梯度冲突快照
+$PY scripts/diag_features.py --runs pretrained runs/v0.1.0_ab_nopair runs/v0.1.0 runs/v0.2.2_ab_abmil --m4-n 300 --pair-n 200 --frag-n 150
+
+# T1 片段逐样本落盘（abA 基线；用于与 v0.1.0/C3 做配对显著性）
+$PY scripts/probe_fragments.py --ckpt runs/v0.1.0_ab_nopair/best.pt --n 500 --dump-samples
+# T2 片段逐样本落盘（v0.1.0）
+$PY scripts/probe_fragments.py --ckpt runs/v0.1.0/best.pt --n 500 --dump-samples
+# T3 片段逐样本落盘（C3 abmil）
+$PY scripts/probe_fragments.py --ckpt runs/v0.2.2_ab_abmil/best.pt --n 500 --set model.pool=abmil --dump-samples
+# T4 修复实验①：s2-detach（s2 梯度不回传编码器 → 隔离「表征冲突」）训练 + 评测
+$PY train.py --config configs/ddet_base.yaml --tag v0.2.6_detach --set model.s2_detach=true && $PY train.py --config configs/ddet_base.yaml --eval --ckpt runs/v0.2.6_detach/best.pt --dump-scores
+# T5 detach 的片段 + 跨规模探针（与 abA/v0.1.0 同口径）
+$PY scripts/probe_fragments.py --ckpt runs/v0.2.6_detach/best.pt && $PY scripts/probe_scale_verify.py --ckpt runs/v0.2.6_detach/best.pt --tag v0.2.6_detach --pair-file data/processed/pairs_qwen15.parquet --npz runs/v0.2.6_detach/scale_scores.npz
+# T6 修复实验②：λb=0.3（削弱 pair 流权重）训练 + 评测
+$PY train.py --config configs/ddet_base.yaml --tag v0.2.7_lb03 --set loss.s2=0.3 && $PY train.py --config configs/ddet_base.yaml --eval --ckpt runs/v0.2.7_lb03/best.pt --dump-scores
+# T7 lb03 的片段 + 跨规模探针
+$PY scripts/probe_fragments.py --ckpt runs/v0.2.7_lb03/best.pt && $PY scripts/probe_scale_verify.py --ckpt runs/v0.2.7_lb03/best.pt --tag v0.2.7_lb03 --pair-file data/processed/pairs_qwen15.parquet --npz runs/v0.2.7_lb03/scale_scores.npz
+# T8 全训练梯度冲突记录 + v0.1.0 的第二种子（seed=1）：每 100 step 记 cos(∇L1,∇L2) 训练 + 评测
+$PY train.py --config configs/ddet_base.yaml --tag v0.2.8_var_seed1 --set train.seed=1 --diag-gradconf 100 && $PY train.py --config configs/ddet_base.yaml --eval --ckpt runs/v0.2.8_var_seed1/best.pt --dump-scores
+# T9 var_seed1 的片段 + 跨规模探针
+$PY scripts/probe_fragments.py --ckpt runs/v0.2.8_var_seed1/best.pt && $PY scripts/probe_scale_verify.py --ckpt runs/v0.2.8_var_seed1/best.pt --tag v0.2.8_var_seed1 --pair-file data/processed/pairs_qwen15.parquet --npz runs/v0.2.8_var_seed1/scale_scores.npz
+# T10 噪声底线：abA（单头基线）seed=1 训练 + 评测
+$PY train.py --config configs/ddet_base.yaml --tag v0.2.9_ab_seed1 --no-pair --set train.seed=1 && $PY train.py --config configs/ddet_base.yaml --eval --ckpt runs/v0.2.9_ab_seed1/best.pt --no-pair --dump-scores
+# T11 ab_seed1 的片段 + 跨规模探针（补第二种子）
+$PY scripts/probe_fragments.py --ckpt runs/v0.2.9_ab_seed1/best.pt && $PY scripts/probe_scale_verify.py --ckpt runs/v0.2.9_ab_seed1/best.pt --tag v0.2.9_ab_seed1 --pair-file data/processed/pairs_qwen15.parquet --npz runs/v0.2.9_ab_seed1/scale_scores.npz

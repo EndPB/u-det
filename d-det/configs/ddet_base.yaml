@@ -1,0 +1,66 @@
+# d-det 首版配置（v0.1）
+#
+# 双分数模型：编码器（codet5blk 分块 + LoRA）→ 池化 → s1 / s2 双读出（零初始化）。
+# 双流监督：m4（人机 BCE → s1）+ pair（base/instruct margin → s2）。
+# 设计文档：docx/d-det.md；运行方式见 README。
+#
+# 备注：
+#   * encoder 段的 lut / max_length / freeze 对 codet5blk 无意义（被 **ignored 吸收），
+#     保留它们是为了"改一行 encoder.name 就能切到 codet5tok / codet5"。
+#   * model.s2_rank=1 对应原文的标量公式；升到 4~8 是设计文档注记 1 的后续实验。
+#   * loss.anchor（旧维语义保持）在 v0.1 未实现：从零训练没有旧网络可锚定，
+#     代码里配成非 0 会直接报错（不静默忽略）。
+
+data:
+  processed_dir: data/processed
+  m4_file: m4.parquet
+  pair_file: pairs.parquet
+
+encoder:
+  name: codet5blk            # 分块 CodeT5（K=128 块内 attention）+ LoRA
+  path: checkpoints/codet5-base
+  dtype: float32
+  layer: -1
+  block: 128
+  block_batch: 16
+  r: 16
+  alpha: 32
+  dropout: 0.0
+  targets: [v, o, wi, wo]    # 块内 attention 已复活，q/k 可用；首版沿用 u-det 的 v,o,wi,wo
+  static: true
+  ckpt: true
+  compile: true
+  freeze: false              # false = LoRA 适配器可训练（底座恒冻结 eval）
+  max_length: 512            # codet5blk 忽略；切 codet5（上下文版）时生效
+  lut: data/processed/codet5_lut.pt   # codet5tok 查表路径（首版已复制进 d-det）
+
+model:
+  name: dual
+  pool: mean                 # mean / abmil（abmil 的 w 零初始化 ⇒ 起点与 mean 逐位相同）
+  attn_dim: 128
+  dropout: 0.0
+  mlp_layers: 0              # 0 = 线性读出（设计文档 g1/g2 的线性特殊情形）
+  s2_rank: 1
+
+loss:
+  s1: 1.0                    # λa：m4 的 BCE
+  s2: 1.0                    # λb：pair 的 hinge margin
+  margin: 1.0                # m：s2(x₊) 应比 s2(x₋) 高出多少
+  orth: 0.05                 # λc：cos²(w1,w2) 正交保险
+  anchor: 0.0                # λd：旧维语义保持（v0.1 未实现，必须为 0）
+
+train:
+  streams: [m4, pair]        # 单流消融：--no-pair（只训 s1）/ --no-m4（只训 s2）
+  epochs: 2
+  grad_accum: 8
+  lr: 0.0003
+  lr_encoder: 5.0e-05        # LoRA 适配器 LR（u-det 教训：影响下游全部特征，别用 3e-4）
+  weight_decay: 0.01
+  warmup: 0.05
+  grad_clip: 1.0
+  amp: true
+  num_workers: 4
+  log_every: 200
+  monitor: mean              # mean / m4_auc / pair_acc
+  seed: 0
+  out_dir: runs

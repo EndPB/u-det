@@ -1,0 +1,23 @@
+# d-det 本地忽略（数据 / 权重 / 产物不入库；与仓库根 .gitignore 重叠是刻意的，
+# 这样即使将来 d-det 拆分为独立仓库也无需改动）
+
+# 大文件：数据与权重
+data/raw/
+data/processed/
+checkpoints/
+*.pt
+*.pth
+*.bin
+*.safetensors
+*.onnx
+*.parquet
+
+# 训练产物
+runs/
+outputs/
+*.log
+
+# Python / 编辑器
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
