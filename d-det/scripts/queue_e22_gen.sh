@@ -14,31 +14,53 @@ mkdir -p "$MDIR"
 
 step(){ echo "[e22 $(date '+%F %T')] $*"; }
 
+valid_parquet(){  # $1=path $2=min_rows；可读且行数达标 => 0
+  $PY - "$1" "$2" <<'EOF' > /dev/null 2>&1
+import sys
+try:
+    import pyarrow.parquet as pq
+    n = pq.read_table(sys.argv[1], columns=["task_id"]).num_rows
+    code = 0 if n >= int(sys.argv[2]) else 1
+except Exception:
+    code = 1
+raise SystemExit(code)
+EOF
+}
+
 gen_family(){  # $1=name $2=model_dir
   local NAME=$1 M=$2
-  if [ ! -f "data/processed/multisample_${NAME}_t0.7.parquet" ]; then
+  local MAIN="data/processed/multisample_${NAME}_t0.7.parquet"
+  local A2="data/processed/multisample_${NAME}_t0.2.parquet"
+  local A10="data/processed/multisample_${NAME}_t1.0.parquet"
+  if ! valid_parquet "$MAIN" 2600; then
+    rm -f "$MAIN"
     step "$NAME 主实验 T=0.7 开始"
     $PY scripts/gen_multi_samples.py --family "$NAME" --model "$M" \
-      --out "data/processed/multisample_${NAME}_t0.7.parquet" --n 8 --temperature 0.7 \
+      --out "$MAIN" --n 8 --temperature 0.7 \
       > "/tmp/ddet_e22_gen_${NAME}_07.log" 2>&1 || { step "$NAME t0.7 失败"; return 1; }
   fi
-  if [ ! -f "data/processed/multisample_${NAME}_t0.2.parquet" ]; then
+  if ! valid_parquet "$A2" 380; then
+    rm -f "$A2"
     step "$NAME 消融 T=0.2 开始"
     $PY scripts/gen_multi_samples.py --family "$NAME" --model "$M" \
-      --out "data/processed/multisample_${NAME}_t0.2.parquet" --n 8 --temperature 0.2 --limit 50 \
+      --out "$A2" --n 8 --temperature 0.2 --limit 50 \
       > "/tmp/ddet_e22_gen_${NAME}_02.log" 2>&1 || step "$NAME t0.2 失败"
   fi
-  if [ ! -f "data/processed/multisample_${NAME}_t1.0.parquet" ]; then
+  if ! valid_parquet "$A10" 380; then
+    rm -f "$A10"
     step "$NAME 消融 T=1.0 开始"
     $PY scripts/gen_multi_samples.py --family "$NAME" --model "$M" \
-      --out "data/processed/multisample_${NAME}_t1.0.parquet" --n 8 --temperature 1.0 --limit 50 \
+      --out "$A10" --n 8 --temperature 1.0 --limit 50 \
       > "/tmp/ddet_e22_gen_${NAME}_10.log" 2>&1 || step "$NAME t1.0 失败"
   fi
 }
 
 dl_gen(){  # $1=name $2=repo（/dev/shm 中转；大仓库过滤 onnx/runs/md）
   local NAME=$1 REPO=$2
-  [ -f "data/processed/multisample_${NAME}_t1.0.parquet" ] && { step "$NAME 已完成，跳过"; return; }
+  if valid_parquet "data/processed/multisample_${NAME}_t0.7.parquet" 2600 \
+     && valid_parquet "data/processed/multisample_${NAME}_t1.0.parquet" 380; then
+    step "$NAME 已完成，跳过"; return
+  fi
   if [ -z "$(ls "$MDIR/$NAME-instruct/"*.safetensors 2>/dev/null)" ]; then
     step "$NAME 下载 $REPO（/dev/shm 剩 $(df -BG /dev/shm | awk 'NR==2{print $4}')）"
     hf download "$REPO" --local-dir "$MDIR/$NAME-instruct" \

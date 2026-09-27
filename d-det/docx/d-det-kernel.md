@@ -479,7 +479,7 @@ E14 显示 B 侧无法替代配对结构。
 | E19 | `extract_pair_feats_raw.py` + `kernel_e19_robust.py` | `runs/kernel_e19/{h_raw_*.npz, robust.json}` |
 | E20 | `kernel_e20_selective.py`（+泄漏自检于 e21_supp） | `runs/kernel_e20/e20.json` |
 | E21 | `kernel_e21_interaction.py` + `kernel_e21_supp.py` | `runs/kernel_e21/{e21,e21_supp}.json` |
-| E22 | `gen_multi_samples.py` + `extract_multi_feats.py` | `runs/kernel_e22/multi_*.npz`（生成中） |
+| E22 | `gen_multi_samples.py` + `extract_multi_feats.py`（已实现） | ——（生成按团队决策取消，2026-09-28：成本 vs 价值权衡；C 线维持 parked） |
 
 复用件：`encoders/qwen.py`（Qwen/DS 通用包装）；`runs/semeval_zeroshot/feat/*.npz`（v1.0 冻结特征）；
 `data/processed/pairs{_qwen15,_ds13}.parquet`（同题配对）；本地模型对 `checkpoints/qwen2.5-coder-{0.5b,1.5b}-{base,instruct}、deepseek-coder-1.3b-{base,instruct}`。
