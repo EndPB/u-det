@@ -68,7 +68,7 @@
 ### 1.4 去重审计（ids 精确 + E26 近重复补审）
 - within-split 重复 **0**；跨 split 重复 **0**（ids 精确口径）。
 - **E26 补审（本报告初稿后补，2026-09-29 夜）**：初稿曾写"无法做近重复审计"——该限制已解除：
-  通过"ids→原始 parquet 重分词哈希匹配"恢复 **100%** 样本源码（17600/5372/922/2209，见 §0.5-1 勘误节），
+  通过"ids→原始 parquet 重分词哈希匹配"恢复 **100%** 样本源码（17600/5372/922/2209，见 §0.5-2 勘误节），
   identifier 5-gram MinHash（64 签名、16×4 LSH、J≥0.7）审计：近重复对 **train↔train 8、train↔val 3**
   （J .736–.966；仅涉及 DeepSeek-R1 内部、Yi-Coder/Mistral 同 generator、以及 Human↔DeepSeek-R1 各 1–2 例）；
   **test_seen/unseen 与训练集 0 对**；去空白精确重复组 train **4 组**（含 1 组 Human↔DeepSeek-V3 同码——源数据标签冲突）。
