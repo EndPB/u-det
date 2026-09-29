@@ -1,0 +1,40 @@
+{
+ "args": {
+  "smoke": false,
+  "max_len": 2048,
+  "train_human": 8000,
+  "train_fam": 1200,
+  "val_human": 1500,
+  "val_fam": 500,
+  "unseen_cap": 600,
+  "enc_bs": 32,
+  "batch": 64
+ },
+ "C_GRID": [
+  0.01,
+  0.03,
+  0.1,
+  0.3,
+  1.0,
+  3.0,
+  10.0
+ ],
+ "STD_FLOOR": 0.01,
+ "solver": {
+  "lbfgs": true,
+  "tol": 1e-06,
+  "max_iter": 10000,
+  "fit_intercept": true,
+  "class_weight": null,
+  "family": "multinomial (默认)",
+  "detection": "binomial"
+ },
+ "arms": {
+  "R0": "m_raw",
+  "R1": "mu(E24 ht 均值)",
+  "R2": "s(冻结查询输出)",
+  "R3": "[mu;s]"
+ },
+ "rng": "RandomState(0) 复刻 load_corpus_tagged 的 subset 行为（仅 train/val）",
+ "commit": "80e71a4611680d87a8eb323f6e143702e7041cc3"
+}

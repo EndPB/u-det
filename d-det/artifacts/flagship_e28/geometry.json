@@ -1,0 +1,15 @@
+{
+ "train_ai": {
+  "cos_centered_mean": 0.8469,
+  "eta_delta": 0.2732,
+  "n": 9600,
+  "n_ok": 9600
+ },
+ "val_ai": {
+  "cos_centered_mean": 0.8451,
+  "eta_delta": 0.2596,
+  "n": 3872,
+  "n_ok": 3872
+ },
+ "note": "cos 为逐样本中心化余弦均值 (17)；η_Δ 为 (18)；仅描述性，不用于筛选维度"
+}

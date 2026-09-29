@@ -52,7 +52,7 @@ from flagship_round1 import (Doc, SetPool, SEEN_LABS, _batches,  # noqa: E402
                              collate, residualize)
 from flagship_e25_stage0 import load_corpus_tagged, ids_md5  # noqa: E402
 
-OUT = ROOT / "runs/flagship_e27"
+OUT = ROOT / "runs/flagship_e27"  # 正式目录；--smoke 隔离见 main（E28 勘误 2026-09-30）
 R1 = ROOT / "runs/flagship_r1"
 R25 = ROOT / "runs/flagship_e25"
 R26 = ROOT / "runs/flagship_e26"
@@ -182,6 +182,8 @@ def main() -> int:
     ap.add_argument("--smoke", action="store_true")
     args = default_args(smoke=ap.parse_args().smoke)
 
+    # E28 勘误修复（2026-09-30）：--smoke 不再写正式目录（旧实现 OUT 为常量，冒烟会盖正式产物）
+    OUT = ROOT / "runs" / ("flagship_e27_smoke" if args.smoke else "flagship_e27")
     OUT.mkdir(parents=True, exist_ok=True)
     t_start = time.time()
     device = "cuda" if torch.cuda.is_available() else "cpu"

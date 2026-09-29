@@ -1,0 +1,56 @@
+{
+ "commit": "80e71a4611680d87a8eb323f6e143702e7041cc3",
+ "created": "2026-09-30 01:08:57",
+ "checkpoint_sha256": {
+  "model_state.pt": "7ace5f55c1e86b185652a955bff26f4a1a13f901307f5d90d3733a7c31ed7297",
+  "head.pt": "d08185ad986033465392bfc29eef48e2adef9090caed43647c0e4c8aacdfc4d7",
+  "last.pt": "e7e6565c676f906336e58af96b3640c2f3ec5df2c6ee776f90eb61cde95a22e4"
+ },
+ "e27_selected": {
+  "M": 1,
+  "T": 1
+ },
+ "input_manifest_sha256": "45e536b015e3939229b4ab5431faa0d15a4ed353724260eb12492d28f8dbb400",
+ "counts": {
+  "train": {
+   "n": 17600,
+   "family": {
+    "Human": 8000,
+    "OpenAI": 1200,
+    "DeepSeek": 1200,
+    "Qwen": 1200,
+    "Meta": 1200,
+    "Mistral": 1200,
+    "IBM": 1200,
+    "01-ai": 1200,
+    "Google": 1200
+   },
+   "n_generators": 25
+  },
+  "val": {
+   "n": 5372,
+   "family": {
+    "Human": 1500,
+    "OpenAI": 500,
+    "DeepSeek": 500,
+    "Qwen": 500,
+    "Meta": 500,
+    "Mistral": 500,
+    "IBM": 500,
+    "01-ai": 500,
+    "Google": 372
+   },
+   "n_generators": 25
+  }
+ },
+ "dims": {
+  "raw": 768,
+  "mu": 768,
+  "s": 768,
+  "R3": 1536
+ },
+ "sklearn": "1.9.1",
+ "test_accessed": false,
+ "unseen_accessed": false,
+ "notes": "只读 b_train/b_val；留出家族过滤；主键=(split,row)，md5 仅校验"
+}
