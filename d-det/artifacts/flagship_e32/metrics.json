@@ -1,0 +1,283 @@
+{
+ "commit": "18e8760d414bd71d52d8b685a4f6295d174c24bb",
+ "smoke": false,
+ "test_accessed": false,
+ "B0": {
+  "BA_F": 0.5879,
+  "BA_G": 0.5855,
+  "per_family_recall": {
+   "OpenAI": 0.638,
+   "DeepSeek": 0.5804,
+   "Mistral": 0.512,
+   "Google": 0.6211
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.638
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5804
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.5419,
+    "mistralai/Devstral-Small-2505": 0.4632
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.6211
+   }
+  },
+  "converged": true,
+  "n_iter": 348
+ },
+ "C0": {
+  "BA_F": 0.4617,
+  "BA_G": 0.4588,
+  "per_family_recall": {
+   "OpenAI": 0.478,
+   "DeepSeek": 0.505,
+   "Mistral": 0.282,
+   "Google": 0.582
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.478
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.505
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.3194,
+    "mistralai/Devstral-Small-2505": 0.2211
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.582
+   }
+  }
+ },
+ "C1": {
+  "BA_F": 0.5227,
+  "BA_G": 0.5224,
+  "per_family_recall": {
+   "OpenAI": 0.656,
+   "DeepSeek": 0.608,
+   "Mistral": 0.28,
+   "Google": 0.5469
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.656
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.608
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.2839,
+    "mistralai/Devstral-Small-2505": 0.2737
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.5469
+   }
+  }
+ },
+ "C2": {
+  "BA_F": 0.5255,
+  "BA_G": 0.5264,
+  "per_family_recall": {
+   "OpenAI": 0.606,
+   "DeepSeek": 0.5327,
+   "Mistral": 0.44,
+   "Google": 0.5234
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.606
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5327
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.429,
+    "mistralai/Devstral-Small-2505": 0.4579
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.5234
+   }
+  }
+ },
+ "C0w_diagnostic": {
+  "BA_F": 0.5881,
+  "BA_G": 0.5849,
+  "per_family_recall": {
+   "OpenAI": 0.62,
+   "DeepSeek": 0.5955,
+   "Mistral": 0.508,
+   "Google": 0.6289
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.62
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5955
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.5484,
+    "mistralai/Devstral-Small-2505": 0.4421
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.6289
+   }
+  }
+ },
+ "deltas": {
+  "C2_minus_C1": 0.0028,
+  "C1_minus_B0": -0.0652,
+  "C0_minus_B0": -0.1262
+ },
+ "flags": {
+  "rule1_mlp_bottleneck": false,
+  "rule2_norm_bottleneck": false,
+  "rule3_contrast_candidate": false,
+  "rule4_optimization_negative": false
+ },
+ "verdict": "四条规则均未命中（记录全部数字，另行分析）",
+ "det_auroc_frozen": 0.9731,
+ "det_drop": 0.0,
+ "batch_stats": {
+  "first_last": {
+   "C0": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 1.9785,
+     "lc": null,
+     "grad_norm": 4.321
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 1.1943,
+     "lc": null,
+     "grad_norm": 3.207
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 1.2838,
+     "lc": null,
+     "grad_norm": 2.296
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 1.1652,
+     "lc": null,
+     "grad_norm": 2.314
+    }
+   ],
+   "C1": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 1.9674,
+     "lc": null,
+     "grad_norm": 4.709
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.9945,
+     "lc": null,
+     "grad_norm": 5.066
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 1.0755,
+     "lc": null,
+     "grad_norm": 4.041
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.9542,
+     "lc": null,
+     "grad_norm": 3.14
+    }
+   ],
+   "C2": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 1.9674,
+     "lc": 8.2332,
+     "grad_norm": 4.711
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.9828,
+     "lc": 7.3873,
+     "grad_norm": 4.913
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 1.0759,
+     "lc": 7.2562,
+     "grad_norm": 3.78
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.9487,
+     "lc": 5.8475,
+     "grad_norm": 3.865
+    }
+   ],
+   "C0w": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 0.6077,
+     "lc": null,
+     "grad_norm": 1.083
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.5327,
+     "lc": null,
+     "grad_norm": 2.24
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 0.6393,
+     "lc": null,
+     "grad_norm": 1.463
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.5365,
+     "lc": null,
+     "grad_norm": 1.201
+    }
+   ]
+  },
+  "pairs": {
+   "same_gen": 111063,
+   "cross_gen": 15913,
+   "batches": 64,
+   "redraw": 0,
+   "empty_P": 0
+  }
+ },
+ "c1_c2_param_diff": {
+  "U.weight": 0.013102997094392776,
+  "V.weight": 0.051141008734703064,
+  "WF.weight": 0.0025028474628925323
+ },
+ "note": "C0w=B0 权重移植后同预算微调（诊断，不参与主比较）"
+}

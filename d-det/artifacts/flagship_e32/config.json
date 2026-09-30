@@ -1,0 +1,18 @@
+{
+ "commit": "18e8760d414bd71d52d8b685a4f6295d174c24bb",
+ "C_fixed": 0.1,
+ "batch": 128,
+ "lr": 0.001,
+ "wd": 0.0001,
+ "tau": 0.1,
+ "lambda_C": 0.1,
+ "epochs": 2,
+ "seed": 0,
+ "arms": {
+  "C0": "ã→Wã+b CE（Xavier 随机 init）",
+  "C1": "u→Wu+b CE（不归一化）",
+  "C2": "C1+0.1·SupCon（cosine 仅用于损失）",
+  "C0w": "B0 权重移植微调（诊断）"
+ },
+ "verdict_rule": "§3 顺序：①C0≈B0∧C1不≈；②C1≈B0∧Δ(C2−C1)<.01；③Δ(C2−C1)≥.01∧检测降≤.005；④C1,C2≤C0−.02；close:=≥y−.02"
+}
