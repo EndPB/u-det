@@ -1,0 +1,416 @@
+{
+ "modes": {
+  "generator_holdout": {
+   "folds": [
+    {
+     "fold": 0,
+     "arms": {
+      "R0_mraw": {
+       "density_bal": 0.2209,
+       "linear_bal": 0.2951,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.0,
+        "DeepSeek": 0.093,
+        "Meta": 0.4879,
+        "Google": 0.3028
+       }
+      },
+      "R1_mu": {
+       "density_bal": 0.2274,
+       "linear_bal": 0.3073,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.01,
+        "DeepSeek": 0.1116,
+        "Meta": 0.4533,
+        "Google": 0.3348
+       }
+      }
+     }
+    },
+    {
+     "fold": 1,
+     "arms": {
+      "R0_mraw": {
+       "density_bal": 0.0942,
+       "linear_bal": 0.1342,
+       "density_beats_linear": false,
+       "recall": {
+        "Qwen": 0.0,
+        "Meta": 0.3393,
+        "Mistral": 0.0317,
+        "01-ai": 0.0059
+       }
+      },
+      "R1_mu": {
+       "density_bal": 0.083,
+       "linear_bal": 0.168,
+       "density_beats_linear": false,
+       "recall": {
+        "Qwen": 0.0104,
+        "Meta": 0.2857,
+        "Mistral": 0.0076,
+        "01-ai": 0.0282
+       }
+      }
+     }
+    },
+    {
+     "fold": 2,
+     "arms": {
+      "R0_mraw": {
+       "density_bal": 0.0703,
+       "linear_bal": 0.1097,
+       "density_beats_linear": false,
+       "recall": {
+        "DeepSeek": 0.1311,
+        "Qwen": 0.0196,
+        "Meta": 0.0602
+       }
+      },
+      "R1_mu": {
+       "density_bal": 0.1589,
+       "linear_bal": 0.1116,
+       "density_beats_linear": true,
+       "recall": {
+        "DeepSeek": 0.0907,
+        "Qwen": 0.198,
+        "Meta": 0.188
+       }
+      }
+     }
+    },
+    {
+     "fold": 3,
+     "arms": {
+      "R0_mraw": {
+       "density_bal": 0.1977,
+       "linear_bal": 0.166,
+       "density_beats_linear": true,
+       "recall": {
+        "Qwen": 0.0,
+        "Meta": 0.1797,
+        "Mistral": 0.0193,
+        "IBM": 0.7763,
+        "Google": 0.0135
+       }
+      },
+      "R1_mu": {
+       "density_bal": 0.2161,
+       "linear_bal": 0.1721,
+       "density_beats_linear": true,
+       "recall": {
+        "Qwen": 0.0221,
+        "Meta": 0.1698,
+        "Mistral": 0.0019,
+        "IBM": 0.7717,
+        "Google": 0.1149
+       }
+      }
+     }
+    },
+    {
+     "fold": 4,
+     "arms": {
+      "R0_mraw": {
+       "density_bal": 0.2608,
+       "linear_bal": 0.1895,
+       "density_beats_linear": true,
+       "recall": {
+        "DeepSeek": 0.0116,
+        "Qwen": 0.0217,
+        "IBM": 0.7734,
+        "Google": 0.2366
+       }
+      },
+      "R1_mu": {
+       "density_bal": 0.279,
+       "linear_bal": 0.1774,
+       "density_beats_linear": true,
+       "recall": {
+        "DeepSeek": 0.0809,
+        "Qwen": 0.1677,
+        "IBM": 0.6727,
+        "Google": 0.1948
+       }
+      }
+     }
+    }
+   ],
+   "summary": {
+    "R0_mraw": {
+     "fam_bal_mean": 0.1789,
+     "fam_bal_std": 0.0641,
+     "fam_bal_folds": [
+      0.2951,
+      0.1342,
+      0.1097,
+      0.166,
+      0.1895
+     ],
+     "det_auroc_mean": 0.9538,
+     "det_auroc_std": 0.0065,
+     "det_auroc_folds": [
+      0.9524,
+      0.9526,
+      0.9431,
+      0.9625,
+      0.9583
+     ],
+     "density_bal_mean": 0.1688,
+     "density_beats_linear_folds": 2
+    },
+    "R1_mu": {
+     "fam_bal_mean": 0.1873,
+     "fam_bal_std": 0.0645,
+     "fam_bal_folds": [
+      0.3073,
+      0.168,
+      0.1116,
+      0.1721,
+      0.1774
+     ],
+     "det_auroc_mean": 0.9581,
+     "det_auroc_std": 0.0049,
+     "det_auroc_folds": [
+      0.9547,
+      0.9589,
+      0.9509,
+      0.9646,
+      0.9616
+     ],
+     "density_bal_mean": 0.1929,
+     "density_beats_linear_folds": 3
+    }
+   }
+  },
+  "random_split": {
+   "folds": [
+    {
+     "fold": 0,
+     "arms": {
+      "R0_mraw": {
+       "density_bal": 0.2046,
+       "linear_bal": 0.4216,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.1243,
+        "DeepSeek": 0.0969,
+        "Qwen": 0.0117,
+        "Meta": 0.2423,
+        "Mistral": 0.0526,
+        "IBM": 0.8279,
+        "01-ai": 0.0114,
+        "Google": 0.2696
+       }
+      },
+      "R1_mu": {
+       "density_bal": 0.2396,
+       "linear_bal": 0.4165,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.1598,
+        "DeepSeek": 0.0906,
+        "Qwen": 0.1408,
+        "Meta": 0.2254,
+        "Mistral": 0.0033,
+        "IBM": 0.8005,
+        "01-ai": 0.2045,
+        "Google": 0.2915
+       }
+      }
+     }
+    },
+    {
+     "fold": 1,
+     "arms": {
+      "R0_mraw": {
+       "density_bal": 0.1947,
+       "linear_bal": 0.4296,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.1407,
+        "DeepSeek": 0.0816,
+        "Qwen": 0.014,
+        "Meta": 0.2716,
+        "Mistral": 0.0362,
+        "IBM": 0.7432,
+        "01-ai": 0.0208,
+        "Google": 0.2492
+       }
+      },
+      "R1_mu": {
+       "density_bal": 0.2239,
+       "linear_bal": 0.4225,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.1587,
+        "DeepSeek": 0.0845,
+        "Qwen": 0.0894,
+        "Meta": 0.287,
+        "Mistral": 0.0139,
+        "IBM": 0.7341,
+        "01-ai": 0.1454,
+        "Google": 0.2783
+       }
+      }
+     }
+    },
+    {
+     "fold": 2,
+     "arms": {
+      "R0_mraw": {
+       "density_bal": 0.2019,
+       "linear_bal": 0.4179,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.139,
+        "DeepSeek": 0.0843,
+        "Qwen": 0.0093,
+        "Meta": 0.2717,
+        "Mistral": 0.0462,
+        "IBM": 0.7725,
+        "01-ai": 0.0337,
+        "Google": 0.2585
+       }
+      },
+      "R1_mu": {
+       "density_bal": 0.2354,
+       "linear_bal": 0.4143,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.2236,
+        "DeepSeek": 0.0813,
+        "Qwen": 0.109,
+        "Meta": 0.2521,
+        "Mistral": 0.0082,
+        "IBM": 0.7575,
+        "01-ai": 0.1779,
+        "Google": 0.2738
+       }
+      }
+     }
+    },
+    {
+     "fold": 3,
+     "arms": {
+      "R0_mraw": {
+       "density_bal": 0.2,
+       "linear_bal": 0.4247,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.1806,
+        "DeepSeek": 0.0727,
+        "Qwen": 0.012,
+        "Meta": 0.268,
+        "Mistral": 0.0274,
+        "IBM": 0.7701,
+        "01-ai": 0.0151,
+        "Google": 0.2541
+       }
+      },
+      "R1_mu": {
+       "density_bal": 0.2435,
+       "linear_bal": 0.4159,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.1563,
+        "DeepSeek": 0.0785,
+        "Qwen": 0.1826,
+        "Meta": 0.2594,
+        "Mistral": 0.0061,
+        "IBM": 0.7851,
+        "01-ai": 0.1958,
+        "Google": 0.2838
+       }
+      }
+     }
+    },
+    {
+     "fold": 4,
+     "arms": {
+      "R0_mraw": {
+       "density_bal": 0.217,
+       "linear_bal": 0.4447,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.2055,
+        "DeepSeek": 0.1247,
+        "Qwen": 0.0145,
+        "Meta": 0.2587,
+        "Mistral": 0.0352,
+        "IBM": 0.8114,
+        "01-ai": 0.0142,
+        "Google": 0.2722
+       }
+      },
+      "R1_mu": {
+       "density_bal": 0.2478,
+       "linear_bal": 0.432,
+       "density_beats_linear": false,
+       "recall": {
+        "OpenAI": 0.2577,
+        "DeepSeek": 0.0859,
+        "Qwen": 0.0896,
+        "Meta": 0.2492,
+        "Mistral": 0.0147,
+        "IBM": 0.7665,
+        "01-ai": 0.2181,
+        "Google": 0.3006
+       }
+      }
+     }
+    }
+   ],
+   "summary": {
+    "R0_mraw": {
+     "fam_bal_mean": 0.4277,
+     "fam_bal_std": 0.0093,
+     "fam_bal_folds": [
+      0.4216,
+      0.4296,
+      0.4179,
+      0.4247,
+      0.4447
+     ],
+     "det_auroc_mean": 0.9571,
+     "det_auroc_std": 0.0026,
+     "det_auroc_folds": [
+      0.9619,
+      0.9556,
+      0.9568,
+      0.9572,
+      0.9541
+     ],
+     "density_bal_mean": 0.2036,
+     "density_beats_linear_folds": 0
+    },
+    "R1_mu": {
+     "fam_bal_mean": 0.4202,
+     "fam_bal_std": 0.0065,
+     "fam_bal_folds": [
+      0.4165,
+      0.4225,
+      0.4143,
+      0.4159,
+      0.432
+     ],
+     "det_auroc_mean": 0.9607,
+     "det_auroc_std": 0.0025,
+     "det_auroc_folds": [
+      0.9651,
+      0.9583,
+      0.9617,
+      0.9589,
+      0.9594
+     ],
+     "density_bal_mean": 0.238,
+     "density_beats_linear_folds": 0
+    }
+   }
+  }
+ },
+ "LAM": 20,
+ "note": "密度 (8)(9)：λ=20 收缩对角高斯；只作线性判别对照"
+}

@@ -1,0 +1,228 @@
+{
+ "commit": "70f4760384e1d9924b79df27395ea77bc83399c0",
+ "smoke": false,
+ "features_source": "/root/autodl-tmp/u-det/d-det/runs/flagship_e28/features_train_val.npz",
+ "features_sha256": "d83f63f6bb83c591f7eb846012cf8f2e5eb9240e03f604e4d1ea30b93399e36b",
+ "input_manifest_sha256": "3befd8ab4f667c79829ca35360f8433ee2863821f581ea86a4af46086c280dcd",
+ "counts": {
+  "n": 22972,
+  "ai": 13472,
+  "human": 9500,
+  "generators_ai": 24,
+  "families": {
+   "OpenAI": 1700,
+   "DeepSeek": 1700,
+   "Qwen": 1700,
+   "Meta": 1700,
+   "Mistral": 1700,
+   "IBM": 1700,
+   "01-ai": 1700,
+   "Google": 1572
+  }
+ },
+ "family_generator_counts": {
+  "OpenAI": 1,
+  "DeepSeek": 3,
+  "Qwen": 5,
+  "Meta": 5,
+  "Mistral": 2,
+  "IBM": 3,
+  "01-ai": 2,
+  "Google": 3
+ },
+ "folds": {
+  "generator_holdout": {
+   "val_generators": {
+    "0": [
+     "GPT-4o",
+     "deepseek-ai/deepseek-coder-1.3b-base",
+     "gemma-3n-e4b-it",
+     "meta-llama/Llama-3.2-3B"
+    ],
+    "1": [
+     "01-ai/Yi-Coder-1.5B",
+     "01-ai/Yi-Coder-1.5B-Chat",
+     "Qwen/Qwen2.5-72B-Instruct",
+     "meta-llama/Llama-3.2-1B",
+     "mistralai/Devstral-Small-2505"
+    ],
+    "2": [
+     "Qwen/QwQ-32B",
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+     "deepseek-ai/DeepSeek-V3-0324",
+     "meta-llama/Llama-3.1-8B",
+     "meta-llama/Llama-3.2-11B-Vision-Instruct"
+    ],
+    "3": [
+     "Qwen/Qwen2.5-Codder-14B-Instruct",
+     "google/codegemma-2b",
+     "ibm-granite/granite-3.3-8b-instruct",
+     "meta-llama/Llama-3.1-8B-Instruct",
+     "mistralai/Mistral-7B-Instruct-v0.3"
+    ],
+    "4": [
+     "Qwen/Qwen2.5-Coder-1.5B",
+     "deepseek-ai/DeepSeek-R1",
+     "gemma-3-27b-it",
+     "ibm-granite/granite-3.2-2b-instruct",
+     "ibm-granite/granite-3.3-8b-base"
+    ]
+   }
+  },
+  "random_split": {
+   "val_generators": {
+    "0": [
+     "01-ai/Yi-Coder-1.5B",
+     "01-ai/Yi-Coder-1.5B-Chat",
+     "GPT-4o",
+     "Qwen/QwQ-32B",
+     "Qwen/Qwen2.5-72B-Instruct",
+     "Qwen/Qwen2.5-Codder-14B-Instruct",
+     "Qwen/Qwen2.5-Coder-1.5B",
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+     "deepseek-ai/DeepSeek-R1",
+     "deepseek-ai/DeepSeek-V3-0324",
+     "deepseek-ai/deepseek-coder-1.3b-base",
+     "gemma-3-27b-it",
+     "gemma-3n-e4b-it",
+     "google/codegemma-2b",
+     "ibm-granite/granite-3.2-2b-instruct",
+     "ibm-granite/granite-3.3-8b-base",
+     "ibm-granite/granite-3.3-8b-instruct",
+     "meta-llama/Llama-3.1-8B",
+     "meta-llama/Llama-3.1-8B-Instruct",
+     "meta-llama/Llama-3.2-11B-Vision-Instruct",
+     "meta-llama/Llama-3.2-1B",
+     "meta-llama/Llama-3.2-3B",
+     "mistralai/Devstral-Small-2505",
+     "mistralai/Mistral-7B-Instruct-v0.3"
+    ],
+    "1": [
+     "01-ai/Yi-Coder-1.5B",
+     "01-ai/Yi-Coder-1.5B-Chat",
+     "GPT-4o",
+     "Qwen/QwQ-32B",
+     "Qwen/Qwen2.5-72B-Instruct",
+     "Qwen/Qwen2.5-Codder-14B-Instruct",
+     "Qwen/Qwen2.5-Coder-1.5B",
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+     "deepseek-ai/DeepSeek-R1",
+     "deepseek-ai/DeepSeek-V3-0324",
+     "deepseek-ai/deepseek-coder-1.3b-base",
+     "gemma-3-27b-it",
+     "gemma-3n-e4b-it",
+     "google/codegemma-2b",
+     "ibm-granite/granite-3.2-2b-instruct",
+     "ibm-granite/granite-3.3-8b-base",
+     "ibm-granite/granite-3.3-8b-instruct",
+     "meta-llama/Llama-3.1-8B",
+     "meta-llama/Llama-3.1-8B-Instruct",
+     "meta-llama/Llama-3.2-11B-Vision-Instruct",
+     "meta-llama/Llama-3.2-1B",
+     "meta-llama/Llama-3.2-3B",
+     "mistralai/Devstral-Small-2505",
+     "mistralai/Mistral-7B-Instruct-v0.3"
+    ],
+    "2": [
+     "01-ai/Yi-Coder-1.5B",
+     "01-ai/Yi-Coder-1.5B-Chat",
+     "GPT-4o",
+     "Qwen/QwQ-32B",
+     "Qwen/Qwen2.5-72B-Instruct",
+     "Qwen/Qwen2.5-Codder-14B-Instruct",
+     "Qwen/Qwen2.5-Coder-1.5B",
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+     "deepseek-ai/DeepSeek-R1",
+     "deepseek-ai/DeepSeek-V3-0324",
+     "deepseek-ai/deepseek-coder-1.3b-base",
+     "gemma-3-27b-it",
+     "gemma-3n-e4b-it",
+     "google/codegemma-2b",
+     "ibm-granite/granite-3.2-2b-instruct",
+     "ibm-granite/granite-3.3-8b-base",
+     "ibm-granite/granite-3.3-8b-instruct",
+     "meta-llama/Llama-3.1-8B",
+     "meta-llama/Llama-3.1-8B-Instruct",
+     "meta-llama/Llama-3.2-11B-Vision-Instruct",
+     "meta-llama/Llama-3.2-1B",
+     "meta-llama/Llama-3.2-3B",
+     "mistralai/Devstral-Small-2505",
+     "mistralai/Mistral-7B-Instruct-v0.3"
+    ],
+    "3": [
+     "01-ai/Yi-Coder-1.5B",
+     "01-ai/Yi-Coder-1.5B-Chat",
+     "GPT-4o",
+     "Qwen/QwQ-32B",
+     "Qwen/Qwen2.5-72B-Instruct",
+     "Qwen/Qwen2.5-Codder-14B-Instruct",
+     "Qwen/Qwen2.5-Coder-1.5B",
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+     "deepseek-ai/DeepSeek-R1",
+     "deepseek-ai/DeepSeek-V3-0324",
+     "deepseek-ai/deepseek-coder-1.3b-base",
+     "gemma-3-27b-it",
+     "gemma-3n-e4b-it",
+     "google/codegemma-2b",
+     "ibm-granite/granite-3.2-2b-instruct",
+     "ibm-granite/granite-3.3-8b-base",
+     "ibm-granite/granite-3.3-8b-instruct",
+     "meta-llama/Llama-3.1-8B",
+     "meta-llama/Llama-3.1-8B-Instruct",
+     "meta-llama/Llama-3.2-11B-Vision-Instruct",
+     "meta-llama/Llama-3.2-1B",
+     "meta-llama/Llama-3.2-3B",
+     "mistralai/Devstral-Small-2505",
+     "mistralai/Mistral-7B-Instruct-v0.3"
+    ],
+    "4": [
+     "01-ai/Yi-Coder-1.5B",
+     "01-ai/Yi-Coder-1.5B-Chat",
+     "GPT-4o",
+     "Qwen/QwQ-32B",
+     "Qwen/Qwen2.5-72B-Instruct",
+     "Qwen/Qwen2.5-Codder-14B-Instruct",
+     "Qwen/Qwen2.5-Coder-1.5B",
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+     "deepseek-ai/DeepSeek-R1",
+     "deepseek-ai/DeepSeek-V3-0324",
+     "deepseek-ai/deepseek-coder-1.3b-base",
+     "gemma-3-27b-it",
+     "gemma-3n-e4b-it",
+     "google/codegemma-2b",
+     "ibm-granite/granite-3.2-2b-instruct",
+     "ibm-granite/granite-3.3-8b-base",
+     "ibm-granite/granite-3.3-8b-instruct",
+     "meta-llama/Llama-3.1-8B",
+     "meta-llama/Llama-3.1-8B-Instruct",
+     "meta-llama/Llama-3.2-11B-Vision-Instruct",
+     "meta-llama/Llama-3.2-1B",
+     "meta-llama/Llama-3.2-3B",
+     "mistralai/Devstral-Small-2505",
+     "mistralai/Mistral-7B-Instruct-v0.3"
+    ]
+   }
+  }
+ },
+ "dims": {
+  "R0": 768,
+  "R1": 768
+ },
+ "C_GRID": [
+  0.01,
+  0.03,
+  0.1,
+  0.3,
+  1.0,
+  3.0,
+  10.0
+ ],
+ "LAM": 20,
+ "tau": null,
+ "seed": {
+  "ai_random": 0,
+  "human": 1
+ },
+ "test_accessed": false,
+ "unseen_accessed": false
+}

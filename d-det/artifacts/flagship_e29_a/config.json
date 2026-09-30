@@ -1,0 +1,60 @@
+{
+ "args": {
+  "smoke": false,
+  "max_len": 2048,
+  "train_human": 8000,
+  "train_fam": 1200,
+  "val_human": 1500,
+  "val_fam": 500,
+  "unseen_cap": 600,
+  "enc_bs": 32,
+  "batch": 64
+ },
+ "protocol": {
+  "C_GRID": [
+   0.01,
+   0.03,
+   0.1,
+   0.3,
+   1.0,
+   3.0,
+   10.0
+  ],
+  "STD_FLOOR": 0.01,
+  "LAM": 20,
+  "inner_frac": 0.8,
+  "inner_split": "家族按 family 分层 / 检测按 y 分层；seed=100+f(+200 随机模式)",
+  "human_folds": "随机（两种划分共用）",
+  "eval": "验证折只评估一次"
+ },
+ "exit_rule": {
+  "signal_ok_gen_bal>=0.18(两臂取小)": false,
+  "density_majority_win(folds>=3)": {
+   "R0_mraw": false,
+   "R1_mu": true
+  },
+  "density_ok": true,
+  "e29b_triggered": false,
+  "gen_vs_random": {
+   "R0_mraw": {
+    "gen_fam_bal": 0.1789,
+    "rand_fam_bal": 0.4277,
+    "gen_det": 0.9538,
+    "rand_det": 0.9571
+   },
+   "R1_mu": {
+    "gen_fam_bal": 0.1873,
+    "rand_fam_bal": 0.4202,
+    "gen_det": 0.9581,
+    "rand_det": 0.9607
+   }
+  },
+  "rule_note": "操作化：signal_ok=min(gen 家族 bal 均值)≥0.18；density_ok=任一臂密度多数折(≥3/5)胜线性；两者同时→触发 E29-B；只依据 generator-held-out，不因随机切分触发。"
+ },
+ "commit": "70f4760384e1d9924b79df27395ea77bc83399c0",
+ "notes": [
+  "只读 b_train/b_val；Human 仅用于检测；留出家族过滤",
+  "R0=m_raw、R1=μ（E24 ht 均值）；不引入 s_top/logv/rF/能量",
+  "密度=λ20 收缩对角高斯 (8)(9)，非完整 DMHM"
+ ]
+}

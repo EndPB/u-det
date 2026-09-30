@@ -1,0 +1,2965 @@
+{
+ "modes": {
+  "generator_holdout": {
+   "folds": [
+    {
+     "fold": 0,
+     "n_train": 18399,
+     "n_val": 4573,
+     "n_ai_train": 10799,
+     "n_ai_val": 2673,
+     "n_human_train": 7600,
+     "n_human_val": 1900,
+     "counts_val": {
+      "family": {
+       "0": 1700,
+       "1": 215,
+       "3": 289,
+       "7": 469
+      },
+      "generator": {
+       "GPT-4o": 1700,
+       "deepseek-ai/deepseek-coder-1.3b-base": 215,
+       "meta-llama/Llama-3.2-3B": 289,
+       "gemma-3n-e4b-it": 469
+      },
+      "language": {
+       "Java": 574,
+       "C#": 333,
+       "JavaScript": 436,
+       "C": 130,
+       "Python": 721,
+       "C++": 291,
+       "Go": 147,
+       "PHP": 41
+      },
+      "length": {
+       "8-128": 538,
+       "129-256": 632,
+       "257-512": 778,
+       "513-1024": 725,
+       "1025-2048": 0
+      }
+     },
+     "generators_train": 20,
+     "generators_val": 4,
+     "arms": {
+      "R0_mraw": {
+       "family": {
+        "C_star": 0.01,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4387,
+          "converged": true,
+          "sec": 1.9
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4292,
+          "converged": true,
+          "sec": 2.5
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4179,
+          "converged": true,
+          "sec": 3.5
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4102,
+          "converged": true,
+          "sec": 5.0
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.4036,
+          "converged": true,
+          "sec": 6.9
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.4018,
+          "converged": true,
+          "sec": 8.2
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3969,
+          "converged": true,
+          "sec": 8.8
+         }
+        ],
+        "val": {
+         "acc": 0.1657,
+         "bal": 0.2951,
+         "n": 2673,
+         "recall": {
+          "OpenAI": 0.0,
+          "DeepSeek": 0.107,
+          "Meta": 0.4637,
+          "Google": 0.6098
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.03,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9524,
+          "converged": true,
+          "sec": 0.6
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9536,
+          "converged": true,
+          "sec": 0.9
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9536,
+          "converged": true,
+          "sec": 1.4
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9529,
+          "converged": true,
+          "sec": 1.9
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9516,
+          "converged": true,
+          "sec": 2.4
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9505,
+          "converged": true,
+          "sec": 3.0
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9499,
+          "converged": true,
+          "sec": 2.9
+         }
+        ],
+        "val": {
+         "auroc": 0.9524,
+         "f1@.5": 0.8859,
+         "n": 4573
+        }
+       }
+      },
+      "R1_mu": {
+       "family": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4098,
+          "converged": true,
+          "sec": 1.8
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4173,
+          "converged": true,
+          "sec": 2.6
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4264,
+          "converged": true,
+          "sec": 4.6
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4209,
+          "converged": true,
+          "sec": 7.0
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.4105,
+          "converged": true,
+          "sec": 10.9
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.4025,
+          "converged": true,
+          "sec": 14.9
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.4022,
+          "converged": true,
+          "sec": 20.2
+         }
+        ],
+        "val": {
+         "acc": 0.1747,
+         "bal": 0.3073,
+         "n": 2673,
+         "recall": {
+          "OpenAI": 0.0,
+          "DeepSeek": 0.1023,
+          "Meta": 0.4637,
+          "Google": 0.6631
+         }
+        }
+       },
+       "detection": {
+        "C_star": 1.0,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9508,
+          "converged": true,
+          "sec": 0.4
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9537,
+          "converged": true,
+          "sec": 0.7
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9562,
+          "converged": true,
+          "sec": 1.2
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9576,
+          "converged": true,
+          "sec": 1.9
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9578,
+          "converged": true,
+          "sec": 2.7
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9569,
+          "converged": true,
+          "sec": 3.7
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9553,
+          "converged": true,
+          "sec": 5.4
+         }
+        ],
+        "val": {
+         "auroc": 0.9547,
+         "f1@.5": 0.8903,
+         "n": 4573
+        }
+       }
+      }
+     }
+    },
+    {
+     "fold": 1,
+     "n_train": 18365,
+     "n_val": 4607,
+     "n_ai_train": 10765,
+     "n_ai_val": 2707,
+     "n_human_train": 7600,
+     "n_human_val": 1900,
+     "counts_val": {
+      "family": {
+       "2": 289,
+       "3": 56,
+       "4": 662,
+       "6": 1700
+      },
+      "generator": {
+       "Qwen/Qwen2.5-72B-Instruct": 289,
+       "meta-llama/Llama-3.2-1B": 56,
+       "mistralai/Devstral-Small-2505": 662,
+       "01-ai/Yi-Coder-1.5B-Chat": 1525,
+       "01-ai/Yi-Coder-1.5B": 175
+      },
+      "language": {
+       "Python": 1056,
+       "C#": 289,
+       "Java": 584,
+       "JavaScript": 345,
+       "C++": 208,
+       "C": 100,
+       "Go": 102,
+       "PHP": 23
+      },
+      "length": {
+       "8-128": 582,
+       "129-256": 840,
+       "257-512": 818,
+       "513-1024": 467,
+       "1025-2048": 0
+      }
+     },
+     "generators_train": 19,
+     "generators_val": 5,
+     "arms": {
+      "R0_mraw": {
+       "family": {
+        "C_star": 0.01,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4562,
+          "converged": true,
+          "sec": 1.4
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4528,
+          "converged": true,
+          "sec": 2.2
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.456,
+          "converged": true,
+          "sec": 3.4
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4508,
+          "converged": true,
+          "sec": 4.9
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.4492,
+          "converged": true,
+          "sec": 6.9
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.4454,
+          "converged": true,
+          "sec": 8.6
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.4456,
+          "converged": true,
+          "sec": 9.8
+         }
+        ],
+        "val": {
+         "acc": 0.034,
+         "bal": 0.1342,
+         "n": 2707,
+         "recall": {
+          "Qwen": 0.0969,
+          "Meta": 0.375,
+          "Mistral": 0.065,
+          "01-ai": 0.0
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9527,
+          "converged": true,
+          "sec": 0.5
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9544,
+          "converged": true,
+          "sec": 0.8
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9552,
+          "converged": true,
+          "sec": 1.2
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9552,
+          "converged": true,
+          "sec": 1.7
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9549,
+          "converged": true,
+          "sec": 2.3
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9545,
+          "converged": true,
+          "sec": 2.5
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9542,
+          "converged": true,
+          "sec": 2.6
+         }
+        ],
+        "val": {
+         "auroc": 0.9526,
+         "f1@.5": 0.8821,
+         "n": 4607
+        }
+       }
+      },
+      "R1_mu": {
+       "family": {
+        "C_star": 0.3,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4408,
+          "converged": true,
+          "sec": 1.6
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4552,
+          "converged": true,
+          "sec": 2.6
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4552,
+          "converged": true,
+          "sec": 4.1
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4582,
+          "converged": true,
+          "sec": 5.8
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.4578,
+          "converged": true,
+          "sec": 9.4
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.454,
+          "converged": true,
+          "sec": 14.4
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.4482,
+          "converged": true,
+          "sec": 21.2
+         }
+        ],
+        "val": {
+         "acc": 0.0447,
+         "bal": 0.168,
+         "n": 2707,
+         "recall": {
+          "Qwen": 0.1142,
+          "Meta": 0.4643,
+          "Mistral": 0.0937,
+          "01-ai": 0.0
+         }
+        }
+       },
+       "detection": {
+        "C_star": 1.0,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9469,
+          "converged": true,
+          "sec": 0.4
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9505,
+          "converged": true,
+          "sec": 0.8
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.954,
+          "converged": true,
+          "sec": 1.2
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9564,
+          "converged": true,
+          "sec": 1.9
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9578,
+          "converged": true,
+          "sec": 3.0
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9577,
+          "converged": true,
+          "sec": 4.3
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.957,
+          "converged": true,
+          "sec": 6.5
+         }
+        ],
+        "val": {
+         "auroc": 0.9589,
+         "f1@.5": 0.8901,
+         "n": 4607
+        }
+       }
+      }
+     }
+    },
+    {
+     "fold": 2,
+     "n_train": 18394,
+     "n_val": 4578,
+     "n_ai_train": 10794,
+     "n_ai_val": 2678,
+     "n_human_train": 7600,
+     "n_human_val": 1900,
+     "counts_val": {
+      "family": {
+       "1": 1312,
+       "2": 818,
+       "3": 548
+      },
+      "generator": {
+       "deepseek-ai/DeepSeek-V3-0324": 1312,
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 761,
+       "Qwen/QwQ-32B": 57,
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 316,
+       "meta-llama/Llama-3.1-8B": 232
+      },
+      "language": {
+       "C": 141,
+       "C#": 296,
+       "Python": 840,
+       "PHP": 75,
+       "Java": 612,
+       "JavaScript": 302,
+       "C++": 273,
+       "Go": 139
+      },
+      "length": {
+       "8-128": 591,
+       "129-256": 768,
+       "257-512": 758,
+       "513-1024": 561,
+       "1025-2048": 0
+      }
+     },
+     "generators_train": 19,
+     "generators_val": 5,
+     "arms": {
+      "R0_mraw": {
+       "family": {
+        "C_star": 0.03,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.3957,
+          "converged": true,
+          "sec": 1.4
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.3989,
+          "converged": true,
+          "sec": 2.0
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.3906,
+          "converged": true,
+          "sec": 3.3
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.3902,
+          "converged": true,
+          "sec": 5.0
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3832,
+          "converged": true,
+          "sec": 7.6
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3742,
+          "converged": true,
+          "sec": 10.4
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3734,
+          "converged": true,
+          "sec": 13.3
+         }
+        ],
+        "val": {
+         "acc": 0.0807,
+         "bal": 0.1097,
+         "n": 2678,
+         "recall": {
+          "DeepSeek": 0.0229,
+          "Qwen": 0.0672,
+          "Meta": 0.2391
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9579,
+          "converged": true,
+          "sec": 0.6
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9592,
+          "converged": true,
+          "sec": 0.8
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9593,
+          "converged": true,
+          "sec": 1.2
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9588,
+          "converged": true,
+          "sec": 1.6
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9581,
+          "converged": true,
+          "sec": 2.2
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9575,
+          "converged": true,
+          "sec": 2.4
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9572,
+          "converged": true,
+          "sec": 2.9
+         }
+        ],
+        "val": {
+         "auroc": 0.9431,
+         "f1@.5": 0.8704,
+         "n": 4578
+        }
+       }
+      },
+      "R1_mu": {
+       "family": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.3692,
+          "converged": true,
+          "sec": 1.6
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.3873,
+          "converged": true,
+          "sec": 2.6
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4062,
+          "converged": true,
+          "sec": 4.2
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4054,
+          "converged": true,
+          "sec": 6.1
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3986,
+          "converged": true,
+          "sec": 9.7
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3953,
+          "converged": true,
+          "sec": 13.7
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3817,
+          "converged": true,
+          "sec": 19.5
+         }
+        ],
+        "val": {
+         "acc": 0.0803,
+         "bal": 0.1116,
+         "n": 2678,
+         "recall": {
+          "DeepSeek": 0.0236,
+          "Qwen": 0.0501,
+          "Meta": 0.2609
+         }
+        }
+       },
+       "detection": {
+        "C_star": 1.0,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.954,
+          "converged": true,
+          "sec": 0.5
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9575,
+          "converged": true,
+          "sec": 0.7
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.961,
+          "converged": true,
+          "sec": 1.1
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9629,
+          "converged": true,
+          "sec": 1.8
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9634,
+          "converged": true,
+          "sec": 2.5
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9626,
+          "converged": true,
+          "sec": 3.7
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9616,
+          "converged": true,
+          "sec": 5.5
+         }
+        ],
+        "val": {
+         "auroc": 0.9509,
+         "f1@.5": 0.8772,
+         "n": 4578
+        }
+       }
+      }
+     }
+    },
+    {
+     "fold": 3,
+     "n_train": 18370,
+     "n_val": 4602,
+     "n_ai_train": 10770,
+     "n_ai_val": 2702,
+     "n_human_train": 7600,
+     "n_human_val": 1900,
+     "counts_val": {
+      "family": {
+       "2": 271,
+       "3": 807,
+       "4": 1038,
+       "5": 438,
+       "7": 148
+      },
+      "generator": {
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 271,
+       "meta-llama/Llama-3.1-8B-Instruct": 807,
+       "mistralai/Mistral-7B-Instruct-v0.3": 1038,
+       "ibm-granite/granite-3.3-8b-instruct": 438,
+       "google/codegemma-2b": 148
+      },
+      "language": {
+       "C#": 350,
+       "JavaScript": 334,
+       "Java": 690,
+       "C": 147,
+       "C++": 229,
+       "Python": 765,
+       "Go": 159,
+       "PHP": 28
+      },
+      "length": {
+       "8-128": 493,
+       "129-256": 795,
+       "257-512": 895,
+       "513-1024": 519,
+       "1025-2048": 0
+      }
+     },
+     "generators_train": 19,
+     "generators_val": 5,
+     "arms": {
+      "R0_mraw": {
+       "family": {
+        "C_star": 0.01,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4171,
+          "converged": true,
+          "sec": 1.4
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4162,
+          "converged": true,
+          "sec": 2.2
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4082,
+          "converged": true,
+          "sec": 3.5
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4018,
+          "converged": true,
+          "sec": 5.2
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3942,
+          "converged": true,
+          "sec": 7.4
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3934,
+          "converged": true,
+          "sec": 10.0
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.388,
+          "converged": true,
+          "sec": 11.6
+         }
+        ],
+        "val": {
+         "acc": 0.1388,
+         "bal": 0.166,
+         "n": 2702,
+         "recall": {
+          "Qwen": 0.1144,
+          "Meta": 0.0843,
+          "Mistral": 0.0222,
+          "IBM": 0.5616,
+          "Google": 0.0473
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.03,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9567,
+          "converged": true,
+          "sec": 0.5
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9575,
+          "converged": true,
+          "sec": 0.8
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9573,
+          "converged": true,
+          "sec": 1.2
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9568,
+          "converged": true,
+          "sec": 1.7
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9558,
+          "converged": true,
+          "sec": 2.3
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9552,
+          "converged": true,
+          "sec": 2.6
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9547,
+          "converged": true,
+          "sec": 2.6
+         }
+        ],
+        "val": {
+         "auroc": 0.9625,
+         "f1@.5": 0.8963,
+         "n": 4602
+        }
+       }
+      },
+      "R1_mu": {
+       "family": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4003,
+          "converged": true,
+          "sec": 2.2
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4069,
+          "converged": true,
+          "sec": 3.0
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4189,
+          "converged": true,
+          "sec": 4.3
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4179,
+          "converged": true,
+          "sec": 6.8
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.4119,
+          "converged": true,
+          "sec": 9.9
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.4036,
+          "converged": true,
+          "sec": 14.5
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3946,
+          "converged": true,
+          "sec": 23.0
+         }
+        ],
+        "val": {
+         "acc": 0.1447,
+         "bal": 0.1721,
+         "n": 2702,
+         "recall": {
+          "Qwen": 0.1402,
+          "Meta": 0.088,
+          "Mistral": 0.0279,
+          "IBM": 0.5639,
+          "Google": 0.0405
+         }
+        }
+       },
+       "detection": {
+        "C_star": 1.0,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9528,
+          "converged": true,
+          "sec": 0.5
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.956,
+          "converged": true,
+          "sec": 0.7
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9591,
+          "converged": true,
+          "sec": 1.1
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9612,
+          "converged": true,
+          "sec": 1.8
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9619,
+          "converged": true,
+          "sec": 2.7
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9612,
+          "converged": true,
+          "sec": 4.4
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9599,
+          "converged": true,
+          "sec": 5.3
+         }
+        ],
+        "val": {
+         "auroc": 0.9646,
+         "f1@.5": 0.9053,
+         "n": 4602
+        }
+       }
+      }
+     }
+    },
+    {
+     "fold": 4,
+     "n_train": 18360,
+     "n_val": 4612,
+     "n_ai_train": 10760,
+     "n_ai_val": 2712,
+     "n_human_train": 7600,
+     "n_human_val": 1900,
+     "counts_val": {
+      "family": {
+       "1": 173,
+       "2": 322,
+       "5": 1262,
+       "7": 955
+      },
+      "generator": {
+       "deepseek-ai/DeepSeek-R1": 173,
+       "Qwen/Qwen2.5-Coder-1.5B": 322,
+       "ibm-granite/granite-3.2-2b-instruct": 985,
+       "ibm-granite/granite-3.3-8b-base": 277,
+       "gemma-3-27b-it": 955
+      },
+      "language": {
+       "JavaScript": 286,
+       "C#": 371,
+       "Java": 730,
+       "Python": 675,
+       "Go": 159,
+       "C": 180,
+       "C++": 204,
+       "PHP": 107
+      },
+      "length": {
+       "8-128": 427,
+       "129-256": 600,
+       "257-512": 775,
+       "513-1024": 910,
+       "1025-2048": 0
+      }
+     },
+     "generators_train": 19,
+     "generators_val": 5,
+     "arms": {
+      "R0_mraw": {
+       "family": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.3783,
+          "converged": true,
+          "sec": 1.5
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.3907,
+          "converged": true,
+          "sec": 2.1
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.3993,
+          "converged": true,
+          "sec": 3.5
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.3956,
+          "converged": true,
+          "sec": 5.1
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3818,
+          "converged": true,
+          "sec": 7.4
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3734,
+          "converged": true,
+          "sec": 10.5
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3692,
+          "converged": true,
+          "sec": 14.9
+         }
+        ],
+        "val": {
+         "acc": 0.1759,
+         "bal": 0.1895,
+         "n": 2712,
+         "recall": {
+          "DeepSeek": 0.2543,
+          "Qwen": 0.146,
+          "IBM": 0.145,
+          "Google": 0.2126
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9537,
+          "converged": true,
+          "sec": 0.6
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9551,
+          "converged": true,
+          "sec": 0.9
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9553,
+          "converged": true,
+          "sec": 1.2
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9547,
+          "converged": true,
+          "sec": 1.7
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9537,
+          "converged": true,
+          "sec": 2.3
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.953,
+          "converged": true,
+          "sec": 2.4
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9526,
+          "converged": true,
+          "sec": 2.8
+         }
+        ],
+        "val": {
+         "auroc": 0.9583,
+         "f1@.5": 0.8938,
+         "n": 4612
+        }
+       }
+      },
+      "R1_mu": {
+       "family": {
+        "C_star": 1.0,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.3563,
+          "converged": true,
+          "sec": 1.8
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.3645,
+          "converged": true,
+          "sec": 3.3
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.3752,
+          "converged": true,
+          "sec": 4.8
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.384,
+          "converged": true,
+          "sec": 7.3
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3884,
+          "converged": true,
+          "sec": 10.7
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3833,
+          "converged": true,
+          "sec": 15.0
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3755,
+          "converged": true,
+          "sec": 23.3
+         }
+        ],
+        "val": {
+         "acc": 0.184,
+         "bal": 0.1774,
+         "n": 2712,
+         "recall": {
+          "DeepSeek": 0.1734,
+          "Qwen": 0.146,
+          "IBM": 0.1609,
+          "Google": 0.2293
+         }
+        }
+       },
+       "detection": {
+        "C_star": 1.0,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9502,
+          "converged": true,
+          "sec": 0.5
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.954,
+          "converged": true,
+          "sec": 0.7
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9579,
+          "converged": true,
+          "sec": 1.0
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9601,
+          "converged": true,
+          "sec": 1.6
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9607,
+          "converged": true,
+          "sec": 2.6
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9599,
+          "converged": true,
+          "sec": 3.3
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9586,
+          "converged": true,
+          "sec": 5.1
+         }
+        ],
+        "val": {
+         "auroc": 0.9616,
+         "f1@.5": 0.8972,
+         "n": 4612
+        }
+       }
+      }
+     }
+    }
+   ],
+   "summary": {
+    "R0_mraw": {
+     "fam_bal_mean": 0.1789,
+     "fam_bal_std": 0.0641,
+     "fam_bal_folds": [
+      0.2951,
+      0.1342,
+      0.1097,
+      0.166,
+      0.1895
+     ],
+     "det_auroc_mean": 0.9538,
+     "det_auroc_std": 0.0065,
+     "det_auroc_folds": [
+      0.9524,
+      0.9526,
+      0.9431,
+      0.9625,
+      0.9583
+     ],
+     "density_bal_mean": 0.1688,
+     "density_beats_linear_folds": 2
+    },
+    "R1_mu": {
+     "fam_bal_mean": 0.1873,
+     "fam_bal_std": 0.0645,
+     "fam_bal_folds": [
+      0.3073,
+      0.168,
+      0.1116,
+      0.1721,
+      0.1774
+     ],
+     "det_auroc_mean": 0.9581,
+     "det_auroc_std": 0.0049,
+     "det_auroc_folds": [
+      0.9547,
+      0.9589,
+      0.9509,
+      0.9646,
+      0.9616
+     ],
+     "density_bal_mean": 0.1929,
+     "density_beats_linear_folds": 3
+    }
+   }
+  },
+  "random_split": {
+   "folds": [
+    {
+     "fold": 0,
+     "n_train": 18377,
+     "n_val": 4595,
+     "n_ai_train": 10777,
+     "n_ai_val": 2695,
+     "n_human_train": 7600,
+     "n_human_val": 1900,
+     "counts_val": {
+      "family": {
+       "0": 338,
+       "1": 320,
+       "2": 341,
+       "3": 355,
+       "4": 304,
+       "5": 366,
+       "6": 352,
+       "7": 319
+      },
+      "generator": {
+       "GPT-4o": 338,
+       "deepseek-ai/DeepSeek-V3-0324": 250,
+       "deepseek-ai/deepseek-coder-1.3b-base": 44,
+       "deepseek-ai/DeepSeek-R1": 26,
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 168,
+       "Qwen/Qwen2.5-72B-Instruct": 55,
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 41,
+       "Qwen/Qwen2.5-Coder-1.5B": 67,
+       "Qwen/QwQ-32B": 10,
+       "meta-llama/Llama-3.1-8B-Instruct": 186,
+       "meta-llama/Llama-3.1-8B": 37,
+       "meta-llama/Llama-3.2-3B": 53,
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 66,
+       "meta-llama/Llama-3.2-1B": 13,
+       "mistralai/Mistral-7B-Instruct-v0.3": 190,
+       "mistralai/Devstral-Small-2505": 114,
+       "ibm-granite/granite-3.3-8b-base": 62,
+       "ibm-granite/granite-3.2-2b-instruct": 209,
+       "ibm-granite/granite-3.3-8b-instruct": 95,
+       "01-ai/Yi-Coder-1.5B-Chat": 317,
+       "01-ai/Yi-Coder-1.5B": 35,
+       "google/codegemma-2b": 36,
+       "gemma-3n-e4b-it": 92,
+       "gemma-3-27b-it": 191
+      },
+      "language": {
+       "Java": 667,
+       "C#": 298,
+       "Python": 824,
+       "JavaScript": 334,
+       "C": 142,
+       "Go": 141,
+       "C++": 240,
+       "PHP": 49
+      },
+      "length": {
+       "8-128": 566,
+       "129-256": 727,
+       "257-512": 784,
+       "513-1024": 618,
+       "1025-2048": 0
+      }
+     },
+     "generators_train": 24,
+     "generators_val": 24,
+     "arms": {
+      "R0_mraw": {
+       "family": {
+        "C_star": 0.01,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4281,
+          "converged": true,
+          "sec": 1.4
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4176,
+          "converged": true,
+          "sec": 2.2
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4057,
+          "converged": true,
+          "sec": 3.7
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.3971,
+          "converged": true,
+          "sec": 5.6
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3858,
+          "converged": true,
+          "sec": 6.6
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3788,
+          "converged": true,
+          "sec": 8.5
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3723,
+          "converged": true,
+          "sec": 10.7
+         }
+        ],
+        "val": {
+         "acc": 0.4234,
+         "bal": 0.4216,
+         "n": 2695,
+         "recall": {
+          "OpenAI": 0.5178,
+          "DeepSeek": 0.4125,
+          "Qwen": 0.2522,
+          "Meta": 0.3268,
+          "Mistral": 0.2632,
+          "IBM": 0.6366,
+          "01-ai": 0.3494,
+          "Google": 0.6144
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9561,
+          "converged": true,
+          "sec": 0.5
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9575,
+          "converged": true,
+          "sec": 0.9
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9579,
+          "converged": true,
+          "sec": 1.1
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9578,
+          "converged": true,
+          "sec": 1.5
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9573,
+          "converged": true,
+          "sec": 2.2
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9568,
+          "converged": true,
+          "sec": 2.5
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9564,
+          "converged": true,
+          "sec": 2.8
+         }
+        ],
+        "val": {
+         "auroc": 0.9619,
+         "f1@.5": 0.8966,
+         "n": 4595
+        }
+       }
+      },
+      "R1_mu": {
+       "family": {
+        "C_star": 0.03,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4108,
+          "converged": true,
+          "sec": 1.7
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4219,
+          "converged": true,
+          "sec": 3.1
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4204,
+          "converged": true,
+          "sec": 4.3
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4127,
+          "converged": true,
+          "sec": 7.1
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3988,
+          "converged": true,
+          "sec": 11.0
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3934,
+          "converged": true,
+          "sec": 15.2
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3857,
+          "converged": true,
+          "sec": 22.5
+         }
+        ],
+        "val": {
+         "acc": 0.4189,
+         "bal": 0.4165,
+         "n": 2695,
+         "recall": {
+          "OpenAI": 0.5237,
+          "DeepSeek": 0.4031,
+          "Qwen": 0.2434,
+          "Meta": 0.3408,
+          "Mistral": 0.2204,
+          "IBM": 0.6585,
+          "01-ai": 0.321,
+          "Google": 0.6207
+         }
+        }
+       },
+       "detection": {
+        "C_star": 1.0,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9519,
+          "converged": true,
+          "sec": 0.4
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9561,
+          "converged": true,
+          "sec": 0.7
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9605,
+          "converged": true,
+          "sec": 1.0
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9629,
+          "converged": true,
+          "sec": 1.6
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9635,
+          "converged": true,
+          "sec": 2.5
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9627,
+          "converged": true,
+          "sec": 3.6
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9616,
+          "converged": true,
+          "sec": 5.7
+         }
+        ],
+        "val": {
+         "auroc": 0.9651,
+         "f1@.5": 0.9052,
+         "n": 4595
+        }
+       }
+      }
+     }
+    },
+    {
+     "fold": 1,
+     "n_train": 18377,
+     "n_val": 4595,
+     "n_ai_train": 10777,
+     "n_ai_val": 2695,
+     "n_human_train": 7600,
+     "n_human_val": 1900,
+     "counts_val": {
+      "family": {
+       "0": 334,
+       "1": 343,
+       "2": 358,
+       "3": 324,
+       "4": 359,
+       "5": 331,
+       "6": 337,
+       "7": 309
+      },
+      "generator": {
+       "GPT-4o": 334,
+       "deepseek-ai/DeepSeek-V3-0324": 270,
+       "deepseek-ai/DeepSeek-R1": 42,
+       "deepseek-ai/deepseek-coder-1.3b-base": 31,
+       "Qwen/Qwen2.5-72B-Instruct": 62,
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 59,
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 164,
+       "Qwen/Qwen2.5-Coder-1.5B": 57,
+       "Qwen/QwQ-32B": 16,
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 68,
+       "meta-llama/Llama-3.1-8B-Instruct": 144,
+       "meta-llama/Llama-3.2-3B": 55,
+       "meta-llama/Llama-3.1-8B": 44,
+       "meta-llama/Llama-3.2-1B": 13,
+       "mistralai/Mistral-7B-Instruct-v0.3": 217,
+       "mistralai/Devstral-Small-2505": 142,
+       "ibm-granite/granite-3.3-8b-instruct": 86,
+       "ibm-granite/granite-3.2-2b-instruct": 192,
+       "ibm-granite/granite-3.3-8b-base": 53,
+       "01-ai/Yi-Coder-1.5B-Chat": 293,
+       "01-ai/Yi-Coder-1.5B": 44,
+       "gemma-3-27b-it": 196,
+       "gemma-3n-e4b-it": 87,
+       "google/codegemma-2b": 26
+      },
+      "language": {
+       "C": 131,
+       "JavaScript": 345,
+       "C#": 343,
+       "Java": 640,
+       "Python": 803,
+       "C++": 225,
+       "Go": 157,
+       "PHP": 51
+      },
+      "length": {
+       "8-128": 536,
+       "129-256": 744,
+       "257-512": 776,
+       "513-1024": 639,
+       "1025-2048": 0
+      }
+     },
+     "generators_train": 24,
+     "generators_val": 24,
+     "arms": {
+      "R0_mraw": {
+       "family": {
+        "C_star": 0.03,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4052,
+          "converged": true,
+          "sec": 1.5
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4053,
+          "converged": true,
+          "sec": 2.3
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4017,
+          "converged": true,
+          "sec": 3.5
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.3949,
+          "converged": true,
+          "sec": 5.0
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.385,
+          "converged": true,
+          "sec": 7.2
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3831,
+          "converged": true,
+          "sec": 9.2
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3808,
+          "converged": true,
+          "sec": 11.3
+         }
+        ],
+        "val": {
+         "acc": 0.4249,
+         "bal": 0.4296,
+         "n": 2695,
+         "recall": {
+          "OpenAI": 0.503,
+          "DeepSeek": 0.4519,
+          "Qwen": 0.2598,
+          "Meta": 0.3827,
+          "Mistral": 0.2535,
+          "IBM": 0.6193,
+          "01-ai": 0.3709,
+          "Google": 0.5955
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9583,
+          "converged": true,
+          "sec": 0.4
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9598,
+          "converged": true,
+          "sec": 0.8
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.96,
+          "converged": true,
+          "sec": 1.2
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9592,
+          "converged": true,
+          "sec": 1.8
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9576,
+          "converged": true,
+          "sec": 2.4
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9564,
+          "converged": true,
+          "sec": 2.6
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9557,
+          "converged": true,
+          "sec": 3.4
+         }
+        ],
+        "val": {
+         "auroc": 0.9556,
+         "f1@.5": 0.884,
+         "n": 4595
+        }
+       }
+      },
+      "R1_mu": {
+       "family": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.3823,
+          "converged": true,
+          "sec": 1.7
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.3916,
+          "converged": true,
+          "sec": 2.5
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4043,
+          "converged": true,
+          "sec": 4.4
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.3961,
+          "converged": true,
+          "sec": 7.0
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3966,
+          "converged": true,
+          "sec": 9.7
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3822,
+          "converged": true,
+          "sec": 16.0
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3828,
+          "converged": true,
+          "sec": 20.3
+         }
+        ],
+        "val": {
+         "acc": 0.4178,
+         "bal": 0.4225,
+         "n": 2695,
+         "recall": {
+          "OpenAI": 0.524,
+          "DeepSeek": 0.4548,
+          "Qwen": 0.2514,
+          "Meta": 0.3673,
+          "Mistral": 0.2368,
+          "IBM": 0.6224,
+          "01-ai": 0.3412,
+          "Google": 0.5825
+         }
+        }
+       },
+       "detection": {
+        "C_star": 1.0,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9551,
+          "converged": true,
+          "sec": 0.5
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9585,
+          "converged": true,
+          "sec": 0.6
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9618,
+          "converged": true,
+          "sec": 1.4
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9636,
+          "converged": true,
+          "sec": 1.6
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9642,
+          "converged": true,
+          "sec": 2.5
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9634,
+          "converged": true,
+          "sec": 3.7
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9622,
+          "converged": true,
+          "sec": 5.6
+         }
+        ],
+        "val": {
+         "auroc": 0.9583,
+         "f1@.5": 0.8894,
+         "n": 4595
+        }
+       }
+      }
+     }
+    },
+    {
+     "fold": 2,
+     "n_train": 18378,
+     "n_val": 4594,
+     "n_ai_train": 10778,
+     "n_ai_val": 2694,
+     "n_human_train": 7600,
+     "n_human_val": 1900,
+     "counts_val": {
+      "family": {
+       "0": 331,
+       "1": 332,
+       "2": 321,
+       "3": 357,
+       "4": 368,
+       "5": 334,
+       "6": 326,
+       "7": 325
+      },
+      "generator": {
+       "GPT-4o": 331,
+       "deepseek-ai/deepseek-coder-1.3b-base": 47,
+       "deepseek-ai/DeepSeek-V3-0324": 254,
+       "deepseek-ai/DeepSeek-R1": 31,
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 136,
+       "Qwen/QwQ-32B": 12,
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 48,
+       "Qwen/Qwen2.5-Coder-1.5B": 64,
+       "Qwen/Qwen2.5-72B-Instruct": 61,
+       "meta-llama/Llama-3.1-8B-Instruct": 163,
+       "meta-llama/Llama-3.2-1B": 14,
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 75,
+       "meta-llama/Llama-3.1-8B": 47,
+       "meta-llama/Llama-3.2-3B": 58,
+       "mistralai/Mistral-7B-Instruct-v0.3": 220,
+       "mistralai/Devstral-Small-2505": 148,
+       "ibm-granite/granite-3.2-2b-instruct": 189,
+       "ibm-granite/granite-3.3-8b-base": 47,
+       "ibm-granite/granite-3.3-8b-instruct": 98,
+       "01-ai/Yi-Coder-1.5B": 34,
+       "01-ai/Yi-Coder-1.5B-Chat": 292,
+       "google/codegemma-2b": 32,
+       "gemma-3-27b-it": 191,
+       "gemma-3n-e4b-it": 102
+      },
+      "language": {
+       "C": 143,
+       "C#": 325,
+       "Python": 821,
+       "C++": 243,
+       "JavaScript": 332,
+       "Java": 649,
+       "Go": 128,
+       "PHP": 53
+      },
+      "length": {
+       "8-128": 504,
+       "129-256": 744,
+       "257-512": 802,
+       "513-1024": 644,
+       "1025-2048": 0
+      }
+     },
+     "generators_train": 24,
+     "generators_val": 24,
+     "arms": {
+      "R0_mraw": {
+       "family": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4154,
+          "converged": true,
+          "sec": 1.4
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4144,
+          "converged": true,
+          "sec": 2.3
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4158,
+          "converged": true,
+          "sec": 3.5
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4037,
+          "converged": true,
+          "sec": 4.9
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3939,
+          "converged": true,
+          "sec": 6.6
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.39,
+          "converged": true,
+          "sec": 8.3
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3863,
+          "converged": true,
+          "sec": 9.3
+         }
+        ],
+        "val": {
+         "acc": 0.4154,
+         "bal": 0.4179,
+         "n": 2694,
+         "recall": {
+          "OpenAI": 0.5106,
+          "DeepSeek": 0.4518,
+          "Qwen": 0.2336,
+          "Meta": 0.3333,
+          "Mistral": 0.2609,
+          "IBM": 0.5299,
+          "01-ai": 0.4264,
+          "Google": 0.5969
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.03,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9631,
+          "converged": true,
+          "sec": 0.5
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9641,
+          "converged": true,
+          "sec": 0.8
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9639,
+          "converged": true,
+          "sec": 1.2
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.963,
+          "converged": true,
+          "sec": 1.5
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9618,
+          "converged": true,
+          "sec": 2.1
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9609,
+          "converged": true,
+          "sec": 2.2
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9604,
+          "converged": true,
+          "sec": 2.8
+         }
+        ],
+        "val": {
+         "auroc": 0.9568,
+         "f1@.5": 0.8878,
+         "n": 4594
+        }
+       }
+      },
+      "R1_mu": {
+       "family": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4011,
+          "converged": true,
+          "sec": 1.8
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4075,
+          "converged": true,
+          "sec": 2.7
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4155,
+          "converged": true,
+          "sec": 4.6
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4034,
+          "converged": true,
+          "sec": 7.4
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3929,
+          "converged": true,
+          "sec": 10.6
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3881,
+          "converged": true,
+          "sec": 14.9
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3835,
+          "converged": true,
+          "sec": 23.4
+         }
+        ],
+        "val": {
+         "acc": 0.4117,
+         "bal": 0.4143,
+         "n": 2694,
+         "recall": {
+          "OpenAI": 0.4955,
+          "DeepSeek": 0.4247,
+          "Qwen": 0.2181,
+          "Meta": 0.3417,
+          "Mistral": 0.2391,
+          "IBM": 0.5838,
+          "01-ai": 0.3926,
+          "Google": 0.6185
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.3,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9583,
+          "converged": true,
+          "sec": 0.5
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9623,
+          "converged": true,
+          "sec": 0.8
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9661,
+          "converged": true,
+          "sec": 1.1
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.968,
+          "converged": true,
+          "sec": 1.8
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9679,
+          "converged": true,
+          "sec": 2.8
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9663,
+          "converged": true,
+          "sec": 4.2
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9644,
+          "converged": true,
+          "sec": 6.2
+         }
+        ],
+        "val": {
+         "auroc": 0.9617,
+         "f1@.5": 0.893,
+         "n": 4594
+        }
+       }
+      }
+     }
+    },
+    {
+     "fold": 3,
+     "n_train": 18378,
+     "n_val": 4594,
+     "n_ai_train": 10778,
+     "n_ai_val": 2694,
+     "n_human_train": 7600,
+     "n_human_val": 1900,
+     "counts_val": {
+      "family": {
+       "0": 371,
+       "1": 344,
+       "2": 334,
+       "3": 347,
+       "4": 328,
+       "5": 335,
+       "6": 332,
+       "7": 303
+      },
+      "generator": {
+       "GPT-4o": 371,
+       "deepseek-ai/DeepSeek-V3-0324": 270,
+       "deepseek-ai/deepseek-coder-1.3b-base": 41,
+       "deepseek-ai/DeepSeek-R1": 33,
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 143,
+       "Qwen/Qwen2.5-72B-Instruct": 54,
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 62,
+       "Qwen/Qwen2.5-Coder-1.5B": 67,
+       "Qwen/QwQ-32B": 8,
+       "meta-llama/Llama-3.1-8B-Instruct": 160,
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 52,
+       "meta-llama/Llama-3.2-3B": 71,
+       "meta-llama/Llama-3.1-8B": 55,
+       "meta-llama/Llama-3.2-1B": 9,
+       "mistralai/Mistral-7B-Instruct-v0.3": 196,
+       "mistralai/Devstral-Small-2505": 132,
+       "ibm-granite/granite-3.3-8b-instruct": 82,
+       "ibm-granite/granite-3.2-2b-instruct": 185,
+       "ibm-granite/granite-3.3-8b-base": 68,
+       "01-ai/Yi-Coder-1.5B": 25,
+       "01-ai/Yi-Coder-1.5B-Chat": 307,
+       "gemma-3-27b-it": 189,
+       "gemma-3n-e4b-it": 92,
+       "google/codegemma-2b": 22
+      },
+      "language": {
+       "Java": 620,
+       "Python": 817,
+       "C++": 250,
+       "C": 125,
+       "C#": 325,
+       "JavaScript": 346,
+       "Go": 143,
+       "PHP": 68
+      },
+      "length": {
+       "8-128": 519,
+       "129-256": 695,
+       "257-512": 824,
+       "513-1024": 656,
+       "1025-2048": 0
+      }
+     },
+     "generators_train": 24,
+     "generators_val": 24,
+     "arms": {
+      "R0_mraw": {
+       "family": {
+        "C_star": 0.03,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4036,
+          "converged": true,
+          "sec": 1.4
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4108,
+          "converged": true,
+          "sec": 2.2
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4084,
+          "converged": true,
+          "sec": 3.5
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4056,
+          "converged": true,
+          "sec": 5.3
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.4028,
+          "converged": true,
+          "sec": 7.3
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3977,
+          "converged": true,
+          "sec": 8.6
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.4009,
+          "converged": true,
+          "sec": 9.8
+         }
+        ],
+        "val": {
+         "acc": 0.425,
+         "bal": 0.4247,
+         "n": 2694,
+         "recall": {
+          "OpenAI": 0.5391,
+          "DeepSeek": 0.4593,
+          "Qwen": 0.2575,
+          "Meta": 0.3401,
+          "Mistral": 0.2896,
+          "IBM": 0.5642,
+          "01-ai": 0.4036,
+          "Google": 0.5446
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.03,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9522,
+          "converged": true,
+          "sec": 0.6
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9531,
+          "converged": true,
+          "sec": 0.8
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9529,
+          "converged": true,
+          "sec": 1.3
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9519,
+          "converged": true,
+          "sec": 1.8
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9505,
+          "converged": true,
+          "sec": 2.2
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9496,
+          "converged": true,
+          "sec": 2.4
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9491,
+          "converged": true,
+          "sec": 2.8
+         }
+        ],
+        "val": {
+         "auroc": 0.9572,
+         "f1@.5": 0.8927,
+         "n": 4594
+        }
+       }
+      },
+      "R1_mu": {
+       "family": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.396,
+          "converged": true,
+          "sec": 1.7
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.3998,
+          "converged": true,
+          "sec": 2.8
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4042,
+          "converged": true,
+          "sec": 4.2
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.401,
+          "converged": true,
+          "sec": 6.9
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3953,
+          "converged": true,
+          "sec": 10.2
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3946,
+          "converged": true,
+          "sec": 14.6
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3983,
+          "converged": true,
+          "sec": 22.4
+         }
+        ],
+        "val": {
+         "acc": 0.4161,
+         "bal": 0.4159,
+         "n": 2694,
+         "recall": {
+          "OpenAI": 0.531,
+          "DeepSeek": 0.4273,
+          "Qwen": 0.2455,
+          "Meta": 0.3516,
+          "Mistral": 0.2957,
+          "IBM": 0.5582,
+          "01-ai": 0.3795,
+          "Google": 0.538
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.3,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9496,
+          "converged": true,
+          "sec": 0.4
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.953,
+          "converged": true,
+          "sec": 0.8
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9555,
+          "converged": true,
+          "sec": 1.1
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9563,
+          "converged": true,
+          "sec": 1.8
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9561,
+          "converged": true,
+          "sec": 2.4
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9554,
+          "converged": true,
+          "sec": 3.9
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9542,
+          "converged": true,
+          "sec": 5.3
+         }
+        ],
+        "val": {
+         "auroc": 0.9589,
+         "f1@.5": 0.8913,
+         "n": 4594
+        }
+       }
+      }
+     }
+    },
+    {
+     "fold": 4,
+     "n_train": 18378,
+     "n_val": 4594,
+     "n_ai_train": 10778,
+     "n_ai_val": 2694,
+     "n_human_train": 7600,
+     "n_human_val": 1900,
+     "counts_val": {
+      "family": {
+       "0": 326,
+       "1": 361,
+       "2": 346,
+       "3": 317,
+       "4": 341,
+       "5": 334,
+       "6": 353,
+       "7": 316
+      },
+      "generator": {
+       "GPT-4o": 326,
+       "deepseek-ai/DeepSeek-V3-0324": 268,
+       "deepseek-ai/deepseek-coder-1.3b-base": 52,
+       "deepseek-ai/DeepSeek-R1": 41,
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 61,
+       "Qwen/Qwen2.5-72B-Instruct": 57,
+       "Qwen/Qwen2.5-Coder-1.5B": 67,
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 150,
+       "Qwen/QwQ-32B": 11,
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 55,
+       "meta-llama/Llama-3.1-8B": 49,
+       "meta-llama/Llama-3.2-3B": 52,
+       "meta-llama/Llama-3.1-8B-Instruct": 154,
+       "meta-llama/Llama-3.2-1B": 7,
+       "mistralai/Mistral-7B-Instruct-v0.3": 215,
+       "mistralai/Devstral-Small-2505": 126,
+       "ibm-granite/granite-3.2-2b-instruct": 210,
+       "ibm-granite/granite-3.3-8b-base": 47,
+       "ibm-granite/granite-3.3-8b-instruct": 77,
+       "01-ai/Yi-Coder-1.5B-Chat": 316,
+       "01-ai/Yi-Coder-1.5B": 37,
+       "gemma-3n-e4b-it": 96,
+       "google/codegemma-2b": 32,
+       "gemma-3-27b-it": 188
+      },
+      "language": {
+       "JavaScript": 346,
+       "C++": 247,
+       "Java": 614,
+       "Python": 792,
+       "C#": 348,
+       "Go": 137,
+       "C": 157,
+       "PHP": 53
+      },
+      "length": {
+       "8-128": 506,
+       "129-256": 725,
+       "257-512": 838,
+       "513-1024": 625,
+       "1025-2048": 0
+      }
+     },
+     "generators_train": 24,
+     "generators_val": 24,
+     "arms": {
+      "R0_mraw": {
+       "family": {
+        "C_star": 0.03,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.4218,
+          "converged": true,
+          "sec": 1.4
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4229,
+          "converged": true,
+          "sec": 2.4
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4151,
+          "converged": true,
+          "sec": 3.7
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4069,
+          "converged": true,
+          "sec": 5.6
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.3973,
+          "converged": true,
+          "sec": 6.7
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3895,
+          "converged": true,
+          "sec": 8.8
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3879,
+          "converged": true,
+          "sec": 10.3
+         }
+        ],
+        "val": {
+         "acc": 0.4425,
+         "bal": 0.4447,
+         "n": 2694,
+         "recall": {
+          "OpenAI": 0.5982,
+          "DeepSeek": 0.4571,
+          "Qwen": 0.2572,
+          "Meta": 0.3438,
+          "Mistral": 0.2874,
+          "IBM": 0.6287,
+          "01-ai": 0.3938,
+          "Google": 0.5918
+         }
+        }
+       },
+       "detection": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9553,
+          "converged": true,
+          "sec": 0.5
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.957,
+          "converged": true,
+          "sec": 0.7
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9575,
+          "converged": true,
+          "sec": 1.2
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9568,
+          "converged": true,
+          "sec": 1.5
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9557,
+          "converged": true,
+          "sec": 2.2
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.955,
+          "converged": true,
+          "sec": 2.6
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9545,
+          "converged": true,
+          "sec": 3.0
+         }
+        ],
+        "val": {
+         "auroc": 0.9541,
+         "f1@.5": 0.8919,
+         "n": 4594
+        }
+       }
+      },
+      "R1_mu": {
+       "family": {
+        "C_star": 0.1,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_bal": 0.3979,
+          "converged": true,
+          "sec": 1.7
+         },
+         {
+          "C": 0.03,
+          "inner_bal": 0.4149,
+          "converged": true,
+          "sec": 2.7
+         },
+         {
+          "C": 0.1,
+          "inner_bal": 0.4223,
+          "converged": true,
+          "sec": 4.3
+         },
+         {
+          "C": 0.3,
+          "inner_bal": 0.4211,
+          "converged": true,
+          "sec": 6.5
+         },
+         {
+          "C": 1.0,
+          "inner_bal": 0.4085,
+          "converged": true,
+          "sec": 10.3
+         },
+         {
+          "C": 3.0,
+          "inner_bal": 0.3985,
+          "converged": true,
+          "sec": 16.4
+         },
+         {
+          "C": 10.0,
+          "inner_bal": 0.3826,
+          "converged": true,
+          "sec": 22.6
+         }
+        ],
+        "val": {
+         "acc": 0.4291,
+         "bal": 0.432,
+         "n": 2694,
+         "recall": {
+          "OpenAI": 0.5583,
+          "DeepSeek": 0.4404,
+          "Qwen": 0.2225,
+          "Meta": 0.3565,
+          "Mistral": 0.2639,
+          "IBM": 0.6347,
+          "01-ai": 0.3626,
+          "Google": 0.6171
+         }
+        }
+       },
+       "detection": {
+        "C_star": 1.0,
+        "inner_grid": [
+         {
+          "C": 0.01,
+          "inner_auroc": 0.9521,
+          "converged": true,
+          "sec": 0.4
+         },
+         {
+          "C": 0.03,
+          "inner_auroc": 0.9561,
+          "converged": true,
+          "sec": 0.7
+         },
+         {
+          "C": 0.1,
+          "inner_auroc": 0.9595,
+          "converged": true,
+          "sec": 1.1
+         },
+         {
+          "C": 0.3,
+          "inner_auroc": 0.9613,
+          "converged": true,
+          "sec": 1.7
+         },
+         {
+          "C": 1.0,
+          "inner_auroc": 0.9617,
+          "converged": true,
+          "sec": 2.5
+         },
+         {
+          "C": 3.0,
+          "inner_auroc": 0.9613,
+          "converged": true,
+          "sec": 4.0
+         },
+         {
+          "C": 10.0,
+          "inner_auroc": 0.9603,
+          "converged": true,
+          "sec": 5.3
+         }
+        ],
+        "val": {
+         "auroc": 0.9594,
+         "f1@.5": 0.8981,
+         "n": 4594
+        }
+       }
+      }
+     }
+    }
+   ],
+   "summary": {
+    "R0_mraw": {
+     "fam_bal_mean": 0.4277,
+     "fam_bal_std": 0.0093,
+     "fam_bal_folds": [
+      0.4216,
+      0.4296,
+      0.4179,
+      0.4247,
+      0.4447
+     ],
+     "det_auroc_mean": 0.9571,
+     "det_auroc_std": 0.0026,
+     "det_auroc_folds": [
+      0.9619,
+      0.9556,
+      0.9568,
+      0.9572,
+      0.9541
+     ],
+     "density_bal_mean": 0.2036,
+     "density_beats_linear_folds": 0
+    },
+    "R1_mu": {
+     "fam_bal_mean": 0.4202,
+     "fam_bal_std": 0.0065,
+     "fam_bal_folds": [
+      0.4165,
+      0.4225,
+      0.4143,
+      0.4159,
+      0.432
+     ],
+     "det_auroc_mean": 0.9607,
+     "det_auroc_std": 0.0025,
+     "det_auroc_folds": [
+      0.9651,
+      0.9583,
+      0.9617,
+      0.9589,
+      0.9594
+     ],
+     "density_bal_mean": 0.238,
+     "density_beats_linear_folds": 0
+    }
+   }
+  }
+ },
+ "protocol": {
+  "C_GRID": [
+   0.01,
+   0.03,
+   0.1,
+   0.3,
+   1.0,
+   3.0,
+   10.0
+  ],
+  "STD_FLOOR": 0.01,
+  "LAM": 20,
+  "inner_frac": 0.8,
+  "inner_split": "家族按 family 分层 / 检测按 y 分层；seed=100+f(+200 随机模式)",
+  "human_folds": "随机（两种划分共用）",
+  "eval": "验证折只评估一次"
+ }
+}
