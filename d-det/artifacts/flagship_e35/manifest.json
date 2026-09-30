@@ -1,0 +1,247 @@
+{
+ "commit": "25824ca45d77355b93c97d0949c9bb322c2afa13",
+ "smoke": false,
+ "fold_protocol": "E30 同源：RandomState(1000+fi)；2→1/1、3→1/2、5→2/3；fold0 val=A/train=B，fold1 互补",
+ "fold_generators": {
+  "fold0": {
+   "DeepSeek": {
+    "val": [
+     "deepseek-ai/DeepSeek-R1"
+    ],
+    "train": [
+     "deepseek-ai/DeepSeek-V3-0324",
+     "deepseek-ai/deepseek-coder-1.3b-base"
+    ]
+   },
+   "Qwen": {
+    "val": [
+     "Qwen/QwQ-32B",
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct"
+    ],
+    "train": [
+     "Qwen/Qwen2.5-72B-Instruct",
+     "Qwen/Qwen2.5-Codder-14B-Instruct",
+     "Qwen/Qwen2.5-Coder-1.5B"
+    ]
+   },
+   "Meta": {
+    "val": [
+     "meta-llama/Llama-3.1-8B-Instruct",
+     "meta-llama/Llama-3.2-1B"
+    ],
+    "train": [
+     "meta-llama/Llama-3.1-8B",
+     "meta-llama/Llama-3.2-11B-Vision-Instruct",
+     "meta-llama/Llama-3.2-3B"
+    ]
+   },
+   "Mistral": {
+    "val": [
+     "mistralai/Mistral-7B-Instruct-v0.3"
+    ],
+    "train": [
+     "mistralai/Devstral-Small-2505"
+    ]
+   },
+   "IBM": {
+    "val": [
+     "ibm-granite/granite-3.2-2b-instruct"
+    ],
+    "train": [
+     "ibm-granite/granite-3.3-8b-base",
+     "ibm-granite/granite-3.3-8b-instruct"
+    ]
+   },
+   "01-ai": {
+    "val": [
+     "01-ai/Yi-Coder-1.5B-Chat"
+    ],
+    "train": [
+     "01-ai/Yi-Coder-1.5B"
+    ]
+   },
+   "Google": {
+    "val": [
+     "gemma-3n-e4b-it"
+    ],
+    "train": [
+     "gemma-3-27b-it",
+     "google/codegemma-2b"
+    ]
+   }
+  },
+  "fold1": {
+   "DeepSeek": {
+    "val": [
+     "deepseek-ai/DeepSeek-V3-0324",
+     "deepseek-ai/deepseek-coder-1.3b-base"
+    ],
+    "train": [
+     "deepseek-ai/DeepSeek-R1"
+    ]
+   },
+   "Qwen": {
+    "val": [
+     "Qwen/Qwen2.5-72B-Instruct",
+     "Qwen/Qwen2.5-Codder-14B-Instruct",
+     "Qwen/Qwen2.5-Coder-1.5B"
+    ],
+    "train": [
+     "Qwen/QwQ-32B",
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct"
+    ]
+   },
+   "Meta": {
+    "val": [
+     "meta-llama/Llama-3.1-8B",
+     "meta-llama/Llama-3.2-11B-Vision-Instruct",
+     "meta-llama/Llama-3.2-3B"
+    ],
+    "train": [
+     "meta-llama/Llama-3.1-8B-Instruct",
+     "meta-llama/Llama-3.2-1B"
+    ]
+   },
+   "Mistral": {
+    "val": [
+     "mistralai/Devstral-Small-2505"
+    ],
+    "train": [
+     "mistralai/Mistral-7B-Instruct-v0.3"
+    ]
+   },
+   "IBM": {
+    "val": [
+     "ibm-granite/granite-3.3-8b-base",
+     "ibm-granite/granite-3.3-8b-instruct"
+    ],
+    "train": [
+     "ibm-granite/granite-3.2-2b-instruct"
+    ]
+   },
+   "01-ai": {
+    "val": [
+     "01-ai/Yi-Coder-1.5B"
+    ],
+    "train": [
+     "01-ai/Yi-Coder-1.5B-Chat"
+    ]
+   },
+   "Google": {
+    "val": [
+     "gemma-3-27b-it",
+     "google/codegemma-2b"
+    ],
+    "train": [
+     "gemma-3n-e4b-it"
+    ]
+   }
+  }
+ },
+ "features_sha256": "d83f63f6bb83c591f7eb846012cf8f2e5eb9240e03f604e4d1ea30b93399e36b",
+ "input_manifest_sha256": "3befd8ab4f667c79829ca35360f8433ee2863821f581ea86a4af46086c280dcd",
+ "counts": {
+  "ai7": 11772,
+  "human": 9500
+ },
+ "generator_labels": {
+  "GPT-4o": {
+   "role": "closed",
+   "size": "≥100B"
+  },
+  "deepseek-ai/DeepSeek-V3-0324": {
+   "role": "instruct",
+   "size": "671B-MoE"
+  },
+  "deepseek-ai/DeepSeek-R1": {
+   "role": "instruct-reasoning",
+   "size": "671B-MoE"
+  },
+  "deepseek-ai/deepseek-coder-1.3b-base": {
+   "role": "base",
+   "size": "1.3B"
+  },
+  "Qwen/Qwen2.5-Coder-1.5B": {
+   "role": "base",
+   "size": "1.5B"
+  },
+  "Qwen/Qwen2.5-Coder-1.5B-Instruct": {
+   "role": "instruct",
+   "size": "1.5B"
+  },
+  "Qwen/Qwen2.5-Codder-14B-Instruct": {
+   "role": "instruct",
+   "size": "14B（名称拼写 Codder 为数据集原样）"
+  },
+  "Qwen/Qwen2.5-72B-Instruct": {
+   "role": "instruct",
+   "size": "72B"
+  },
+  "Qwen/QwQ-32B": {
+   "role": "instruct-reasoning",
+   "size": "32B"
+  },
+  "meta-llama/Llama-3.1-8B": {
+   "role": "base",
+   "size": "8B"
+  },
+  "meta-llama/Llama-3.1-8B-Instruct": {
+   "role": "instruct",
+   "size": "8B"
+  },
+  "meta-llama/Llama-3.2-1B": {
+   "role": "base",
+   "size": "1B"
+  },
+  "meta-llama/Llama-3.2-3B": {
+   "role": "base",
+   "size": "3B"
+  },
+  "meta-llama/Llama-3.2-11B-Vision-Instruct": {
+   "role": "instruct",
+   "size": "11B"
+  },
+  "mistralai/Mistral-7B-Instruct-v0.3": {
+   "role": "instruct",
+   "size": "7B"
+  },
+  "mistralai/Devstral-Small-2505": {
+   "role": "instruct-agent",
+   "size": "24B"
+  },
+  "ibm-granite/granite-3.2-2b-instruct": {
+   "role": "instruct",
+   "size": "2B"
+  },
+  "ibm-granite/granite-3.3-8b-instruct": {
+   "role": "instruct",
+   "size": "8B"
+  },
+  "ibm-granite/granite-3.3-8b-base": {
+   "role": "base",
+   "size": "8B"
+  },
+  "01-ai/Yi-Coder-1.5B": {
+   "role": "base",
+   "size": "1.5B"
+  },
+  "01-ai/Yi-Coder-1.5B-Chat": {
+   "role": "chat",
+   "size": "1.5B"
+  },
+  "gemma-3-27b-it": {
+   "role": "instruct",
+   "size": "27B"
+  },
+  "gemma-3n-e4b-it": {
+   "role": "instruct",
+   "size": "~4B"
+  },
+  "google/codegemma-2b": {
+   "role": "base",
+   "size": "2B"
+  }
+ },
+ "test_accessed": false,
+ "unseen_accessed": false
+}

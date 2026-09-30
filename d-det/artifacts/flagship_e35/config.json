@@ -1,0 +1,24 @@
+{
+ "commit": "25824ca45d77355b93c97d0949c9bb322c2afa13",
+ "C_fixed": 0.1,
+ "lr": 0.001,
+ "wd": 0.0001,
+ "tau": 0.1,
+ "lambda_C": 0.1,
+ "epochs": 2,
+ "batch": "7 族×18",
+ "seed": 0,
+ "model": "ℓ=ℓ0+γ·W_R·r；ℓ0=加权 LR（w=N/(K|G_f|N_g)）逐折拟合后冻结；r=V·GELU(Uz+b1)+b2；修正门控 W_R=0、η0=0.5、γ=0.1·tanh(η)",
+ "arms": {
+  "F0": "L_F（残差 CE）",
+  "F1": "L_F+0.1·L_cross（同家族不同 generator 正对）"
+ },
+ "exit_rule": {
+  "fold_positive": "F1−F0 的 BA_F 与 BA_G 在两折均 >0",
+  "pooled_bar": "pooled ΔBA_F ≥ 0.01（主判据）且 pooled ΔBA_G ≥ 0.01（标准出口并列条件）",
+  "anchor_guard": "任一折整体 anchor 比例 < 0.15 ⇒ 未充分检验",
+  "near_chance": "pooled BA_F(F0) 与 BA_F(F1) 均 < 0.2 ⇒ 数据不足出口"
+ },
+ "anchor_min": 0.15,
+ "het_note": "若 F1 只改善单角色/单家族，只报异质性（不写成总体通过）"
+}
