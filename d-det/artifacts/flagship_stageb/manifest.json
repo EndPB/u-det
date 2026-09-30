@@ -1,0 +1,49 @@
+{
+ "commit": "48e607a6d5759ba8804703bfce9717ee5b03a583",
+ "whitelist": [
+  "GPT-4o",
+  "DeepSeek-V3-0324",
+  "Mistral-7B-Instruct-v0.3",
+  "Devstral-Small-2505",
+  "gemma-3-27b-it"
+ ],
+ "families": [
+  "OpenAI",
+  "DeepSeek",
+  "Mistral",
+  "Google"
+ ],
+ "family_generators": {
+  "OpenAI": [
+   "GPT-4o"
+  ],
+  "DeepSeek": [
+   "deepseek-ai/DeepSeek-V3-0324"
+  ],
+  "Mistral": [
+   "mistralai/Devstral-Small-2505",
+   "mistralai/Mistral-7B-Instruct-v0.3"
+  ],
+  "Google": [
+   "gemma-3-27b-it"
+  ]
+ },
+ "counts": {
+  "ai_train": 4013,
+  "ai_val": 1654,
+  "human_train": 8000,
+  "human_val": 1500
+ },
+ "features_sha256": "d83f63f6bb83c591f7eb846012cf8f2e5eb9240e03f604e4d1ea30b93399e36b",
+ "encoder_sha256": "e7e6565c676f906336e58af96b3640c2f3ec5df2c6ee776f90eb61cde95a22e4",
+ "schedule": "与 E31–E33 相同（同 seed/同采样序）",
+ "pair_ratios": {
+  "same_gen": 111063,
+  "cross_gen": 15913,
+  "note": "跨 gen 正对仅来自 Mistral；阶段 B 主损失为同家族正对"
+ },
+ "stage": "B（固定主轴来源残差）",
+ "test_accessed": false,
+ "unseen_accessed": false,
+ "smoke": false
+}

@@ -1,0 +1,454 @@
+{
+ "commit": "48e607a6d5759ba8804703bfce9717ee5b03a583",
+ "smoke": false,
+ "test_accessed": false,
+ "B0": {
+  "BA_F": 0.5879,
+  "BA_G": 0.5855,
+  "per_family_recall": {
+   "OpenAI": 0.638,
+   "DeepSeek": 0.5804,
+   "Mistral": 0.512,
+   "Google": 0.6211
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.638
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5804
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.5419,
+    "mistralai/Devstral-Small-2505": 0.4632
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.6211
+   }
+  },
+  "converged": true
+ },
+ "E0": {
+  "BA_F": 0.5876,
+  "BA_G": 0.5853,
+  "per_family_recall": {
+   "OpenAI": 0.638,
+   "DeepSeek": 0.5754,
+   "Mistral": 0.516,
+   "Google": 0.6211
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.638
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5754
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.5452,
+    "mistralai/Devstral-Small-2505": 0.4684
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.6211
+   }
+  }
+ },
+ "E1": {
+  "BA_F": 0.5884,
+  "BA_G": 0.5859,
+  "per_family_recall": {
+   "OpenAI": 0.638,
+   "DeepSeek": 0.5804,
+   "Mistral": 0.514,
+   "Google": 0.6211
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.638
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5804
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.5452,
+    "mistralai/Devstral-Small-2505": 0.4632
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.6211
+   }
+  }
+ },
+ "E2": {
+  "BA_F": 0.5879,
+  "BA_G": 0.5855,
+  "per_family_recall": {
+   "OpenAI": 0.638,
+   "DeepSeek": 0.5804,
+   "Mistral": 0.512,
+   "Google": 0.6211
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.638
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5804
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.5419,
+    "mistralai/Devstral-Small-2505": 0.4632
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.6211
+   }
+  }
+ },
+ "E0g": {
+  "BA_F": 0.5832,
+  "BA_G": 0.5808,
+  "per_family_recall": {
+   "OpenAI": 0.632,
+   "DeepSeek": 0.5754,
+   "Mistral": 0.512,
+   "Google": 0.6133
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.632
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5754
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.5419,
+    "mistralai/Devstral-Small-2505": 0.4632
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.6133
+   }
+  }
+ },
+ "E1g": {
+  "BA_F": 0.5861,
+  "BA_G": 0.5842,
+  "per_family_recall": {
+   "OpenAI": 0.64,
+   "DeepSeek": 0.5729,
+   "Mistral": 0.522,
+   "Google": 0.6094
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.64
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5729
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.5452,
+    "mistralai/Devstral-Small-2505": 0.4842
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.6094
+   }
+  }
+ },
+ "deltas": {
+  "E1_minus_E0_BA_F": 0.0008,
+  "E1g_minus_E0g_BA_F": 0.0029,
+  "E1_minus_E0_BA_G": 0.0006,
+  "E1g_minus_E0g_BA_G": 0.0034,
+  "E0_minus_B0": -0.0003,
+  "E1_minus_B0": 0.0005,
+  "E0g_minus_B0": -0.0047,
+  "E1g_minus_B0": -0.0018
+ },
+ "literal_gate_engaged": true,
+ "primary_comparison": "E1-E0",
+ "trigger_stage_c": false,
+ "verdict": "判读基准=E1-E0（字面臂已点火）→ 无实用增量（不调 τ、不加几何变体；阶段 C 不启动）",
+ "gamma_track": {
+  "E0": [
+   0.00056,
+   0.00061
+  ],
+  "E1": [
+   -0.00011,
+   0.00024
+  ],
+  "E2": [
+   0.0,
+   0.0
+  ],
+  "E0g": [
+   0.04545,
+   0.04479
+  ],
+  "E1g": [
+   0.04472,
+   0.04254
+  ]
+ },
+ "engagement": {
+  "E0": {
+   "gamma_final": 0.00061,
+   "correction_norm_ratio": 0.01248
+  },
+  "E1": {
+   "gamma_final": 0.00024,
+   "correction_norm_ratio": 0.00095
+  },
+  "E2": {
+   "gamma_final": 0.0,
+   "correction_norm_ratio": 0.0
+  },
+  "E0g": {
+   "gamma_final": 0.04479,
+   "correction_norm_ratio": 0.05705
+  },
+  "E1g": {
+   "gamma_final": 0.04254,
+   "correction_norm_ratio": 0.03059
+  }
+ },
+ "param_drifts": {
+  "E0": {
+   "eta": 0.00605,
+   "U.weight": 7.31368,
+   "U.bias": 0.32582,
+   "V.weight": 7.50025,
+   "V.bias": 0.32933,
+   "WR.weight": 0.56131,
+   "WR.bias": 0.0203
+  },
+  "E1": {
+   "eta": 0.00245,
+   "U.weight": 4.57102,
+   "U.bias": 0.20463,
+   "V.weight": 4.79474,
+   "V.bias": 0.20389,
+   "WR.weight": 0.32881,
+   "WR.bias": 0.01388
+  },
+  "E2": {
+   "eta": 0.0,
+   "U.weight": 0.00022,
+   "U.bias": 0.0,
+   "V.weight": 1e-05,
+   "V.bias": 0.0,
+   "WR.weight": 2e-05,
+   "WR.bias": 0.0
+  },
+  "E0g": {
+   "eta": 0.01797,
+   "U.weight": 6.57228,
+   "U.bias": 0.35252,
+   "V.weight": 5.87926,
+   "V.bias": 0.21659,
+   "WR.weight": 0.26569,
+   "WR.bias": 0.01079
+  },
+  "E1g": {
+   "eta": 0.0457,
+   "U.weight": 4.09529,
+   "U.bias": 0.14167,
+   "V.weight": 4.62516,
+   "V.bias": 0.20119,
+   "WR.weight": 0.20679,
+   "WR.bias": 0.01257
+  }
+ },
+ "e2_audit": {
+  "logits_maxdiff_vs_B0": 0.0,
+  "BA_F_equal": true,
+  "gamma_frozen_zero": true
+ },
+ "det_auroc_frozen": 0.9731,
+ "batch_stats": {
+  "first_last": {
+   "E0": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 0.6077,
+     "lc": null,
+     "grad_norm": 0.0,
+     "gamma": 0.0
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.502,
+     "lc": null,
+     "grad_norm": 0.099,
+     "gamma": 0.00055
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 0.6202,
+     "lc": null,
+     "grad_norm": 0.005,
+     "gamma": 0.00056
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.5417,
+     "lc": null,
+     "grad_norm": 0.069,
+     "gamma": 0.00061
+    }
+   ],
+   "E1": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 0.6077,
+     "lc": 6.9156,
+     "grad_norm": 8.395,
+     "gamma": 0.0
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.5016,
+     "lc": 4.8342,
+     "grad_norm": 0.016,
+     "gamma": -0.0001
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 0.6203,
+     "lc": 4.8384,
+     "grad_norm": 0.009,
+     "gamma": -0.00011
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.5423,
+     "lc": 4.8325,
+     "grad_norm": 0.025,
+     "gamma": 0.00027
+    }
+   ],
+   "E2": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 0.6077,
+     "lc": null,
+     "grad_norm": 0.0,
+     "gamma": 0.0
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.5016,
+     "lc": null,
+     "grad_norm": 0.0,
+     "gamma": 0.0
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 0.6203,
+     "lc": null,
+     "grad_norm": 0.0,
+     "gamma": 0.0
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.5423,
+     "lc": null,
+     "grad_norm": 0.0,
+     "gamma": 0.0
+    }
+   ],
+   "E0g": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 0.6077,
+     "lc": null,
+     "grad_norm": 0.002,
+     "gamma": 0.04621
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.4988,
+     "lc": null,
+     "grad_norm": 0.023,
+     "gamma": 0.04547
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 0.6171,
+     "lc": null,
+     "grad_norm": 0.026,
+     "gamma": 0.04545
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.541,
+     "lc": null,
+     "grad_norm": 0.057,
+     "gamma": 0.04481
+    }
+   ],
+   "E1g": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 0.6077,
+     "lc": 6.7826,
+     "grad_norm": 8.361,
+     "gamma": 0.04621
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.5031,
+     "lc": 4.8314,
+     "grad_norm": 0.07,
+     "gamma": 0.04479
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 0.619,
+     "lc": 4.8369,
+     "grad_norm": 0.051,
+     "gamma": 0.04472
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.5429,
+     "lc": 4.8285,
+     "grad_norm": 0.051,
+     "gamma": 0.04258
+    }
+   ]
+  },
+  "pairs": {
+   "same_gen": 111063,
+   "cross_gen": 15913,
+   "batches": 64,
+   "redraw": 0,
+   "empty_P": 0
+  }
+ },
+ "e0_e1_param_diff": {
+  "U.weight": 0.066831,
+  "V.weight": 0.050343,
+  "WR.weight": 0.03888
+ },
+ "note": "主轴 ℓ_0 全程冻结；γ=0.1·tanh(η)。字面臂 η0=0；门控修正臂 E0g/E1g：W_R 零初始化+η0=0.5（初始贡献逐位为零且梯度全活）。E1 系 SupCon 作用于残差 r（τ=.1, λ_C=.1）。若字面臂未点火，阶段 B 判读以 E1g−E0g 为准。"
+}

@@ -1,0 +1,161 @@
+{
+ "raw_dim": 768,
+ "B0_reproducibility": {
+  "E31": 0.5879,
+  "E32": 0.5879,
+  "E33": 0.5879,
+  "this_run": 0.5879,
+  "note": "五模型子集上跨轮完全一致（收敛逻辑回归）"
+ },
+ "access_boundary": "E28–E33 均只读 b_train/b_val；test/unseen 未触碰（见各轮 manifest test_accessed=false）",
+ "dedup": "E31：子集 ids 精确重复 0/0（剔除清单空）；E26 近重复记录在案（Mistral-7B 同 gen 1 对）",
+ "encoder_overlap": "E31 §4：v0.4.1 训练数据=m4/hybrid/pairs/pairs_qwen15；Task B 抽样 4000 条解码 0 命中；使用 v0.4.1 权重（适配件未用）",
+ "generator_table": {
+  "01-ai/Yi-Coder-1.5B": {
+   "family": "01-ai",
+   "role": "base",
+   "size": "1.5B",
+   "n_train_val": 175
+  },
+  "01-ai/Yi-Coder-1.5B-Chat": {
+   "family": "01-ai",
+   "role": "chat",
+   "size": "1.5B",
+   "n_train_val": 1525
+  },
+  "GPT-4o": {
+   "family": "OpenAI",
+   "role": "closed",
+   "size": "≥100B",
+   "n_train_val": 1700
+  },
+  "Qwen/QwQ-32B": {
+   "family": "Qwen",
+   "role": "instruct-reasoning",
+   "size": "32B",
+   "n_train_val": 57
+  },
+  "Qwen/Qwen2.5-72B-Instruct": {
+   "family": "Qwen",
+   "role": "instruct",
+   "size": "72B",
+   "n_train_val": 289
+  },
+  "Qwen/Qwen2.5-Codder-14B-Instruct": {
+   "family": "Qwen",
+   "role": "instruct",
+   "size": "14B（名称拼写 Codder 为数据集原样）",
+   "n_train_val": 271
+  },
+  "Qwen/Qwen2.5-Coder-1.5B": {
+   "family": "Qwen",
+   "role": "base",
+   "size": "1.5B",
+   "n_train_val": 322
+  },
+  "Qwen/Qwen2.5-Coder-1.5B-Instruct": {
+   "family": "Qwen",
+   "role": "instruct",
+   "size": "1.5B",
+   "n_train_val": 761
+  },
+  "deepseek-ai/DeepSeek-R1": {
+   "family": "DeepSeek",
+   "role": "instruct-reasoning",
+   "size": "671B-MoE",
+   "n_train_val": 173
+  },
+  "deepseek-ai/DeepSeek-V3-0324": {
+   "family": "DeepSeek",
+   "role": "instruct",
+   "size": "671B-MoE",
+   "n_train_val": 1312
+  },
+  "deepseek-ai/deepseek-coder-1.3b-base": {
+   "family": "DeepSeek",
+   "role": "base",
+   "size": "1.3B",
+   "n_train_val": 215
+  },
+  "gemma-3-27b-it": {
+   "family": "Google",
+   "role": "instruct",
+   "size": "27B",
+   "n_train_val": 955
+  },
+  "gemma-3n-e4b-it": {
+   "family": "Google",
+   "role": "instruct",
+   "size": "~4B",
+   "n_train_val": 469
+  },
+  "google/codegemma-2b": {
+   "family": "Google",
+   "role": "base",
+   "size": "2B",
+   "n_train_val": 148
+  },
+  "ibm-granite/granite-3.2-2b-instruct": {
+   "family": "IBM",
+   "role": "instruct",
+   "size": "2B",
+   "n_train_val": 985
+  },
+  "ibm-granite/granite-3.3-8b-base": {
+   "family": "IBM",
+   "role": "base",
+   "size": "8B",
+   "n_train_val": 277
+  },
+  "ibm-granite/granite-3.3-8b-instruct": {
+   "family": "IBM",
+   "role": "instruct",
+   "size": "8B",
+   "n_train_val": 438
+  },
+  "meta-llama/Llama-3.1-8B": {
+   "family": "Meta",
+   "role": "base",
+   "size": "8B",
+   "n_train_val": 232
+  },
+  "meta-llama/Llama-3.1-8B-Instruct": {
+   "family": "Meta",
+   "role": "instruct",
+   "size": "8B",
+   "n_train_val": 807
+  },
+  "meta-llama/Llama-3.2-11B-Vision-Instruct": {
+   "family": "Meta",
+   "role": "instruct",
+   "size": "11B",
+   "n_train_val": 316
+  },
+  "meta-llama/Llama-3.2-1B": {
+   "family": "Meta",
+   "role": "base",
+   "size": "1B",
+   "n_train_val": 56
+  },
+  "meta-llama/Llama-3.2-3B": {
+   "family": "Meta",
+   "role": "base",
+   "size": "3B",
+   "n_train_val": 289
+  },
+  "mistralai/Devstral-Small-2505": {
+   "family": "Mistral",
+   "role": "instruct-agent",
+   "size": "24B",
+   "n_train_val": 662
+  },
+  "mistralai/Mistral-7B-Instruct-v0.3": {
+   "family": "Mistral",
+   "role": "instruct",
+   "size": "7B",
+   "n_train_val": 1038
+  }
+ },
+ "generator_table_note": "role/size 按模型名人工标注（closed=闭源）；Qwen2.5-Codder-14B-Instruct 为数据集内拼写",
+ "stage_a_exit": "可读性存在（B0 .5879）；可迁移性与混杂边界已在 E30/E31 记录"
+}
