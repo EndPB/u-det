@@ -108,3 +108,17 @@ OMP_NUM_THREADS=8 python scripts/flagship_e29a.py
   运行日志 `/tmp/ddet_e29a_full.log`。
 - 只读依赖：`runs/flagship_e28/features_train_val.npz`（train/val-only；md5 逐一校验通过）、
   b_train/b_val parquet；**未触碰** test/unseen 与 E25 features.npz。
+
+---
+
+## 7. 勘误与结论边界（2026-09-30，依据 `d-det_ACL核心假设与E30协议修正_2026-09-30.md` §1）
+
+1. **撤回**本报告 §0/§4 中"当前 family 信号主要是 generator/实验室记忆与分布混杂"的表述——
+   该归因超出证据。E29-A 协议存在两处缺陷：
+   a) OpenAI 只有一个 generator：留出它时训练集不含任何 OpenAI 样本，而该家族仍被计入闭集
+   family balanced accuracy（召回恒 0 拖低指标）；
+   b) 密度对照实现缺陷：缺失家族被赋予伪造的零均值/单位先验——密度结果不作为结论依据。
+2. 正确表述：E29-A 说明"随机切分下的家族信号中包含相当多 generator（含整实验室）级别的成分，
+   跨 generator 残留信号弱且不稳"；**E29-B 暂停是正确的实验纪律，但不是对流形或对比假设的证伪**。
+3. 修正协议（family-conditional 两折、七家族、固定 C=0.1、同本随机控制）的 H1 重检结果见
+   `docx/d-det-flagship-e30-report.md`：出口未通过——"当前协议下未观察到稳定跨 generator 家族信号"。

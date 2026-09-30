@@ -1,0 +1,726 @@
+{
+ "commit": "bd127250574df6075781638670a1d89c7203251a",
+ "smoke": false,
+ "test_accessed": false,
+ "chance": 0.1429,
+ "C_fixed": 0.1,
+ "families": [
+  "DeepSeek",
+  "Qwen",
+  "Meta",
+  "Mistral",
+  "IBM",
+  "01-ai",
+  "Google"
+ ],
+ "excluded": [
+  "OpenAI（单 generator，不进入 H1 归因折）"
+ ],
+ "splits": {
+  "fold0": {
+   "fold_generators": {
+    "DeepSeek": {
+     "val": [
+      "deepseek-ai/DeepSeek-R1"
+     ],
+     "train": [
+      "deepseek-ai/DeepSeek-V3-0324",
+      "deepseek-ai/deepseek-coder-1.3b-base"
+     ]
+    },
+    "Qwen": {
+     "val": [
+      "Qwen/QwQ-32B",
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct"
+     ],
+     "train": [
+      "Qwen/Qwen2.5-72B-Instruct",
+      "Qwen/Qwen2.5-Codder-14B-Instruct",
+      "Qwen/Qwen2.5-Coder-1.5B"
+     ]
+    },
+    "Meta": {
+     "val": [
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "meta-llama/Llama-3.2-1B"
+     ],
+     "train": [
+      "meta-llama/Llama-3.1-8B",
+      "meta-llama/Llama-3.2-11B-Vision-Instruct",
+      "meta-llama/Llama-3.2-3B"
+     ]
+    },
+    "Mistral": {
+     "val": [
+      "mistralai/Mistral-7B-Instruct-v0.3"
+     ],
+     "train": [
+      "mistralai/Devstral-Small-2505"
+     ]
+    },
+    "IBM": {
+     "val": [
+      "ibm-granite/granite-3.2-2b-instruct"
+     ],
+     "train": [
+      "ibm-granite/granite-3.3-8b-base",
+      "ibm-granite/granite-3.3-8b-instruct"
+     ]
+    },
+    "01-ai": {
+     "val": [
+      "01-ai/Yi-Coder-1.5B-Chat"
+     ],
+     "train": [
+      "01-ai/Yi-Coder-1.5B"
+     ]
+    },
+    "Google": {
+     "val": [
+      "gemma-3n-e4b-it"
+     ],
+     "train": [
+      "gemma-3-27b-it",
+      "google/codegemma-2b"
+     ]
+    }
+   },
+   "n_ai_train": 5901,
+   "n_ai_val": 5871,
+   "per_family_n_val": {
+    "DeepSeek": 173,
+    "Qwen": 818,
+    "Meta": 863,
+    "Mistral": 1038,
+    "IBM": 985,
+    "01-ai": 1525,
+    "Google": 469
+   },
+   "per_family_n_train": {
+    "DeepSeek": 1527,
+    "Qwen": 882,
+    "Meta": 837,
+    "Mistral": 662,
+    "IBM": 715,
+    "01-ai": 175,
+    "Google": 1103
+   }
+  },
+  "fold1": {
+   "fold_generators": {
+    "DeepSeek": {
+     "val": [
+      "deepseek-ai/DeepSeek-V3-0324",
+      "deepseek-ai/deepseek-coder-1.3b-base"
+     ],
+     "train": [
+      "deepseek-ai/DeepSeek-R1"
+     ]
+    },
+    "Qwen": {
+     "val": [
+      "Qwen/Qwen2.5-72B-Instruct",
+      "Qwen/Qwen2.5-Codder-14B-Instruct",
+      "Qwen/Qwen2.5-Coder-1.5B"
+     ],
+     "train": [
+      "Qwen/QwQ-32B",
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct"
+     ]
+    },
+    "Meta": {
+     "val": [
+      "meta-llama/Llama-3.1-8B",
+      "meta-llama/Llama-3.2-11B-Vision-Instruct",
+      "meta-llama/Llama-3.2-3B"
+     ],
+     "train": [
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "meta-llama/Llama-3.2-1B"
+     ]
+    },
+    "Mistral": {
+     "val": [
+      "mistralai/Devstral-Small-2505"
+     ],
+     "train": [
+      "mistralai/Mistral-7B-Instruct-v0.3"
+     ]
+    },
+    "IBM": {
+     "val": [
+      "ibm-granite/granite-3.3-8b-base",
+      "ibm-granite/granite-3.3-8b-instruct"
+     ],
+     "train": [
+      "ibm-granite/granite-3.2-2b-instruct"
+     ]
+    },
+    "01-ai": {
+     "val": [
+      "01-ai/Yi-Coder-1.5B"
+     ],
+     "train": [
+      "01-ai/Yi-Coder-1.5B-Chat"
+     ]
+    },
+    "Google": {
+     "val": [
+      "gemma-3-27b-it",
+      "google/codegemma-2b"
+     ],
+     "train": [
+      "gemma-3n-e4b-it"
+     ]
+    }
+   },
+   "n_ai_train": 5871,
+   "n_ai_val": 5901,
+   "per_family_n_val": {
+    "DeepSeek": 1527,
+    "Qwen": 882,
+    "Meta": 837,
+    "Mistral": 662,
+    "IBM": 715,
+    "01-ai": 175,
+    "Google": 1103
+   },
+   "per_family_n_train": {
+    "DeepSeek": 173,
+    "Qwen": 818,
+    "Meta": 863,
+    "Mistral": 1038,
+    "IBM": 985,
+    "01-ai": 1525,
+    "Google": 469
+   }
+  }
+ },
+ "arms": {
+  "R0_mraw": {
+   "gen": {
+    "fold0": {
+     "BA_F": 0.3316,
+     "BA_G": 0.3276,
+     "per_family_recall": {
+      "DeepSeek": 0.4162,
+      "Qwen": 0.4108,
+      "Meta": 0.2538,
+      "Mistral": 0.1108,
+      "IBM": 0.4365,
+      "01-ai": 0.0131,
+      "Google": 0.6802
+     },
+     "per_generator_recall": {
+      "DeepSeek": {
+       "deepseek-ai/DeepSeek-R1": 0.4162
+      },
+      "Qwen": {
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.4244,
+       "Qwen/QwQ-32B": 0.2281
+      },
+      "Meta": {
+       "meta-llama/Llama-3.1-8B-Instruct": 0.2454,
+       "meta-llama/Llama-3.2-1B": 0.375
+      },
+      "Mistral": {
+       "mistralai/Mistral-7B-Instruct-v0.3": 0.1108
+      },
+      "IBM": {
+       "ibm-granite/granite-3.2-2b-instruct": 0.4365
+      },
+      "01-ai": {
+       "01-ai/Yi-Coder-1.5B-Chat": 0.0131
+      },
+      "Google": {
+       "gemma-3n-e4b-it": 0.6802
+      }
+     },
+     "det_auroc": 0.9481,
+     "det_f1@.5": 0.8819,
+     "n_ai_train": 5901,
+     "n_ai_val": 5871,
+     "n_train_all": 10651,
+     "n_val_all": 10621
+    },
+    "fold1": {
+     "BA_F": 0.2402,
+     "BA_G": 0.2234,
+     "per_family_recall": {
+      "DeepSeek": 0.0406,
+      "Qwen": 0.1565,
+      "Meta": 0.2342,
+      "Mistral": 0.3127,
+      "IBM": 0.4587,
+      "01-ai": 0.1771,
+      "Google": 0.3019
+     },
+     "per_generator_recall": {
+      "DeepSeek": {
+       "deepseek-ai/DeepSeek-V3-0324": 0.0396,
+       "deepseek-ai/deepseek-coder-1.3b-base": 0.0465
+      },
+      "Qwen": {
+       "Qwen/Qwen2.5-72B-Instruct": 0.1315,
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 0.1439,
+       "Qwen/Qwen2.5-Coder-1.5B": 0.1894
+      },
+      "Meta": {
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 0.1297,
+       "meta-llama/Llama-3.2-3B": 0.2734,
+       "meta-llama/Llama-3.1-8B": 0.3276
+      },
+      "Mistral": {
+       "mistralai/Devstral-Small-2505": 0.3127
+      },
+      "IBM": {
+       "ibm-granite/granite-3.3-8b-instruct": 0.5205,
+       "ibm-granite/granite-3.3-8b-base": 0.361
+      },
+      "01-ai": {
+       "01-ai/Yi-Coder-1.5B": 0.1771
+      },
+      "Google": {
+       "gemma-3-27b-it": 0.3424,
+       "google/codegemma-2b": 0.0405
+      }
+     },
+     "det_auroc": 0.9419,
+     "det_f1@.5": 0.8673,
+     "n_ai_train": 5871,
+     "n_ai_val": 5901,
+     "n_train_all": 10621,
+     "n_val_all": 10651
+    }
+   },
+   "random": {
+    "fold0": {
+     "BA_F": 0.3869,
+     "BA_G": 0.3354,
+     "per_family_recall": {
+      "DeepSeek": 0.5434,
+      "Qwen": 0.3594,
+      "Meta": 0.3569,
+      "Mistral": 0.2081,
+      "IBM": 0.5381,
+      "01-ai": 0.101,
+      "Google": 0.6013
+     },
+     "per_generator_recall": {
+      "DeepSeek": {
+       "deepseek-ai/DeepSeek-V3-0324": 0.5915,
+       "deepseek-ai/DeepSeek-R1": 0.4615,
+       "deepseek-ai/deepseek-coder-1.3b-base": 0.2222
+      },
+      "Qwen": {
+       "Qwen/Qwen2.5-72B-Instruct": 0.36,
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.4514,
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 0.3,
+       "Qwen/QwQ-32B": 0.1,
+       "Qwen/Qwen2.5-Coder-1.5B": 0.2297
+      },
+      "Meta": {
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 0.1313,
+       "meta-llama/Llama-3.1-8B-Instruct": 0.359,
+       "meta-llama/Llama-3.1-8B": 0.5214,
+       "meta-llama/Llama-3.2-3B": 0.461,
+       "meta-llama/Llama-3.2-1B": 0.3529
+      },
+      "Mistral": {
+       "mistralai/Mistral-7B-Instruct-v0.3": 0.2345,
+       "mistralai/Devstral-Small-2505": 0.165
+      },
+      "IBM": {
+       "ibm-granite/granite-3.3-8b-instruct": 0.4943,
+       "ibm-granite/granite-3.2-2b-instruct": 0.585,
+       "ibm-granite/granite-3.3-8b-base": 0.4576
+      },
+      "01-ai": {
+       "01-ai/Yi-Coder-1.5B-Chat": 0.1121,
+       "01-ai/Yi-Coder-1.5B": 0.0063
+      },
+      "Google": {
+       "gemma-3-27b-it": 0.6162,
+       "google/codegemma-2b": 0.1132,
+       "gemma-3n-e4b-it": 0.7652
+      }
+     },
+     "det_auroc": 0.9527,
+     "det_f1@.5": 0.886,
+     "n_ai_train": 5901,
+     "n_ai_val": 5871,
+     "n_train_all": 10651,
+     "n_val_all": 10621
+    },
+    "fold1": {
+     "BA_F": 0.3803,
+     "BA_G": 0.3377,
+     "per_family_recall": {
+      "DeepSeek": 0.1546,
+      "Qwen": 0.2868,
+      "Meta": 0.2999,
+      "Mistral": 0.3746,
+      "IBM": 0.5455,
+      "01-ai": 0.5657,
+      "Google": 0.4352
+     },
+     "per_generator_recall": {
+      "DeepSeek": {
+       "deepseek-ai/DeepSeek-V3-0324": 0.1862,
+       "deepseek-ai/deepseek-coder-1.3b-base": 0.0258,
+       "deepseek-ai/DeepSeek-R1": 0.0764
+      },
+      "Qwen": {
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.3573,
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 0.255,
+       "Qwen/Qwen2.5-Coder-1.5B": 0.2059,
+       "Qwen/Qwen2.5-72B-Instruct": 0.2671,
+       "Qwen/QwQ-32B": 0.1111
+      },
+      "Meta": {
+       "meta-llama/Llama-3.1-8B-Instruct": 0.2795,
+       "meta-llama/Llama-3.2-3B": 0.4483,
+       "meta-llama/Llama-3.1-8B": 0.513,
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 0.0741,
+       "meta-llama/Llama-3.2-1B": 0.24
+      },
+      "Mistral": {
+       "mistralai/Mistral-7B-Instruct-v0.3": 0.4005,
+       "mistralai/Devstral-Small-2505": 0.337
+      },
+      "IBM": {
+       "ibm-granite/granite-3.3-8b-instruct": 0.5079,
+       "ibm-granite/granite-3.2-2b-instruct": 0.6288,
+       "ibm-granite/granite-3.3-8b-base": 0.3462
+      },
+      "01-ai": {
+       "01-ai/Yi-Coder-1.5B": 0.4,
+       "01-ai/Yi-Coder-1.5B-Chat": 0.5871
+      },
+      "Google": {
+       "gemma-3-27b-it": 0.3977,
+       "google/codegemma-2b": 0.0505,
+       "gemma-3n-e4b-it": 0.6344
+      }
+     },
+     "det_auroc": 0.9482,
+     "det_f1@.5": 0.8752,
+     "n_ai_train": 5871,
+     "n_ai_val": 5901,
+     "n_train_all": 10621,
+     "n_val_all": 10651
+    }
+   }
+  },
+  "R1_mu": {
+   "gen": {
+    "fold0": {
+     "BA_F": 0.3388,
+     "BA_G": 0.3324,
+     "per_family_recall": {
+      "DeepSeek": 0.4451,
+      "Qwen": 0.379,
+      "Meta": 0.2688,
+      "Mistral": 0.0886,
+      "IBM": 0.4741,
+      "01-ai": 0.0039,
+      "Google": 0.7122
+     },
+     "per_generator_recall": {
+      "DeepSeek": {
+       "deepseek-ai/DeepSeek-R1": 0.4451
+      },
+      "Qwen": {
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.3929,
+       "Qwen/QwQ-32B": 0.193
+      },
+      "Meta": {
+       "meta-llama/Llama-3.1-8B-Instruct": 0.2627,
+       "meta-llama/Llama-3.2-1B": 0.3571
+      },
+      "Mistral": {
+       "mistralai/Mistral-7B-Instruct-v0.3": 0.0886
+      },
+      "IBM": {
+       "ibm-granite/granite-3.2-2b-instruct": 0.4741
+      },
+      "01-ai": {
+       "01-ai/Yi-Coder-1.5B-Chat": 0.0039
+      },
+      "Google": {
+       "gemma-3n-e4b-it": 0.7122
+      }
+     },
+     "det_auroc": 0.955,
+     "det_f1@.5": 0.8858,
+     "n_ai_train": 5901,
+     "n_ai_val": 5871,
+     "n_train_all": 10651,
+     "n_val_all": 10621
+    },
+    "fold1": {
+     "BA_F": 0.243,
+     "BA_G": 0.2268,
+     "per_family_recall": {
+      "DeepSeek": 0.0334,
+      "Qwen": 0.1224,
+      "Meta": 0.2485,
+      "Mistral": 0.3142,
+      "IBM": 0.4783,
+      "01-ai": 0.2057,
+      "Google": 0.2983
+     },
+     "per_generator_recall": {
+      "DeepSeek": {
+       "deepseek-ai/DeepSeek-V3-0324": 0.0305,
+       "deepseek-ai/deepseek-coder-1.3b-base": 0.0512
+      },
+      "Qwen": {
+       "Qwen/Qwen2.5-72B-Instruct": 0.1107,
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 0.1144,
+       "Qwen/Qwen2.5-Coder-1.5B": 0.1398
+      },
+      "Meta": {
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 0.1171,
+       "meta-llama/Llama-3.2-3B": 0.2872,
+       "meta-llama/Llama-3.1-8B": 0.3793
+      },
+      "Mistral": {
+       "mistralai/Devstral-Small-2505": 0.3142
+      },
+      "IBM": {
+       "ibm-granite/granite-3.3-8b-instruct": 0.5297,
+       "ibm-granite/granite-3.3-8b-base": 0.3971
+      },
+      "01-ai": {
+       "01-ai/Yi-Coder-1.5B": 0.2057
+      },
+      "Google": {
+       "gemma-3-27b-it": 0.3414,
+       "google/codegemma-2b": 0.0203
+      }
+     },
+     "det_auroc": 0.9473,
+     "det_f1@.5": 0.8724,
+     "n_ai_train": 5871,
+     "n_ai_val": 5901,
+     "n_train_all": 10621,
+     "n_val_all": 10651
+    }
+   },
+   "random": {
+    "fold0": {
+     "BA_F": 0.3902,
+     "BA_G": 0.3439,
+     "per_family_recall": {
+      "DeepSeek": 0.6012,
+      "Qwen": 0.335,
+      "Meta": 0.3917,
+      "Mistral": 0.1541,
+      "IBM": 0.5706,
+      "01-ai": 0.0689,
+      "Google": 0.6098
+     },
+     "per_generator_recall": {
+      "DeepSeek": {
+       "deepseek-ai/DeepSeek-V3-0324": 0.6549,
+       "deepseek-ai/DeepSeek-R1": 0.4615,
+       "deepseek-ai/deepseek-coder-1.3b-base": 0.2778
+      },
+      "Qwen": {
+       "Qwen/Qwen2.5-72B-Instruct": 0.2267,
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.4486,
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 0.2667,
+       "Qwen/QwQ-32B": 0.1,
+       "Qwen/Qwen2.5-Coder-1.5B": 0.2635
+      },
+      "Meta": {
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 0.1313,
+       "meta-llama/Llama-3.1-8B-Instruct": 0.3542,
+       "meta-llama/Llama-3.1-8B": 0.6239,
+       "meta-llama/Llama-3.2-3B": 0.5714,
+       "meta-llama/Llama-3.2-1B": 0.5294
+      },
+      "Mistral": {
+       "mistralai/Mistral-7B-Instruct-v0.3": 0.177,
+       "mistralai/Devstral-Small-2505": 0.1168
+      },
+      "IBM": {
+       "ibm-granite/granite-3.3-8b-instruct": 0.5211,
+       "ibm-granite/granite-3.2-2b-instruct": 0.6216,
+       "ibm-granite/granite-3.3-8b-base": 0.4859
+      },
+      "01-ai": {
+       "01-ai/Yi-Coder-1.5B-Chat": 0.0762,
+       "01-ai/Yi-Coder-1.5B": 0.0063
+      },
+      "Google": {
+       "gemma-3-27b-it": 0.6162,
+       "google/codegemma-2b": 0.1132,
+       "gemma-3n-e4b-it": 0.7955
+      }
+     },
+     "det_auroc": 0.9554,
+     "det_f1@.5": 0.8865,
+     "n_ai_train": 5901,
+     "n_ai_val": 5871,
+     "n_train_all": 10651,
+     "n_val_all": 10621
+    },
+    "fold1": {
+     "BA_F": 0.3772,
+     "BA_G": 0.3502,
+     "per_family_recall": {
+      "DeepSeek": 0.1041,
+      "Qwen": 0.2188,
+      "Meta": 0.282,
+      "Mistral": 0.4215,
+      "IBM": 0.5958,
+      "01-ai": 0.6,
+      "Google": 0.418
+     },
+     "per_generator_recall": {
+      "DeepSeek": {
+       "deepseek-ai/DeepSeek-V3-0324": 0.1318,
+       "deepseek-ai/deepseek-coder-1.3b-base": 0.0103,
+       "deepseek-ai/DeepSeek-R1": 0.0127
+      },
+      "Qwen": {
+       "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.2693,
+       "Qwen/Qwen2.5-Codder-14B-Instruct": 0.1678,
+       "Qwen/Qwen2.5-Coder-1.5B": 0.1706,
+       "Qwen/Qwen2.5-72B-Instruct": 0.2112,
+       "Qwen/QwQ-32B": 0.1481
+      },
+      "Meta": {
+       "meta-llama/Llama-3.1-8B-Instruct": 0.2333,
+       "meta-llama/Llama-3.2-3B": 0.469,
+       "meta-llama/Llama-3.1-8B": 0.513,
+       "meta-llama/Llama-3.2-11B-Vision-Instruct": 0.0617,
+       "meta-llama/Llama-3.2-1B": 0.32
+      },
+      "Mistral": {
+       "mistralai/Mistral-7B-Instruct-v0.3": 0.4515,
+       "mistralai/Devstral-Small-2505": 0.3778
+      },
+      "IBM": {
+       "ibm-granite/granite-3.3-8b-instruct": 0.5397,
+       "ibm-granite/granite-3.2-2b-instruct": 0.6742,
+       "ibm-granite/granite-3.3-8b-base": 0.4385
+      },
+      "01-ai": {
+       "01-ai/Yi-Coder-1.5B": 0.55,
+       "01-ai/Yi-Coder-1.5B-Chat": 0.6065
+      },
+      "Google": {
+       "gemma-3-27b-it": 0.3801,
+       "google/codegemma-2b": 0.0303,
+       "gemma-3n-e4b-it": 0.6188
+      }
+     },
+     "det_auroc": 0.9514,
+     "det_f1@.5": 0.8772,
+     "n_ai_train": 5871,
+     "n_ai_val": 5901,
+     "n_train_all": 10621,
+     "n_val_all": 10651
+    }
+   }
+  }
+ },
+ "density": {
+  "R0_mraw": {
+   "gen": {
+    "fold0": {
+     "BA_F": 0.2066,
+     "BA_G": 0.2106,
+     "missing_classes": []
+    },
+    "fold1": {
+     "BA_F": 0.2162,
+     "BA_G": 0.2106,
+     "missing_classes": []
+    }
+   },
+   "random": {
+    "fold0": {
+     "BA_F": 0.2301,
+     "BA_G": 0.2337,
+     "missing_classes": []
+    },
+    "fold1": {
+     "BA_F": 0.2179,
+     "BA_G": 0.2157,
+     "missing_classes": []
+    }
+   }
+  },
+  "R1_mu": {
+   "gen": {
+    "fold0": {
+     "BA_F": 0.2534,
+     "BA_G": 0.2377,
+     "missing_classes": []
+    },
+    "fold1": {
+     "BA_F": 0.2052,
+     "BA_G": 0.2001,
+     "missing_classes": []
+    }
+   },
+   "random": {
+    "fold0": {
+     "BA_F": 0.2613,
+     "BA_G": 0.2436,
+     "missing_classes": []
+    },
+    "fold1": {
+     "BA_F": 0.2516,
+     "BA_G": 0.2446,
+     "missing_classes": []
+    }
+   }
+  }
+ },
+ "exit": {
+  "rule": "BA_F 与 BA_G 在 R0、R1 上都 > 随机控制且两折方向一致",
+  "checks": {
+   "R0_mraw": {
+    "BA_F": {
+     "diff_fold0": -0.0553,
+     "diff_fold1": -0.1401,
+     "pass": false
+    },
+    "BA_G": {
+     "diff_fold0": -0.0078,
+     "diff_fold1": -0.1143,
+     "pass": false
+    }
+   },
+   "R1_mu": {
+    "BA_F": {
+     "diff_fold0": -0.0514,
+     "diff_fold1": -0.1342,
+     "pass": false
+    },
+    "BA_G": {
+     "diff_fold0": -0.0115,
+     "diff_fold1": -0.1234,
+     "pass": false
+    }
+   }
+  },
+  "det_gen_minus_random": {
+   "R0_mraw": {
+    "fold0": -0.0046,
+    "fold1": -0.0063
+   },
+   "R1_mu": {
+    "fold0": -0.0004,
+    "fold1": -0.0041
+   }
+  },
+  "passed": false,
+  "conclusion": "当前协议下未观察到稳定跨 generator 家族信号"
+ }
+}

@@ -1,0 +1,183 @@
+{
+ "commit": "bd127250574df6075781638670a1d89c7203251a",
+ "smoke": false,
+ "features_source": "/root/autodl-tmp/u-det/d-det/runs/flagship_e28/features_train_val.npz",
+ "features_sha256": "d83f63f6bb83c591f7eb846012cf8f2e5eb9240e03f604e4d1ea30b93399e36b",
+ "input_manifest_sha256": "3befd8ab4f667c79829ca35360f8433ee2863821f581ea86a4af46086c280dcd",
+ "families_closed_set": [
+  "DeepSeek",
+  "Qwen",
+  "Meta",
+  "Mistral",
+  "IBM",
+  "01-ai",
+  "Google"
+ ],
+ "excluded_families": [
+  "OpenAI（单 generator）"
+ ],
+ "family_generator_counts": {
+  "DeepSeek": 3,
+  "Qwen": 5,
+  "Meta": 5,
+  "Mistral": 2,
+  "IBM": 3,
+  "01-ai": 2,
+  "Google": 3
+ },
+ "fold_generators": {
+  "fold0": {
+   "DeepSeek": {
+    "val": [
+     "deepseek-ai/DeepSeek-R1"
+    ],
+    "train": [
+     "deepseek-ai/DeepSeek-V3-0324",
+     "deepseek-ai/deepseek-coder-1.3b-base"
+    ]
+   },
+   "Qwen": {
+    "val": [
+     "Qwen/QwQ-32B",
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct"
+    ],
+    "train": [
+     "Qwen/Qwen2.5-72B-Instruct",
+     "Qwen/Qwen2.5-Codder-14B-Instruct",
+     "Qwen/Qwen2.5-Coder-1.5B"
+    ]
+   },
+   "Meta": {
+    "val": [
+     "meta-llama/Llama-3.1-8B-Instruct",
+     "meta-llama/Llama-3.2-1B"
+    ],
+    "train": [
+     "meta-llama/Llama-3.1-8B",
+     "meta-llama/Llama-3.2-11B-Vision-Instruct",
+     "meta-llama/Llama-3.2-3B"
+    ]
+   },
+   "Mistral": {
+    "val": [
+     "mistralai/Mistral-7B-Instruct-v0.3"
+    ],
+    "train": [
+     "mistralai/Devstral-Small-2505"
+    ]
+   },
+   "IBM": {
+    "val": [
+     "ibm-granite/granite-3.2-2b-instruct"
+    ],
+    "train": [
+     "ibm-granite/granite-3.3-8b-base",
+     "ibm-granite/granite-3.3-8b-instruct"
+    ]
+   },
+   "01-ai": {
+    "val": [
+     "01-ai/Yi-Coder-1.5B-Chat"
+    ],
+    "train": [
+     "01-ai/Yi-Coder-1.5B"
+    ]
+   },
+   "Google": {
+    "val": [
+     "gemma-3n-e4b-it"
+    ],
+    "train": [
+     "gemma-3-27b-it",
+     "google/codegemma-2b"
+    ]
+   }
+  },
+  "fold1": {
+   "DeepSeek": {
+    "val": [
+     "deepseek-ai/DeepSeek-V3-0324",
+     "deepseek-ai/deepseek-coder-1.3b-base"
+    ],
+    "train": [
+     "deepseek-ai/DeepSeek-R1"
+    ]
+   },
+   "Qwen": {
+    "val": [
+     "Qwen/Qwen2.5-72B-Instruct",
+     "Qwen/Qwen2.5-Codder-14B-Instruct",
+     "Qwen/Qwen2.5-Coder-1.5B"
+    ],
+    "train": [
+     "Qwen/QwQ-32B",
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct"
+    ]
+   },
+   "Meta": {
+    "val": [
+     "meta-llama/Llama-3.1-8B",
+     "meta-llama/Llama-3.2-11B-Vision-Instruct",
+     "meta-llama/Llama-3.2-3B"
+    ],
+    "train": [
+     "meta-llama/Llama-3.1-8B-Instruct",
+     "meta-llama/Llama-3.2-1B"
+    ]
+   },
+   "Mistral": {
+    "val": [
+     "mistralai/Devstral-Small-2505"
+    ],
+    "train": [
+     "mistralai/Mistral-7B-Instruct-v0.3"
+    ]
+   },
+   "IBM": {
+    "val": [
+     "ibm-granite/granite-3.3-8b-base",
+     "ibm-granite/granite-3.3-8b-instruct"
+    ],
+    "train": [
+     "ibm-granite/granite-3.2-2b-instruct"
+    ]
+   },
+   "01-ai": {
+    "val": [
+     "01-ai/Yi-Coder-1.5B"
+    ],
+    "train": [
+     "01-ai/Yi-Coder-1.5B-Chat"
+    ]
+   },
+   "Google": {
+    "val": [
+     "gemma-3-27b-it",
+     "google/codegemma-2b"
+    ],
+    "train": [
+     "gemma-3n-e4b-it"
+    ]
+   }
+  }
+ },
+ "counts": {
+  "n": 22972,
+  "ai7": 11772,
+  "human": 9500
+ },
+ "dims": {
+  "R0": 768,
+  "R1": 768
+ },
+ "C_fixed": 0.1,
+ "LAM": 20,
+ "chance": 0.14285714285714285,
+ "seed": {
+  "family_gen_shuffle": "1000+family_idx",
+  "human": 1,
+  "random_ctrl": "200+10*fold+family_idx"
+ },
+ "test_accessed": false,
+ "unseen_accessed": false
+}

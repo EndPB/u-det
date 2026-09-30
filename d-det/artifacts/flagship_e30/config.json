@@ -1,0 +1,23 @@
+{
+ "args": {
+  "smoke": false,
+  "max_len": 2048,
+  "train_human": 8000,
+  "train_fam": 1200,
+  "val_human": 1500,
+  "val_fam": 500,
+  "unseen_cap": 600,
+  "enc_bs": 32,
+  "batch": 64
+ },
+ "C_fixed": 0.1,
+ "STD_FLOOR": 0.01,
+ "LAM": 20,
+ "protocol": "family-conditional 两折（每家族两侧均有 generator；2→1/1、3→1/2、5→2/3）",
+ "representations": {
+  "R0_mraw": "主",
+  "R1_mu": "次要；使用 E24 监督头得到，不能宣称完整 pipeline 的新 generator 泛化"
+ },
+ "exit_rule": "BA_F 与 BA_G 在 R0、R1 上都 > 随机控制且两折方向一致",
+ "commit": "bd127250574df6075781638670a1d89c7203251a"
+}

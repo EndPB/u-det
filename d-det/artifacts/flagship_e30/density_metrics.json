@@ -1,0 +1,58 @@
+{
+ "LAM": 20,
+ "note": "诊断用（缺失类 −∞、方差下限 1e-8）；不参与 H1 出口",
+ "results": {
+  "R0_mraw": {
+   "gen": {
+    "fold0": {
+     "BA_F": 0.2066,
+     "BA_G": 0.2106,
+     "missing_classes": []
+    },
+    "fold1": {
+     "BA_F": 0.2162,
+     "BA_G": 0.2106,
+     "missing_classes": []
+    }
+   },
+   "random": {
+    "fold0": {
+     "BA_F": 0.2301,
+     "BA_G": 0.2337,
+     "missing_classes": []
+    },
+    "fold1": {
+     "BA_F": 0.2179,
+     "BA_G": 0.2157,
+     "missing_classes": []
+    }
+   }
+  },
+  "R1_mu": {
+   "gen": {
+    "fold0": {
+     "BA_F": 0.2534,
+     "BA_G": 0.2377,
+     "missing_classes": []
+    },
+    "fold1": {
+     "BA_F": 0.2052,
+     "BA_G": 0.2001,
+     "missing_classes": []
+    }
+   },
+   "random": {
+    "fold0": {
+     "BA_F": 0.2613,
+     "BA_G": 0.2436,
+     "missing_classes": []
+    },
+    "fold1": {
+     "BA_F": 0.2516,
+     "BA_G": 0.2446,
+     "missing_classes": []
+    }
+   }
+  }
+ }
+}
