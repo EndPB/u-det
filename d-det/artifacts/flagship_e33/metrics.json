@@ -1,0 +1,234 @@
+{
+ "commit": "5942364473aeb7fcebbe5db90ffbce7e7413b886",
+ "smoke": false,
+ "test_accessed": false,
+ "B0": {
+  "BA_F": 0.5879,
+  "BA_G": 0.5855,
+  "per_family_recall": {
+   "OpenAI": 0.638,
+   "DeepSeek": 0.5804,
+   "Mistral": 0.512,
+   "Google": 0.6211
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.638
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5804
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.5419,
+    "mistralai/Devstral-Small-2505": 0.4632
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.6211
+   }
+  },
+  "converged": true,
+  "n_iter": 348
+ },
+ "D0": {
+  "BA_F": 0.4895,
+  "BA_G": 0.4868,
+  "per_family_recall": {
+   "OpenAI": 0.482,
+   "DeepSeek": 0.4899,
+   "Mistral": 0.572,
+   "Google": 0.4141
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.482
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.4899
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.6065,
+    "mistralai/Devstral-Small-2505": 0.5158
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.4141
+   }
+  }
+ },
+ "D1": {
+  "BA_F": 0.4914,
+  "BA_G": 0.4888,
+  "per_family_recall": {
+   "OpenAI": 0.46,
+   "DeepSeek": 0.5276,
+   "Mistral": 0.552,
+   "Google": 0.4258
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.46
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5276
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.5839,
+    "mistralai/Devstral-Small-2505": 0.5
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.4258
+   }
+  }
+ },
+ "D2": {
+  "BA_F": 0.5255,
+  "BA_G": 0.5264,
+  "per_family_recall": {
+   "OpenAI": 0.606,
+   "DeepSeek": 0.5327,
+   "Mistral": 0.44,
+   "Google": 0.5234
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.606
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5327
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.429,
+    "mistralai/Devstral-Small-2505": 0.4579
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.5234
+   }
+  }
+ },
+ "deltas": {
+  "D1_minus_D0_BA_F": 0.0019,
+  "D1_minus_D0_BA_G": 0.002,
+  "D2_vs_E32C2_BA_F": 0.0,
+  "D2_vs_E32C2_BA_G": 0.0,
+  "D0_minus_B0_BA_F": -0.0984
+ },
+ "flags": {
+  "rule1_warmstart_contrast_candidate": false,
+  "rule2_no_practical_increment": false,
+  "rule3_warmstart_below_b0": true,
+  "rule4_redistribution_mistral": false
+ },
+ "verdict": "③暖启动实现疑似问题：先查标准化/类别序/W_0 转置/logits（停止解释）",
+ "warmstart_logits_maxdiff": 0.5850622057914734,
+ "det_auroc_frozen": 0.9731,
+ "batch_stats": {
+  "first_last": {
+   "D0": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 0.6078,
+     "lc": null,
+     "grad_norm": 3.964
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.9036,
+     "lc": null,
+     "grad_norm": 8.013
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 0.9175,
+     "lc": null,
+     "grad_norm": 6.562
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.9373,
+     "lc": null,
+     "grad_norm": 5.986
+    }
+   ],
+   "D1": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 0.6078,
+     "lc": 8.2321,
+     "grad_norm": 3.966
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.9117,
+     "lc": 8.0261,
+     "grad_norm": 8.028
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 0.9243,
+     "lc": 7.7983,
+     "grad_norm": 6.632
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.8974,
+     "lc": 7.8889,
+     "grad_norm": 5.523
+    }
+   ],
+   "D2": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 1.9674,
+     "lc": 8.2332,
+     "grad_norm": 4.711
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.9828,
+     "lc": 7.3873,
+     "grad_norm": 4.913
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 1.0759,
+     "lc": 7.2562,
+     "grad_norm": 3.78
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.9487,
+     "lc": 5.8475,
+     "grad_norm": 3.865
+    }
+   ]
+  },
+  "pairs": {
+   "same_gen": 111063,
+   "cross_gen": 15913,
+   "batches": 64,
+   "redraw": 0,
+   "empty_P": 0
+  }
+ },
+ "d0_d1_param_diff": {
+  "U.weight": 0.006040732376277447,
+  "V.weight": 0.015557203441858292,
+  "WF.weight": 0.0006957352161407471
+ },
+ "mistral_recall": {
+  "D0": 0.572,
+  "D1": 0.552
+ },
+ "note": "D0/D1 共享初始状态；D2 复现 E32 随机初始化臂（仅参照）；C0w（E32）无来源对比项，不作为 H2 结果"
+}

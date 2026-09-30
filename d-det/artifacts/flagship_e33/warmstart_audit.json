@@ -1,0 +1,99 @@
+{
+ "check1_mapping": {
+  "classes_": [
+   0,
+   1,
+   2,
+   3
+  ],
+  "coef_shape": [
+   4,
+   768
+  ],
+  "logits_maxdiff_manual_vs_sklearn": 0.0
+ },
+ "check2_init_eval": {
+  "logits_vs_b0_maxdiff": 0.5850622057914734,
+  "init_BA_F": 0.5891,
+  "u_vs_a_rel_fro": 0.01859344355762005
+ },
+ "check3_frozen_uv_variant": {
+  "BA_F": 0.5851,
+  "recall": [
+   0.608,
+   0.5854,
+   0.518,
+   0.6289
+  ],
+  "traj": [
+   {
+    "epoch": 0,
+    "step": 0,
+    "ce": 0.6078
+   },
+   {
+    "epoch": 0,
+    "step": 31,
+    "ce": 0.5345
+   },
+   {
+    "epoch": 1,
+    "step": 0,
+    "ce": 0.6429
+   },
+   {
+    "epoch": 1,
+    "step": 31,
+    "ce": 0.5389
+   }
+  ],
+  "drift": {
+   "U.weight": 0.0,
+   "U.bias": 0.0,
+   "V.weight": 0.0,
+   "V.bias": 0.0,
+   "WF.weight_vs_W0": 0.22282586991786957
+  },
+  "frozen_uv": true
+ },
+ "check4_full_d0_variant": {
+  "BA_F": 0.4895,
+  "recall": [
+   0.482,
+   0.4899,
+   0.572,
+   0.4141
+  ],
+  "traj": [
+   {
+    "epoch": 0,
+    "step": 0,
+    "ce": 0.6078
+   },
+   {
+    "epoch": 0,
+    "step": 31,
+    "ce": 0.9036
+   },
+   {
+    "epoch": 1,
+    "step": 0,
+    "ce": 0.9175
+   },
+   {
+    "epoch": 1,
+    "step": 31,
+    "ce": 0.9373
+   }
+  ],
+  "drift": {
+   "U.weight": 3.78902530670166,
+   "U.bias": 0.48481878638267517,
+   "V.weight": 1.2216867208480835,
+   "V.bias": 0.06938935816287994,
+   "WF.weight_vs_W0": 0.23775388300418854
+  },
+  "frozen_uv": false
+ },
+ "note": "诊断用途；冻结 U,V 变体用于隔离表示漂移与头训练；两者均与 E33 同批序/同预算/同优化器。"
+}

@@ -1,0 +1,55 @@
+{
+ "commit": "5942364473aeb7fcebbe5db90ffbce7e7413b886",
+ "whitelist": [
+  "GPT-4o",
+  "DeepSeek-V3-0324",
+  "Mistral-7B-Instruct-v0.3",
+  "Devstral-Small-2505",
+  "gemma-3-27b-it"
+ ],
+ "families": [
+  "OpenAI",
+  "DeepSeek",
+  "Mistral",
+  "Google"
+ ],
+ "family_generators": {
+  "OpenAI": [
+   "GPT-4o"
+  ],
+  "DeepSeek": [
+   "deepseek-ai/DeepSeek-V3-0324"
+  ],
+  "Mistral": [
+   "mistralai/Devstral-Small-2505",
+   "mistralai/Mistral-7B-Instruct-v0.3"
+  ],
+  "Google": [
+   "gemma-3-27b-it"
+  ]
+ },
+ "counts": {
+  "ai_train": 4013,
+  "ai_val": 1654,
+  "human_train": 8000,
+  "human_val": 1500,
+  "generator_train_counts": {
+   "GPT-4o": 1200,
+   "deepseek-ai/DeepSeek-V3-0324": 914,
+   "mistralai/Mistral-7B-Instruct-v0.3": 728,
+   "mistralai/Devstral-Small-2505": 472,
+   "gemma-3-27b-it": 699
+  }
+ },
+ "features_sha256": "d83f63f6bb83c591f7eb846012cf8f2e5eb9240e03f604e4d1ea30b93399e36b",
+ "encoder_sha256": "e7e6565c676f906336e58af96b3640c2f3ec5df2c6ee776f90eb61cde95a22e4",
+ "pair_ratios": {
+  "same_gen": 111063,
+  "cross_gen": 15913,
+  "note": "跨 gen 正对仅来自 Mistral；D1 若收益只能称强模型集合上的来源聚合候选"
+ },
+ "schedule": "与 E31/E32 相同（同 seed/同采样序）",
+ "test_accessed": false,
+ "unseen_accessed": false,
+ "smoke": false
+}
