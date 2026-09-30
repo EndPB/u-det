@@ -1,0 +1,16 @@
+{
+ "commit": "82e3bd9c2d829f665425ea0b5eea1a0907f63bfd",
+ "C_fixed": 0.1,
+ "batch": 128,
+ "lr": 0.001,
+ "wd": 0.0001,
+ "tau": 0.1,
+ "lambda_C": 0.1,
+ "epochs": 2,
+ "seed": 0,
+ "clip": 1,
+ "std_floor": 0.01,
+ "sampling": "族均匀→generator 均匀→样本；每族≥2 distinct",
+ "mlp": "u=ã+V·GELU(Uã+b1)+b2; h=u/max(||u||,1e-6); U Xavier, V std=1e-3, bias 0; W_F Xavier",
+ "verdict_rule": "B2>B1(≥1pt) 且 B2>B0 → H2 候选；B1/B2>B0 无增量 → 容量；否则负结果（预声明）"
+}

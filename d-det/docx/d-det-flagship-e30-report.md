@@ -115,3 +115,20 @@ OMP_NUM_THREADS=8 python scripts/flagship_e30.py           # ~0.6 min；默认�
   预测文件含每预测 row_id/family/generator/language/length/split/classes_。
 - 只读依赖：b_train/b_val parquet 与 `runs/flagship_e28/features_train_val.npz`（md5 校验通过）；
   **未触碰** test/unseen 与 E25 features.npz。
+
+---
+
+## 7. 出口解释勘误（2026-09-30 晚，依据 `d-det_E31核心假设修订与最小对比实验_2026-09-30.md` §1；原始产物与历史数字不变）
+
+1. **撤销**本报告使用的"留出（generator-held-out）分数必须超过随机切分才能启动方法实验"出口
+   规则——该规则混淆了"**能否迁移**"与"**迁移是否无损**"；随机切分是迁移损失的参照，不是机会
+   水平。历史 `passed=false` 保留，不重新宣称旧预注册出口通过；仅新增解释规则版本。
+2. 正确判读：**存在高于机会水平（1/7≈.1429）的描述性跨 generator 可分性，且存在明显
+   迁移损失与 generator 异质性；稳定性与混杂仍待检验。**（取消"未观察到稳定信号"式的单边措辞。）
+3. 合并互补两折全部留出预测重算（各家族/generator 权重不同 ⇒ 合并值≠两折平均）：
+   raw **BA_F=.24026 / BA_G=.25168**（服务器端已从 `predictions.npz` 独立复核，数值一致）；
+   mu BA_F=.23983 / BA_G=.25394（指导端计算值）。
+4. 对角高斯失败**不能**证明"信息必在跨维协方差中"。
+5. 所有读出依赖经监督微调的 v1.0 编码器：**"raw"不是"未经目标监督的表示"**（编码器训练数据与
+   Task B 的重叠核实见 E31 报告 §4：配置级无 SemEval、内容级抽样 0 命中；判别性仍来自 u-det
+   内部监督，边界声明保留）。

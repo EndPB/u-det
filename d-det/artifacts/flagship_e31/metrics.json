@@ -1,0 +1,252 @@
+{
+ "commit": "82e3bd9c2d829f665425ea0b5eea1a0907f63bfd",
+ "smoke": false,
+ "test_accessed": false,
+ "chance": 0.25,
+ "C_fixed": 0.1,
+ "N_ai_train": 4013,
+ "steps_per_epoch": 32,
+ "B0": {
+  "BA_F": 0.5879,
+  "BA_G": 0.5855,
+  "per_family_recall": {
+   "OpenAI": 0.638,
+   "DeepSeek": 0.5804,
+   "Mistral": 0.512,
+   "Google": 0.6211
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.638
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5804
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.5419,
+    "mistralai/Devstral-Small-2505": 0.4632
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.6211
+   }
+  },
+  "converged": true,
+  "n_iter": 348
+ },
+ "B1": {
+  "BA_F": 0.5265,
+  "BA_G": 0.526,
+  "per_family_recall": {
+   "OpenAI": 0.548,
+   "DeepSeek": 0.5101,
+   "Mistral": 0.47,
+   "Google": 0.5781
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.548
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5101
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.4774,
+    "mistralai/Devstral-Small-2505": 0.4579
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.5781
+   }
+  }
+ },
+ "B2": {
+  "BA_F": 0.5276,
+  "BA_G": 0.5268,
+  "per_family_recall": {
+   "OpenAI": 0.54,
+   "DeepSeek": 0.5126,
+   "Mistral": 0.468,
+   "Google": 0.5898
+  },
+  "per_generator_recall": {
+   "OpenAI": {
+    "GPT-4o": 0.54
+   },
+   "DeepSeek": {
+    "deepseek-ai/DeepSeek-V3-0324": 0.5126
+   },
+   "Mistral": {
+    "mistralai/Mistral-7B-Instruct-v0.3": 0.4774,
+    "mistralai/Devstral-Small-2505": 0.4526
+   },
+   "Google": {
+    "gemma-3-27b-it": 0.5898
+   }
+  }
+ },
+ "B2_minus_B1": 0.0011,
+ "B2_minus_B0": -0.0603,
+ "B1_minus_B0": -0.0614,
+ "verdict": "负结果（B2 无增益；不增加多个损失解释失败）",
+ "det_auroc_frozen": 0.9731,
+ "batch_stats": {
+  "first_last": {
+   "B1": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 1.3846,
+     "lc": 8.2329,
+     "grad_norm": 0.105
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 0.9697,
+     "lc": 7.0327,
+     "grad_norm": 0.289
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 1.1129,
+     "lc": 8.03,
+     "grad_norm": 0.32
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.9067,
+     "lc": 7.1258,
+     "grad_norm": 0.295
+    }
+   ],
+   "B2": [
+    {
+     "epoch": 0,
+     "step": 0,
+     "ce": 1.3846,
+     "lc": 8.2329,
+     "grad_norm": 0.154
+    },
+    {
+     "epoch": 0,
+     "step": 31,
+     "ce": 1.0982,
+     "lc": 4.8495,
+     "grad_norm": 0.202
+    },
+    {
+     "epoch": 1,
+     "step": 0,
+     "ce": 1.1613,
+     "lc": 5.2083,
+     "grad_norm": 0.232
+    },
+    {
+     "epoch": 1,
+     "step": 31,
+     "ce": 0.9625,
+     "lc": 4.9139,
+     "grad_norm": 0.268
+    }
+   ]
+  },
+  "pairs": {
+   "same_gen": 111063,
+   "cross_gen": 15913,
+   "batches": 64,
+   "redraw": 0,
+   "empty_P": 0
+  }
+ },
+ "mlp_B1_B2_diff": {
+  "U.weight": 0.05720670148730278,
+  "V.weight": 0.05445226654410362,
+  "WF.weight": 0.03225050866603851
+ },
+ "buckets": {
+  "lang:C": {
+   "n": 120,
+   "B0": 0.5096,
+   "B1": 0.419,
+   "B2": 0.4344
+  },
+  "lang:C#": {
+   "n": 246,
+   "B0": 0.5848,
+   "B1": 0.4786,
+   "B2": 0.4751
+  },
+  "lang:C++": {
+   "n": 131,
+   "B0": 0.6328,
+   "B1": 0.5643,
+   "B2": 0.5774
+  },
+  "lang:Go": {
+   "n": 102,
+   "B0": 0.4807,
+   "B1": 0.4409,
+   "B2": 0.4239
+  },
+  "lang:Java": {
+   "n": 415,
+   "B0": 0.6051,
+   "B1": 0.5374,
+   "B2": 0.5366
+  },
+  "lang:JavaScript": {
+   "n": 242,
+   "B0": 0.4811,
+   "B1": 0.441,
+   "B2": 0.4471
+  },
+  "lang:PHP": {
+   "n": 56,
+   "B0": 0.5541,
+   "B1": 0.5675,
+   "B2": 0.5706
+  },
+  "lang:Python": {
+   "n": 342,
+   "B0": 0.6648,
+   "B1": 0.6194,
+   "B2": 0.6253
+  },
+  "len:8-128": {
+   "n": 253,
+   "B0": 0.5849,
+   "B1": 0.4771,
+   "B2": 0.5023
+  },
+  "len:129-256": {
+   "n": 374,
+   "B0": 0.595,
+   "B1": 0.5221,
+   "B2": 0.517
+  },
+  "len:257-512": {
+   "n": 529,
+   "B0": 0.537,
+   "B1": 0.509,
+   "B2": 0.51
+  },
+  "len:513-1024": {
+   "n": 498,
+   "B0": 0.4936,
+   "B1": 0.4444,
+   "B2": 0.4466
+  }
+ },
+ "dedup": {
+  "dup_train_groups": 0,
+  "train_val_cross": 0,
+  "exclusion_list": [],
+  "note": "不删除样本；近重复沿用 E26（子集相关：Mistral-7B 同 gen 1 对）"
+ },
+ "encoder_overlap_check": {
+  "config_level": "v0.4.1 训练数据仅 m4/hybrid/pairs/pairs_qwen15（无 SemEval）",
+  "sample_level": "Task B train/val 抽样 4000 条解码 vs 内部 31978 码：精确归一化 0、标识符集合 0 命中",
+  "weights_used": "v0.4.1（SemEval 适配微调检查点未被使用）"
+ }
+}
