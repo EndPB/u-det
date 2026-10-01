@@ -1,0 +1,5 @@
+# H2 data is content-addressed text; prevent Windows CRLF conversion.
+d-det/data/h2_droid_subset/*.jsonl -text
+d-det/data/h2_droid_subset/*.json -text
+d-det/data/h2_droid_subset/*.txt text eol=lf
+d-det/data/h2_droid_subset/*.md text eol=lf
