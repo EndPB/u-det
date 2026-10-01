@@ -6,6 +6,7 @@ __pycache__/
 .venv/
 
 # 大文件：数据与权重（用 scripts/prepare.py 重新下载，不入库）
+datasets/
 data/raw/
 data/processed/
 checkpoints/

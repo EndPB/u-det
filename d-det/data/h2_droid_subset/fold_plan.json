@@ -1,0 +1,165 @@
+{
+  "source_revision": "9a42843be99456a3af70d2b9c9a53a4d7624598f",
+  "input": "core.jsonl",
+  "folds": {
+    "fold_0": {
+      "qwen": {
+        "heldout_generators": [
+          "Qwen/Qwen2.5-72B-Instruct",
+          "Qwen/Qwen2.5-Coder-1.5B",
+          "Qwen/Qwen2.5-Coder-32B-Instruct",
+          "Qwen/Qwen2.5-Coder-7B-Instruct"
+        ],
+        "train_generators": [
+          "Qwen/Qwen2.5-Codder-14B-Instruct",
+          "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+          "Qwen/Qwen2.5-Coder-7B"
+        ]
+      },
+      "meta-llama": {
+        "heldout_generators": [
+          "meta-llama/Llama-3.1-8B",
+          "meta-llama/Llama-3.2-1B",
+          "meta-llama/Llama-3.3-70B-Instruct"
+        ],
+        "train_generators": [
+          "meta-llama/Llama-3.1-8B-Instruct",
+          "meta-llama/Llama-3.2-3B",
+          "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+        ]
+      },
+      "microsoft": {
+        "heldout_generators": [
+          "microsoft/Phi-3-medium-4k-instruct",
+          "microsoft/Phi-3-small-8k-instruct",
+          "microsoft/phi-2"
+        ],
+        "train_generators": [
+          "microsoft/Phi-3-mini-4k-instruct",
+          "microsoft/Phi-3.5-mini-instruct",
+          "microsoft/phi-4"
+        ]
+      },
+      "01-ai": {
+        "heldout_generators": [
+          "01-ai/Yi-Coder-1.5B",
+          "01-ai/Yi-Coder-9B"
+        ],
+        "train_generators": [
+          "01-ai/Yi-Coder-1.5B-Chat",
+          "01-ai/Yi-Coder-9B-Chat"
+        ]
+      },
+      "codellama": {
+        "heldout_generators": [
+          "codellama/CodeLlama-34b-Instruct-hf",
+          "codellama/CodeLlama-7b-hf"
+        ],
+        "train_generators": [
+          "codellama/CodeLlama-70b-Instruct-hf"
+        ]
+      },
+      "deepseek-ai": {
+        "heldout_generators": [
+          "deepseek-ai/deepseek-coder-1.3b-base",
+          "deepseek-ai/deepseek-coder-6.7b-base"
+        ],
+        "train_generators": [
+          "deepseek-ai/deepseek-coder-1.3b-instruct",
+          "deepseek-ai/deepseek-coder-6.7b-instruct"
+        ]
+      },
+      "ibm-granite": {
+        "heldout_generators": [
+          "ibm-granite/granite-8b-code-base-4k"
+        ],
+        "train_generators": [
+          "ibm-granite/granite-8b-code-instruct-4k"
+        ]
+      }
+    },
+    "fold_1": {
+      "qwen": {
+        "heldout_generators": [
+          "Qwen/Qwen2.5-Codder-14B-Instruct",
+          "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+          "Qwen/Qwen2.5-Coder-7B"
+        ],
+        "train_generators": [
+          "Qwen/Qwen2.5-72B-Instruct",
+          "Qwen/Qwen2.5-Coder-1.5B",
+          "Qwen/Qwen2.5-Coder-32B-Instruct",
+          "Qwen/Qwen2.5-Coder-7B-Instruct"
+        ]
+      },
+      "meta-llama": {
+        "heldout_generators": [
+          "meta-llama/Llama-3.1-8B-Instruct",
+          "meta-llama/Llama-3.2-3B",
+          "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+        ],
+        "train_generators": [
+          "meta-llama/Llama-3.1-8B",
+          "meta-llama/Llama-3.2-1B",
+          "meta-llama/Llama-3.3-70B-Instruct"
+        ]
+      },
+      "microsoft": {
+        "heldout_generators": [
+          "microsoft/Phi-3-mini-4k-instruct",
+          "microsoft/Phi-3.5-mini-instruct",
+          "microsoft/phi-4"
+        ],
+        "train_generators": [
+          "microsoft/Phi-3-medium-4k-instruct",
+          "microsoft/Phi-3-small-8k-instruct",
+          "microsoft/phi-2"
+        ]
+      },
+      "01-ai": {
+        "heldout_generators": [
+          "01-ai/Yi-Coder-1.5B-Chat",
+          "01-ai/Yi-Coder-9B-Chat"
+        ],
+        "train_generators": [
+          "01-ai/Yi-Coder-1.5B",
+          "01-ai/Yi-Coder-9B"
+        ]
+      },
+      "codellama": {
+        "heldout_generators": [
+          "codellama/CodeLlama-70b-Instruct-hf"
+        ],
+        "train_generators": [
+          "codellama/CodeLlama-34b-Instruct-hf",
+          "codellama/CodeLlama-7b-hf"
+        ]
+      },
+      "deepseek-ai": {
+        "heldout_generators": [
+          "deepseek-ai/deepseek-coder-1.3b-instruct",
+          "deepseek-ai/deepseek-coder-6.7b-instruct"
+        ],
+        "train_generators": [
+          "deepseek-ai/deepseek-coder-1.3b-base",
+          "deepseek-ai/deepseek-coder-6.7b-base"
+        ]
+      },
+      "ibm-granite": {
+        "heldout_generators": [
+          "ibm-granite/granite-8b-code-instruct-4k"
+        ],
+        "train_generators": [
+          "ibm-granite/granite-8b-code-base-4k"
+        ]
+      }
+    }
+  },
+  "assignment_rules": {
+    "train": "Label=MACHINE_GENERATED, split_source=train, Generator in train_generators; include HUMAN_GENERATED with split_source=train as controls.",
+    "validation": "Label=MACHINE_GENERATED, split_source=dev, Generator in train_generators; include HUMAN_GENERATED with split_source=dev as controls.",
+    "heldout_test": "Label=MACHINE_GENERATED, split_source=test, Generator in heldout_generators; include HUMAN_GENERATED with split_source=test as controls.",
+    "diagnostic": "Use diagnostic_hybrid_adversarial.jsonl separately; never mix into primary H2 training or scoring."
+  },
+  "warning": "DroidCollection exposes no public task_id/prompt_id. This is a generator-heldout candidate, but same-task pairing and exact task-balanced evaluation require a separate task-aware dataset or metadata."
+}
