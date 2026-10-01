@@ -1,6 +1,7 @@
 # d-det · H2 报告 E36：DroidCollection 子集 generator-held-out 候选实验
 
 > 执行规范：`docx/d-det_H2_DroidCollection_DeepSeek执行指导_2026-10-01.md`（交接说明）。
+> 收尾规范：`docx/d-det_E36后续指导_最终审计与H2收尾_2026-10-01.md`。
 > 产物：`artifacts/h2_droid_e36/{audit,config,manifest,metrics}.json + predictions.npz + solver.log + repro_compare.json`；
 > **manifest commit=83fad1c（修正后复现基线；与原 2cc9695 产物逐项一致，见 repro_compare.json）**；特征缓存在 `runs/h2_droid_e36/`（不入库）；脚本 `scripts/h2_droid_e36.py`。
 
@@ -61,11 +62,11 @@
 | Qwen2.5-Coder-1.5B | .217 | .174 | .163 | Yi-Coder-1.5B | .083 | .083 | .083 |
 | Qwen2.5-Coder-7B-Instruct | .133 | .133 | .128 | Yi-Coder-9B-Chat | .078 | .078 | .078 |
 | Qwen2.5-Coder-32B-Instruct | .068 | .055 | .055 | Yi-Coder-1.5B-Chat | .071 | .071 | .079 |
-| Qwen2.5-Coder-1.5B-Instruct | .333 | .328 | .311 | CodeLlama-34b-Instruct | .151 | .166 | .158 |
-| Qwen2.5-Coder-7B | .160 | .153 | .153 | CodeLlama-7b | .000 | .000 | .000 |
-| Qwen2.5-Codder-14B-Instruct | .618 | .579 | .579 | CodeLlama-70b-Instruct | .096 | .103 | .116 |
+| Qwen2.5-Coder-1.5B-Instruct | .333 | .328 | .311 | CodeLlama-34b-Instruct-hf | .151 | .166 | .158 |
+| Qwen2.5-Coder-7B | .160 | .153 | .153 | CodeLlama-7b-hf | .000 | .000 | .000 |
+| Qwen2.5-Codder-14B-Instruct | .618 | .579 | .579 | CodeLlama-70b-Instruct-hf | .096 | .103 | .116 |
 | Llama-3.3-70B-Instruct | .189 | .161 | .161 | deepseek-coder-6.7b-base | .089 | .089 | .089 |
-| Llama-3.1-8B | .413 | .413 | .400 | deepseek-coder-1.3b-base | .115 | .115 | .115 |
+| Llama-3.1-8B | .412 | .412 | .400 | deepseek-coder-1.3b-base | .115 | .115 | .115 |
 | Llama-3.2-1B | .350 | .350 | .350 | deepseek-coder-6.7b-instruct | .122 | .122 | .122 |
 | Llama-3.3-70B-Instruct-Turbo | .198 | .177 | .198 | deepseek-coder-1.3b-instruct | .130 | .130 | .130 |
 | Llama-3.2-3B | .264 | .292 | .264 | granite-8b-code-base-4k | .133 | .125 | .125 |
@@ -140,4 +141,4 @@ OMP_NUM_THREADS=8 python scripts/h2_droid_e36.py \
 
 复现核验：`repro_compare.json` — 主指标（两折+pooled B0/F0/F1、anchor、det、exit）逐项一致；`predictions.npz` 逐位一致；`usage` 新增 2 个声明字段（设计内）；随机参照按指导修正后仅该参照项变化（.2927→.3005、.3090→.2966），不影响 H2 结论口径。
 
-依赖：`data/h2_droid_subset/`（SHA256SUMS 校验通过）、`runs/v0.4.1_covreg/last.pt`、`runs/flagship_r1/head.pt`、`runs/flagship_e27/model_state.pt`、`checkpoints/codet5-base`。产物 7 件在 `artifacts/h2_droid_e36/`；特征缓存约 57MB 留在 `runs/`（不入库）。
+依赖：`data/h2_droid_subset/`（SHA256SUMS 校验通过）、`runs/v0.4.1_covreg/last.pt`、`runs/flagship_r1/head.pt`、`runs/flagship_e27/model_state.pt`、`checkpoints/codet5-base`。**正式产物 8 件**在 `artifacts/h2_droid_e36/`（含 `repro_compare.json` 与 `report.md` 副本）；特征缓存约 57MB 留在 `runs/`（不入库）。
