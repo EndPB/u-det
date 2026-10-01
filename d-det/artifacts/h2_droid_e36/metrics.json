@@ -1,0 +1,1405 @@
+{
+ "commit": "ac127444e6e83c4281e324cb10c8d3444f1f85c3",
+ "smoke": false,
+ "data": {
+  "source_revision": "9a42843be99456a3af70d2b9c9a53a4d7624598f",
+  "core_sha256": "57371a1f64fab92bd854d85648928f685022cc5c7b0c11bc5afb6dd9e6b3c84d",
+  "fold_plan_sha256": "e1b3d131f1ca17c2ab83d10608cc4cdeb78087ab7d7c333e36d0e6b66f85350b"
+ },
+ "protocol": "fold_plan.json 两折；B0 加权 LR（C=.1，w=N/(K|G_f|N_g)）冻结；残差=阶段 B 修正门控；F0=L_F，F1=L_F+0.1·L_cross（τ=.1，同家族不同 generator 正对）；批 7×18；2ep；AdamW 1e-3/wd 1e-4",
+ "usage": {
+  "test_used_for_final_eval_only": true,
+  "diagnostic_used": false,
+  "diagnostic_counted_in_audit": true
+ },
+ "folds": {
+  "fold_0": {
+   "n_machine": {
+    "train": 2700,
+    "dev": 2588,
+    "test": 1606
+   },
+   "n_human": {
+    "train": 1260,
+    "dev": 1260,
+    "test": 1260
+   },
+   "b0_converged": true,
+   "B0": {
+    "BA_F": 0.1608,
+    "BA_G": 0.1578,
+    "per_family_recall": {
+     "qwen": 0.142,
+     "meta-llama": 0.2643,
+     "microsoft": 0.2166,
+     "01-ai": 0.141,
+     "codellama": 0.1338,
+     "deepseek-ai": 0.0952,
+     "ibm-granite": 0.1328
+    },
+    "per_generator_recall": {
+     "qwen": {
+      "Qwen/Qwen2.5-72B-Instruct": 0.2209,
+      "Qwen/Qwen2.5-Coder-1.5B": 0.2174,
+      "Qwen/Qwen2.5-Coder-7B-Instruct": 0.1333,
+      "Qwen/Qwen2.5-Coder-32B-Instruct": 0.0675
+     },
+     "meta-llama": {
+      "meta-llama/Llama-3.3-70B-Instruct": 0.1889,
+      "meta-llama/Llama-3.1-8B": 0.4125,
+      "meta-llama/Llama-3.2-1B": 0.35
+     },
+     "microsoft": {
+      "microsoft/Phi-3-medium-4k-instruct": 0.203,
+      "microsoft/Phi-3-small-8k-instruct": 0.3182,
+      "microsoft/phi-2": 0.0556
+     },
+     "01-ai": {
+      "01-ai/Yi-Coder-9B": 0.1667,
+      "01-ai/Yi-Coder-1.5B": 0.0833
+     },
+     "codellama": {
+      "codellama/CodeLlama-34b-Instruct-hf": 0.1511,
+      "codellama/CodeLlama-7b-hf": 0.0
+     },
+     "deepseek-ai": {
+      "deepseek-ai/deepseek-coder-6.7b-base": 0.0886,
+      "deepseek-ai/deepseek-coder-1.3b-base": 0.1154
+     },
+     "ibm-granite": {
+      "ibm-granite/granite-8b-code-base-4k": 0.1328
+     }
+    },
+    "language": {
+     "C": {
+      "n": 21,
+      "BA_F": 0.4295
+     },
+     "C#": {
+      "n": 110,
+      "BA_F": 0.2184
+     },
+     "C++": {
+      "n": 207,
+      "BA_F": 0.1011
+     },
+     "Go": {
+      "n": 45,
+      "BA_F": 0.0962
+     },
+     "Java": {
+      "n": 242,
+      "BA_F": 0.1594
+     },
+     "JavaScript": {
+      "n": 128,
+      "BA_F": 0.1632
+     },
+     "Python": {
+      "n": 853,
+      "BA_F": 0.1731
+     }
+    },
+    "generation_mode": {
+     "COMPLETE": {
+      "n": 593,
+      "BA_F": 0.1489
+     },
+     "INSTRUCT": {
+      "n": 1013,
+      "BA_F": 0.1816
+     }
+    },
+    "source_top": {
+     "ARXIV": {
+      "n": 2,
+      "BA_F": 0.0
+     },
+     "ATCODER": {
+      "n": 20,
+      "BA_F": 0.2778
+     },
+     "CODEFORCES": {
+      "n": 110,
+      "BA_F": 0.0849
+     },
+     "LEETCODE": {
+      "n": 235,
+      "BA_F": 0.106
+     },
+     "STARCODER_DATA": {
+      "n": 428,
+      "BA_F": 0.1763
+     },
+     "TACO": {
+      "n": 673,
+      "BA_F": 0.1853
+     },
+     "THEVAULT_INLINE": {
+      "n": 138,
+      "BA_F": 0.1429
+     }
+    },
+    "char_len_bucket": {
+     "0-128": {
+      "n": 67,
+      "BA_F": 0.1694
+     },
+     "1025-1000000000": {
+      "n": 493,
+      "BA_F": 0.1378
+     },
+     "129-256": {
+      "n": 152,
+      "BA_F": 0.1808
+     },
+     "257-512": {
+      "n": 356,
+      "BA_F": 0.1809
+     },
+     "513-1024": {
+      "n": 538,
+      "BA_F": 0.1726
+     }
+    }
+   },
+   "F0": {
+    "BA_F": 0.1571,
+    "BA_G": 0.1543,
+    "per_family_recall": {
+     "qwen": 0.1267,
+     "meta-llama": 0.2464,
+     "microsoft": 0.2315,
+     "01-ai": 0.1282,
+     "codellama": 0.1465,
+     "deepseek-ai": 0.0952,
+     "ibm-granite": 0.125
+    },
+    "per_generator_recall": {
+     "qwen": {
+      "Qwen/Qwen2.5-72B-Instruct": 0.1977,
+      "Qwen/Qwen2.5-Coder-1.5B": 0.1739,
+      "Qwen/Qwen2.5-Coder-7B-Instruct": 0.1333,
+      "Qwen/Qwen2.5-Coder-32B-Instruct": 0.0552
+     },
+     "meta-llama": {
+      "meta-llama/Llama-3.3-70B-Instruct": 0.1611,
+      "meta-llama/Llama-3.1-8B": 0.4125,
+      "meta-llama/Llama-3.2-1B": 0.35
+     },
+     "microsoft": {
+      "microsoft/Phi-3-medium-4k-instruct": 0.218,
+      "microsoft/Phi-3-small-8k-instruct": 0.3333,
+      "microsoft/phi-2": 0.0694
+     },
+     "01-ai": {
+      "01-ai/Yi-Coder-9B": 0.1481,
+      "01-ai/Yi-Coder-1.5B": 0.0833
+     },
+     "codellama": {
+      "codellama/CodeLlama-34b-Instruct-hf": 0.1655,
+      "codellama/CodeLlama-7b-hf": 0.0
+     },
+     "deepseek-ai": {
+      "deepseek-ai/deepseek-coder-6.7b-base": 0.0886,
+      "deepseek-ai/deepseek-coder-1.3b-base": 0.1154
+     },
+     "ibm-granite": {
+      "ibm-granite/granite-8b-code-base-4k": 0.125
+     }
+    },
+    "language": {
+     "C": {
+      "n": 21,
+      "BA_F": 0.4295
+     },
+     "C#": {
+      "n": 110,
+      "BA_F": 0.2129
+     },
+     "C++": {
+      "n": 207,
+      "BA_F": 0.0976
+     },
+     "Go": {
+      "n": 45,
+      "BA_F": 0.105
+     },
+     "Java": {
+      "n": 242,
+      "BA_F": 0.1713
+     },
+     "JavaScript": {
+      "n": 128,
+      "BA_F": 0.1476
+     },
+     "Python": {
+      "n": 853,
+      "BA_F": 0.1683
+     }
+    },
+    "generation_mode": {
+     "COMPLETE": {
+      "n": 593,
+      "BA_F": 0.1417
+     },
+     "INSTRUCT": {
+      "n": 1013,
+      "BA_F": 0.1797
+     }
+    },
+    "source_top": {
+     "ARXIV": {
+      "n": 2,
+      "BA_F": 0.0
+     },
+     "ATCODER": {
+      "n": 20,
+      "BA_F": 0.2778
+     },
+     "CODEFORCES": {
+      "n": 110,
+      "BA_F": 0.0687
+     },
+     "LEETCODE": {
+      "n": 235,
+      "BA_F": 0.1097
+     },
+     "STARCODER_DATA": {
+      "n": 428,
+      "BA_F": 0.1715
+     },
+     "TACO": {
+      "n": 673,
+      "BA_F": 0.1823
+     },
+     "THEVAULT_INLINE": {
+      "n": 138,
+      "BA_F": 0.1315
+     }
+    },
+    "char_len_bucket": {
+     "0-128": {
+      "n": 67,
+      "BA_F": 0.1694
+     },
+     "1025-1000000000": {
+      "n": 493,
+      "BA_F": 0.1327
+     },
+     "129-256": {
+      "n": 152,
+      "BA_F": 0.2012
+     },
+     "257-512": {
+      "n": 356,
+      "BA_F": 0.1843
+     },
+     "513-1024": {
+      "n": 538,
+      "BA_F": 0.1515
+     }
+    }
+   },
+   "F1": {
+    "BA_F": 0.1585,
+    "BA_G": 0.1549,
+    "per_family_recall": {
+     "qwen": 0.1209,
+     "meta-llama": 0.2429,
+     "microsoft": 0.2315,
+     "01-ai": 0.1538,
+     "codellama": 0.1401,
+     "deepseek-ai": 0.0952,
+     "ibm-granite": 0.125
+    },
+    "per_generator_recall": {
+     "qwen": {
+      "Qwen/Qwen2.5-72B-Instruct": 0.186,
+      "Qwen/Qwen2.5-Coder-1.5B": 0.163,
+      "Qwen/Qwen2.5-Coder-7B-Instruct": 0.1278,
+      "Qwen/Qwen2.5-Coder-32B-Instruct": 0.0552
+     },
+     "meta-llama": {
+      "meta-llama/Llama-3.3-70B-Instruct": 0.1611,
+      "meta-llama/Llama-3.1-8B": 0.4,
+      "meta-llama/Llama-3.2-1B": 0.35
+     },
+     "microsoft": {
+      "microsoft/Phi-3-medium-4k-instruct": 0.218,
+      "microsoft/Phi-3-small-8k-instruct": 0.3333,
+      "microsoft/phi-2": 0.0694
+     },
+     "01-ai": {
+      "01-ai/Yi-Coder-9B": 0.1852,
+      "01-ai/Yi-Coder-1.5B": 0.0833
+     },
+     "codellama": {
+      "codellama/CodeLlama-34b-Instruct-hf": 0.1583,
+      "codellama/CodeLlama-7b-hf": 0.0
+     },
+     "deepseek-ai": {
+      "deepseek-ai/deepseek-coder-6.7b-base": 0.0886,
+      "deepseek-ai/deepseek-coder-1.3b-base": 0.1154
+     },
+     "ibm-granite": {
+      "ibm-granite/granite-8b-code-base-4k": 0.125
+     }
+    },
+    "language": {
+     "C": {
+      "n": 21,
+      "BA_F": 0.4295
+     },
+     "C#": {
+      "n": 110,
+      "BA_F": 0.2152
+     },
+     "C++": {
+      "n": 207,
+      "BA_F": 0.0931
+     },
+     "Go": {
+      "n": 45,
+      "BA_F": 0.1129
+     },
+     "Java": {
+      "n": 242,
+      "BA_F": 0.1541
+     },
+     "JavaScript": {
+      "n": 128,
+      "BA_F": 0.1396
+     },
+     "Python": {
+      "n": 853,
+      "BA_F": 0.1748
+     }
+    },
+    "generation_mode": {
+     "COMPLETE": {
+      "n": 593,
+      "BA_F": 0.1424
+     },
+     "INSTRUCT": {
+      "n": 1013,
+      "BA_F": 0.1767
+     }
+    },
+    "source_top": {
+     "ARXIV": {
+      "n": 2,
+      "BA_F": 0.0
+     },
+     "ATCODER": {
+      "n": 20,
+      "BA_F": 0.2778
+     },
+     "CODEFORCES": {
+      "n": 110,
+      "BA_F": 0.0726
+     },
+     "LEETCODE": {
+      "n": 235,
+      "BA_F": 0.1043
+     },
+     "STARCODER_DATA": {
+      "n": 428,
+      "BA_F": 0.1722
+     },
+     "TACO": {
+      "n": 673,
+      "BA_F": 0.1871
+     },
+     "THEVAULT_INLINE": {
+      "n": 138,
+      "BA_F": 0.1368
+     }
+    },
+    "char_len_bucket": {
+     "0-128": {
+      "n": 67,
+      "BA_F": 0.1694
+     },
+     "1025-1000000000": {
+      "n": 493,
+      "BA_F": 0.1319
+     },
+     "129-256": {
+      "n": 152,
+      "BA_F": 0.2012
+     },
+     "257-512": {
+      "n": 356,
+      "BA_F": 0.1792
+     },
+     "513-1024": {
+      "n": 538,
+      "BA_F": 0.165
+     }
+    }
+   },
+   "deltas": {
+    "F1_minus_F0_BA_F": 0.0014,
+    "F1_minus_F0_BA_G": 0.0006
+   },
+   "det_auroc": {
+    "test": 0.9269,
+    "dev": 0.9361
+   },
+   "det_f1_macro@.5_test": 0.8409,
+   "anchor": {
+    "total": 5544,
+    "valid": 3960,
+    "per_family": {
+     "qwen": {
+      "total": 792,
+      "valid": 792,
+      "ratio": 1.0
+     },
+     "meta-llama": {
+      "total": 792,
+      "valid": 792,
+      "ratio": 1.0
+     },
+     "microsoft": {
+      "total": 792,
+      "valid": 792,
+      "ratio": 1.0
+     },
+     "01-ai": {
+      "total": 792,
+      "valid": 792,
+      "ratio": 1.0
+     },
+     "codellama": {
+      "total": 792,
+      "valid": 0,
+      "ratio": 0.0
+     },
+     "deepseek-ai": {
+      "total": 792,
+      "valid": 792,
+      "ratio": 1.0
+     },
+     "ibm-granite": {
+      "total": 792,
+      "valid": 0,
+      "ratio": 0.0
+     }
+    },
+    "overall_ratio": 0.7143
+   },
+   "engagement": {
+    "F0": {
+     "gamma_final": 0.04497,
+     "correction_norm_ratio": 0.03538
+    },
+    "F1": {
+     "gamma_final": 0.04389,
+     "correction_norm_ratio": 0.03514
+    }
+   },
+   "param_drift": {
+    "F0": {
+     "U.weight": 28.178,
+     "V.weight": 4.9452,
+     "WR.weight": 0.3732
+    },
+    "F1": {
+     "U.weight": 28.1872,
+     "V.weight": 4.6794,
+     "WR.weight": 0.2794
+    }
+   },
+   "batch_stats": {
+    "first_last": {
+     "F0": [
+      {
+       "epoch": 0,
+       "step": 0,
+       "ce": 0.8278,
+       "lc": null,
+       "grad_norm": 0.002,
+       "gamma": 0.04621
+      },
+      {
+       "epoch": 0,
+       "step": 21,
+       "ce": 0.8476,
+       "lc": null,
+       "grad_norm": 0.033,
+       "gamma": 0.0457
+      },
+      {
+       "epoch": 1,
+       "step": 0,
+       "ce": 0.8619,
+       "lc": null,
+       "grad_norm": 0.033,
+       "gamma": 0.04567
+      },
+      {
+       "epoch": 1,
+       "step": 21,
+       "ce": 0.8219,
+       "lc": null,
+       "grad_norm": 0.054,
+       "gamma": 0.04501
+      }
+     ],
+     "F1": [
+      {
+       "epoch": 0,
+       "step": 0,
+       "ce": 0.8278,
+       "lc": 6.671,
+       "grad_norm": 8.392,
+       "gamma": 0.04621
+      },
+      {
+       "epoch": 0,
+       "step": 21,
+       "ce": 0.8484,
+       "lc": 4.828,
+       "grad_norm": 0.062,
+       "gamma": 0.04537
+      },
+      {
+       "epoch": 1,
+       "step": 0,
+       "ce": 0.8632,
+       "lc": 4.829,
+       "grad_norm": 0.087,
+       "gamma": 0.04532
+      },
+      {
+       "epoch": 1,
+       "step": 21,
+       "ce": 0.8213,
+       "lc": 4.8227,
+       "grad_norm": 0.073,
+       "gamma": 0.04395
+      }
+     ]
+    },
+    "redraw": 0
+   },
+   "gamma_track": {
+    "F0": [
+     0.04567,
+     0.04497
+    ],
+    "F1": [
+     0.04532,
+     0.04389
+    ]
+   },
+   "init_maxdiff": 0.0,
+   "random_ref": {
+    "BA_F": 0.2927,
+    "BA_G": 0.2944,
+    "note": "同本随机控制（主轴，仅参照，不入出口）"
+   }
+  },
+  "fold_1": {
+   "n_machine": {
+    "train": 3060,
+    "dev": 2533,
+    "test": 1733
+   },
+   "n_human": {
+    "train": 1260,
+    "dev": 1260,
+    "test": 1260
+   },
+   "b0_converged": true,
+   "B0": {
+    "BA_F": 0.1661,
+    "BA_G": 0.1722,
+    "per_family_recall": {
+     "qwen": 0.3307,
+     "meta-llama": 0.1667,
+     "microsoft": 0.2939,
+     "01-ai": 0.075,
+     "codellama": 0.0959,
+     "deepseek-ai": 0.1233,
+     "ibm-granite": 0.0769
+    },
+    "per_generator_recall": {
+     "qwen": {
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.3333,
+      "Qwen/Qwen2.5-Coder-7B": 0.1603,
+      "Qwen/Qwen2.5-Codder-14B-Instruct": 0.6184
+     },
+     "meta-llama": {
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo": 0.1979,
+      "meta-llama/Llama-3.2-3B": 0.2639,
+      "meta-llama/Llama-3.1-8B-Instruct": 0.1111
+     },
+     "microsoft": {
+      "microsoft/Phi-3-mini-4k-instruct": 0.3226,
+      "microsoft/Phi-3.5-mini-instruct": 0.3389,
+      "microsoft/phi-4": 0.1486
+     },
+     "01-ai": {
+      "01-ai/Yi-Coder-9B-Chat": 0.0778,
+      "01-ai/Yi-Coder-1.5B-Chat": 0.0714
+     },
+     "codellama": {
+      "codellama/CodeLlama-70b-Instruct-hf": 0.0959
+     },
+     "deepseek-ai": {
+      "deepseek-ai/deepseek-coder-6.7b-instruct": 0.122,
+      "deepseek-ai/deepseek-coder-1.3b-instruct": 0.1304
+     },
+     "ibm-granite": {
+      "ibm-granite/granite-8b-code-instruct-4k": 0.0769
+     }
+    },
+    "language": {
+     "C": {
+      "n": 41,
+      "BA_F": 0.1917
+     },
+     "C#": {
+      "n": 128,
+      "BA_F": 0.181
+     },
+     "C++": {
+      "n": 230,
+      "BA_F": 0.1303
+     },
+     "Go": {
+      "n": 52,
+      "BA_F": 0.0968
+     },
+     "Java": {
+      "n": 339,
+      "BA_F": 0.1796
+     },
+     "JavaScript": {
+      "n": 201,
+      "BA_F": 0.1756
+     },
+     "Python": {
+      "n": 742,
+      "BA_F": 0.1645
+     }
+    },
+    "generation_mode": {
+     "COMPLETE": {
+      "n": 203,
+      "BA_F": 0.2121
+     },
+     "INSTRUCT": {
+      "n": 1530,
+      "BA_F": 0.1749
+     }
+    },
+    "source_top": {
+     "ARXIV": {
+      "n": 2,
+      "BA_F": 0.0
+     },
+     "ATCODER": {
+      "n": 13,
+      "BA_F": 0.25
+     },
+     "CODEFORCES": {
+      "n": 121,
+      "BA_F": 0.2458
+     },
+     "LEETCODE": {
+      "n": 199,
+      "BA_F": 0.0941
+     },
+     "STARCODER_DATA": {
+      "n": 640,
+      "BA_F": 0.1914
+     },
+     "TACO": {
+      "n": 514,
+      "BA_F": 0.1717
+     },
+     "THEVAULT_INLINE": {
+      "n": 244,
+      "BA_F": 0.1841
+     }
+    },
+    "char_len_bucket": {
+     "0-128": {
+      "n": 61,
+      "BA_F": 0.1133
+     },
+     "1025-1000000000": {
+      "n": 625,
+      "BA_F": 0.1662
+     },
+     "129-256": {
+      "n": 152,
+      "BA_F": 0.1473
+     },
+     "257-512": {
+      "n": 349,
+      "BA_F": 0.1719
+     },
+     "513-1024": {
+      "n": 546,
+      "BA_F": 0.1748
+     }
+    }
+   },
+   "F0": {
+    "BA_F": 0.1697,
+    "BA_G": 0.176,
+    "per_family_recall": {
+     "qwen": 0.3178,
+     "meta-llama": 0.1667,
+     "microsoft": 0.3256,
+     "01-ai": 0.075,
+     "codellama": 0.1027,
+     "deepseek-ai": 0.1233,
+     "ibm-granite": 0.0769
+    },
+    "per_generator_recall": {
+     "qwen": {
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.3278,
+      "Qwen/Qwen2.5-Coder-7B": 0.1527,
+      "Qwen/Qwen2.5-Codder-14B-Instruct": 0.5789
+     },
+     "meta-llama": {
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo": 0.1771,
+      "meta-llama/Llama-3.2-3B": 0.2917,
+      "meta-llama/Llama-3.1-8B-Instruct": 0.1111
+     },
+     "microsoft": {
+      "microsoft/Phi-3-mini-4k-instruct": 0.3333,
+      "microsoft/Phi-3.5-mini-instruct": 0.3667,
+      "microsoft/phi-4": 0.2162
+     },
+     "01-ai": {
+      "01-ai/Yi-Coder-9B-Chat": 0.0778,
+      "01-ai/Yi-Coder-1.5B-Chat": 0.0714
+     },
+     "codellama": {
+      "codellama/CodeLlama-70b-Instruct-hf": 0.1027
+     },
+     "deepseek-ai": {
+      "deepseek-ai/deepseek-coder-6.7b-instruct": 0.122,
+      "deepseek-ai/deepseek-coder-1.3b-instruct": 0.1304
+     },
+     "ibm-granite": {
+      "ibm-granite/granite-8b-code-instruct-4k": 0.0769
+     }
+    },
+    "language": {
+     "C": {
+      "n": 41,
+      "BA_F": 0.1917
+     },
+     "C#": {
+      "n": 128,
+      "BA_F": 0.1774
+     },
+     "C++": {
+      "n": 230,
+      "BA_F": 0.1444
+     },
+     "Go": {
+      "n": 52,
+      "BA_F": 0.0968
+     },
+     "Java": {
+      "n": 339,
+      "BA_F": 0.178
+     },
+     "JavaScript": {
+      "n": 201,
+      "BA_F": 0.1768
+     },
+     "Python": {
+      "n": 742,
+      "BA_F": 0.1681
+     }
+    },
+    "generation_mode": {
+     "COMPLETE": {
+      "n": 203,
+      "BA_F": 0.2222
+     },
+     "INSTRUCT": {
+      "n": 1530,
+      "BA_F": 0.1771
+     }
+    },
+    "source_top": {
+     "ARXIV": {
+      "n": 2,
+      "BA_F": 0.0
+     },
+     "ATCODER": {
+      "n": 13,
+      "BA_F": 0.25
+     },
+     "CODEFORCES": {
+      "n": 121,
+      "BA_F": 0.2458
+     },
+     "LEETCODE": {
+      "n": 199,
+      "BA_F": 0.1002
+     },
+     "STARCODER_DATA": {
+      "n": 640,
+      "BA_F": 0.1864
+     },
+     "TACO": {
+      "n": 514,
+      "BA_F": 0.1794
+     },
+     "THEVAULT_INLINE": {
+      "n": 244,
+      "BA_F": 0.2016
+     }
+    },
+    "char_len_bucket": {
+     "0-128": {
+      "n": 61,
+      "BA_F": 0.1225
+     },
+     "1025-1000000000": {
+      "n": 625,
+      "BA_F": 0.1704
+     },
+     "129-256": {
+      "n": 152,
+      "BA_F": 0.1473
+     },
+     "257-512": {
+      "n": 349,
+      "BA_F": 0.181
+     },
+     "513-1024": {
+      "n": 546,
+      "BA_F": 0.1745
+     }
+    }
+   },
+   "F1": {
+    "BA_F": 0.1669,
+    "BA_G": 0.1723,
+    "per_family_recall": {
+     "qwen": 0.3101,
+     "meta-llama": 0.1695,
+     "microsoft": 0.2939,
+     "01-ai": 0.0781,
+     "codellama": 0.1164,
+     "deepseek-ai": 0.1233,
+     "ibm-granite": 0.0769
+    },
+    "per_generator_recall": {
+     "qwen": {
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.3111,
+      "Qwen/Qwen2.5-Coder-7B": 0.1527,
+      "Qwen/Qwen2.5-Codder-14B-Instruct": 0.5789
+     },
+     "meta-llama": {
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo": 0.1979,
+      "meta-llama/Llama-3.2-3B": 0.2639,
+      "meta-llama/Llama-3.1-8B-Instruct": 0.1167
+     },
+     "microsoft": {
+      "microsoft/Phi-3-mini-4k-instruct": 0.3118,
+      "microsoft/Phi-3.5-mini-instruct": 0.3444,
+      "microsoft/phi-4": 0.1486
+     },
+     "01-ai": {
+      "01-ai/Yi-Coder-9B-Chat": 0.0778,
+      "01-ai/Yi-Coder-1.5B-Chat": 0.0786
+     },
+     "codellama": {
+      "codellama/CodeLlama-70b-Instruct-hf": 0.1164
+     },
+     "deepseek-ai": {
+      "deepseek-ai/deepseek-coder-6.7b-instruct": 0.122,
+      "deepseek-ai/deepseek-coder-1.3b-instruct": 0.1304
+     },
+     "ibm-granite": {
+      "ibm-granite/granite-8b-code-instruct-4k": 0.0769
+     }
+    },
+    "language": {
+     "C": {
+      "n": 41,
+      "BA_F": 0.1917
+     },
+     "C#": {
+      "n": 128,
+      "BA_F": 0.1774
+     },
+     "C++": {
+      "n": 230,
+      "BA_F": 0.1328
+     },
+     "Go": {
+      "n": 52,
+      "BA_F": 0.0968
+     },
+     "Java": {
+      "n": 339,
+      "BA_F": 0.1773
+     },
+     "JavaScript": {
+      "n": 201,
+      "BA_F": 0.1731
+     },
+     "Python": {
+      "n": 742,
+      "BA_F": 0.1661
+     }
+    },
+    "generation_mode": {
+     "COMPLETE": {
+      "n": 203,
+      "BA_F": 0.2083
+     },
+     "INSTRUCT": {
+      "n": 1530,
+      "BA_F": 0.1749
+     }
+    },
+    "source_top": {
+     "ARXIV": {
+      "n": 2,
+      "BA_F": 0.0
+     },
+     "ATCODER": {
+      "n": 13,
+      "BA_F": 0.25
+     },
+     "CODEFORCES": {
+      "n": 121,
+      "BA_F": 0.2436
+     },
+     "LEETCODE": {
+      "n": 199,
+      "BA_F": 0.0985
+     },
+     "STARCODER_DATA": {
+      "n": 640,
+      "BA_F": 0.1861
+     },
+     "TACO": {
+      "n": 514,
+      "BA_F": 0.174
+     },
+     "THEVAULT_INLINE": {
+      "n": 244,
+      "BA_F": 0.1841
+     }
+    },
+    "char_len_bucket": {
+     "0-128": {
+      "n": 61,
+      "BA_F": 0.1466
+     },
+     "1025-1000000000": {
+      "n": 625,
+      "BA_F": 0.1683
+     },
+     "129-256": {
+      "n": 152,
+      "BA_F": 0.1439
+     },
+     "257-512": {
+      "n": 349,
+      "BA_F": 0.1781
+     },
+     "513-1024": {
+      "n": 546,
+      "BA_F": 0.1711
+     }
+    }
+   },
+   "deltas": {
+    "F1_minus_F0_BA_F": -0.0028,
+    "F1_minus_F0_BA_G": -0.0037
+   },
+   "det_auroc": {
+    "test": 0.923,
+    "dev": 0.9222
+   },
+   "det_f1_macro@.5_test": 0.8344,
+   "anchor": {
+    "total": 6300,
+    "valid": 5400,
+    "per_family": {
+     "qwen": {
+      "total": 900,
+      "valid": 900,
+      "ratio": 1.0
+     },
+     "meta-llama": {
+      "total": 900,
+      "valid": 900,
+      "ratio": 1.0
+     },
+     "microsoft": {
+      "total": 900,
+      "valid": 900,
+      "ratio": 1.0
+     },
+     "01-ai": {
+      "total": 900,
+      "valid": 900,
+      "ratio": 1.0
+     },
+     "codellama": {
+      "total": 900,
+      "valid": 900,
+      "ratio": 1.0
+     },
+     "deepseek-ai": {
+      "total": 900,
+      "valid": 900,
+      "ratio": 1.0
+     },
+     "ibm-granite": {
+      "total": 900,
+      "valid": 0,
+      "ratio": 0.0
+     }
+    },
+    "overall_ratio": 0.8571
+   },
+   "engagement": {
+    "F0": {
+     "gamma_final": 0.04534,
+     "correction_norm_ratio": 0.04202
+    },
+    "F1": {
+     "gamma_final": 0.04408,
+     "correction_norm_ratio": 0.03178
+    }
+   },
+   "param_drift": {
+    "F0": {
+     "U.weight": 28.221,
+     "V.weight": 5.0903,
+     "WR.weight": 0.3785
+    },
+    "F1": {
+     "U.weight": 28.1155,
+     "V.weight": 4.5557,
+     "WR.weight": 0.3087
+    }
+   },
+   "batch_stats": {
+    "first_last": {
+     "F0": [
+      {
+       "epoch": 0,
+       "step": 0,
+       "ce": 0.8475,
+       "lc": null,
+       "grad_norm": 0.002,
+       "gamma": 0.04621
+      },
+      {
+       "epoch": 0,
+       "step": 24,
+       "ce": 0.8091,
+       "lc": null,
+       "grad_norm": 0.044,
+       "gamma": 0.046
+      },
+      {
+       "epoch": 1,
+       "step": 0,
+       "ce": 0.7755,
+       "lc": null,
+       "grad_norm": 0.05,
+       "gamma": 0.04597
+      },
+      {
+       "epoch": 1,
+       "step": 24,
+       "ce": 0.8218,
+       "lc": null,
+       "grad_norm": 0.088,
+       "gamma": 0.04533
+      }
+     ],
+     "F1": [
+      {
+       "epoch": 0,
+       "step": 0,
+       "ce": 0.8475,
+       "lc": 7.251,
+       "grad_norm": 11.522,
+       "gamma": 0.04621
+      },
+      {
+       "epoch": 0,
+       "step": 24,
+       "ce": 0.8108,
+       "lc": 4.8274,
+       "grad_norm": 0.117,
+       "gamma": 0.04552
+      },
+      {
+       "epoch": 1,
+       "step": 0,
+       "ce": 0.7798,
+       "lc": 4.8267,
+       "grad_norm": 0.092,
+       "gamma": 0.04546
+      },
+      {
+       "epoch": 1,
+       "step": 24,
+       "ce": 0.8362,
+       "lc": 4.8306,
+       "grad_norm": 0.109,
+       "gamma": 0.04413
+      }
+     ]
+    },
+    "redraw": 0
+   },
+   "gamma_track": {
+    "F0": [
+     0.04597,
+     0.04534
+    ],
+    "F1": [
+     0.04546,
+     0.04408
+    ]
+   },
+   "init_maxdiff": 0.0,
+   "random_ref": {
+    "BA_F": 0.309,
+    "BA_G": 0.3115,
+    "note": "同本随机控制（主轴，仅参照，不入出口）"
+   }
+  }
+ },
+ "exit": {
+  "rule": {
+   "1": "两折 BA_F/BA_G 均正 且 pooled 两项 ≥1pt",
+   "2": "方向一致但 pooled <1pt",
+   "3": "方向不一致或 pooled 非正",
+   "4": "任一折 anchor 比例 < 0.15 ⇒ 检验不足",
+   "5": "只改善单个 family/role/generator ⇒ 仅报异质性"
+  },
+  "fold_deltas": {
+   "fold_0": {
+    "F1_minus_F0_BA_F": 0.0014,
+    "F1_minus_F0_BA_G": 0.0006
+   },
+   "fold_1": {
+    "F1_minus_F0_BA_F": -0.0028,
+    "F1_minus_F0_BA_G": -0.0037
+   }
+  },
+  "pooled_deltas": {
+   "BA_F": -0.0017,
+   "BA_G": -0.002
+  },
+  "fold_positive": false,
+  "anchor_ok": true,
+  "pooled_ok": false,
+  "outcome": "3：方向不一致或 pooled 增量为非正 ⇒ H2 不支持"
+ },
+ "pooled": {
+  "B0": {
+   "BA_F": 0.1605,
+   "BA_G": 0.1623,
+   "per_family_recall": {
+    "qwen": 0.2225,
+    "meta-llama": 0.2102,
+    "microsoft": 0.2558,
+    "01-ai": 0.0879,
+    "codellama": 0.1155,
+    "deepseek-ai": 0.1116,
+    "ibm-granite": 0.1198
+   },
+   "per_generator_recall": {
+    "qwen": {
+     "Qwen/Qwen2.5-72B-Instruct": 0.2209,
+     "Qwen/Qwen2.5-Coder-1.5B": 0.2174,
+     "Qwen/Qwen2.5-Coder-7B-Instruct": 0.1333,
+     "Qwen/Qwen2.5-Coder-32B-Instruct": 0.0675,
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.3333,
+     "Qwen/Qwen2.5-Coder-7B": 0.1603,
+     "Qwen/Qwen2.5-Codder-14B-Instruct": 0.6184
+    },
+    "meta-llama": {
+     "meta-llama/Llama-3.3-70B-Instruct": 0.1889,
+     "meta-llama/Llama-3.1-8B": 0.4125,
+     "meta-llama/Llama-3.2-1B": 0.35,
+     "meta-llama/Llama-3.3-70B-Instruct-Turbo": 0.1979,
+     "meta-llama/Llama-3.2-3B": 0.2639,
+     "meta-llama/Llama-3.1-8B-Instruct": 0.1111
+    },
+    "microsoft": {
+     "microsoft/Phi-3-medium-4k-instruct": 0.203,
+     "microsoft/Phi-3-small-8k-instruct": 0.3182,
+     "microsoft/phi-2": 0.0556,
+     "microsoft/Phi-3-mini-4k-instruct": 0.3226,
+     "microsoft/Phi-3.5-mini-instruct": 0.3389,
+     "microsoft/phi-4": 0.1486
+    },
+    "01-ai": {
+     "01-ai/Yi-Coder-9B": 0.1667,
+     "01-ai/Yi-Coder-1.5B": 0.0833,
+     "01-ai/Yi-Coder-9B-Chat": 0.0778,
+     "01-ai/Yi-Coder-1.5B-Chat": 0.0714
+    },
+    "codellama": {
+     "codellama/CodeLlama-34b-Instruct-hf": 0.1511,
+     "codellama/CodeLlama-7b-hf": 0.0,
+     "codellama/CodeLlama-70b-Instruct-hf": 0.0959
+    },
+    "deepseek-ai": {
+     "deepseek-ai/deepseek-coder-6.7b-base": 0.0886,
+     "deepseek-ai/deepseek-coder-1.3b-base": 0.1154,
+     "deepseek-ai/deepseek-coder-6.7b-instruct": 0.122,
+     "deepseek-ai/deepseek-coder-1.3b-instruct": 0.1304
+    },
+    "ibm-granite": {
+     "ibm-granite/granite-8b-code-base-4k": 0.1328,
+     "ibm-granite/granite-8b-code-instruct-4k": 0.0769
+    }
+   }
+  },
+  "F0": {
+   "BA_F": 0.1608,
+   "BA_G": 0.1625,
+   "per_family_recall": {
+    "qwen": 0.2081,
+    "meta-llama": 0.2022,
+    "microsoft": 0.2792,
+    "01-ai": 0.0854,
+    "codellama": 0.1254,
+    "deepseek-ai": 0.1116,
+    "ibm-granite": 0.1138
+   },
+   "per_generator_recall": {
+    "qwen": {
+     "Qwen/Qwen2.5-72B-Instruct": 0.1977,
+     "Qwen/Qwen2.5-Coder-1.5B": 0.1739,
+     "Qwen/Qwen2.5-Coder-7B-Instruct": 0.1333,
+     "Qwen/Qwen2.5-Coder-32B-Instruct": 0.0552,
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.3278,
+     "Qwen/Qwen2.5-Coder-7B": 0.1527,
+     "Qwen/Qwen2.5-Codder-14B-Instruct": 0.5789
+    },
+    "meta-llama": {
+     "meta-llama/Llama-3.3-70B-Instruct": 0.1611,
+     "meta-llama/Llama-3.1-8B": 0.4125,
+     "meta-llama/Llama-3.2-1B": 0.35,
+     "meta-llama/Llama-3.3-70B-Instruct-Turbo": 0.1771,
+     "meta-llama/Llama-3.2-3B": 0.2917,
+     "meta-llama/Llama-3.1-8B-Instruct": 0.1111
+    },
+    "microsoft": {
+     "microsoft/Phi-3-medium-4k-instruct": 0.218,
+     "microsoft/Phi-3-small-8k-instruct": 0.3333,
+     "microsoft/phi-2": 0.0694,
+     "microsoft/Phi-3-mini-4k-instruct": 0.3333,
+     "microsoft/Phi-3.5-mini-instruct": 0.3667,
+     "microsoft/phi-4": 0.2162
+    },
+    "01-ai": {
+     "01-ai/Yi-Coder-9B": 0.1481,
+     "01-ai/Yi-Coder-1.5B": 0.0833,
+     "01-ai/Yi-Coder-9B-Chat": 0.0778,
+     "01-ai/Yi-Coder-1.5B-Chat": 0.0714
+    },
+    "codellama": {
+     "codellama/CodeLlama-34b-Instruct-hf": 0.1655,
+     "codellama/CodeLlama-7b-hf": 0.0,
+     "codellama/CodeLlama-70b-Instruct-hf": 0.1027
+    },
+    "deepseek-ai": {
+     "deepseek-ai/deepseek-coder-6.7b-base": 0.0886,
+     "deepseek-ai/deepseek-coder-1.3b-base": 0.1154,
+     "deepseek-ai/deepseek-coder-6.7b-instruct": 0.122,
+     "deepseek-ai/deepseek-coder-1.3b-instruct": 0.1304
+    },
+    "ibm-granite": {
+     "ibm-granite/granite-8b-code-base-4k": 0.125,
+     "ibm-granite/granite-8b-code-instruct-4k": 0.0769
+    }
+   }
+  },
+  "F1": {
+   "BA_F": 0.1591,
+   "BA_G": 0.1605,
+   "per_family_recall": {
+    "qwen": 0.2015,
+    "meta-llama": 0.2022,
+    "microsoft": 0.2632,
+    "01-ai": 0.093,
+    "codellama": 0.1287,
+    "deepseek-ai": 0.1116,
+    "ibm-granite": 0.1138
+   },
+   "per_generator_recall": {
+    "qwen": {
+     "Qwen/Qwen2.5-72B-Instruct": 0.186,
+     "Qwen/Qwen2.5-Coder-1.5B": 0.163,
+     "Qwen/Qwen2.5-Coder-7B-Instruct": 0.1278,
+     "Qwen/Qwen2.5-Coder-32B-Instruct": 0.0552,
+     "Qwen/Qwen2.5-Coder-1.5B-Instruct": 0.3111,
+     "Qwen/Qwen2.5-Coder-7B": 0.1527,
+     "Qwen/Qwen2.5-Codder-14B-Instruct": 0.5789
+    },
+    "meta-llama": {
+     "meta-llama/Llama-3.3-70B-Instruct": 0.1611,
+     "meta-llama/Llama-3.1-8B": 0.4,
+     "meta-llama/Llama-3.2-1B": 0.35,
+     "meta-llama/Llama-3.3-70B-Instruct-Turbo": 0.1979,
+     "meta-llama/Llama-3.2-3B": 0.2639,
+     "meta-llama/Llama-3.1-8B-Instruct": 0.1167
+    },
+    "microsoft": {
+     "microsoft/Phi-3-medium-4k-instruct": 0.218,
+     "microsoft/Phi-3-small-8k-instruct": 0.3333,
+     "microsoft/phi-2": 0.0694,
+     "microsoft/Phi-3-mini-4k-instruct": 0.3118,
+     "microsoft/Phi-3.5-mini-instruct": 0.3444,
+     "microsoft/phi-4": 0.1486
+    },
+    "01-ai": {
+     "01-ai/Yi-Coder-9B": 0.1852,
+     "01-ai/Yi-Coder-1.5B": 0.0833,
+     "01-ai/Yi-Coder-9B-Chat": 0.0778,
+     "01-ai/Yi-Coder-1.5B-Chat": 0.0786
+    },
+    "codellama": {
+     "codellama/CodeLlama-34b-Instruct-hf": 0.1583,
+     "codellama/CodeLlama-7b-hf": 0.0,
+     "codellama/CodeLlama-70b-Instruct-hf": 0.1164
+    },
+    "deepseek-ai": {
+     "deepseek-ai/deepseek-coder-6.7b-base": 0.0886,
+     "deepseek-ai/deepseek-coder-1.3b-base": 0.1154,
+     "deepseek-ai/deepseek-coder-6.7b-instruct": 0.122,
+     "deepseek-ai/deepseek-coder-1.3b-instruct": 0.1304
+    },
+    "ibm-granite": {
+     "ibm-granite/granite-8b-code-base-4k": 0.125,
+     "ibm-granite/granite-8b-code-instruct-4k": 0.0769
+    }
+   }
+  },
+  "deltas": {
+   "F1_minus_F0_BA_F": -0.0017,
+   "F1_minus_F0_BA_G": -0.002
+  }
+ }
+}

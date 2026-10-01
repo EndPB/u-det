@@ -1,0 +1,784 @@
+{
+ "data_dir": "/root/autodl-tmp/u-det/d-det/data/h2_droid_subset",
+ "files": {
+  "core.jsonl": {
+   "sha256": "57371a1f64fab92bd854d85648928f685022cc5c7b0c11bc5afb6dd9e6b3c84d",
+   "ok": true
+  },
+  "diagnostic_hybrid_adversarial.jsonl": {
+   "sha256": "7143d3ad703946940dbb363cef11d5e8697de24275b9ad14291efa0e047c61dc",
+   "ok": true
+  },
+  "fold_plan.json": {
+   "sha256": "e1b3d131f1ca17c2ab83d10608cc4cdeb78087ab7d7c333e36d0e6b66f85350b",
+   "ok": true
+  },
+  "README.md": {
+   "sha256": "d079c8e58c8a59dd2b23e3384545ce162c70e7cb6937a5033e625aa7081f8907",
+   "ok": true
+  },
+  "summary.json": {
+   "sha256": "43d986af1f37886e872583423350dfd3d9f34e582e8695f55b46dc940616856e",
+   "ok": true
+  }
+ },
+ "source_revision": "9a42843be99456a3af70d2b9c9a53a4d7624598f",
+ "totals": {
+  "rows": 18000,
+  "machine": 14220,
+  "human": 3780,
+  "by_split": {
+   "train": 7020,
+   "dev": 6381,
+   "test": 4599
+  },
+  "machine_by_split": {
+   "train": 5760,
+   "dev": 5121,
+   "test": 3339
+  },
+  "human_by_split": {
+   "train": 1260,
+   "dev": 1260,
+   "test": 1260
+  }
+ },
+ "labels": {
+  "MACHINE_GENERATED": 14220,
+  "HUMAN_GENERATED": 3780
+ },
+ "families": {
+  "qwen": {
+   "n": 3428,
+   "generators": [
+    "Qwen/Qwen2.5-72B-Instruct",
+    "Qwen/Qwen2.5-Codder-14B-Instruct",
+    "Qwen/Qwen2.5-Coder-1.5B",
+    "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen/Qwen2.5-Coder-32B-Instruct",
+    "Qwen/Qwen2.5-Coder-7B",
+    "Qwen/Qwen2.5-Coder-7B-Instruct"
+   ]
+  },
+  "meta-llama": {
+   "n": 2665,
+   "generators": [
+    "meta-llama/Llama-3.1-8B",
+    "meta-llama/Llama-3.1-8B-Instruct",
+    "meta-llama/Llama-3.2-1B",
+    "meta-llama/Llama-3.2-3B",
+    "meta-llama/Llama-3.3-70B-Instruct",
+    "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+   ]
+  },
+  "microsoft": {
+   "n": 2844,
+   "generators": [
+    "microsoft/Phi-3-medium-4k-instruct",
+    "microsoft/Phi-3-mini-4k-instruct",
+    "microsoft/Phi-3-small-8k-instruct",
+    "microsoft/Phi-3.5-mini-instruct",
+    "microsoft/phi-2",
+    "microsoft/phi-4"
+   ]
+  },
+  "01-ai": {
+   "n": 1634,
+   "generators": [
+    "01-ai/Yi-Coder-1.5B",
+    "01-ai/Yi-Coder-1.5B-Chat",
+    "01-ai/Yi-Coder-9B",
+    "01-ai/Yi-Coder-9B-Chat"
+   ]
+  },
+  "codellama": {
+   "n": 1272,
+   "generators": [
+    "codellama/CodeLlama-34b-Instruct-hf",
+    "codellama/CodeLlama-70b-Instruct-hf",
+    "codellama/CodeLlama-7b-hf"
+   ]
+  },
+  "deepseek-ai": {
+   "n": 1520,
+   "generators": [
+    "deepseek-ai/deepseek-coder-1.3b-base",
+    "deepseek-ai/deepseek-coder-1.3b-instruct",
+    "deepseek-ai/deepseek-coder-6.7b-base",
+    "deepseek-ai/deepseek-coder-6.7b-instruct"
+   ]
+  },
+  "ibm-granite": {
+   "n": 857,
+   "generators": [
+    "ibm-granite/granite-8b-code-base-4k",
+    "ibm-granite/granite-8b-code-instruct-4k"
+   ]
+  }
+ },
+ "languages": {
+  "Python": 8342,
+  "Java": 3312,
+  "C++": 2097,
+  "JavaScript": 1805,
+  "C#": 1437,
+  "Go": 627,
+  "C": 380
+ },
+ "generation_modes": {
+  "INSTRUCT": 9631,
+  "COMPLETE": 4589,
+  "Human_Written": 3780
+ },
+ "sources_top": {
+  "STARCODER_DATA": 5727,
+  "TACO": 5682,
+  "THEVAULT_INLINE": 2054,
+  "LEETCODE": 1925,
+  "CODEFORCES": 1118,
+  "THEVAULT_FUNCTION": 1037,
+  "THEVAULT_CLASS": 227,
+  "ATCODER": 192,
+  "ARXIV": 38
+ },
+ "generator_counts": {
+  "01-ai/Yi-Coder-1.5B": {
+   "train": 180,
+   "dev": 39,
+   "test": 24
+  },
+  "01-ai/Yi-Coder-1.5B-Chat": {
+   "train": 180,
+   "dev": 180,
+   "test": 140
+  },
+  "01-ai/Yi-Coder-9B": {
+   "train": 180,
+   "dev": 117,
+   "test": 54
+  },
+  "01-ai/Yi-Coder-9B-Chat": {
+   "train": 180,
+   "dev": 180,
+   "test": 180
+  },
+  "Qwen/Qwen2.5-72B-Instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 86
+  },
+  "Qwen/Qwen2.5-Codder-14B-Instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 76
+  },
+  "Qwen/Qwen2.5-Coder-1.5B": {
+   "train": 180,
+   "dev": 180,
+   "test": 92
+  },
+  "Qwen/Qwen2.5-Coder-1.5B-Instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 180
+  },
+  "Qwen/Qwen2.5-Coder-32B-Instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 163
+  },
+  "Qwen/Qwen2.5-Coder-7B": {
+   "train": 180,
+   "dev": 180,
+   "test": 131
+  },
+  "Qwen/Qwen2.5-Coder-7B-Instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 180
+  },
+  "codellama/CodeLlama-34b-Instruct-hf": {
+   "train": 180,
+   "dev": 180,
+   "test": 139
+  },
+  "codellama/CodeLlama-70b-Instruct-hf": {
+   "train": 180,
+   "dev": 180,
+   "test": 146
+  },
+  "codellama/CodeLlama-7b-hf": {
+   "train": 180,
+   "dev": 69,
+   "test": 18
+  },
+  "deepseek-ai/deepseek-coder-1.3b-base": {
+   "train": 180,
+   "dev": 91,
+   "test": 26
+  },
+  "deepseek-ai/deepseek-coder-1.3b-instruct": {
+   "train": 180,
+   "dev": 98,
+   "test": 23
+  },
+  "deepseek-ai/deepseek-coder-6.7b-base": {
+   "train": 180,
+   "dev": 180,
+   "test": 79
+  },
+  "deepseek-ai/deepseek-coder-6.7b-instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 123
+  },
+  "ibm-granite/granite-8b-code-base-4k": {
+   "train": 180,
+   "dev": 180,
+   "test": 128
+  },
+  "ibm-granite/granite-8b-code-instruct-4k": {
+   "train": 180,
+   "dev": 150,
+   "test": 39
+  },
+  "meta-llama/Llama-3.1-8B": {
+   "train": 180,
+   "dev": 180,
+   "test": 80
+  },
+  "meta-llama/Llama-3.1-8B-Instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 180
+  },
+  "meta-llama/Llama-3.2-1B": {
+   "train": 180,
+   "dev": 57,
+   "test": 20
+  },
+  "meta-llama/Llama-3.2-3B": {
+   "train": 180,
+   "dev": 180,
+   "test": 72
+  },
+  "meta-llama/Llama-3.3-70B-Instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 180
+  },
+  "meta-llama/Llama-3.3-70B-Instruct-Turbo": {
+   "train": 180,
+   "dev": 180,
+   "test": 96
+  },
+  "microsoft/Phi-3-medium-4k-instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 133
+  },
+  "microsoft/Phi-3-mini-4k-instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 93
+  },
+  "microsoft/Phi-3-small-8k-instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 132
+  },
+  "microsoft/Phi-3.5-mini-instruct": {
+   "train": 180,
+   "dev": 180,
+   "test": 180
+  },
+  "microsoft/phi-2": {
+   "train": 180,
+   "dev": 180,
+   "test": 72
+  },
+  "microsoft/phi-4": {
+   "train": 180,
+   "dev": 180,
+   "test": 74
+  }
+ },
+ "dup_sha1": {
+  "machine": {
+   "n": 14220,
+   "unique": 14220,
+   "dup_within": 0
+  },
+  "human": {
+   "n": 3780,
+   "unique": 3780,
+   "dup_within": 0
+  },
+  "cross_split": {
+   "machine": {
+    "train_dev": 0,
+    "train_test": 0,
+    "dev_test": 0
+   },
+   "human": {
+    "train_dev": 0,
+    "train_test": 0,
+    "dev_test": 0
+   }
+  }
+ },
+ "folds": {
+  "fold_0": {
+   "families": {
+    "qwen": {
+     "train_generators": [
+      "Qwen/Qwen2.5-Codder-14B-Instruct",
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+      "Qwen/Qwen2.5-Coder-7B"
+     ],
+     "heldout_generators": [
+      "Qwen/Qwen2.5-72B-Instruct",
+      "Qwen/Qwen2.5-Coder-1.5B",
+      "Qwen/Qwen2.5-Coder-32B-Instruct",
+      "Qwen/Qwen2.5-Coder-7B-Instruct"
+     ],
+     "observed_generators": [
+      "Qwen/Qwen2.5-72B-Instruct",
+      "Qwen/Qwen2.5-Codder-14B-Instruct",
+      "Qwen/Qwen2.5-Coder-1.5B",
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+      "Qwen/Qwen2.5-Coder-32B-Instruct",
+      "Qwen/Qwen2.5-Coder-7B",
+      "Qwen/Qwen2.5-Coder-7B-Instruct"
+     ],
+     "n_machine": {
+      "train": 540,
+      "dev": 540,
+      "test": 521
+     },
+     "per_heldout_test": {
+      "Qwen/Qwen2.5-72B-Instruct": 86,
+      "Qwen/Qwen2.5-Coder-1.5B": 92,
+      "Qwen/Qwen2.5-Coder-32B-Instruct": 163,
+      "Qwen/Qwen2.5-Coder-7B-Instruct": 180
+     },
+     "per_train_gen_counts": {
+      "Qwen/Qwen2.5-Codder-14B-Instruct": 360,
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct": 360,
+      "Qwen/Qwen2.5-Coder-7B": 360
+     }
+    },
+    "meta-llama": {
+     "train_generators": [
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "meta-llama/Llama-3.2-3B",
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+     ],
+     "heldout_generators": [
+      "meta-llama/Llama-3.1-8B",
+      "meta-llama/Llama-3.2-1B",
+      "meta-llama/Llama-3.3-70B-Instruct"
+     ],
+     "observed_generators": [
+      "meta-llama/Llama-3.1-8B",
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "meta-llama/Llama-3.2-1B",
+      "meta-llama/Llama-3.2-3B",
+      "meta-llama/Llama-3.3-70B-Instruct",
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+     ],
+     "n_machine": {
+      "train": 540,
+      "dev": 540,
+      "test": 280
+     },
+     "per_heldout_test": {
+      "meta-llama/Llama-3.1-8B": 80,
+      "meta-llama/Llama-3.2-1B": 20,
+      "meta-llama/Llama-3.3-70B-Instruct": 180
+     },
+     "per_train_gen_counts": {
+      "meta-llama/Llama-3.1-8B-Instruct": 360,
+      "meta-llama/Llama-3.2-3B": 360,
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo": 360
+     }
+    },
+    "microsoft": {
+     "train_generators": [
+      "microsoft/Phi-3-mini-4k-instruct",
+      "microsoft/Phi-3.5-mini-instruct",
+      "microsoft/phi-4"
+     ],
+     "heldout_generators": [
+      "microsoft/Phi-3-medium-4k-instruct",
+      "microsoft/Phi-3-small-8k-instruct",
+      "microsoft/phi-2"
+     ],
+     "observed_generators": [
+      "microsoft/Phi-3-medium-4k-instruct",
+      "microsoft/Phi-3-mini-4k-instruct",
+      "microsoft/Phi-3-small-8k-instruct",
+      "microsoft/Phi-3.5-mini-instruct",
+      "microsoft/phi-2",
+      "microsoft/phi-4"
+     ],
+     "n_machine": {
+      "train": 540,
+      "dev": 540,
+      "test": 337
+     },
+     "per_heldout_test": {
+      "microsoft/Phi-3-medium-4k-instruct": 133,
+      "microsoft/Phi-3-small-8k-instruct": 132,
+      "microsoft/phi-2": 72
+     },
+     "per_train_gen_counts": {
+      "microsoft/Phi-3-mini-4k-instruct": 360,
+      "microsoft/Phi-3.5-mini-instruct": 360,
+      "microsoft/phi-4": 360
+     }
+    },
+    "01-ai": {
+     "train_generators": [
+      "01-ai/Yi-Coder-1.5B-Chat",
+      "01-ai/Yi-Coder-9B-Chat"
+     ],
+     "heldout_generators": [
+      "01-ai/Yi-Coder-1.5B",
+      "01-ai/Yi-Coder-9B"
+     ],
+     "observed_generators": [
+      "01-ai/Yi-Coder-1.5B",
+      "01-ai/Yi-Coder-1.5B-Chat",
+      "01-ai/Yi-Coder-9B",
+      "01-ai/Yi-Coder-9B-Chat"
+     ],
+     "n_machine": {
+      "train": 360,
+      "dev": 360,
+      "test": 78
+     },
+     "per_heldout_test": {
+      "01-ai/Yi-Coder-1.5B": 24,
+      "01-ai/Yi-Coder-9B": 54
+     },
+     "per_train_gen_counts": {
+      "01-ai/Yi-Coder-1.5B-Chat": 360,
+      "01-ai/Yi-Coder-9B-Chat": 360
+     }
+    },
+    "codellama": {
+     "train_generators": [
+      "codellama/CodeLlama-70b-Instruct-hf"
+     ],
+     "heldout_generators": [
+      "codellama/CodeLlama-34b-Instruct-hf",
+      "codellama/CodeLlama-7b-hf"
+     ],
+     "observed_generators": [
+      "codellama/CodeLlama-34b-Instruct-hf",
+      "codellama/CodeLlama-70b-Instruct-hf",
+      "codellama/CodeLlama-7b-hf"
+     ],
+     "n_machine": {
+      "train": 180,
+      "dev": 180,
+      "test": 157
+     },
+     "per_heldout_test": {
+      "codellama/CodeLlama-34b-Instruct-hf": 139,
+      "codellama/CodeLlama-7b-hf": 18
+     },
+     "per_train_gen_counts": {
+      "codellama/CodeLlama-70b-Instruct-hf": 360
+     }
+    },
+    "deepseek-ai": {
+     "train_generators": [
+      "deepseek-ai/deepseek-coder-1.3b-instruct",
+      "deepseek-ai/deepseek-coder-6.7b-instruct"
+     ],
+     "heldout_generators": [
+      "deepseek-ai/deepseek-coder-1.3b-base",
+      "deepseek-ai/deepseek-coder-6.7b-base"
+     ],
+     "observed_generators": [
+      "deepseek-ai/deepseek-coder-1.3b-base",
+      "deepseek-ai/deepseek-coder-1.3b-instruct",
+      "deepseek-ai/deepseek-coder-6.7b-base",
+      "deepseek-ai/deepseek-coder-6.7b-instruct"
+     ],
+     "n_machine": {
+      "train": 360,
+      "dev": 278,
+      "test": 105
+     },
+     "per_heldout_test": {
+      "deepseek-ai/deepseek-coder-1.3b-base": 26,
+      "deepseek-ai/deepseek-coder-6.7b-base": 79
+     },
+     "per_train_gen_counts": {
+      "deepseek-ai/deepseek-coder-1.3b-instruct": 278,
+      "deepseek-ai/deepseek-coder-6.7b-instruct": 360
+     }
+    },
+    "ibm-granite": {
+     "train_generators": [
+      "ibm-granite/granite-8b-code-instruct-4k"
+     ],
+     "heldout_generators": [
+      "ibm-granite/granite-8b-code-base-4k"
+     ],
+     "observed_generators": [
+      "ibm-granite/granite-8b-code-base-4k",
+      "ibm-granite/granite-8b-code-instruct-4k"
+     ],
+     "n_machine": {
+      "train": 180,
+      "dev": 150,
+      "test": 128
+     },
+     "per_heldout_test": {
+      "ibm-granite/granite-8b-code-base-4k": 128
+     },
+     "per_train_gen_counts": {
+      "ibm-granite/granite-8b-code-instruct-4k": 330
+     }
+    }
+   },
+   "asserts": {}
+  },
+  "fold_1": {
+   "families": {
+    "qwen": {
+     "train_generators": [
+      "Qwen/Qwen2.5-72B-Instruct",
+      "Qwen/Qwen2.5-Coder-1.5B",
+      "Qwen/Qwen2.5-Coder-32B-Instruct",
+      "Qwen/Qwen2.5-Coder-7B-Instruct"
+     ],
+     "heldout_generators": [
+      "Qwen/Qwen2.5-Codder-14B-Instruct",
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+      "Qwen/Qwen2.5-Coder-7B"
+     ],
+     "observed_generators": [
+      "Qwen/Qwen2.5-72B-Instruct",
+      "Qwen/Qwen2.5-Codder-14B-Instruct",
+      "Qwen/Qwen2.5-Coder-1.5B",
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+      "Qwen/Qwen2.5-Coder-32B-Instruct",
+      "Qwen/Qwen2.5-Coder-7B",
+      "Qwen/Qwen2.5-Coder-7B-Instruct"
+     ],
+     "n_machine": {
+      "train": 720,
+      "dev": 720,
+      "test": 387
+     },
+     "per_heldout_test": {
+      "Qwen/Qwen2.5-Codder-14B-Instruct": 76,
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct": 180,
+      "Qwen/Qwen2.5-Coder-7B": 131
+     },
+     "per_train_gen_counts": {
+      "Qwen/Qwen2.5-72B-Instruct": 360,
+      "Qwen/Qwen2.5-Coder-1.5B": 360,
+      "Qwen/Qwen2.5-Coder-32B-Instruct": 360,
+      "Qwen/Qwen2.5-Coder-7B-Instruct": 360
+     }
+    },
+    "meta-llama": {
+     "train_generators": [
+      "meta-llama/Llama-3.1-8B",
+      "meta-llama/Llama-3.2-1B",
+      "meta-llama/Llama-3.3-70B-Instruct"
+     ],
+     "heldout_generators": [
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "meta-llama/Llama-3.2-3B",
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+     ],
+     "observed_generators": [
+      "meta-llama/Llama-3.1-8B",
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "meta-llama/Llama-3.2-1B",
+      "meta-llama/Llama-3.2-3B",
+      "meta-llama/Llama-3.3-70B-Instruct",
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+     ],
+     "n_machine": {
+      "train": 540,
+      "dev": 417,
+      "test": 348
+     },
+     "per_heldout_test": {
+      "meta-llama/Llama-3.1-8B-Instruct": 180,
+      "meta-llama/Llama-3.2-3B": 72,
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo": 96
+     },
+     "per_train_gen_counts": {
+      "meta-llama/Llama-3.1-8B": 360,
+      "meta-llama/Llama-3.2-1B": 237,
+      "meta-llama/Llama-3.3-70B-Instruct": 360
+     }
+    },
+    "microsoft": {
+     "train_generators": [
+      "microsoft/Phi-3-medium-4k-instruct",
+      "microsoft/Phi-3-small-8k-instruct",
+      "microsoft/phi-2"
+     ],
+     "heldout_generators": [
+      "microsoft/Phi-3-mini-4k-instruct",
+      "microsoft/Phi-3.5-mini-instruct",
+      "microsoft/phi-4"
+     ],
+     "observed_generators": [
+      "microsoft/Phi-3-medium-4k-instruct",
+      "microsoft/Phi-3-mini-4k-instruct",
+      "microsoft/Phi-3-small-8k-instruct",
+      "microsoft/Phi-3.5-mini-instruct",
+      "microsoft/phi-2",
+      "microsoft/phi-4"
+     ],
+     "n_machine": {
+      "train": 540,
+      "dev": 540,
+      "test": 347
+     },
+     "per_heldout_test": {
+      "microsoft/Phi-3-mini-4k-instruct": 93,
+      "microsoft/Phi-3.5-mini-instruct": 180,
+      "microsoft/phi-4": 74
+     },
+     "per_train_gen_counts": {
+      "microsoft/Phi-3-medium-4k-instruct": 360,
+      "microsoft/Phi-3-small-8k-instruct": 360,
+      "microsoft/phi-2": 360
+     }
+    },
+    "01-ai": {
+     "train_generators": [
+      "01-ai/Yi-Coder-1.5B",
+      "01-ai/Yi-Coder-9B"
+     ],
+     "heldout_generators": [
+      "01-ai/Yi-Coder-1.5B-Chat",
+      "01-ai/Yi-Coder-9B-Chat"
+     ],
+     "observed_generators": [
+      "01-ai/Yi-Coder-1.5B",
+      "01-ai/Yi-Coder-1.5B-Chat",
+      "01-ai/Yi-Coder-9B",
+      "01-ai/Yi-Coder-9B-Chat"
+     ],
+     "n_machine": {
+      "train": 360,
+      "dev": 156,
+      "test": 320
+     },
+     "per_heldout_test": {
+      "01-ai/Yi-Coder-1.5B-Chat": 140,
+      "01-ai/Yi-Coder-9B-Chat": 180
+     },
+     "per_train_gen_counts": {
+      "01-ai/Yi-Coder-1.5B": 219,
+      "01-ai/Yi-Coder-9B": 297
+     }
+    },
+    "codellama": {
+     "train_generators": [
+      "codellama/CodeLlama-34b-Instruct-hf",
+      "codellama/CodeLlama-7b-hf"
+     ],
+     "heldout_generators": [
+      "codellama/CodeLlama-70b-Instruct-hf"
+     ],
+     "observed_generators": [
+      "codellama/CodeLlama-34b-Instruct-hf",
+      "codellama/CodeLlama-70b-Instruct-hf",
+      "codellama/CodeLlama-7b-hf"
+     ],
+     "n_machine": {
+      "train": 360,
+      "dev": 249,
+      "test": 146
+     },
+     "per_heldout_test": {
+      "codellama/CodeLlama-70b-Instruct-hf": 146
+     },
+     "per_train_gen_counts": {
+      "codellama/CodeLlama-34b-Instruct-hf": 360,
+      "codellama/CodeLlama-7b-hf": 249
+     }
+    },
+    "deepseek-ai": {
+     "train_generators": [
+      "deepseek-ai/deepseek-coder-1.3b-base",
+      "deepseek-ai/deepseek-coder-6.7b-base"
+     ],
+     "heldout_generators": [
+      "deepseek-ai/deepseek-coder-1.3b-instruct",
+      "deepseek-ai/deepseek-coder-6.7b-instruct"
+     ],
+     "observed_generators": [
+      "deepseek-ai/deepseek-coder-1.3b-base",
+      "deepseek-ai/deepseek-coder-1.3b-instruct",
+      "deepseek-ai/deepseek-coder-6.7b-base",
+      "deepseek-ai/deepseek-coder-6.7b-instruct"
+     ],
+     "n_machine": {
+      "train": 360,
+      "dev": 271,
+      "test": 146
+     },
+     "per_heldout_test": {
+      "deepseek-ai/deepseek-coder-1.3b-instruct": 23,
+      "deepseek-ai/deepseek-coder-6.7b-instruct": 123
+     },
+     "per_train_gen_counts": {
+      "deepseek-ai/deepseek-coder-1.3b-base": 271,
+      "deepseek-ai/deepseek-coder-6.7b-base": 360
+     }
+    },
+    "ibm-granite": {
+     "train_generators": [
+      "ibm-granite/granite-8b-code-base-4k"
+     ],
+     "heldout_generators": [
+      "ibm-granite/granite-8b-code-instruct-4k"
+     ],
+     "observed_generators": [
+      "ibm-granite/granite-8b-code-base-4k",
+      "ibm-granite/granite-8b-code-instruct-4k"
+     ],
+     "n_machine": {
+      "train": 180,
+      "dev": 180,
+      "test": 39
+     },
+     "per_heldout_test": {
+      "ibm-granite/granite-8b-code-instruct-4k": 39
+     },
+     "per_train_gen_counts": {
+      "ibm-granite/granite-8b-code-base-4k": 360
+     }
+    }
+   },
+   "asserts": {}
+  }
+ },
+ "diagnostic": {
+  "rows": 2000,
+  "counts_by_label": {
+   "MACHINE_REFINED": 1000,
+   "MACHINE_GENERATED_ADVERSARIAL": 1000
+  }
+ },
+ "notes": [
+  "DroidCollection 无公开 task_id/prompt_id：仅支持'跨 generator 家族归因候选证据'表述",
+  "diagnostic_hybrid_adversarial.jsonl 仅计数，未参与训练/评分",
+  "test 只做最终评估（held-out generator），不用于任何选择"
+ ]
+}
