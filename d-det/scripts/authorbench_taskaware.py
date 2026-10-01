@@ -10,7 +10,8 @@
     max_length=512，超长头 384+尾 128，<8 跳过并记录；bf16 仅用于 GPU 推理，缓存
     float32；逐行保存 task_id/model_name/family/source_sha256，训练前与 JSONL 复核。
   · C family 6-way：z_raw / z_center（任务内无标签均值，转导）/ z_center_std（训练任务
-    标准差）/ meta_only；LR C∈{0.03,0.1} 用 dev 选一 + LDA(lsqr, shrinkage=auto) 交叉
+    标准差）/ meta_only（原始量纲）/ **meta_std（训练任务逐维标准化，补充基准；原 meta_only
+    因量纲差异 lbfgs 不收敛，需以此为准）**；LR C∈{0.03,0.1} 用 dev 选一 + LDA(lsqr, shrinkage=auto) 交叉
     检查；train-only 拟合，test 终评：macro-F1 / balanced acc / 逐族 recall / 混淆矩阵 /
     任务级 bootstrap CI；机会 1/6。
   · D model 8-way 捷径诊断（raw vs center 等），机会 1/8。
@@ -72,7 +73,7 @@ SEED = 0
 CHANCE_F = 1.0 / 6.0
 CHANCE_M = 1.0 / 8.0
 META_COLS = ["char_count", "num_lines", "nloc", "cyclomatic_complexity", "token_size"]
-REPS = ["z_raw", "z_center", "z_center_std", "meta_only"]
+REPS = ["z_raw", "z_center", "z_center_std", "meta_only", "meta_std"]
 SMOKE_TASKS = {"train": 24, "dev": 8, "test": 8}
 
 
@@ -295,6 +296,8 @@ def make_reps(feats) -> dict:
     m, s = zc[tr].mean(0), np.maximum(zc[tr].std(0), STD_FLOOR)
     reps["z_center_std"] = (zc - m) / s
     reps["meta_only"] = feats["meta"].copy()
+    mm, ms = feats["meta"][tr].mean(0), np.maximum(feats["meta"][tr].std(0), STD_FLOOR)
+    reps["meta_std"] = (feats["meta"] - mm) / ms
     return reps
 
 
@@ -621,7 +624,8 @@ def main() -> int:
             "z_raw": "未微调 CodeT5-base m_raw（768 维）",
             "z_center": "z − 同任务 8 输出无标签均值（**转导**；不代表单样本部署算法）",
             "z_center_std": "z_center 再按训练任务逐维标准差标准化",
-            "meta_only": f"元数据 {META_COLS}（原始量纲）"},
+            "meta_only": f"元数据 {META_COLS}（原始量纲；LR 不收敛，仅作对照）",
+            "meta_std": f"元数据 {META_COLS}（训练任务逐维均值/标准差标准化，补充基准）"},
         "family_attribution": fam_res, "model_attribution": mod_res,
         "diagnostics": diag, "openai_generator_holdout": holdout,
         "notes": ["AuthorBench 仅 OpenAI family 有多个 generator；§5 为辅助诊断，"
