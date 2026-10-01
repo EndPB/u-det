@@ -1,0 +1,48 @@
+{
+ "generated_at_commit": "83fad1c（repro 脚本所处 HEAD）",
+ "old": {
+  "dir": "artifacts/h2_droid_e36",
+  "manifest_commit": "ac127444e6e83c4281e324cb10c8d3444f1f85c3",
+  "metrics_sha256": null
+ },
+ "new": {
+  "dir": "artifacts/h2_droid_e36_repro",
+  "manifest_commit": "83fad1cd9c49fb2a1cd5bc5466987752f40c2be7"
+ },
+ "main_metric_diffs": [],
+ "all_main_identical": true,
+ "random_ref": {
+  "old": {
+   "fold_0": {
+    "BA_F": 0.2927,
+    "BA_G": 0.2944,
+    "note": "同本随机控制（主轴，仅参照，不入出口）"
+   },
+   "fold_1": {
+    "BA_F": 0.309,
+    "BA_G": 0.3115,
+    "note": "同本随机控制（主轴，仅参照，不入出口）"
+   }
+  },
+  "new": {
+   "fold_0": {
+    "BA_F": 0.3005,
+    "BA_G": 0.3016,
+    "note": "同本随机控制（池仅含原始 train/dev machine 行；主轴，仅参照，不入出口）"
+   },
+   "fold_1": {
+    "BA_F": 0.2966,
+    "BA_G": 0.2951,
+    "note": "同本随机控制（池仅含原始 train/dev machine 行；主轴，仅参照，不入出口）"
+   }
+  },
+  "status": "changed_by_design",
+  "reason": "池由全部 machine 行改为仅原始 train/dev 行"
+ },
+ "predictions_npz_identical": true,
+ "conclusion": "主指标（两折+pooled B0/F0/F1、anchor、det、exit）与原 E36 逐项一致；usage 新增 2 个声明字段（设计内）；随机参照按指导修正后仅该参照项变化，不影响 H2 结论口径",
+ "usage_fields_added_by_design": [
+  "usage.random_ref_pool",
+  "usage.random_ref_uses_original_test_rows"
+ ]
+}

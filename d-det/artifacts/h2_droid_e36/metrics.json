@@ -1,5 +1,5 @@
 {
- "commit": "ac127444e6e83c4281e324cb10c8d3444f1f85c3",
+ "commit": "83fad1cd9c49fb2a1cd5bc5466987752f40c2be7",
  "smoke": false,
  "data": {
   "source_revision": "9a42843be99456a3af70d2b9c9a53a4d7624598f",
@@ -9,6 +9,8 @@
  "protocol": "fold_plan.json 两折；B0 加权 LR（C=.1，w=N/(K|G_f|N_g)）冻结；残差=阶段 B 修正门控；F0=L_F，F1=L_F+0.1·L_cross（τ=.1，同家族不同 generator 正对）；批 7×18；2ep；AdamW 1e-3/wd 1e-4",
  "usage": {
   "test_used_for_final_eval_only": true,
+  "random_ref_uses_original_test_rows": false,
+  "random_ref_pool": "原始 split_source ∈ {train, dev} 的 machine 行",
   "diagnostic_used": false,
   "diagnostic_counted_in_audit": true
  },
@@ -597,9 +599,9 @@
    },
    "init_maxdiff": 0.0,
    "random_ref": {
-    "BA_F": 0.2927,
-    "BA_G": 0.2944,
-    "note": "同本随机控制（主轴，仅参照，不入出口）"
+    "BA_F": 0.3005,
+    "BA_G": 0.3016,
+    "note": "同本随机控制（池仅含原始 train/dev machine 行；主轴，仅参照，不入出口）"
    }
   },
   "fold_1": {
@@ -1180,9 +1182,9 @@
    },
    "init_maxdiff": 0.0,
    "random_ref": {
-    "BA_F": 0.309,
-    "BA_G": 0.3115,
-    "note": "同本随机控制（主轴，仅参照，不入出口）"
+    "BA_F": 0.2966,
+    "BA_G": 0.2951,
+    "note": "同本随机控制（池仅含原始 train/dev machine 行；主轴，仅参照，不入出口）"
    }
   }
  },

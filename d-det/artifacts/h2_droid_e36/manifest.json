@@ -1,5 +1,5 @@
 {
- "commit": "ac127444e6e83c4281e324cb10c8d3444f1f85c3",
+ "commit": "83fad1cd9c49fb2a1cd5bc5466987752f40c2be7",
  "smoke": false,
  "data_files": {
   "core.jsonl": {
@@ -60,11 +60,17 @@
    }
   }
  },
+ "usage": {
+  "test_used_for_final_eval_only": true,
+  "random_ref_uses_original_test_rows": false,
+  "diagnostic_used": false
+ },
  "excluded": [
   "diagnostic_hybrid_adversarial.jsonl（仅审计计数）"
  ],
  "notes": [
   "DroidCollection 无公开 task_id/prompt_id；结果为跨 generator 家族归因候选证据",
-  "test（held-out generator）仅用于最终评估"
+  "test（held-out generator）仅用于最终评估",
+  "随机参照仅用原始 train/dev machine 行；不触及 test"
  ]
 }

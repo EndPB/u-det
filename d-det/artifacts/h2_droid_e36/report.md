@@ -1,12 +1,14 @@
 # d-det · H2 报告 E36：DroidCollection 子集 generator-held-out 候选实验
 
 > 执行规范：`docx/d-det_H2_DroidCollection_DeepSeek执行指导_2026-10-01.md`（交接说明）。
-> 产物：`artifacts/h2_droid_e36/{audit,config,manifest,metrics}.json + predictions.npz + solver.log`；
-> 特征缓存在 `runs/h2_droid_e36/`（不入库）；脚本 `scripts/h2_droid_e36.py`。
+> 产物：`artifacts/h2_droid_e36/{audit,config,manifest,metrics}.json + predictions.npz + solver.log + repro_compare.json`；
+> **manifest commit=83fad1c（修正后复现基线；与原 2cc9695 产物逐项一致，见 repro_compare.json）**；特征缓存在 `runs/h2_droid_e36/`（不入库）；脚本 `scripts/h2_droid_e36.py`。
 
 ## 一句话结论
 
-在 DroidCollection 子集（7 family / 32 machine generator / 7 语言）上，按预注册协议完成两折 generator-held-out：**F1（+跨 generator SupCon）相对 F0（残差 CE）方向不一致**（fold_0 Δ=+0.14/+0.06pt；fold_1 Δ=−0.28/−0.37pt），pooled Δ=−0.17/−0.20pt ⇒ **按预注册出口 3：H2（跨 generator 关系约束保留家族来源信息）在本数据与当前 768 维冻结表示下不支持**。anchor 守卫通过（fold_0 .714 / fold_1 .857）⇒ 结论是"不支持"，不是"检验不足"。同时如实记录：本数据上跨 generator 家族归因本身处于低水平（gen BA_F≈.16，约 1.12–1.16×机会；随机参照 .29–.31）——**只能称为"DroidCollection 上的跨 generator 家族归因候选证据"**，与 E35 结论严格分开，不外推、不合并宣称。
+> 在 DroidCollection 子集上，family attribution 在 generator-held-out 条件下接近机会水平；加入仅跨 generator 正对的残差约束后，两折增量方向不一致（fold_0 +0.14/+0.06pt；fold_1 −0.28/−0.37pt），pooled BA_F/BA_G 分别下降 0.17/0.20 个百分点。因此，在当前 768 维冻结表示和该数据构型下，没有观察到稳定的 H2 增益。**该结果是数据构型和表示条件下的阴性证据，不等价于对所有 task-aware 数据上的 H2 作普遍否定。**
+>
+> anchor 守卫通过（fold_0 .714 / fold_1 .857）⇒ 正式判读为"不支持"（非"检验不足"）。本数据最多支持"DroidCollection 上的跨 generator 家族归因候选证据"表述；与 E35 严格分开，不外推。
 
 ## 摘要表（主指标只在 held-out test generator 上）
 
@@ -18,7 +20,7 @@
 | **Δ(F1−F0)** | **+0.14 / +0.06pt** | **−0.28 / −0.37pt** | **−0.17 / −0.20pt** |
 | anchor 比例（有效/总） | .714（3960/5544） | .857（5400/6300） | — |
 | 检测 AUROC（次要，test） | .9269 | .9230 | — |
-| 随机切分参照（主轴，仅参照） | .2927 / .2944 | .3090 / .3115 | — |
+| 随机切分参照（探索性诊断，池=原始 train/dev） | .3005 / .3016 | .2966 / .2951 | — |
 
 机会水平 1/7≈.1429；BA_F/BA_G 单位换算为 pt 时乘 100（如 −0.17pt）。
 
@@ -36,7 +38,7 @@
 - tokenizer：本地 `checkpoints/codet5-base`，`add_special_tokens=False`；`>max_length(1024)` → 头 768 + 尾 256；`<8` 跳过。
 - 编码：`runs/v0.4.1_covreg/last.pt`（冻结）+ `runs/flagship_r1/head.pt`（SetPool）+ `m_raw` 均值池化（bf16 autocast）；输出 768 维。
 - 实测：18,000 行全部保留（跳过 0）；token 长度 p50/p90/p99/max = 233/599/1024/1024；编码 150.7s（≈120 行/s，bs=16，RTX 3080 Ti）；**同批序重复编码逐位一致**；跨批组成差异 max|Δ|=1.79e-07（bf16 批核效应，记录不阻塞）。
-- 缓存：`runs/h2_droid_e36/features.npz`（52MB）+ `metadata.jsonl`，逐行 `source_row_sha1` 并在训练前与 JSONL 逐位复核通过。
+- 缓存：`runs/h2_droid_e36/features.npz`（52MB）+ `metadata.jsonl`，逐行 `source_row_sha1` 并在训练前与 JSONL 逐位复核通过。**复现运行复用同一缓存（hash 不变，见 `repro_compare.json`）。**
 
 ## 3 主实验协议（预注册）
 
@@ -81,7 +83,7 @@
 
 **4.4 anchor（跨 generator 正对覆盖）**：fold_0 整体 .714（逐族：5 个多 generator 族 1.00；codellama/ibm-granite 0.00＝训练侧单 generator）；fold_1 整体 .857（6 族 1.00；ibm-granite 0.00）。**anchor 守卫阈值 .15 通过 → 检验充分**。
 
-**4.5 随机切分参照（主轴，仅参照不入出口）**：fold_0 .2927/.2944、fold_1 .3090/.3115 vs gen 主轴 .1608/.1578、.1661/.1722 ⇒ **迁移损失 ≈13pt（BA_F）**，复现"generator-held-out 显著低于随机切分"的形态（与 E29-A/E30 同向）。
+**4.5 随机切分参照（探索性诊断，不入出口，不作为 H2 证据）**：按修正口径（池仅含原始 `split_source=train/dev` 的 machine 行，不触及 test）——fold_0 .3005/.3016、fold_1 .2966/.2951 vs gen 主轴 .1608/.1578、.1661/.1722。**该参照仅用于描述 generator migration loss 方向性，不作为支持/反对 H2 的证据**（原口径曾含原始 test 行，已按指导 §一 修正；变化详见 `repro_compare.json` 的 `random_ref` 字段）。
 
 ## 5 判读（预注册出口逐条）
 
@@ -90,7 +92,7 @@
 3. **出口 3（方向不一致或 pooled 非正）：成立 ⇒ H2 在本数据与 768 维冻结表示下不支持。**
 4. 出口 4（anchor 过低 ⇒ 检验不足）：不成立（.714/.857）。
 5. 出口 5（只改善单 family/role/generator ⇒ 仅报异质性）：记录——F1−F0 逐族/逐 generator 有正有负、无一致结构；不写成任何总体支持。
-- 备注（不改变出口）：本数据上 family 主轴（B0）本身在 gen-heldout 下仅 ≈.16（1.12–1.16×机会），且显著低于随机参照；"H2 不支持"与"该表示在当前预算下对该数据来源关系可读性低"两种读法都与数据一致，报告不额外宣称。
+- 备注（不改变出口）：本数据上 family 主轴（B0）本身在 gen-heldout 下仅 ≈.16（1.12–1.16×机会）；"H2 不支持"与"该表示在当前预算下对该数据来源关系可读性低"两种读法都与数据一致，报告不额外宣称。**检测 AUROC（.9269/.9230）仅作次要报告，不作为 H2 支持证据。**
 - 单种子仅作候选证据；本结果只适用于 DroidCollection 子集与当前冻结表示。
 
 ## 6 与 E35 的关系（必须分开陈述）
@@ -107,8 +109,23 @@
 4. 两折及 pooled 指标：§摘要表 + §4（`metrics.json`）。
 5. anchor 与逐 generator：§4.4 + §4.2（`metrics.json → folds.*.anchor / per_generator_recall`）。
 6. `manifest.json`：git commit、数据 revision、SHA256SUMS 全文件 hash、输入清单 hash、特征缓存 hash。
-7. 使用声明：`test_used_for_final_eval_only=true`（仅最终评估，无任何选择）；`diagnostic_used=false`（仅审计计数）。
+7. 使用声明：`test_used_for_final_eval_only=true`（仅最终评估，无任何选择）；`random_ref_uses_original_test_rows=false`（随机参照池=原始 train/dev）；`diagnostic_used=false`（仅审计计数）。
 8. 失败/中止路径：脚本默认拒绝覆盖产物、断言失败即停止；本次未触发。
+
+### 最终代码审计（指导 §二 十项核对）
+
+| # | 核对项 | 证据 |
+|---|---|---|
+| 1 | fold_plan train/held-out 交集 0 | `audit.json → folds.*.families.*`（断言通过；复现运行再次断言） |
+| 2 | sha1 跨 split 与 split 内重复 0 | `audit.json → dup_sha1`（machine/human 全 0） |
+| 3 | test generator 未参与拟合/标准化/早停/调参 | 代码：tr/va 仅含 train_generators；scaler 仅 fit 于训练侧；无 early-stop；超参固定（config.json）；随机参照池已修正为 train/dev |
+| 4 | diagnostic 未进入训练/特征拟合/评分 | 代码仅审计计数；`usage.diagnostic_used=false` |
+| 5 | F0/F1 共享初始参数/种子/schedule/标准化/optimizer | 代码：deepcopy 初始化、同 RandomState(0) 批序、同 scaler、同 AdamW 配置 |
+| 6 | 初始化 F0/F1 logits 与 B0 逐位一致 | `metrics.folds.*.init_maxdiff = 0.0`（两折、复现一致） |
+| 7 | 跨 gen 正对=同 family 不同 generator | `cross_pos/supcon_cross_from`（与 E35 同源实现） |
+| 8 | BA_G=held-out generator 分组后的 family recall 平均（非 unseen-generator 分类） | `fam_eval` 实现+本报告表述 |
+| 9 | 记录 tokenizer/ckpt/max length/batch/特征 hash | `manifest.feature_spec` + `features_cache.sha256` |
+| 10 | 只保留一份正式产物 | `artifacts/h2_droid_e36` 为唯一正式目录（smoke/repro 已清理；缓存留在 `runs/` 不入库） |
 
 ## 8 复现
 
@@ -117,6 +134,10 @@ cd /root/autodl-tmp/u-det/d-det
 OMP_NUM_THREADS=8 python scripts/h2_droid_e36.py --audit-only   # 阶段 A（0.4s）
 OMP_NUM_THREADS=8 python scripts/h2_droid_e36.py --smoke        # 阶段 B+C（8.1s）
 OMP_NUM_THREADS=8 python scripts/h2_droid_e36.py                # 阶段 D 全量（176.0s）
+OMP_NUM_THREADS=8 python scripts/h2_droid_e36.py \
+  --out artifacts/h2_droid_e36_repro --force                    # 复现（HEAD 83fad1c；缓存复用；14.3s）
 ```
+
+复现核验：`repro_compare.json` — 主指标（两折+pooled B0/F0/F1、anchor、det、exit）逐项一致；`predictions.npz` 逐位一致；`usage` 新增 2 个声明字段（设计内）；随机参照按指导修正后仅该参照项变化（.2927→.3005、.3090→.2966），不影响 H2 结论口径。
 
 依赖：`data/h2_droid_subset/`（SHA256SUMS 校验通过）、`runs/v0.4.1_covreg/last.pt`、`runs/flagship_r1/head.pt`、`runs/flagship_e27/model_state.pt`、`checkpoints/codet5-base`。产物 7 件在 `artifacts/h2_droid_e36/`；特征缓存约 57MB 留在 `runs/`（不入库）。
