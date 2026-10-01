@@ -1,0 +1,226 @@
+{
+ "totals": {
+  "rows": 1912,
+  "tasks": 239,
+  "models": 8,
+  "families": 6,
+  "language": [
+   "C"
+  ],
+  "split_tasks": {
+   "train": 167,
+   "test": 36,
+   "dev": 36
+  },
+  "split_rows": {
+   "train": 1336,
+   "test": 288,
+   "dev": 288
+  }
+ },
+ "per_model": {
+  "claude-3.5-haiku": 239,
+  "deepseek-chat": 239,
+  "gemini-2.5-flash-preview-05-20": 239,
+  "gpt-4.1": 239,
+  "gpt-4o": 239,
+  "gpt-4o-mini": 239,
+  "llama-3.3-70b-instruct": 239,
+  "qwen-2.5-72b-instruct": 239
+ },
+ "per_family": {
+  "claude": 239,
+  "deepseek": 239,
+  "gemini": 239,
+  "openai": 717,
+  "llama": 239,
+  "qwen": 239
+ },
+ "family_models": {
+  "claude": [
+   "claude-3.5-haiku"
+  ],
+  "deepseek": [
+   "deepseek-chat"
+  ],
+  "gemini": [
+   "gemini-2.5-flash-preview-05-20"
+  ],
+  "llama": [
+   "llama-3.3-70b-instruct"
+  ],
+  "openai": [
+   "gpt-4.1",
+   "gpt-4o",
+   "gpt-4o-mini"
+  ],
+  "qwen": [
+   "qwen-2.5-72b-instruct"
+  ]
+ },
+ "replicate_count": {
+  "1": 287,
+  "3": 395,
+  "4": 308,
+  "20": 65,
+  "19": 36,
+  "15": 48,
+  "8": 55,
+  "18": 58,
+  "7": 64,
+  "12": 18,
+  "17": 80,
+  "16": 46,
+  "5": 140,
+  "21": 20,
+  "2": 145,
+  "6": 51,
+  "10": 12,
+  "14": 20,
+  "22": 4,
+  "11": 15,
+  "13": 12,
+  "28": 6,
+  "9": 15,
+  "27": 7,
+  "30": 1,
+  "29": 2,
+  "25": 1,
+  "26": 1
+ },
+ "replicate_note": "源数据同一 prompt-model 的重复数；本子集每对仅保留 1 条，重复不视为独立任务",
+ "sha256": {
+  "global_rows": 1912,
+  "unique": 1912,
+  "dup_global": 0,
+  "cross_split": {
+   "train_dev": 0,
+   "train_test": 0,
+   "dev_test": 0
+  },
+  "within_task_dup": 0
+ },
+ "metadata_percentiles": {
+  "char_count": {
+   "min": 392.0,
+   "p25": 1322.0,
+   "p50": 2014.5,
+   "p75": 3221.5,
+   "p90": 4798.3,
+   "p99": 11881.04,
+   "max": 24248.0
+  },
+  "num_lines": {
+   "min": 20.0,
+   "p25": 49.0,
+   "p50": 74.0,
+   "p75": 115.0,
+   "p90": 161.0,
+   "p99": 322.68,
+   "max": 651.0
+  },
+  "nloc": {
+   "min": 2.0,
+   "p25": 34.0,
+   "p50": 54.0,
+   "p75": 83.25,
+   "p90": 120.0,
+   "p99": 243.67,
+   "max": 534.0
+  },
+  "cyclomatic_complexity": {
+   "min": 0.0,
+   "p25": 2.5,
+   "p50": 3.67,
+   "p75": 5.0,
+   "p90": 7.5,
+   "p99": 14.0,
+   "max": 33.5
+  },
+  "token_size": {
+   "min": 129.0,
+   "p25": 460.0,
+   "p50": 702.5,
+   "p75": 1112.5,
+   "p90": 1657.6,
+   "p99": 3916.49,
+   "max": 7375.0
+  }
+ },
+ "metadata_per_model_p50": {
+  "claude-3.5-haiku": {
+   "char_count": 3144.0,
+   "num_lines": 115.0,
+   "nloc": 77.0,
+   "cyclomatic_complexity": 3.75,
+   "token_size": 999.0
+  },
+  "deepseek-chat": {
+   "char_count": 1754.0,
+   "num_lines": 65.0,
+   "nloc": 48.0,
+   "cyclomatic_complexity": 3.5,
+   "token_size": 614.0
+  },
+  "gemini-2.5-flash-preview-05-20": {
+   "char_count": 4847.0,
+   "num_lines": 140.0,
+   "nloc": 88.0,
+   "cyclomatic_complexity": 5.0,
+   "token_size": 1626.0
+  },
+  "gpt-4.1": {
+   "char_count": 1680.0,
+   "num_lines": 65.0,
+   "nloc": 50.0,
+   "cyclomatic_complexity": 4.33,
+   "token_size": 630.0
+  },
+  "gpt-4o": {
+   "char_count": 1730.0,
+   "num_lines": 65.0,
+   "nloc": 47.0,
+   "cyclomatic_complexity": 3.33,
+   "token_size": 602.0
+  },
+  "gpt-4o-mini": {
+   "char_count": 1766.0,
+   "num_lines": 62.0,
+   "nloc": 44.0,
+   "cyclomatic_complexity": 3.42,
+   "token_size": 613.0
+  },
+  "llama-3.3-70b-instruct": {
+   "char_count": 1854.0,
+   "num_lines": 70.0,
+   "nloc": 50.0,
+   "cyclomatic_complexity": 3.0,
+   "token_size": 614.0
+  },
+  "qwen-2.5-72b-instruct": {
+   "char_count": 1833.0,
+   "num_lines": 68.0,
+   "nloc": 51.0,
+   "cyclomatic_complexity": 3.5,
+   "token_size": 629.0
+  }
+ },
+ "task_index_ok": true,
+ "files": {
+  "core.jsonl": {
+   "sha256": "5b15025a8eea7768b71ddfc6ce5399172fd73c8b965ffb3ed2df32cd694cdee7"
+  },
+  "task_index.jsonl": {
+   "sha256": "2d55ff44ae3635d2f9a500c992f8b872841f92795c421b414fb386d60ed6ee1d"
+  },
+  "fold_plan.json": {
+   "sha256": "d351f60abbfea798fa223ecdb031375cb698c32ea6a4a846fb37ceebc06b10c7"
+  },
+  "summary.json": {
+   "sha256": "c94f693b5d8e3266cb230e2cfd85c64f602d6714bba2be3bf9ef82c9f86bcc00"
+  },
+  "README.md": {
+   "sha256": "bd83fbf89a3a4627f3faaec0ad2ae8b0cc55d798b6a4797c6a0f152ea622ae37"
+  }
+ }
+}

@@ -1,0 +1,28 @@
+{
+ "commit": "e866c82a65003930dc8906ba99ad6027a40e9533",
+ "C_grid": [
+  0.03,
+  0.1
+ ],
+ "selection": "dev macro-F1（并列取小 C）",
+ "max_length": 512,
+ "long_rule": "头 75% + 尾 25%（512→384+128）",
+ "min_tokens": 8,
+ "batch_size": 8,
+ "encoder": "未微调 checkpoints/codet5-base（冻结，均值池化，bf16 推理，缓存 float32）",
+ "bootstrap": {
+  "iters": 1000,
+  "seed": 0,
+  "unit": "任务级重采样"
+ },
+ "smoke_tasks": {
+  "train": 24,
+  "dev": 8,
+  "test": 8
+ },
+ "oom_settings": {
+  "OMP": 2,
+  "MKL": 2,
+  "torch_threads": 2
+ }
+}

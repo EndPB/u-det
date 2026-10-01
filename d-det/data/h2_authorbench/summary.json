@@ -1,0 +1,141 @@
+{
+  "dataset": "LLM-AuthorBench task-aware subset",
+  "source_archive": "LLM-AuthorBench.json.zip",
+  "source_archive_sha256": "e24399b7b05b812c5a1148ef44245348859eaa74b1140523cb695f984337f24c",
+  "selected_rule": "prompts present for all eight model names; one deterministic row per prompt-model pair",
+  "rows": 1912,
+  "tasks": 239,
+  "models": [
+    "claude-3.5-haiku",
+    "deepseek-chat",
+    "gemini-2.5-flash-preview-05-20",
+    "gpt-4.1",
+    "gpt-4o",
+    "gpt-4o-mini",
+    "llama-3.3-70b-instruct",
+    "qwen-2.5-72b-instruct"
+  ],
+  "families": [
+    "claude",
+    "deepseek",
+    "gemini",
+    "llama",
+    "openai",
+    "qwen"
+  ],
+  "language": [
+    "C"
+  ],
+  "task_split_counts": {
+    "train": 167,
+    "dev": 36,
+    "test": 36
+  },
+  "family_counts": {
+    "claude": 239,
+    "deepseek": 239,
+    "gemini": 239,
+    "openai": 717,
+    "llama": 239,
+    "qwen": 239
+  },
+  "model_counts": {
+    "claude-3.5-haiku": 239,
+    "deepseek-chat": 239,
+    "gemini-2.5-flash-preview-05-20": 239,
+    "gpt-4.1": 239,
+    "gpt-4o": 239,
+    "gpt-4o-mini": 239,
+    "llama-3.3-70b-instruct": 239,
+    "qwen-2.5-72b-instruct": 239
+  },
+  "replicate_count_distribution": {
+    "1": 287,
+    "3": 395,
+    "4": 308,
+    "20": 65,
+    "19": 36,
+    "15": 48,
+    "8": 55,
+    "18": 58,
+    "7": 64,
+    "12": 18,
+    "17": 80,
+    "16": 46,
+    "5": 140,
+    "21": 20,
+    "2": 145,
+    "6": 51,
+    "10": 12,
+    "14": 20,
+    "22": 4,
+    "11": 15,
+    "13": 12,
+    "28": 6,
+    "9": 15,
+    "27": 7,
+    "30": 1,
+    "29": 2,
+    "25": 1,
+    "26": 1
+  },
+  "generator_folds": [
+    {
+      "name": "holdout_gpt-4_1",
+      "purpose": "auxiliary_within_openai_family_generator_holdout",
+      "train_generators": [
+        "claude-3.5-haiku",
+        "deepseek-chat",
+        "gemini-2.5-flash-preview-05-20",
+        "gpt-4o",
+        "gpt-4o-mini",
+        "llama-3.3-70b-instruct",
+        "qwen-2.5-72b-instruct"
+      ],
+      "heldout_generators": [
+        "gpt-4.1"
+      ],
+      "warning": "Only the OpenAI family has multiple generators in this public dataset; do not report this as a multi-family H2 result."
+    },
+    {
+      "name": "holdout_gpt-4o",
+      "purpose": "auxiliary_within_openai_family_generator_holdout",
+      "train_generators": [
+        "claude-3.5-haiku",
+        "deepseek-chat",
+        "gemini-2.5-flash-preview-05-20",
+        "gpt-4.1",
+        "gpt-4o-mini",
+        "llama-3.3-70b-instruct",
+        "qwen-2.5-72b-instruct"
+      ],
+      "heldout_generators": [
+        "gpt-4o"
+      ],
+      "warning": "Only the OpenAI family has multiple generators in this public dataset; do not report this as a multi-family H2 result."
+    },
+    {
+      "name": "holdout_gpt-4o-mini",
+      "purpose": "auxiliary_within_openai_family_generator_holdout",
+      "train_generators": [
+        "claude-3.5-haiku",
+        "deepseek-chat",
+        "gemini-2.5-flash-preview-05-20",
+        "gpt-4.1",
+        "gpt-4o",
+        "llama-3.3-70b-instruct",
+        "qwen-2.5-72b-instruct"
+      ],
+      "heldout_generators": [
+        "gpt-4o-mini"
+      ],
+      "warning": "Only the OpenAI family has multiple generators in this public dataset; do not report this as a multi-family H2 result."
+    }
+  ],
+  "limitations": [
+    "The dataset is C-only.",
+    "Most families have only one generator; cross-generator H2 is auxiliary and only applies to the OpenAI family.",
+    "The primary split holds out tasks, while generator folds are a separate diagnostic protocol.",
+    "The source archive contains multiple samples per prompt-model pair; this subset keeps one deterministic sample and records replicate_count."
+  ]
+}

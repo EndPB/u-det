@@ -1,0 +1,44 @@
+{
+ "commit": "e866c82a65003930dc8906ba99ad6027a40e9533",
+ "smoke": false,
+ "files": {
+  "core.jsonl": {
+   "sha256": "5b15025a8eea7768b71ddfc6ce5399172fd73c8b965ffb3ed2df32cd694cdee7"
+  },
+  "task_index.jsonl": {
+   "sha256": "2d55ff44ae3635d2f9a500c992f8b872841f92795c421b414fb386d60ed6ee1d"
+  },
+  "fold_plan.json": {
+   "sha256": "d351f60abbfea798fa223ecdb031375cb698c32ea6a4a846fb37ceebc06b10c7"
+  },
+  "summary.json": {
+   "sha256": "c94f693b5d8e3266cb230e2cfd85c64f602d6714bba2be3bf9ef82c9f86bcc00"
+  },
+  "README.md": {
+   "sha256": "bd83fbf89a3a4627f3faaec0ad2ae8b0cc55d798b6a4797c6a0f152ea622ae37"
+  }
+ },
+ "features_cache": {
+  "path": "/root/autodl-tmp/u-det/d-det/runs/authorbench_taskaware/features.npz",
+  "sha256": "6e69cab7ac99c5a096349e7b61e30833f856dfddf31ab4dfc2ed07189fd1b3b0",
+  "n": 1912,
+  "skipped": 0,
+  "dtype_saved": "float32"
+ },
+ "device": "cuda",
+ "max_vram_mb": 914.28271484375,
+ "threads": {
+  "OMP": 2,
+  "MKL": 2,
+  "torch": 2
+ },
+ "usage": {
+  "external_api": false,
+  "downloads": false,
+  "transductive_center": true
+ },
+ "notes": [
+  "C-only 数据；不外推语言/其他数据集",
+  "仅 OpenAI 有多个 generator，§5 不代表多 family H2"
+ ]
+}
