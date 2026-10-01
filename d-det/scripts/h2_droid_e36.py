@@ -20,7 +20,7 @@
     2 epoch、AdamW 1e-3/wd 1e-4/clip 1；F0/F1 共享主轴/初始化/种子/schedule/标准化。
   · 指标只在 held-out test 上：BA_F/BA_G、逐族/逐 held-out generator 召回、语言/
     Source/Generation_Mode/代码长度分桶、检测 AUROC（次要，train 侧训练）；随机切分
-    （同本控制）仅作迁移损失参照。预注册出口见 config.json exit_rule。
+    （同本控制，池=原始 train/dev）仅作迁移损失参照。预注册出口见 config.json exit_rule。
   · 不读 diagnostic_hybrid_adversarial.jsonl 参与训练/评分（仅审计计数）；test 只做
     最终评估，不用于任何选择。
 
@@ -28,6 +28,9 @@
   python scripts/h2_droid_e36.py --audit-only
   python scripts/h2_droid_e36.py --smoke
   python scripts/h2_droid_e36.py
+  python scripts/h2_droid_e36.py --out artifacts/h2_droid_e36_repro --force   # 复现
+说明：--force 仅控制输出目录覆盖；特征缓存默认复用（--rebuild-features 强制重建）。
+随机参照按指导修正：池仅含原始 split_source=train/dev 的 machine 行（不触及 test）。
 运行目录产物：artifacts/h2_droid_e36/{audit,config,manifest,metrics}.json +
 predictions.npz + solver.log（report.md 由报告复制）；特征缓存在 runs/h2_droid_e36/
 （不入库）；默认拒绝覆盖。
@@ -552,10 +555,11 @@ def run_fold(fold_key, fold_spec, feats, args, say):
         f"{res['F1']['BA_G']}，Δ={dF:+.4f}/{dG:+.4f}；anchor "
         f"{anchor['valid']}/{anchor['total']}={anchor['overall_ratio']:.3f}")
 
-    # ---- 随机切分参照（主轴，仅参照） ----
+    # ---- 随机切分参照（主轴，仅参照；指导修正：池仅含原始 train/dev machine 行） ----
     atr_l, ava_l = [], []
     for f in FAM7:
-        fidx = np.where(is_m & (feats["family"] == f))[0]
+        fidx = np.where(is_m & (feats["family"] == f)
+                        & (feats["split"] != "test"))[0]
         n_te = int((fam7_te == f).sum())
         rs = np.random.RandomState(200 + 10 * FAM7.index(f))
         perm = rs.permutation(len(fidx))
@@ -575,9 +579,9 @@ def run_fold(fold_key, fold_spec, feats, args, say):
                     f"{fold_key} 随机参照主轴", say)
     ref_rand = fam_eval(b0r.predict(apply_scaler(feats["raw"][ava_r], m_r, s_r)),
                         y7_rva, FAM7, list(feats["generator"][ava_r]))
-    say(f"[e36] {fold_key} 随机参照（主轴，仅参照）：BA_F {ref_rand['BA_F']} / "
-        f"BA_G {ref_rand['BA_G']}（对照 gen B0 {res['B0']['BA_F']}/"
-        f"{res['B0']['BA_G']}）")
+    say(f"[e36] {fold_key} 随机参照（主轴，仅参照，池=原始 train/dev）：BA_F "
+        f"{ref_rand['BA_F']} / BA_G {ref_rand['BA_G']}（对照 gen B0 "
+        f"{res['B0']['BA_F']}/{res['B0']['BA_G']}）")
 
     out = {
         "n_machine": {"train": int(len(tr)), "dev": int(len(va)), "test": int(len(te))},
@@ -592,7 +596,8 @@ def run_fold(fold_key, fold_spec, feats, args, say):
         "batch_stats": {"first_last": stats, "redraw": redraw},
         "gamma_track": gamma_track, "init_maxdiff": init_diff,
         "random_ref": {"BA_F": ref_rand["BA_F"], "BA_G": ref_rand["BA_G"],
-                       "note": "同本随机控制（主轴，仅参照，不入出口）"},
+                       "note": "同本随机控制（池仅含原始 train/dev machine 行；"
+                               "主轴，仅参照，不入出口）"},
         "predictions": {
             "te_row_i": feats["row_i"][te], "te_family": fam_idx_all[te],
             "te_generator": gen_te, "te_language": feats["language"][te],
@@ -618,6 +623,7 @@ def main() -> int:
     ap.add_argument("--smoke", action="store_true")
     ap.add_argument("--audit-only", action="store_true")
     ap.add_argument("--force", action="store_true")
+    ap.add_argument("--rebuild-features", action="store_true")
     a = ap.parse_args()
     data_dir = Path(a.data_dir)
     OUT = Path(a.out) if a.out else ROOT / "artifacts" / (
@@ -673,7 +679,7 @@ def main() -> int:
         rows = keep
         say(f"[e36] smoke 子集 {len(rows)} 行（每 (split,label,generator) ≤"
             f"{SMOKE_PER_GROUP}）")
-    if feats_path.exists() and not a.force:
+    if feats_path.exists() and not a.rebuild_features:
         feats = load_features(RUNS, rows) if not a.smoke else load_features_smoke(
             RUNS, rows)
         say(f"[e36] 复用特征缓存并复核 ✓：{feats_path}")
@@ -757,6 +763,8 @@ def main() -> int:
                      "残差=阶段 B 修正门控；F0=L_F，F1=L_F+0.1·L_cross（τ=.1，"
                      "同家族不同 generator 正对）；批 7×18；2ep；AdamW 1e-3/wd 1e-4"),
         "usage": {"test_used_for_final_eval_only": True,
+                  "random_ref_uses_original_test_rows": False,
+                  "random_ref_pool": "原始 split_source ∈ {train, dev} 的 machine 行",
                   "diagnostic_used": False,
                   "diagnostic_counted_in_audit": True},
         "folds": folds_out, "exit": exit_info,
@@ -780,10 +788,14 @@ def main() -> int:
                                     "runs/flagship_r1/head.pt + m_raw 均值池化",
                          "batch_size": a.batch_size},
         "counts": {"audit": audit["totals"]},
+        "usage": {"test_used_for_final_eval_only": True,
+                  "random_ref_uses_original_test_rows": False,
+                  "diagnostic_used": False},
         "excluded": ["diagnostic_hybrid_adversarial.jsonl（仅审计计数）"],
         "notes": ["DroidCollection 无公开 task_id/prompt_id；结果为跨 generator "
                   "家族归因候选证据",
-                  "test（held-out generator）仅用于最终评估"],
+                  "test（held-out generator）仅用于最终评估",
+                  "随机参照仅用原始 train/dev machine 行；不触及 test"],
     }
     (OUT / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=1))
     (OUT / "config.json").write_text(json.dumps({
