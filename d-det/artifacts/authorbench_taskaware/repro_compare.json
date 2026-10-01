@@ -1,0 +1,45 @@
+{
+ "generated_from": {
+  "old": {
+   "dir": "artifacts/authorbench_taskaware",
+   "manifest_commit": "e866c82a65003930dc8906ba99ad6027a40e9533"
+  },
+  "new": {
+   "dir": "artifacts/authorbench_taskaware_check/main",
+   "manifest_commit": "110eb2e8586f969b8711b799f6c697494da5084a"
+  }
+ },
+ "shared_metric_diffs": [],
+ "all_shared_identical": true,
+ "added_by_design": [
+  "family_attribution.meta_std",
+  "model_attribution.meta_std",
+  "representations.meta_std"
+ ],
+ "npz_shared_keys_equal": true,
+ "npz_added_keys": [
+  "family_dev_meta_std",
+  "family_test_lda_meta_std",
+  "family_test_meta_std",
+  "model_dev_meta_std",
+  "model_test_lda_meta_std",
+  "model_test_meta_std"
+ ],
+ "figures_identical": {
+  "fig_pca_raw_center_family.png": true,
+  "fig_pca_raw_center_split.png": true,
+  "fig_kmeans.png": true,
+  "fig_lda.png": true
+ },
+ "features_cache_sha_same": true,
+ "data_files_same": true,
+ "conclusion": "共享字段（除 3 个新增 meta_std 键与 1 处 meta_only 描述文案更新外）逐项一致；predictions.npz 共享键逐位一致；4 图件字节一致；特征缓存/数据文件 hash 一致",
+ "changed_by_design": [
+  {
+   "path": "representations.meta_only",
+   "old": "元数据 ['char_count', 'num_lines', 'nloc', 'cyclomatic_complexity', 'token_size']（原始量纲）",
+   "new": "元数据 ['char_count', 'num_lines', 'nloc', 'cyclomatic_complexity', 'token_size']（原始量纲；LR 不收敛，仅作对照）",
+   "status": "diff"
+  }
+ ]
+}

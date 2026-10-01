@@ -1,0 +1,19 @@
+[ab] commit 110eb2e8586f969b8711b799f6c697494da5084a | smoke=False audit_only=False | out=artifacts/authorbench_taskaware_check/main
+[ab] 审计完成：1912 行 / 239 任务；断言全过；audit.json 已写出
+[ab] 复用特征缓存并复核 ✓：/root/autodl-tmp/u-det/d-det/runs/authorbench_taskaware/features.npz
+[ab] C-family·z_raw: C*=0.1 test macroF1 0.3206 balAcc 0.3457（LDA 0.5955）
+[ab] C-family·z_center: C*=0.1 test macroF1 0.3624 balAcc 0.3843（LDA 0.6623）
+[ab] C-family·z_center_std: C*=0.1 test macroF1 0.6305 balAcc 0.6235（LDA 0.6623）
+[ab] C-family·meta_only: C*=0.1 test macroF1 0.326 balAcc 0.3873（LDA 0.3027）
+[ab] C-family·meta_std: C*=0.1 test macroF1 0.2778 balAcc 0.3179（LDA 0.3027）
+[ab] D-model·z_raw: C*=0.1 test macroF1 0.3867 balAcc 0.4375（LDA 0.5378）
+[ab] D-model·z_center: C*=0.1 test macroF1 0.5273 balAcc 0.5625（LDA 0.5965）
+[ab] D-model·z_center_std: C*=0.03 test macroF1 0.5749 balAcc 0.5694（LDA 0.5965）
+[ab] D-model·meta_only: C*=0.03 test macroF1 0.3049 balAcc 0.3472（LDA 0.2579）
+[ab] D-model·meta_std: C*=0.1 test macroF1 0.2419 balAcc 0.2882（LDA 0.2579）
+[ab] KMeans k=6 z_raw: {'silhouette_train': 0.0388, 'ARI_train': 0.0221, 'family_purity_train': 0.4124}
+[ab] KMeans k=6 z_center: {'silhouette_train': 0.0208, 'ARI_train': 0.0687, 'family_purity_train': 0.4506}
+[ab] 协方差迹比: {'z_raw': {'train': {'trace_ratio_within_over_between': 33.8868}, 'test': {'trace_ratio_within_over_between': 26.9415}}, 'z_center': {'train': {'trace_ratio_within_over_between': 16.9194}, 'test': {'trace_ratio_within_over_between': 13.6714}}}
+[ab] §5 留出 gpt-4.1: task_conditioned_dev_test: famRecall raw 0.9306 / center 0.9861 | strict_test_only: famRecall raw 0.9167 / center 1.0
+[ab] §5 留出 gpt-4o: task_conditioned_dev_test: famRecall raw 0.8333 / center 0.9583 | strict_test_only: famRecall raw 0.75 / center 0.9444
+[ab] §5 留出 gpt-4o-mini: task_conditioned_dev_test: famRecall raw 0.8611 / center 0.875 | strict_test_only: famRecall raw 0.8611 / center 0.8611

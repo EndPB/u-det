@@ -1,5 +1,5 @@
 {
- "commit": "e866c82a65003930dc8906ba99ad6027a40e9533",
+ "commit": "110eb2e8586f969b8711b799f6c697494da5084a",
  "smoke": false,
  "data": {
   "source_archive_sha256": "e24399b7b05b812c5a1148ef44245348859eaa74b1140523cb695f984337f24c",
@@ -31,7 +31,8 @@
   "z_raw": "未微调 CodeT5-base m_raw（768 维）",
   "z_center": "z − 同任务 8 输出无标签均值（**转导**；不代表单样本部署算法）",
   "z_center_std": "z_center 再按训练任务逐维标准差标准化",
-  "meta_only": "元数据 ['char_count', 'num_lines', 'nloc', 'cyclomatic_complexity', 'token_size']（原始量纲）"
+  "meta_only": "元数据 ['char_count', 'num_lines', 'nloc', 'cyclomatic_complexity', 'token_size']（原始量纲；LR 不收敛，仅作对照）",
+  "meta_std": "元数据 ['char_count', 'num_lines', 'nloc', 'cyclomatic_complexity', 'token_size']（训练任务逐维均值/标准差标准化，补充基准）"
  },
  "family_attribution": {
   "z_raw": {
@@ -418,6 +419,106 @@
     "balanced_acc_ci95": [
      0.3487,
      0.4259
+    ]
+   },
+   "lda_check": {
+    "macro_f1": 0.3027,
+    "balanced_acc": 0.3333,
+    "per_class_recall": {
+     "claude": 0.4444,
+     "deepseek": 0.0,
+     "gemini": 0.5833,
+     "llama": 0.0,
+     "openai": 0.9722,
+     "qwen": 0.0
+    },
+    "n": 288
+   }
+  },
+  "meta_std": {
+   "C_selected": 0.1,
+   "C_selection_dev": {
+    "0.03": {
+     "dev_macro_f1": 0.2666,
+     "dev_balanced_acc": 0.2963,
+     "converged": true
+    },
+    "0.1": {
+     "dev_macro_f1": 0.2816,
+     "dev_balanced_acc": 0.3194,
+     "converged": true
+    }
+   },
+   "lr_converged": true,
+   "macro_f1": 0.2778,
+   "balanced_acc": 0.3179,
+   "per_class_recall": {
+    "claude": 0.3333,
+    "deepseek": 0.0,
+    "gemini": 0.6111,
+    "llama": 0.0,
+    "openai": 0.963,
+    "qwen": 0.0
+   },
+   "confusion": [
+    [
+     12,
+     0,
+     3,
+     0,
+     21,
+     0
+    ],
+    [
+     1,
+     0,
+     2,
+     0,
+     33,
+     0
+    ],
+    [
+     3,
+     0,
+     22,
+     0,
+     11,
+     0
+    ],
+    [
+     1,
+     0,
+     3,
+     0,
+     32,
+     0
+    ],
+    [
+     2,
+     0,
+     2,
+     0,
+     104,
+     0
+    ],
+    [
+     2,
+     0,
+     1,
+     0,
+     33,
+     0
+    ]
+   ],
+   "n": 288,
+   "bootstrap": {
+    "macro_f1_ci95": [
+     0.24,
+     0.3167
+    ],
+    "balanced_acc_ci95": [
+     0.2793,
+     0.3565
     ]
    },
    "lda_check": {
@@ -962,6 +1063,142 @@
     "balanced_acc_ci95": [
      0.2951,
      0.3993
+    ]
+   },
+   "lda_check": {
+    "macro_f1": 0.2579,
+    "balanced_acc": 0.2986,
+    "per_class_recall": {
+     "claude-3.5-haiku": 0.7778,
+     "deepseek-chat": 0.0556,
+     "gemini-2.5-flash-preview-05-20": 0.5833,
+     "gpt-4.1": 0.5,
+     "gpt-4o": 0.0278,
+     "gpt-4o-mini": 0.2778,
+     "llama-3.3-70b-instruct": 0.0833,
+     "qwen-2.5-72b-instruct": 0.0833
+    },
+    "n": 288
+   }
+  },
+  "meta_std": {
+   "C_selected": 0.1,
+   "C_selection_dev": {
+    "0.03": {
+     "dev_macro_f1": 0.2412,
+     "dev_balanced_acc": 0.2812,
+     "converged": true
+    },
+    "0.1": {
+     "dev_macro_f1": 0.258,
+     "dev_balanced_acc": 0.2917,
+     "converged": true
+    }
+   },
+   "lr_converged": true,
+   "macro_f1": 0.2419,
+   "balanced_acc": 0.2882,
+   "per_class_recall": {
+    "claude-3.5-haiku": 0.75,
+    "deepseek-chat": 0.0278,
+    "gemini-2.5-flash-preview-05-20": 0.6389,
+    "gpt-4.1": 0.4444,
+    "gpt-4o": 0.0556,
+    "gpt-4o-mini": 0.2222,
+    "llama-3.3-70b-instruct": 0.0833,
+    "qwen-2.5-72b-instruct": 0.0833
+   },
+   "confusion": [
+    [
+     27,
+     0,
+     3,
+     3,
+     1,
+     1,
+     1,
+     0
+    ],
+    [
+     6,
+     1,
+     2,
+     15,
+     4,
+     5,
+     1,
+     2
+    ],
+    [
+     7,
+     0,
+     23,
+     3,
+     1,
+     2,
+     0,
+     0
+    ],
+    [
+     6,
+     0,
+     3,
+     16,
+     2,
+     4,
+     2,
+     3
+    ],
+    [
+     6,
+     2,
+     2,
+     10,
+     2,
+     6,
+     4,
+     4
+    ],
+    [
+     7,
+     0,
+     0,
+     14,
+     1,
+     8,
+     5,
+     1
+    ],
+    [
+     7,
+     1,
+     4,
+     9,
+     3,
+     6,
+     3,
+     3
+    ],
+    [
+     12,
+     0,
+     2,
+     10,
+     2,
+     5,
+     2,
+     3
+    ]
+   ],
+   "n": 288,
+   "bootstrap": {
+    "macro_f1_ci95": [
+     0.1984,
+     0.291
+    ],
+    "balanced_acc_ci95": [
+     0.25,
+     0.3333
     ]
    },
    "lda_check": {
