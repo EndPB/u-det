@@ -1,0 +1,25 @@
+{
+ "commit": "de88cad0a2b0df250042d00ec8c36e4a94358b13",
+ "C_fixed": 0.1,
+ "lr": 0.001,
+ "wd": 0.0001,
+ "tau": 0.1,
+ "lambda_C": 0.1,
+ "epochs": 2,
+ "batch": "7 族×18",
+ "seed": 0,
+ "model": "ℓ=ℓ0+γ·W_R·r；ℓ0=加权 LR 冻结；修正门控 W_R=0、η0=.5；r=V·GELU(Uz+b1)+b2（U Xavier、V std=1e-3、b=0）",
+ "arms": {
+  "B0": "冻结主轴（参照）",
+  "F0": "残差 CE",
+  "F1": "残差 CE+0.1·L_cross（同家族不同 generator 正对）"
+ },
+ "exit_rule": {
+  "1": "两折 BA_F/BA_G 均正 且 pooled 两项 ≥1pt",
+  "2": "方向一致但 pooled <1pt",
+  "3": "方向不一致或 pooled 非正",
+  "4": "任一折 anchor 比例 < 0.15 ⇒ 检验不足",
+  "5": "只改善单个 family/role/generator ⇒ 仅报异质性"
+ },
+ "anchor_min": 0.15
+}

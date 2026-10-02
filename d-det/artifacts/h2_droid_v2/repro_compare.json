@@ -1,0 +1,16 @@
+{
+ "old": {
+  "dir": "artifacts/h2_droid_v2",
+  "manifest_commit": "d261950b85956a44471ff0cef26ac8e25f6f80ea"
+ },
+ "new": {
+  "dir": "artifacts/h2_droid_v2_repro",
+  "manifest_commit": "de88cad0a2b0df250042d00ec8c36e4a94358b13"
+ },
+ "metric_diffs": [],
+ "all_identical": true,
+ "npz_all_equal": true,
+ "features_cache_sha_same": true,
+ "data_files_same": true,
+ "conclusion": "两跑 metrics（data/exit/folds/pooled/protocol/usage）逐项一致、predictions 逐位一致、缓存/数据 hash 一致；manifest commit d261950→de88cad 为 provenance 修正（v2 脚本已入库）"
+}

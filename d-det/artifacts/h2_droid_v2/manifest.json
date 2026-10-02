@@ -1,0 +1,76 @@
+{
+ "commit": "de88cad0a2b0df250042d00ec8c36e4a94358b13",
+ "smoke": false,
+ "data_files": {
+  "core.jsonl": {
+   "sha256": "8e5c4259ae9a06f9bae2f58d7d05e6df9b2bbcdcced47d5629d5982e6cc9e522",
+   "ok": true
+  },
+  "diagnostic_hybrid_adversarial.jsonl": {
+   "sha256": "59cd09405ba0b67e8f1f43264990f657ea52d6428026c4d2d442ce627e0e592a",
+   "ok": true
+  },
+  "fold_plan.json": {
+   "sha256": "e1b3d131f1ca17c2ab83d10608cc4cdeb78087ab7d7c333e36d0e6b66f85350b",
+   "ok": true
+  },
+  "README.md": {
+   "sha256": "c05b23a36e2400cb37dd8dfe64a1505f1b99d1405be6f05e801206fda0fec7b2",
+   "ok": true
+  },
+  "summary.json": {
+   "sha256": "ef630f9344eef4c69c0d6784e522a4565abbb9230fc77ad625ef723033e35bb9",
+   "ok": true
+  }
+ },
+ "features_cache": {
+  "path": "/root/autodl-tmp/u-det/d-det/runs/h2_droid_v2/features.npz",
+  "sha256": "70ad983f08ccd8a28ee482aaf3f4e0fe3a46bfd778217c35803de4e51f2ca657",
+  "n": 146718,
+  "skipped": 0
+ },
+ "feature_spec": {
+  "tokenizer": "checkpoints/codet5-base",
+  "add_special_tokens": false,
+  "max_length": 1024,
+  "long_rule": ">max_length → 头 75%+尾 25%（默认 768+256）",
+  "min_tokens": 8,
+  "encoder": "runs/v0.4.1_covreg/last.pt（冻结）+ SetPool runs/flagship_r1/head.pt + m_raw 均值池化",
+  "batch_size": 16
+ },
+ "counts": {
+  "audit": {
+   "rows": 146718,
+   "machine": 125718,
+   "human": 21000,
+   "by_split": {
+    "train": 107599,
+    "dev": 19609,
+    "test": 19510
+   },
+   "machine_by_split": {
+    "train": 100599,
+    "dev": 12609,
+    "test": 12510
+   },
+   "human_by_split": {
+    "train": 7000,
+    "dev": 7000,
+    "test": 7000
+   }
+  }
+ },
+ "usage": {
+  "test_used_for_final_eval_only": true,
+  "random_ref_uses_original_test_rows": false,
+  "diagnostic_used": false
+ },
+ "excluded": [
+  "diagnostic_hybrid_adversarial.jsonl（仅审计计数）"
+ ],
+ "notes": [
+  "DroidCollection 无公开 task_id/prompt_id；结果为跨 generator 家族归因候选证据",
+  "test（held-out generator）仅用于最终评估",
+  "随机参照仅用原始 train/dev machine 行；不触及 test"
+ ]
+}

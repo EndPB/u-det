@@ -1,0 +1,26 @@
+[v2] commit de88cad0a2b0df250042d00ec8c36e4a94358b13 | smoke=False audit_only=False | data=/root/autodl-tmp/u-det/d-det/data/h2_droid_full_selected_upload | out=artifacts/h2_droid_v2_repro
+[v2] SHA256SUMS 校验通过（5 文件）
+[v2] 审计完成：machine 125718 / human 21000；断言全部通过；audit.json 已写出
+[v2] 复用特征缓存并复核 ✓：/root/autodl-tmp/u-det/d-det/runs/h2_droid_v2/features.npz
+[v2] fold_0: train 52251 / dev 6482 / test 6142（human 7000/7000/7000）
+[v2] fold_0 B0 主轴（加权）: 收敛=True n_iter=795
+[v2] fold_0 检测头: 收敛=True n_iter=405
+[v2] fold_0 检测（次要）：test AUROC 0.9511（F1@.5 0.8183） / dev 0.9577
+[v2] fold_0 初始化审计：F0/F1 初始 logits 与 B0 逐位一致 ✓
+[v2] fold_0 epoch0：F0 [{'epoch': 0, 'step': 0, 'ce': 1.2746, 'lc': None, 'grad_norm': 0.002, 'gamma': 0.04621}, {'epoch': 0, 'step': 414, 'ce': 1.3764, 'lc': None, 'grad_norm': 0.075, 'gamma': 0.02928}] | F1 [{'epoch': 0, 'step': 0, 'ce': 1.2746, 'lc': 6.5716, 'grad_norm': 8.027, 'gamma': 0.04621}, {'epoch': 0, 'step': 414, 'ce': 1.3778, 'lc': 4.7943, 'grad_norm': 0.1, 'gamma': 0.02882}]
+[v2] fold_0 epoch1：F0 [{'epoch': 1, 'step': 0, 'ce': 1.3169, 'lc': None, 'grad_norm': 0.118, 'gamma': 0.02921}, {'epoch': 1, 'step': 414, 'ce': 1.3151, 'lc': None, 'grad_norm': 0.14, 'gamma': 0.01859}] | F1 [{'epoch': 1, 'step': 0, 'ce': 1.3353, 'lc': 4.7589, 'grad_norm': 0.115, 'gamma': 0.02879}, {'epoch': 1, 'step': 414, 'ce': 1.3224, 'lc': 4.8066, 'grad_norm': 0.192, 'gamma': 0.0191}]
+[v2] fold_0 test：B0 0.147/0.1488，F0 0.1493/0.1503，F1 0.142/0.1435，Δ=-0.0073/-0.0068；anchor 74700/104580=0.714
+[v2] fold_0 随机参照主轴: 收敛=True n_iter=854
+[v2] fold_0 随机参照（主轴，仅参照，池=原始 train/dev）：BA_F 0.3287 / BA_G 0.3236（对照 gen B0 0.147/0.1488）
+[v2] fold_1: train 48348 / dev 6127 / test 6368（human 7000/7000/7000）
+[v2] fold_1 B0 主轴（加权）: 收敛=True n_iter=865
+[v2] fold_1 检测头: 收敛=True n_iter=437
+[v2] fold_1 检测（次要）：test AUROC 0.9553（F1@.5 0.8129） / dev 0.9539
+[v2] fold_1 初始化审计：F0/F1 初始 logits 与 B0 逐位一致 ✓
+[v2] fold_1 epoch0：F0 [{'epoch': 0, 'step': 0, 'ce': 1.2363, 'lc': None, 'grad_norm': 0.002, 'gamma': 0.04621}, {'epoch': 0, 'step': 383, 'ce': 1.3009, 'lc': None, 'grad_norm': 0.095, 'gamma': 0.03096}] | F1 [{'epoch': 0, 'step': 0, 'ce': 1.2363, 'lc': 6.6742, 'grad_norm': 9.04, 'gamma': 0.04621}, {'epoch': 0, 'step': 383, 'ce': 1.3157, 'lc': 4.8212, 'grad_norm': 0.153, 'gamma': 0.03194}]
+[v2] fold_1 epoch1：F0 [{'epoch': 1, 'step': 0, 'ce': 1.4142, 'lc': None, 'grad_norm': 0.121, 'gamma': 0.03092}, {'epoch': 1, 'step': 383, 'ce': 1.3481, 'lc': None, 'grad_norm': 0.136, 'gamma': 0.02111}] | F1 [{'epoch': 1, 'step': 0, 'ce': 1.4138, 'lc': 4.8617, 'grad_norm': 0.179, 'gamma': 0.03191}, {'epoch': 1, 'step': 383, 'ce': 1.338, 'lc': 4.7964, 'grad_norm': 0.217, 'gamma': 0.02287}]
+[v2] fold_1 test：B0 0.1624/0.1668，F0 0.168/0.1697，F1 0.1601/0.1637，Δ=-0.0079/-0.0060；anchor 82944/96768=0.857
+[v2] fold_1 随机参照主轴: 收敛=True n_iter=892
+[v2] fold_1 随机参照（主轴，仅参照，池=原始 train/dev）：BA_F 0.3266 / BA_G 0.3198（对照 gen B0 0.1624/0.1668）
+[v2] pooled test：B0 0.1543/0.1548，F0 0.158/0.1573，F1 0.1517/0.1513，Δ -0.0063/-0.0060
+[v2] 出口：fold_positive=False anchor_ok=True pooled_ok=False → 3：方向不一致或 pooled 增量为非正 ⇒ H2 不支持
