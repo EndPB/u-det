@@ -5,10 +5,11 @@
 > 数据：`data/h2_droid_full_selected_upload/`（ZIP sha256 `22074bbe…` 与规范一致；SHA256SUMS 5/5 通过——注：`sha256sum -c` 因 CRLF 行尾报错，已用 Python 逐行解析复算，全部 OK；大包不入库，见 `.gitignore`）。
 > 产物：`artifacts/h2_droid_v2/{audit,config,manifest,metrics}.json + predictions.npz + solver.log + repro_compare.json`；
 > 定位：**DroidCollection v2 上的 generator-held-out 家族归因候选证据**，与 E35 结论严格分开；与 E36 为同一协议家族（同 fold_plan，sha256 `e1b3d131…`），样本量 18k→146.7k。
+> 修订（2026-10-02，依据 `docx/d-det_H2_DroidCollection_v2_最终结果审计_2026-10-02.md`）：补充 anchor 覆盖限制——整体 .714/.857 不代表每个 family-fold 单元被直接检验；CodeLlama fold_0 与 IBM Granite 两折无有效跨 generator 正对 ⇒ 标注"未充分检验"。出口 3 判定不变；无重训、无指标/产物变动（`artifacts/h2_droid_v2/report.md` 副本同步）。
 
 ## 一句话结论
 
-在 146,718 行正式主包、未微调冻结 768 维表示、严格 generator-held-out 协议下：**两折的 F1−F0 四个差值全部为负（fold_0 −0.73/−0.68pt；fold_1 −0.79/−0.60pt），pooled 下降 0.63/0.60 个百分点 ⇒ 按预注册出口 3：H2 不支持**。anchor 守卫通过（fold_0 .714 / fold_1 .857）⇒ 是"不支持"而非"检验不足"。同时注意：本数据上 family 主轴本身贴地（gen-heldout B0 BA_F≈.147–.162，仅 1.03–1.14×机会 1/7≈.1429；随机切分参照 .327–.329，迁移损失 ≈17–18pt）——中心化/残差都建立在一个非常弱的主轴之上。**不写成多 family H2 通过证据；不修改 E35/E36 报告。**
+在 146,718 行正式主包、未微调冻结 768 维表示、严格 generator-held-out 协议下：**两折的 F1−F0 四个差值全部为负（fold_0 −0.73/−0.68pt；fold_1 −0.79/−0.60pt），pooled 下降 0.63/0.60 个百分点 ⇒ 按预注册出口 3：H2 不支持**。整体 anchor 守卫通过（fold_0 .714 / fold_1 .857 ≥ .15）；**但覆盖限制须同时报告**：CodeLlama fold_0 与 IBM Granite 两折无有效跨 generator 正对、未被 L_cross 直接训练 ⇒ 对这些单元只能报告"未充分检验"（见 §5 覆盖限制）。同时注意：本数据上 family 主轴本身贴地（gen-heldout B0 BA_F≈.147–.162，仅 1.03–1.14×机会 1/7≈.1429；随机切分参照 .327–.329，迁移损失 ≈17–18pt）——中心化/残差都建立在一个非常弱的主轴之上。**不写成多 family H2 通过证据；不修改 E35/E36 报告。**
 
 ## 摘要表（BA_F / BA_G；机会 1/7≈.1429）
 
@@ -75,7 +76,7 @@
 
 跨度 .015（CodeLlama-7b-hf）到 .689（Qwen-Codder-14B）；F1−F0 正负混合（如 Qwen2.5-Coder-1.5B-Instruct +2.5pt、Yi-Coder-9B −2.9pt、Llama-3.2-1B ±0pt（F0/F1 完全相同）），未构成一致的跨 generator 增益。
 
-**4.3 anchor 与训练动态**：anchor .714/.857（结构=训练侧多 generator 族的样本占比；codellama/ibm-granite 单训练 generator 族恒为 0）。γ 从 .046 单调降到 .019–.023（两臂同降；残差参与度 9.7%–22.7%）——CE 在更大数据上倾向收缩残差；F1 漂移 ‖U‖≈36–38、‖V‖≈12、‖W_R‖≈2.0。首末批 CE：fold0 1.27→1.32、fold1 1.24→1.34（F0/F1 近同步）。
+**4.3 anchor 与训练动态**：整体 anchor .714/.857（结构=训练侧多 generator 族的样本占比；fold_0 74,700/104,580、fold_1 82,944/96,768）。**逐 family-fold 覆盖（2026-10-02 审计修正）**：fold_0 的 codellama 训练侧仅 1 个 generator（anchor 0/14,940）、ibm-granite 训练侧仅 1 个（0/14,940）；fold_1 的 codellama 训练侧 2 个（有效 13,824/13,824）、ibm-granite 仍为 1 个（0/13,824）；其余族两折均有效。即 3 个 family-fold 单元（CodeLlama fold_0、IBM Granite 两折）无跨 generator 正对、未被 L_cross 直接训练——整体比例不能写成"所有 family-fold 的 anchor 覆盖充分"。γ 从 .046 单调降到 .019–.023（两臂同降；残差参与度 9.7%–22.7%）——CE 在更大数据上倾向收缩残差；F1 漂移 ‖U‖≈36–38、‖V‖≈12、‖W_R‖≈2.0。首末批 CE：fold0 1.27→1.32、fold1 1.24→1.34（F0/F1 近同步）。
 
 **4.4 语言分桶（pooled BA_F；B0/F0/F1）**：Python .154/.156/.150、Java .162/.168/.159、C++ .141/.138/.138、JavaScript .155/.174/.179、C# .162/.169/.155、Go .098/.095/.083、C .161/.162/.133。Source/Mode/长度分桶见 `metrics.json`。
 
@@ -88,14 +89,21 @@
 1. 出口 1（初步支持）：**不达**（两折四项全为负）。
 2. 出口 2（方向一致但 <1pt）：不适用（增量为负，非"一致为正"）。
 3. **出口 3（方向不一致或 pooled 非正）：成立 ⇒ H2 在本数据与 768 维冻结表示下不支持。**
-4. 出口 4（anchor 过低）：不成立（.714/.857 ≥ .15）。
+4. 出口 4（anchor 过低）：整体不成立（.714/.857 ≥ .15，`anchor_ok=true`）；但覆盖有限（见下方覆盖限制）——CodeLlama fold_0 与 IBM Granite 两折未被 L_cross 直接训练，对这些单元只能报告"未充分检验"。
 5. 出口 5（单族/单 generator 改善⇒异质性）：记录——逐族/逐 generator 增减混合，无一致结构，不写成任何总体支持。
+
+**覆盖限制（2026-10-02 审计修正）**：整体 anchor 比例足以通过 ≥.15 守卫，但该指标不能代表每个 family-fold 都被 H2 损失检验——fold_0 的 CodeLlama 训练侧只有 1 个 generator，fold_0/fold_1 的 IBM Granite 训练侧都只有 1 个 generator，因此这些单元跨 generator anchor=0（fold_1 的 CodeLlama 有 2 个训练 generator，该折有效）。最终表述：
+> 在大多数 family-fold 单元有有效跨 generator 正对的正式协议下，F1 未显示增益；CodeLlama fold 0 和 IBM Granite 两折没有被跨 generator 对比损失直接训练，故对这些单元只能报告未充分检验。
+
+此为报告边界修正，不改出口 3 判定、不需要重新训练。
+
 - 边界备注：B0 本身贴地（≈1.03–1.14×机会）且远低于随机参照（迁移损失 ≈17–18pt）；"H2 不支持"与"该表示对跨 generator 家族来源的可读性极低"两种读法都与数据一致，报告不额外宣称。单种子/单划分；1pt 阈值非显著性检验。
 
 ## 6 边界与诚实性声明
 
 - 无公开 `task_id/prompt_id` ⇒ 仅支持"DroidCollection 上的 generator-held-out 家族归因候选证据"表述；不写同题配对、prompt-invariant、后处理因果或"纯归因空间"。
 - 检测 AUROC 与随机参照均为次要/参照读数，不作 H2 证据；单一 family/generator 的改善只作异质性记录。
+- anchor 覆盖边界（2026-10-02 审计修正）：整体 .714/.857 仅表示"大多数" family-fold 单元被跨 generator 正对检验；CodeLlama fold_0 与 IBM Granite 两折无有效正对 ⇒ 只报"未充分检验"，不写"所有 family-fold 的 anchor 覆盖充分"。
 - 未读取 test 做任何选择；未使用 diagnostic 文件；未调 SupCon/门控/学习率；未加任何新几何分支；未静默更换 encoder/checkpoint（资产路径见 manifest.feature_spec）。
 - 大特征缓存（约 450MB）留在 `runs/h2_droid_v2/`（不入库）；正式产物唯一化（smoke/repro 目录已清理，复现对比见 `repro_compare.json`）。
 - 与 E35/E36 结论分开陈述；不修改 E35/E36 级正式报告。
