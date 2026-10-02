@@ -17,6 +17,11 @@ runs/
 outputs/
 *.log
 
+# 大型数据包（服务器本地校验/解压用，不入库；含 >100MB 文件）
+data/h2_droid_full_selected/
+data/h2_droid_full_selected_upload/
+data/h2_authorbench_subset_upload.zip
+
 # Python / 编辑器
 __pycache__/
 *.py[cod]
