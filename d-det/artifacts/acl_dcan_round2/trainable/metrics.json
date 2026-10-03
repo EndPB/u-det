@@ -1,0 +1,173 @@
+{
+ "config": {
+  "script": "scripts/dcan_round2_trainable.py",
+  "schemes": [
+   "lora"
+  ],
+  "seeds": 3,
+  "epochs": 12,
+  "bs": 16,
+  "accum": 2,
+  "encoder": "checkpoints/codet5-base（未微调基座；last_block=block[-1]+final_layer_norm；lora=r8/q,v）",
+  "head_only_ref": "round1 semantic_only（冻结 mean-pool+MLP/SupCon+.688）与 Q1 codeT5_raw LR 探针",
+  "amp": "bf16 autocast；任务的 test 不参与任何选择"
+ },
+ "runs": [
+  {
+   "scheme": "lora",
+   "seed": 0,
+   "best_dev_f1": 0.7284974715124246,
+   "best_epoch": 12,
+   "trainable_params": 299526,
+   "max_vram_mb": 9575.6,
+   "wall_sec": 1336.2,
+   "test": {
+    "n": 1457,
+    "macro_f1": 0.7088357562592807,
+    "balanced_acc": 0.7324698140515964,
+    "ece_top1_15": 0.1085398423401722,
+    "groups": {
+     "generator": {
+      "claude-3.5-haiku": {
+       "n": 177,
+       "acc": 0.9548022598870056
+      },
+      "deepseek-chat": {
+       "n": 188,
+       "acc": 0.39361702127659576
+      },
+      "gemini-2.5-flash-preview-05-20": {
+       "n": 193,
+       "acc": 0.9326424870466321
+      },
+      "gpt-4.1": {
+       "n": 182,
+       "acc": 0.7802197802197802
+      },
+      "gpt-4o": {
+       "n": 162,
+       "acc": 0.5308641975308642
+      },
+      "gpt-4o-mini": {
+       "n": 162,
+       "acc": 0.6851851851851852
+      },
+      "llama-3.3-70b-instruct": {
+       "n": 201,
+       "acc": 0.8656716417910447
+      },
+      "qwen-2.5-72b-instruct": {
+       "n": 192,
+       "acc": 0.578125
+      }
+     }
+    }
+   }
+  },
+  {
+   "scheme": "lora",
+   "seed": 1,
+   "best_dev_f1": 0.7283327404027631,
+   "best_epoch": 11,
+   "trainable_params": 299526,
+   "max_vram_mb": 10018.9,
+   "wall_sec": 1334.7,
+   "test": {
+    "n": 1457,
+    "macro_f1": 0.7372264483196572,
+    "balanced_acc": 0.753937080077785,
+    "ece_top1_15": 0.05971825460333815,
+    "groups": {
+     "generator": {
+      "claude-3.5-haiku": {
+       "n": 177,
+       "acc": 0.9322033898305084
+      },
+      "deepseek-chat": {
+       "n": 188,
+       "acc": 0.4521276595744681
+      },
+      "gemini-2.5-flash-preview-05-20": {
+       "n": 193,
+       "acc": 0.9326424870466321
+      },
+      "gpt-4.1": {
+       "n": 182,
+       "acc": 0.8296703296703297
+      },
+      "gpt-4o": {
+       "n": 162,
+       "acc": 0.5
+      },
+      "gpt-4o-mini": {
+       "n": 162,
+       "acc": 0.7037037037037037
+      },
+      "llama-3.3-70b-instruct": {
+       "n": 201,
+       "acc": 0.845771144278607
+      },
+      "qwen-2.5-72b-instruct": {
+       "n": 192,
+       "acc": 0.6770833333333334
+      }
+     }
+    }
+   }
+  },
+  {
+   "scheme": "lora",
+   "seed": 2,
+   "best_dev_f1": 0.7271416153299904,
+   "best_epoch": 9,
+   "trainable_params": 299526,
+   "max_vram_mb": 10018.9,
+   "wall_sec": 1334.8,
+   "test": {
+    "n": 1457,
+    "macro_f1": 0.7398680737407974,
+    "balanced_acc": 0.7538005481217068,
+    "ece_top1_15": 0.03057537014630048,
+    "groups": {
+     "generator": {
+      "claude-3.5-haiku": {
+       "n": 177,
+       "acc": 0.864406779661017
+      },
+      "deepseek-chat": {
+       "n": 188,
+       "acc": 0.574468085106383
+      },
+      "gemini-2.5-flash-preview-05-20": {
+       "n": 193,
+       "acc": 0.9326424870466321
+      },
+      "gpt-4.1": {
+       "n": 182,
+       "acc": 0.8681318681318682
+      },
+      "gpt-4o": {
+       "n": 162,
+       "acc": 0.4691358024691358
+      },
+      "gpt-4o-mini": {
+       "n": 162,
+       "acc": 0.5864197530864198
+      },
+      "llama-3.3-70b-instruct": {
+       "n": 201,
+       "acc": 0.8656716417910447
+      },
+      "qwen-2.5-72b-instruct": {
+       "n": 192,
+       "acc": 0.6354166666666666
+      }
+     }
+    }
+   }
+  }
+ ],
+ "env": {
+  "wall_sec": 4023.5
+ }
+}

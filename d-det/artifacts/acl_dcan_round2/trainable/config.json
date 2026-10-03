@@ -1,0 +1,13 @@
+{
+ "script": "scripts/dcan_round2_trainable.py",
+ "schemes": [
+  "lora"
+ ],
+ "seeds": 3,
+ "epochs": 12,
+ "bs": 16,
+ "accum": 2,
+ "encoder": "checkpoints/codet5-base（未微调基座；last_block=block[-1]+final_layer_norm；lora=r8/q,v）",
+ "head_only_ref": "round1 semantic_only（冻结 mean-pool+MLP/SupCon+.688）与 Q1 codeT5_raw LR 探针",
+ "amp": "bf16 autocast；任务的 test 不参与任何选择"
+}
