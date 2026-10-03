@@ -1,0 +1,157 @@
+{
+ "dcan": {
+  "test": {
+   "n": 1457,
+   "macro_f1": 0.7638670382039253,
+   "balanced_acc": 0.7754921166230407,
+   "per_class_recall": {
+    "claude": 0.9265536723163842,
+    "deepseek": 0.6329787234042553,
+    "gemini": 0.9689119170984456,
+    "llama": 0.7860696517412935,
+    "openai": 0.7134387351778656,
+    "qwen": 0.625
+   },
+   "confusion_matrix": [
+    [
+     164,
+     6,
+     0,
+     3,
+     3,
+     1
+    ],
+    [
+     8,
+     119,
+     0,
+     9,
+     33,
+     19
+    ],
+    [
+     1,
+     0,
+     187,
+     1,
+     3,
+     1
+    ],
+    [
+     3,
+     10,
+     1,
+     158,
+     13,
+     16
+    ],
+    [
+     7,
+     67,
+     6,
+     19,
+     361,
+     46
+    ],
+    [
+     5,
+     28,
+     1,
+     16,
+     22,
+     120
+    ]
+   ],
+   "ece_top1_15": 0.07896268500722103,
+   "groups": {
+    "model": {
+     "claude-3.5-haiku": {
+      "n": 177,
+      "acc": 0.9265536723163842
+     },
+     "deepseek-chat": {
+      "n": 188,
+      "acc": 0.6329787234042553
+     },
+     "gemini-2.5-flash-preview-05-20": {
+      "n": 193,
+      "acc": 0.9689119170984456
+     },
+     "gpt-4.1": {
+      "n": 182,
+      "acc": 0.8626373626373627
+     },
+     "gpt-4o": {
+      "n": 162,
+      "acc": 0.5308641975308642
+     },
+     "gpt-4o-mini": {
+      "n": 162,
+      "acc": 0.7283950617283951
+     },
+     "llama-3.3-70b-instruct": {
+      "n": 201,
+      "acc": 0.7860696517412935
+     },
+     "qwen-2.5-72b-instruct": {
+      "n": 192,
+      "acc": 0.625
+     }
+    }
+   },
+   "vocab": 66056,
+   "train_n": 6557,
+   "n_epochs": 5,
+   "wall_sec": 78.1
+  },
+  "epochs": [
+   {
+    "epoch": 1,
+    "n": 6557,
+    "sec": 12.2,
+    "dev_macro_f1": 0.6662357100303201
+   },
+   {
+    "epoch": 2,
+    "n": 6557,
+    "sec": 12.2,
+    "dev_macro_f1": 0.7496377297825118
+   },
+   {
+    "epoch": 3,
+    "n": 6557,
+    "sec": 12.3,
+    "dev_macro_f1": 0.7849697894892032
+   },
+   {
+    "epoch": 4,
+    "n": 6557,
+    "sec": 12.3,
+    "dev_macro_f1": 0.7853265698011516
+   },
+   {
+    "epoch": 5,
+    "n": 6557,
+    "sec": 12.3,
+    "dev_macro_f1": 0.7966258245415774
+   }
+  ]
+ },
+ "meta": {
+  "script": "scripts/p0_tfidf_baseline.py",
+  "source": "dcan",
+  "args": {
+   "source": "dcan",
+   "out": "/root/autodl-tmp/u-det/d-det/artifacts/acl_dcan_round1/p0",
+   "smoke": false,
+   "epochs": 5,
+   "alpha": 2e-06,
+   "max_vocab": 300000,
+   "vocab_sample": 100000,
+   "folds": 5
+  },
+  "wall_sec": 79.3,
+  "vectorizer": "char_wb(2,4) min_df=5 sublinear_tf",
+  "text_cap_chars": 6000
+ }
+}

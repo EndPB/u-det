@@ -1,0 +1,23 @@
+{
+ "script": "scripts/dcan_four_models.py",
+ "seeds": 3,
+ "epochs": 40,
+ "family_order": [
+  "claude",
+  "deepseek",
+  "gemini",
+  "llama",
+  "openai",
+  "qwen"
+ ],
+ "semantic": "frozen CodeT5-base mean-pool 768d (bf16 infer)",
+ "fingerprint": "struct features 31 (train z-score)",
+ "losses": {
+  "supcon": 0.3,
+  "adv_family_on_sem": 0.3,
+  "adv_len+cluster_on_fp": 0.2,
+  "orth": 0.05
+ },
+ "semantic_positives": "same task_id, different family (train tasks only)",
+ "droid_used": false
+}
