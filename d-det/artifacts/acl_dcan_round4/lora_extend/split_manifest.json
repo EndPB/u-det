@@ -1,0 +1,39 @@
+{
+  "generated_utc": "2026-10-03T22:30:00Z",
+  "note": "Round4 B 不改变切分：沿用 round2 manifest（任务级 train/dev/test；test 不参与选择）",
+  "unchanged_from": "artifacts/acl_dcan_round2/split_manifest.json",
+  "invariants_verified": {
+    "rows_per_split": {
+      "train": 6557,
+      "dev": 1484,
+      "test": 1457
+    }
+  },
+  "sources": {
+    "h2_authorbench_dcan": {
+      "role": "主机制实验（Q1/Q2/Q3 全部在此）",
+      "group": "task_id",
+      "split_counts_tasks": {
+        "train": 1900,
+        "dev": 407,
+        "test": 408
+      },
+      "split_counts_rows": {
+        "train": 6557,
+        "dev": 1484,
+        "test": 1457
+      },
+      "semantic_positives": "same task_id, different family（仅 train 任务；Droid 不参与）",
+      "test_usage": "final eval only；dev 仅用于 epoch 选择"
+    },
+    "stacad_v2": {
+      "role": "本轮未新增实验；引用 round1 文件级五折（folds.npy）"
+    },
+    "h2_droid_full_selected": {
+      "role": "本轮未新增实验；仅外部评测引用（generator-held-out）"
+    },
+    "aicd_T2": {
+      "role": "本轮未新增实验；仅 numeric-id（映射 pending；跨 split 哈希风险 1,848 条已审计）"
+    }
+  }
+}

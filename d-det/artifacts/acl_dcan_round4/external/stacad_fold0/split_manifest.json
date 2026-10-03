@@ -1,0 +1,9 @@
+{
+  "generated_utc": "2026-10-04T00:20:00Z",
+  "note": "STACAD：fold0 一次 file-held-out；train 为其余折的 file-level 子集（cap），dev 按文件留出（与 train 0 共享文件）；test=fold0。",
+  "invariants": {
+    "test_rows": 28992,
+    "train_rows": 30000,
+    "dev_rows": 3000
+  }
+}

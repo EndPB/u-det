@@ -1,0 +1,22 @@
+{
+ "script": "scripts/dcan_round4_shortcuts_univar.py",
+ "variants": [
+  "raw",
+  "ids_only",
+  "strings_only",
+  "comments_only",
+  "ws_only",
+  "all"
+ ],
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "epochs": 5,
+ "tfidf": "char_wb(2,4) min_df=5 sublinear max_features=300k（词表仅 train 拟合）",
+ "sgd": "SGDClassifier log_loss alpha=2e-6 lr=optimal；批大小 10000；类逆频率样本权重",
+ "selection": "统一规则：记录 dev 曲线，best-dev 快照（coef/intercept/t）另存；epoch5 概率保留用于 round2 同协议对照",
+ "transform": "C 词法状态机 v1（字符串感知）；确定性、无拟合参数；关键字表见源码",
+ "boundaries": "test 不参与任何选择；无新下载；OMP=2"
+}

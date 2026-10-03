@@ -1,0 +1,111 @@
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (535 > 512). Running this sequence through the model will result in indexing errors
+[r4b] pad_id=0
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 28121.38it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+
+INFO  LogBar: headless/CI mode; progress animations disabled.                   
+WARN  Python GIL is enabled: Multi-gpu quant acceleration for MoE models is sub-optimal and multi-core accelerated cpu packing is also disabled. We recommend Python >= 3.13.3t with Pytorch > 2.8 for mult-gpu quantization and multi-cpu packing with env `PYTHON_GIL=0`.
+INFO  ENV: Auto setting PYTORCH_ALLOC_CONF='expandable_segments:True,max_split_size_mb:256,garbage_collection_threshold:0.7' for memory saving.
+INFO  ENV: Auto setting CUDA_DEVICE_ORDER=PCI_BUS_ID for correctness.           
+INFO  
+
+┌─────────────┐    ┌────────────────────────┐    ┌────────────┐    ┌─────────┐
+│ GPT-QModel  │ -> │ ▓▓▓▓▓▓▓▓▓▓▓▓ 16bit     │ -> │ ▒▒▒▒ 8bit  │ -> │ ░░ 4bit │
+└─────────────┘    └────────────────────────┘    └────────────┘    └─────────┘
+GPT-QModel   : 7.5.0
+Transformers : 5.17.0
+Torch        : 2.9.1+cu128
+Triton       : 3.5.1
+[r4b] lora_ext s0 ep1: dev 0.4783 (110s)
+[r4b] lora_ext s0 ep2: dev 0.5879 (221s)
+[r4b] lora_ext s0 ep3: dev 0.6111 (331s)
+[r4b] lora_ext s0 ep4: dev 0.6348 (442s)
+[r4b] lora_ext s0 ep5: dev 0.6559 (552s)
+[r4b] lora_ext s0 ep6: dev 0.6940 (663s)
+[r4b] lora_ext s0 ep7: dev 0.7005 (774s)
+[r4b] lora_ext s0 ep8: dev 0.6866 (884s)
+[r4b] lora_ext s0 ep9: dev 0.7148 (995s)
+[r4b] lora_ext s0 ep10: dev 0.7055 (1105s)
+[r4b] lora_ext s0 ep11: dev 0.6865 (1216s)
+[r4b] lora_ext s0 ep12: dev 0.7285 (1326s)
+[r4b] lora_ext s0 ep13: dev 0.7443 (1437s)
+[r4b] lora_ext s0 ep14: dev 0.7521 (1547s)
+[r4b] lora_ext s0 ep15: dev 0.7428 (1658s)
+[r4b] lora_ext s0 ep16: dev 0.7431 (1768s)
+[r4b] lora_ext s0 ep17: dev 0.7280 (1878s)
+[r4b] lora_ext s0 ep18: dev 0.7400 (1989s)
+[r4b] lora_ext s0 ep19: dev 0.7425 (2100s)
+[r4b] lora_ext s0: best ep14 dev 0.7521 | test 0.7324
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 25539.21it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[r4b] lora_ext s1 ep1: dev 0.4605 (110s)
+[r4b] lora_ext s1 ep2: dev 0.5539 (220s)
+[r4b] lora_ext s1 ep3: dev 0.6160 (331s)
+[r4b] lora_ext s1 ep4: dev 0.6329 (441s)
+[r4b] lora_ext s1 ep5: dev 0.6156 (551s)
+[r4b] lora_ext s1 ep6: dev 0.6632 (661s)
+[r4b] lora_ext s1 ep7: dev 0.6916 (772s)
+[r4b] lora_ext s1 ep8: dev 0.7218 (882s)
+[r4b] lora_ext s1 ep9: dev 0.7255 (992s)
+[r4b] lora_ext s1 ep10: dev 0.7153 (1103s)
+[r4b] lora_ext s1 ep11: dev 0.7283 (1213s)
+[r4b] lora_ext s1 ep12: dev 0.7051 (1323s)
+[r4b] lora_ext s1 ep13: dev 0.7412 (1434s)
+[r4b] lora_ext s1 ep14: dev 0.7442 (1544s)
+[r4b] lora_ext s1 ep15: dev 0.7408 (1654s)
+[r4b] lora_ext s1 ep16: dev 0.7308 (1764s)
+[r4b] lora_ext s1 ep17: dev 0.7372 (1875s)
+[r4b] lora_ext s1 ep18: dev 0.7594 (1985s)
+[r4b] lora_ext s1 ep19: dev 0.7622 (2095s)
+[r4b] lora_ext s1 ep20: dev 0.7671 (2206s)
+[r4b] lora_ext s1 ep21: dev 0.7670 (2316s)
+[r4b] lora_ext s1 ep22: dev 0.7643 (2426s)
+[r4b] lora_ext s1 ep23: dev 0.7670 (2536s)
+[r4b] lora_ext s1 ep24: dev 0.7696 (2647s)
+[r4b] lora_ext s1: best ep24 dev 0.7696 | test 0.7462
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 25825.40it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[r4b] lora_ext s2 ep1: dev 0.4822 (110s)
+[r4b] lora_ext s2 ep2: dev 0.5794 (220s)
+[r4b] lora_ext s2 ep3: dev 0.5728 (330s)
+[r4b] lora_ext s2 ep4: dev 0.6717 (441s)
+[r4b] lora_ext s2 ep5: dev 0.6741 (551s)
+[r4b] lora_ext s2 ep6: dev 0.6719 (661s)
+[r4b] lora_ext s2 ep7: dev 0.6751 (772s)
+[r4b] lora_ext s2 ep8: dev 0.7082 (882s)
+[r4b] lora_ext s2 ep9: dev 0.7271 (992s)
+[r4b] lora_ext s2 ep10: dev 0.7105 (1102s)
+[r4b] lora_ext s2 ep11: dev 0.7252 (1213s)
+[r4b] lora_ext s2 ep12: dev 0.7113 (1323s)
+[r4b] lora_ext s2 ep13: dev 0.7320 (1433s)
+[r4b] lora_ext s2 ep14: dev 0.7375 (1543s)
+[r4b] lora_ext s2 ep15: dev 0.7408 (1654s)
+[r4b] lora_ext s2 ep16: dev 0.7634 (1764s)
+[r4b] lora_ext s2 ep17: dev 0.7753 (1874s)
+[r4b] lora_ext s2 ep18: dev 0.7508 (1985s)
+[r4b] lora_ext s2 ep19: dev 0.7633 (2095s)
+[r4b] lora_ext s2 ep20: dev 0.7499 (2205s)
+[r4b] lora_ext s2 ep21: dev 0.7503 (2315s)
+[r4b] lora_ext s2 ep22: dev 0.7802 (2425s)
+[r4b] lora_ext s2 ep23: dev 0.7615 (2536s)
+[r4b] lora_ext s2 ep24: dev 0.7846 (2646s)
+[r4b] lora_ext s2: best ep24 dev 0.7846 | test 0.7597
+[r4b] done 7440.7s -> /root/autodl-tmp/u-det/d-det/artifacts/acl_dcan_round4/lora_extend

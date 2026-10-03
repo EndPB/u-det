@@ -1,0 +1,10 @@
+{
+ "script": "scripts/dcan_round4_lora_extend.py",
+ "changed_vs_round2": "仅 max epoch（12→24）与 patience（3→5）",
+ "same_as_round2": "encoder/tokenizer/head/采样/split/AdamW(lr enc 3e-4, head 1e-3, wd 1e-4)/bf16/bs16×accum2/截断384+128",
+ "seeds": 3,
+ "epochs": 24,
+ "patience": 5,
+ "selection": "best-dev 恢复；test 冻结后评一次；cudnn.deterministic",
+ "purpose": "确认是否存在明显欠拟合（B 条件：A 显示性能依赖可解释词法线索）"
+}

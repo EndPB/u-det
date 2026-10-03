@@ -1,0 +1,44 @@
+{
+ "files": {
+  "data/h2_authorbench_dcan/core.jsonl": {
+   "sha256": "2bd5ef8667b521bece97a26294cdbed6f5e9c3781b97ca1396dcf7548c244aca",
+   "size": 29309464
+  },
+  "scripts/dcan_round4_shortcuts_univar.py": {
+   "sha256": "42783e8e790b154dc6706922b54a5dbeaf04922a8ff03b709f384eeef5392b5d",
+   "size": 13334
+  },
+  "scripts/p0_tfidf_baseline.py": {
+   "sha256": "ee4e8803f141371df7786b179073e8622e0ba213e0b6eff4d9cb45cbb0ea14b7",
+   "size": 14432
+  },
+  "scripts/dcan_four_models.py": {
+   "sha256": "29545a0c1bf6d704ebdb4fc63a3ec9329330a052882089fd563836a1a8794896",
+   "size": 22703
+  },
+  "artifacts/acl_dcan_round4/shortcuts_univar/metrics.json": {
+   "sha256": "b6bcf6b7ae59a3452c99f292a22f00461bb79199ed76c70e25e0c269fc21fa87",
+   "size": 69542
+  },
+  "artifacts/acl_dcan_round4/shortcuts_univar/predictions.npz": {
+   "sha256": "55c5546274249751d0866d4884fccb5d579e6913d362148b38b47b161b05ac9b",
+   "size": 638868
+  },
+  "artifacts/acl_dcan_round4/shortcuts_univar/config.json": {
+   "sha256": "72fef7db9b5ab2d9fdce5e34edfd312a319edac99dee887a90b3b929049f16c3",
+   "size": 720
+  },
+  "artifacts/acl_dcan_round4/shortcuts_univar/env.json": {
+   "sha256": "a6a06feb9bf48e25a8835edcf950f1b3d59ded67ce7d471ad21ff3b9e94bc995",
+   "size": 236
+  },
+  "artifacts/acl_dcan_round4/shortcuts_univar/split_manifest.json": {
+   "sha256": "e5e97d3f74289f0a1846eef308d684f7939cfa32f63457aa8420331c0ca9328b",
+   "size": 1296
+  },
+  "artifacts/acl_dcan_round4/shortcuts_univar/stats.json": {
+   "sha256": "c438f12d3d5c75968ee7a625f550295cd3cc873c4945e7a8b9466f7f3668a989",
+   "size": 3937
+  }
+ }
+}

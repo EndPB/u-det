@@ -1,0 +1,35 @@
+{
+ "files": {
+  "data/h2_authorbench_dcan/core.jsonl": {
+   "sha256": "2bd5ef8667b521bece97a26294cdbed6f5e9c3781b97ca1396dcf7548c244aca",
+   "size": 29309464
+  },
+  "scripts/dcan_round4_external.py": {
+   "sha256": "6b47f901355e38244c4946c70227d85c1ee07a33d65d5c86d00f08770ffb2479",
+   "size": 20230
+  },
+  "scripts/p0_tfidf_baseline.py": {
+   "sha256": "ee4e8803f141371df7786b179073e8622e0ba213e0b6eff4d9cb45cbb0ea14b7",
+   "size": 14432
+  },
+  "scripts/dcan_round2_trainable.py": {
+   "sha256": "531b34e14d33371b2e657fc9192fe9b8ace700d74e3777bd545daa37b42ec5a5",
+   "size": 9907
+  },
+  "scripts/dcan_round3_ft.py": {
+   "sha256": "5a74109212ff91fd4fad88a56cc1f64f7aa228e1cf4f7dc626b9708806fb2ae3",
+   "size": 10623
+  },
+  "artifacts/acl_dcan_round4/external/stacad_fold0/metrics.json": {
+   "sha256": "2755fbe35e44c2cf4411e4b186c49490cb728633a6e94e8e900eca6db5c1a2e7",
+   "size": 9032
+  },
+  "artifacts/acl_dcan_round4/external/stacad_fold0/predictions.npz": {
+   "sha256": "7c77538a8926eb679a7ac26f9ccc43e6bc6c58345cd918486dc3e00ed48d3dc9",
+   "size": 3315790
+  }
+ },
+ "caches_not_committed": [
+  "artifacts/acl_dcan_round4/external/stacad_fold0/features.npz"
+ ]
+}

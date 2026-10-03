@@ -1,0 +1,56 @@
+{
+ "files": {
+  "data/h2_authorbench_dcan/core.jsonl": {
+   "sha256": "2bd5ef8667b521bece97a26294cdbed6f5e9c3781b97ca1396dcf7548c244aca",
+   "size": 29309464
+  },
+  "scripts/dcan_round4_lora_extend.py": {
+   "sha256": "7c76cee18e8158da76a123f07f3b0172dcc24a5f485a52c9e81ec4112e933b96",
+   "size": 9931
+  },
+  "scripts/dcan_round3_ft.py": {
+   "sha256": "5a74109212ff91fd4fad88a56cc1f64f7aa228e1cf4f7dc626b9708806fb2ae3",
+   "size": 10623
+  },
+  "scripts/dcan_round2_trainable.py": {
+   "sha256": "531b34e14d33371b2e657fc9192fe9b8ace700d74e3777bd545daa37b42ec5a5",
+   "size": 9907
+  },
+  "artifacts/acl_dcan_round4/lora_extend/metrics.json": {
+   "sha256": "c981b9ba2e6627061a502d9ab542a98d27d35fa6c80c426f8d96b6b29409b7e2",
+   "size": 9408
+  },
+  "artifacts/acl_dcan_round4/lora_extend/predictions.npz": {
+   "sha256": "2b87474b25fc3cf79fdba552d94d75a3b8f443b1d5f6e98d8cb379026725949c",
+   "size": 106644
+  },
+  "artifacts/acl_dcan_round4/lora_extend/states/lora_ext_s0.pt": {
+   "sha256": "a81069eb3379f0b48511a1060c18db9d974b74a0b71a18e54e34a2542642ca77",
+   "size": 1217069
+  },
+  "artifacts/acl_dcan_round4/lora_extend/states/lora_ext_s1.pt": {
+   "sha256": "f9fb5d5b7ef2047be110ab707184fff41f3783786ac2c8faaaf1e2b320f93e0e",
+   "size": 1217069
+  },
+  "artifacts/acl_dcan_round4/lora_extend/states/lora_ext_s2.pt": {
+   "sha256": "ec33b3fa6c5407a93ba7673f0ff84328ae6ac132462ffd90a60d46399043a42c",
+   "size": 1217069
+  },
+  "artifacts/acl_dcan_round4/lora_extend/config.json": {
+   "sha256": "703e2321391a60b6a1d22fdcf87ffd6b5a04ba5c6994bd0fa095247675a6de08",
+   "size": 487
+  },
+  "artifacts/acl_dcan_round4/lora_extend/env.json": {
+   "sha256": "a6a06feb9bf48e25a8835edcf950f1b3d59ded67ce7d471ad21ff3b9e94bc995",
+   "size": 236
+  },
+  "artifacts/acl_dcan_round4/lora_extend/split_manifest.json": {
+   "sha256": "862741bc6ff0724898000cfae2b120912c549e9338383af21e4f09cbdad7540f",
+   "size": 1245
+  },
+  "artifacts/acl_dcan_round4/lora_extend/stats.json": {
+   "sha256": "c7a12173c1b22ed0a830585b172b607865fa6dc324d3843fac2265f14f585d5c",
+   "size": 1430
+  }
+ }
+}

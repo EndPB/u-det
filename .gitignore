@@ -23,6 +23,12 @@ outputs/
 wandb/
 *.log
 
+# round4 外部特征缓存（约 170MB/源，服务器留存，不入库）
+d-det/artifacts/acl_dcan_round4/external/*/features.npz
+
+# round4 LoRA 预算扩展 states（保留在服务器）
+d-det/artifacts/acl_dcan_round4/lora_extend/states/
+
 # 系统 / 编辑器
 .DS_Store
 .vscode/

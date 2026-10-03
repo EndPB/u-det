@@ -1,0 +1,21 @@
+{
+ "script": "scripts/dcan_round4_external.py",
+ "source": "droid_fold0",
+ "train_rows": 52251,
+ "dev_rows": 6482,
+ "test_rows": 6142,
+ "classes": 7,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "text_cap_chars": 6000,
+ "neural_budget": {
+  "stacad": "file-level subtrain cap",
+  "droid": "fold_plan train"
+ },
+ "lora": "round2 同超参（enc 3e-4/head 1e-3/bs16×accum2/bf16）；epochs ≤2 patience 1",
+ "selection": "best-dev 恢复；test 冻结后评一次",
+ "boundary": "诊断性证据，独立于 408-task 主表"
+}

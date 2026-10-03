@@ -1,0 +1,188 @@
+{
+ "B": 2000,
+ "n_tasks": 408,
+ "n_rows": 1457,
+ "note": "diff = raw − variant（positive = 去掉该线索后掉分）；配对同任务重采样；primary=best-dev 恢复口径；ep5 为 round2 同协议对照（仅均值）",
+ "contrasts": {
+  "raw - ids_only": {
+   "per_seed": [
+    {
+     "seed": 0,
+     "diff_best": 0.12663214102070652,
+     "ci95_best": [
+      0.10081606466109351,
+      0.1530232764674439
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.12663214102070652
+    },
+    {
+     "seed": 1,
+     "diff_best": 0.11231425733609801,
+     "ci95_best": [
+      0.0859875343679025,
+      0.13547678886317663
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.101869909465094
+    },
+    {
+     "seed": 2,
+     "diff_best": 0.11606312591100176,
+     "ci95_best": [
+      0.08925702854778113,
+      0.14246142679446133
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.11601804043001263
+    }
+   ],
+   "mean_diff_best": 0.11833650808926877,
+   "mean_diff_ep5": 0.11484003030527105
+  },
+  "raw - strings_only": {
+   "per_seed": [
+    {
+     "seed": 0,
+     "diff_best": 0.026346478858507494,
+     "ci95_best": [
+      0.009621399024477803,
+      0.043034868810592444
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.026346478858507494
+    },
+    {
+     "seed": 1,
+     "diff_best": 0.02714579130402306,
+     "ci95_best": [
+      0.006829515481734433,
+      0.047249289127156244
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.04302301037684264
+    },
+    {
+     "seed": 2,
+     "diff_best": 0.035268097614919225,
+     "ci95_best": [
+      0.018672213655251717,
+      0.052098424994788
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.035268097614919225
+    }
+   ],
+   "mean_diff_best": 0.029586789259149926,
+   "mean_diff_ep5": 0.03487919561675645
+  },
+  "raw - comments_only": {
+   "per_seed": [
+    {
+     "seed": 0,
+     "diff_best": 0.06643887838999052,
+     "ci95_best": [
+      0.048632862647005635,
+      0.08466620997370322
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.06643887838999052
+    },
+    {
+     "seed": 1,
+     "diff_best": 0.05209913550092349,
+     "ci95_best": [
+      0.03009470642428156,
+      0.07455095430200856
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.06797635457374307
+    },
+    {
+     "seed": 2,
+     "diff_best": 0.07040763499510405,
+     "ci95_best": [
+      0.04751927151031231,
+      0.09245084540676016
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.0547210434484815
+    }
+   ],
+   "mean_diff_best": 0.06298188296200602,
+   "mean_diff_ep5": 0.06304542547073837
+  },
+  "raw - ws_only": {
+   "per_seed": [
+    {
+     "seed": 0,
+     "diff_best": 0.0,
+     "ci95_best": [
+      0.0,
+      0.0
+     ],
+     "ci_excludes_zero": false,
+     "diff_ep5": 0.0
+    },
+    {
+     "seed": 1,
+     "diff_best": 0.0,
+     "ci95_best": [
+      0.0,
+      0.0
+     ],
+     "ci_excludes_zero": false,
+     "diff_ep5": 0.0
+    },
+    {
+     "seed": 2,
+     "diff_best": 0.0,
+     "ci95_best": [
+      0.0,
+      0.0
+     ],
+     "ci_excludes_zero": false,
+     "diff_ep5": 0.0
+    }
+   ],
+   "mean_diff_best": 0.0,
+   "mean_diff_ep5": 0.0
+  },
+  "raw - all": {
+   "per_seed": [
+    {
+     "seed": 0,
+     "diff_best": 0.3163697308246827,
+     "ci95_best": [
+      0.2875952379007373,
+      0.34564414375463126
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.3163697308246827
+    },
+    {
+     "seed": 1,
+     "diff_best": 0.3009468449210769,
+     "ci95_best": [
+      0.27125908479046107,
+      0.3306288242298882
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.348396106633811
+    },
+    {
+     "seed": 2,
+     "diff_best": 0.31730867203778174,
+     "ci95_best": [
+      0.28650626720547323,
+      0.3481408226979063
+     ],
+     "ci_excludes_zero": true,
+     "diff_ep5": 0.35628533920903216
+    }
+   ],
+   "mean_diff_best": 0.31154174926118045,
+   "mean_diff_ep5": 0.3403503922225086
+  }
+ }
+}

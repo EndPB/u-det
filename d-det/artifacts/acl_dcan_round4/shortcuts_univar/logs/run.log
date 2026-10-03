@@ -1,0 +1,115 @@
+[r4a] raw s0 ep1: dev 0.6797
+[r4a] raw s0 ep2: dev 0.7490
+[r4a] raw s0 ep3: dev 0.7799
+[r4a] raw s0 ep4: dev 0.7835
+[r4a] raw s0 ep5: dev 0.8055
+[r4a] raw s0: best ep5 dev 0.8055 | test(best) 0.7659 | test(ep5) 0.7659
+[r4a] raw s1 ep1: dev 0.6938
+[r4a] raw s1 ep2: dev 0.7325
+[r4a] raw s1 ep3: dev 0.7603
+[r4a] raw s1 ep4: dev 0.7927
+[r4a] raw s1 ep5: dev 0.7896
+[r4a] raw s1: best ep4 dev 0.7927 | test(best) 0.7589 | test(ep5) 0.7748
+[r4a] raw s2 ep1: dev 0.6890
+[r4a] raw s2 ep2: dev 0.7585
+[r4a] raw s2 ep3: dev 0.7684
+[r4a] raw s2 ep4: dev 0.7887
+[r4a] raw s2 ep5: dev 0.7974
+[r4a] raw s2: best ep5 dev 0.7974 | test(best) 0.7609 | test(ep5) 0.7609
+[r4a] raw: mean best-dev 0.7619±0.0029 | mean ep5 0.7672
+[r4a] ids_only s0 ep1: dev 0.5740
+[r4a] ids_only s0 ep2: dev 0.5832
+[r4a] ids_only s0 ep3: dev 0.6297
+[r4a] ids_only s0 ep4: dev 0.6347
+[r4a] ids_only s0 ep5: dev 0.6523
+[r4a] ids_only s0: best ep5 dev 0.6523 | test(best) 0.6393 | test(ep5) 0.6393
+[r4a] ids_only s1 ep1: dev 0.5671
+[r4a] ids_only s1 ep2: dev 0.5481
+[r4a] ids_only s1 ep3: dev 0.6497
+[r4a] ids_only s1 ep4: dev 0.6638
+[r4a] ids_only s1 ep5: dev 0.6606
+[r4a] ids_only s1: best ep4 dev 0.6638 | test(best) 0.6466 | test(ep5) 0.6729
+[r4a] ids_only s2 ep1: dev 0.5238
+[r4a] ids_only s2 ep2: dev 0.6443
+[r4a] ids_only s2 ep3: dev 0.6200
+[r4a] ids_only s2 ep4: dev 0.6601
+[r4a] ids_only s2 ep5: dev 0.6539
+[r4a] ids_only s2: best ep4 dev 0.6601 | test(best) 0.6448 | test(ep5) 0.6448
+[r4a] ids_only: mean best-dev 0.6436±0.0031 | mean ep5 0.6523
+[r4a] strings_only s0 ep1: dev 0.6494
+[r4a] strings_only s0 ep2: dev 0.7227
+[r4a] strings_only s0 ep3: dev 0.7485
+[r4a] strings_only s0 ep4: dev 0.7660
+[r4a] strings_only s0 ep5: dev 0.7869
+[r4a] strings_only s0: best ep5 dev 0.7869 | test(best) 0.7395 | test(ep5) 0.7395
+[r4a] strings_only s1 ep1: dev 0.6639
+[r4a] strings_only s1 ep2: dev 0.6658
+[r4a] strings_only s1 ep3: dev 0.7244
+[r4a] strings_only s1 ep4: dev 0.7693
+[r4a] strings_only s1 ep5: dev 0.7713
+[r4a] strings_only s1: best ep5 dev 0.7713 | test(best) 0.7318 | test(ep5) 0.7318
+[r4a] strings_only s2 ep1: dev 0.6442
+[r4a] strings_only s2 ep2: dev 0.7104
+[r4a] strings_only s2 ep3: dev 0.7402
+[r4a] strings_only s2 ep4: dev 0.7574
+[r4a] strings_only s2 ep5: dev 0.7628
+[r4a] strings_only s2: best ep5 dev 0.7628 | test(best) 0.7256 | test(ep5) 0.7256
+[r4a] strings_only: mean best-dev 0.7323±0.0057 | mean ep5 0.7323
+[r4a] comments_only s0 ep1: dev 0.5833
+[r4a] comments_only s0 ep2: dev 0.6904
+[r4a] comments_only s0 ep3: dev 0.7074
+[r4a] comments_only s0 ep4: dev 0.7203
+[r4a] comments_only s0 ep5: dev 0.7291
+[r4a] comments_only s0: best ep5 dev 0.7291 | test(best) 0.6995 | test(ep5) 0.6995
+[r4a] comments_only s1 ep1: dev 0.6132
+[r4a] comments_only s1 ep2: dev 0.6515
+[r4a] comments_only s1 ep3: dev 0.6717
+[r4a] comments_only s1 ep4: dev 0.7161
+[r4a] comments_only s1 ep5: dev 0.7214
+[r4a] comments_only s1: best ep5 dev 0.7214 | test(best) 0.7068 | test(ep5) 0.7068
+[r4a] comments_only s2 ep1: dev 0.5905
+[r4a] comments_only s2 ep2: dev 0.6688
+[r4a] comments_only s2 ep3: dev 0.6991
+[r4a] comments_only s2 ep4: dev 0.7287
+[r4a] comments_only s2 ep5: dev 0.7279
+[r4a] comments_only s2: best ep4 dev 0.7287 | test(best) 0.6905 | test(ep5) 0.7061
+[r4a] comments_only: mean best-dev 0.6989±0.0067 | mean ep5 0.7041
+[r4a] ws_only s0 ep1: dev 0.6797
+[r4a] ws_only s0 ep2: dev 0.7490
+[r4a] ws_only s0 ep3: dev 0.7799
+[r4a] ws_only s0 ep4: dev 0.7835
+[r4a] ws_only s0 ep5: dev 0.8055
+[r4a] ws_only s0: best ep5 dev 0.8055 | test(best) 0.7659 | test(ep5) 0.7659
+[r4a] ws_only s1 ep1: dev 0.6938
+[r4a] ws_only s1 ep2: dev 0.7325
+[r4a] ws_only s1 ep3: dev 0.7603
+[r4a] ws_only s1 ep4: dev 0.7927
+[r4a] ws_only s1 ep5: dev 0.7896
+[r4a] ws_only s1: best ep4 dev 0.7927 | test(best) 0.7589 | test(ep5) 0.7748
+[r4a] ws_only s2 ep1: dev 0.6890
+[r4a] ws_only s2 ep2: dev 0.7585
+[r4a] ws_only s2 ep3: dev 0.7684
+[r4a] ws_only s2 ep4: dev 0.7887
+[r4a] ws_only s2 ep5: dev 0.7974
+[r4a] ws_only s2: best ep5 dev 0.7974 | test(best) 0.7609 | test(ep5) 0.7609
+[r4a] ws_only: mean best-dev 0.7619±0.0029 | mean ep5 0.7672
+[r4a] all s0 ep1: dev 0.3760
+[r4a] all s0 ep2: dev 0.3836
+[r4a] all s0 ep3: dev 0.4181
+[r4a] all s0 ep4: dev 0.4461
+[r4a] all s0 ep5: dev 0.4483
+[r4a] all s0: best ep5 dev 0.4483 | test(best) 0.4486 | test(ep5) 0.4486
+[r4a] all s1 ep1: dev 0.4118
+[r4a] all s1 ep2: dev 0.4087
+[r4a] all s1 ep3: dev 0.4630
+[r4a] all s1 ep4: dev 0.4212
+[r4a] all s1 ep5: dev 0.4173
+[r4a] all s1: best ep3 dev 0.4630 | test(best) 0.4580 | test(ep5) 0.4280
+[r4a] all s2 ep1: dev 0.3446
+[r4a] all s2 ep2: dev 0.3757
+[r4a] all s2 ep3: dev 0.4300
+[r4a] all s2 ep4: dev 0.4300
+[r4a] all s2 ep5: dev 0.3911
+[r4a] all s2: best ep4 dev 0.4300 | test(best) 0.4445 | test(ep5) 0.4046
+[r4a] all: mean best-dev 0.4504±0.0056 | mean ep5 0.4271
+[r4a] done 181.1s -> /root/autodl-tmp/u-det/d-det/artifacts/acl_dcan_round4/shortcuts_univar

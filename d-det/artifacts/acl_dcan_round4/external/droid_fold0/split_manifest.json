@@ -1,0 +1,9 @@
+{
+  "generated_utc": "2026-10-04T00:20:00Z",
+  "note": "Droid：fold_plan fold_0 一次 generator-held-out；dev=训练生成器的 dev 行；test=heldout generators（仅 MACHINE 行，7 家族归因）。",
+  "invariants": {
+    "test_rows": 6142,
+    "train_rows": 52251,
+    "dev_rows": 6482
+  }
+}
