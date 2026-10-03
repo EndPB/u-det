@@ -1,0 +1,10 @@
+{
+ "double_eval_exact_equal": true,
+ "double_eval_maxdiff": 0.0,
+ "bn_buffers_unchanged_in_eval": true,
+ "bn_buffers_changed_in_train": true,
+ "batch_composition_maxdiff_eval": 2.384185791015625e-07,
+ "note": "batch_composition 差异应为数值容差级；train 模式对照证明 BN 更新来源",
+ "task_splits_disjoint": true,
+ "test_excluded_from_selection": true
+}

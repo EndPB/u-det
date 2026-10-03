@@ -1,0 +1,48 @@
+{
+  "generated_utc": "2026-10-03T21:05:00Z",
+  "note": "Round3 不改变任何切分：与 round2 split_manifest 完全一致（DCAN 任务级 train/dev/test；test 不参与任何选择）。本文件补充不变量复核证据。",
+  "unchanged_from": "artifacts/acl_dcan_round2/split_manifest.json",
+  "invariants_verified": {
+    "task_id_crossing_splits": 0,
+    "rows_per_split": {
+      "dev": 1484,
+      "train": 6557,
+      "test": 1457
+    },
+    "tasks_per_split": {
+      "dev": 407,
+      "train": 1900,
+      "test": 408
+    },
+    "family_classes": 6,
+    "generators": 8,
+    "test_rows": 1457
+  },
+  "sources": {
+    "h2_authorbench_dcan": {
+      "role": "主机制实验（Q1/Q2/Q3 全部在此）",
+      "group": "task_id",
+      "split_counts_tasks": {
+        "train": 1900,
+        "dev": 407,
+        "test": 408
+      },
+      "split_counts_rows": {
+        "train": 6557,
+        "dev": 1484,
+        "test": 1457
+      },
+      "semantic_positives": "same task_id, different family（仅 train 任务；Droid 不参与）",
+      "test_usage": "final eval only；dev 仅用于 epoch 选择"
+    },
+    "stacad_v2": {
+      "role": "本轮未新增实验；引用 round1 文件级五折（folds.npy）"
+    },
+    "h2_droid_full_selected": {
+      "role": "本轮未新增实验；仅外部评测引用（generator-held-out）"
+    },
+    "aicd_T2": {
+      "role": "本轮未新增实验；仅 numeric-id（映射 pending；跨 split 哈希风险 1,848 条已审计）"
+    }
+  }
+}

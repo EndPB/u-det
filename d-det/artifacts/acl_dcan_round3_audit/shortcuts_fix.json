@@ -1,0 +1,164 @@
+{
+ "train_quartile_edges": [
+  1264.0,
+  2033.0,
+  3049.0
+ ],
+ "note": "长度桶边界由 train 拟合后应用于 test；推断按 test 顺序对齐既有预测",
+ "methods": {
+  "metadata_only": {
+   "macro_f1_check": 0.47533674517122065,
+   "per_length_quartile_acc_train_edges": {
+    "q1": {
+     "n": 365,
+     "acc": 0.5205479452054794
+    },
+    "q2": {
+     "n": 380,
+     "acc": 0.55
+    },
+    "q3": {
+     "n": 334,
+     "acc": 0.5089820359281437
+    },
+    "q4": {
+     "n": 378,
+     "acc": 0.6455026455026455
+    }
+   }
+  },
+  "filtered_tfidf": {
+   "macro_f1_check": 0.45722477428558533,
+   "per_length_quartile_acc_train_edges": {
+    "q1": {
+     "n": 365,
+     "acc": 0.40821917808219177
+    },
+    "q2": {
+     "n": 380,
+     "acc": 0.39210526315789473
+    },
+    "q3": {
+     "n": 334,
+     "acc": 0.4221556886227545
+    },
+    "q4": {
+     "n": 378,
+     "acc": 0.5978835978835979
+    }
+   }
+  },
+  "codeT5_raw": {
+   "macro_f1_check": 0.484422606942088,
+   "per_length_quartile_acc_train_edges": {
+    "q1": {
+     "n": 365,
+     "acc": 0.5534246575342465
+    },
+    "q2": {
+     "n": 380,
+     "acc": 0.5552631578947368
+    },
+    "q3": {
+     "n": 334,
+     "acc": 0.5389221556886228
+    },
+    "q4": {
+     "n": 378,
+     "acc": 0.6957671957671958
+    }
+   }
+  },
+  "codeT5_center": {
+   "macro_f1_check": 0.45224970727187724,
+   "per_length_quartile_acc_train_edges": {
+    "q1": {
+     "n": 365,
+     "acc": 0.5561643835616439
+    },
+    "q2": {
+     "n": 380,
+     "acc": 0.5421052631578948
+    },
+    "q3": {
+     "n": 334,
+     "acc": 0.5209580838323353
+    },
+    "q4": {
+     "n": 378,
+     "acc": 0.6322751322751323
+    }
+   }
+  },
+  "codeT5_center_std": {
+   "macro_f1_check": 0.6375749306113977,
+   "per_length_quartile_acc_train_edges": {
+    "q1": {
+     "n": 365,
+     "acc": 0.6246575342465753
+    },
+    "q2": {
+     "n": 380,
+     "acc": 0.6394736842105263
+    },
+    "q3": {
+     "n": 334,
+     "acc": 0.6077844311377245
+    },
+    "q4": {
+     "n": 378,
+     "acc": 0.7063492063492064
+    }
+   }
+  },
+  "char_tfidf_round1_ref": {
+   "macro_f1_check": 0.7638670382039253,
+   "per_length_quartile_acc_train_edges": {
+    "q1": {
+     "n": 365,
+     "acc": 0.673972602739726
+    },
+    "q2": {
+     "n": 380,
+     "acc": 0.7026315789473684
+    },
+    "q3": {
+     "n": 334,
+     "acc": 0.7964071856287425
+    },
+    "q4": {
+     "n": 378,
+     "acc": 0.873015873015873
+    }
+   }
+  }
+ },
+ "lr_convergence": {
+  "metadata_only": {
+   "n_iter": 51,
+   "converged": true,
+   "repro_macro_f1": 0.47533674517122065
+  },
+  "codeT5_raw": {
+   "n_iter": 210,
+   "converged": true,
+   "repro_macro_f1": 0.484422606942088
+  },
+  "codeT5_center": {
+   "n_iter": 31,
+   "converged": true,
+   "repro_macro_f1": 0.45224970727187724
+  },
+  "codeT5_center_std": {
+   "n_iter": 147,
+   "converged": true,
+   "repro_macro_f1": 0.6375749306113977
+  }
+ },
+ "filtered_tfidf_protocol": {
+  "epochs": 5,
+  "dev_logged_only": true,
+  "best_epoch_restore": false,
+  "note": "与 round2 一致：固定 5 epoch，不作 best-epoch 恢复（与 raw/center 的 LR 单次拟合不同类）"
+ }
+}

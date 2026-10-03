@@ -1,5 +1,7 @@
 # d-det · ACL 数据集合 v1 首轮报告：P0 强基线 + DCAN 风格四模型
 
+> ⚠️ **评测修正横幅（2026-10-03 · round3 审计）**：本报告 DCAN 四模型（semantic/fingerprint/late-fusion/full-disentangle）的 MLP 相关数字存在评测模式缺陷（表示提取未切 `eval()`），修正版为 semantic **.6987±.0114**、fingerprint **.5881±.0080**、late-fusion **.7381±.0043**、full-disentangle **.7356±.0021**；其余源（AICD/STACAD/Droid/OpenAI）与 P0 TF-IDF 数字不受影响。以 `docx/d-det-acl-dcan-round3-audit-report.md` 为准。
+
 > 执行规范：`docx/d-det_AutoDL_服务器端AI下一阶段执行指导_2026-10-03.md`（+ `docx/d-det_ACL家族归因数据集合_v1_服务端执行指导_2026-10-03.md`）。
 > 脚本：`scripts/p0_tfidf_baseline.py`、`scripts/dcan_four_models.py`；审计脚本 `scripts/audit_server_2026_10_03.py`（commit `7cc6262`）。
 > 产物：`artifacts/acl_dcan_round1/`（audit + split_manifest + p0/{aicd_t2,dcan,stacad,droid} + dcan_four_models/ + README.md）。

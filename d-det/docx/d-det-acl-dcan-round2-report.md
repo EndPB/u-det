@@ -1,5 +1,7 @@
 # d-det · ACL 数据集合 v1 第二轮报告：三个诊断问题（捷径 / 消融 / 可训练表示）
 
+> ⚠️ **评测修正横幅（2026-10-03 · round3 审计）**：本报告 MLP 相关数字（late-fusion/full-disentangle 及其消融、semantic/fingerprint 分支）使用旧的表示提取流程（含 Dropout/BN 的模块未切 `eval()`），已被修正版取代：late-fusion **.7381±.0043**、full-disentangle **.7356±.0021**、lf−SupCon 差值 **+1.1pt（配对 CI 跨零）**、其余机制项无一致效应；LoRA 数字（.7286±.0140）经 checkpoint 逐位复算有效。**MLP 相关结论以 `docx/d-det-acl-dcan-round3-audit-report.md` 为准**；本报告正文数字保留原样存档。
+
 > 执行规范：`docx/d-det_AutoDL_3420857之后服务器AI继续指导_2026-10-03.md`。
 > 脚本：`scripts/dcan_round2_shortcuts.py`（Q1）、`scripts/dcan_round2_ablations.py`（Q2）、`scripts/dcan_round2_trainable.py`（Q3）。
 > 产物：`artifacts/acl_dcan_round2/{split_manifest,env}.json + shortcuts/ + ablations/ + trainable/ + README.md`；唯一 checkpoint `runs/acl_dcan_round2/best_lora.pt`（1.2MB，不入库）。round1 产物未改动。

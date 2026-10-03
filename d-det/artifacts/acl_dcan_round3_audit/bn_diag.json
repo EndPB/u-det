@@ -1,0 +1,18 @@
+{
+ "arm": "late_fusion",
+ "seed": 0,
+ "best_dev_f1": 0.7615410855541437,
+ "best_epoch": 35,
+ "train_sec": 22.4,
+ "test_f1_A": 0.724572919629689,
+ "test_f1_D": 0.7378835016181808,
+ "test_f1_B": 0.7258361052588965,
+ "test_f1_C_bn_recalibrated_eval": 0.7289901532723967,
+ "notes": {
+  "A": "标准修正口径（running stats, dropout off）",
+  "D": "仅把 BN 切成批统计（dropout off，单大批）",
+  "B": "复刻原缺陷近似（train 模式：BN 批统计 + dropout on）",
+  "C": "BN 在 train 上重校准（momentum=None）后按 A 评估",
+  "interpretation": "A vs D 隔离 BN 统计口径；D vs B 隔离 dropout；C 检验 BN 重校准可否恢复"
+ }
+}

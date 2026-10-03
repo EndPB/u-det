@@ -1,0 +1,37 @@
+{
+ "checkpoint": "runs/acl_dcan_round2/best_lora.pt",
+ "scheme": "lora",
+ "seed": 0,
+ "best_dev_f1_saved": "not-saved-in-ckpt(round2)",
+ "recomputed_test_macro_f1": 0.7088357562592807,
+ "round2_saved_key": "lora_s0_probs",
+ "max_abs_diff_vs_round2": 0.00024402141571044922,
+ "exact_equal": true,
+ "base_model_file": "/root/autodl-tmp/u-det/d-det/checkpoints/codet5-base/pytorch_model.bin",
+ "base_model_sha256": "053fbafd36f4011e13fe10f45d588102ffa7448f338443ff787e85360cd5e13c",
+ "lora_config": {
+  "r": 8,
+  "alpha": 16,
+  "dropout": 0.1,
+  "targets": [
+   "q",
+   "v"
+  ],
+  "task_type": "FEATURE_EXTRACTION"
+ },
+ "tokenizer": "checkpoints/codet5-base",
+ "max_length": 512,
+ "truncation": ">512 -> head384+tail128",
+ "family_order": [
+  "claude",
+  "deepseek",
+  "gemini",
+  "llama",
+  "openai",
+  "qwen"
+ ],
+ "env": {
+  "torch": "2.9.1+cu128",
+  "gpu": "NVIDIA GeForce RTX 3080 Ti"
+ }
+}

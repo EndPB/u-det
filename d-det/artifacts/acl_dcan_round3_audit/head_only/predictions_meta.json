@@ -1,0 +1,25 @@
+{
+ "note": "head_only 预测包（npz 键 head_only_s{0,1,2}_probs）样本身份与哈希侧车；split_hash_test 计算方式与 mlp/predictions.npz 完全一致（test 行按 core.jsonl 顺序：task_id\\tsource_sha256 连接后 sha256）",
+ "npz": "predictions.npz",
+ "prob_keys": [
+  "head_only_s0_probs",
+  "head_only_s1_probs",
+  "head_only_s2_probs"
+ ],
+ "npz_identity_keys": [
+  "y_test",
+  "task_id_test",
+  "source_sha256_test",
+  "model_name_test",
+  "family_order"
+ ],
+ "split_hash_test": "7e3c26397db928f4d33e2a7039a6c34cd2fddea32c865541fc75896113808a14",
+ "split_hash_matches_mlp": true,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "test_rows": 1457,
+ "selection": "best epoch 按 dev macro-F1；test 不参与任何选择"
+}

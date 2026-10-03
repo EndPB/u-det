@@ -1,0 +1,65 @@
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (535 > 512). Running this sequence through the model will result in indexing errors
+[r3ft] pad_id=0
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 26105.08it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[r3ft] head_only s0 ep1: dev 0.1089
+[r3ft] head_only s0 ep2: dev 0.1958
+[r3ft] head_only s0 ep3: dev 0.2082
+[r3ft] head_only s0 ep4: dev 0.3054
+[r3ft] head_only s0 ep5: dev 0.3311
+[r3ft] head_only s0 ep6: dev 0.3639
+[r3ft] head_only s0 ep7: dev 0.3529
+[r3ft] head_only s0 ep8: dev 0.3857
+[r3ft] head_only s0 ep9: dev 0.3480
+[r3ft] head_only s0 ep10: dev 0.3995
+[r3ft] head_only s0 ep11: dev 0.4389
+[r3ft] head_only s0 ep12: dev 0.4267
+[r3ft] s0: {"best_dev_f1": 0.4388643092294495, "best_epoch": 11}
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 27973.22it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[r3ft] head_only s1 ep1: dev 0.1618
+[r3ft] head_only s1 ep2: dev 0.1651
+[r3ft] head_only s1 ep3: dev 0.2724
+[r3ft] head_only s1 ep4: dev 0.3425
+[r3ft] head_only s1 ep5: dev 0.2846
+[r3ft] head_only s1 ep6: dev 0.3067
+[r3ft] head_only s1 ep7: dev 0.3772
+[r3ft] head_only s1 ep8: dev 0.3920
+[r3ft] head_only s1 ep9: dev 0.3475
+[r3ft] head_only s1 ep10: dev 0.3452
+[r3ft] head_only s1 ep11: dev 0.4247
+[r3ft] head_only s1 ep12: dev 0.4351
+[r3ft] s1: {"best_dev_f1": 0.435082602721178, "best_epoch": 12}
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 26020.87it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[r3ft] head_only s2 ep1: dev 0.1306
+[r3ft] head_only s2 ep2: dev 0.2006
+[r3ft] head_only s2 ep3: dev 0.2538
+[r3ft] head_only s2 ep4: dev 0.2954
+[r3ft] head_only s2 ep5: dev 0.3236
+[r3ft] head_only s2 ep6: dev 0.3382
+[r3ft] head_only s2 ep7: dev 0.4039
+[r3ft] head_only s2 ep8: dev 0.4080
+[r3ft] head_only s2 ep9: dev 0.3522
+[r3ft] head_only s2 ep10: dev 0.4043
+[r3ft] head_only s2 ep11: dev 0.3990
+[r3ft] s2: {"best_dev_f1": 0.40795811301060253, "best_epoch": 8}
+[r3ft] done 2123.7s -> artifacts/acl_dcan_round3_audit/head_only

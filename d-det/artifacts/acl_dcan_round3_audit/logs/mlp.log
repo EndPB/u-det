@@ -1,0 +1,26 @@
+[dcan] semantic cache hit: /root/autodl-tmp/u-det/d-det/runs/acl_dcan_round1/emb_dcan_ct5.npz
+[r3] s0 semantic_only: {"sem": 0.6994}
+[r3] s0 fingerprint_only: {"fp": 0.5912}
+[r3] s0 late_fusion: {"sem": 0.719, "fp": 0.5725, "fuse": 0.7421}
+[r3] s0 lf_nosupcon: {"sem": 0.6998, "fp": 0.5813, "fuse": 0.7279}
+[r3] s0 full_disentangle: {"sem": 0.5229, "fp": 0.5712, "fuse": 0.7384}
+[r3] s0 fd_nosemgrl: {"sem": 0.5428, "fp": 0.5655, "fuse": 0.7247}
+[r3] s0 fd_nofpgrl: {"sem": 0.6563, "fp": 0.6087, "fuse": 0.7495}
+[r3] s0 fd_noorth: {"sem": 0.4668, "fp": 0.5693, "fuse": 0.7268}
+[r3] s1 semantic_only: {"sem": 0.6844}
+[r3] s1 fingerprint_only: {"fp": 0.5771}
+[r3] s1 late_fusion: {"sem": 0.7045, "fp": 0.5801, "fuse": 0.7321}
+[r3] s1 lf_nosupcon: {"sem": 0.6587, "fp": 0.5291, "fuse": 0.7275}
+[r3] s1 full_disentangle: {"sem": 0.6136, "fp": 0.5682, "fuse": 0.7332}
+[r3] s1 fd_nosemgrl: {"sem": 0.6674, "fp": 0.5702, "fuse": 0.721}
+[r3] s1 fd_nofpgrl: {"sem": 0.6814, "fp": 0.5832, "fuse": 0.738}
+[r3] s1 fd_noorth: {"sem": 0.674, "fp": 0.5749, "fuse": 0.7268}
+[r3] s2 semantic_only: {"sem": 0.7123}
+[r3] s2 fingerprint_only: {"fp": 0.596}
+[r3] s2 late_fusion: {"sem": 0.7093, "fp": 0.5853, "fuse": 0.7402}
+[r3] s2 lf_nosupcon: {"sem": 0.7135, "fp": 0.5687, "fuse": 0.7267}
+[r3] s2 full_disentangle: {"sem": 0.6694, "fp": 0.5808, "fuse": 0.7353}
+[r3] s2 fd_nosemgrl: {"sem": 0.7013, "fp": 0.5785, "fuse": 0.7384}
+[r3] s2 fd_nofpgrl: {"sem": 0.6727, "fp": 0.6094, "fuse": 0.7286}
+[r3] s2 fd_noorth: {"sem": 0.6484, "fp": 0.575, "fuse": 0.7556}
+[r3] done 427.4s -> artifacts/acl_dcan_round3_audit/mlp

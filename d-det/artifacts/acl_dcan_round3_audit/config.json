@@ -1,0 +1,85 @@
+{
+  "round": 3,
+  "date": "2026-10-03",
+  "purpose": "外部审计修正轮：MLP 评测模式缺陷修复并重跑、no-op 复现检查、配对 bootstrap、捷径口径修正、LoRA checkpoint 复算校验、匹配条件 head-only",
+  "mlp": {
+    "script": "scripts/dcan_round3_mlp.py",
+    "arms": [
+      "semantic_only",
+      "fingerprint_only",
+      "late_fusion",
+      "lf_nosupcon",
+      "full_disentangle",
+      "fd_nosemgrl",
+      "fd_nofpgrl",
+      "fd_noorth"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "epochs": 40,
+    "tasks_per_batch": 48,
+    "max_codes_per_task": 8,
+    "optimizer": "AdamW lr=1e-3 wd=1e-4",
+    "modules": "ms/mf 768→256(BN,ReLU,dropout.2)→128; hs 128→6; hf 128→6; as 128→6(FAMILY-GRL); al 128→16(LENGTH-GRL); ac 128→64(PROMPT-CLUSTER-GRL)",
+    "supcon": {
+      "tau": 0.1,
+      "weight": 0.3,
+      "pairs": "同 task_id 不同 family（仅 train）"
+    },
+    "grl": {
+      "family_on_zs": 0.3,
+      "length_on_zf": 0.2,
+      "prompt_cluster_on_zf": 0.2
+    },
+    "orth": 0.05,
+    "fusion": "LR(C=1.0, max_iter=2000) 在 train 表示上拟合，应用于 dev/test 表示",
+    "eval_fix": "dev/test/全部表示提取与融合均 model.eval()+torch.inference_mode；BN 用 running stats（不再更新）；best state 含 BN buffers；cudnn.deterministic=True",
+    "noop_check": "同 seed 两次完整训练：dev 曲线逐位一致、test 概率 maxdiff=0.0",
+    "fix_history": "初版漏 opt.zero_grad（梯度跨 batch 累积）→ 已归档 mlp_pre_fix_archive（数字无效）；修复后全量重跑（20:41:53 完成）"
+  },
+  "ft": {
+    "script": "scripts/dcan_round3_ft.py",
+    "head_only": {
+      "encoder": "checkpoints/codet5-base 冻结",
+      "pool": "mean(非 pad)",
+      "head": "Linear(768,6)",
+      "lr": 0.001,
+      "wd": 0.0001,
+      "bs": 16,
+      "accum": 2,
+      "epochs_max": 12,
+      "patience": 3,
+      "amp": "bf16 autocast",
+      "truncation": "code384+prompt128（>512 截断）",
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "匹配说明": "与 round2 LoRA 完全同 encoder/tokenize/线性头/CE/采样/head-lr/预算；差异仅在 adapter 本身"
+    },
+    "verify": {
+      "ckpt": "runs/acl_dcan_round2/best_lora.pt",
+      "对照": "artifacts/acl_dcan_round2/trainable/predictions.npz(lora_s0_probs)",
+      "结果": "fp16 存储层逐位一致(exact_equal=true)；float32 复算 maxdiff=2.44e-4（fp16 量化级）；复算 macro-F1=0.7088357 与 round2 s0 一致"
+    },
+    "fix_history": "round2 组内发现并修复：CE(head_s) 误删（消融初版）；round3 实现自检：opt.zero_grad 缺失（被 bn_diag 正确循环对照揭穿）"
+  },
+  "stats": {
+    "bootstrap": {
+      "B": 2000,
+      "unit": "task",
+      "n_test_tasks": 408,
+      "method": "配对任务级重采样（同任务同重采样索引），seed 内及跨 seed 均值"
+    }
+  },
+  "boundaries": [
+    "test 不参与任何选择（模型/超参/融合系数）",
+    "不宣称 SOTA（无新增外部评测）",
+    "本目录为修正版；mlp_pre_fix_archive 为无效归档",
+    "round1/round2 旧 MLP 数字以 round3 修正版为准"
+  ]
+}
