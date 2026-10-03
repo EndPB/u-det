@@ -1,0 +1,74 @@
+{
+ "generated_utc": "2026-10-03T06:08:31Z",
+ "sources": {
+  "aicd_T2_official": {
+   "role": "主规模基准（闭集；仅 numeric_id）",
+   "split_rows": {
+    "test": 507874,
+    "train": 502149,
+    "validation": 101176
+   },
+   "label_map_status": "pending_official_verification",
+   "rule": "官方 train/validation/test；T1/T3 为独立任务视图，禁止相加或拼接标签"
+  },
+  "h2_authorbench_dcan": {
+   "role": "同题跨 family 语义正对核心",
+   "split_counts_tasks": {
+    "dev": 407,
+    "train": 1900,
+    "test": 408
+   },
+   "split_counts_rows": {
+    "dev": 1484,
+    "train": 6557,
+    "test": 1457
+   },
+   "rule": "group=task_id；按任务切分；每任务 ≥2 family"
+  },
+  "h2_llm_codegen": {
+   "role": "同 CWE 跨模型补充对齐",
+   "split_counts_tasks": {
+    "train": 118,
+    "test": 25,
+    "dev": 25
+   },
+   "split_counts_rows": {
+    "train": 1065,
+    "test": 225,
+    "dev": 225
+   },
+   "rule": "group=task_id(=scenario:cwe_id)；scenario 是场景变量不是 family"
+  },
+  "stacad_v2": {
+   "role": "文件级 paired/OOD",
+   "split_v1_rows": {
+    "train": 128811,
+    "val": 8055,
+    "test": 8092
+   },
+   "files_per_fold": {
+    "0": 4411,
+    "1": 4411,
+    "2": 4411,
+    "3": 4410,
+    "4": 4410
+   },
+   "fold_vector_sha256": "55b59f60365418a066ad5ee38f7e709c18173e19fb98144584604dec933866ae",
+   "rule": "group=file_name；5 折文件级（corpus_v2.assign_folds）；本地上传语料逐 pair 校验 0 文件跨折"
+  },
+  "h2_droid_full_selected": {
+   "role": "generator-held-out 外部压力测试（无 task_id）",
+   "fold_plan": "fold_0/fold_1（anchor=0 家族见审计 JSON）",
+   "rule": "按 generator 留出；不承担同题语义对齐 loss"
+  },
+  "codet_m4": {
+   "role": "结构化来源指纹控制",
+   "split_rows": {
+    "train": 405069,
+    "val": 47734,
+    "test": 47749
+   },
+   "rule": "target(human/ai) 与 model 分开；缺失 model 不建新 generator"
+  }
+ }
+}

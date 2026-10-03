@@ -1,0 +1,9 @@
+{
+  "host_alias": "root@connect.nmb2.seetacloud.com",
+  "remote_root": "/root/autodl-tmp/u-det",
+  "verified_files": 127,
+  "uploaded_files": 122,
+  "uploaded_bytes": 5084734467,
+  "remote_free_bytes": 2851700736,
+  "failures": []
+}
