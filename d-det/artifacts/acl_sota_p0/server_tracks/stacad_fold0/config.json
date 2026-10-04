@@ -1,0 +1,14 @@
+{
+  "script": "scripts/acl_sota_p0_baselines.py",
+  "track": "stacad_fold0",
+  "smoke": false,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "text_cap": 6000,
+  "sgd": "log_loss alpha=2e-6 bs=10000 5ep class-inverse weights best-dev",
+  "fusion": "LR C=1 on dev log-probs",
+  "ci": "cluster bootstrap 300"
+}

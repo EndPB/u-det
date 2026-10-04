@@ -1,0 +1,106 @@
+nohup: ignoring input
+[p0] authorbench_dcan: train 6557 dev 1484 test 1457 classes 6
+[p0]   tfidf_char: vocab 56067
+[p0]     sgd seed0 ep1: dev F1 0.6894
+[p0]     sgd seed0 ep2: dev F1 0.7289
+[p0]     sgd seed0 ep3: dev F1 0.7531
+[p0]     sgd seed0 ep4: dev F1 0.7774
+[p0]     sgd seed0 ep5: dev F1 0.7902
+[p0]     sgd seed1 ep1: dev F1 0.6493
+[p0]     sgd seed1 ep2: dev F1 0.7272
+[p0]     sgd seed1 ep3: dev F1 0.7762
+[p0]     sgd seed1 ep4: dev F1 0.7870
+[p0]     sgd seed1 ep5: dev F1 0.7896
+[p0]     sgd seed2 ep1: dev F1 0.6457
+[p0]     sgd seed2 ep2: dev F1 0.7337
+[p0]     sgd seed2 ep3: dev F1 0.7609
+[p0]     sgd seed2 ep4: dev F1 0.7895
+[p0]     sgd seed2 ep5: dev F1 0.7979
+[p0]   tfidf_word: vocab 75088
+[p0]     sgd seed0 ep1: dev F1 0.7420
+[p0]     sgd seed0 ep2: dev F1 0.7948
+[p0]     sgd seed0 ep3: dev F1 0.8126
+[p0]     sgd seed0 ep4: dev F1 0.8320
+[p0]     sgd seed0 ep5: dev F1 0.8442
+[p0]     sgd seed1 ep1: dev F1 0.7289
+[p0]     sgd seed1 ep2: dev F1 0.7781
+[p0]     sgd seed1 ep3: dev F1 0.8161
+[p0]     sgd seed1 ep4: dev F1 0.8339
+[p0]     sgd seed1 ep5: dev F1 0.8336
+[p0]     sgd seed2 ep1: dev F1 0.7420
+[p0]     sgd seed2 ep2: dev F1 0.7891
+[p0]     sgd seed2 ep3: dev F1 0.8346
+[p0]     sgd seed2 ep4: dev F1 0.8400
+[p0]     sgd seed2 ep5: dev F1 0.8429
+[p0]   style_features dim 97 (36s)
+[p0] authorbench_dcan done in 2.5 min
+[p0] stacad_fold0: train 30000 dev 3000 test 28992 classes 7
+[p0]   tfidf_char: vocab 286162
+[p0]     sgd seed0 ep1: dev F1 0.3379
+[p0]     sgd seed0 ep2: dev F1 0.3319
+[p0]     sgd seed0 ep3: dev F1 0.3536
+[p0]     sgd seed0 ep4: dev F1 0.3650
+[p0]     sgd seed0 ep5: dev F1 0.3659
+[p0]     sgd seed1 ep1: dev F1 0.3198
+[p0]     sgd seed1 ep2: dev F1 0.3406
+[p0]     sgd seed1 ep3: dev F1 0.3468
+[p0]     sgd seed1 ep4: dev F1 0.3710
+[p0]     sgd seed1 ep5: dev F1 0.3589
+[p0]     sgd seed2 ep1: dev F1 0.3285
+[p0]     sgd seed2 ep2: dev F1 0.3426
+[p0]     sgd seed2 ep3: dev F1 0.3571
+[p0]     sgd seed2 ep4: dev F1 0.3622
+[p0]     sgd seed2 ep5: dev F1 0.3658
+[p0]   tfidf_word: vocab 200000
+[p0]     sgd seed0 ep1: dev F1 0.3250
+[p0]     sgd seed0 ep2: dev F1 0.3225
+[p0]     sgd seed0 ep3: dev F1 0.3631
+[p0]     sgd seed0 ep4: dev F1 0.3672
+[p0]     sgd seed0 ep5: dev F1 0.3683
+[p0]     sgd seed1 ep1: dev F1 0.3211
+[p0]     sgd seed1 ep2: dev F1 0.3358
+[p0]     sgd seed1 ep3: dev F1 0.3497
+[p0]     sgd seed1 ep4: dev F1 0.3627
+[p0]     sgd seed1 ep5: dev F1 0.3549
+[p0]     sgd seed2 ep1: dev F1 0.3229
+[p0]     sgd seed2 ep2: dev F1 0.3418
+[p0]     sgd seed2 ep3: dev F1 0.3637
+[p0]     sgd seed2 ep4: dev F1 0.3646
+[p0]     sgd seed2 ep5: dev F1 0.3607
+[p0] stacad_fold0 done in 9.9 min
+[p0] droid_fold0: train 52251 dev 6482 test 6142 classes 7
+[p0]   tfidf_char: vocab 165473
+[p0]     sgd seed0 ep1: dev F1 0.2898
+[p0]     sgd seed0 ep2: dev F1 0.3172
+[p0]     sgd seed0 ep3: dev F1 0.3418
+[p0]     sgd seed0 ep4: dev F1 0.3395
+[p0]     sgd seed0 ep5: dev F1 0.3533
+[p0]     sgd seed1 ep1: dev F1 0.3132
+[p0]     sgd seed1 ep2: dev F1 0.3285
+[p0]     sgd seed1 ep3: dev F1 0.3446
+[p0]     sgd seed1 ep4: dev F1 0.3432
+[p0]     sgd seed1 ep5: dev F1 0.3512
+[p0]     sgd seed2 ep1: dev F1 0.3045
+[p0]     sgd seed2 ep2: dev F1 0.3322
+[p0]     sgd seed2 ep3: dev F1 0.3473
+[p0]     sgd seed2 ep4: dev F1 0.3575
+[p0]     sgd seed2 ep5: dev F1 0.3425
+[p0]   tfidf_word: vocab 197477
+[p0]     sgd seed0 ep1: dev F1 0.2955
+[p0]     sgd seed0 ep2: dev F1 0.3509
+[p0]     sgd seed0 ep3: dev F1 0.3712
+[p0]     sgd seed0 ep4: dev F1 0.3752
+[p0]     sgd seed0 ep5: dev F1 0.3798
+[p0]     sgd seed1 ep1: dev F1 0.3170
+[p0]     sgd seed1 ep2: dev F1 0.3492
+[p0]     sgd seed1 ep3: dev F1 0.3730
+[p0]     sgd seed1 ep4: dev F1 0.3695
+[p0]     sgd seed1 ep5: dev F1 0.3784
+[p0]     sgd seed2 ep1: dev F1 0.3099
+[p0]     sgd seed2 ep2: dev F1 0.3501
+[p0]     sgd seed2 ep3: dev F1 0.3698
+[p0]     sgd seed2 ep4: dev F1 0.3812
+[p0]     sgd seed2 ep5: dev F1 0.3779
+[p0]   style_features dim 97 (66s)
+[p0] droid_fold0 done in 4.7 min
+[p0] ALL TRACKS DONE

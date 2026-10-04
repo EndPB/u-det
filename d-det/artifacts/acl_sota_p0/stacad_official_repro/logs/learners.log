@@ -1,0 +1,39 @@
+[stacad-repro] data (144958, 105); fold sizes Counter({0: 28992, 1: 28992, 2: 28992, 3: 28991, 4: 28991})
+[stacad-repro] classes Counter({2: 21661, 4: 21648, 5: 21645, 1: 21564, 6: 21181, 0: 20936, 3: 16323}); langs Counter({'cs': 25277, 'go': 25148, 'cpp': 24425, 'java': 19234, 'py': 17478, 'php': 17271, 'c': 16125})
+[stacad-repro] learners fold 0: fit 104,396 es 11,570 test 28,992
+[stacad-repro] learners fold 0: xgb 484s rounds=2438
+/root/miniconda3/envs/udet/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+[stacad-repro] learners fold 0: lgb 259s rounds=821
+[stacad-repro] learners fold 0: mlp 33s
+[stacad-repro] learners fold 1: fit 104,419 es 11,547 test 28,992
+[stacad-repro] learners fold 1: xgb 229s rounds=2360
+/root/miniconda3/envs/udet/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+[stacad-repro] learners fold 1: lgb 195s rounds=808
+[stacad-repro] learners fold 1: mlp 25s
+[stacad-repro] learners fold 2: fit 104,333 es 11,633 test 28,992
+[stacad-repro] learners fold 2: xgb 214s rounds=2592
+/root/miniconda3/envs/udet/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+[stacad-repro] learners fold 2: lgb 193s rounds=815
+[stacad-repro] learners fold 2: mlp 25s
+[stacad-repro] learners fold 3: fit 104,318 es 11,649 test 28,991
+[stacad-repro] learners fold 3: xgb 200s rounds=2430
+/root/miniconda3/envs/udet/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+[stacad-repro] learners fold 3: lgb 194s rounds=828
+[stacad-repro] learners fold 3: mlp 26s
+[stacad-repro] learners fold 4: fit 104,328 es 11,639 test 28,991
+[stacad-repro] learners fold 4: xgb 187s rounds=2250
+/root/miniconda3/envs/udet/lib/python3.12/site-packages/lightgbm/sklearn.py:1106: LGBMDeprecationWarning: The argument 'eval_set' is deprecated, use 'eval_X' and 'eval_y' instead.
+  eval_set = _validate_eval_set_Xy(eval_set=eval_set, eval_X=eval_X, eval_y=eval_y)
+[stacad-repro] learners fold 4: lgb 171s rounds=746
+[stacad-repro] learners fold 4: mlp 29s
+[stacad-repro] stage learners done in 41.1 min
+[stacad-repro] compare[classic] logreg: repro 0.4874 vs official 0.48738736133919647 (Δ +0.0000)
+[stacad-repro] compare[classic] rf: repro 0.5240 vs official 0.5241460447319242 (Δ -0.0002)
+[stacad-repro] compare[learners] xgb: repro 0.5988 vs official 0.5986101898395122 (Δ +0.0002)
+[stacad-repro] compare[learners] lgb: repro 0.5959 vs official 0.5958507403240209 (Δ +0.0000)
+[stacad-repro] compare[learners] mlp: repro 0.5531 vs official 0.5504210328121958 (Δ +0.0026)
+[stacad-repro] ALL DONE in 41.2 min -> /root/autodl-tmp/u-det/d-det/artifacts/acl_sota_p0/stacad_official_repro

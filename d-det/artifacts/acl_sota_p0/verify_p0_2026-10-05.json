@@ -1,0 +1,76 @@
+{
+  "round": "acl_sota_p0",
+  "date": "2026-10-05",
+  "anchor": "1f3d547b0dbcfc9be67b23351f38076f47cbaf8a",
+  "head_at_execution": "0d108239f49d76e36a72cf56907dc96790198aa3",
+  "files": {
+    "d-det/scripts/acl_sota_p0_stacad_repro.py": {
+      "bytes": 19599,
+      "sha256": "cacd258a20c0f1d2893d32cbd08e414abf45a126fe1f7a64fe619c0199909d07"
+    },
+    "d-det/scripts/acl_sota_p0_baselines.py": {
+      "bytes": 26459,
+      "sha256": "246ae84bbb745a537a56cdd6383380d12696bb6ee5760ebe19db0bed694abd01"
+    },
+    "d-det/scripts/acl_sota_p0_summary.py": {
+      "bytes": 2586,
+      "sha256": "06016bed702385a94d9d47c5d99faefbc2f4a063ca68fe94129ad32918282e2d"
+    },
+    "d-det/docx/d-det_ACL_SOTA_P0基线复现报告_2026-10-04.md": {
+      "bytes": 13803,
+      "sha256": "3ba77e30b6f58024c2faf71ceb63691e8f9d9bfa5c3b38312d3b2f4bc3a137df"
+    },
+    "d-det/artifacts/acl_sota_p0/README.md": {
+      "bytes": 1993,
+      "sha256": "69f5f834424e61fcfd5ee067f2e2b304d506bfb1611224c9fa95195de0b8f05b"
+    },
+    "d-det/artifacts/acl_sota_p0/summary_p0_v1.json": {
+      "bytes": 41438,
+      "sha256": "69d6afd312e43c32130cce23a61aeefbebff7e7b0b93d7a79fec708f0e48f087"
+    },
+    "d-det/artifacts/acl_sota_p0/summary_p0_v1.md": {
+      "bytes": 5139,
+      "sha256": "2f5ddeb15fc3553e56d7bd7355c79a2f8189f024bc47a48694c75e3881c14b3b"
+    },
+    "d-det/artifacts/acl_sota_p0/stacad_official_repro/metrics_repro.json": {
+      "bytes": 14121,
+      "sha256": "cba9e5054908dfd5c98e60496793b872776d8b43f90dbf6e360d280681892165"
+    },
+    "d-det/artifacts/acl_sota_p0/stacad_official_repro/compare_vs_official.json": {
+      "bytes": 1948,
+      "sha256": "c7cb1e1b8ff997286caabe497e556445b10b91fa96f8d534979b12cef8a6a9e6"
+    },
+    "d-det/artifacts/acl_sota_p0/stacad_official_repro/config.json": {
+      "bytes": 9371,
+      "sha256": "7a38e40c0733d124d766f032e888e32fcebae6c55e942a39769879610bc9bde8"
+    },
+    "d-det/artifacts/acl_sota_p0/stacad_official_repro/logs/classic_stack.log": {
+      "bytes": 1642,
+      "sha256": "a2f886254701dc1aad8724ef6f3195fd424b0fd31c6bd7daf8066ff42b4226cd"
+    },
+    "d-det/artifacts/acl_sota_p0/stacad_official_repro/logs/learners.log": {
+      "bytes": 3330,
+      "sha256": "8223680c5d8bc1cdfee6770da47aa5c994f523d126df6e3267188f89df62cdb1"
+    },
+    "d-det/artifacts/acl_sota_p0/stacad_official_repro/logs/stack_selfconsist.log": {
+      "bytes": 1992,
+      "sha256": "f8d6fdc80c0186a2ed14667808fbe0759a781dd05173ce162de5603fd105572c"
+    },
+    "d-det/artifacts/acl_sota_p0/server_tracks/authorbench_dcan/metrics.json": {
+      "bytes": 5983,
+      "sha256": "e8938b4d88f3d82fa5b180de2174f17380870d5fd76759f728ffdbf6cdd5ebc3"
+    },
+    "d-det/artifacts/acl_sota_p0/server_tracks/stacad_fold0/metrics.json": {
+      "bytes": 7227,
+      "sha256": "c75121dbf240967a71e44a70843613f35c144513c31dbbd1e12654b1ba861256"
+    },
+    "d-det/artifacts/acl_sota_p0/server_tracks/droid_fold0/metrics.json": {
+      "bytes": 6961,
+      "sha256": "16c5c7a70d6d1b7e856a9096b573a460c30c7598fb664ec5ff14d63744cd2681"
+    },
+    "d-det/artifacts/acl_sota_p0/server_tracks/logs/run.log": {
+      "bytes": 4011,
+      "sha256": "7f2c96566831a654dbe09e7578d9b2fa51585106b31a39d505a325919590e760"
+    }
+  }
+}

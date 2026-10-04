@@ -1,0 +1,26 @@
+nohup: ignoring input
+[stacad-repro] data (144958, 105); fold sizes Counter({0: 28992, 1: 28992, 2: 28992, 3: 28991, 4: 28991})
+[stacad-repro] classes Counter({2: 21661, 4: 21648, 5: 21645, 1: 21564, 6: 21181, 0: 20936, 3: 16323}); langs Counter({'cs': 25277, 'go': 25148, 'cpp': 24425, 'java': 19234, 'py': 17478, 'php': 17271, 'c': 16125})
+[stacad-repro] classic fold 0: logreg 10s
+[stacad-repro] classic fold 0: rf 56s
+[stacad-repro] classic fold 1: logreg 21s
+[stacad-repro] classic fold 1: rf 53s
+[stacad-repro] classic fold 2: logreg 15s
+[stacad-repro] classic fold 2: rf 52s
+[stacad-repro] classic fold 3: logreg 13s
+[stacad-repro] classic fold 3: rf 53s
+[stacad-repro] classic fold 4: logreg 14s
+[stacad-repro] classic fold 4: rf 52s
+[stacad-repro] stage classic done in 5.7 min
+[stacad-repro] stack[meta_only] vote_0.50_0.30_0.20: F1 0.5988
+[stacad-repro] stack[meta_only] vote_equal: F1 0.5988
+[stacad-repro] stack[meta_only] stack_trees: F1 0.6004
+[stacad-repro] stack[meta_only] stack_trees_tfidf: F1 0.6701
+[stacad-repro] stack[meta_only] stack_trees_tfidf_lang: F1 0.6702
+[stacad-repro] stack[meta_only] stack_trees_codebert: F1 0.7048
+[stacad-repro] stack[meta_only] stack_trees_tfidf_codebert: F1 0.7329
+[stacad-repro] stack[meta_only] stack_trees_tfidf_lang_codebert: F1 0.7330
+[stacad-repro] stage stack done in 15.9 min
+[stacad-repro] compare[classic] logreg: repro 0.4874 vs official 0.48738736133919647 (Δ +0.0000)
+[stacad-repro] compare[classic] rf: repro 0.5240 vs official 0.5241460447319242 (Δ -0.0002)
+[stacad-repro] ALL DONE in 21.6 min -> /root/autodl-tmp/u-det/d-det/artifacts/acl_sota_p0/stacad_official_repro
