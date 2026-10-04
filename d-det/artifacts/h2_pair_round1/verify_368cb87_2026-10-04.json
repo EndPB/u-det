@@ -1,0 +1,40 @@
+{
+ "verified_anchor": "368cb87",
+ "verified_utc": "2026-10-04T21:35:00Z",
+ "git_head": "368cb870ec4097bc6576521151900fe92d57c833",
+ "git_status_short_branch": [
+  "## main...origin/main",
+  "?? \"d-det/docx/d-det_AutoDL_368cb87\\345\\220\\216\\347\\273\\255\\346\\211\\247\\350\\241\\214\\346\\214\\207\\345\\257\\274_2026-10-04.md\""
+ ],
+ "boot_pid1_lstart": "2026-10-04 20:50:54",
+ "audit": {
+  "rows": 4692,
+  "invalid_records": 0,
+  "checks_total": 27,
+  "checks_all_true": true
+ },
+ "files": {
+  "data/h2_pair_benchmark_v1/audit_index.json": {
+   "bytes": 6306,
+   "sha256": "72f0861ad4c5804ce1c5e07ed974bd67966786c1e6b036f6aed5f93d784aaf31"
+  },
+  "artifacts/h2_pair_round1/similarity_baseline.json": {
+   "bytes": 21017,
+   "sha256": "db454272c369dd40acc2bc31310238066965425ee2464cafe21b45fdaee6a70e"
+  },
+  "artifacts/h2_pair_round1/similarity_baseline.stdout.json": {
+   "bytes": 14579,
+   "sha256": "591fab48410e2e95e3c61694efbfd3b7666194f880f91148e93a3d156feb12ec"
+  }
+ },
+ "reproduction": "本 boot（20:50:54）第 4 次复跑：审计 27/27 true；similarity json/stdout 与提交 368cb87 逐字节一致（70.7s）",
+ "commands": [
+  "python scripts/audit_h2_pair_benchmark_v1.py",
+  "python scripts/h2_pair_similarity_baseline.py > artifacts/h2_pair_round1/similarity_baseline.stdout.json"
+ ],
+ "env": {
+  "OMP_NUM_THREADS": "2",
+  "MKL_NUM_THREADS": "2",
+  "TOKENIZERS_PARALLELISM": "false"
+ }
+}
