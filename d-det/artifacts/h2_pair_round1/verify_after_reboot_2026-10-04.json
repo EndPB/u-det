@@ -1,0 +1,37 @@
+{
+ "verified_after_reboot": "2026-10-04T20:45:00Z",
+ "git_head": "89445341f716cc05b9f7017ea07ccd5002890cea",
+ "git_status_short_branch": [
+  "## main...origin/main",
+  "?? \"d-det/docx/d-det_AutoDL_89445341\\345\\220\\216\\347\\273\\255\\346\\211\\247\\350\\241\\214\\346\\214\\207\\345\\257\\274_2026-10-04.md\""
+ ],
+ "audit": {
+  "rows": 4692,
+  "invalid_records": 0,
+  "checks_total": 27,
+  "checks_all_true": true
+ },
+ "files": {
+  "data/h2_pair_benchmark_v1/audit_index.json": {
+   "bytes": 6306,
+   "sha256": "72f0861ad4c5804ce1c5e07ed974bd67966786c1e6b036f6aed5f93d784aaf31"
+  },
+  "artifacts/h2_pair_round1/similarity_baseline.json": {
+   "bytes": 21017,
+   "sha256": "db454272c369dd40acc2bc31310238066965425ee2464cafe21b45fdaee6a70e"
+  },
+  "artifacts/h2_pair_round1/similarity_baseline.stdout.json": {
+   "bytes": 14579,
+   "sha256": "591fab48410e2e95e3c61694efbfd3b7666194f880f91148e93a3d156feb12ec"
+  }
+ },
+ "reproduction": "重启后（20:35）复跑：审计 27/27 true；similarity json/stdout 与提交 8944534 逐字节一致",
+ "runtime_sec": {
+  "similarity_after_reboot": 70.7
+ },
+ "environment": {
+  "python": "/root/miniconda3/envs/udet/bin/python",
+  "OMP_NUM_THREADS": "2",
+  "MKL_NUM_THREADS": "2"
+ }
+}
