@@ -1,0 +1,35 @@
+{
+ "verified_anchor": "1f3d547",
+ "verified_utc": "2026-10-04T22:05:00Z",
+ "git_head": "1f3d547b0dbcfc9be67b23351f38076f47cbaf8a",
+ "git_status_short_branch": [
+  "## main...origin/main",
+  "?? \"d-det/docx/d-det_AutoDL_1f3d547\\346\\224\\266\\345\\260\\276\\344\\270\\216\\344\\270\\213\\344\\270\\200\\351\\230\\266\\346\\256\\265\\346\\214\\207\\345\\257\\274_2026-10-04.md\""
+ ],
+ "audit": {
+  "rows": 4692,
+  "invalid_records": 0,
+  "checks_total": 27,
+  "checks_all_true": true
+ },
+ "files": {
+  "data/h2_pair_benchmark_v1/audit_index.json": {
+   "bytes": 6306,
+   "sha256": "72f0861ad4c5804ce1c5e07ed974bd67966786c1e6b036f6aed5f93d784aaf31"
+  },
+  "artifacts/h2_pair_round1/similarity_baseline.json": {
+   "bytes": 21017,
+   "sha256": "db454272c369dd40acc2bc31310238066965425ee2464cafe21b45fdaee6a70e"
+  },
+  "artifacts/h2_pair_round1/similarity_baseline.stdout.json": {
+   "bytes": 14579,
+   "sha256": "591fab48410e2e95e3c61694efbfd3b7666194f880f91148e93a3d156feb12ec"
+  },
+  "artifacts/h2_pair_round1/verify_825806b_2026-10-04.json": {
+   "bytes": 1265,
+   "sha256": "3740372897868409702f0a08350b61599489abf1238a3e069b48deb018367684"
+  }
+ },
+ "note": "本轮为只读收尾复核（§1：不重跑基线、不重复解压）；三文件哈希与指导期望值完全一致；无新实验（§4 默认动作=收尾与写作）。",
+ "expected_match": true
+}
