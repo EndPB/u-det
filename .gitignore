@@ -29,6 +29,14 @@ d-det/artifacts/acl_dcan_round4/external/*/features.npz
 # round4 LoRA 预算扩展 states（保留在服务器）
 d-det/artifacts/acl_dcan_round4/lora_extend/states/
 
+# v3 数据集合上传包与解压数据（大件，服务器留存不入库）
+d-det/data/autodl_h2_bundle_3715711_upload.zip
+d-det/data/h2_pair_benchmark_v1/
+d-det/data/h2_pairs_v2/
+d-det/data/h2_authorbench_dcan_hardneg_pairs_v1/
+d-det/data/h2_llm_codegen_v2_hardneg_pairs_v1/
+h2_bundle_3715711/
+
 # 系统 / 编辑器
 .DS_Store
 .vscode/
