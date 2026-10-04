@@ -1,0 +1,16 @@
+{
+  "note": "使用 h2_pair_benchmark_v1 自带 task 级 split（train/dev/test 按 task_id 不相交）；source 隔离",
+  "counts": {
+    "authorbench_dcan": {
+      "train": 2200,
+      "dev": 542,
+      "test": 560
+    },
+    "llm_codegen_v2": {
+      "train": 950,
+      "dev": 244,
+      "test": 196
+    }
+  },
+  "ref": "d-det/data/h2_pair_benchmark_v1/summary.json"
+}

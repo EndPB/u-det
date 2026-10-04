@@ -1,0 +1,24 @@
+{
+ "files": {
+  "data/h2_pair_benchmark_v1/pairs.jsonl": {
+   "sha256": "962d59ccd102dda6afdf9c7498ab8964fdde818edc6875356948efe728f0f726",
+   "size": 83142931
+  },
+  "scripts/h2_pair_encoder_probe.py": {
+   "sha256": "557ad9eddd9d89f478db72174a7d7dfeeaa3c78bca22d819231b290a50d6e2b6",
+   "size": 15112
+  },
+  "scripts/h2_pair_similarity_baseline.py": {
+   "sha256": "218f8ce3f637c595ab08c87fcf5e6952fbb548b3a769c8f5010279556c6375f7",
+   "size": 7631
+  },
+  "artifacts/h2_pair_round2/metrics.json": {
+   "sha256": "ca3f7c0476aa081268f43976a4902873ad9c7f0489690a8dc76d8bee9afb2d6f",
+   "size": 133254
+  },
+  "artifacts/h2_pair_round2/predictions.npz": {
+   "sha256": "4d3b22a13da3a45d38b120ba16e91f43e9fab4123ff760558751aa205b74496f",
+   "size": 45924
+  }
+ }
+}

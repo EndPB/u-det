@@ -37,6 +37,9 @@ d-det/data/h2_authorbench_dcan_hardneg_pairs_v1/
 d-det/data/h2_llm_codegen_v2_hardneg_pairs_v1/
 h2_bundle_3715711/
 
+# H2 pair round2 特征缓存（37MB，可重算不入库）
+d-det/artifacts/h2_pair_round2/features/
+
 # 系统 / 编辑器
 .DS_Store
 .vscode/

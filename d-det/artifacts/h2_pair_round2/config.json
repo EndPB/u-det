@@ -1,0 +1,15 @@
+{
+ "script": "scripts/h2_pair_encoder_probe.py",
+ "encoder": "checkpoints/codet5-base 冻结（mean-pool, 截断 384+128）",
+ "head": "Linear(1536,2) AdamW lr=1e-3 wd=1e-4 bs256 类逆频率；train 拟合标准化；dev 选 epoch(BA)+阈值",
+ "distance": "cosine(z_L,z_R)；dev 选阈值（无训练）",
+ "protocol": "source 隔离；test 一次；bootstrap 按 task_id 聚类(300)",
+ "views": [
+  "raw",
+  "ids_only",
+  "strings_only",
+  "comments_only",
+  "all"
+ ],
+ "seeds": 3
+}

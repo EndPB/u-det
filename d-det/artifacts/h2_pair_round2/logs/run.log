@@ -1,0 +1,148 @@
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 28076.20it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (593 > 512). Running this sequence through the model will result in indexing errors
+[r2prb] raw: 32/4026 (1s)
+[r2prb] raw: 1312/4026 (11s)
+[r2prb] raw: 2592/4026 (21s)
+[r2prb] raw: 3872/4026 (31s)
+[r2prb] authorbench_dcan/raw s0: best ep25 devBA 0.8339 testBA 0.8161
+[r2prb] authorbench_dcan/raw s1: best ep16 devBA 0.8321 testBA 0.7929
+[r2prb] authorbench_dcan/raw s2: best ep10 devBA 0.8266 testBA 0.8018
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 27960.16it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (568 > 512). Running this sequence through the model will result in indexing errors
+[r2prb] ids_only: 32/4026 (0s)
+[r2prb] ids_only: 1312/4026 (10s)
+[r2prb] ids_only: 2592/4026 (20s)
+[r2prb] ids_only: 3872/4026 (31s)
+[r2prb] authorbench_dcan/ids_only s0: best ep11 devBA 0.8155 testBA 0.7696
+[r2prb] authorbench_dcan/ids_only s1: best ep6 devBA 0.8210 testBA 0.7518
+[r2prb] authorbench_dcan/ids_only s2: best ep11 devBA 0.8173 testBA 0.7768
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 25441.61it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (675 > 512). Running this sequence through the model will result in indexing errors
+[r2prb] strings_only: 32/4022 (0s)
+[r2prb] strings_only: 1312/4022 (10s)
+[r2prb] strings_only: 2592/4022 (20s)
+[r2prb] strings_only: 3872/4022 (30s)
+[r2prb] authorbench_dcan/strings_only s0: best ep8 devBA 0.8137 testBA 0.7929
+[r2prb] authorbench_dcan/strings_only s1: best ep15 devBA 0.8192 testBA 0.7929
+[r2prb] authorbench_dcan/strings_only s2: best ep11 devBA 0.8229 testBA 0.7821
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 25582.82it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (580 > 512). Running this sequence through the model will result in indexing errors
+[r2prb] comments_only: 32/4025 (0s)
+[r2prb] comments_only: 1312/4025 (10s)
+[r2prb] comments_only: 2592/4025 (20s)
+[r2prb] comments_only: 3872/4025 (30s)
+[r2prb] authorbench_dcan/comments_only s0: best ep12 devBA 0.8155 testBA 0.8232
+[r2prb] authorbench_dcan/comments_only s1: best ep13 devBA 0.8100 testBA 0.8089
+[r2prb] authorbench_dcan/comments_only s2: best ep16 devBA 0.8100 testBA 0.8232
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 26219.32it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (631 > 512). Running this sequence through the model will result in indexing errors
+[r2prb] all: 32/4011 (0s)
+[r2prb] all: 1312/4011 (10s)
+[r2prb] all: 2592/4011 (19s)
+[r2prb] all: 3872/4011 (29s)
+[r2prb] authorbench_dcan/all s0: best ep11 devBA 0.7915 testBA 0.8089
+[r2prb] authorbench_dcan/all s1: best ep11 devBA 0.7952 testBA 0.8018
+[r2prb] authorbench_dcan/all s2: best ep14 devBA 0.7970 testBA 0.8143
+[r2prb] authorbench_dcan done (375s)
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 27360.10it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (594 > 512). Running this sequence through the model will result in indexing errors
+[r2prb] raw: 32/1241 (0s)
+[r2prb] llm_codegen_v2/raw s0: best ep2 devBA 0.7090 testBA 0.6173
+[r2prb] llm_codegen_v2/raw s1: best ep3 devBA 0.7295 testBA 0.6684
+[r2prb] llm_codegen_v2/raw s2: best ep3 devBA 0.7008 testBA 0.6582
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 25554.77it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (968 > 512). Running this sequence through the model will result in indexing errors
+[r2prb] ids_only: 32/1241 (0s)
+[r2prb] llm_codegen_v2/ids_only s0: best ep2 devBA 0.6885 testBA 0.6939
+[r2prb] llm_codegen_v2/ids_only s1: best ep3 devBA 0.6926 testBA 0.7092
+[r2prb] llm_codegen_v2/ids_only s2: best ep2 devBA 0.6926 testBA 0.7347
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 27586.85it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[r2prb] strings_only: 32/1241 (0s)
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (786 > 512). Running this sequence through the model will result in indexing errors
+[r2prb] llm_codegen_v2/strings_only s0: best ep7 devBA 0.7090 testBA 0.6939
+[r2prb] llm_codegen_v2/strings_only s1: best ep6 devBA 0.7008 testBA 0.6633
+[r2prb] llm_codegen_v2/strings_only s2: best ep2 devBA 0.6844 testBA 0.6173
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 27583.22it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (543 > 512). Running this sequence through the model will result in indexing errors
+[r2prb] comments_only: 32/1241 (0s)
+[r2prb] llm_codegen_v2/comments_only s0: best ep2 devBA 0.6721 testBA 0.6122
+[r2prb] llm_codegen_v2/comments_only s1: best ep3 devBA 0.6598 testBA 0.6531
+[r2prb] llm_codegen_v2/comments_only s2: best ep36 devBA 0.6557 testBA 0.6684
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 25244.08it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+[transformers] Token indices sequence length is longer than the specified maximum sequence length for this model (601 > 512). Running this sequence through the model will result in indexing errors
+[r2prb] all: 32/1235 (0s)
+[r2prb] llm_codegen_v2/all s0: best ep14 devBA 0.6721 testBA 0.7092
+[r2prb] llm_codegen_v2/all s1: best ep18 devBA 0.6680 testBA 0.6939
+[r2prb] llm_codegen_v2/all s2: best ep15 devBA 0.6598 testBA 0.6735
+[r2prb] llm_codegen_v2 done (494s)
+[r2prb] done 494s
