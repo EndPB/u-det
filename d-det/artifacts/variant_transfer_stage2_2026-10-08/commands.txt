@@ -1,0 +1,26 @@
+# stage-2（test 单次评分）2026-10-08 —— 依据《stage1修复冻结与stage2单次评测指导》§4
+# 读取前：freeze_validation 全过（6 项）→ 写 ledger started（落盘）→ 才读 test
+# 数据：11 成员 × 171 TEST task = 1,881 行（full/instruct），一次编码共用冻结特征
+# 评分：22 包只 transform/predict（无 fit）；统计：pooled AUROC/AP/正类率、task-macro（multiplicity 修正）、
+#       task-cluster bootstrap 500（seed 20261008，共享抽样序列）、paired delta、seen-reference、控制 delta、分层
+
+cd /root/autodl-tmp/u-det
+S2=d-det/artifacts/variant_transfer_stage2_2026-10-08
+
+# 读取前配置（已随 5bba65b 提交）
+python3 scripts/variant_transfer_stage2_evaluate.py --stage freeze-config
+
+# 单次评测（本命令；ledger started 于读取前写入）
+OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 TOKENIZERS_PARALLELISM=false \
+  /root/miniconda3/envs/udet/bin/python -u scripts/variant_transfer_stage2_evaluate.py --stage evaluate 2>&1 \
+  | tee "$S2/logs/stage2_eval.log"
+# → test_scores.npz（22 折×10 读出+R2+3 seeds 单独分数，float64；本地，sha 在 stage2_metrics.json）
+# → stage2_metrics.json / failures_and_invalids.json / test_rows_index.csv / execution_switches_stage2.json
+# → test_access_ledger.json（finished 段追加；读取后 test_read_allowed=false）
+
+python3 scripts/variant_transfer_stage2_report.py   # → stage2_report.md
+(cd "$S2" && find . -type f ! -name SHA256SUMS.txt | sort | xargs sha256sum > SHA256SUMS.txt)
+# 入库：全部小型预测/指标/证据（含 test_scores.npz，float64 预测，sha 见 stage2_metrics.json.predictions_hashes）
+# 服务器本地（不入库）：无（test 嵌入未单独保存，可重建；模型对象在 stage-1b objects/）
+
+# 运行记录：ledger started 2026-10-07T19:52:15Z → finished 2026-10-07T20:11:25Z；runtime 1150.3s

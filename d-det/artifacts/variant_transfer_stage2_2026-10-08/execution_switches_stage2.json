@@ -1,0 +1,8 @@
+{
+ "schema": "variant_transfer_execution_switches_stage2_v1",
+ "updated_utc": "2026-10-07T20:11:25.968403+00:00",
+ "test_read_allowed": false,
+ "training_allowed": false,
+ "generation_allowed": false,
+ "authority": "test 单读完成（§4）；读后关闭；此后仅可对保存分数重算预声明统计，不得再选模型"
+}

@@ -1,0 +1,10 @@
+?? d-det/artifacts/variant_transfer_stage2_2026-10-08/commands.txt
+?? d-det/artifacts/variant_transfer_stage2_2026-10-08/execution_switches_stage2.json
+?? d-det/artifacts/variant_transfer_stage2_2026-10-08/failures_and_invalids.json
+?? d-det/artifacts/variant_transfer_stage2_2026-10-08/git_head.txt
+?? d-det/artifacts/variant_transfer_stage2_2026-10-08/git_status.txt
+?? d-det/artifacts/variant_transfer_stage2_2026-10-08/stage2_metrics.json
+?? d-det/artifacts/variant_transfer_stage2_2026-10-08/stage2_report.md
+?? d-det/artifacts/variant_transfer_stage2_2026-10-08/test_access_ledger.json
+?? d-det/artifacts/variant_transfer_stage2_2026-10-08/test_rows_index.csv
+?? d-det/artifacts/variant_transfer_stage2_2026-10-08/test_scores.npz

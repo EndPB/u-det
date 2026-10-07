@@ -1,0 +1,64 @@
+ledger started: 2026-10-07T19:52:15.637573+00:00 commit 5bba65b330dda411ea6e7a2ddd372a12eb943297
+test rows: 1881
+Loading weights:   0%|          | 0/52 [00:00<?, ?it/s]Loading weights: 100%|██████████| 52/52 [00:00<00:00, 1903.79it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/models/codet5-small
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+Loading weights:   0%|          | 0/100 [00:00<?, ?it/s]Loading weights: 100%|██████████| 100/100 [00:00<00:00, 5146.95it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/checkpoints/codet5-base
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+features done
+  scored CodeLlama-Instruct::heldout=7b::size_mix
+  scored CodeLlama-Instruct::heldout=7b::size_matched
+  scored CodeLlama-Instruct::heldout=13b::size_mix
+  scored CodeLlama-Instruct::heldout=13b::size_matched
+  scored CodeLlama-Instruct::heldout=34b::size_mix
+  scored CodeLlama-Instruct::heldout=34b::size_matched
+  scored CodeLlama-Instruct::heldout=70b::size_mix
+  scored CodeLlama-Instruct::heldout=70b::size_matched
+  scored Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix
+  scored Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched
+  scored Qwen2.5-Coder-Instruct::heldout=7B::size_mix
+  scored Qwen2.5-Coder-Instruct::heldout=7B::size_matched
+  scored Qwen2.5-Coder-Instruct::heldout=14B::size_mix
+  scored Qwen2.5-Coder-Instruct::heldout=14B::size_matched
+  scored Qwen2.5-Coder-Instruct::heldout=32B::size_mix
+  scored Qwen2.5-Coder-Instruct::heldout=32B::size_matched
+  scored DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix
+  scored DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched
+  scored DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix
+  scored DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched
+  scored DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix
+  scored DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched
+  stats CodeLlama-Instruct::heldout=7b::size_mix
+  stats CodeLlama-Instruct::heldout=7b::size_matched
+  stats CodeLlama-Instruct::heldout=13b::size_mix
+  stats CodeLlama-Instruct::heldout=13b::size_matched
+  stats CodeLlama-Instruct::heldout=34b::size_mix
+  stats CodeLlama-Instruct::heldout=34b::size_matched
+  stats CodeLlama-Instruct::heldout=70b::size_mix
+  stats CodeLlama-Instruct::heldout=70b::size_matched
+  stats Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix
+  stats Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched
+  stats Qwen2.5-Coder-Instruct::heldout=7B::size_mix
+  stats Qwen2.5-Coder-Instruct::heldout=7B::size_matched
+  stats Qwen2.5-Coder-Instruct::heldout=14B::size_mix
+  stats Qwen2.5-Coder-Instruct::heldout=14B::size_matched
+  stats Qwen2.5-Coder-Instruct::heldout=32B::size_mix
+  stats Qwen2.5-Coder-Instruct::heldout=32B::size_matched
+  stats DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix
+  stats DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched
+  stats DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix
+  stats DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched
+  stats DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix
+  stats DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched
+stage-2 done in 1150.3 s

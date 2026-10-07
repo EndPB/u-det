@@ -1,0 +1,26 @@
+{
+ "schema": "test_access_ledger_v2",
+ "started_at_utc": "2026-10-07T19:52:15.637573+00:00",
+ "local_timezone": "CST/UTC+8（系统 UTC 为准，不虚构预定时间）",
+ "data": {
+  "records_path": "d-det/data/public_same_task_full_2026-10-07/records.jsonl",
+  "records_sha256": "d786667a72f3f3864ea38115fd6ccfe8ac393141146d522673668f3730523210",
+  "expected_test_rows": 1881
+ },
+ "split_index_sha256": "5d2af509485b6ff8faf8cc6e2018f4ec1a9a4ee55f96fec65c0d00ea76b69c18",
+ "config_frozen_sha256": "74c37f4bbf50c1fbe7bfcbd83a8e71a8c940ed2e7b23992b37e62fcc308becbd",
+ "objects_manifest_sha256": "be876974e527b8f80cb19ca185cc0009bc498115043d4197b3534cd04fb7718f",
+ "scoring_code_commit": "5bba65b330dda411ea6e7a2ddd372a12eb943297",
+ "freeze_validation_all_pass": true,
+ "note": "started 段于读取任何 test 行之前写入并落盘；finished 段评分结束后追加",
+ "finished_at_utc": "2026-10-07T20:11:25.968222+00:00",
+ "n_test_rows_read": 1881,
+ "features_hashes": {
+  "style_sha256": "e6576a84f98f928019e330d2be7b06b3657d6ee7f6daf889c71cfb0a0e31bec0",
+  "emb_small_sha256": "a8c869a6c107e11206c2730dde5b51ec117ecd3c722ecfcc7c1b2c63ee5d039b",
+  "emb_base_sha256": "2252f5baa885cccd6e0ead6d5d044a4c1a0c3d34a754f20f1ededf081e3be957"
+ },
+ "predictions_hashes": {
+  "test_scores_npz_sha256": "a3ae6ee38c35df40a29d1fad29817d87cab1ab9407e5ce0c0e32fc5b505646d2"
+ }
+}

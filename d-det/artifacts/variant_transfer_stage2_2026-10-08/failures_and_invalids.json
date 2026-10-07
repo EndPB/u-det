@@ -1,0 +1,13 @@
+{
+ "schema": "variant_transfer_stage2_failures_invalids_v1",
+ "r2_cosine": {
+  "status": "invalid_zero_center",
+  "scored": false
+ },
+ "load_failures": [],
+ "notes": [
+  "bootstrap 频率非后验概率；CI 仅反映固定模型下的任务变异",
+  "arm 差异为不同负域敏感性，非同样本读出对比",
+  "size_length_only=oracle_size_length_control；metadata_only=code_layout_control"
+ ]
+}
