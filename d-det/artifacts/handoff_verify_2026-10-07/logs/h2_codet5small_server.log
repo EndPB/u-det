@@ -1,0 +1,43 @@
+Loading weights:   0%|          | 0/52 [00:00<?, ?it/s]Loading weights: 100%|██████████| 52/52 [00:00<00:00, 1841.88it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/models/codet5-small
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+authorbench_dcan:openai:holdout=gpt-4.1 raw: ntext=1711 test_ba=0.7586
+authorbench_dcan:openai:holdout=gpt-4.1 ids_only: ntext=1711 test_ba=0.7622
+authorbench_dcan:openai:holdout=gpt-4.1 strings_only: ntext=1711 test_ba=0.7540
+authorbench_dcan:openai:holdout=gpt-4.1 comments_only: ntext=1710 test_ba=0.7412
+authorbench_dcan:openai:holdout=gpt-4.1 all: ntext=1709 test_ba=0.7403
+authorbench_dcan:openai:holdout=gpt-4o raw: ntext=1778 test_ba=0.6821
+authorbench_dcan:openai:holdout=gpt-4o ids_only: ntext=1778 test_ba=0.6372
+authorbench_dcan:openai:holdout=gpt-4o strings_only: ntext=1778 test_ba=0.6995
+authorbench_dcan:openai:holdout=gpt-4o comments_only: ntext=1778 test_ba=0.6882
+authorbench_dcan:openai:holdout=gpt-4o all: ntext=1776 test_ba=0.6782
+authorbench_dcan:openai:holdout=gpt-4o-mini raw: ntext=1667 test_ba=0.7025
+authorbench_dcan:openai:holdout=gpt-4o-mini ids_only: ntext=1667 test_ba=0.6648
+authorbench_dcan:openai:holdout=gpt-4o-mini strings_only: ntext=1667 test_ba=0.6589
+authorbench_dcan:openai:holdout=gpt-4o-mini comments_only: ntext=1667 test_ba=0.6895
+authorbench_dcan:openai:holdout=gpt-4o-mini all: ntext=1667 test_ba=0.7186
+llm_codegen_v2:google:holdout=Gemni-1.5-pro: diagnostic-only
+llm_codegen_v2:google:holdout=codegemma: diagnostic-only
+llm_codegen_v2:meta:holdout=codellama raw: ntext=419 test_ba=0.5932
+llm_codegen_v2:meta:holdout=codellama ids_only: ntext=419 test_ba=0.5682
+llm_codegen_v2:meta:holdout=codellama strings_only: ntext=419 test_ba=0.5795
+llm_codegen_v2:meta:holdout=codellama comments_only: ntext=419 test_ba=0.6045
+llm_codegen_v2:meta:holdout=codellama all: ntext=418 test_ba=0.5420
+llm_codegen_v2:meta:holdout=llama2 raw: ntext=482 test_ba=0.7045
+llm_codegen_v2:meta:holdout=llama2 ids_only: ntext=482 test_ba=0.7045
+llm_codegen_v2:meta:holdout=llama2 strings_only: ntext=482 test_ba=0.6711
+llm_codegen_v2:meta:holdout=llama2 comments_only: ntext=482 test_ba=0.7057
+llm_codegen_v2:meta:holdout=llama2 all: ntext=480 test_ba=0.7105
+llm_codegen_v2:meta:holdout=llama3 raw: ntext=443 test_ba=0.6000
+llm_codegen_v2:meta:holdout=llama3 ids_only: ntext=443 test_ba=0.6250
+llm_codegen_v2:meta:holdout=llama3 strings_only: ntext=443 test_ba=0.6500
+llm_codegen_v2:meta:holdout=llama3 comments_only: ntext=443 test_ba=0.4875
+llm_codegen_v2:meta:holdout=llama3 all: ntext=441 test_ba=0.5375
+llm_codegen_v2:mistral:holdout=codestral: diagnostic-only
+llm_codegen_v2:mistral:holdout=mistral: diagnostic-only
+{"device": "cuda", "admitted_folds": ["authorbench_dcan:openai:holdout=gpt-4.1", "authorbench_dcan:openai:holdout=gpt-4o", "authorbench_dcan:openai:holdout=gpt-4o-mini", "llm_codegen_v2:meta:holdout=codellama", "llm_codegen_v2:meta:holdout=llama2", "llm_codegen_v2:meta:holdout=llama3"], "aggregate": {"raw": {"fold_count": 6, "mean_ba": 0.6734788602713927, "mean_f1": 0.674954679810892, "mean_auc": 0.7545764634473023}, "ids_only": {"fold_count": 6, "mean_ba": 0.6603180551557927, "mean_f1": 0.6645627159403823, "mean_auc": 0.7211812192731489}, "strings_only": {"fold_count": 6, "mean_ba": 0.6688302014660431, "mean_f1": 0.6213424288083901, "mean_auc": 0.7444224621074417}, "comments_only": {"fold_count": 6, "mean_ba": 0.652793940389533, "mean_f1": 0.5989809352031997, "mean_auc": 0.7484429401046201}, "all": {"fold_count": 6, "mean_ba": 0.6545302169034725, "mean_f1": 0.5766977558219054, "mean_auc": 0.7237078691390906}}}

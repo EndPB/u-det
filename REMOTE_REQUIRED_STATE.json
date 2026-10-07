@@ -1,0 +1,28 @@
+{
+  "schema": "autodl_remote_required_state_v1",
+  "policy": "reuse existing remote data and weights; report missing assets before any targeted upload",
+  "assets": {
+    "must_exist_before_code_run": [
+      "d-det/data/h2_pair_benchmark_v1/pairs.jsonl",
+      "d-det/data/h2_pair_benchmark_v1/generator_fold_index.jsonl",
+      "d-det/data/h2_pair_benchmark_v1/manifest.json",
+      "d-det/data/h2_authorbench/core.jsonl",
+      "d-det/data/h2_authorbench/fold_plan.json",
+      "d-det/models/codet5-small/config.json",
+      "d-det/models/codet5-small/vocab.json",
+      "d-det/models/codet5-small/merges.txt",
+      "d-det/models/codet5-small/pytorch_model.bin"
+    ],
+    "needed_for_p0_only": [
+      "d-det/artifacts/acl_sota_p0/summary_p0_v1.json",
+      "d-det/scripts/acl_sota_p0_baselines.py",
+      "d-det/scripts/acl_sota_p0_summary.py"
+    ],
+    "optional_later": [
+      "d-det/data/h2_authorbench_dcan/core.jsonl",
+      "d-det/data/h2_llm_codegen_v2/paired_examples.jsonl",
+      "d-det/data/h2_droid_full_selected/core.jsonl",
+      "d-det/data/h2_stacad_alignment_v1/core.jsonl"
+    ]
+  }
+}

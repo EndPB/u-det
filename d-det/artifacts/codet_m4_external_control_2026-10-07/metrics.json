@@ -1,0 +1,737 @@
+{
+  "schema": "codet_m4_external_control_baseline_v1",
+  "data": {
+    "schema": "codet_m4_balanced_control_v1",
+    "source_dataset": "DaniilOr/CoDET-M4",
+    "source_revision": "4d4e665037cb797cb5381c0b95c1d33e30420b8e",
+    "source_file": "../codet_m4/dataset_without_comments.parquet",
+    "source_rows_scanned": 500552,
+    "caps": {
+      "train": 500,
+      "val": 200,
+      "test": 200
+    },
+    "selected_rows": 18870,
+    "models": [
+      "__none__",
+      "codellama",
+      "gpt",
+      "human",
+      "llama3.1",
+      "nxcode",
+      "qwen1.5"
+    ],
+    "languages": [
+      "cpp",
+      "java",
+      "python"
+    ],
+    "targets": [
+      "ai",
+      "human"
+    ],
+    "counts_by_split_model_language": {
+      "test|__none__|cpp": 200,
+      "test|__none__|java": 199,
+      "test|__none__|python": 200,
+      "test|codellama|cpp": 200,
+      "test|codellama|java": 200,
+      "test|codellama|python": 199,
+      "test|gpt|cpp": 200,
+      "test|gpt|java": 200,
+      "test|gpt|python": 200,
+      "test|human|cpp": 200,
+      "test|human|java": 200,
+      "test|human|python": 200,
+      "test|llama3.1|cpp": 200,
+      "test|llama3.1|java": 199,
+      "test|llama3.1|python": 195,
+      "test|nxcode|cpp": 200,
+      "test|nxcode|java": 200,
+      "test|nxcode|python": 200,
+      "test|qwen1.5|cpp": 200,
+      "test|qwen1.5|java": 200,
+      "test|qwen1.5|python": 199,
+      "train|__none__|cpp": 499,
+      "train|__none__|java": 499,
+      "train|__none__|python": 500,
+      "train|codellama|cpp": 500,
+      "train|codellama|java": 499,
+      "train|codellama|python": 500,
+      "train|gpt|cpp": 500,
+      "train|gpt|java": 500,
+      "train|gpt|python": 500,
+      "train|human|cpp": 500,
+      "train|human|java": 500,
+      "train|human|python": 500,
+      "train|llama3.1|cpp": 500,
+      "train|llama3.1|java": 498,
+      "train|llama3.1|python": 497,
+      "train|nxcode|cpp": 499,
+      "train|nxcode|java": 500,
+      "train|nxcode|python": 500,
+      "train|qwen1.5|cpp": 500,
+      "train|qwen1.5|java": 500,
+      "train|qwen1.5|python": 500,
+      "val|__none__|cpp": 200,
+      "val|__none__|java": 200,
+      "val|__none__|python": 200,
+      "val|codellama|cpp": 200,
+      "val|codellama|java": 198,
+      "val|codellama|python": 199,
+      "val|gpt|cpp": 200,
+      "val|gpt|java": 200,
+      "val|gpt|python": 200,
+      "val|human|cpp": 199,
+      "val|human|java": 200,
+      "val|human|python": 200,
+      "val|llama3.1|cpp": 200,
+      "val|llama3.1|java": 197,
+      "val|llama3.1|python": 197,
+      "val|nxcode|cpp": 200,
+      "val|nxcode|java": 200,
+      "val|nxcode|python": 200,
+      "val|qwen1.5|cpp": 200,
+      "val|qwen1.5|java": 200,
+      "val|qwen1.5|python": 198
+    },
+    "source_counts_by_split_model_language": {
+      "test|__none__|cpp": 282,
+      "test|__none__|java": 288,
+      "test|__none__|python": 728,
+      "test|codellama|cpp": 1541,
+      "test|codellama|java": 1715,
+      "test|codellama|python": 1970,
+      "test|gpt|cpp": 464,
+      "test|gpt|java": 548,
+      "test|gpt|python": 748,
+      "test|human|cpp": 5792,
+      "test|human|java": 8585,
+      "test|human|python": 8883,
+      "test|llama3.1|cpp": 1761,
+      "test|llama3.1|java": 1848,
+      "test|llama3.1|python": 1800,
+      "test|nxcode|cpp": 1811,
+      "test|nxcode|java": 1883,
+      "test|nxcode|python": 1843,
+      "test|qwen1.5|cpp": 1736,
+      "test|qwen1.5|java": 1775,
+      "test|qwen1.5|python": 1743,
+      "train|__none__|cpp": 2260,
+      "train|__none__|java": 2301,
+      "train|__none__|python": 6418,
+      "train|codellama|cpp": 14833,
+      "train|codellama|java": 16136,
+      "train|codellama|python": 18212,
+      "train|gpt|cpp": 3718,
+      "train|gpt|java": 4383,
+      "train|gpt|python": 5983,
+      "train|human|cpp": 46332,
+      "train|human|java": 68674,
+      "train|human|python": 71062,
+      "train|llama3.1|cpp": 16682,
+      "train|llama3.1|java": 17377,
+      "train|llama3.1|python": 16933,
+      "train|nxcode|cpp": 14445,
+      "train|nxcode|java": 15155,
+      "train|nxcode|python": 14708,
+      "train|qwen1.5|cpp": 16141,
+      "train|qwen1.5|java": 16829,
+      "train|qwen1.5|python": 16447,
+      "val|__none__|cpp": 282,
+      "val|__none__|java": 288,
+      "val|__none__|python": 738,
+      "val|codellama|cpp": 1557,
+      "val|codellama|java": 1705,
+      "val|codellama|python": 1970,
+      "val|gpt|cpp": 465,
+      "val|gpt|java": 548,
+      "val|gpt|python": 748,
+      "val|human|cpp": 5790,
+      "val|human|java": 8587,
+      "val|human|python": 8883,
+      "val|llama3.1|cpp": 1761,
+      "val|llama3.1|java": 1848,
+      "val|llama3.1|python": 1783,
+      "val|nxcode|cpp": 1810,
+      "val|nxcode|java": 1886,
+      "val|nxcode|python": 1843,
+      "val|qwen1.5|cpp": 1730,
+      "val|qwen1.5|java": 1789,
+      "val|qwen1.5|python": 1720
+    },
+    "selection": "lowest SHA256(seed|source_row) within split/model/language cells",
+    "role": "external source-fingerprint and structural-feature control; not same-task H2 evidence",
+    "limitations": [
+      "No task_id/prompt_id or same-task cross-generator pairing is provided.",
+      "Model names are source identifiers, not a shared family label space with the other packages.",
+      "The source file is already without comments; lexical-view comparisons should not assume raw comments exist."
+    ]
+  },
+  "sha256sums": [
+    "64b6e1928614f049bce130b6be65a104872a08b2bd859182c1c8fb28694173f9  train.jsonl",
+    "1de88b5fd03926c311fd1b4532b8d91e14db30d681e8e714a3e6bf1611e4e1fd  val.jsonl",
+    "205d3c284d3130b2a9dd7ea7592f468b7580f4d6d0fa4195b30620dae1ca9806  test.jsonl",
+    "fa8bbccc46041c012ec18ddb501be2aaf6dd991f902cc44556858da28dee66d7  summary.json",
+    "416a42804027484bc340f566f7ba69432b4e4cd15a5fcb90890349b49fa164b3  audit_index.json",
+    "0cf31a8ea6a47fb3be1b16ebe3b3663054acf3bfdc1dc9bd524883ed9373830e  README.md"
+  ],
+  "protocol": {
+    "fixed_split": "train/val/test supplied by CoDET-M4 derived package",
+    "selection": "no test-driven selection; fixed char TF-IDF and balanced logistic settings",
+    "label_boundary": "model labels are CoDET-M4 source identifiers only; not merged with other family spaces",
+    "human_boundary": "human and __none__ excluded from model attribution; human remains in detection task"
+  },
+  "results": {
+    "detection__text": {
+      "task": "detection",
+      "feature": {
+        "kind": "char_tfidf",
+        "vocabulary_size": 60000,
+        "ngram_range": [
+          3,
+          5
+        ],
+        "max_features": 60000
+      },
+      "counts": {
+        "train": {
+          "human": 2998,
+          "ai": 7493
+        },
+        "val": {
+          "human": 1199,
+          "ai": 2989
+        },
+        "test": {
+          "human": 1199,
+          "ai": 2992
+        }
+      },
+      "train": {
+        "n": 10491,
+        "balanced_accuracy": 0.9507928769987413,
+        "macro_f1": 0.9372955676350954,
+        "labels": [
+          "ai",
+          "human"
+        ]
+      },
+      "val": {
+        "n": 4188,
+        "balanced_accuracy": 0.8802030854863719,
+        "macro_f1": 0.8755862090451489,
+        "labels": [
+          "ai",
+          "human"
+        ]
+      },
+      "test": {
+        "n": 4191,
+        "balanced_accuracy": 0.8915778467350243,
+        "macro_f1": 0.8806261461170368,
+        "labels": [
+          "ai",
+          "human"
+        ]
+      },
+      "test_by_language": {
+        "cpp": {
+          "n": 1400,
+          "balanced_accuracy": 0.91025,
+          "macro_f1": 0.893222896902443,
+          "labels": [
+            "ai",
+            "human"
+          ]
+        },
+        "java": {
+          "n": 1398,
+          "balanced_accuracy": 0.8797707481918009,
+          "macro_f1": 0.8693725247109045,
+          "labels": [
+            "ai",
+            "human"
+          ]
+        },
+        "python": {
+          "n": 1393,
+          "balanced_accuracy": 0.884718026183283,
+          "macro_f1": 0.879028856412674,
+          "labels": [
+            "ai",
+            "human"
+          ]
+        }
+      },
+      "test_report": {
+        "ai": {
+          "precision": 0.9468380820013899,
+          "recall": 0.9107620320855615,
+          "f1-score": 0.9284497444633731,
+          "support": 2992.0
+        },
+        "human": {
+          "precision": 0.7966488956587966,
+          "recall": 0.872393661384487,
+          "f1-score": 0.8328025477707006,
+          "support": 1199.0
+        },
+        "accuracy": 0.8997852541159628,
+        "macro avg": {
+          "precision": 0.8717434888300932,
+          "recall": 0.8915778467350243,
+          "f1-score": 0.8806261461170368,
+          "support": 4191.0
+        },
+        "weighted avg": {
+          "precision": 0.9038705719978657,
+          "recall": 0.8997852541159628,
+          "f1-score": 0.9010861107638947,
+          "support": 4191.0
+        }
+      }
+    },
+    "detection__structure": {
+      "task": "detection",
+      "feature": {
+        "kind": "upstream_features",
+        "keys": [
+          "avgFunctionLength",
+          "avgIdentifierLength",
+          "avgLineLength",
+          "emptyLinesDensity",
+          "functionDefinitionDensity",
+          "maxDecisionTokens",
+          "maintainabilityIndex",
+          "whiteSpaceRatio"
+        ],
+        "missing_values": {
+          "train": 0,
+          "val": 0,
+          "test": 0
+        }
+      },
+      "counts": {
+        "train": {
+          "human": 2998,
+          "ai": 7493
+        },
+        "val": {
+          "human": 1199,
+          "ai": 2989
+        },
+        "test": {
+          "human": 1199,
+          "ai": 2992
+        }
+      },
+      "train": {
+        "n": 10491,
+        "balanced_accuracy": 0.658764613483592,
+        "macro_f1": 0.6365887780480446,
+        "labels": [
+          "ai",
+          "human"
+        ]
+      },
+      "val": {
+        "n": 4188,
+        "balanced_accuracy": 0.6545113567651866,
+        "macro_f1": 0.6314370772730031,
+        "labels": [
+          "ai",
+          "human"
+        ]
+      },
+      "test": {
+        "n": 4191,
+        "balanced_accuracy": 0.6776955673845851,
+        "macro_f1": 0.6506494611812709,
+        "labels": [
+          "ai",
+          "human"
+        ]
+      },
+      "test_by_language": {
+        "cpp": {
+          "n": 1400,
+          "balanced_accuracy": 0.7215,
+          "macro_f1": 0.7101278051161428,
+          "labels": [
+            "ai",
+            "human"
+          ]
+        },
+        "java": {
+          "n": 1398,
+          "balanced_accuracy": 0.6218963324226483,
+          "macro_f1": 0.5733685599935038,
+          "labels": [
+            "ai",
+            "human"
+          ]
+        },
+        "python": {
+          "n": 1393,
+          "balanced_accuracy": 0.6897948136958711,
+          "macro_f1": 0.6694711816696066,
+          "labels": [
+            "ai",
+            "human"
+          ]
+        }
+      },
+      "test_report": {
+        "ai": {
+          "precision": 0.8376729048006509,
+          "recall": 0.6881684491978609,
+          "f1-score": 0.7555963302752293,
+          "support": 2992.0
+        },
+        "human": {
+          "precision": 0.4616272360069244,
+          "recall": 0.6672226855713094,
+          "f1-score": 0.5457025920873124,
+          "support": 1199.0
+        },
+        "accuracy": 0.6821760916249106,
+        "macro avg": {
+          "precision": 0.6496500704037876,
+          "recall": 0.6776955673845851,
+          "f1-score": 0.6506494611812709,
+          "support": 4191.0
+        },
+        "weighted avg": {
+          "precision": 0.7300902856444406,
+          "recall": 0.6821760916249106,
+          "f1-score": 0.6955479904786861,
+          "support": 4191.0
+        }
+      }
+    },
+    "model_attribution__text": {
+      "task": "model_attribution",
+      "feature": {
+        "kind": "char_tfidf",
+        "vocabulary_size": 60000,
+        "ngram_range": [
+          3,
+          5
+        ],
+        "max_features": 60000
+      },
+      "counts": {
+        "train": {
+          "gpt": 1500,
+          "llama3.1": 1495,
+          "qwen1.5": 1500,
+          "nxcode": 1499,
+          "codellama": 1499
+        },
+        "val": {
+          "gpt": 600,
+          "llama3.1": 594,
+          "nxcode": 600,
+          "qwen1.5": 598,
+          "codellama": 597
+        },
+        "test": {
+          "gpt": 600,
+          "codellama": 599,
+          "qwen1.5": 599,
+          "llama3.1": 594,
+          "nxcode": 600
+        }
+      },
+      "train": {
+        "n": 7493,
+        "balanced_accuracy": 0.8714775710005108,
+        "macro_f1": 0.8709716143085122,
+        "labels": [
+          "codellama",
+          "gpt",
+          "llama3.1",
+          "nxcode",
+          "qwen1.5"
+        ]
+      },
+      "val": {
+        "n": 2989,
+        "balanced_accuracy": 0.5842484858217871,
+        "macro_f1": 0.5729584162369894,
+        "labels": [
+          "codellama",
+          "gpt",
+          "llama3.1",
+          "nxcode",
+          "qwen1.5"
+        ]
+      },
+      "test": {
+        "n": 2992,
+        "balanced_accuracy": 0.5636029465495243,
+        "macro_f1": 0.5531723211609488,
+        "labels": [
+          "codellama",
+          "gpt",
+          "llama3.1",
+          "nxcode",
+          "qwen1.5"
+        ]
+      },
+      "test_by_language": {
+        "cpp": {
+          "n": 1000,
+          "balanced_accuracy": 0.608,
+          "macro_f1": 0.5957628855632953,
+          "labels": [
+            "codellama",
+            "gpt",
+            "llama3.1",
+            "nxcode",
+            "qwen1.5"
+          ]
+        },
+        "java": {
+          "n": 999,
+          "balanced_accuracy": 0.6077688442211056,
+          "macro_f1": 0.5943756920763862,
+          "labels": [
+            "codellama",
+            "gpt",
+            "llama3.1",
+            "nxcode",
+            "qwen1.5"
+          ]
+        },
+        "python": {
+          "n": 993,
+          "balanced_accuracy": 0.47379100631361937,
+          "macro_f1": 0.45993573669361043,
+          "labels": [
+            "codellama",
+            "gpt",
+            "llama3.1",
+            "nxcode",
+            "qwen1.5"
+          ]
+        }
+      },
+      "test_report": {
+        "codellama": {
+          "precision": 0.5644891122278057,
+          "recall": 0.5626043405676127,
+          "f1-score": 0.5635451505016722,
+          "support": 599.0
+        },
+        "gpt": {
+          "precision": 0.6697127937336814,
+          "recall": 0.855,
+          "f1-score": 0.7510980966325037,
+          "support": 600.0
+        },
+        "llama3.1": {
+          "precision": 0.6276422764227643,
+          "recall": 0.6498316498316499,
+          "f1-score": 0.6385442514474773,
+          "support": 594.0
+        },
+        "nxcode": {
+          "precision": 0.46360153256704983,
+          "recall": 0.4033333333333333,
+          "f1-score": 0.43137254901960786,
+          "support": 600.0
+        },
+        "qwen1.5": {
+          "precision": 0.42276422764227645,
+          "recall": 0.34724540901502504,
+          "f1-score": 0.38130155820348305,
+          "support": 599.0
+        },
+        "accuracy": 0.5635026737967914,
+        "macro avg": {
+          "precision": 0.5496419885187156,
+          "recall": 0.5636029465495243,
+          "f1-score": 0.5531723211609488,
+          "support": 2992.0
+        },
+        "weighted avg": {
+          "precision": 0.5495230142238436,
+          "recall": 0.5635026737967914,
+          "f1-score": 0.5530550973480803,
+          "support": 2992.0
+        }
+      }
+    },
+    "model_attribution__structure": {
+      "task": "model_attribution",
+      "feature": {
+        "kind": "upstream_features",
+        "keys": [
+          "avgFunctionLength",
+          "avgIdentifierLength",
+          "avgLineLength",
+          "emptyLinesDensity",
+          "functionDefinitionDensity",
+          "maxDecisionTokens",
+          "maintainabilityIndex",
+          "whiteSpaceRatio"
+        ],
+        "missing_values": {
+          "train": 0,
+          "val": 0,
+          "test": 0
+        }
+      },
+      "counts": {
+        "train": {
+          "gpt": 1500,
+          "llama3.1": 1495,
+          "qwen1.5": 1500,
+          "nxcode": 1499,
+          "codellama": 1499
+        },
+        "val": {
+          "gpt": 600,
+          "llama3.1": 594,
+          "nxcode": 600,
+          "qwen1.5": 598,
+          "codellama": 597
+        },
+        "test": {
+          "gpt": 600,
+          "codellama": 599,
+          "qwen1.5": 599,
+          "llama3.1": 594,
+          "nxcode": 600
+        }
+      },
+      "train": {
+        "n": 7493,
+        "balanced_accuracy": 0.3155335604635717,
+        "macro_f1": 0.29251880318886975,
+        "labels": [
+          "codellama",
+          "gpt",
+          "llama3.1",
+          "nxcode",
+          "qwen1.5"
+        ]
+      },
+      "val": {
+        "n": 2989,
+        "balanced_accuracy": 0.314618616205245,
+        "macro_f1": 0.293098310642928,
+        "labels": [
+          "codellama",
+          "gpt",
+          "llama3.1",
+          "nxcode",
+          "qwen1.5"
+        ]
+      },
+      "test": {
+        "n": 2992,
+        "balanced_accuracy": 0.3002314744551806,
+        "macro_f1": 0.2787791670886169,
+        "labels": [
+          "codellama",
+          "gpt",
+          "llama3.1",
+          "nxcode",
+          "qwen1.5"
+        ]
+      },
+      "test_by_language": {
+        "cpp": {
+          "n": 1000,
+          "balanced_accuracy": 0.283,
+          "macro_f1": 0.25210458323916357,
+          "labels": [
+            "codellama",
+            "gpt",
+            "llama3.1",
+            "nxcode",
+            "qwen1.5"
+          ]
+        },
+        "java": {
+          "n": 999,
+          "balanced_accuracy": 0.28734673366834174,
+          "macro_f1": 0.2643070373327271,
+          "labels": [
+            "codellama",
+            "gpt",
+            "llama3.1",
+            "nxcode",
+            "qwen1.5"
+          ]
+        },
+        "python": {
+          "n": 993,
+          "balanced_accuracy": 0.3303169694626981,
+          "macro_f1": 0.3036245773143306,
+          "labels": [
+            "codellama",
+            "gpt",
+            "llama3.1",
+            "nxcode",
+            "qwen1.5"
+          ]
+        }
+      },
+      "test_report": {
+        "codellama": {
+          "precision": 0.29300291545189505,
+          "recall": 0.335559265442404,
+          "f1-score": 0.31284046692607004,
+          "support": 599.0
+        },
+        "gpt": {
+          "precision": 0.31537708129285014,
+          "recall": 0.5366666666666666,
+          "f1-score": 0.3972856261566934,
+          "support": 600.0
+        },
+        "llama3.1": {
+          "precision": 0.296043656207367,
+          "recall": 0.3653198653198653,
+          "f1-score": 0.32705350414468726,
+          "support": 594.0
+        },
+        "nxcode": {
+          "precision": 0.2555066079295154,
+          "recall": 0.09666666666666666,
+          "f1-score": 0.14026602176541716,
+          "support": 600.0
+        },
+        "qwen1.5": {
+          "precision": 0.3076923076923077,
+          "recall": 0.1669449081803005,
+          "f1-score": 0.21645021645021645,
+          "support": 599.0
+        },
+        "accuracy": 0.30013368983957217,
+        "macro avg": {
+          "precision": 0.29352451371478705,
+          "recall": 0.3002314744551806,
+          "f1-score": 0.2787791670886169,
+          "support": 2992.0
+        },
+        "weighted avg": {
+          "precision": 0.29351490106416206,
+          "recall": 0.30013368983957217,
+          "f1-score": 0.2786918080072213,
+          "support": 2992.0
+        }
+      }
+    }
+  },
+  "runtime_seconds": 38.50707459449768,
+  "interpretation": [
+    "This is an external control, not same-task H2 evidence and not a cross-dataset family attribution result.",
+    "Text performance may include language/source/repository shortcuts; the structural-feature result quantifies a separate shortcut channel.",
+    "The package has no task_id/prompt_id and its source model names are not transferred to Droid, AuthorBench, LLM-CodeGen, STACAD, or AICD."
+  ]
+}

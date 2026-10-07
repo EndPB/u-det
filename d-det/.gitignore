@@ -35,3 +35,12 @@ data/stacad_v2/
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
+
+# 2026-10-07 交接控制包（服务器本地数据，不入库；来源=保留 bundle zip，各包清单已校验）
+data/aicd_t2_numeric_balanced_v1/
+data/codet_m4_balanced_control_v1/
+data/h2_stacad_alignment_v1/
+data/h2_llm_codegen_v2/
+
+# CodeT5-small 资产（服务器本地，不入库；sha256 见 artifacts/handoff_verify_2026-10-07/）
+models/codet5-small/

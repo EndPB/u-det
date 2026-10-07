@@ -1,0 +1,140 @@
+{
+ "acl_attribution_collection_v1": {
+  "members": 9,
+  "sha256sums": false,
+  "checks_total": 6,
+  "checks_all_true": true
+ },
+ "agent_attribution_v1": {
+  "members": 7,
+  "sha256sums": false,
+  "checks_total": 6,
+  "checks_all_true": true
+ },
+ "aicd_t2_numeric_balanced_v1": {
+  "members": 8,
+  "sha256sums": true,
+  "checks_total": 1,
+  "checks_all_true": true
+ },
+ "codet_m4_balanced_control_v1": {
+  "members": 7,
+  "sha256sums": true,
+  "checks_total": 1,
+  "checks_all_true": true
+ },
+ "h2_alignment_v3": {
+  "members": 6,
+  "sha256sums": false,
+  "checks_total": 12,
+  "checks_all_true": true
+ },
+ "h2_authorbench_dcan_hardneg_pairs_v1": {
+  "members": 6,
+  "sha256sums": true,
+  "checks_total": 2,
+  "checks_all_true": true
+ },
+ "h2_authorbench_dcan_shortcuts_pairs_v1": {
+  "members": 7,
+  "sha256sums": false,
+  "checks_total": 3,
+  "checks_all_true": true
+ },
+ "h2_droid_full_selected": {
+  "members": 7,
+  "sha256sums": true,
+  "checks_total": 0,
+  "checks_all_true": null
+ },
+ "h2_droid_generator_balanced_v1": {
+  "members": 8,
+  "sha256sums": true,
+  "checks_total": 1,
+  "checks_all_true": true
+ },
+ "h2_droid_generator_fold_index_v1": {
+  "members": 5,
+  "sha256sums": false,
+  "checks_total": 9,
+  "checks_all_true": true
+ },
+ "h2_droid_joint_balanced_v1": {
+  "members": 8,
+  "sha256sums": true,
+  "checks_total": 1,
+  "checks_all_true": true
+ },
+ "h2_droid_language_matched_v1": {
+  "members": 8,
+  "sha256sums": true,
+  "checks_total": 3,
+  "checks_all_true": true
+ },
+ "h2_llm_codegen_code_only_pairs_v1": {
+  "members": 7,
+  "sha256sums": false,
+  "checks_total": 3,
+  "checks_all_true": true
+ },
+ "h2_llm_codegen_v2": {
+  "members": 10,
+  "sha256sums": false,
+  "checks_total": 8,
+  "checks_all_true": true
+ },
+ "h2_llm_codegen_v2_hardneg_pairs_v1": {
+  "members": 6,
+  "sha256sums": true,
+  "checks_total": 2,
+  "checks_all_true": true
+ },
+ "h2_llm_codegen_v2_pairs": {
+  "members": 7,
+  "sha256sums": false,
+  "checks_total": 3,
+  "checks_all_true": true
+ },
+ "h2_llm_codegen_view_consistency_v2": {
+  "members": 6,
+  "sha256sums": false,
+  "checks_total": 8,
+  "checks_all_true": true
+ },
+ "h2_pair_benchmark_v1": {
+  "members": 13,
+  "sha256sums": false,
+  "checks_total": 27,
+  "checks_all_true": true
+ },
+ "h2_pairs_v2": {
+  "members": 6,
+  "sha256sums": false,
+  "checks_total": 8,
+  "checks_all_true": true
+ },
+ "h2_stacad_alignment_v1": {
+  "members": 8,
+  "sha256sums": false,
+  "checks_total": 7,
+  "checks_all_true": true
+ },
+ "h2_stacad_hardneg_pairs_v1": {
+  "members": 7,
+  "sha256sums": false,
+  "checks_total": 8,
+  "checks_all_true": true
+ },
+ "h2_training_v2": {
+  "members": 6,
+  "sha256sums": false,
+  "checks_total": 5,
+  "checks_all_true": true
+ },
+ "stacad_crossprompt_ood_v1": {
+  "members": 8,
+  "sha256sums": true,
+  "checks_total": 3,
+  "checks_all_true": true
+ }
+}

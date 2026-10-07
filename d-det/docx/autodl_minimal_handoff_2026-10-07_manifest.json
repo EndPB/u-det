@@ -1,0 +1,179 @@
+{
+  "schema": "autodl_minimal_handoff_v1",
+  "created_at": "2026-10-07T07:25:22.110728+00:00",
+  "purpose": "small overlay for an existing AutoDL u-det checkout",
+  "credentials_included": false,
+  "datasets_included": false,
+  "model_checkpoints_included": false,
+  "members": [
+    {
+      "path": "AUTODL_AI_HANDOFF_GUIDE_2026-10-07.md",
+      "bytes": 5735,
+      "sha256": "fa757542d61a5887e76900489dde7b8609a2536bcbb2a88eb71dc8c96c4e98ac"
+    },
+    {
+      "path": "DO_NOT_UPLOAD_HERE.txt",
+      "bytes": 135,
+      "sha256": "77f9620170bf86ed31fd6d78eda5aa7eecf44d5db6d35d9bd65ef2d2c31ee859"
+    },
+    {
+      "path": "overlay/d-det/artifacts/acl_local_stage_a_2026-10-07/data_role_matrix.json",
+      "bytes": 119124,
+      "sha256": "1450349e05d5d9e3ede15681a686f2c5b4b569196d2257d0ce5b4b98593db5e3"
+    },
+    {
+      "path": "overlay/d-det/artifacts/acl_local_stage_a_2026-10-07/feature_role_registry.json",
+      "bytes": 5836,
+      "sha256": "0d6561a8f44262885420044a81ea3e055f14cb4ff9315d01639a8cc36f89bd43"
+    },
+    {
+      "path": "overlay/d-det/artifacts/acl_local_stage_a_2026-10-07/hf_mirror_catalog.json",
+      "bytes": 279462,
+      "sha256": "b625639139b9df9f6c23b2c169e6d926e45c69872102034dace8a905a198b95d"
+    },
+    {
+      "path": "overlay/d-det/artifacts/acl_local_stage_a_2026-10-07/report.md",
+      "bytes": 1115,
+      "sha256": "e5ff6d4c0853691bb1a74c68df2a3a81c896f7463909bca2fa25277c747d0753"
+    },
+    {
+      "path": "overlay/d-det/artifacts/aicd_t2_numeric_baseline_2026-10-07/metrics.json",
+      "bytes": 12887,
+      "sha256": "fd8d321e71a43aedab0b48b3d905617f11d9760cdf46451ce235c639d254c576"
+    },
+    {
+      "path": "overlay/d-det/artifacts/aicd_t2_numeric_baseline_2026-10-07/report.md",
+      "bytes": 2755,
+      "sha256": "ae94ea351a1dbdd670c223f74460410494bd8ba2a3bae60cd4041cad27d9f9b5"
+    },
+    {
+      "path": "overlay/d-det/artifacts/authorbench_codet5_small_family_2026-10-07/metrics.json",
+      "bytes": 11748,
+      "sha256": "e6c44ad88acf8eb8847e0b96a970a45497e6e04ed42ee0a2d42859dd8162ad49"
+    },
+    {
+      "path": "overlay/d-det/artifacts/authorbench_codet5_small_family_2026-10-07/report.md",
+      "bytes": 2592,
+      "sha256": "0e8dee30506f1f20fea4362fadae4a6e3c9e9652397865f6b42d6cc08ab0d414"
+    },
+    {
+      "path": "overlay/d-det/artifacts/authorbench_cpu_baseline/config.json",
+      "bytes": 235,
+      "sha256": "b269286697712692501d0a878f334b971a5d532a8d0428647f52918dc9e37a91"
+    },
+    {
+      "path": "overlay/d-det/artifacts/authorbench_cpu_baseline/metrics.json",
+      "bytes": 12327,
+      "sha256": "39d575cf49c72e9a667e26737d9fe1eaef5df7d4375ce579f82c91c0e8a225d5"
+    },
+    {
+      "path": "overlay/d-det/artifacts/authorbench_cpu_baseline/README.md",
+      "bytes": 182,
+      "sha256": "b4417958126534e0ff0e8ba8a2c20c88f2638f2e9ccfa62aff3aa0aca5c26ed6"
+    },
+    {
+      "path": "overlay/d-det/artifacts/authorbench_cpu_baseline/solver.log",
+      "bytes": 28,
+      "sha256": "821efcd53a5832de7cf40ac468349afb8f00ca9f51d33c43c9a717c013fc4459"
+    },
+    {
+      "path": "overlay/d-det/artifacts/codet_m4_external_control_2026-10-07/metrics.json",
+      "bytes": 20836,
+      "sha256": "ecaf80e950ecb79dbbf48349be5e630c8c0afbeca8e7d3cf5d428b8e63f7df69"
+    },
+    {
+      "path": "overlay/d-det/artifacts/codet_m4_external_control_2026-10-07/report.md",
+      "bytes": 3233,
+      "sha256": "b4c4645542b6edb5af39327792704c4a05005718d8c576a87a7f02bb18c3a5ab"
+    },
+    {
+      "path": "overlay/d-det/artifacts/h2_generator_heldout_codet5_small_2026-10-07/metrics.json",
+      "bytes": 55961,
+      "sha256": "dc2edfdd42ba874e3b280d69fdafe3d90caa28d18b2cd5bb73ecb110cb7aa5dd"
+    },
+    {
+      "path": "overlay/d-det/artifacts/h2_generator_heldout_codet5_small_2026-10-07/report.md",
+      "bytes": 5143,
+      "sha256": "a0a7172c5d931fd26297664b6d86d53af45416ed07cf4d91b54ffbcb029646f5"
+    },
+    {
+      "path": "overlay/d-det/artifacts/h2_generator_heldout_tfidf_2026-10-07/metrics.json",
+      "bytes": 54317,
+      "sha256": "48c477c773ea7df6922cd88b83d46bed7a361d75a6bb1f4330a7ae1632dcd3f1"
+    },
+    {
+      "path": "overlay/d-det/artifacts/h2_generator_heldout_tfidf_2026-10-07/report.md",
+      "bytes": 2588,
+      "sha256": "32839159bc6edc0823fe89e9f442afcfef49ca5c485d179b1c8ada675328957e"
+    },
+    {
+      "path": "overlay/d-det/docx/d-det_ACL实验前复盘_后训练差异与任务特征分离_2026-10-05.md",
+      "bytes": 11674,
+      "sha256": "026ff1f527519ece1b0ad167a2c01fce43d3c7085ec3cac6f5785d4ea0c49e08"
+    },
+    {
+      "path": "overlay/d-det/docx/d-det_ACL总研究总结与可迭代路线_2026-10-06.md",
+      "bytes": 67018,
+      "sha256": "07a5c087d95622171dbf89b5d7df9e038fd2438a8038a17a0b544eb1af5c3c15"
+    },
+    {
+      "path": "overlay/d-det/docx/d-det_AutoDL_1f3d547_ACL家族归因SOTA执行指导_2026-10-04.md",
+      "bytes": 5165,
+      "sha256": "4f130d2fec256be08534be31ceef75c4512e722110de47f298fef9bde50ef7b2"
+    },
+    {
+      "path": "overlay/d-det/docx/d-det_AutoDL_1f3d547收尾与下一阶段指导_2026-10-04.md",
+      "bytes": 4530,
+      "sha256": "ff5c6a9539194f7e954743e2e01fcc071af2afd69aa4a1263a3ef654a73bc54c"
+    },
+    {
+      "path": "overlay/scripts/aicd_t2_numeric_baseline.py",
+      "bytes": 4488,
+      "sha256": "664ae1001a5aec940793a97cad9649cadf0a264b0d6484dc074faed989c2aa43"
+    },
+    {
+      "path": "overlay/scripts/audit_acl_local_readiness.py",
+      "bytes": 11536,
+      "sha256": "b963bf72aee056a670f109d59d65fc5a701f16d6fc9f07daddf4388911e7b74b"
+    },
+    {
+      "path": "overlay/scripts/authorbench_codet5_small_family_baseline.py",
+      "bytes": 8394,
+      "sha256": "2f8c8b90fb2f9ec8aa347e4231e13365129c2881fbbd2f20119ad1c73031177b"
+    },
+    {
+      "path": "overlay/scripts/authorbench_cpu_baseline.py",
+      "bytes": 6965,
+      "sha256": "06d6be2e188a0f7714e6f80275029cc2043dc478c01f6e6a5430967136fa6490"
+    },
+    {
+      "path": "overlay/scripts/autodl_preflight.sh",
+      "bytes": 967,
+      "sha256": "952bf072f0d60c580b4e9acd154b69211a544bd68417b95b037ef4f76d96eb5b"
+    },
+    {
+      "path": "overlay/scripts/codet_m4_external_control_baseline.py",
+      "bytes": 7773,
+      "sha256": "600b9b8caf083e8c60e0aaa6b6921ae774ed1d0a50fbc8ea6a28b8dba5423760"
+    },
+    {
+      "path": "overlay/scripts/h2_generator_heldout_codet5_small.py",
+      "bytes": 12305,
+      "sha256": "4570a7b036084e14ca46f6ae555e4cc0707577ca2eef491367e3cd9a53afca21"
+    },
+    {
+      "path": "overlay/scripts/h2_generator_heldout_tfidf.py",
+      "bytes": 7153,
+      "sha256": "8a7300f456426294fbbb36e987819d762df7348c1e6558592f2cbf1201a25221"
+    },
+    {
+      "path": "REMOTE_REQUIRED_STATE.json",
+      "bytes": 1139,
+      "sha256": "6c287715bd7c6fd8068c9c2aafc0443729d01b96fe607216f513b2f4d91dbd4b"
+    }
+  ],
+  "archive": "d-det/data/autodl_minimal_handoff_2026-10-07.zip",
+  "archive_bytes": 136910,
+  "archive_sha256": "838432b4397564944452b9d8868be3e79f99e5e45f4c5cb0ddc7fe8a99f740c2",
+  "archive_members": 33
+}

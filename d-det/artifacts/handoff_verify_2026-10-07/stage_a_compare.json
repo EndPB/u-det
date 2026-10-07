@@ -1,0 +1,19 @@
+{
+  "pair_fold_audit": {
+    "shipped": {
+      "pairs": 4692,
+      "invalid_pair_count": 0,
+      "admitted_count": 6,
+      "task_split_conflicts": 0
+    },
+    "server": {
+      "pairs": 4692,
+      "invalid_pair_count": 0,
+      "admitted_count": 6,
+      "task_split_conflicts": 0
+    }
+  },
+  "data_roles_identical": true,
+  "folds_identical": true,
+  "note": "4 个控制包（llm_codegen_v2/stacad_alignment/codet_m4_balanced_control/aicd_t2_numeric_balanced）自保留的 bundle zip 提取，并按各包上传清单 SHA-256 全数校验通过。"
+}

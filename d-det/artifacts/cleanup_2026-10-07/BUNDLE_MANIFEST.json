@@ -1,0 +1,2247 @@
+{
+  "schema": "d_det_autodl_h2_bundle_3715711",
+  "purpose": "single-upload bundle of audited dataset archives, verification metadata, scripts, and guides",
+  "source_commit": "3715711f50d14b6e028687bbd165827d4ec274a8",
+  "package_count": 23,
+  "members": [
+    {
+      "path": "collection/README.md",
+      "bytes": 4539,
+      "sha256": "a757a111aca8544d34c732e7a170ba63a1985fef05f3af21154943ff776b7c75",
+      "compression": 8
+    },
+    {
+      "path": "collection/hashes.json",
+      "bytes": 347,
+      "sha256": "649cdc8587a4c4c436fd63eec957b2e4d6cb9cfdd098f338f1ef7dee5ea914b8",
+      "compression": 8
+    },
+    {
+      "path": "collection/manifest.json",
+      "bytes": 17111,
+      "sha256": "fff88d6cfbf2574f3f5ddef85910561763178e80dc4a81d00fe4f8a539c4f480",
+      "compression": 8
+    },
+    {
+      "path": "collection/quality_report.json",
+      "bytes": 7690,
+      "sha256": "69cd64b9d9a574096b81425bb47181892e10012b792e2aa28e95dd44ac6cdd00",
+      "compression": 8
+    },
+    {
+      "path": "collection/upload_catalog.json",
+      "bytes": 24591,
+      "sha256": "f1a1d99d0872c171e2ef383ee33981cecfca2aaaf736d6a3f1f88f6514b5bb5c",
+      "compression": 8
+    },
+    {
+      "path": "docs/acl_attribution_collection_v1_metadata_upload_manifest_2026-10-04.json",
+      "bytes": 2047,
+      "sha256": "0c56e1747d3ae2ddeb953ef1c51fae2254d86b91007f8ffab6e432f7612f2871",
+      "compression": 8
+    },
+    {
+      "path": "docs/agent_attribution_v1_upload_manifest_2026-10-04.json",
+      "bytes": 1740,
+      "sha256": "5553ed7f3e9adee267fb424f99aa24aa145916907592d8f51b8425b47ac4c35d",
+      "compression": 8
+    },
+    {
+      "path": "docs/aicd_t2_numeric_balanced_v1_upload_manifest_2026-10-04.json",
+      "bytes": 1565,
+      "sha256": "db4f2aeb00024a00d5c3a67718504caaf935f91ea9d99230151603dec8409af8",
+      "compression": 8
+    },
+    {
+      "path": "docs/autodl_upload_manifest_2026-10-03.json",
+      "bytes": 25628,
+      "sha256": "0ec93f1167ff297cfc4903cfb788861127bd683221727e111a661c358c33f921",
+      "compression": 8
+    },
+    {
+      "path": "docs/codet_m4_balanced_control_v1_upload_manifest_2026-10-04.json",
+      "bytes": 1397,
+      "sha256": "65921c0b8f2e96407f9601baeb87e8cc6ca6170b126a36961c204b6383a294a2",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-acl-dcan-round1-report.md",
+      "bytes": 10478,
+      "sha256": "ef128edca240f9c241a209ed52de412c12e70f074352b239e993b2509d329dfa",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-acl-dcan-round2-report.md",
+      "bytes": 8492,
+      "sha256": "0f69e72769beb84d9a19231eb226a9138ae6fa1aeba7001aac77d8255ac84070",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-acl-dcan-round3-audit-report.md",
+      "bytes": 13367,
+      "sha256": "662f72daa4cb12cc08b784f009d99708c4b6663eb245a35aaa5dc18652daac5e",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-acl-dcan-round4-report-local.md",
+      "bytes": 801,
+      "sha256": "9b6613b16f2f8c99e9fa2d6c5e934abd3a7c1a0ce80ab40d5dfbe732ed123e8f",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-acl-dcan-round4-report.md",
+      "bytes": 10274,
+      "sha256": "bb973b9648d638a0149da5c472f643804ecdf2db2438f66ae033c1a074fb8486",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-e25-report.md",
+      "bytes": 16770,
+      "sha256": "19fbadc4aa3e0a15ffa9f6895f1ac200853eaeeadac27a99f428a57f245dea24",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-e26-report.md",
+      "bytes": 13534,
+      "sha256": "3e3280b9ef97fcd7292d29dec0145d38bb2fc2756a4b9fa672bb31902e492fae",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-e27-report.md",
+      "bytes": 13683,
+      "sha256": "8a43121b5f66c77b5bfef2dd758e0973ab794a9bc831cf4728bf4258bf7b180e",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-e28-report.md",
+      "bytes": 11634,
+      "sha256": "16601b21b41d02ebc581da74843aaf9301682cb89103154825686fc03c9b03a7",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-e29-report.md",
+      "bytes": 9044,
+      "sha256": "a4f9aac787082eec2e9eb9b3c0c740c2b49011e52ab65d83b6e0e2fe713d3db9",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-e30-report.md",
+      "bytes": 9719,
+      "sha256": "6deae97a65db0c27f9a07aa96a2cab5ab94f91b1b1bd05209b4840ad8df92cea",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-e31-report.md",
+      "bytes": 9024,
+      "sha256": "527a21993405bd0d5c9bb137f6a6639490def4d794a543705c59986aa75cdc17",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-e32-report.md",
+      "bytes": 7542,
+      "sha256": "852806417ce41be9553d4380ae0444119d483edb640cb243a1c06e38d96da0e6",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-e33-report.md",
+      "bytes": 5887,
+      "sha256": "d386b43ba7d944cbcb5aa130df3ee2f59c4feb2a45faefae8691c3cdb6e0e0c5",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-e35-report.md",
+      "bytes": 9537,
+      "sha256": "bae7ad0105e2b007b7101b6dc84d3878d182e4b19f7360a8a1b8b5fe4ec74639",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-round1-handoff.md",
+      "bytes": 11005,
+      "sha256": "f7335e1cc0949f4128eb83cabd839396eb71dd9de4838e7f0fd33b4aefe3143d",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-flagship-stageb-report.md",
+      "bytes": 8690,
+      "sha256": "af7b8710d0771aba7c0f71157e9906910e72fe16c6e328b337933a7ae5dfa3ea",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-h2-droid-e36-report.md",
+      "bytes": 14280,
+      "sha256": "ce65f71c65c557070175cb27f6a881c5bbce256a222d0bb606ff7cfa8b78957c",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-kernel-handoff.md",
+      "bytes": 26592,
+      "sha256": "5aa6329a75a69367bd78fa4caf509027d2054d7395ae3edf641190497f1655a3",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-kernel.md",
+      "bytes": 39811,
+      "sha256": "4813d9edca7745399c0c63275421d20d0b75029b5d7ad8ac95803e5e0da1156d",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-semeval.md",
+      "bytes": 33683,
+      "sha256": "fbf099cf1c29889b4d6198b9f141657c768e6a1fd0fcd3b923e59b86400dbc3f",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-v0.1.md",
+      "bytes": 19266,
+      "sha256": "224d489662358a8ec3fe029a8a6c7c5a6ef26cbc85064dc5773eaea7ac368fdd",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-v0.2.md",
+      "bytes": 20815,
+      "sha256": "dbd0f5a35c2f9b3d7f58ceea1b6b3583d4f4354ee1164654e264b3f8b60e23c0",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-v0.3.md",
+      "bytes": 12871,
+      "sha256": "4ba2ed95aec8eacd670a216f82b749739939f69ae63e9c16be40dbca8ecad8af",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-v0.4.md",
+      "bytes": 14127,
+      "sha256": "a445ba63fe9878263fbc5e188ee4f8727ac5970ba58d4a7e4910f78f731fc0b3",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-v0.7-standalone.md",
+      "bytes": 24421,
+      "sha256": "a7924234107c9cb2a37dd894cfd430ae683adb3fb14e7b855292d933f7f7f142",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det-v1.0-freeze.md",
+      "bytes": 7441,
+      "sha256": "591733918105fcb147acc7b534ced6bd52fb6a48b1ac4e2eb1d87fb91eeb7bc1",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det.md",
+      "bytes": 21380,
+      "sha256": "417f9144d3972e4b2ed2b841cda309be7a1a813a70fa56fda9a1a21e0b33b6a2",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_ACL主线与阶段路径_2026-09-30.md",
+      "bytes": 8177,
+      "sha256": "058dff1af877ee4ec5a5bb08377784bd3c80c106b9ad6adad2e13663d9d6d62b",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_ACL家族归因数据集合_v1_服务端执行指导_2026-10-03.md",
+      "bytes": 4820,
+      "sha256": "6259183a983932e34d6d0bcaa277a62749ad3c281c93911c1790576a6a0da3db",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_ACL核心假设与E30协议修正_2026-09-30.md",
+      "bytes": 6514,
+      "sha256": "cf35bd5751ca14ceca933fbf908a977b451e8e57042332a7ae733e82c4d70e67",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AICD_T2数字标签平衡原型包指导_2026-10-04.md",
+      "bytes": 1391,
+      "sha256": "f0988fa7c713e0cf0d37f0ce685bc9d65069a0f0e19d6da88f805abc00587e0e",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AICD外部索引轻量上传包指导_2026-10-04.md",
+      "bytes": 1061,
+      "sha256": "65c92c17ab6cd1bf5f2c635857fa2c07e80d40707732200002da86a9e987ecad",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AICD标签映射核查结论_2026-10-04.md",
+      "bytes": 1280,
+      "sha256": "11b09e77362bd0e957a56bd88e2c75632ef18459ad6f93c1990e681d1a297609",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AuthorBench_CPU基线报告_2026-10-01.md",
+      "bytes": 2977,
+      "sha256": "595f257a20f2b5f9f1f1ad4bf0ab45d0491fa9bb3edb4d72ab7eb0b029148818",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AuthorBench_DCAN跨家族硬负对指导_2026-10-04.md",
+      "bytes": 1101,
+      "sha256": "fb5792cb90a7769a7cf97011d761089b59d2ee5f5cc94bf75308c7fd76867a85",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AuthorBench任务条件归因实验_DeepSeek执行指导_2026-10-01.md",
+      "bytes": 9306,
+      "sha256": "730d24b390bf5e633b4924e07b7c4a8fd3854957a1bcf7c2fff6544cfe6ec1dc",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AutoDL_3420857之后服务器AI继续指导_2026-10-03.md",
+      "bytes": 4538,
+      "sha256": "070d4180e7217441b2ca31163d73c9bb236d3bfeca6c1cda3e38711db6935e8f",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AutoDL_701d0df审计修正与下一步指导_2026-10-03.md",
+      "bytes": 8484,
+      "sha256": "29ef10629cbf227738f6690035673cf28ce09848acd4ef7c20e09049ee44ed3d",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AutoDL_bdd569后续执行指导_2026-10-03.md",
+      "bytes": 6145,
+      "sha256": "f0efe86522e59ff30700216a957d6195a0f882b6b5f229822eb12ad82ae88ee9",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AutoDL_d7d8d3d后续执行指导_2026-10-04.md",
+      "bytes": 3812,
+      "sha256": "fae130de7b423fa8a37b2457ae04b1859d5ac0f1b0f8ca5a359efc8bbf150ff5",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AutoDL_h2_training_v1执行指导_2026-10-04.md",
+      "bytes": 5142,
+      "sha256": "70fda9106bea2cca0e0f6138724b4f39a99bd4388a5382fd7d3767f8040c8e67",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AutoDL_数据集合v3上传与使用指导_2026-10-04.md",
+      "bytes": 7073,
+      "sha256": "ae68049f93eac687dcce8bf47a02114bacdd63fb44f1f90c72b5123c3ab0710b",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AutoDL_服务器端AI下一阶段执行指导_2026-10-03.md",
+      "bytes": 8269,
+      "sha256": "1c99a7bb88a0c2655a0ec8f2354e760e26ec48601187ebe24f79f13fb2a222b7",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AutoDL上传交接_2026-10-03.md",
+      "bytes": 3557,
+      "sha256": "2a77299df8d503533de5f1f534540687c9ba044cf71c26658cd8526f0de4a7ef",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_AutoDL关机后续工作计划_2026-10-02.md",
+      "bytes": 5038,
+      "sha256": "d59ed14b03c7a281cd998ebea08184b79f27f1020bdf0e6189c8474379a7c5af",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_CoDET-M4平衡外部控制包指导_2026-10-04.md",
+      "bytes": 1188,
+      "sha256": "7f5dd687faef8cb66f195d473bbeff35346e476866b653b59467e3723fa93334",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_Droid_generator-balanced诊断包指导_2026-10-04.md",
+      "bytes": 1222,
+      "sha256": "872ed063885176aaf04ef7736068cd96145b141347bb45aea2bedb6f1c54ae09",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_Droid_generator-heldout折索引指导_2026-10-04.md",
+      "bytes": 1279,
+      "sha256": "8524af0c40263ae754073be3deed37c71ec0a28228c1faccb05c8a7db89bea16",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_Droid_joint-balanced诊断包指导_2026-10-04.md",
+      "bytes": 1008,
+      "sha256": "0c145757ca1ad51fe21b0ba430421ad08497d6117cebf4ea020d7baf0a288a2c",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_Droid主包流式质量审计指导_2026-10-04.md",
+      "bytes": 2087,
+      "sha256": "df298595caf0107f75c951914871d41bb55cc868bdb736884e4e62b12646338c",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_Droid语言匹配诊断包v1指导_2026-10-04.md",
+      "bytes": 1659,
+      "sha256": "a746e03cf40b9117415b53ff7ce140612bb22d630b0e4bc8dd1ee42546f5a709",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_E25_服务端指导文档_2026-09-29.md",
+      "bytes": 12778,
+      "sha256": "c1450712cf724e21e8ef5fc3bdd29aa221b5b25664ea22ee1fe9d6fa69fbb6a8",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_E25复核与E26前置诊断_2026-09-29.md",
+      "bytes": 6757,
+      "sha256": "2f85791f4711d75b5cfd3307290d78f374beb8571731a561e75106cdef8fdec1",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_E27_云端继续指导文档_2026-09-29.md",
+      "bytes": 10521,
+      "sha256": "7d25bdbbf19980fd56b324ac7b0f5359d999696eeb8d346cbd631716c3a7c9dd",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_E27复核与E28执行指导_2026-09-30.md",
+      "bytes": 18249,
+      "sha256": "1c4ecec138c0427ebbe62d1f573c14ea9beb92b07854c72b2d3ceca60ed8f5d8",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_E29核心方向指导_2026-09-30.md",
+      "bytes": 7587,
+      "sha256": "70aeec7d70bf6af6dbb21decd19ad3a76ee93e5961d230422b39941a2c7044b2",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_E31核心假设修订与最小对比实验_2026-09-30.md",
+      "bytes": 9455,
+      "sha256": "186bcfe79c35e1973d162e21d6f4c77256777607ec4fc616b61d899c52a23201",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_E32表示瓶颈审计与来源几何指导_2026-09-30.md",
+      "bytes": 5094,
+      "sha256": "55a8b9b9f60bacb0279548ce8d955d445054e33470a12a4148e803207274ef77",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_E33暖启动来源几何增量指导_2026-09-30.md",
+      "bytes": 4095,
+      "sha256": "e31be80c2167916630be6704c1f2f1d76e5f477f6a7f98b78fef40843ed9f0db",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_E35论文级H2直接检验指导_2026-09-30.md",
+      "bytes": 5245,
+      "sha256": "6b8f43e07a13ccc29904e36bed038847a6c738f8cf665cd359889c529a4e6a35",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_E36后续指导_最终审计与H2收尾_2026-10-01.md",
+      "bytes": 6084,
+      "sha256": "c4aff00aa4237bea4f0e5d57ba710b3702860f78be58af4afb6ccaa9c5f47ee9",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2_AuthorBench_DCAN五视图数据包指导_2026-10-04.md",
+      "bytes": 2350,
+      "sha256": "4215ac62bfbc37900b994e9d3ac1c1b16001dadc80738a3b2dbcd445499b7e25",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2_AuthorBench_DCAN五视图直接正对指导_2026-10-04.md",
+      "bytes": 1114,
+      "sha256": "22e61b4899bd996badce4ec451b5f7de44183d8354a0dd0440a6f020bff26e32",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2_DroidCollection_DeepSeek执行指导_2026-10-01.md",
+      "bytes": 10183,
+      "sha256": "8200874b6bfdfb10a7b76aa58ab8a4177b3dab7a076f1cf0fe96300e696d4c47",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2_DroidCollection_v2_最终结果审计_2026-10-02.md",
+      "bytes": 3846,
+      "sha256": "bfdefb9583c90d792c5fbac5195aa4e00ba6c148121a983657f4265cb784fd5e",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2_DroidCollection_v2_服务端AI执行指导_2026-10-02.md",
+      "bytes": 10234,
+      "sha256": "3e4634011806031a3bb6391896e5874505c50ce2f7465ea56c82edba9bd0cbd4",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2_STACAD同任务硬负对数据包指导_2026-10-04.md",
+      "bytes": 1193,
+      "sha256": "4671f6623578185621747df8f24b3876ddabab8cc09a35363535bee68e20dfd1",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2_alignment_v2统一索引上传指导_2026-10-04.md",
+      "bytes": 1414,
+      "sha256": "fb48fbac5630ab09ba78373a33721a3d52b1960be0e826f66860ab2b53c9d28e",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2_alignment_v3统一索引上传指导_2026-10-04.md",
+      "bytes": 1631,
+      "sha256": "c6888ff0361f952e4db17f1a1906dc0f8cd677def6d0d6957e28a51b810bbe54",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2_pair_benchmark_v1训练包指导_2026-10-04.md",
+      "bytes": 3175,
+      "sha256": "9080c8554dbcf732d3fa97116b2bcb957466b416765413b981b0d58fc9ea121c",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2_pairs_v2正对总包指导_2026-10-04.md",
+      "bytes": 746,
+      "sha256": "709d67b289b0aaa2f31217e6c7a7d7dfceb3f181f71d8d9a53c5cea526cd3f9d",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2_training_v2任务组总包指导_2026-10-04.md",
+      "bytes": 1018,
+      "sha256": "342e847ed0b7c82c8d8f2cbf916ff4d839aec697d4b758e83287961d54bd7d5b",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2代码主体视图与完整任务交集指导_2026-10-04.md",
+      "bytes": 3569,
+      "sha256": "fc87827714b523e4ea4b5ade9b03d2bb1eae8e930f3cfe1214ead883785611ec",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2同任务对齐索引v1说明_2026-10-04.md",
+      "bytes": 3383,
+      "sha256": "da48304caab7b61db51061e0846555391d2d7e57a8c989282943d8e64f0993ef",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2对齐视图一致性数据包指导_2026-10-04.md",
+      "bytes": 1680,
+      "sha256": "69b557640b0db8279cfceba5336650b8002774a6ff9b50cd369608255acfb68b",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2捷径诊断与AutoDL下一轮实验指导_2026-10-04.md",
+      "bytes": 5495,
+      "sha256": "34a6871c56a6479c70ab9685607b3507e1e92ef968ff47431e58b875e1e03e68",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_H2数据包v2说明_2026-10-04.md",
+      "bytes": 2026,
+      "sha256": "ea4cf99b9750c621ceaf09c84f6ba9f17937ee565ae3c0d4a7a48415e0fad5e3",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_LLM-CodeGen_code-only正对指导_2026-10-04.md",
+      "bytes": 863,
+      "sha256": "a2d1cfb173625eb363522a5d6e77135051056eca698b3d01deecbfa8c0cf79c1",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_LLM-CodeGen_v2恢复解析与实验指导_2026-10-04.md",
+      "bytes": 2451,
+      "sha256": "b21ecee2518c77f7d95afc7c67198f6fce2438ab0c4f75c34c43fa46b4a35885",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_LLM-CodeGen_v2跨家族硬负对指导_2026-10-04.md",
+      "bytes": 1301,
+      "sha256": "c9b1e4bae99dd1c45e37fc414cb81ca0df9ae8761d6020bd3af31bf3c3058cfe",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_LLM-CodeGen_view-consistency_v2诊断包指导_2026-10-04.md",
+      "bytes": 730,
+      "sha256": "9d0ac97ff1a8e2ce472c795a4a6e55198cee9de3b9029040ef6e9cd8a29c000b",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_SOTA家族归因路线图_2026-10-02.md",
+      "bytes": 8100,
+      "sha256": "ed34d0a4adc3959803ce3224a76bbcf2827c943571b26005824fc00a8f80910d",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_STACAD_alignment_v1上传与实验指导_2026-10-04.md",
+      "bytes": 1970,
+      "sha256": "cd49faa3142ee4729f23e2204fcc51488e90c4bd2bba084bebfda4ca929ff0eb",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_STACAD_crossprompt_OOD控制指导_2026-10-04.md",
+      "bytes": 930,
+      "sha256": "aa7faa8b0c367c3eb4246b301828f1631a625dfc60946ed8361155057c7ef885",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_STACAD大数据集准备与H2适用性说明_2026-10-01.md",
+      "bytes": 3884,
+      "sha256": "ce323c389a21392f515acd23c6a653c8366ca01741f817baba780795ff6e0602",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_agent_attribution_v1构建说明_2026-10-04.md",
+      "bytes": 4989,
+      "sha256": "21cd95d78e7d4db852ef046648eb9539b1913cb7cc2d4a14a0d1e1259b19d43d",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_core_method_spec_2026-09-29.md",
+      "bytes": 20910,
+      "sha256": "5a9dd266f3560d3ecc292b8ccbf4ef05342429a811fa120c846ab4350dba9bbe",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_同门数据集元数据审计与适用性计划_2026-10-01.md",
+      "bytes": 9094,
+      "sha256": "3c3a1193aa81fbfb10805145de90d77a25b3336f4fd8d90b4004ce91b579c518",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_当前算法与研究状态_小白说明_2026-10-01.md",
+      "bytes": 9892,
+      "sha256": "f73be01303c8794194a912ac1345dcfc8e75e99205efb8a4364397a9c0da96a7",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_数据集合v3总上传目录指导_2026-10-04.md",
+      "bytes": 870,
+      "sha256": "5e07d7f790c50d0b86f8dfc9bd3e80106cce0a36b2c53effea14c73275703838",
+      "compression": 8
+    },
+    {
+      "path": "docs/d-det_数据集合v3选择与边界指导_2026-10-04.md",
+      "bytes": 4477,
+      "sha256": "f7abf8bb3a216ca6908f2aae26eb333386ebf4c258f2c86df38f768a2b2a4f07",
+      "compression": 8
+    },
+    {
+      "path": "docs/dmhm.md",
+      "bytes": 12533,
+      "sha256": "263731676c147ab61fa860be50267f2a07f48afb0374e3a531283e5425e148c9",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_alignment_v2_upload_manifest_2026-10-04.json",
+      "bytes": 1529,
+      "sha256": "7ba61afe10660c5d7cbc46f84f62f1f8a5229277fcc944c69d8382087d0a5c51",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_alignment_v3_upload_manifest_2026-10-04.json",
+      "bytes": 1360,
+      "sha256": "10c67370914160198d5c5332fc19400aa2cb49dec830af325771c09169518abf",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_authorbench_dcan_hardneg_pairs_upload_manifest_2026-10-04.json",
+      "bytes": 1242,
+      "sha256": "25eac8deb7405de69e5aba46dbc6ff0486b2b77857036af588f0fa55f7a630fd",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_authorbench_dcan_shortcuts_pairs_upload_manifest_2026-10-04.json",
+      "bytes": 1532,
+      "sha256": "bdaf4c9e5646b794d0a0678c9ed0610dd1aa9424a069d2e10c6311a101ec784d",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_authorbench_shortcuts_pairs_upload_manifest_2026-10-04.json",
+      "bytes": 329,
+      "sha256": "406439142fea4d2a2a625aa0e86cf75ef7167d5177150eea11713b8d7adddab7",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_authorbench_shortcuts_upload_manifest_2026-10-04.json",
+      "bytes": 311,
+      "sha256": "f8dac55d74a7d571e829b698fd42d9993537d26cdb061b7c992956bd1a0cdb51",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_code_only_pairs_upload_manifest_2026-10-04.json",
+      "bytes": 330,
+      "sha256": "b80801d443fdeb6cc9f5da1fa6cf5781e3173b4fa0219385c250c4a1e39925d8",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_code_only_upload_manifest_2026-10-04.json",
+      "bytes": 415,
+      "sha256": "0cac653b1af111d5326fbe22bc899624cacff425823ec624b6c5477d46bccd0c",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_droid_full_selected_upload_manifest_2026-10-04.json",
+      "bytes": 1461,
+      "sha256": "e0d586134b19666472154467a1fd2727a9c01333b44ab24fdb110397187fcd2f",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_droid_generator_balanced_v1_upload_manifest_2026-10-04.json",
+      "bytes": 1673,
+      "sha256": "523c5dcb1fc59f2961f44be2dc4d35c72a5e0cc9f8a16422e6a878680e0c1983",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_droid_generator_fold_index_v1_upload_manifest_2026-10-04.json",
+      "bytes": 1267,
+      "sha256": "4b021a4a21d1ceb75458041574ca18180ab3fcf01b6f5878b3ed1b8a6555aeab",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_droid_joint_balanced_v1_upload_manifest_2026-10-04.json",
+      "bytes": 1642,
+      "sha256": "1eb1f355621318f09a1a11b05e36e26dfb6c62654ab67699bcba164985704da6",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_droid_language_matched_v1_upload_manifest_2026-10-04.json",
+      "bytes": 1664,
+      "sha256": "8f94f7b680e22eeda8dc6fd2c79e4ed8b45de455e59ad62980c32476ffc1c6a9",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_llm_codegen_code_only_pairs_v1_upload_manifest_2026-10-04.json",
+      "bytes": 1553,
+      "sha256": "29dbdb5c60da3b972d364b948169e4fd2ca53ee8b49f9f447c6be26a4b5afdeb",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_llm_codegen_v2_hardneg_pairs_upload_manifest_2026-10-04.json",
+      "bytes": 1235,
+      "sha256": "73def9d08ccbb70b6e719cbb7a0d5957601e8e14d0495f883d469c9f6bf2cf4d",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_llm_codegen_v2_pairs_upload_manifest_2026-10-04.json",
+      "bytes": 1518,
+      "sha256": "8ce39f7a032640974df8207a7e816e48d8f59a7cc0772da82322a2a4062d58ec",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_llm_codegen_v2_upload_manifest_2026-10-04.json",
+      "bytes": 2024,
+      "sha256": "063e9f4e6a6affec56d7270d2a8b2c4837078b575b15ab10391dfb01b2d53e20",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_llm_codegen_view_consistency_v2_upload_manifest_2026-10-04.json",
+      "bytes": 1438,
+      "sha256": "3a5117199bec3740d56cbbf9f343aa0de5164636aca332cd29e4f48689149a20",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_pair_benchmark_v1_upload_manifest_2026-10-04.json",
+      "bytes": 2580,
+      "sha256": "6508f18c49ee8ebb7600db32c1be6cb020900e5a713aae590a5134083c817c60",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_pairs_v2_upload_manifest_2026-10-04.json",
+      "bytes": 1372,
+      "sha256": "e6b09b794232b9eb44d1992fdcc81efae456c3aec10521fa68dfe1cd92e96890",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_shortcuts_upload_manifest_2026-10-04.json",
+      "bytes": 389,
+      "sha256": "5714875eff391f9d16de1804872c290ffa917c86b3e334e0627c9c9b89c6e557",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_stacad_alignment_v1_upload_manifest_2026-10-04.json",
+      "bytes": 1690,
+      "sha256": "b0b3a86e05311ea0a93a614922fb7768b0367ffd61e7df78b4741bfcd8c8a019",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_stacad_hardneg_pairs_v1_upload_manifest_2026-10-04.json",
+      "bytes": 1553,
+      "sha256": "4c913bd9d912a57e94095530d0cbd7095de41df3f5ccf7c4579ebddf18abcaa1",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_stacad_hardneg_upload_manifest_2026-10-04.json",
+      "bytes": 409,
+      "sha256": "38300c11a9d1199fc242e8aa9bd117ba3fb2b6fb36e02815dadefa08b7690e8e",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_training_v2_upload_manifest_2026-10-04.json",
+      "bytes": 1395,
+      "sha256": "2c205ced68d253b0aee4e14c338effc47a974648ab4d94607d29f0ec9d837b10",
+      "compression": 8
+    },
+    {
+      "path": "docs/h2_view_consistency_upload_manifest_2026-10-04.json",
+      "bytes": 297,
+      "sha256": "84ab05850722f32aff45db4b495d22339123b37c4f540f5618d85bcbce41939d",
+      "compression": 8
+    },
+    {
+      "path": "docs/semeval.md",
+      "bytes": 21050,
+      "sha256": "daaace7f89012c6ee30018376f3e2ecf8824e9c706dc681e9080d8315f5b0069",
+      "compression": 8
+    },
+    {
+      "path": "docs/stacad_crossprompt_ood_v1_upload_manifest_2026-10-04.json",
+      "bytes": 1644,
+      "sha256": "e589c3dddc8de8b2b3f7cfc58e4ef93d033fadd618e90cb6414160dac4cc78f3",
+      "compression": 8
+    },
+    {
+      "path": "packages/acl_attribution_collection_v1.zip",
+      "bytes": 11696531,
+      "sha256": "2e4edaa2984e6aa1b7197b89c58f22e73d70a05b692b3395f3403ff45b8a0854",
+      "compression": 0
+    },
+    {
+      "path": "packages/agent_attribution_v1.zip",
+      "bytes": 2782874,
+      "sha256": "a172ebc27703c9cfff76f4a1cb46a7524913cd4103c500c4fb95b8934b231a89",
+      "compression": 0
+    },
+    {
+      "path": "packages/aicd_t2_numeric_balanced_v1.zip",
+      "bytes": 21268022,
+      "sha256": "3e741dc163c8b5eac9a170e188abaeaa9c5443a0f36cab237a5b23d3991a039a",
+      "compression": 0
+    },
+    {
+      "path": "packages/codet_m4_balanced_control_v1.zip",
+      "bytes": 5719646,
+      "sha256": "4551045f79c14e2b3defabc2c4ef1ec33878aa940fe0b285846834b4f7512628",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_alignment_v3.zip",
+      "bytes": 2319964,
+      "sha256": "318e69c1efea3f225dcd1428e0ed07eb0aec80451fc43ffcfdab868ff8951705",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_authorbench_dcan_hardneg_pairs_v1.zip",
+      "bytes": 44111406,
+      "sha256": "713c01849213a7b5c930584acbbeb150a2f1ba428f9dbdf43930df69bcd6aacf",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_authorbench_dcan_shortcuts_pairs_v1.zip",
+      "bytes": 4635556,
+      "sha256": "dd76d4058149be18110130924471e1fbdc70016735cd96b245e16af2a9585750",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_droid_full_selected.zip",
+      "bytes": 50377359,
+      "sha256": "e9be2e22eda8d841f92a0ef1c0a5b06fa21e6cfa539d9d128922d3d77f57870f",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_droid_generator_balanced_v1.zip",
+      "bytes": 8418413,
+      "sha256": "45ed1bb2403e7f0e82fd80784e719dec05700c3749bc1a8a07c0fc68986559e0",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_droid_generator_fold_index_v1.zip",
+      "bytes": 4395548,
+      "sha256": "8dc1b8775c86a537a95d039fd8bbb8837316f72212d1d866482fc68e522f3aa9",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_droid_joint_balanced_v1.zip",
+      "bytes": 5066130,
+      "sha256": "92e8697298779c57fff41257f0c425b78327623e9489c901547544d7d60172c9",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_droid_language_matched_v1.zip",
+      "bytes": 4099673,
+      "sha256": "99d091f6e2042912cdb0127884d722ab2ac4b8f245f3a840b984524857bc01f2",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_llm_codegen_code_only_pairs_v1.zip",
+      "bytes": 480185,
+      "sha256": "dbb05fba7388f309acafa1ccfcdc4baf395b3ec72567bbbb07f0a4be9e23a491",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_llm_codegen_v2.zip",
+      "bytes": 2850756,
+      "sha256": "01a950647a979c368ae8d9f2211a8afed76d253589df2cbc2767551c79412e61",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_llm_codegen_v2_hardneg_pairs_v1.zip",
+      "bytes": 3061765,
+      "sha256": "42219e9ff3e068045330dd9b3677323a6b0c09734bad258379caeb9042bea574",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_llm_codegen_v2_pairs.zip",
+      "bytes": 979882,
+      "sha256": "6d3ce6fe8d622c8e00a41dd206b32eaf7da628084383b8ff2f9fc2bba509c9e8",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_llm_codegen_view_consistency_v2.zip",
+      "bytes": 1654272,
+      "sha256": "d54e2487ee7a63bf8eb1a60bd47b9ac18ac5a0856f66dc4e007cce75f2974f8e",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_pair_benchmark_v1.zip",
+      "bytes": 17192844,
+      "sha256": "97fa64942782920dec22b10f5fa84f3cf1bf84fafccb6ede8ad078e4ec936e37",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_pairs_v2.zip",
+      "bytes": 5908325,
+      "sha256": "49f3557036d17dbcc37a0105046f4fa841f82236dd6ff88b599635d6f08900e8",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_stacad_alignment_v1.zip",
+      "bytes": 10562139,
+      "sha256": "fec137fefe517e1e8458172169bf7eea2d6babbd8fdb1f18a6de9c053c596f06",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_stacad_hardneg_pairs_v1.zip",
+      "bytes": 17664808,
+      "sha256": "8a15a631bf1ff2056b1994a67f34e9b4ddf82ce3c3a2fa56704f2846cd5c3dfa",
+      "compression": 0
+    },
+    {
+      "path": "packages/h2_training_v2.zip",
+      "bytes": 14248611,
+      "sha256": "499be6219f391b53cf69402d2a21924190b5c7f2a3a325ec928fa0ebf4bf4de3",
+      "compression": 0
+    },
+    {
+      "path": "packages/stacad_crossprompt_ood_v1.zip",
+      "bytes": 2563517,
+      "sha256": "53305f8eb4eaaf18a42f4061894fd966bf3627df8c4747d0d28956ef6fd6ba22",
+      "compression": 0
+    },
+    {
+      "path": "scripts/d-det_scripts/analyze_scores.py",
+      "bytes": 10608,
+      "sha256": "0d849afda3cc7becb89017f36361b0ac8fe73379cffecd8eea1e06db85061711",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/audit_server_2026_10_03.py",
+      "bytes": 26765,
+      "sha256": "94600eea8724b19b74551f4cd2a4fb19d490afa44482cdcf19c6979ba66b28e2",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/build_authorbench_dcan_shortcuts_v1.py",
+      "bytes": 5240,
+      "sha256": "7ccb484f5db0ec913ffe1f388cd8e06c7d3e83a8b5aa134bb49eafe28a523398",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/build_llm_codegen_code_only_v1.py",
+      "bytes": 10848,
+      "sha256": "71964806a776693448cda7b48eeb59f374d7ef5197a459e2c5175fe3c58d4bf0",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/build_llm_codegen_shortcuts_v1.py",
+      "bytes": 9596,
+      "sha256": "9633a970ccaa24a73e20e84cdccb9110ea348cf2b37f622fa5855e409828ab47",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/calibrate_margin.py",
+      "bytes": 2102,
+      "sha256": "e18080e241f415c5da51b9406ed80561b6c1b1998189079278625ed6526ad4ee",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/check_qwen.py",
+      "bytes": 2866,
+      "sha256": "92ca0560dc7f87f83fe788f03dc78f1d16773f914c76ce8d9c9299f48cfb9394",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/check_v040_grads.py",
+      "bytes": 5584,
+      "sha256": "07b8a4f438d14567aea5b80d3d5e3a648bb0eb4bd59f26c3c07a09102d5076b5",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/compare_scores.py",
+      "bytes": 3609,
+      "sha256": "378ed0dcd15ed0f083308eaf465656ef97233f6518418a03186219e0df53edbb",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/cross_fusion.py",
+      "bytes": 2946,
+      "sha256": "4aefd75d31b65d132033b4b24973952fcfd1d19b4887a3ea2548c0b5d6a2c707",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_four_models.py",
+      "bytes": 22703,
+      "sha256": "29545a0c1bf6d704ebdb4fc63a3ec9329330a052882089fd563836a1a8794896",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round2_ablations.py",
+      "bytes": 9295,
+      "sha256": "0d79739410e4e42adabada745d040710666aa719f79a472c968150a80846652b",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round2_shortcuts.py",
+      "bytes": 9024,
+      "sha256": "80698fdcb116473331b2b33d36c1ff986f33901ace10141b13f5eb492d64975a",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round2_trainable.py",
+      "bytes": 9907,
+      "sha256": "531b34e14d33371b2e657fc9192fe9b8ace700d74e3777bd545daa37b42ec5a5",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round3_bn_diag.py",
+      "bytes": 5713,
+      "sha256": "ceefddb296df9703621d3c9cbabb8667f729bf692f2a16cb4651bcf98b33aae5",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round3_ft.py",
+      "bytes": 10623,
+      "sha256": "5a74109212ff91fd4fad88a56cc1f64f7aa228e1cf4f7dc626b9708806fb2ae3",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round3_head_vs_lora.py",
+      "bytes": 3655,
+      "sha256": "f5d6dd262d3e812fff02da0e248c87afef82451c5d92f7807fee633b2fe7aa6e",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round3_mlp.py",
+      "bytes": 15982,
+      "sha256": "6663e161b9093e9e9ff114308a11d4d57df2f9378f9ede6da44f15c85a3c6732",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round3_stats.py",
+      "bytes": 2750,
+      "sha256": "3c8839cf041bc47c18ea8fae52e1908dd6405fbda6b92eaa806997c0ea722789",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round4_external.py",
+      "bytes": 20230,
+      "sha256": "6b47f901355e38244c4946c70227d85c1ee07a33d65d5c86d00f08770ffb2479",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round4_lora_extend.py",
+      "bytes": 9931,
+      "sha256": "7c76cee18e8158da76a123f07f3b0172dcc24a5f485a52c9e81ec4112e933b96",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round4_lora_stats.py",
+      "bytes": 3513,
+      "sha256": "b56304712c8ae8a2a75d3d60d1e143c324a41feaa85783d2ecb7e117491b2f0f",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round4_shortcuts_univar.py",
+      "bytes": 13334,
+      "sha256": "42783e8e790b154dc6706922b54a5dbeaf04922a8ff03b709f384eeef5392b5d",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/dcan_round4_stats.py",
+      "bytes": 3266,
+      "sha256": "40b5ed3ba36d60600c13b431c70d082987aee0703102949b3854559dd1259553",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/decompose_scores.py",
+      "bytes": 3896,
+      "sha256": "3e1114e89195c499d5e85e40762748c3203abd00af690c6b25eaf3a7bded209c",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/diag_features.py",
+      "bytes": 16225,
+      "sha256": "46c0f107883a537f3f918f0fd68e488e012d227b974f857b2b91a7fa7799e558",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/disc_v05_train.py",
+      "bytes": 4422,
+      "sha256": "c96b364dbcbde72401351bc131ce021fdbac07a5d7264387cddce453ee9696bc",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/disc_v05_train6.py",
+      "bytes": 3072,
+      "sha256": "a70a0f4761d78a2e93f98254f315d24abd5c2f5c84b08c374ca9f7d6a53b7b66",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/disc_v06_views.py",
+      "bytes": 3486,
+      "sha256": "479d1ed8bf6650df8723e78fcb7e743449633b1efbb99e9a45eb4d971f250d78",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/eval_stable_v07.py",
+      "bytes": 6598,
+      "sha256": "8cd5cced0e3d7bcf61a603932017ca4957c7595713915f30082bb7ce45579cab",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/extract_delta_feat.py",
+      "bytes": 2587,
+      "sha256": "371cc0f9664a2d1c1a7caab9d263a6b9ed40aaf0f45c0c0e4470e835046f65cd",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/extract_multi_feats.py",
+      "bytes": 3201,
+      "sha256": "8203679ad2dafc4a44906e6a0c0440119b2b4166bd8395f7b3aa6c9e794ee497",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/extract_pair_feats.py",
+      "bytes": 3505,
+      "sha256": "4b40ed319924d2db64b2ce22d2f467b69b18c72cbc8edc4a14d6f49b81851cd4",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/extract_pair_feats_raw.py",
+      "bytes": 3433,
+      "sha256": "6ab9c5ccc11e0e37db176febabd413fdf6b8c15922c8dd36c2beec7f2c654b0d",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/fetch_pair.py",
+      "bytes": 861,
+      "sha256": "73696b88d27e15de781bf5c985d9955dafe98a3735930112927142567e984e32",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e25_investigate.py",
+      "bytes": 14080,
+      "sha256": "2a189a0039e0268d955e566d9ed514acd98c7d4c951a9896422e6b53f05cca73",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e25_stage0.py",
+      "bytes": 17253,
+      "sha256": "a747da2a33517020b01c3699de690622c5fefcc15416dd5f8c8e16ae84aff7aa",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e25_stage1.py",
+      "bytes": 20553,
+      "sha256": "89618d9d74a2dd56d3d43ca7cf32dbae4ebf114d3063e3028c5a5ac42cbd25c8",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e26_dedup.py",
+      "bytes": 8625,
+      "sha256": "dde800745199c86e8ae2b700dda0a4004528343e0cea9a4f75720d3cb6e816c1",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e26_prediag.py",
+      "bytes": 12277,
+      "sha256": "4acb64e2cdb0cf3178943276131b3c7aa1d30f8159e6c9ff7d8e20ad1171532f",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e27.py",
+      "bytes": 34733,
+      "sha256": "1d1daa14ef207e85cfa25fe5322923f0760d6a7b942a6238d0dcfe03d9b95136",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e28_probe.py",
+      "bytes": 30244,
+      "sha256": "92edf8c050f65d29ed59ac12602c092ea7256e6fb9dedb3cf894af0f6d327e6b",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e29a.py",
+      "bytes": 21364,
+      "sha256": "330286aa1bdfe9eb330ca439b847c5acfa34ff6068f253739a3822b9e6fe2699",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e30.py",
+      "bytes": 21406,
+      "sha256": "bb5f78fe1b41e1d8d7efc8f9de9a6a86de2720106409df2ead725167f4d4d08e",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e31.py",
+      "bytes": 21832,
+      "sha256": "7cfb6c3d2cb1caa575b0a32c8f6de38156e1e15d2350d668dd4bd1f8b9a17972",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e32.py",
+      "bytes": 20521,
+      "sha256": "7ec25a8c4bbc4eb47c6621bf0076878208add4adfaf2901b37fdcd4db45307d7",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e33.py",
+      "bytes": 21413,
+      "sha256": "b833a41ce21e3e3c64834eff0e2a7cd1cb0aec10db1637f396906b1c5be3dee8",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e33_audit.py",
+      "bytes": 8291,
+      "sha256": "0b4f54c8fd2b1ddce3f44a036dece2236af0f212e1e1f38824c2b9f31b702b58",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_e35.py",
+      "bytes": 34345,
+      "sha256": "505539d1143dcb69d9a0ababb70b1fe4abe95e1dfa68b9eb14f3b5b8a48b7c58",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_r1_diag.py",
+      "bytes": 4251,
+      "sha256": "451e5bb77d343be0cf1c62c418c95944e1fbc2ea36e50f9cf370db889554a333",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_round1.py",
+      "bytes": 28606,
+      "sha256": "6c5c15d468f745f913258e22c7eb51eb664d7d3d675a845f0dc374201b1e7b1a",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/flagship_stageb.py",
+      "bytes": 27945,
+      "sha256": "1d8729587be10985037b79318624ee26852153c3e51cfb6a092687cfd6d89d06",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/gen_multi_samples.py",
+      "bytes": 7124,
+      "sha256": "5190631242d637188bf627e90405f2916b286b8e16f1dd870b40c5870e872c4e",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/gen_pairs.py",
+      "bytes": 13998,
+      "sha256": "cec62d18b4b29af65fa6578670349875d53110e1f51ffa0a8191c0d378c971c9",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/h2_droid_e36.py",
+      "bytes": 42508,
+      "sha256": "0ccd18440330781a0243b5df897c750f846a2ba62e804b7be8505496b86fbc55",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/hf_provenance.py",
+      "bytes": 1749,
+      "sha256": "ef5339ed104dd96d9d3389dff10d2fc43adc98d65b432955bdc364a126cf1a44",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e10_cluster.py",
+      "bytes": 6189,
+      "sha256": "3d6ef44848738c0bf0292fe891e73f4b50580c08aca65760d2d3e115e7746fea",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e11_discriminant.py",
+      "bytes": 5903,
+      "sha256": "a0e6788ee531cd8ea1c37f9cf3219250f85775455d5d9a7768b6207a24609bc0",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e12_whiten.py",
+      "bytes": 3888,
+      "sha256": "fb4211768c41b70110fb29669c2f945d023b7ba26f6fb85b81231dd99e3cc264",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e13_paramhead.py",
+      "bytes": 3918,
+      "sha256": "87f25b66f621a63b9f25d0a74c6b553653787722d40c56233b94d1044ed3fa25",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e14_b_attrib.py",
+      "bytes": 6088,
+      "sha256": "5f9661dbbe0ffc898bf01f04b9e9fdca0b30df9546d32652de5775a612e78860",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e15_density.py",
+      "bytes": 9343,
+      "sha256": "d78630d305120835385e9bbe151423b28f423628bdade42d8e06acf8071146c7",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e16_dcan.py",
+      "bytes": 10643,
+      "sha256": "a0f91c7b5982358f1021d1546bb74142d67bbc2d4f891dfe368285637c7680bb",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e17_framework.py",
+      "bytes": 10748,
+      "sha256": "d07be2fce1a5ae9bbe926603e6cdf60da523202f1cc43fd8c7aa30d03f43ea57",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e17b_views.py",
+      "bytes": 4851,
+      "sha256": "78e9f38b3ba3ff3a95a37d882ea4527c80ee83d30fa20e39e8ae458d6cf92880",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e17c_verify.py",
+      "bytes": 3691,
+      "sha256": "c83b948eb3aa82d9f981234ad7173bd7fd21d4b6cf596bf01335e15c91a15376",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e17d_kwise.py",
+      "bytes": 3305,
+      "sha256": "37ed68f9184e871890783482ee498ca9b38dc4acf7626edfcc4d60775985d81c",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e17e_symsplit.py",
+      "bytes": 2350,
+      "sha256": "c90f3a3cc23aa3ea3c3d96eba2850cc78069922abf51bd84dfd122999ed4a9ca",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e18_v08.py",
+      "bytes": 10458,
+      "sha256": "3d434f8ca287e9cda650a0013d0a90184e060523517dd4ade4ba4ee576a19d29",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e19_robust.py",
+      "bytes": 6297,
+      "sha256": "2533f6ecbac00548467c4ad97b21d7715a803b7fe4902fb329d9721eb95bed0d",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e1_rstar.py",
+      "bytes": 5639,
+      "sha256": "db80d1514a7a92f9be0eccc127e465b77b4b1bf944d2f09f5ac317c41313a448",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e20_selective.py",
+      "bytes": 7234,
+      "sha256": "a633378aa75741eddb9be7012cfb13e676ad4ff40ee2cf37cae551308f128ae1",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e21_interaction.py",
+      "bytes": 8550,
+      "sha256": "ba4c651c128659dabb4ad8a32bba72fddb00ce82fceb5b18a89ba19f800ee28d",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e21_supp.py",
+      "bytes": 8170,
+      "sha256": "04b5c956cada0f3f2a540f21d22c5e5785494e466b5ac48291127c340181e04d",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e2_loss.py",
+      "bytes": 6823,
+      "sha256": "cac08557ad8248473d62b1f558888a3203bcd91552bda8ea23e0e55f8923f265",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e5_crossmodel.py",
+      "bytes": 3230,
+      "sha256": "12927ac9a934de28bba06a537c3604775bc72eae952a70645b35fddc87d3524b",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e6_multiref.py",
+      "bytes": 4589,
+      "sha256": "1e4a94fd3c5d84e9f860e2f95eb7c94a5830a5f92051c030fdd5215a0bcc5675",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e8_geometry.py",
+      "bytes": 5977,
+      "sha256": "0b6b00ddd757fe7b419bd4c69b2c2444431efe8783a33b097b2d910173bcb1c8",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/kernel_e9_subspace.py",
+      "bytes": 5590,
+      "sha256": "ed340bace299127dd72e34886c59679028b779212e5bed65e97a5631ac209837",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/materialize_authorbench_dcan_shortcuts_pairs_v1.py",
+      "bytes": 4746,
+      "sha256": "8576aca15022d1ab823f21e42311c2ee49d2cb626cec8651679aaee3c87fc194",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/materialize_h2_code_only_pairs_v1.py",
+      "bytes": 5651,
+      "sha256": "9149475d75a89ca69350e2b925101c133d9c9b3c5ddf72f3b84fd152ab64c64a",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/materialize_h2_view_consistency_v1.py",
+      "bytes": 5384,
+      "sha256": "f221a2f729dae66533c4ea2f89c64de775af703541a7a43ce413f2020585f4a8",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/materialize_stacad_hardneg_pairs_v1.py",
+      "bytes": 6303,
+      "sha256": "2924c02d61cd8e8f7a9715cacaf9dd50a9cd9a6d5c0f9f23be04eec699a662a9",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/p0_tfidf_baseline.py",
+      "bytes": 14432,
+      "sha256": "ee4e8803f141371df7786b179073e8622e0ba213e0b6eff4d9cb45cbb0ea14b7",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/prepare.py",
+      "bytes": 4829,
+      "sha256": "d0cc7f1f173a4a3f828c99aaeadf0038ea557a36624ff7c33d7443a112b4a73b",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/probe_flagship_speed.py",
+      "bytes": 3108,
+      "sha256": "070ed7c36d323535ada3ff6494c2f45c1a81d54a4740e461a6a65bfad965bbb6",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/probe_fragments.py",
+      "bytes": 7910,
+      "sha256": "a66d9b762931d91186163fa6724ad17b76549aa7269ce44af27417b3808bc6c4",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/probe_pair_gen.py",
+      "bytes": 4613,
+      "sha256": "7594262c2fa82d8c5b3c5c79d772cffd583bbde3af11438683bcc8af55812a0a",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/probe_s2_family.py",
+      "bytes": 8065,
+      "sha256": "3bfdead9f375620e5c9b172e0131d6331785c8d9732d55b9a615366b5efe7697",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/probe_scale_detect.py",
+      "bytes": 6230,
+      "sha256": "b1f81cd0e8f36510a6977b3cc27fdc7daa11c1e5f65b124af0555850a1f95ebd",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/probe_scale_verify.py",
+      "bytes": 4966,
+      "sha256": "be740c30e99dbdf9662276a96ccd4d178f570f90aaaa51919c53da10c206d049",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/probe_sensitivity.py",
+      "bytes": 10970,
+      "sha256": "47a8b8a4f486a29fa63353bb32b60650c3b5ed98105782c13a6388a8eb04080b",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/selfcheck.py",
+      "bytes": 6232,
+      "sha256": "4464d0ae4514492efc5c68df29da7362c70b296944f4dfe3e053ad1b37548ddd",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_a_diag.py",
+      "bytes": 8736,
+      "sha256": "e350ed570fb5f4f801f67a7553fda9ad040f1ac9d71e5670f6e01e973a3d18a8",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_a_fusion3.py",
+      "bytes": 4305,
+      "sha256": "4ee3a21c1f53f96610dffed97ca859b34d7aa40772ec77dda6a9c9b21c9e2b3e",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_dump_old.py",
+      "bytes": 3058,
+      "sha256": "87c25137c3b02d9058d3d918fbec0b059311c1d113e2f4400793d7e787bccb33",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_dump_run.py",
+      "bytes": 4219,
+      "sha256": "87b64ef84a054bb8068cdf7b9af0d7755fec3d8fb7ba76487dd71fc0eb887c3f",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_ensemble_v2.py",
+      "bytes": 8574,
+      "sha256": "cf6a5de43997f244438384ad2062751e5f0a5a857a2d992b3130fc2ce6ed8c53",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_finetune.py",
+      "bytes": 18238,
+      "sha256": "5839995a530fc2ed99205f112f19e5d000e6925adb0880278b5aac65434bc728",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_hf_b.py",
+      "bytes": 7965,
+      "sha256": "7978522a6135a69aabd51f5d468a74865477ae62323bdb708e9ee713bc5d1139",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_ngram.py",
+      "bytes": 3604,
+      "sha256": "a3df0a411cc6d815b7c1c121541b6c257b584cd1b7766405bed4bdd1bc85cadc",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_prepare.py",
+      "bytes": 9341,
+      "sha256": "962b039d15a6084b95f472569c597c40f2487bfcd6da01a90557118e0d36c742",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_prepare_big.py",
+      "bytes": 4171,
+      "sha256": "d1442f418881400dd914a7dc0f22dd3006beb383b66614d95f91d7f501f06962",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_prepare_qwen.py",
+      "bytes": 3488,
+      "sha256": "f9520e5b6c9a041fccd51be1acece05929ac79b6703d80513fd137ffe07efab5",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_probs_dump.py",
+      "bytes": 4742,
+      "sha256": "4097b202de6a8977af260c5074ccb7d339cff7aacdac6e9a9b73f2a51456f1a5",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_qwen_probe.py",
+      "bytes": 5496,
+      "sha256": "69dddbd7e63a8c89fbb09d27d3fb88a87da74c9df2bc2996c5151260132e638c",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_r_sweep.py",
+      "bytes": 11837,
+      "sha256": "7f7e3f372d2a8bfb61b03cefcc9f4f7c2aa6eac15fac93bef4ecb767e7a4f99d",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_rvoid.py",
+      "bytes": 3635,
+      "sha256": "956b4c53302b7119281f50d7d8601e0b4d340bc1e0bbb328c933bf8c0a454e17",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_s2_showcase.py",
+      "bytes": 10200,
+      "sha256": "9c25bbb27adb765fa014516adafbc2d70a3aae3731a46fb377f24e27e47a4758",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_stack.py",
+      "bytes": 6254,
+      "sha256": "680ba59283e05eea109c8dc3a7309e4f287b6f41d5a92a232733d04eb48f430e",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_stats.py",
+      "bytes": 6464,
+      "sha256": "a3d5512eab92692b626d2b53de98324d917d2d5985dbd8b8ca0453393437af92",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_stats2.py",
+      "bytes": 5711,
+      "sha256": "da4cc51acc755440b40c34fc3e1553902fe6f975433b0bb545363ae2eea0a652",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_subspace_v2.py",
+      "bytes": 5555,
+      "sha256": "ff784293849d3a1895f20a92d4474dcf244551ba10d4ae7a6a137a064ea3a42b",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_threshold_tune.py",
+      "bytes": 3913,
+      "sha256": "e9a62fd2edbef3de84b40f0c51618ece84a786cacde1bc67d352dc4215d62fd0",
+      "compression": 8
+    },
+    {
+      "path": "scripts/d-det_scripts/semeval_zeroshot.py",
+      "bytes": 9583,
+      "sha256": "96fcb47ed69cf03830f6144963a5db31139898567de062e76887668fec0e1446",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/analyze_raw.py",
+      "bytes": 12133,
+      "sha256": "d391e58815c3cd532c33afe76933a511476082152d2b0feacd54e01a7a4442c0",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_acl_attribution_collection_v1.py",
+      "bytes": 2613,
+      "sha256": "5f3a769a3bd80bc8e6aeb960fd855720acf2e936cef30770d394b90e74ef5ee7",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_agent_attribution_v1.py",
+      "bytes": 2974,
+      "sha256": "3ba4c5f59ee47ba0569731d068712ac19d73fe58edbdba7bd86c3d21a25f038e",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_aicd_raw.py",
+      "bytes": 4720,
+      "sha256": "6196344519e8b2d0919e56d5ae49bd4dbab8b8771cc853222aebefdfda9f9400",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_codet_m4.py",
+      "bytes": 1806,
+      "sha256": "ec3018b4706ec5ac935a185a33deb54517a4bfc6a20957877d9b575008cd0f63",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_droid_full_selected.py",
+      "bytes": 3618,
+      "sha256": "420b94e9a86d99dba726f7924c0ee0a9ac6b12a753243d6d771f819aa06256b6",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_droid_generator_fold_index_v1.py",
+      "bytes": 3802,
+      "sha256": "568a665dc3117e713e8ee87b41eb24e81e5e11c37c16776fcc2f6a6b12111d70",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_h2_alignment_v2.py",
+      "bytes": 3645,
+      "sha256": "02b20b4b5cd46f2e959643b31debb596691b59ea393d2517eee318ee66aecb52",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_h2_alignment_v3.py",
+      "bytes": 4844,
+      "sha256": "9e9887aa68d393614a2d343f36449fea6ce3374a3a78ec0e5edab12e54e59442",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_h2_pair_benchmark_v1.py",
+      "bytes": 14749,
+      "sha256": "f9412e4212b35fcb65eaf1c7737a17c19c42307be24f451fc688d2169a2a4201",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_h2_pairs_v2.py",
+      "bytes": 3212,
+      "sha256": "5e0e7efe4ac8c40747a806fd7ee2c7bfd821331cb5dafc0ed7b8f94d12b5fbaa",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_h2_training_v2.py",
+      "bytes": 3533,
+      "sha256": "8752a63a6ae8ee481f9460ea67e7c357ee78dcb301e42ee425c32d62113468bd",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_llm_codegen_code_only_pairs_v1.py",
+      "bytes": 2297,
+      "sha256": "f02205358a7256e8e4b1f74f9181bdef4d2bff8e4d6950ee911b59c1852c6194",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_llm_codegen_v2.py",
+      "bytes": 4470,
+      "sha256": "153a0333dda1d0064c251a073806d7a0cb14ab33536628260ad030de61e768bd",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_llm_codegen_view_consistency_v1.py",
+      "bytes": 3580,
+      "sha256": "62a44e121f8c041a8ce01da1b069bbd85e64de84e8d8bba7ca781873312e3670",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_llm_codegen_view_consistency_v2.py",
+      "bytes": 2935,
+      "sha256": "85a013540bb9809a0f90c3e9c776cacdfa16cfa149c04263d78ffe7a1a580307",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_positive_pair_bundle_v1.py",
+      "bytes": 3170,
+      "sha256": "da6311ab147aa51bb98601ef43f9bc93fde5482fb1c8874a2a6b380186675a20",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_stacad_alignment_v1.py",
+      "bytes": 3858,
+      "sha256": "0787e39f09a0da16bee5cf2dcef4eb82cdb04c46a760d18693cd5da03e823d24",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_stacad_hardneg_pairs_v1.py",
+      "bytes": 3443,
+      "sha256": "2fd9ad951478184f1c4926209b994a74aab7bfed14f3fd65f711b40c50a30de4",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/audit_stacad_package.py",
+      "bytes": 5006,
+      "sha256": "598713f460bcc747f08bd12b53af1ec92e3ba28ca0e92d831f554606964ce7ef",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/authorbench_cpu_baseline.py",
+      "bytes": 6965,
+      "sha256": "06d6be2e188a0f7714e6f80275029cc2043dc478c01f6e6a5430967136fa6490",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_agent_attribution_v1.py",
+      "bytes": 16230,
+      "sha256": "39a5246d7ad4e51afb2ffa79b46becfd4a7d77920090caca76c5ce01993ddafd",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_aicd_t2_numeric_balanced_v1.py",
+      "bytes": 9650,
+      "sha256": "cba403767ee6436552abaf18bee374701ba86c4acb928997e7b7e63872b9067f",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_attribution_collection_manifest.py",
+      "bytes": 12426,
+      "sha256": "d4821b818336ecb84d0f0efb377133ce530458683f06f74a3274e7416f2dd634",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_authorbench_dcan_core.py",
+      "bytes": 5129,
+      "sha256": "84fd78fe9a788bc5e2740ea28a5b4c9f80eec8ea764c16c55031d324290c4594",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_authorbench_dcan_hardneg.py",
+      "bytes": 8445,
+      "sha256": "37c148b694772bd0dab4dc179f053e33a834bfca271927113b39cf73a76adec5",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_codet_m4_balanced_control_v1.py",
+      "bytes": 7911,
+      "sha256": "17cf282ac35aa2ec6ed537e199b9630f044a954cc1700da0b8899a0e493923da",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_collection_index.py",
+      "bytes": 7771,
+      "sha256": "03c812c0d5c7bf8caaf07526b6f733e904e3600d94ea6bf126f869340d0a0a0c",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_dataset_collection_v3_quality_report.py",
+      "bytes": 2378,
+      "sha256": "d1a01e17bc8fe9bf2e9f75b6139a92c8a3122e33c51d1c1901fedffef311db32",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_dataset_collection_v3_upload_catalog.py",
+      "bytes": 2394,
+      "sha256": "de0577bdb2b4c275cac3914e67525d267fc93daa894947ac5de029880c6a7764",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_droid_generator_balanced_v1.py",
+      "bytes": 5673,
+      "sha256": "e3f27c145a2d92b7c6930424f4c7b0324e2ebb1ce9f5ef6c0b493b051329c72b",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_droid_generator_fold_index_v1.py",
+      "bytes": 4923,
+      "sha256": "361f4fbd1765a6b5a65c69210b3162cf6c93dfa4f2fca31ba98eef062a847708",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_droid_joint_balanced_v1.py",
+      "bytes": 5178,
+      "sha256": "0ce36d916035cbee13271db136d0906c5cd929b96088929de9ee1bc07b8fff20",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_droid_language_matched_v1.py",
+      "bytes": 10156,
+      "sha256": "fbadae25e6c2caa6230f66210204793d9229c003cadbb3b2d194a7d249682c6c",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_h2_alignment_manifest.py",
+      "bytes": 10726,
+      "sha256": "79d5db96c86e34b506846b1221e9e292485d2c8f9da4c16a7ab29df9e4bae231",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_h2_alignment_v2.py",
+      "bytes": 4769,
+      "sha256": "ee2317bc33182e84d48a0df4686af14df5c539868cbdb3688eaaf8b5d3e1f9fd",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_h2_alignment_v3.py",
+      "bytes": 8369,
+      "sha256": "9a70716a13cb428281b2c6f3ddfa1262dcf92c9100c6256cd987a51a948abb90",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_h2_authorbench_subset.py",
+      "bytes": 7314,
+      "sha256": "959526706f5d9b40a907910711600a60a2033424f2e0ba4e7a48ead6370b3d82",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_h2_balanced_pairs.py",
+      "bytes": 2407,
+      "sha256": "ba6173f1cb05550cf0b2f3b8e56c5933c7b652d52cd1a2f9089b071dfbdfde07",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_h2_pair_benchmark_generator_folds_v1.py",
+      "bytes": 3889,
+      "sha256": "58fd49882c55337c5be7eeeae942ffa88405f12f2f822699c0791b3ffc141cb0",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_h2_pair_benchmark_v1.py",
+      "bytes": 25245,
+      "sha256": "520f7ed5f7404bdd31c7d6f80cdac0fec79135f399a7fa993ccbc3f023faee8f",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_h2_pairs_v2.py",
+      "bytes": 4968,
+      "sha256": "2eeeb4d5eb18f2fe50b30f6f13ffca23b9d1993e55a94e7c3f5d7d093c94bb42",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_h2_subset.py",
+      "bytes": 10285,
+      "sha256": "ee971815e08db2b7175e6412070a101d112b5a5813a9aa3aacedc007a13a1e21",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_h2_training_v2.py",
+      "bytes": 2876,
+      "sha256": "085ab20cffbb7615b9a9fc1f2bd99fc39d17a62224f3e062d7724c7807dd1c7d",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_llm_codegen_alignment.py",
+      "bytes": 5241,
+      "sha256": "eeb9bdcf13a8f5b3f44ab0dbd0e10c7ebaa82f17dda7e7b204688e58233b9fff",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_llm_codegen_v2.py",
+      "bytes": 14595,
+      "sha256": "93480fe34d87220615c27faabe3bf7ae12a076270e0bd69e64f3420d2a8155d1",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_llm_codegen_v2_hardneg.py",
+      "bytes": 8723,
+      "sha256": "ec55f976b8dd403c2e21d06f3d5329de6a650544527fa547ba650ec3b9b53ffa",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_llm_codegen_view_consistency_v2.py",
+      "bytes": 5406,
+      "sha256": "d487bb8939e68ecd7520c6aa3546e66b5e17d9e87c0d3f52320917abbe61c34b",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_stacad_crossprompt_ood_v1.py",
+      "bytes": 5741,
+      "sha256": "795007878736fcfbb7e3e0f9b2fa9f581a223a103e549e5f8fe17c8bc4bcfe97",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_stacad_task_alignment_v1.py",
+      "bytes": 10028,
+      "sha256": "18cd1f6044d23db3cb0f6af369913d7ac581dd3a2bc2799994e530b897e9e3c0",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/build_subset.py",
+      "bytes": 14039,
+      "sha256": "76e141160c0ab6832de36f29bba930a9629351d5b79e211a39c1e27c8168ca90",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/check_blockenc.py",
+      "bytes": 7843,
+      "sha256": "35b5a949fdfc8729ac7759f3580d5003e5e48444457ddc645880b3eb99c47f0c",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/check_v046.py",
+      "bytes": 14829,
+      "sha256": "5c618f2524a04df66f16eb304ff00523bc4d79e86d2a77f1a05f903f4c014405",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/check_v049.py",
+      "bytes": 17823,
+      "sha256": "66d899e092cfb385d435a30e52bcf3b3c67c0da46f99fb1b82ebc54c4cc94940",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/check_windowed.py",
+      "bytes": 10690,
+      "sha256": "bdfd83cac0a24b58cca01186a9168d2c9c7f7e628445ed8a401fa37a372c3787",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/compare.py",
+      "bytes": 4331,
+      "sha256": "3d5055f8bbcce9ba59a2b82b4645a3962a0348f702d684f095829964790da8a8",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/diag_m4.py",
+      "bytes": 4985,
+      "sha256": "eadba8f6db618f9f46d3b62ea930cdd1dfb61570a181297218032a79cbc03bf2",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/download_codet_m4.py",
+      "bytes": 2212,
+      "sha256": "1b7db2255d0f4291c62c096bd4e736dc14bacb8a7d52dfe689efb09031027aed",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/download_llm_codegen.py",
+      "bytes": 1390,
+      "sha256": "885e521e54f67d26aa0f56daee45a67ecef1e7c21be8e7b01c94dc6596150b07",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/download_open_attribution_collection.py",
+      "bytes": 4933,
+      "sha256": "1434a2675945b227a451fe24a5f9d1583b200707d6f5d91fa83c9b5d4e4985b0",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/download_stacad_v2.py",
+      "bytes": 3987,
+      "sha256": "78c28a5f0a3033756c8241786824abe3c6ad89804ad78f4ed3d5c1452c8939db",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/h2_authorbench_shortcuts_hashing_smoke.py",
+      "bytes": 2658,
+      "sha256": "4b9c02c2293208773d843ef18949e3a1c29bc2799724d936125b472614c538dd",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/h2_authorbench_shortcuts_smoke.py",
+      "bytes": 2677,
+      "sha256": "92771b937304e36cdd69151feedfbd19a7539d749f8efd6bd35e33c66d641290",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/h2_c_views_v2.py",
+      "bytes": 3018,
+      "sha256": "2a1a97c1e91b7d4a30dc4a57647fece487ef20453377b9c3970515aa40e1d66f",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/h2_tfidf_code_only_smoke.py",
+      "bytes": 2892,
+      "sha256": "7f0cd5634a7b8d0f99ad2c137089b9d46710577c8e64992cd849b03b113ee1f7",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/h2_tfidf_paired_code_only_smoke.py",
+      "bytes": 3491,
+      "sha256": "1a2c3a77a2aaeccf2417cdb69d5071b0bb49204845d9acdf7c814747455c598d",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/h2_tfidf_shortcuts_smoke.py",
+      "bytes": 3575,
+      "sha256": "9de69f294d65946e8996695227da555a516b42e762c70a48791a0e0b53fc8c69",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/h2_tfidf_smoke.py",
+      "bytes": 3357,
+      "sha256": "570e3af5893a4eddd9ca1fc6794a2e3af931b53446db9e29825b5669bf19a47b",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/h2_tfidf_v2_smoke.py",
+      "bytes": 2899,
+      "sha256": "89f57fa82f63c88e23e17c7fd3296ed3e70b6b6c8bf74ce6eeff8ddf32e5a60c",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/materialize_h2_pairs_v1.py",
+      "bytes": 4358,
+      "sha256": "e55206ad19be549167981ab84e6abb3232856c9ca58fea04b45a6e71077f7050",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/materialize_h2_training_v1.py",
+      "bytes": 7412,
+      "sha256": "74fc10573e2b3ec79665a422cfd84ecdcf36f84b014a8f924070a459f0e69708",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/materialize_llm_codegen_v2_pairs.py",
+      "bytes": 4778,
+      "sha256": "d28723ee1af7c94c01fee4e6e1efb6b5bc58abcc95e5294625ab7f1257a39d80",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_acl_attribution_collection_v1.py",
+      "bytes": 2858,
+      "sha256": "b47af5ea86fc68827379a65d4e483a4fd7b47cb383a3939b8b49625f5aa224e2",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_agent_attribution_v1.py",
+      "bytes": 3440,
+      "sha256": "d62f32d6d529ab2754d22f5589d68ccfa05e8eda7c36bf5d30908135b47bf566",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_autodl_h2_bundle_3715711.py",
+      "bytes": 4417,
+      "sha256": "139e83ce89452db2b6710b462294f0b0e9e8622cbbe97f8b8a5eac4f0dc7b750",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_droid_generator_balanced_v1.py",
+      "bytes": 2021,
+      "sha256": "cbf4de6241a8ac3079bb86b3fe05727f7d0596af2c552532f2fff885f9a932d6",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_droid_generator_fold_index_v1.py",
+      "bytes": 2071,
+      "sha256": "6ed7edd38c35a98745683e5024c5683d9d153962cd7938d4ac0ff634dae905fd",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_droid_joint_balanced_v1.py",
+      "bytes": 1856,
+      "sha256": "ade711ffcc0e55fe8b64815e48f0a3d0ee066a11d51f5dc1ab9da422c7ea8e1e",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_droid_language_matched_v1.py",
+      "bytes": 2222,
+      "sha256": "60067d6cc2943b434b3f16a0803b14d29864f19820de18f4fe332b140c1598dd",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_h2_alignment_v2.py",
+      "bytes": 2339,
+      "sha256": "2d41636ce51dd3e0abeb9d82390dd617d93842326051c55b04add726b9f798ad",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_h2_alignment_v3.py",
+      "bytes": 1937,
+      "sha256": "3ecaad46e9aa9ea0c4da13d999a7ed19d48da8876bb1f1e46fae8aa7f2fd458b",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_h2_pair_benchmark_v1.py",
+      "bytes": 2120,
+      "sha256": "c1a549eb46324ce6be192264020ad16c154d0afb9813068378db247fdb0df3a2",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_h2_pairs_v2.py",
+      "bytes": 1915,
+      "sha256": "06cf95787a3f58005facef379f90679615308efc06f449bcf218a47e7765f642",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_h2_training_v2.py",
+      "bytes": 1711,
+      "sha256": "5ddfd090769764c653e8eb560f622e39bebaf2bb8a6629e3198361b32efe2e92",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_llm_codegen_code_only_pairs_v1.py",
+      "bytes": 1901,
+      "sha256": "0af9ae6dc9b08ea5c8c6ed0cda0defeedb925b3f52455ffc3d24c76ae1f96bc5",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_llm_codegen_v2.py",
+      "bytes": 2145,
+      "sha256": "c6e44e7d16c84bdc374f5fc70e80a48291e22b725f9ba7534ddb655b2300f8a6",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_llm_codegen_view_consistency_v1.py",
+      "bytes": 2141,
+      "sha256": "74d30045d04b5cdde1578e42c2bfc473ff821ea0577b625ebddf6bba182d6be9",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_llm_codegen_view_consistency_v2.py",
+      "bytes": 1796,
+      "sha256": "abbc1d686863a252d1dc0ad3ed263b96baa025fcd30b139b23caeaaac2761087",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_positive_pair_bundle_v1.py",
+      "bytes": 2816,
+      "sha256": "45a0793301d373e0dfeba3d16fc608443f9584ad043d718e69afbb82759205e4",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_stacad_alignment_v1.py",
+      "bytes": 2607,
+      "sha256": "ce2c63e6df14eed9fbb87a32d6447d2279f2b2e2dbb3367140873798b2597803",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_stacad_crossprompt_ood_v1.py",
+      "bytes": 1828,
+      "sha256": "2179184414af365d9aa8690d26274261f1067ac2c1de1be286bed9428c6ef53c",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/package_stacad_hardneg_pairs_v1.py",
+      "bytes": 2110,
+      "sha256": "d3a030db24a49c03caee931a42846b42fe6f4dee644b0dae16ca38039d6c2798",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/prepare.py",
+      "bytes": 9013,
+      "sha256": "e9352a3e7011b232391fe389e5ba76919d1d59293e28828f320d9d5f9930a4c2",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/probe_bandwidth.py",
+      "bytes": 7020,
+      "sha256": "2e988904fd0c94f89d4e56af35c447d3e2c5da9d1188c21298b113620a2c9036",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/probe_ensemble.py",
+      "bytes": 12408,
+      "sha256": "1514992f49afd8cbef5038e994cfee24f8e78cc50135f054a5945f7de53a1563",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/probe_layers.py",
+      "bytes": 39686,
+      "sha256": "f1085245bce170a173a0462a7ab7d0d3ef91cb94e0b98d3d0d7d67a6940d6641",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/probe_lut_layers.py",
+      "bytes": 4067,
+      "sha256": "1e383352fd5183f82e975dcb2b4f6b84072123ad04c07c805c034b664ad4f87b",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/probe_m4.py",
+      "bytes": 4683,
+      "sha256": "07489bf141f5b5076f8acf204bd690828fe84c2c1dd104f28fc2799b4546bf2a",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/probe_mechanism.py",
+      "bytes": 12815,
+      "sha256": "cd6c586695343f66166eea066e05cdb14a69cfb1574efbc0a6f71e340f61758e",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/probe_report.py",
+      "bytes": 6982,
+      "sha256": "99c5b947b79d137a8a2d9a81cc86f51cb23616ab5cc723e33f60a4b473c6b1ea",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/probe_scales.py",
+      "bytes": 13110,
+      "sha256": "2c20cf963335d903b11070245c6fde0628da0073feba7c78b88c23c63926cde3",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/rebuild_probe_stitch.py",
+      "bytes": 2760,
+      "sha256": "f10aa8f2ebbde58f310731e54f2bca54934e3ecf6d0c2a9deb4ea9ed9084485d",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/repair_acl_index_record_ids.py",
+      "bytes": 2348,
+      "sha256": "06161b80a5a6c5ef8f35ffced6b62cd94ed2d1958c3031afdcaa3a7f2002aa1e",
+      "compression": 8
+    },
+    {
+      "path": "scripts/root_scripts/upload_attribution_autodl.py",
+      "bytes": 7130,
+      "sha256": "10cc7a097fa7e0bfb579c231461a5cdc161deae5194e4eff80506f30346dd075",
+      "compression": 8
+    }
+  ],
+  "raw_data_policy": "nested upload archives only; no 35GB raw dataset or model checkpoint is included"
+}

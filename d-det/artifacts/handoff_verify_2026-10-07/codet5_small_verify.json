@@ -1,0 +1,52 @@
+{
+  "path": "d-det/models/codet5-small",
+  "files": {
+    "config.json": {
+      "bytes": 1566,
+      "sha256": "c067a6377fc235b103a1577fcb8a114e2885b700198bad22e34f84659d0025ca"
+    },
+    "vocab.json": {
+      "bytes": 703051,
+      "sha256": "43bb485f4de0f2fd49b370bef4efab23ea3ab6d0019e72bdd9cec1436a6eaa2b"
+    },
+    "merges.txt": {
+      "bytes": 294364,
+      "sha256": "5d346f84939a98df0cde902df7d60154b461cde1b90dc653ab9b81d74e752a4d"
+    },
+    "pytorch_model.bin": {
+      "bytes": 242026427,
+      "sha256": "968fb0f45e1efc8cf3dd50012d1f82ad82098107cbadde2c0fdd8e61bac02908"
+    },
+    "special_tokens_map.json": {
+      "bytes": 12512,
+      "sha256": "2454193b9f88437a3c0497300f21a2a4372115b5367ea71f07e912589baedaa6"
+    },
+    "tokenizer_config.json": {
+      "bytes": 1477,
+      "sha256": "ccc2672ac229eef1a36010a147b8d3e7881d39a30b9bca7ddaa73a30fccfd517"
+    },
+    "added_tokens.json": {
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    }
+  },
+  "cross_check_vs_shipped_authorbench_artifact": {
+    "config.json": true,
+    "vocab.json": true,
+    "merges.txt": true,
+    "pytorch_model.bin": true
+  },
+  "tokenizer": {
+    "RobertaTokenizer(vocab=,merges=) len": 32100,
+    "encode_roundtrip": "def add(a, b): / return a + b # sum -> ok"
+  },
+  "weights": {
+    "state_dict_keys": 134,
+    "shared.weight": [
+      32100,
+      512
+    ],
+    "d_model": 512,
+    "layers": 6
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "schema": "acl_feature_role_registry_v1",
+  "created": "2026-10-07",
+  "principle": "A feature may enter a claim only when its sample unit, split visibility, task role, and confounds are explicit.",
+  "features": [
+    {
+      "name": "raw_code",
+      "source": "code or raw view",
+      "unit": "single sample or pair endpoint",
+      "tasks": [
+        "D detection",
+        "F family diagnostic",
+        "P0 control"
+      ],
+      "transductive": false,
+      "leakage_risk": [
+        "task/prompt lexical overlap",
+        "language",
+        "repository",
+        "generator",
+        "length"
+      ],
+      "allowed_claims": [
+        "surface/structural source readability"
+      ],
+      "forbidden_claims": [
+        "pure post-training causal effect",
+        "generator-invariant H2 without heldout"
+      ]
+    },
+    {
+      "name": "ids_only",
+      "source": "pair view after identifier transformation/removal",
+      "unit": "pair",
+      "tasks": [
+        "F pair verification",
+        "H2 diagnostic"
+      ],
+      "transductive": false,
+      "leakage_risk": [
+        "identifier naming shortcut",
+        "view implementation semantics"
+      ],
+      "allowed_claims": [
+        "identifier contribution to pair signal"
+      ],
+      "forbidden_claims": [
+        "semantic family understanding"
+      ]
+    },
+    {
+      "name": "strings_only",
+      "source": "pair view after string transformation/removal",
+      "unit": "pair",
+      "tasks": [
+        "F pair verification",
+        "H2 diagnostic"
+      ],
+      "transductive": false,
+      "leakage_risk": [
+        "literal constants/string templates"
+      ],
+      "allowed_claims": [
+        "string contribution to pair signal"
+      ],
+      "forbidden_claims": [
+        "cross-source generalization from one family"
+      ]
+    },
+    {
+      "name": "comments_only",
+      "source": "pair view after comment transformation/removal",
+      "unit": "pair",
+      "tasks": [
+        "F pair verification",
+        "H2 diagnostic"
+      ],
+      "transductive": false,
+      "leakage_risk": [
+        "prompt boilerplate/comments"
+      ],
+      "allowed_claims": [
+        "comment contribution to pair signal"
+      ],
+      "forbidden_claims": [
+        "semantic invariance"
+      ]
+    },
+    {
+      "name": "all_view",
+      "source": "all transformed views concatenated per protocol",
+      "unit": "pair",
+      "tasks": [
+        "F pair verification",
+        "H2 diagnostic"
+      ],
+      "transductive": false,
+      "leakage_risk": [
+        "mixed view semantics",
+        "feature dominance"
+      ],
+      "allowed_claims": [
+        "controlled multi-view pair baseline"
+      ],
+      "forbidden_claims": [
+        "automatic superiority to cleaned views"
+      ]
+    },
+    {
+      "name": "delta_A",
+      "source": "h_plus-h_minus",
+      "unit": "same-task paired endpoint",
+      "tasks": [
+        "R post-training contrast",
+        "F ablation"
+      ],
+      "transductive": false,
+      "leakage_risk": [
+        "base/scale/template confounding"
+      ],
+      "allowed_claims": [
+        "paired difference readout"
+      ],
+      "forbidden_claims": [
+        "pure RLHF causal direction without matched base"
+      ]
+    },
+    {
+      "name": "joint_hplus_hminus",
+      "source": "concatenated paired endpoint representations",
+      "unit": "same-task pair",
+      "tasks": [
+        "F family attribution",
+        "H1/H2 candidate"
+      ],
+      "transductive": false,
+      "leakage_risk": [
+        "base identity",
+        "task content",
+        "generator memory"
+      ],
+      "allowed_claims": [
+        "joint paired readout"
+      ],
+      "forbidden_claims": [
+        "single-sample deployment if counterpart unavailable"
+      ]
+    },
+    {
+      "name": "task_centered_joint",
+      "source": "joint minus train-fold task/endpoint centers",
+      "unit": "task-aware paired set",
+      "tasks": [
+        "F transductive diagnostic"
+      ],
+      "transductive": true,
+      "leakage_risk": [
+        "target task sibling visibility",
+        "center leakage"
+      ],
+      "allowed_claims": [
+        "transductive task-conditioned structure"
+      ],
+      "forbidden_claims": [
+        "ordinary inference capability"
+      ]
+    },
+    {
+      "name": "metadata",
+      "source": "family/generator/language/length/repository/model fields",
+      "unit": "single sample/task",
+      "tasks": [
+        "confound audit",
+        "P0 control"
+      ],
+      "transductive": false,
+      "leakage_risk": [
+        "direct label proxy",
+        "generator identity"
+      ],
+      "allowed_claims": [
+        "shortcut strength and control"
+      ],
+      "forbidden_claims": [
+        "content-based attribution without metadata"
+      ]
+    },
+    {
+      "name": "gradient_separation",
+      "source": "task loss input gradients",
+      "unit": "joint model batch",
+      "tasks": [
+        "H3 only after H1/H2"
+      ],
+      "transductive": false,
+      "leakage_risk": [
+        "norm/scale dependence",
+        "squared cosine penalizes useful alignment"
+      ],
+      "allowed_claims": [
+        "local conflict diagnostic"
+      ],
+      "forbidden_claims": [
+        "independence theorem",
+        "guaranteed detection preservation"
+      ]
+    }
+  ],
+  "gate_before_neural_training": [
+    "data_role_matrix.json",
+    "P0 control on same split",
+    "positive support for train/dev/test",
+    "base_model/model_role audit",
+    "test read-once declaration"
+  ],
+  "current_status": "registry frozen for stage A; no new neural training started"
+}

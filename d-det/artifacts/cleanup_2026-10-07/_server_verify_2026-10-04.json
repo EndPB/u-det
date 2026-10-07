@@ -1,0 +1,40 @@
+{
+ "verified_utc": "2026-10-04T19:15:00Z",
+ "bundle": {
+  "path": "d-det/data/autodl_h2_bundle_3715711_upload.zip",
+  "bytes": 243193024,
+  "sha256": "85e04cb5b9b8c3b438c2258109e6717fbc14374300f90794ca36eb67be71c7f1",
+  "matches_handover_doc": true,
+  "unzip_test": "ok"
+ },
+ "extracted_to": "/root/autodl-tmp/u-det/h2_bundle_3715711",
+ "packages_verified": {
+  "count": 23,
+  "sha_size_match_bundle_manifest": 23,
+  "sha_size_match_upload_catalog": 23,
+  "all_ok": true
+ },
+ "collection": {
+  "manifest_sha256_matches_catalog": true,
+  "hashes_json_ok": true
+ },
+ "nested_audit": {
+  "bool_checks_all_true": "22/23",
+  "note": "h2_droid_full_selected 为描述型 audit_index（无布尔 checks）：rows=146718, null_code=0, cross_split_dup=0, fold_plan_check 存在",
+  "detail_file": "_audit_pass_2026-10-04.json"
+ },
+ "docs": {
+  "count": 126,
+  "note": "unzip 把 63 个中文文件名转乱码，已用 Python zipfile 重解压修复（与 zip 内名逐名一致）"
+ },
+ "pair_benchmark": {
+  "zip_sha256": "97fa64942782920dec22b10f5fa84f3cf1bf84fafccb6ede8ad078e4ec936e37",
+  "same_as_standalone_upload": true,
+  "extracted_at": "d-det/data/h2_pair_benchmark_v1",
+  "verified": "audit 27/27 true; 4692 pairs (2346/2346); 5 views 4692/4692"
+ },
+ "droid_main": {
+  "note": "core.jsonl/diagnostic/fold_plan/summary 哈希与既有官方解压版一致；bundle 版新增 audit_index.json 与 README 更新，已同步至 d-det/data/h2_droid_full_selected"
+ },
+ "next": "按 v3 使用指导实验顺序执行；H2 pair benchmark 可直接做 pair classification/对比/视图消融（task_id 聚类、按 source 分开报告）"
+}

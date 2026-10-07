@@ -1,0 +1,22 @@
+=== AutoDL preflight ===
+2026-10-07T15:55:46+08:00
+autodl-container-hmz3teucd6-659d76d1
+Linux autodl-container-hmz3teucd6-659d76d1 5.15.0-78-generic #85-Ubuntu SMP Fri Jul 7 15:25:09 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
+NVIDIA GeForce RTX 3080 Ti, 12288 MiB, 595.71.05
+python 3.12.14
+torch 2.9.1
+transformers 5.17.0
+numpy 2.2.6
+scikit-learn 1.9.1
+tokenizers 0.23.2
+huggingface-hub 1.32.0
+pandas 3.0.5
+pyarrow 25.0.1
+torch.cuda.is_available True
+torch.version.cuda 12.8
+gpu NVIDIA GeForce RTX 3080 Ti count 1
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1     50G   28G   23G  56% /root/autodl-tmp
+               total        used        free      shared  buff/cache   available
+Mem:           251Gi        11Gi        90Gi       4.0Mi       149Gi       238Gi
+Swap:             0B          0B          0B

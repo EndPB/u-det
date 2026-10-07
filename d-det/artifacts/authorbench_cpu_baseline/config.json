@@ -1,0 +1,15 @@
+{
+  "features": 4096,
+  "char_ngram": [
+    3,
+    5
+  ],
+  "C_grid": [
+    0.03,
+    0.1
+  ],
+  "standardization": "train rows only",
+  "center_scope": "same task, all eight unlabeled rows",
+  "threads": 2,
+  "seed": 0
+}
