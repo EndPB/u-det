@@ -1,0 +1,26 @@
+{
+  "dataset_id": "h2_alignment_v3",
+  "purpose": "Corrected unified metadata index with source-isolated label spaces",
+  "task_records": {
+    "authorbench_dcan": 2715,
+    "llm_codegen_v2": 168,
+    "stacad": 3180
+  },
+  "pair_records": {
+    "authorbench_dcan": 16883,
+    "llm_codegen_v2": 5027,
+    "stacad": 66780
+  },
+  "positive_pair_records": {
+    "authorbench_dcan": 1651,
+    "llm_codegen_v2": 695,
+    "stacad": 0
+  },
+  "fold_count": 10,
+  "positive_pair_policy": "Only same_family_cross_generator from AuthorBench and corrected LLM-CodeGen v2; STACAD is control-only.",
+  "limitations": [
+    "Family label spaces remain source-specific.",
+    "Droid is not included because it has no task_id/prompt_id.",
+    "Generator-held-out folds are auxiliary and not a replacement for task-heldout evaluation."
+  ]
+}

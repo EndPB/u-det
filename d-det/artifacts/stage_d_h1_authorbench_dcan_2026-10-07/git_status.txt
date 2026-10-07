@@ -1,0 +1,9 @@
+## main...origin/main
+ M "d-det/docx/d-det_ACL\346\200\273\347\240\224\347\251\266\346\200\273\347\273\223\344\270\216\345\217\257\350\277\255\344\273\243\350\267\257\347\272\277_2026-10-06.md"
+?? d-det/artifacts/stage_d_h1_authorbench_dcan_2026-10-07/
+?? d-det/artifacts/stage_d_support_2026-10-07/
+?? d-det/data/h2_alignment_v3/
+?? "d-det/docx/d-det_AutoDL_\344\272\244\346\216\245\345\220\216\351\230\266\346\256\265D\344\270\273\347\272\277\346\211\247\350\241\214\346\214\207\345\257\274_2026-10-07.md"
+?? scripts/stage_d_alignment_support_audit.py
+?? scripts/stage_d_h1_authorbench_dcan.py
+?? scripts/stage_d_h1_build_report.py

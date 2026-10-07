@@ -1,0 +1,37 @@
+{
+  "schema": "h2_alignment_v3_audit",
+  "task_records": 6063,
+  "pair_records": 88690,
+  "by_source": {
+    "authorbench_dcan": 2715,
+    "llm_codegen_v2": 168,
+    "stacad": 3180
+  },
+  "pair_by_source_type": {
+    "authorbench_dcan|cross_family": 15232,
+    "authorbench_dcan|same_family_cross_generator": 1651,
+    "llm_codegen_v2|cross_family": 4332,
+    "llm_codegen_v2|same_family_cross_generator": 695,
+    "stacad|same_task_cross_generator": 66780
+  },
+  "fold_count": 10,
+  "checks": {
+    "task_records_match_summary": true,
+    "task_keys_unique": true,
+    "task_records_valid": true,
+    "indices_have_no_code_payload": true,
+    "pair_task_source_and_split_match": true,
+    "pair_records_match_summary": true,
+    "pair_ids_unique": true,
+    "pair_records_valid": true,
+    "pair_type_counts_exact": true,
+    "positive_counts_exact": true,
+    "no_stale_llm_source": true,
+    "folds_current_llm_only": true
+  },
+  "notes": [
+    "The LLM-CodeGen source is corrected v2: 168 tasks, 695 positive pairs, 4332 cross-family controls.",
+    "Family label spaces are source-specific; do not pool source labels.",
+    "Generator-heldout folds are auxiliary evidence and do not replace task-heldout evaluation."
+  ]
+}

@@ -1,0 +1,1272 @@
+{
+  "schema": "stage_d_alignment_support_v1",
+  "generated_utc": "2026-10-07T08:32:45.401796+00:00",
+  "inputs": {
+    "fold_plan": {
+      "path": "d-det/data/h2_alignment_v3/fold_plan.json",
+      "sha256": "b119528d92519cee066796818ea3b473c3f24ea9810d34f1c60234d946af7edc"
+    },
+    "pair_index": {
+      "path": "d-det/data/h2_alignment_v3/pair_index.jsonl",
+      "sha256": "b9fbd2ca695521d238e2d6dabf182ee15e20d5ab9edc1f56b76dccc2eb8b3f67"
+    },
+    "task_index": {
+      "path": "d-det/data/h2_alignment_v3/task_index.jsonl",
+      "sha256": "d6408f3bd90614599b4c548cb13eab85768f61ff96ec9a07b63712810fa0386b"
+    },
+    "authorbench_core": {
+      "path": "d-det/data/h2_authorbench_dcan/core.jsonl",
+      "sha256": "2bd5ef8667b521bece97a26294cdbed6f5e9c3781b97ca1396dcf7548c244aca"
+    },
+    "llm_response_tasks": {
+      "path": "d-det/data/h2_llm_codegen_v2/response_tasks.jsonl",
+      "sha256": "94a42b1db7a91aa2b7fa3e863dbe980e6cc8556297ac1d1e176d33db42fe159a"
+    }
+  },
+  "membership_rule": "positive: pair family == fold.family; negative: fold.family in {left_family,right_family}; role: train/dev = task_split and heldout not in endpoints; test = task_split=='test' and heldout in endpoints; sources isolated.",
+  "notes": [
+    "declared_record_counts 为构建器口径的记录级计数（v1 全源去重 / v3 llm outputs），与 pair 级计数不可混用。",
+    "stacad 为 control-only（无 fold），未纳入本审计。",
+    "base_model/model_role/repository_id 在 v3 索引与两源数据中均不存在（family 映射依据见 llm outputs.family_mapping_basis）。",
+    "唯一正对来源：same_family_cross_generator（authorbench_dcan + llm_codegen_v2）；不得跨 source 合并平均。"
+  ],
+  "folds": [
+    {
+      "fold_id": "llm_codegen_v2:google:holdout=Gemni-1.5-pro",
+      "source": "llm_codegen_v2",
+      "family": "google",
+      "heldout_generator": "Gemni-1.5-pro",
+      "seen_generators": [
+        "codegemma"
+      ],
+      "declared_record_counts": {
+        "train": 118,
+        "dev": 26,
+        "test": 24
+      },
+      "roles": {
+        "train": {
+          "pairs": 694,
+          "pos": 0,
+          "neg": 694,
+          "tasks": 104,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "dev": {
+          "pairs": 175,
+          "pos": 0,
+          "neg": 175,
+          "tasks": 26,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "test": {
+          "pairs": 157,
+          "pos": 19,
+          "neg": 138,
+          "tasks": 20,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        }
+      },
+      "task_overlap": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "heldout_in_train_dev": {
+        "train": 0,
+        "dev": 0
+      },
+      "train_dev_both_labels": {
+        "train": false,
+        "dev": false
+      },
+      "same_family_cross_generator_positives": {
+        "train": 0,
+        "dev": 0,
+        "test": 19
+      },
+      "field_missing_ratio": {
+        "language": 1.0,
+        "base_model": "absent_in_index",
+        "model_role": "absent_in_index",
+        "repository_id": "absent_in_index"
+      },
+      "code_hash_crossing_splits": {
+        "distinct_endpoint_hashes": 1175,
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0,
+        "all_three": 0
+      },
+      "unresolved_endpoint_hashes": 0,
+      "admitted": false,
+      "fail_reasons": [
+        "no_train_positive_support",
+        "no_dev_positive_support"
+      ]
+    },
+    {
+      "fold_id": "llm_codegen_v2:google:holdout=codegemma",
+      "source": "llm_codegen_v2",
+      "family": "google",
+      "heldout_generator": "codegemma",
+      "seen_generators": [
+        "Gemni-1.5-pro"
+      ],
+      "declared_record_counts": {
+        "train": 118,
+        "dev": 26,
+        "test": 24
+      },
+      "roles": {
+        "train": {
+          "pairs": 664,
+          "pos": 0,
+          "neg": 664,
+          "tasks": 99,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "dev": {
+          "pairs": 162,
+          "pos": 0,
+          "neg": 162,
+          "tasks": 24,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "test": {
+          "pairs": 150,
+          "pos": 19,
+          "neg": 131,
+          "tasks": 19,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        }
+      },
+      "task_overlap": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "heldout_in_train_dev": {
+        "train": 0,
+        "dev": 0
+      },
+      "train_dev_both_labels": {
+        "train": false,
+        "dev": false
+      },
+      "same_family_cross_generator_positives": {
+        "train": 0,
+        "dev": 0,
+        "test": 19
+      },
+      "field_missing_ratio": {
+        "language": 1.0,
+        "base_model": "absent_in_index",
+        "model_role": "absent_in_index",
+        "repository_id": "absent_in_index"
+      },
+      "code_hash_crossing_splits": {
+        "distinct_endpoint_hashes": 1117,
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0,
+        "all_three": 0
+      },
+      "unresolved_endpoint_hashes": 0,
+      "admitted": false,
+      "fail_reasons": [
+        "no_train_positive_support",
+        "no_dev_positive_support"
+      ]
+    },
+    {
+      "fold_id": "llm_codegen_v2:meta:holdout=codellama",
+      "source": "llm_codegen_v2",
+      "family": "meta",
+      "heldout_generator": "codellama",
+      "seen_generators": [
+        "llama2",
+        "llama3"
+      ],
+      "declared_record_counts": {
+        "train": 236,
+        "dev": 52,
+        "test": 24
+      },
+      "roles": {
+        "train": {
+          "pairs": 1181,
+          "pos": 83,
+          "neg": 1098,
+          "tasks": 107,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "dev": {
+          "pairs": 312,
+          "pos": 24,
+          "neg": 288,
+          "tasks": 26,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "test": {
+          "pairs": 160,
+          "pos": 40,
+          "neg": 120,
+          "tasks": 23,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        }
+      },
+      "task_overlap": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "heldout_in_train_dev": {
+        "train": 0,
+        "dev": 0
+      },
+      "train_dev_both_labels": {
+        "train": true,
+        "dev": true
+      },
+      "same_family_cross_generator_positives": {
+        "train": 83,
+        "dev": 24,
+        "test": 40
+      },
+      "field_missing_ratio": {
+        "language": 1.0,
+        "base_model": "absent_in_index",
+        "model_role": "absent_in_index",
+        "repository_id": "absent_in_index"
+      },
+      "code_hash_crossing_splits": {
+        "distinct_endpoint_hashes": 1183,
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0,
+        "all_three": 0
+      },
+      "unresolved_endpoint_hashes": 0,
+      "admitted": true,
+      "fail_reasons": []
+    },
+    {
+      "fold_id": "llm_codegen_v2:meta:holdout=llama2",
+      "source": "llm_codegen_v2",
+      "family": "meta",
+      "heldout_generator": "llama2",
+      "seen_generators": [
+        "codellama",
+        "llama3"
+      ],
+      "declared_record_counts": {
+        "train": 236,
+        "dev": 52,
+        "test": 24
+      },
+      "roles": {
+        "train": {
+          "pairs": 1313,
+          "pos": 102,
+          "neg": 1211,
+          "tasks": 112,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "dev": {
+          "pairs": 324,
+          "pos": 26,
+          "neg": 298,
+          "tasks": 26,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "test": {
+          "pairs": 150,
+          "pos": 38,
+          "neg": 112,
+          "tasks": 19,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        }
+      },
+      "task_overlap": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "heldout_in_train_dev": {
+        "train": 0,
+        "dev": 0
+      },
+      "train_dev_both_labels": {
+        "train": true,
+        "dev": true
+      },
+      "same_family_cross_generator_positives": {
+        "train": 102,
+        "dev": 26,
+        "test": 38
+      },
+      "field_missing_ratio": {
+        "language": 1.0,
+        "base_model": "absent_in_index",
+        "model_role": "absent_in_index",
+        "repository_id": "absent_in_index"
+      },
+      "code_hash_crossing_splits": {
+        "distinct_endpoint_hashes": 1200,
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0,
+        "all_three": 0
+      },
+      "unresolved_endpoint_hashes": 0,
+      "admitted": true,
+      "fail_reasons": []
+    },
+    {
+      "fold_id": "llm_codegen_v2:meta:holdout=llama3",
+      "source": "llm_codegen_v2",
+      "family": "meta",
+      "heldout_generator": "llama3",
+      "seen_generators": [
+        "codellama",
+        "llama2"
+      ],
+      "declared_record_counts": {
+        "train": 236,
+        "dev": 52,
+        "test": 24
+      },
+      "roles": {
+        "train": {
+          "pairs": 1177,
+          "pos": 88,
+          "neg": 1089,
+          "tasks": 116,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "dev": {
+          "pairs": 312,
+          "pos": 24,
+          "neg": 288,
+          "tasks": 26,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "test": {
+          "pairs": 158,
+          "pos": 40,
+          "neg": 118,
+          "tasks": 21,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        }
+      },
+      "task_overlap": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "heldout_in_train_dev": {
+        "train": 0,
+        "dev": 0
+      },
+      "train_dev_both_labels": {
+        "train": true,
+        "dev": true
+      },
+      "same_family_cross_generator_positives": {
+        "train": 88,
+        "dev": 24,
+        "test": 40
+      },
+      "field_missing_ratio": {
+        "language": 1.0,
+        "base_model": "absent_in_index",
+        "model_role": "absent_in_index",
+        "repository_id": "absent_in_index"
+      },
+      "code_hash_crossing_splits": {
+        "distinct_endpoint_hashes": 1194,
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0,
+        "all_three": 0
+      },
+      "unresolved_endpoint_hashes": 0,
+      "admitted": true,
+      "fail_reasons": []
+    },
+    {
+      "fold_id": "llm_codegen_v2:mistral:holdout=codestral",
+      "source": "llm_codegen_v2",
+      "family": "mistral",
+      "heldout_generator": "codestral",
+      "seen_generators": [
+        "mistral"
+      ],
+      "declared_record_counts": {
+        "train": 118,
+        "dev": 26,
+        "test": 24
+      },
+      "roles": {
+        "train": {
+          "pairs": 683,
+          "pos": 0,
+          "neg": 683,
+          "tasks": 103,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "dev": {
+          "pairs": 169,
+          "pos": 0,
+          "neg": 169,
+          "tasks": 25,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        },
+        "test": {
+          "pairs": 157,
+          "pos": 20,
+          "neg": 137,
+          "tasks": 20,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        }
+      },
+      "task_overlap": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "heldout_in_train_dev": {
+        "train": 0,
+        "dev": 0
+      },
+      "train_dev_both_labels": {
+        "train": false,
+        "dev": false
+      },
+      "same_family_cross_generator_positives": {
+        "train": 0,
+        "dev": 0,
+        "test": 20
+      },
+      "field_missing_ratio": {
+        "language": 1.0,
+        "base_model": "absent_in_index",
+        "model_role": "absent_in_index",
+        "repository_id": "absent_in_index"
+      },
+      "code_hash_crossing_splits": {
+        "distinct_endpoint_hashes": 1156,
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0,
+        "all_three": 0
+      },
+      "unresolved_endpoint_hashes": 0,
+      "admitted": false,
+      "fail_reasons": [
+        "no_train_positive_support",
+        "no_dev_positive_support"
+      ]
+    },
+    {
+      "fold_id": "llm_codegen_v2:mistral:holdout=mistral",
+      "source": "llm_codegen_v2",
+      "family": "mistral",
+      "heldout_generator": "mistral",
+      "seen_generators": [
+        "codestral"
+      ],
+      "declared_record_counts": {
+        "train": 118,
+        "dev": 26,
+        "test": 24
+      },
+      "roles": {
+        "train": {
+          "pairs": 690,
+          "pos": 0,
+          "neg": 690,
+          "tasks": 104,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "phi3"
+          ]
+        },
+        "dev": {
+          "pairs": 168,
+          "pos": 0,
+          "neg": 168,
+          "tasks": 25,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "phi3"
+          ]
+        },
+        "test": {
+          "pairs": 157,
+          "pos": 20,
+          "neg": 137,
+          "tasks": 20,
+          "families": [
+            "google",
+            "ibm",
+            "meta",
+            "microsoft",
+            "mistral"
+          ],
+          "generators": [
+            "Gemni-1.5-pro",
+            "codegemma",
+            "codellama",
+            "codestral",
+            "granite-code:3B",
+            "llama2",
+            "llama3",
+            "mistral",
+            "phi3"
+          ]
+        }
+      },
+      "task_overlap": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "heldout_in_train_dev": {
+        "train": 0,
+        "dev": 0
+      },
+      "train_dev_both_labels": {
+        "train": false,
+        "dev": false
+      },
+      "same_family_cross_generator_positives": {
+        "train": 0,
+        "dev": 0,
+        "test": 20
+      },
+      "field_missing_ratio": {
+        "language": 1.0,
+        "base_model": "absent_in_index",
+        "model_role": "absent_in_index",
+        "repository_id": "absent_in_index"
+      },
+      "code_hash_crossing_splits": {
+        "distinct_endpoint_hashes": 1163,
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0,
+        "all_three": 0
+      },
+      "unresolved_endpoint_hashes": 0,
+      "admitted": false,
+      "fail_reasons": [
+        "no_train_positive_support",
+        "no_dev_positive_support"
+      ]
+    },
+    {
+      "fold_id": "authorbench_dcan:openai:holdout=gpt-4.1",
+      "source": "authorbench_dcan",
+      "family": "openai",
+      "heldout_generator": "gpt-4.1",
+      "seen_generators": [
+        "gpt-4o",
+        "gpt-4o-mini"
+      ],
+      "declared_record_counts": {
+        "train": 5773,
+        "dev": 1319,
+        "test": 182
+      },
+      "roles": {
+        "train": {
+          "pairs": 4358,
+          "pos": 343,
+          "neg": 4015,
+          "tasks": 1169,
+          "families": [
+            "claude",
+            "deepseek",
+            "gemini",
+            "llama",
+            "openai",
+            "qwen"
+          ],
+          "generators": [
+            "claude-3.5-haiku",
+            "deepseek-chat",
+            "gemini-2.5-flash-preview-05-20",
+            "gpt-4o",
+            "gpt-4o-mini",
+            "llama-3.3-70b-instruct",
+            "qwen-2.5-72b-instruct"
+          ]
+        },
+        "dev": {
+          "pairs": 1070,
+          "pos": 93,
+          "neg": 977,
+          "tasks": 260,
+          "families": [
+            "claude",
+            "deepseek",
+            "gemini",
+            "llama",
+            "openai",
+            "qwen"
+          ],
+          "generators": [
+            "claude-3.5-haiku",
+            "deepseek-chat",
+            "gemini-2.5-flash-preview-05-20",
+            "gpt-4o",
+            "gpt-4o-mini",
+            "llama-3.3-70b-instruct",
+            "qwen-2.5-72b-instruct"
+          ]
+        },
+        "test": {
+          "pairs": 690,
+          "pos": 193,
+          "neg": 497,
+          "tasks": 182,
+          "families": [
+            "claude",
+            "deepseek",
+            "gemini",
+            "llama",
+            "openai",
+            "qwen"
+          ],
+          "generators": [
+            "claude-3.5-haiku",
+            "deepseek-chat",
+            "gemini-2.5-flash-preview-05-20",
+            "gpt-4.1",
+            "gpt-4o",
+            "gpt-4o-mini",
+            "llama-3.3-70b-instruct",
+            "qwen-2.5-72b-instruct"
+          ]
+        }
+      },
+      "task_overlap": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "heldout_in_train_dev": {
+        "train": 0,
+        "dev": 0
+      },
+      "train_dev_both_labels": {
+        "train": true,
+        "dev": true
+      },
+      "same_family_cross_generator_positives": {
+        "train": 343,
+        "dev": 93,
+        "test": 193
+      },
+      "field_missing_ratio": {
+        "language": 1.0,
+        "base_model": "absent_in_index",
+        "model_role": "absent_in_index",
+        "repository_id": "absent_in_index"
+      },
+      "code_hash_crossing_splits": {
+        "distinct_endpoint_hashes": 6124,
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0,
+        "all_three": 0
+      },
+      "unresolved_endpoint_hashes": 0,
+      "admitted": true,
+      "fail_reasons": []
+    },
+    {
+      "fold_id": "authorbench_dcan:openai:holdout=gpt-4o",
+      "source": "authorbench_dcan",
+      "family": "openai",
+      "heldout_generator": "gpt-4o",
+      "seen_generators": [
+        "gpt-4.1",
+        "gpt-4o-mini"
+      ],
+      "declared_record_counts": {
+        "train": 5829,
+        "dev": 1312,
+        "test": 162
+      },
+      "roles": {
+        "train": {
+          "pairs": 4525,
+          "pos": 400,
+          "neg": 4125,
+          "tasks": 1168,
+          "families": [
+            "claude",
+            "deepseek",
+            "gemini",
+            "llama",
+            "openai",
+            "qwen"
+          ],
+          "generators": [
+            "claude-3.5-haiku",
+            "deepseek-chat",
+            "gemini-2.5-flash-preview-05-20",
+            "gpt-4.1",
+            "gpt-4o-mini",
+            "llama-3.3-70b-instruct",
+            "qwen-2.5-72b-instruct"
+          ]
+        },
+        "dev": {
+          "pairs": 1074,
+          "pos": 102,
+          "neg": 972,
+          "tasks": 244,
+          "families": [
+            "claude",
+            "deepseek",
+            "gemini",
+            "llama",
+            "openai",
+            "qwen"
+          ],
+          "generators": [
+            "claude-3.5-haiku",
+            "deepseek-chat",
+            "gemini-2.5-flash-preview-05-20",
+            "gpt-4.1",
+            "gpt-4o-mini",
+            "llama-3.3-70b-instruct",
+            "qwen-2.5-72b-instruct"
+          ]
+        },
+        "test": {
+          "pairs": 645,
+          "pos": 181,
+          "neg": 464,
+          "tasks": 162,
+          "families": [
+            "claude",
+            "deepseek",
+            "gemini",
+            "llama",
+            "openai",
+            "qwen"
+          ],
+          "generators": [
+            "claude-3.5-haiku",
+            "deepseek-chat",
+            "gemini-2.5-flash-preview-05-20",
+            "gpt-4.1",
+            "gpt-4o",
+            "gpt-4o-mini",
+            "llama-3.3-70b-instruct",
+            "qwen-2.5-72b-instruct"
+          ]
+        }
+      },
+      "task_overlap": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "heldout_in_train_dev": {
+        "train": 0,
+        "dev": 0
+      },
+      "train_dev_both_labels": {
+        "train": true,
+        "dev": true
+      },
+      "same_family_cross_generator_positives": {
+        "train": 400,
+        "dev": 102,
+        "test": 181
+      },
+      "field_missing_ratio": {
+        "language": 1.0,
+        "base_model": "absent_in_index",
+        "model_role": "absent_in_index",
+        "repository_id": "absent_in_index"
+      },
+      "code_hash_crossing_splits": {
+        "distinct_endpoint_hashes": 6072,
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0,
+        "all_three": 0
+      },
+      "unresolved_endpoint_hashes": 0,
+      "admitted": true,
+      "fail_reasons": []
+    },
+    {
+      "fold_id": "authorbench_dcan:openai:holdout=gpt-4o-mini",
+      "source": "authorbench_dcan",
+      "family": "openai",
+      "heldout_generator": "gpt-4o-mini",
+      "seen_generators": [
+        "gpt-4.1",
+        "gpt-4o"
+      ],
+      "declared_record_counts": {
+        "train": 5773,
+        "dev": 1303,
+        "test": 162
+      },
+      "roles": {
+        "train": {
+          "pairs": 4351,
+          "pos": 357,
+          "neg": 3994,
+          "tasks": 1155,
+          "families": [
+            "claude",
+            "deepseek",
+            "gemini",
+            "llama",
+            "openai",
+            "qwen"
+          ],
+          "generators": [
+            "claude-3.5-haiku",
+            "deepseek-chat",
+            "gemini-2.5-flash-preview-05-20",
+            "gpt-4.1",
+            "gpt-4o",
+            "llama-3.3-70b-instruct",
+            "qwen-2.5-72b-instruct"
+          ]
+        },
+        "dev": {
+          "pairs": 1031,
+          "pos": 76,
+          "neg": 955,
+          "tasks": 261,
+          "families": [
+            "claude",
+            "deepseek",
+            "gemini",
+            "llama",
+            "openai",
+            "qwen"
+          ],
+          "generators": [
+            "claude-3.5-haiku",
+            "deepseek-chat",
+            "gemini-2.5-flash-preview-05-20",
+            "gpt-4.1",
+            "gpt-4o",
+            "llama-3.3-70b-instruct",
+            "qwen-2.5-72b-instruct"
+          ]
+        },
+        "test": {
+          "pairs": 645,
+          "pos": 186,
+          "neg": 459,
+          "tasks": 162,
+          "families": [
+            "claude",
+            "deepseek",
+            "gemini",
+            "llama",
+            "openai",
+            "qwen"
+          ],
+          "generators": [
+            "claude-3.5-haiku",
+            "deepseek-chat",
+            "gemini-2.5-flash-preview-05-20",
+            "gpt-4.1",
+            "gpt-4o",
+            "gpt-4o-mini",
+            "llama-3.3-70b-instruct",
+            "qwen-2.5-72b-instruct"
+          ]
+        }
+      },
+      "task_overlap": {
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0
+      },
+      "heldout_in_train_dev": {
+        "train": 0,
+        "dev": 0
+      },
+      "train_dev_both_labels": {
+        "train": true,
+        "dev": true
+      },
+      "same_family_cross_generator_positives": {
+        "train": 357,
+        "dev": 76,
+        "test": 186
+      },
+      "field_missing_ratio": {
+        "language": 1.0,
+        "base_model": "absent_in_index",
+        "model_role": "absent_in_index",
+        "repository_id": "absent_in_index"
+      },
+      "code_hash_crossing_splits": {
+        "distinct_endpoint_hashes": 6011,
+        "train_dev": 0,
+        "train_test": 0,
+        "dev_test": 0,
+        "all_three": 0
+      },
+      "unresolved_endpoint_hashes": 0,
+      "admitted": true,
+      "fail_reasons": []
+    }
+  ],
+  "summary": {
+    "fold_count": 10,
+    "admitted_count": 6,
+    "admitted_fold_ids": [
+      "llm_codegen_v2:meta:holdout=codellama",
+      "llm_codegen_v2:meta:holdout=llama2",
+      "llm_codegen_v2:meta:holdout=llama3",
+      "authorbench_dcan:openai:holdout=gpt-4.1",
+      "authorbench_dcan:openai:holdout=gpt-4o",
+      "authorbench_dcan:openai:holdout=gpt-4o-mini"
+    ],
+    "diagnostic_fold_ids": [
+      "llm_codegen_v2:google:holdout=Gemni-1.5-pro",
+      "llm_codegen_v2:google:holdout=codegemma",
+      "llm_codegen_v2:mistral:holdout=codestral",
+      "llm_codegen_v2:mistral:holdout=mistral"
+    ]
+  },
+  "test_access": "Metadata/support audit only. No model scores computed; no hyperparameter selection."
+}

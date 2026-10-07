@@ -1,0 +1,66 @@
+rows=9498 train=6557 dev=1484 test=1457 tasks=2715 families=Counter({4: 3320, 3: 1288, 5: 1271, 1: 1248, 0: 1192, 2: 1179})
+metadata_only: dev 0.3829
+[p0]     sgd seed0 ep1: dev F1 0.7420
+[p0]     sgd seed0 ep2: dev F1 0.7948
+[p0]     sgd seed0 ep3: dev F1 0.8126
+[p0]     sgd seed0 ep4: dev F1 0.8320
+[p0]     sgd seed0 ep5: dev F1 0.8442
+[p0]     sgd seed1 ep1: dev F1 0.7289
+[p0]     sgd seed1 ep2: dev F1 0.7781
+[p0]     sgd seed1 ep3: dev F1 0.8161
+[p0]     sgd seed1 ep4: dev F1 0.8339
+[p0]     sgd seed1 ep5: dev F1 0.8336
+[p0]     sgd seed2 ep1: dev F1 0.7420
+[p0]     sgd seed2 ep2: dev F1 0.7891
+[p0]     sgd seed2 ep3: dev F1 0.8346
+[p0]     sgd seed2 ep4: dev F1 0.8400
+[p0]     sgd seed2 ep5: dev F1 0.8429
+tfidf_word: vocab=75088 dev F1 [0.8442, 0.8339, 0.8429]
+[p0]     sgd seed0 ep1: dev F1 0.6894
+[p0]     sgd seed0 ep2: dev F1 0.7289
+[p0]     sgd seed0 ep3: dev F1 0.7531
+[p0]     sgd seed0 ep4: dev F1 0.7774
+[p0]     sgd seed0 ep5: dev F1 0.7902
+[p0]     sgd seed1 ep1: dev F1 0.6493
+[p0]     sgd seed1 ep2: dev F1 0.7272
+[p0]     sgd seed1 ep3: dev F1 0.7762
+[p0]     sgd seed1 ep4: dev F1 0.7870
+[p0]     sgd seed1 ep5: dev F1 0.7896
+[p0]     sgd seed2 ep1: dev F1 0.6457
+[p0]     sgd seed2 ep2: dev F1 0.7337
+[p0]     sgd seed2 ep3: dev F1 0.7609
+[p0]     sgd seed2 ep4: dev F1 0.7895
+[p0]     sgd seed2 ep5: dev F1 0.7979
+tfidf_char: vocab=56067 dev F1 [0.7902, 0.7896, 0.7979]
+Loading weights:   0%|          | 0/52 [00:00<?, ?it/s]Loading weights: 100%|██████████| 52/52 [00:00<00:00, 2406.77it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/models/codet5-small
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+codet5-small embeddings: (9498, 512)
+codet5_meanpool: dev 0.6714
+codet5_centered: dev 0.6696 | unscaled: dev 0.6616
+reused P0 rows: ['p0_fusion_lr', 'p0_tfidf_word', 'p0_tfidf_char', 'p0_style_lgb', 'p0_style_lr', 'p0_sem_lr', 'p0_mean_ensemble']
+[test] metadata_only                f1=0.3744 ba=0.3962 ci=[0.3512,0.3970]
+[test] tfidf_word                   f1=0.8200 ba=0.8125 ci=[0.7966,0.8400]
+[test] tfidf_char                   f1=0.7692 ba=0.7767 ci=[0.7456,0.7930]
+[test] codet5_meanpool              f1=0.6440 ba=0.6580 ci=[0.6186,0.6662]
+[test] codet5_centered              f1=0.6487 ba=0.6660 ci=[0.6227,0.6715]
+[test] codet5_centered_unscaled     f1=0.6380 ba=0.6607 ci=[0.6107,0.6625]
+[test] p0_fusion_lr                 f1=0.8388 ba=0.8319 ci=[0.8189,0.8588]
+[test] p0_tfidf_word                f1=0.8200 ba=0.8125 ci=[0.7966,0.8400]
+[test] p0_tfidf_char                f1=0.7692 ba=0.7767 ci=[0.7456,0.7930]
+[test] p0_style_lgb                 f1=0.7227 ba=0.7163 ci=[0.6978,0.7441]
+[test] p0_style_lr                  f1=0.5586 ba=0.5673 ci=[0.5328,0.5844]
+[test] p0_sem_lr                    f1=0.6535 ba=0.6543 ci=[0.6274,0.6760]
+[test] p0_mean_ensemble             f1=0.8282 ba=0.8159 ci=[0.8056,0.8494]
+{
+  "gate": {
+    "cond1_content_above_chance_and_metadata": true,
+    "cond2_plus_1pt_over_p0": false,
+    "verdict": "D1 未通过：按指导 §3.2 —— 结论为 task-aware 可读性/任务效应审计；停止新架构探索，转入数据构造。"
+  }
+}

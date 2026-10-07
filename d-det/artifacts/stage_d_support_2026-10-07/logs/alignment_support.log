@@ -1,0 +1,19 @@
+{
+  "fold_count": 10,
+  "admitted_count": 6,
+  "admitted_fold_ids": [
+    "llm_codegen_v2:meta:holdout=codellama",
+    "llm_codegen_v2:meta:holdout=llama2",
+    "llm_codegen_v2:meta:holdout=llama3",
+    "authorbench_dcan:openai:holdout=gpt-4.1",
+    "authorbench_dcan:openai:holdout=gpt-4o",
+    "authorbench_dcan:openai:holdout=gpt-4o-mini"
+  ],
+  "diagnostic_fold_ids": [
+    "llm_codegen_v2:google:holdout=Gemni-1.5-pro",
+    "llm_codegen_v2:google:holdout=codegemma",
+    "llm_codegen_v2:mistral:holdout=codestral",
+    "llm_codegen_v2:mistral:holdout=mistral"
+  ]
+}
+wrote /root/autodl-tmp/u-det/d-det/artifacts/stage_d_support_2026-10-07/alignment_support.json

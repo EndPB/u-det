@@ -1,0 +1,6 @@
+# Stage D1 执行命令（2026-10-07，服务器）
+cd /root/autodl-tmp/u-det
+source /root/miniconda3/etc/profile.d/conda.sh && conda activate udet
+export OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 TOKENIZERS_PARALLELISM=false
+python scripts/stage_d_h1_authorbench_dcan.py 2>&1 | tee d-det/artifacts/stage_d_h1_authorbench_dcan_2026-10-07/logs/run_console.log
+python scripts/stage_d_h1_build_report.py

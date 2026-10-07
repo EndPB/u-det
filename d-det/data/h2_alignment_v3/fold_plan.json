@@ -1,0 +1,151 @@
+{
+  "dataset_id": "h2_alignment_v3",
+  "folds": [
+    {
+      "fold_id": "llm_codegen_v2:google:holdout=Gemni-1.5-pro",
+      "source": "llm_codegen_v2",
+      "family": "google",
+      "heldout_generator": "Gemni-1.5-pro",
+      "seen_generators": [
+        "codegemma"
+      ],
+      "protocol": "train/dev use task splits with heldout generator removed; test uses heldout generator on unseen test tasks",
+      "train_rows": 118,
+      "dev_rows": 26,
+      "test_rows": 24,
+      "warning": "Auxiliary generator-transfer evidence; do not merge with task-heldout main tables."
+    },
+    {
+      "fold_id": "llm_codegen_v2:google:holdout=codegemma",
+      "source": "llm_codegen_v2",
+      "family": "google",
+      "heldout_generator": "codegemma",
+      "seen_generators": [
+        "Gemni-1.5-pro"
+      ],
+      "protocol": "train/dev use task splits with heldout generator removed; test uses heldout generator on unseen test tasks",
+      "train_rows": 118,
+      "dev_rows": 26,
+      "test_rows": 24,
+      "warning": "Auxiliary generator-transfer evidence; do not merge with task-heldout main tables."
+    },
+    {
+      "fold_id": "llm_codegen_v2:meta:holdout=codellama",
+      "source": "llm_codegen_v2",
+      "family": "meta",
+      "heldout_generator": "codellama",
+      "seen_generators": [
+        "llama2",
+        "llama3"
+      ],
+      "protocol": "train/dev use task splits with heldout generator removed; test uses heldout generator on unseen test tasks",
+      "train_rows": 236,
+      "dev_rows": 52,
+      "test_rows": 24,
+      "warning": "Auxiliary generator-transfer evidence; do not merge with task-heldout main tables."
+    },
+    {
+      "fold_id": "llm_codegen_v2:meta:holdout=llama2",
+      "source": "llm_codegen_v2",
+      "family": "meta",
+      "heldout_generator": "llama2",
+      "seen_generators": [
+        "codellama",
+        "llama3"
+      ],
+      "protocol": "train/dev use task splits with heldout generator removed; test uses heldout generator on unseen test tasks",
+      "train_rows": 236,
+      "dev_rows": 52,
+      "test_rows": 24,
+      "warning": "Auxiliary generator-transfer evidence; do not merge with task-heldout main tables."
+    },
+    {
+      "fold_id": "llm_codegen_v2:meta:holdout=llama3",
+      "source": "llm_codegen_v2",
+      "family": "meta",
+      "heldout_generator": "llama3",
+      "seen_generators": [
+        "codellama",
+        "llama2"
+      ],
+      "protocol": "train/dev use task splits with heldout generator removed; test uses heldout generator on unseen test tasks",
+      "train_rows": 236,
+      "dev_rows": 52,
+      "test_rows": 24,
+      "warning": "Auxiliary generator-transfer evidence; do not merge with task-heldout main tables."
+    },
+    {
+      "fold_id": "llm_codegen_v2:mistral:holdout=codestral",
+      "source": "llm_codegen_v2",
+      "family": "mistral",
+      "heldout_generator": "codestral",
+      "seen_generators": [
+        "mistral"
+      ],
+      "protocol": "train/dev use task splits with heldout generator removed; test uses heldout generator on unseen test tasks",
+      "train_rows": 118,
+      "dev_rows": 26,
+      "test_rows": 24,
+      "warning": "Auxiliary generator-transfer evidence; do not merge with task-heldout main tables."
+    },
+    {
+      "fold_id": "llm_codegen_v2:mistral:holdout=mistral",
+      "source": "llm_codegen_v2",
+      "family": "mistral",
+      "heldout_generator": "mistral",
+      "seen_generators": [
+        "codestral"
+      ],
+      "protocol": "train/dev use task splits with heldout generator removed; test uses heldout generator on unseen test tasks",
+      "train_rows": 118,
+      "dev_rows": 26,
+      "test_rows": 24,
+      "warning": "Auxiliary generator-transfer evidence; do not merge with task-heldout main tables."
+    },
+    {
+      "fold_id": "authorbench_dcan:openai:holdout=gpt-4.1",
+      "source": "authorbench_dcan",
+      "family": "openai",
+      "heldout_generator": "gpt-4.1",
+      "seen_generators": [
+        "gpt-4o",
+        "gpt-4o-mini"
+      ],
+      "protocol": "train/dev use task splits with heldout generator removed; test uses heldout generator on unseen test tasks",
+      "train_rows": 5773,
+      "dev_rows": 1319,
+      "test_rows": 182,
+      "warning": "Auxiliary generator-transfer evidence; do not merge with task-heldout main tables."
+    },
+    {
+      "fold_id": "authorbench_dcan:openai:holdout=gpt-4o",
+      "source": "authorbench_dcan",
+      "family": "openai",
+      "heldout_generator": "gpt-4o",
+      "seen_generators": [
+        "gpt-4.1",
+        "gpt-4o-mini"
+      ],
+      "protocol": "train/dev use task splits with heldout generator removed; test uses heldout generator on unseen test tasks",
+      "train_rows": 5829,
+      "dev_rows": 1312,
+      "test_rows": 162,
+      "warning": "Auxiliary generator-transfer evidence; do not merge with task-heldout main tables."
+    },
+    {
+      "fold_id": "authorbench_dcan:openai:holdout=gpt-4o-mini",
+      "source": "authorbench_dcan",
+      "family": "openai",
+      "heldout_generator": "gpt-4o-mini",
+      "seen_generators": [
+        "gpt-4.1",
+        "gpt-4o"
+      ],
+      "protocol": "train/dev use task splits with heldout generator removed; test uses heldout generator on unseen test tasks",
+      "train_rows": 5773,
+      "dev_rows": 1303,
+      "test_rows": 162,
+      "warning": "Auxiliary generator-transfer evidence; do not merge with task-heldout main tables."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "script": "scripts/stage_d_h1_authorbench_dcan.py",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "C_grid": [
+    0.03,
+    0.1,
+    0.3,
+    1.0
+  ],
+  "bootstrap": {
+    "repeats": 500,
+    "cluster": "task_id",
+    "seed": 20261007
+  },
+  "encoder_ckpt": "d-det/models/codet5-small",
+  "data": "d-det/data/h2_authorbench_dcan/core.jsonl",
+  "data_sha256": "2bd5ef8667b521bece97a26294cdbed6f5e9c3781b97ca1396dcf7548c244aca",
+  "model": "d-det/models/codet5-small",
+  "split": "package task_split; task-isolated; test once",
+  "tfidf": "word/char_wb(2,4) min_df 3/5 sublinear; SGD log_loss 5ep best-dev; class-inverse weights",
+  "codet5": "frozen codet5-small mean-pool 512d; trunc 384+128; special tokens False; StandardScaler(train)+LR(balanced) C∈{.03,.1,.3,1} dev-select",
+  "centered": "LOO task-sibling mean, label-free; transductive diagnostic"
+}

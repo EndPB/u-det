@@ -47,3 +47,6 @@ d-det/artifacts/h2_pair_round2/features/
 
 # ACL SOTA P0：官方复现 OOF 概率缓存（26MB，可重算不入库；metrics/compare JSON 入库）
 d-det/artifacts/acl_sota_p0/stacad_official_repro/*.npz
+
+# h2_alignment_v3 大索引（42MB，可自 bundle 重建；磁盘留存不入库）
+d-det/data/h2_alignment_v3/pair_index.jsonl

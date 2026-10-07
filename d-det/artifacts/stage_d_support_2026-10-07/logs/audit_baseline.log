@@ -1,0 +1,9 @@
+authorbench_complete 1912
+authorbench_dcan 9498
+llm_codegen_v2 690
+stacad_alignment 22260
+droid_full 146718
+droid_subset 18000
+codet_m4_control 18870
+aicd_numeric_control 48877
+{"out": "d-det/artifacts/stage_d_support_2026-10-07", "admitted_pair_folds": 6}

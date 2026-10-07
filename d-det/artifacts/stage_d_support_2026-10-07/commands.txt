@@ -1,0 +1,7 @@
+# Stage D0 执行命令（2026-10-07，服务器）
+cd /root/autodl-tmp/u-det
+mkdir -p d-det/artifacts/stage_d_support_2026-10-07/logs
+git rev-parse HEAD > d-det/artifacts/stage_d_support_2026-10-07/git_head.txt
+git status --short --branch > d-det/artifacts/stage_d_support_2026-10-07/git_status.txt
+python scripts/audit_acl_local_readiness.py --out d-det/artifacts/stage_d_support_2026-10-07
+python scripts/stage_d_alignment_support_audit.py
