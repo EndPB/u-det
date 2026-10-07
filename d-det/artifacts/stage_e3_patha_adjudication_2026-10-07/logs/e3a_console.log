@@ -1,0 +1,7 @@
+输入：候选 144；positive pair 695 行 / 159 task / 82 group
+E3 新 split 复现一致：{'train': 102, 'test': 22, 'dev': 20}
+path_a_history_role.json 已写出
+path_a_adjudication.md 已写出
+exploratory/status.json 已写出（awaiting_user_acceptance）
+fresh_namespace_plan.json（E3c 蓝图）已写出
+{"e3a": "done", "summary": {"historical_train_seen": 118, "historical_dev_seen": 26}, "new_test_role_mix": {"historical_train_seen": 18, "historical_dev_seen": 4}, "runtime_s": 0.1}

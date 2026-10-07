@@ -1,0 +1,40 @@
+{
+  "schema": "stage_e3c_fresh_namespace_plan_v1",
+  "status": "plan_only_blocked_on_external_inputs",
+  "requirements": [
+    "新 task/provenance 不在 LCv2/AB 已开发或已暴露集合内（需提供来源与许可）",
+    "先按 task/provenance group 固定 train/dev/test，再生成（generation 前冻结 split）",
+    "同一新 task 至少由同一 source unit 的三个可靠 generator 生成",
+    "target generator 版本/许可/请求参数/失败重试可复现",
+    "冻结 positive/negative 定义、heldout generator 折、强 P0 双列（fusion+eq）、test 单次读取",
+    "生成后 exact/ws/lex 对历史全量碰撞 = 0；碰撞组保留解释",
+    "未授权前不调用 API、不下载模型"
+  ],
+  "candidate_source_units": {
+    "meta": {
+      "existing_generators": 3,
+      "缺口": "无（在 fresh namespace 上重新生成 3 个既有 generator 输出即可）"
+    },
+    "google|mistral": {
+      "existing_generators": 2,
+      "缺口": "第三 generator 的版本/许可/权重（本机无）"
+    },
+    "openai(AB)": {
+      "existing_generators": 3,
+      "缺口": "闭源 API 授权 + 全新任务集"
+    }
+  },
+  "cost_and_disk_estimate": {
+    "scale_assumption": "≈150–300 新 task × 3 family × 3 generator",
+    "raw_outputs": "≈1–2 MB 原文 + 索引 < 5 MB（E1/E2 一致量级 ≈15 MB 上限）",
+    "generation_cost": "本地三 generator 若权重可得（GPU 小时级）；闭源 API 成本未知",
+    "missing_assets": [
+      "fresh 任务集（来源+许可）",
+      "生成授权",
+      "（若走 google/mistral）第三 generator 权重/API"
+    ]
+  },
+  "training_allowed": false,
+  "new_generation_allowed": false,
+  "power": "power_unknown（按真实 task 相关性预注册模拟；当前 51–144 task 的 CI 半宽 2.9–4.8pt 仅作参照）"
+}

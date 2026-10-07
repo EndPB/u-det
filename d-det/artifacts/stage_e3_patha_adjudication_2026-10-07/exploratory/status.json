@@ -1,0 +1,33 @@
+{
+  "schema": "stage_e3b_status_v1",
+  "status": "awaiting_user_acceptance",
+  "note": "服务器不自行把 Path A 从 blocked 改为 ready；需用户明确接受 development-namespace exploratory 口径。",
+  "authorization_template_pending": {
+    "accepted_label": "exploratory_reuse_only",
+    "confirmatory_independent": false,
+    "main_h2_table": false,
+    "appendix_or_diagnostic": true,
+    "training_allowed": false,
+    "new_generation_allowed": false,
+    "new_test_read_allowed": true,
+    "selection_after_read": false,
+    "allowed_question": "performance on a held-out re-split of a historically developed namespace",
+    "forbidden_claims": [
+      "independent new-task generalization",
+      "universal cross-family geometry",
+      "post-training causal effect",
+      "H3 separation"
+    ]
+  },
+  "planned_frozen_readouts_if_authorized": [
+    "pair 级判决：复用 h2_pair_round2 的既有冻结模型对（meta 族正对）在新重切分 test 上打分；不重训、不调阈值、不选 seed",
+    "冻结 CodeT5-base 嵌入的余弦相似度（零训练读出）",
+    "报告 = 每 generator-heldout fold 的 BA/macro-F1/family/generator recall/task-cluster bootstrap CI/历史角色构成/test exposure；标题 = 'LCv2 development-namespace exploratory re-split'"
+  ],
+  "forbidden_actions": [
+    "任何训练或重拟合（含 P0 fusion）",
+    "阈值/seed/任务/generator 的选择",
+    "改写 split",
+    "进入主 H2 表"
+  ]
+}

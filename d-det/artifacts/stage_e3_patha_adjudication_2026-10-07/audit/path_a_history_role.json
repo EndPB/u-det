@@ -1,0 +1,3811 @@
+{
+  "schema": "stage_e3a_path_a_history_role_v1",
+  "generated_utc": "2026-10-07T11:02:21.228777+00:00",
+  "inputs": {
+    "e2_candidate_tasks": {
+      "path": "d-det/artifacts/stage_e2_independent_pilot_2026-10-07/task_dry_run/candidate_tasks.jsonl",
+      "sha256": "45215c71cb0db37c89259a63ab226d918a817b9c34c107b145f0ce4ab5934236"
+    },
+    "e2_split_plan": {
+      "sha256": "3abed7c241edad8c8fde3b55f592eda558b8716babffaa2f6aa7b1a3d3e545cb"
+    },
+    "lcv2_positive_pair_index": {
+      "sha256": "199a32cd355655d77e8a5b9dc94997801b579f8ce3c8e100de0e60d07e2076d3"
+    },
+    "lcv2_response_tasks": {
+      "sha256": "94a42b1db7a91aa2b7fa3e863dbe980e6cc8556297ac1d1e176d33db42fe159a"
+    }
+  },
+  "historical_role_definitions": {
+    "historical_train_seen": "task 或其同组数据参与过历史训练（pair-train 命名空间/dev 训练）",
+    "historical_dev_seen": "用于阈值/超参/模型选择（pair-dev 或库 split=dev）",
+    "historical_test_read": "已被读取或用于报告",
+    "historical_unread_but_development_namespace": "未读但来自已开发 namespace",
+    "fresh_unseen_namespace": "新的 provenance/task namespace"
+  },
+  "summary": {
+    "candidates": 144,
+    "historical_role_counts": {
+      "historical_train_seen": 118,
+      "historical_dev_seen": 26
+    },
+    "new_test_tasks": 22,
+    "new_test_historical_role_counts": {
+      "historical_train_seen": 18,
+      "historical_dev_seen": 4
+    },
+    "tasks_with_historical_pair_usage": 138,
+    "fresh_unseen_namespace_tasks": 0,
+    "fresh_test_eligible_tasks": 0,
+    "adjudication": {
+      "confirmatory_independent": false,
+      "exploratory_development_namespace_reuse": true,
+      "h2_main_table_allowed": false,
+      "h2_appendix_diagnostic_allowed": "conditional（需用户明确接受降级标签后才可进行 E3b 只读复核）",
+      "training_allowed": false,
+      "new_generation_allowed": false
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "secure:CWE-119",
+      "group_id": "CWE-119",
+      "cwe": "CWE-119",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "26fa73be6958346d1c21c92e7988af0f0cd49fd2e1e5bfd1a28b17290d49d3fe",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-120",
+      "group_id": "CWE-120",
+      "cwe": "CWE-120",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "cc974d77638a10b3bcf1abec9c5c643ba702542d48150a3cb0607148233508e8",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-121",
+      "group_id": "CWE-121",
+      "cwe": "CWE-121",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "9bdac641f8ae9f69c0f9336e98880bfc6865a418cbdf1ec1e38b3fb2c5da66ea",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-122",
+      "group_id": "CWE-122",
+      "cwe": "CWE-122",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "e5919cf12d6c933e2192c8db51e9e692eb80039b5340cd37ac5b99958e2b7c3e",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-123",
+      "group_id": "CWE-123",
+      "cwe": "CWE-123",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 4,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "8cae71ae3066067f89c4dbf1f1bc1c14d21be30b981f7f937179c9a332a63cc5",
+      "endpoint_hashes": "8acf53b9a7b698bf7cd92c70272277bbfef5fb8feba8fb0a973ee06b6c258cca",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-124",
+      "group_id": "CWE-124",
+      "cwe": "CWE-124",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "b4ef6096cc4cbe53020079b60707197b5ead0f5300af2d1b5f0fdc3d2402e51a",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-126-127",
+      "group_id": "CWE-126-127",
+      "cwe": "CWE-126-127",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "35b79f1867570455deff3aaf51dbbbf9be850bd4982bca399ed7995cc7ef5d03",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-128",
+      "group_id": "CWE-128",
+      "cwe": "CWE-128",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "1b2ab4aade43e441744dba3e4cd943dd01432964dec91d132966e7ec4c3620ff",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-129",
+      "group_id": "CWE-129",
+      "cwe": "CWE-129",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "f2edaaa954f9b6eecb6250665e222c8725abdf5b42d53562e3e7ca42c11997ae",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-130",
+      "group_id": "CWE-130",
+      "cwe": "CWE-130",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "d7a524654ffc5ab6d019656edc033d34bd66fbc9405b8c037ce361e6ca9317e8",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-131",
+      "group_id": "CWE-131",
+      "cwe": "CWE-131",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "500c03c223b056cb00fb15e663f8a3ba239f43f6e611176a392d1c342aa75186",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-1325",
+      "group_id": "CWE-1325",
+      "cwe": "CWE-1325",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "b7ef3302df932ba8bffae521293b61052e8c80a71370c51384d3cc49f86f1b45",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-1335",
+      "group_id": "CWE-1335",
+      "cwe": "CWE-1335",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "21ebb09322b23e5104266c602fb0f29583227e4bc65df8c1894754e7d9a181f6",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-134",
+      "group_id": "CWE-134",
+      "cwe": "CWE-134",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "3ceefcfe0fd7ccf402b0854632e7131c3ae0fb54783d6e68c31d22b5b4b13c47",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-1341",
+      "group_id": "CWE-1341",
+      "cwe": "CWE-1341",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "dev",
+      "task_source_hash": "5d6f1161523dfdab8ffe4077b1658b464c8af3e0a99648d3d335eedbd0447aff",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-14",
+      "group_id": "CWE-14",
+      "cwe": "CWE-14",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "5adadffe6367d94b0554e6765d56f9cf11d28db918137a0c1f7b1b47a7daaed7",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-188",
+      "group_id": "CWE-188",
+      "cwe": "CWE-188",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "5e7e4f362e74e81f5d3eb582731152373419634e95471dff3b6b2515049d249d",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-191",
+      "group_id": "CWE-191",
+      "cwe": "CWE-191",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "0761af2eedc9722841475461eb72cab7efeedfddc9471415d72875a1a3f3f9e9",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-192",
+      "group_id": "CWE-192",
+      "cwe": "CWE-192",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "35ea64c98a2d82fbcb660e38293e5459b73a40e38206b551f1ac87ecebe223c6",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-195",
+      "group_id": "CWE-195",
+      "cwe": "CWE-195",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "8141eb58bd0e2864417b8ac30c96959c91670378db44dfac9da98c56d3fffeb6",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-197",
+      "group_id": "CWE-197",
+      "cwe": "CWE-197",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "73be7f6824043451cc7538231fb376330be5333e8108f0f3493b20bce8a541bc",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-242",
+      "group_id": "CWE-242",
+      "cwe": "CWE-242",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "be2029cb9b8dbb46349e54d1bb2dd4ebeb5e9ef46b6689c4d719702847dc6884",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-243",
+      "group_id": "CWE-243",
+      "cwe": "CWE-243",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 2,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "dev",
+      "task_source_hash": "03a8fc50592195bfcbd926a61f80b545e8d2861ab76ca9ecee23f5e4e231aeb8",
+      "endpoint_hashes": "c722a03365758b8c78783602c96e90534f485e50b723a67d89853c07f961595d",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-244",
+      "group_id": "CWE-244",
+      "cwe": "CWE-244",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "2f82ab2c398c1874a0d9876790899d102425e2777c3b1b6725543dac75b3df66",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-248",
+      "group_id": "CWE-248",
+      "cwe": "CWE-248",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 0,
+      "pair_index_splits": [],
+      "pair_train_used": false,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "20663592f16977145d9e86b97fa7dd56beb6edbe545b379e2a9bd6c52a04800c",
+      "endpoint_hashes": null,
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-362",
+      "group_id": "CWE-362",
+      "cwe": "CWE-362",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "17ff40cbbace51876cf723c6f5003288d23f6304c480530b171c5238d90550c0",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-364",
+      "group_id": "CWE-364",
+      "cwe": "CWE-364",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "test",
+      "task_source_hash": "d65d213221ec254f083a31eeb14efe85ff88f7746def602c947b7b449b43f4c1",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-366",
+      "group_id": "CWE-366",
+      "cwe": "CWE-366",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 4,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "225405c4e5c39a24f16601b433a5c275d0c5282e3e73194969c6a27406c92e6a",
+      "endpoint_hashes": "7aca69b24ac552308f3427090e2e6303eecc0c9fa7e05c8740ec5bab961a6029",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-374",
+      "group_id": "CWE-374",
+      "cwe": "CWE-374",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "dev",
+      "task_source_hash": "8e0f5e89392cc61d0320cd668f74ff94472ec1152481296665cd2309269cb45a",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-375",
+      "group_id": "CWE-375",
+      "cwe": "CWE-375",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 2,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "83d43408fcd54fb5e94b619803a66af43bed7c0586e2c3d3b006c11218ffecbb",
+      "endpoint_hashes": "a1c834572dbb530b3e958d35d34cb007b23f0dbc37c6005e328ffae4cf534136",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-397",
+      "group_id": "CWE-397",
+      "cwe": "CWE-397",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 1,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "fa22d5dc1ae0cb31540e5f45ed5940086c9a0bb296161d40c66e6bc91c853ea5",
+      "endpoint_hashes": "ec631250f60e7a88065d048b19575490ffd2740c7516ae8c1e0618a6a2098c43",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-401-415-416",
+      "group_id": "CWE-401-415-416",
+      "cwe": "CWE-401-415-416",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "b40ae668c96cd76b0277aa0369d03c9590beea9e49f3cacba9ad24f18941ab2e",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-460",
+      "group_id": "CWE-460",
+      "cwe": "CWE-460",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "2d78bcbc85252b3b056aab3f8abf9ed88b379c0f559dbef71b26f10f1310b455",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-462",
+      "group_id": "CWE-462",
+      "cwe": "CWE-462",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "9d02d6f133f6db417b72f03bc527564bca9ab91ce0b731e70fbe07efda305608",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-463",
+      "group_id": "CWE-463",
+      "cwe": "CWE-463",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "dev",
+      "task_source_hash": "60c71520c2c28c6256614c7a3ecba47abc7f58194cf31e8d560e454536cb0a73",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-464",
+      "group_id": "CWE-464",
+      "cwe": "CWE-464",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "5a7f43579bb5f65febd2b84d336a19e1d1315e481086a362cd0d775540df8da7",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-466",
+      "group_id": "CWE-466",
+      "cwe": "CWE-466",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "025286746e2afdd4c62356badc1f735c6efa122d521eedcf2e4c412682765667",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-467",
+      "group_id": "CWE-467",
+      "cwe": "CWE-467",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 2,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "01f67434ff9c0819bf4d25a197801fb6d7e60cdfa9d2911ffbd705cb3974c960",
+      "endpoint_hashes": "c722a03365758b8c78783602c96e90534f485e50b723a67d89853c07f961595d",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-468",
+      "group_id": "CWE-468",
+      "cwe": "CWE-468",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "4a2ae54893e2d4b1afbeae4a2f4270d33086d04ae4ee5b0feadb70e660606aed",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-474",
+      "group_id": "CWE-474",
+      "cwe": "CWE-474",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "845adaa202921ea2445d483039064284b35ec18f4234c2622885ddc66425b935",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-476-587",
+      "group_id": "CWE-476-587",
+      "cwe": "CWE-476-587",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "387ab308fcd3a106ad4e2f3b6a65f63dae34848045df3a6212d43f31ea52237a",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-478-484",
+      "group_id": "CWE-478-484",
+      "cwe": "CWE-478-484",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "83718a1ee2043c386a3fedaa46c795946d5c1085df6aaa2c26968607e6dfc239",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-480",
+      "group_id": "CWE-480",
+      "cwe": "CWE-480",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "c2c764539102a64d2463f3d1d5dda16665ded682f6fd9bed8251646b02d01f4a",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-481",
+      "group_id": "CWE-481",
+      "cwe": "CWE-481",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "332b2b2ad408b105dd5ae02a3d6a86674b3fcdad626d8a250f6f6d4b425183a3",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-482",
+      "group_id": "CWE-482",
+      "cwe": "CWE-482",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "test",
+      "task_source_hash": "a146f033e2b8a0b6f34ea5f6d4fdf7a1dbbbcabc328f8e8667bc7f3656e2cf9b",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-483",
+      "group_id": "CWE-483",
+      "cwe": "CWE-483",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "d0cb41ba8fe537ec5ecc532faea55e1ed1756b47b9ccc6037926b31399fa6293",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-493",
+      "group_id": "CWE-493",
+      "cwe": "CWE-493",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 0,
+      "pair_index_splits": [],
+      "pair_train_used": false,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "f894cf4bcae17b75f83183904bdaabdebb3f8cbfdaf858c29f8dcc8d7902ccfb",
+      "endpoint_hashes": null,
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-495",
+      "group_id": "CWE-495",
+      "cwe": "CWE-495",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 1,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "885c5b9210e00a9d2f8cc7e1c2f44694d66cdc6a7c4d30ab0b0311e9006f7e3e",
+      "endpoint_hashes": "ec631250f60e7a88065d048b19575490ffd2740c7516ae8c1e0618a6a2098c43",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-496",
+      "group_id": "CWE-496",
+      "cwe": "CWE-496",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "4021b286a88fdb05aa54faa05efbeb75aa5214ec98e1465ae66705d79986ff52",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-498",
+      "group_id": "CWE-498",
+      "cwe": "CWE-498",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 0,
+      "pair_index_splits": [],
+      "pair_train_used": false,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "e4916049e310d1cf7165b663fde0f2c918ba2145af83f33b3f4a395da45f0d60",
+      "endpoint_hashes": null,
+      "related_group_seen": false,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-500",
+      "group_id": "CWE-500",
+      "cwe": "CWE-500",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 0,
+      "pair_index_splits": [],
+      "pair_train_used": false,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "96f0587a9c0140d437b047dc7e4584d6e1b98450c89ef8911b8e53552d483f0e",
+      "endpoint_hashes": null,
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-558",
+      "group_id": "CWE-558",
+      "cwe": "CWE-558",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "19279bcbfd72a0f31c714be9325009307d80b9674b49ea66ccb0566ea7d69a93",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-560",
+      "group_id": "CWE-560",
+      "cwe": "CWE-560",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "99db7b048c8509db9e6822ad03c531d072484b57970e4f6ce21b5c08a401fe31",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-562",
+      "group_id": "CWE-562",
+      "cwe": "CWE-562",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "c6dd7488d17830364e1de8b6283a780b908e0d4880799f62cafa04ec74add569",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-676",
+      "group_id": "CWE-676",
+      "cwe": "CWE-676",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "4c911772c4d6fc19e1509ad62ad426a1f1bf23922bd4abc462fd51489526dfbc",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-685-688",
+      "group_id": "CWE-685-688",
+      "cwe": "CWE-685-688",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "5850881f6aea85dac91b17df0f194e11b324b148b94b72fded7c5d7f9583d5c3",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-690",
+      "group_id": "CWE-690",
+      "cwe": "CWE-690",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "7d1f5bf574f0b535847579df5fc89c584d74bf5403358e7e4c297298aeec8649",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-704",
+      "group_id": "CWE-704",
+      "cwe": "CWE-704",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "1050ddd28dc47ea8bd585982a108308bca8a0c4a2f6aec3cb1dde91ff89dd12e",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-733",
+      "group_id": "CWE-733",
+      "cwe": "CWE-733",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 2,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "096a8e8e77d07de9a066269d4da14c7106eb01db068ee39eeb37b10111925c51",
+      "endpoint_hashes": "c722a03365758b8c78783602c96e90534f485e50b723a67d89853c07f961595d",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-762",
+      "group_id": "CWE-762",
+      "cwe": "CWE-762",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "69b9b9614014955c6fe62498bfb2ec104a89d3d6e41af29f6835f2193e0e2b3e",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-766-767",
+      "group_id": "CWE-766-767",
+      "cwe": "CWE-766-767",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 0,
+      "pair_index_splits": [],
+      "pair_train_used": false,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "4d936e66f0c896afaf41bbc82a4192284169ae90ff6ed9eab3afb60cbb3a3f0b",
+      "endpoint_hashes": null,
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-781",
+      "group_id": "CWE-781",
+      "cwe": "CWE-781",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 2,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "32e0a07f89d743f98f2b376111f7b234ab34d8e8109c952d908776dc34f1e265",
+      "endpoint_hashes": "c722a03365758b8c78783602c96e90534f485e50b723a67d89853c07f961595d",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-782",
+      "group_id": "CWE-782",
+      "cwe": "CWE-782",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 4,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "3443d68bd6cbcc2674206b2ed71026058636158d04fb6504d4a9a390cc79690b",
+      "endpoint_hashes": "7aca69b24ac552308f3427090e2e6303eecc0c9fa7e05c8740ec5bab961a6029",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-783",
+      "group_id": "CWE-783",
+      "cwe": "CWE-783",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "9bc56335df8a10ab6fd4dea09f4be11fa6a10dd61917f75ee6afb6471aae38ae",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-785",
+      "group_id": "CWE-785",
+      "cwe": "CWE-785",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "9f8722695e3408c7e9fe422873f27964746b6347e4fca783acc520e5eb76647c",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-787",
+      "group_id": "CWE-787",
+      "cwe": "CWE-787",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "4c2f8fab749547ff45010b8b71be2bea070217d464fb2ab1b1b550edfc104a9c",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-789",
+      "group_id": "CWE-789",
+      "cwe": "CWE-789",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "51971e08432f4d8b67796f5fceefee6632c7b5e766d80e162fd80e3b8d575411",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-805",
+      "group_id": "CWE-805",
+      "cwe": "CWE-805",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "3e5cc3c0443cc6d864b90c4a8c7ac150e2e10d054e42cccef9f3096a5a2cd5e2",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-806",
+      "group_id": "CWE-806",
+      "cwe": "CWE-806",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "772b7fcde4d6acc52a6479341ef4c6f968276a46fe9b78413acb61213d71237d",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-843",
+      "group_id": "CWE-843",
+      "cwe": "CWE-843",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "08c4e12ab5e7eed68776bd3f266ababd1acfa5f28dac68f5adfd8f11324a655d",
+      "endpoint_hashes": "e688e034538d7bf3f28a55e832b815cd919401b76a77b35919324eeb4531e8ae",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-910",
+      "group_id": "CWE-910",
+      "cwe": "CWE-910",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "082c798b835b425509b75f269472e64c22af36367fb208483e480964436df167",
+      "endpoint_hashes": "7bc5bb3e9b9d3d0b8bea14433b6dfa7a2b1c974083e668cee0993f6ca2592822",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "secure:CWE-911",
+      "group_id": "CWE-911",
+      "cwe": "CWE-911",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "3c75e1b57fa5b6f0237f7cc2f3712bf8b09dafc6843ce5b8390b9ed09fb16b18",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-119",
+      "group_id": "CWE-119",
+      "cwe": "CWE-119",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "26fa73be6958346d1c21c92e7988af0f0cd49fd2e1e5bfd1a28b17290d49d3fe",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-120",
+      "group_id": "CWE-120",
+      "cwe": "CWE-120",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "cc974d77638a10b3bcf1abec9c5c643ba702542d48150a3cb0607148233508e8",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-121",
+      "group_id": "CWE-121",
+      "cwe": "CWE-121",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "9bdac641f8ae9f69c0f9336e98880bfc6865a418cbdf1ec1e38b3fb2c5da66ea",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-122",
+      "group_id": "CWE-122",
+      "cwe": "CWE-122",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "e5919cf12d6c933e2192c8db51e9e692eb80039b5340cd37ac5b99958e2b7c3e",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-123",
+      "group_id": "CWE-123",
+      "cwe": "CWE-123",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "8cae71ae3066067f89c4dbf1f1bc1c14d21be30b981f7f937179c9a332a63cc5",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-124",
+      "group_id": "CWE-124",
+      "cwe": "CWE-124",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "b4ef6096cc4cbe53020079b60707197b5ead0f5300af2d1b5f0fdc3d2402e51a",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-126-127",
+      "group_id": "CWE-126-127",
+      "cwe": "CWE-126-127",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "35b79f1867570455deff3aaf51dbbbf9be850bd4982bca399ed7995cc7ef5d03",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-128",
+      "group_id": "CWE-128",
+      "cwe": "CWE-128",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "1b2ab4aade43e441744dba3e4cd943dd01432964dec91d132966e7ec4c3620ff",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-129",
+      "group_id": "CWE-129",
+      "cwe": "CWE-129",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "f2edaaa954f9b6eecb6250665e222c8725abdf5b42d53562e3e7ca42c11997ae",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-130",
+      "group_id": "CWE-130",
+      "cwe": "CWE-130",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "d7a524654ffc5ab6d019656edc033d34bd66fbc9405b8c037ce361e6ca9317e8",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-131",
+      "group_id": "CWE-131",
+      "cwe": "CWE-131",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "500c03c223b056cb00fb15e663f8a3ba239f43f6e611176a392d1c342aa75186",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-1325",
+      "group_id": "CWE-1325",
+      "cwe": "CWE-1325",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "b7ef3302df932ba8bffae521293b61052e8c80a71370c51384d3cc49f86f1b45",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-1335",
+      "group_id": "CWE-1335",
+      "cwe": "CWE-1335",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "21ebb09322b23e5104266c602fb0f29583227e4bc65df8c1894754e7d9a181f6",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-134",
+      "group_id": "CWE-134",
+      "cwe": "CWE-134",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "3ceefcfe0fd7ccf402b0854632e7131c3ae0fb54783d6e68c31d22b5b4b13c47",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-1341",
+      "group_id": "CWE-1341",
+      "cwe": "CWE-1341",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "dev",
+      "task_source_hash": "5d6f1161523dfdab8ffe4077b1658b464c8af3e0a99648d3d335eedbd0447aff",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-14",
+      "group_id": "CWE-14",
+      "cwe": "CWE-14",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "5adadffe6367d94b0554e6765d56f9cf11d28db918137a0c1f7b1b47a7daaed7",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-188",
+      "group_id": "CWE-188",
+      "cwe": "CWE-188",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "5e7e4f362e74e81f5d3eb582731152373419634e95471dff3b6b2515049d249d",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-191",
+      "group_id": "CWE-191",
+      "cwe": "CWE-191",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "0761af2eedc9722841475461eb72cab7efeedfddc9471415d72875a1a3f3f9e9",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-192",
+      "group_id": "CWE-192",
+      "cwe": "CWE-192",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "35ea64c98a2d82fbcb660e38293e5459b73a40e38206b551f1ac87ecebe223c6",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-195",
+      "group_id": "CWE-195",
+      "cwe": "CWE-195",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "8141eb58bd0e2864417b8ac30c96959c91670378db44dfac9da98c56d3fffeb6",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-197",
+      "group_id": "CWE-197",
+      "cwe": "CWE-197",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "73be7f6824043451cc7538231fb376330be5333e8108f0f3493b20bce8a541bc",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-242",
+      "group_id": "CWE-242",
+      "cwe": "CWE-242",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "be2029cb9b8dbb46349e54d1bb2dd4ebeb5e9ef46b6689c4d719702847dc6884",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-243",
+      "group_id": "CWE-243",
+      "cwe": "CWE-243",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 4,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "dev",
+      "task_source_hash": "03a8fc50592195bfcbd926a61f80b545e8d2861ab76ca9ecee23f5e4e231aeb8",
+      "endpoint_hashes": "8acf53b9a7b698bf7cd92c70272277bbfef5fb8feba8fb0a973ee06b6c258cca",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-244",
+      "group_id": "CWE-244",
+      "cwe": "CWE-244",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "2f82ab2c398c1874a0d9876790899d102425e2777c3b1b6725543dac75b3df66",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-248",
+      "group_id": "CWE-248",
+      "cwe": "CWE-248",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 1,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "20663592f16977145d9e86b97fa7dd56beb6edbe545b379e2a9bd6c52a04800c",
+      "endpoint_hashes": "ec631250f60e7a88065d048b19575490ffd2740c7516ae8c1e0618a6a2098c43",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-362",
+      "group_id": "CWE-362",
+      "cwe": "CWE-362",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "17ff40cbbace51876cf723c6f5003288d23f6304c480530b171c5238d90550c0",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-364",
+      "group_id": "CWE-364",
+      "cwe": "CWE-364",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "test",
+      "task_source_hash": "d65d213221ec254f083a31eeb14efe85ff88f7746def602c947b7b449b43f4c1",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-366",
+      "group_id": "CWE-366",
+      "cwe": "CWE-366",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "225405c4e5c39a24f16601b433a5c275d0c5282e3e73194969c6a27406c92e6a",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-374",
+      "group_id": "CWE-374",
+      "cwe": "CWE-374",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "dev",
+      "task_source_hash": "8e0f5e89392cc61d0320cd668f74ff94472ec1152481296665cd2309269cb45a",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-375",
+      "group_id": "CWE-375",
+      "cwe": "CWE-375",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "83d43408fcd54fb5e94b619803a66af43bed7c0586e2c3d3b006c11218ffecbb",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-397",
+      "group_id": "CWE-397",
+      "cwe": "CWE-397",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 1,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "fa22d5dc1ae0cb31540e5f45ed5940086c9a0bb296161d40c66e6bc91c853ea5",
+      "endpoint_hashes": "ec631250f60e7a88065d048b19575490ffd2740c7516ae8c1e0618a6a2098c43",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-401-415-416",
+      "group_id": "CWE-401-415-416",
+      "cwe": "CWE-401-415-416",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "b40ae668c96cd76b0277aa0369d03c9590beea9e49f3cacba9ad24f18941ab2e",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-460",
+      "group_id": "CWE-460",
+      "cwe": "CWE-460",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "2d78bcbc85252b3b056aab3f8abf9ed88b379c0f559dbef71b26f10f1310b455",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-462",
+      "group_id": "CWE-462",
+      "cwe": "CWE-462",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "9d02d6f133f6db417b72f03bc527564bca9ab91ce0b731e70fbe07efda305608",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-463",
+      "group_id": "CWE-463",
+      "cwe": "CWE-463",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "dev",
+      "task_source_hash": "60c71520c2c28c6256614c7a3ecba47abc7f58194cf31e8d560e454536cb0a73",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-464",
+      "group_id": "CWE-464",
+      "cwe": "CWE-464",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "5a7f43579bb5f65febd2b84d336a19e1d1315e481086a362cd0d775540df8da7",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-466",
+      "group_id": "CWE-466",
+      "cwe": "CWE-466",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "025286746e2afdd4c62356badc1f735c6efa122d521eedcf2e4c412682765667",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-467",
+      "group_id": "CWE-467",
+      "cwe": "CWE-467",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "01f67434ff9c0819bf4d25a197801fb6d7e60cdfa9d2911ffbd705cb3974c960",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-468",
+      "group_id": "CWE-468",
+      "cwe": "CWE-468",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "4a2ae54893e2d4b1afbeae4a2f4270d33086d04ae4ee5b0feadb70e660606aed",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-474",
+      "group_id": "CWE-474",
+      "cwe": "CWE-474",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "845adaa202921ea2445d483039064284b35ec18f4234c2622885ddc66425b935",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-476-587",
+      "group_id": "CWE-476-587",
+      "cwe": "CWE-476-587",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "387ab308fcd3a106ad4e2f3b6a65f63dae34848045df3a6212d43f31ea52237a",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-478-484",
+      "group_id": "CWE-478-484",
+      "cwe": "CWE-478-484",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "83718a1ee2043c386a3fedaa46c795946d5c1085df6aaa2c26968607e6dfc239",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-480",
+      "group_id": "CWE-480",
+      "cwe": "CWE-480",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "c2c764539102a64d2463f3d1d5dda16665ded682f6fd9bed8251646b02d01f4a",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-481",
+      "group_id": "CWE-481",
+      "cwe": "CWE-481",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "332b2b2ad408b105dd5ae02a3d6a86674b3fcdad626d8a250f6f6d4b425183a3",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-482",
+      "group_id": "CWE-482",
+      "cwe": "CWE-482",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "test",
+      "task_source_hash": "a146f033e2b8a0b6f34ea5f6d4fdf7a1dbbbcabc328f8e8667bc7f3656e2cf9b",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-483",
+      "group_id": "CWE-483",
+      "cwe": "CWE-483",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "d0cb41ba8fe537ec5ecc532faea55e1ed1756b47b9ccc6037926b31399fa6293",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-493",
+      "group_id": "CWE-493",
+      "cwe": "CWE-493",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "f894cf4bcae17b75f83183904bdaabdebb3f8cbfdaf858c29f8dcc8d7902ccfb",
+      "endpoint_hashes": "737ea7226622f41122d3b1ff59adbe4d97f13781ea45dd2d9e725db8729d2194",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-495",
+      "group_id": "CWE-495",
+      "cwe": "CWE-495",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 1,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "885c5b9210e00a9d2f8cc7e1c2f44694d66cdc6a7c4d30ab0b0311e9006f7e3e",
+      "endpoint_hashes": "ec631250f60e7a88065d048b19575490ffd2740c7516ae8c1e0618a6a2098c43",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-496",
+      "group_id": "CWE-496",
+      "cwe": "CWE-496",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "4021b286a88fdb05aa54faa05efbeb75aa5214ec98e1465ae66705d79986ff52",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-498",
+      "group_id": "CWE-498",
+      "cwe": "CWE-498",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 0,
+      "pair_index_splits": [],
+      "pair_train_used": false,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "e4916049e310d1cf7165b663fde0f2c918ba2145af83f33b3f4a395da45f0d60",
+      "endpoint_hashes": null,
+      "related_group_seen": false,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-500",
+      "group_id": "CWE-500",
+      "cwe": "CWE-500",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 1,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "96f0587a9c0140d437b047dc7e4584d6e1b98450c89ef8911b8e53552d483f0e",
+      "endpoint_hashes": "ec631250f60e7a88065d048b19575490ffd2740c7516ae8c1e0618a6a2098c43",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-558",
+      "group_id": "CWE-558",
+      "cwe": "CWE-558",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "19279bcbfd72a0f31c714be9325009307d80b9674b49ea66ccb0566ea7d69a93",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-560",
+      "group_id": "CWE-560",
+      "cwe": "CWE-560",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "99db7b048c8509db9e6822ad03c531d072484b57970e4f6ce21b5c08a401fe31",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-562",
+      "group_id": "CWE-562",
+      "cwe": "CWE-562",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "c6dd7488d17830364e1de8b6283a780b908e0d4880799f62cafa04ec74add569",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-676",
+      "group_id": "CWE-676",
+      "cwe": "CWE-676",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "4c911772c4d6fc19e1509ad62ad426a1f1bf23922bd4abc462fd51489526dfbc",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-685-688",
+      "group_id": "CWE-685-688",
+      "cwe": "CWE-685-688",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "5850881f6aea85dac91b17df0f194e11b324b148b94b72fded7c5d7f9583d5c3",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-690",
+      "group_id": "CWE-690",
+      "cwe": "CWE-690",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "7d1f5bf574f0b535847579df5fc89c584d74bf5403358e7e4c297298aeec8649",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-704",
+      "group_id": "CWE-704",
+      "cwe": "CWE-704",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "1050ddd28dc47ea8bd585982a108308bca8a0c4a2f6aec3cb1dde91ff89dd12e",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-733",
+      "group_id": "CWE-733",
+      "cwe": "CWE-733",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 1,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "096a8e8e77d07de9a066269d4da14c7106eb01db068ee39eeb37b10111925c51",
+      "endpoint_hashes": "7600d44c59dfa32b24d5eb0e859ccf29563952162d2bcdec9c3c8df0ffc94132",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-762",
+      "group_id": "CWE-762",
+      "cwe": "CWE-762",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "69b9b9614014955c6fe62498bfb2ec104a89d3d6e41af29f6835f2193e0e2b3e",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-766-767",
+      "group_id": "CWE-766-767",
+      "cwe": "CWE-766-767",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 1,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "4d936e66f0c896afaf41bbc82a4192284169ae90ff6ed9eab3afb60cbb3a3f0b",
+      "endpoint_hashes": "ec631250f60e7a88065d048b19575490ffd2740c7516ae8c1e0618a6a2098c43",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-781",
+      "group_id": "CWE-781",
+      "cwe": "CWE-781",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "32e0a07f89d743f98f2b376111f7b234ab34d8e8109c952d908776dc34f1e265",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-782",
+      "group_id": "CWE-782",
+      "cwe": "CWE-782",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "3443d68bd6cbcc2674206b2ed71026058636158d04fb6504d4a9a390cc79690b",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-783",
+      "group_id": "CWE-783",
+      "cwe": "CWE-783",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "9bc56335df8a10ab6fd4dea09f4be11fa6a10dd61917f75ee6afb6471aae38ae",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-785",
+      "group_id": "CWE-785",
+      "cwe": "CWE-785",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "9f8722695e3408c7e9fe422873f27964746b6347e4fca783acc520e5eb76647c",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-787",
+      "group_id": "CWE-787",
+      "cwe": "CWE-787",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 3,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "dev",
+      "task_source_hash": "4c2f8fab749547ff45010b8b71be2bea070217d464fb2ab1b1b550edfc104a9c",
+      "endpoint_hashes": "e688e034538d7bf3f28a55e832b815cd919401b76a77b35919324eeb4531e8ae",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-789",
+      "group_id": "CWE-789",
+      "cwe": "CWE-789",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "51971e08432f4d8b67796f5fceefee6632c7b5e766d80e162fd80e3b8d575411",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-805",
+      "group_id": "CWE-805",
+      "cwe": "CWE-805",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "3e5cc3c0443cc6d864b90c4a8c7ac150e2e10d054e42cccef9f3096a5a2cd5e2",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-806",
+      "group_id": "CWE-806",
+      "cwe": "CWE-806",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "772b7fcde4d6acc52a6479341ef4c6f968276a46fe9b78413acb61213d71237d",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-843",
+      "group_id": "CWE-843",
+      "cwe": "CWE-843",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "test",
+      "task_source_hash": "08c4e12ab5e7eed68776bd3f266ababd1acfa5f28dac68f5adfd8f11324a655d",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-910",
+      "group_id": "CWE-910",
+      "cwe": "CWE-910",
+      "historical_role": "historical_train_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "train"
+      ],
+      "pair_train_used": true,
+      "pair_dev_used": false,
+      "current_e3_role": "train",
+      "task_source_hash": "082c798b835b425509b75f269472e64c22af36367fb208483e480964436df167",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    },
+    {
+      "task_id": "simple:CWE-911",
+      "group_id": "CWE-911",
+      "cwe": "CWE-911",
+      "historical_role": "historical_dev_seen",
+      "historical_train_or_dev_seen": true,
+      "historical_test_read": false,
+      "pair_index_pairs": 5,
+      "pair_index_splits": [
+        "dev"
+      ],
+      "pair_train_used": false,
+      "pair_dev_used": true,
+      "current_e3_role": "train",
+      "task_source_hash": "3c75e1b57fa5b6f0237f7cc2f3712bf8b09dafc6843ce5b8390b9ed09fb16b18",
+      "endpoint_hashes": "571f2b731f98df1143882119ec2e5226ed9a4376ae0e044d378d1bc9f11f1d57",
+      "related_group_seen": true,
+      "admissibility": {
+        "decision": "exploratory_reuse_only",
+        "main_h2_table": false,
+        "appendix_or_diagnostic": "conditional_on_user_acceptance",
+        "fresh_test_eligible": false,
+        "reason": "来自已开发 namespace（pair train/dev 使用史；原 test 24 已读 22）"
+      }
+    }
+  ],
+  "excluded_original_test_tasks": [
+    {
+      "task_id": "secure:CWE-125",
+      "group_id": "CWE-125",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "secure:CWE-135",
+      "group_id": "CWE-135",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "secure:CWE-170",
+      "group_id": "CWE-170",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "secure:CWE-194",
+      "group_id": "CWE-194",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "secure:CWE-196",
+      "group_id": "CWE-196",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "secure:CWE-396",
+      "group_id": "CWE-396",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "secure:CWE-457",
+      "group_id": "CWE-457",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "secure:CWE-469",
+      "group_id": "CWE-469",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "secure:CWE-479",
+      "group_id": "CWE-479",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "secure:CWE-543",
+      "group_id": "CWE-543",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "secure:CWE-689",
+      "group_id": "CWE-689",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "secure:CWE-839",
+      "group_id": "CWE-839",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-125",
+      "group_id": "CWE-125",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-135",
+      "group_id": "CWE-135",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-170",
+      "group_id": "CWE-170",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-194",
+      "group_id": "CWE-194",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-196",
+      "group_id": "CWE-196",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-396",
+      "group_id": "CWE-396",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-457",
+      "group_id": "CWE-457",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-469",
+      "group_id": "CWE-469",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-479",
+      "group_id": "CWE-479",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-543",
+      "group_id": "CWE-543",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-689",
+      "group_id": "CWE-689",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    },
+    {
+      "task_id": "simple:CWE-839",
+      "group_id": "CWE-839",
+      "historical_role": "historical_test_read",
+      "historical_test_read": true,
+      "note": "24 中 22 已在 pair 轮读取 test；2 个未读但保守按 test 区处理；整体 excluded（E2）"
+    }
+  ],
+  "role_rule": "原 split=train → historical_train_seen；原 split=dev → historical_dev_seen；原 split=test → historical_test_read（不在候选内）；fresh_unseen_namespace 在服务器上为 0。pair_train_used/pair_dev_used 依据 positive_pair_index 的 task_split。",
+  "runtime_seconds": 0.08594703674316406
+}
