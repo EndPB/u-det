@@ -1,10 +1,29 @@
-# Stage D-N0/N1 执行命令（2026-10-07，服务器；依据 D1未过闸门_数据构造下一步指导）
+# Stage D 数据构造轮（N0/N1/N2）执行命令（2026-10-07，服务器）
+# 依据：d-det/docx/d-det_AutoDL_D1未过闸门_数据构造下一步指导_2026-10-07.md
 cd /root/autodl-tmp/u-det
 D=d-det/artifacts/stage_d_data_construction_2026-10-07
 mkdir -p "$D"/{n0_diagnosis,n1_candidate_matrix,logs}
 git rev-parse HEAD > "$D/git_head.txt"
 git status --short --branch > "$D/git_status.txt"
 source /root/miniconda3/etc/profile.d/conda.sh && conda activate udet
-export OMP_NUM_THREADS=8 MKL_NUM_THREADS=8
+export OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 TOKENIZERS_PARALLELISM=false
+
+# ---- N0：只读复盘（46.8s）----
 python scripts/stage_d_n0_diagnosis.py 2>&1 | tee "$D/logs/n0_diagnosis.log"
+
+# ---- N1：候选支持矩阵（8.0s；含行级剔除与 N2 预注册）----
 python scripts/stage_d_n1_candidate_support.py 2>&1 | tee "$D/logs/n1_candidate_support.log"
+git add scripts/stage_d_n0_diagnosis.py scripts/stage_d_n1_candidate_support.py "$D" \
+  "d-det/docx/d-det_AutoDL_D1未过闸门_数据构造下一步指导_2026-10-07.md" && git commit
+
+# ---- N2：候选矩阵上的最小 H1 复核（预注册后单次执行；101.4s；test 读取 UTC 2026-10-07T09:05:32Z）----
+git add scripts/stage_d_n2_h1_recheck.py && git commit -m "d-det: N2 脚本入库（预注册后、首次运行前）"
+python scripts/stage_d_n2_h1_recheck.py 2>&1 | tee "$D/logs/n2_h1_recheck.log"
+
+# ---- 清单 ----
+(cd "$D/n0_diagnosis" && sha256sum n0_diagnosis.md n0_strata.json > SHA256SUMS.txt)
+(cd "$D/n1_candidate_matrix" && sha256sum n1_balance_report.md n1_candidate_support_matrix.json \
+  n1_data_role_matrix.json n1_duplicate_and_split_audit.json n1_manifest.jsonl \
+  n1_manifest_excluded.jsonl n2_protocol.json > SHA256SUMS.txt)
+(cd "$D/n2_h1_recheck" && sha256sum config.json metrics.json predictions.npz report.md logs/run.log > SHA256SUMS.txt)
+(cd "$D" && find . -type f ! -name SHA256SUMS.txt | sort | xargs sha256sum > SHA256SUMS.txt)

@@ -1,0 +1,20 @@
+N2 candidate: {'rows': 2176, 'train': 1424, 'dev': 348, 'test': 404, 'tasks': 280, 'test_tasks': 51}
+P0 tfidf_char: vocab=30386 seeds dev F1 [0.62, 0.608, 0.5918]
+P0 tfidf_word: vocab=27042 seeds dev F1 [0.6477, 0.7136, 0.6766]
+P0 style_lr / style_lgb done
+P0 sem_lr done (base emb (2176, 768))
+P0 fusion done (members ['sem_lr', 'style_lgb', 'style_lr', 'tfidf_char', 'tfidf_word'])
+metadata_only dev 0.3523
+codet5_small_meanpool dev 0.5471
+codet5_small_centered dev 0.6067 | unscaled 0.5706
+[test] tfidf_char                   f1=0.6207 ba=0.6328 ci=[0.5746,0.6660]
+[test] tfidf_word                   f1=0.6429 ba=0.6404 ci=[0.5970,0.6923]
+[test] style_lr                     f1=0.4898 ba=0.5148 ci=[0.4426,0.5393]
+[test] style_lgb                    f1=0.5603 ba=0.5666 ci=[0.5133,0.6088]
+[test] sem_lr                       f1=0.5764 ba=0.5841 ci=[0.5351,0.6189]
+[test] fusion_lr                    f1=0.6264 ba=0.6359 ci=[0.5756,0.6792]
+[test] mean_ensemble                f1=0.6940 ba=0.6932 ci=[0.6535,0.7307]
+[test] metadata_only                f1=0.3689 ba=0.4020 ci=[0.3325,0.4059]
+[test] codet5_small_meanpool        f1=0.5864 ba=0.6060 ci=[0.5334,0.6398]
+[test] codet5_small_centered        f1=0.6538 ba=0.6692 ci=[0.6046,0.7006]
+[test] codet5_small_centered_unscaled f1=0.6159 ba=0.6334 ci=[0.5769,0.6558]

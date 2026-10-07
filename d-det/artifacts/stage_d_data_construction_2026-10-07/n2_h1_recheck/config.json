@@ -1,0 +1,23 @@
+{
+  "script": "scripts/stage_d_n2_h1_recheck.py",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "encoder_small": "d-det/models/codet5-small",
+  "encoder_base": "d-det/checkpoints/codet5-base",
+  "bootstrap": {
+    "repeats": 500,
+    "cluster": "task_id",
+    "seed": 20261007
+  },
+  "candidate": "task family_coverage == 6（组成均匀子集；规则仅用数据组成，不用标签/预测）",
+  "data_sha256": "2bd5ef8667b521bece97a26294cdbed6f5e9c3781b97ca1396dcf7548c244aca",
+  "C_grid": [
+    0.03,
+    0.1,
+    0.3,
+    1.0
+  ]
+}
