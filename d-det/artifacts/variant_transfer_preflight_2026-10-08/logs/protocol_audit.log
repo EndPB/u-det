@@ -1,0 +1,11 @@
+all_pass: True
+  [PASS] C1_members_from_bcc_full_instruct
+  [PASS] C2_member_rows_tasks
+  [PASS] C3_task_split_rebuild
+  [PASS] C4_heldout_order
+  [PASS] C5_config_frozen
+  [PASS] C6_fold_matrix_no_heldout_in_train
+  [PASS] C7_no_test_content_read
+  [PASS] C8_duplicate_audit_recheck
+   C8 detail: {"dup_by_code_sha_all_corpus": 21, "expected": 21, "multi_line_unit_tasks_main": 8, "expected_multi": 8, "multi_list": [{"unit": "claude-3-5-sonnet-20241022", "task": "BigCodeBench/18", "lines": 2}, {"unit": "claude-3-5-sonnet-20241022", "task": "BigCodeBench/19", "lines": 2}, {"unit": "claude-3-5-s
+runtime: 4.8 s

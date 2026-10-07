@@ -1,0 +1,457 @@
+{
+ "schema": "variant_transfer_protocol_audit_v1",
+ "generated_utc": "2026-10-07T17:48:49.204701+00:00",
+ "scope": "执行前协议审计（只读 manifest/task_id/行哈希/split 索引；不读 test 正文）",
+ "inputs": {
+  "records": "d-det/data/public_same_task_full_2026-10-07/records.jsonl",
+  "records_sha256": "d786667a72f3f3864ea38115fd6ccfe8ac393141146d522673668f3730523210",
+  "registration": "variant_transfer_registration.json（811ecfe）",
+  "split_plan_sha256": "4b7f23cad388bff723cde039de521bf9d4ce2eb92fbf5dfdfb928c453f56159a",
+  "split_plan_origin": "e38715d 预注册（split 规则 seed 20261007）"
+ },
+ "corpus_slice_counts": {
+  "total_rows": 296254,
+  "evalplus_rows": 8778,
+  "bcc_rows_by_slice_top": {
+   "full|complete": 140220,
+   "full|instruct": 134528,
+   "hard|instruct": 12728
+  }
+ },
+ "main_protocol": {
+  "units": 118,
+  "tasks": 1140,
+  "rows": 134528,
+  "tasks_per_member_min_max": [
+   1140,
+   1140
+  ]
+ },
+ "series_members": {
+  "CodeLlama-Instruct": {
+   "codellama--CodeLlama-7b-Instruct-hf": {
+    "rows_full_instruct_raw": 1140,
+    "tasks_full_instruct": 1140,
+    "distinct_asset_backend_temp": 1,
+    "unit_meta": [
+     [
+      "sanitized_calibrated_samples.zip",
+      "vllm-0-1-sanitized-calibrated",
+      "unknown"
+     ]
+    ]
+   },
+   "codellama--CodeLlama-34b-Instruct-hf": {
+    "rows_full_instruct_raw": 1140,
+    "tasks_full_instruct": 1140,
+    "distinct_asset_backend_temp": 1,
+    "unit_meta": [
+     [
+      "sanitized_calibrated_samples.zip",
+      "vllm-0-1-sanitized-calibrated",
+      "unknown"
+     ]
+    ]
+   },
+   "codellama--CodeLlama-13b-Instruct-hf": {
+    "rows_full_instruct_raw": 1140,
+    "tasks_full_instruct": 1140,
+    "distinct_asset_backend_temp": 1,
+    "unit_meta": [
+     [
+      "sanitized_calibrated_samples.zip",
+      "vllm-0-1-sanitized-calibrated",
+      "unknown"
+     ]
+    ]
+   },
+   "codellama--CodeLlama-70b-Instruct-hf": {
+    "rows_full_instruct_raw": 1140,
+    "tasks_full_instruct": 1140,
+    "distinct_asset_backend_temp": 1,
+    "unit_meta": [
+     [
+      "sanitized_calibrated_samples.zip",
+      "vllm-0-1-sanitized-calibrated",
+      "unknown"
+     ]
+    ]
+   }
+  },
+  "Qwen2.5-Coder-Instruct": {
+   "Qwen--Qwen2.5-Coder-14B-Instruct": {
+    "rows_full_instruct_raw": 1140,
+    "tasks_full_instruct": 1140,
+    "distinct_asset_backend_temp": 1,
+    "unit_meta": [
+     [
+      "sanitized_calibrated_samples.zip",
+      "vllm-0-1-sanitized_calibrated",
+      "unknown"
+     ]
+    ]
+   },
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+    "rows_full_instruct_raw": 1140,
+    "tasks_full_instruct": 1140,
+    "distinct_asset_backend_temp": 1,
+    "unit_meta": [
+     [
+      "sanitized_calibrated_samples.zip",
+      "vllm-0-1-sanitized-calibrated",
+      "unknown"
+     ]
+    ]
+   },
+   "Qwen--Qwen2.5-Coder-32B-Instruct": {
+    "rows_full_instruct_raw": 1140,
+    "tasks_full_instruct": 1140,
+    "distinct_asset_backend_temp": 1,
+    "unit_meta": [
+     [
+      "sanitized_calibrated_samples.zip",
+      "vllm-0-1-sanitized_calibrated",
+      "unknown"
+     ]
+    ]
+   },
+   "Qwen--Qwen2.5-Coder-7B-Instruct": {
+    "rows_full_instruct_raw": 1140,
+    "tasks_full_instruct": 1140,
+    "distinct_asset_backend_temp": 1,
+    "unit_meta": [
+     [
+      "sanitized_calibrated_samples.zip",
+      "vllm-0-1-sanitized-calibrated",
+      "unknown"
+     ]
+    ]
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct": {
+   "deepseek-ai--deepseek-coder-1.3b-instruct": {
+    "rows_full_instruct_raw": 1140,
+    "tasks_full_instruct": 1140,
+    "distinct_asset_backend_temp": 1,
+    "unit_meta": [
+     [
+      "sanitized_calibrated_samples.zip",
+      "vllm-0-1-sanitized-calibrated",
+      "unknown"
+     ]
+    ]
+   },
+   "deepseek-ai--deepseek-coder-6.7b-instruct": {
+    "rows_full_instruct_raw": 1140,
+    "tasks_full_instruct": 1140,
+    "distinct_asset_backend_temp": 1,
+    "unit_meta": [
+     [
+      "sanitized_calibrated_samples.zip",
+      "vllm-0-1-sanitized-calibrated",
+      "unknown"
+     ]
+    ]
+   },
+   "deepseek-ai--deepseek-coder-33b-instruct": {
+    "rows_full_instruct_raw": 1140,
+    "tasks_full_instruct": 1140,
+    "distinct_asset_backend_temp": 1,
+    "unit_meta": [
+     [
+      "sanitized_calibrated_samples.zip",
+      "vllm-0-1-sanitized-calibrated",
+      "unknown"
+     ]
+    ]
+   }
+  }
+ },
+ "fold_matrix": {
+  "CodeLlama-Instruct::heldout=codellama--CodeLlama-7b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-7b-Instruct-hf",
+   "train_units_n": 10,
+   "test_units_n": 8,
+   "train_rows_ingested": 7980,
+   "dev_rows_selection": 1710,
+   "heldout_test_rows": 171,
+   "neg_test_rows": 1197,
+   "heldout_rows_in_train_or_dev_excluded": 969,
+   "heldout_in_train_units": false
+  },
+  "CodeLlama-Instruct::heldout=codellama--CodeLlama-13b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-13b-Instruct-hf",
+   "train_units_n": 10,
+   "test_units_n": 8,
+   "train_rows_ingested": 7980,
+   "dev_rows_selection": 1710,
+   "heldout_test_rows": 171,
+   "neg_test_rows": 1197,
+   "heldout_rows_in_train_or_dev_excluded": 969,
+   "heldout_in_train_units": false
+  },
+  "CodeLlama-Instruct::heldout=codellama--CodeLlama-34b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-34b-Instruct-hf",
+   "train_units_n": 10,
+   "test_units_n": 8,
+   "train_rows_ingested": 7980,
+   "dev_rows_selection": 1710,
+   "heldout_test_rows": 171,
+   "neg_test_rows": 1197,
+   "heldout_rows_in_train_or_dev_excluded": 969,
+   "heldout_in_train_units": false
+  },
+  "CodeLlama-Instruct::heldout=codellama--CodeLlama-70b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-70b-Instruct-hf",
+   "train_units_n": 10,
+   "test_units_n": 8,
+   "train_rows_ingested": 7980,
+   "dev_rows_selection": 1710,
+   "heldout_test_rows": 171,
+   "neg_test_rows": 1197,
+   "heldout_rows_in_train_or_dev_excluded": 969,
+   "heldout_in_train_units": false
+  },
+  "Qwen2.5-Coder-Instruct::heldout=Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "train_units_n": 10,
+   "test_units_n": 8,
+   "train_rows_ingested": 7980,
+   "dev_rows_selection": 1710,
+   "heldout_test_rows": 171,
+   "neg_test_rows": 1197,
+   "heldout_rows_in_train_or_dev_excluded": 969,
+   "heldout_in_train_units": false
+  },
+  "Qwen2.5-Coder-Instruct::heldout=Qwen--Qwen2.5-Coder-7B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+   "train_units_n": 10,
+   "test_units_n": 8,
+   "train_rows_ingested": 7980,
+   "dev_rows_selection": 1710,
+   "heldout_test_rows": 171,
+   "neg_test_rows": 1197,
+   "heldout_rows_in_train_or_dev_excluded": 969,
+   "heldout_in_train_units": false
+  },
+  "Qwen2.5-Coder-Instruct::heldout=Qwen--Qwen2.5-Coder-14B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "train_units_n": 10,
+   "test_units_n": 8,
+   "train_rows_ingested": 7980,
+   "dev_rows_selection": 1710,
+   "heldout_test_rows": 171,
+   "neg_test_rows": 1197,
+   "heldout_rows_in_train_or_dev_excluded": 969,
+   "heldout_in_train_units": false
+  },
+  "Qwen2.5-Coder-Instruct::heldout=Qwen--Qwen2.5-Coder-32B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "train_units_n": 10,
+   "test_units_n": 8,
+   "train_rows_ingested": 7980,
+   "dev_rows_selection": 1710,
+   "heldout_test_rows": 171,
+   "neg_test_rows": 1197,
+   "heldout_rows_in_train_or_dev_excluded": 969,
+   "heldout_in_train_units": false
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=deepseek-ai--deepseek-coder-1.3b-instruct": {
+   "series": "DeepSeek-Coder-v1-Instruct",
+   "heldout_member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "train_units_n": 10,
+   "test_units_n": 9,
+   "train_rows_ingested": 7980,
+   "dev_rows_selection": 1710,
+   "heldout_test_rows": 171,
+   "neg_test_rows": 1368,
+   "heldout_rows_in_train_or_dev_excluded": 969,
+   "heldout_in_train_units": false
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=deepseek-ai--deepseek-coder-6.7b-instruct": {
+   "series": "DeepSeek-Coder-v1-Instruct",
+   "heldout_member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+   "train_units_n": 10,
+   "test_units_n": 9,
+   "train_rows_ingested": 7980,
+   "dev_rows_selection": 1710,
+   "heldout_test_rows": 171,
+   "neg_test_rows": 1368,
+   "heldout_rows_in_train_or_dev_excluded": 969,
+   "heldout_in_train_units": false
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=deepseek-ai--deepseek-coder-33b-instruct": {
+   "series": "DeepSeek-Coder-v1-Instruct",
+   "heldout_member": "deepseek-ai--deepseek-coder-33b-instruct",
+   "train_units_n": 10,
+   "test_units_n": 9,
+   "train_rows_ingested": 7980,
+   "dev_rows_selection": 1710,
+   "heldout_test_rows": 171,
+   "neg_test_rows": 1368,
+   "heldout_rows_in_train_or_dev_excluded": 969,
+   "heldout_in_train_units": false
+  }
+ },
+ "checks": [
+  {
+   "id": "C1_members_from_bcc_full_instruct",
+   "pass": true,
+   "detail": "11 成员全部出现在 full|instruct 主协议 unit 集合；其他切片行数单独登记，不进入本 pilot"
+  },
+  {
+   "id": "C2_member_rows_tasks",
+   "pass": true,
+   "detail": "每成员 1,140 task / 1,140 行（raw）；无多行 unit-task 混入 11 成员"
+  },
+  {
+   "id": "C3_task_split_rebuild",
+   "pass": true,
+   "detail": {
+    "rebuilt_counts": {
+     "train": 798,
+     "dev": 171,
+     "test": 171
+    },
+    "sha256_match": {
+     "train": true,
+     "dev": true,
+     "test": true
+    },
+    "csv_line_mismatches": 0
+   }
+  },
+  {
+   "id": "C4_heldout_order",
+   "pass": true,
+   "detail": {
+    "CodeLlama-Instruct": [
+     "7b",
+     "13b",
+     "34b",
+     "70b"
+    ],
+    "Qwen2.5-Coder-Instruct": [
+     "1.5B",
+     "7B",
+     "14B",
+     "32B"
+    ],
+    "DeepSeek-Coder-v1-Instruct": [
+     "1.3b",
+     "6.7b",
+     "33b"
+    ]
+   }
+  },
+  {
+   "id": "C5_config_frozen",
+   "pass": true,
+   "detail": {
+    "execution_config_frozen.json": "6aba9c4dbae37ef30fd2792428400e653356bb660d5ca72a4fe5e50755f76aab",
+    "r1_negative_set_amendment.json": "4d0d1631a6ff06724c10ea2c3b38997e48fec2a1ae14e08fc907ee9eef6cb6ef",
+    "execution_switches.json": "1552b1c1bb497f17af49ee14453e14ba51c848792bbc112d77a3d96589001c29"
+   }
+  },
+  {
+   "id": "C6_fold_matrix_no_heldout_in_train",
+   "pass": true,
+   "detail": "heldout member 从不进入训练/选择集合；heldout 行仅 TEST tasks 评分"
+  },
+  {
+   "id": "C7_no_test_content_read",
+   "pass": true,
+   "detail": {
+    "read_fields": [
+     "source",
+     "release",
+     "asset",
+     "asset_sha256",
+     "task_id",
+     "subset",
+     "generation_mode",
+     "protocol",
+     "model_id",
+     "backend",
+     "temperature",
+     "member",
+     "code_sha256"
+    ],
+    "code_content_stored": false,
+    "test_code_read": false,
+    "weights_downloaded": false
+   }
+  },
+  {
+   "id": "C8_duplicate_audit_recheck",
+   "pass": true,
+   "detail": {
+    "dup_by_code_sha_all_corpus": 21,
+    "expected": 21,
+    "multi_line_unit_tasks_main": 8,
+    "expected_multi": 8,
+    "multi_list": [
+     {
+      "unit": "claude-3-5-sonnet-20241022",
+      "task": "BigCodeBench/18",
+      "lines": 2
+     },
+     {
+      "unit": "claude-3-5-sonnet-20241022",
+      "task": "BigCodeBench/19",
+      "lines": 2
+     },
+     {
+      "unit": "claude-3-5-sonnet-20241022",
+      "task": "BigCodeBench/20",
+      "lines": 2
+     },
+     {
+      "unit": "claude-3-5-sonnet-20241022",
+      "task": "BigCodeBench/21",
+      "lines": 2
+     },
+     {
+      "unit": "claude-3-5-sonnet-20241022",
+      "task": "BigCodeBench/22",
+      "lines": 2
+     },
+     {
+      "unit": "claude-3-5-sonnet-20241022",
+      "task": "BigCodeBench/23",
+      "lines": 2
+     },
+     {
+      "unit": "claude-3-5-sonnet-20241022",
+      "task": "BigCodeBench/24",
+      "lines": 2
+     },
+     {
+      "unit": "claude-3-5-sonnet-20241022",
+      "task": "BigCodeBench/25",
+      "lines": 2
+     }
+    ]
+   }
+  }
+ ],
+ "all_pass": true,
+ "switches": {
+  "schema": "variant_transfer_execution_switches_v1",
+  "updated_utc": "2026-10-07T17:48:44.373018+00:00",
+  "training_allowed": false,
+  "generation_allowed": false,
+  "test_read_allowed": false,
+  "authority": "awaiting_new_execution_authorization",
+  "note": "以上三项仅在收到指导端新的明确执行授权后由对应记录开启；本轮全部只读"
+ },
+ "runtime_seconds": 4.797203063964844
+}

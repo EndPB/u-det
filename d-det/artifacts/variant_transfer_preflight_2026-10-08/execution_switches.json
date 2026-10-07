@@ -1,0 +1,9 @@
+{
+ "schema": "variant_transfer_execution_switches_v1",
+ "updated_utc": "2026-10-07T17:48:44.373018+00:00",
+ "training_allowed": false,
+ "generation_allowed": false,
+ "test_read_allowed": false,
+ "authority": "awaiting_new_execution_authorization",
+ "note": "以上三项仅在收到指导端新的明确执行授权后由对应记录开启；本轮全部只读"
+}

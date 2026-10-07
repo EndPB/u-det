@@ -1,0 +1,13 @@
+per-fold size-matched selections:
+  CodeLlama-Instruct::heldout=7b               neg=['Qwen2.5-Coder-14B-Instruct', 'Qwen2.5-Coder-32B-Instruct', 'deepseek-coder-33b-instruct'] total_d=0.3851
+  CodeLlama-Instruct::heldout=13b              neg=['Qwen2.5-Coder-7B-Instruct', 'Qwen2.5-Coder-32B-Instruct', 'deepseek-coder-33b-instruct'] total_d=0.3529
+  CodeLlama-Instruct::heldout=34b              neg=['Qwen2.5-Coder-7B-Instruct', 'Qwen2.5-Coder-14B-Instruct', 'deepseek-coder-33b-instruct'] total_d=0.3588
+  CodeLlama-Instruct::heldout=70b              neg=['Qwen2.5-Coder-7B-Instruct', 'Qwen2.5-Coder-14B-Instruct', 'deepseek-coder-33b-instruct'] total_d=0.0451
+  Qwen2.5-Coder-Instruct::heldout=1.5B         neg=['CodeLlama-7b-Instruct-hf', 'CodeLlama-13b-Instruct-hf', 'deepseek-coder-33b-instruct'] total_d=0.0455
+  Qwen2.5-Coder-Instruct::heldout=7B           neg=['deepseek-coder-1.3b-instruct', 'CodeLlama-13b-Instruct-hf', 'deepseek-coder-33b-instruct'] total_d=0.1077
+  Qwen2.5-Coder-Instruct::heldout=14B          neg=['deepseek-coder-1.3b-instruct', 'CodeLlama-7b-Instruct-hf', 'deepseek-coder-33b-instruct'] total_d=0.0755
+  Qwen2.5-Coder-Instruct::heldout=32B          neg=['deepseek-coder-1.3b-instruct', 'CodeLlama-7b-Instruct-hf', 'CodeLlama-13b-Instruct-hf'] total_d=0.0943
+  DeepSeek-Coder-v1-Instruct::heldout=1.3b     neg=['Qwen2.5-Coder-7B-Instruct', 'CodeLlama-34b-Instruct-hf'] total_d=0.032
+  DeepSeek-Coder-v1-Instruct::heldout=6.7b     neg=['Qwen2.5-Coder-1.5B-Instruct', 'CodeLlama-34b-Instruct-hf'] total_d=0.0751
+  DeepSeek-Coder-v1-Instruct::heldout=33b      neg=['Qwen2.5-Coder-1.5B-Instruct', 'CodeLlama-7b-Instruct-hf'] total_d=0.0812
+runtime: 0.005 s

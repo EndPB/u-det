@@ -1,0 +1,59 @@
+{
+  "schema": "public_lineage_official_docs_sources_server_fetch_v1",
+  "fetched_utc": "2026-10-07T17:30:04.566554+00:00",
+  "note": "服务器侧重构：交接包 curated official_docs/ 未上传；本目录为按 §2 URL 的原始拉取+commit pin",
+  "docs": [
+    {
+      "name": "CodeLlama-Instruct",
+      "repo": "meta-llama/codellama",
+      "url": "https://raw.githubusercontent.com/meta-llama/codellama/main/MODEL_CARD.md",
+      "pin": {
+        "commit": "e81b597e44dbecc2a0dedb9949fdf84adfc22395",
+        "commit_date": "2024-05-21T21:14:20Z"
+      },
+      "path": "d-det/artifacts/public_full_followup_2026-10-08/official_docs_server_fetch/CodeLlama-MODEL_CARD.md",
+      "bytes": 4323,
+      "sha256": "4f5feeaee49f128eba13ea5daf36db224143580947bb6e2618ab3b7a3d6ec3b3",
+      "fetch_seconds": 2.4
+    },
+    {
+      "name": "Qwen2.5-Coder-Instruct",
+      "repo": "huggingface/Qwen2.5-Coder",
+      "url": "https://raw.githubusercontent.com/huggingface/Qwen2.5-Coder/main/README.md",
+      "pin": {
+        "commit": "5948e9715022e967620083468601f782b946f644",
+        "commit_date": "2025-02-14T10:00:41Z"
+      },
+      "path": "d-det/artifacts/public_full_followup_2026-10-08/official_docs_server_fetch/Qwen2.5-Coder-README.md",
+      "bytes": 29195,
+      "sha256": "600d946e07e4cb74cd329cba828f026b2eff08ac5b639d1f4b3898c7ec1700e6",
+      "fetch_seconds": 2.5
+    },
+    {
+      "name": "DeepSeek-Coder-v1-Instruct",
+      "repo": "deepseek-ai/DeepSeek-Coder",
+      "url": "https://raw.githubusercontent.com/deepseek-ai/DeepSeek-Coder/main/README.md",
+      "pin": {
+        "commit": "2f9fd85927c669dae3c0fbb2d607274023af243e",
+        "commit_date": "2025-11-11T06:44:55Z"
+      },
+      "path": "d-det/artifacts/public_full_followup_2026-10-08/official_docs_server_fetch/DeepSeek-Coder-README.md",
+      "bytes": 20346,
+      "sha256": "aa0a95ca037f1d2c641421417abcaabaca230696cfc79b84cfea235153b8f6f2",
+      "fetch_seconds": 3.1
+    },
+    {
+      "name": "CodeContests-schema",
+      "repo": "google-deepmind/code_contests",
+      "url": "https://raw.githubusercontent.com/google-deepmind/code_contests/main/contest_problem.proto",
+      "pin": {
+        "commit": "fa7a4f8139aab08362503f3344778eb86901709a",
+        "commit_date": "2023-01-17T17:39:28Z"
+      },
+      "path": "d-det/artifacts/public_full_followup_2026-10-08/official_docs_server_fetch/contest_problem.proto",
+      "bytes": 4209,
+      "sha256": "c44121c7a16b7b8f0356a8941cee42bf50fa3eb76d4729006f1b25b9f5ec9903",
+      "fetch_seconds": 2.4
+    }
+  ]
+}

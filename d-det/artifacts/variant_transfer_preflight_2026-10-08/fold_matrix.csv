@@ -1,0 +1,12 @@
+series,heldout_member,train_units_n,train_rows_ingested,dev_rows_selection,heldout_test_rows,neg_test_rows
+CodeLlama-Instruct,codellama--CodeLlama-7b-Instruct-hf,10,7980,1710,171,1197
+CodeLlama-Instruct,codellama--CodeLlama-13b-Instruct-hf,10,7980,1710,171,1197
+CodeLlama-Instruct,codellama--CodeLlama-34b-Instruct-hf,10,7980,1710,171,1197
+CodeLlama-Instruct,codellama--CodeLlama-70b-Instruct-hf,10,7980,1710,171,1197
+Qwen2.5-Coder-Instruct,Qwen--Qwen2.5-Coder-1.5B-Instruct,10,7980,1710,171,1197
+Qwen2.5-Coder-Instruct,Qwen--Qwen2.5-Coder-7B-Instruct,10,7980,1710,171,1197
+Qwen2.5-Coder-Instruct,Qwen--Qwen2.5-Coder-14B-Instruct,10,7980,1710,171,1197
+Qwen2.5-Coder-Instruct,Qwen--Qwen2.5-Coder-32B-Instruct,10,7980,1710,171,1197
+DeepSeek-Coder-v1-Instruct,deepseek-ai--deepseek-coder-1.3b-instruct,10,7980,1710,171,1368
+DeepSeek-Coder-v1-Instruct,deepseek-ai--deepseek-coder-6.7b-instruct,10,7980,1710,171,1368
+DeepSeek-Coder-v1-Instruct,deepseek-ai--deepseek-coder-33b-instruct,10,7980,1710,171,1368

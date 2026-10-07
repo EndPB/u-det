@@ -1,0 +1,7 @@
+?? d-det/artifacts/public_full_followup_2026-10-08/provenance_resolution.json
+?? d-det/artifacts/public_full_followup_2026-10-08/provided_original/
+?? d-det/artifacts/public_full_followup_2026-10-08/server_rebuild/
+?? d-det/artifacts/variant_transfer_preflight_2026-10-08/
+?? scripts/variant_transfer_execution_freeze.py
+?? scripts/variant_transfer_preflight_provenance.py
+?? scripts/variant_transfer_protocol_audit.py

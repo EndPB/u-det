@@ -1,0 +1,509 @@
+{
+  "schema": "public_family_series_admission_v1",
+  "source": "server_rebuild（官方包 family_series_admission.json 未上传；expected manifest 16/16 missing）",
+  "generated_utc": "2026-10-07T17:30:34.189726+00:00",
+  "family_is_confirmed": false,
+  "scope": "model-series membership（size/variant transfer 用），不声明 unseen family / 后训练因果 / 无污染",
+  "series": {
+    "CodeLlama-Instruct": {
+      "members": {
+        "codellama--CodeLlama-7b-Instruct-hf": {
+          "rows_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "tasks_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "assets": {
+            "full|complete": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "full|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ]
+          },
+          "members_per_slice": {
+            "full|complete": 1,
+            "full|instruct": 1
+          },
+          "backends": {
+            "full|complete": [
+              "vllm-0-1-sanitized-calibrated"
+            ],
+            "full|instruct": [
+              "vllm-0-1-sanitized-calibrated"
+            ]
+          },
+          "temperatures": {
+            "full|complete": [
+              "unknown"
+            ],
+            "full|instruct": [
+              "unknown"
+            ]
+          }
+        },
+        "codellama--CodeLlama-13b-Instruct-hf": {
+          "rows_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "tasks_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "assets": {
+            "full|complete": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "full|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ]
+          },
+          "members_per_slice": {
+            "full|complete": 1,
+            "full|instruct": 1
+          },
+          "backends": {
+            "full|complete": [
+              "vllm-0-1-sanitized-calibrated"
+            ],
+            "full|instruct": [
+              "vllm-0-1-sanitized-calibrated"
+            ]
+          },
+          "temperatures": {
+            "full|complete": [
+              "unknown"
+            ],
+            "full|instruct": [
+              "unknown"
+            ]
+          }
+        },
+        "codellama--CodeLlama-34b-Instruct-hf": {
+          "rows_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "tasks_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "assets": {
+            "full|complete": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "full|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ]
+          },
+          "members_per_slice": {
+            "full|complete": 1,
+            "full|instruct": 1
+          },
+          "backends": {
+            "full|complete": [
+              "vllm-0-1-sanitized-calibrated"
+            ],
+            "full|instruct": [
+              "vllm-0-1-sanitized-calibrated"
+            ]
+          },
+          "temperatures": {
+            "full|complete": [
+              "unknown"
+            ],
+            "full|instruct": [
+              "unknown"
+            ]
+          }
+        },
+        "codellama--CodeLlama-70b-Instruct-hf": {
+          "rows_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "tasks_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "assets": {
+            "full|complete": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "full|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ]
+          },
+          "members_per_slice": {
+            "full|complete": 1,
+            "full|instruct": 1
+          },
+          "backends": {
+            "full|complete": [
+              "vllm-0-1-sanitized-calibrated"
+            ],
+            "full|instruct": [
+              "vllm-0-1-sanitized-calibrated"
+            ]
+          },
+          "temperatures": {
+            "full|complete": [
+              "unknown"
+            ],
+            "full|instruct": [
+              "unknown"
+            ]
+          }
+        }
+      },
+      "n_members": 4,
+      "n_sizes": 4,
+      "docs": [
+        "official_docs_server_fetch/CodeLlama-MODEL_CARD.md"
+      ],
+      "path_consistency": {
+        "backend_naming_notes": [],
+        "ok": true
+      }
+    },
+    "Qwen2.5-Coder-Instruct": {
+      "members": {
+        "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+          "rows_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140,
+            "hard|instruct": 296
+          },
+          "tasks_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140,
+            "hard|instruct": 148
+          },
+          "assets": {
+            "full|complete": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "full|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "hard|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ]
+          },
+          "members_per_slice": {
+            "full|complete": 1,
+            "full|instruct": 1,
+            "hard|instruct": 2
+          },
+          "backends": {
+            "full|complete": [
+              "vllm-0-1-sanitized-calibrated"
+            ],
+            "full|instruct": [
+              "vllm-0-1-sanitized-calibrated"
+            ],
+            "hard|instruct": [
+              "vllm-0-1-sanitized-calibrated"
+            ]
+          },
+          "temperatures": {
+            "full|complete": [
+              "unknown"
+            ],
+            "full|instruct": [
+              "unknown"
+            ],
+            "hard|instruct": [
+              "unknown"
+            ]
+          }
+        },
+        "Qwen--Qwen2.5-Coder-7B-Instruct": {
+          "rows_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140,
+            "hard|instruct": 296
+          },
+          "tasks_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140,
+            "hard|instruct": 148
+          },
+          "assets": {
+            "full|complete": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "full|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "hard|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ]
+          },
+          "members_per_slice": {
+            "full|complete": 1,
+            "full|instruct": 1,
+            "hard|instruct": 2
+          },
+          "backends": {
+            "full|complete": [
+              "vllm-0-1-sanitized-calibrated"
+            ],
+            "full|instruct": [
+              "vllm-0-1-sanitized-calibrated"
+            ],
+            "hard|instruct": [
+              "vllm-0-1-sanitized-calibrated"
+            ]
+          },
+          "temperatures": {
+            "full|complete": [
+              "unknown"
+            ],
+            "full|instruct": [
+              "unknown"
+            ],
+            "hard|instruct": [
+              "unknown"
+            ]
+          }
+        },
+        "Qwen--Qwen2.5-Coder-14B-Instruct": {
+          "rows_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "tasks_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "assets": {
+            "full|complete": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "full|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ]
+          },
+          "members_per_slice": {
+            "full|complete": 1,
+            "full|instruct": 1
+          },
+          "backends": {
+            "full|complete": [
+              "vllm-0-1-sanitized_calibrated"
+            ],
+            "full|instruct": [
+              "vllm-0-1-sanitized_calibrated"
+            ]
+          },
+          "temperatures": {
+            "full|complete": [
+              "unknown"
+            ],
+            "full|instruct": [
+              "unknown"
+            ]
+          }
+        },
+        "Qwen--Qwen2.5-Coder-32B-Instruct": {
+          "rows_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "tasks_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "assets": {
+            "full|complete": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "full|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ]
+          },
+          "members_per_slice": {
+            "full|complete": 1,
+            "full|instruct": 1
+          },
+          "backends": {
+            "full|complete": [
+              "vllm-0-1-sanitized_calibrated"
+            ],
+            "full|instruct": [
+              "vllm-0-1-sanitized_calibrated"
+            ]
+          },
+          "temperatures": {
+            "full|complete": [
+              "unknown"
+            ],
+            "full|instruct": [
+              "unknown"
+            ]
+          }
+        }
+      },
+      "n_members": 4,
+      "n_sizes": 4,
+      "docs": [
+        "official_docs_server_fetch/Qwen2.5-Coder-README.md"
+      ],
+      "path_consistency": {
+        "backend_naming_notes": [],
+        "ok": true
+      }
+    },
+    "DeepSeek-Coder-v1-Instruct": {
+      "members": {
+        "deepseek-ai--deepseek-coder-1.3b-instruct": {
+          "rows_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "tasks_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "assets": {
+            "full|complete": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "full|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ]
+          },
+          "members_per_slice": {
+            "full|complete": 1,
+            "full|instruct": 1
+          },
+          "backends": {
+            "full|complete": [
+              "vllm-0-1-sanitized-calibrated"
+            ],
+            "full|instruct": [
+              "vllm-0-1-sanitized-calibrated"
+            ]
+          },
+          "temperatures": {
+            "full|complete": [
+              "unknown"
+            ],
+            "full|instruct": [
+              "unknown"
+            ]
+          }
+        },
+        "deepseek-ai--deepseek-coder-6.7b-instruct": {
+          "rows_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "tasks_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "assets": {
+            "full|complete": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "full|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ]
+          },
+          "members_per_slice": {
+            "full|complete": 1,
+            "full|instruct": 1
+          },
+          "backends": {
+            "full|complete": [
+              "vllm-0-1-sanitized-calibrated"
+            ],
+            "full|instruct": [
+              "vllm-0-1-sanitized-calibrated"
+            ]
+          },
+          "temperatures": {
+            "full|complete": [
+              "unknown"
+            ],
+            "full|instruct": [
+              "unknown"
+            ]
+          }
+        },
+        "deepseek-ai--deepseek-coder-33b-instruct": {
+          "rows_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "tasks_by_slice": {
+            "full|complete": 1140,
+            "full|instruct": 1140
+          },
+          "assets": {
+            "full|complete": [
+              "sanitized_calibrated_samples.zip"
+            ],
+            "full|instruct": [
+              "sanitized_calibrated_samples.zip"
+            ]
+          },
+          "members_per_slice": {
+            "full|complete": 1,
+            "full|instruct": 1
+          },
+          "backends": {
+            "full|complete": [
+              "vllm-0-1-sanitized-calibrated"
+            ],
+            "full|instruct": [
+              "vllm-0-1-sanitized-calibrated"
+            ]
+          },
+          "temperatures": {
+            "full|complete": [
+              "unknown"
+            ],
+            "full|instruct": [
+              "unknown"
+            ]
+          }
+        }
+      },
+      "n_members": 3,
+      "n_sizes": 3,
+      "docs": [
+        "official_docs_server_fetch/DeepSeek-Coder-README.md"
+      ],
+      "path_consistency": {
+        "backend_naming_notes": [],
+        "ok": true
+      }
+    }
+  },
+  "claims_supported": [
+    "同一官方系列内的 size/variant 成员关系（据发布命名 + 官方资料 URL）",
+    "系列内留一尺寸变体迁移 pilot 的成员清单"
+  ],
+  "claims_not_supported": [
+    "unseen independent family",
+    "post-training causal effect",
+    "contamination-free confirmatory benchmark",
+    "checkpoint 字节/历史生成参数的真实性（未验证）"
+  ],
+  "evidence": {
+    "fetched_docs_dir": "official_docs_server_fetch/",
+    "sources": "official_docs_server_fetch/sources.json",
+    "expected_original_pack": "expected_followup_manifest_via_user.txt（16 文件全部缺失）"
+  },
+  "totals": {
+    "members": 11
+  },
+  "sha_self_note": "本文件为 server_rebuild；原版到达后以其 sha256 为准（expected: cc4a7785…）"
+}

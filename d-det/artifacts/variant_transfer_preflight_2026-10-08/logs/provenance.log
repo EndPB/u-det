@@ -1,0 +1,18 @@
+wrote d-det/artifacts/public_full_followup_2026-10-08/provenance_resolution.json
+summary: {"total": 16, "verified_original": 0, "mismatch_quarantined": 0, "awaiting_original": 16, "original_pack_complete": false, "server_reconstruction_only": true}
+[   awaiting_original] family_series_admission.json                     counterpart_match=False
+[   awaiting_original] member_protocol_and_series.jsonl                 counterpart_match=None
+[   awaiting_original] official_docs/CodeContests-schema.txt            counterpart_match=True
+[   awaiting_original] official_docs/CodeLlama-Instruct.txt             counterpart_match=True
+[   awaiting_original] official_docs/DeepSeek-Coder-v1-Instruct.txt     counterpart_match=True
+[   awaiting_original] official_docs/Qwen2.5-Coder-Instruct.txt         counterpart_match=True
+[   awaiting_original] official_documentation_sources.json              counterpart_match=False
+[   awaiting_original] proposed_family_checkpoint_protocol.json         counterpart_match=None
+[   awaiting_original] source_snapshot/cc_riegeli_extract.py            counterpart_match=True
+[   awaiting_original] source_snapshot/code_contests_index.json         counterpart_match=True
+[   awaiting_original] source_snapshot/full_adjudication_audit.json     counterpart_match=False
+[   awaiting_original] source_snapshot/public_full_adjudication_audit.py counterpart_match=True
+[   awaiting_original] source_snapshot/received_files_sha256.json       counterpart_match=True
+[   awaiting_original] source_snapshot/split_plan.json                  counterpart_match=True
+[   awaiting_original] source_snapshot/unit_coverage_matrix.csv         counterpart_match=True
+[   awaiting_original] source_snapshot/unit_folds.json                  counterpart_match=True

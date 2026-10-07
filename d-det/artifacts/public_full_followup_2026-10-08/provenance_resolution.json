@@ -1,0 +1,330 @@
+{
+ "schema": "variant_transfer_provenance_resolution_v1",
+ "generated_utc": "2026-10-07T17:48:49.342420+00:00",
+ "source_manifest": "expected_followup_manifest_via_user.txt",
+ "replacement_time_note": "replacement_time=写入本证据的时刻（原件放入 provided_original/ 后重跑本脚本更新）",
+ "policy": {
+  "server_rebuild_must_be_kept": "16/16 verified_original 前不得删除或覆盖 server_rebuild/",
+  "no_original_hash_claim": "不得把重构版 sha（如 c079abea…）写作原件哈希",
+  "long_absent_rule": "原件长期不可达时，重构版定性 server_reconstruction_only；结果不得写成复现本机交接包，也不得用原件 commit/hash 作复现证据"
+ },
+ "items": [
+  {
+   "file": "family_series_admission.json",
+   "expected_sha256": "cc4a77851702e0bbf57e50636744ad25b572da9a665148b2b76179236b0bdfae",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/family_series_admission.json",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_followup_2026-10-08/server_rebuild/family_series_admission.server_rebuild.json",
+    "sha256": "c079abea65807ce2228822abdb82955f2c122bcdc299fb09093b3a0c52898ee9",
+    "sha256_matches_expected": false,
+    "relationship": "reconstructed_from_official_sources",
+    "note": "服务器重构版（official URL + commit pin）；非原件",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "member_protocol_and_series.jsonl",
+   "expected_sha256": "0822d210a3db08544aa90a053b017372b57c57e7440eaa6203e31199560a8db6",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/member_protocol_and_series.jsonl",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": null,
+    "sha256": null,
+    "sha256_matches_expected": null,
+    "relationship": "absent",
+    "note": "无服务器侧对应物",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "official_docs/CodeContests-schema.txt",
+   "expected_sha256": "c44121c7a16b7b8f0356a8941cee42bf50fa3eb76d4729006f1b25b9f5ec9903",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/official_docs/CodeContests-schema.txt",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_followup_2026-10-08/server_rebuild/official_docs_server_fetch/contest_problem.proto",
+    "sha256": "c44121c7a16b7b8f0356a8941cee42bf50fa3eb76d4729006f1b25b9f5ec9903",
+    "sha256_matches_expected": true,
+    "relationship": "reconstructed_from_official_sources",
+    "note": "官方 proto 原始文件（commit pin fa7a4f81）",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "official_docs/CodeLlama-Instruct.txt",
+   "expected_sha256": "4f5feeaee49f128eba13ea5daf36db224143580947bb6e2618ab3b7a3d6ec3b3",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/official_docs/CodeLlama-Instruct.txt",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_followup_2026-10-08/server_rebuild/official_docs_server_fetch/CodeLlama-MODEL_CARD.md",
+    "sha256": "4f5feeaee49f128eba13ea5daf36db224143580947bb6e2618ab3b7a3d6ec3b3",
+    "sha256_matches_expected": true,
+    "relationship": "reconstructed_from_official_sources",
+    "note": "官方 MODEL_CARD（commit pin e81b597e）；curated 文本可能不同",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "official_docs/DeepSeek-Coder-v1-Instruct.txt",
+   "expected_sha256": "aa0a95ca037f1d2c641421417abcaabaca230696cfc79b84cfea235153b8f6f2",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/official_docs/DeepSeek-Coder-v1-Instruct.txt",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_followup_2026-10-08/server_rebuild/official_docs_server_fetch/DeepSeek-Coder-README.md",
+    "sha256": "aa0a95ca037f1d2c641421417abcaabaca230696cfc79b84cfea235153b8f6f2",
+    "sha256_matches_expected": true,
+    "relationship": "reconstructed_from_official_sources",
+    "note": "官方 README（commit pin 2f9fd859）；curated 文本可能不同",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "official_docs/Qwen2.5-Coder-Instruct.txt",
+   "expected_sha256": "600d946e07e4cb74cd329cba828f026b2eff08ac5b639d1f4b3898c7ec1700e6",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/official_docs/Qwen2.5-Coder-Instruct.txt",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_followup_2026-10-08/server_rebuild/official_docs_server_fetch/Qwen2.5-Coder-README.md",
+    "sha256": "600d946e07e4cb74cd329cba828f026b2eff08ac5b639d1f4b3898c7ec1700e6",
+    "sha256_matches_expected": true,
+    "relationship": "reconstructed_from_official_sources",
+    "note": "官方 README（commit pin 5948e971）；curated 文本可能不同",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "official_documentation_sources.json",
+   "expected_sha256": "10cc9ebea643452a5ed36115babbfbaefdc5c379b73cbd74699190d2a4d47a56",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/official_documentation_sources.json",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_followup_2026-10-08/server_rebuild/official_docs_server_fetch/sources.json",
+    "sha256": "1bcfbeedf98ad48554f0d26d525108e7af5c72e94463978034201674fe8b9d0b",
+    "sha256_matches_expected": false,
+    "relationship": "reconstructed_from_official_sources",
+    "note": "服务器侧来源记录（fetch 版）",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "proposed_family_checkpoint_protocol.json",
+   "expected_sha256": "5f54ad18da0a158eaa231b5888d7ac00da90bb7a90547d663b4ec23f09c6cb98",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/proposed_family_checkpoint_protocol.json",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": null,
+    "sha256": null,
+    "sha256_matches_expected": null,
+    "relationship": "absent",
+    "note": "无服务器侧对应物",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "source_snapshot/cc_riegeli_extract.py",
+   "expected_sha256": "bdb2aec50f0a740d30bfd5b873b379d55f3b70be52343e817dc6c2adcdeb667a",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/source_snapshot/cc_riegeli_extract.py",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "scripts/cc_riegeli_extract.py",
+    "sha256": "bdb2aec50f0a740d30bfd5b873b379d55f3b70be52343e817dc6c2adcdeb667a",
+    "sha256_matches_expected": true,
+    "relationship": "server_side_script_copy",
+    "note": "本仓脚本（上传版同源）",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "source_snapshot/code_contests_index.json",
+   "expected_sha256": "6cdac5f2ceff600ac6229aae4c48fe850073444302149c256ebdf35aa28e00b4",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/source_snapshot/code_contests_index.json",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_receive_2026-10-08/audit/code_contests_index.json",
+    "sha256": "6cdac5f2ceff600ac6229aae4c48fe850073444302149c256ebdf35aa28e00b4",
+    "sha256_matches_expected": true,
+    "relationship": "server_side_receive_copy",
+    "note": "接收阶段产物",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "source_snapshot/full_adjudication_audit.json",
+   "expected_sha256": "ec9663e5cfb39eaa73533db8ac0fe32855e0de82992abd9bdc562c0e8e160282",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/source_snapshot/full_adjudication_audit.json",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_receive_2026-10-08/audit/full_adjudication_audit.json",
+    "sha256": "2165fd278a5068166a68c1257e9a1301a923464aa8738d7220623e4e646dc41c",
+    "sha256_matches_expected": false,
+    "relationship": "server_side_receive_copy_modified",
+    "note": "接收后于 811ecfe 重跑更新（306 口径/D1 Δ 修正）；服务器副本 sha 已变，原始快照以期望 sha 为准",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "source_snapshot/public_full_adjudication_audit.py",
+   "expected_sha256": "91210bd5b28f6ad15ca7228c8e58a5272a80bfb96b2d15cf40499dd1a80fd5e8",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/source_snapshot/public_full_adjudication_audit.py",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "scripts/public_full_adjudication_audit.py",
+    "sha256": "91210bd5b28f6ad15ca7228c8e58a5272a80bfb96b2d15cf40499dd1a80fd5e8",
+    "sha256_matches_expected": true,
+    "relationship": "server_side_script_copy",
+    "note": "本仓脚本（上传版同源）",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "source_snapshot/received_files_sha256.json",
+   "expected_sha256": "ff26a6829fa0e2dc43fac922735af0cdd2029f8d88e1dc22cb0e034a75b7208c",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/source_snapshot/received_files_sha256.json",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_receive_2026-10-08/audit/received_files_sha256.json",
+    "sha256": "ff26a6829fa0e2dc43fac922735af0cdd2029f8d88e1dc22cb0e034a75b7208c",
+    "sha256_matches_expected": true,
+    "relationship": "server_side_receive_copy",
+    "note": "接收阶段产物",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "source_snapshot/split_plan.json",
+   "expected_sha256": "4b7f23cad388bff723cde039de521bf9d4ce2eb92fbf5dfdfb928c453f56159a",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/source_snapshot/split_plan.json",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_receive_2026-10-08/prereg/split_plan.json",
+    "sha256": "4b7f23cad388bff723cde039de521bf9d4ce2eb92fbf5dfdfb928c453f56159a",
+    "sha256_matches_expected": true,
+    "relationship": "server_side_receive_copy",
+    "note": "接收阶段产物（预注册 split）",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "source_snapshot/unit_coverage_matrix.csv",
+   "expected_sha256": "5571c94d76ace9bcc56501461898b29041910df00e66c12ba62da6bb7a216b9f",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/source_snapshot/unit_coverage_matrix.csv",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_receive_2026-10-08/audit/unit_coverage_matrix.csv",
+    "sha256": "5571c94d76ace9bcc56501461898b29041910df00e66c12ba62da6bb7a216b9f",
+    "sha256_matches_expected": true,
+    "relationship": "server_side_receive_copy",
+    "note": "接收阶段产物",
+    "counts_as_original_verification": false
+   }
+  },
+  {
+   "file": "source_snapshot/unit_folds.json",
+   "expected_sha256": "4d5a45030e535ca67340f1f2c1733c916fa2c2b1501fcf33bbaa6fa78df1a449",
+   "provided_original_path": "d-det/artifacts/public_full_followup_2026-10-08/provided_original/source_snapshot/unit_folds.json",
+   "observed_sha256": null,
+   "observed_source": null,
+   "observed_mtime_utc": null,
+   "replacement_time": null,
+   "source": null,
+   "decision": "awaiting_original",
+   "server_rebuild_counterpart": {
+    "path": "d-det/artifacts/public_full_receive_2026-10-08/prereg/unit_folds.json",
+    "sha256": "4d5a45030e535ca67340f1f2c1733c916fa2c2b1501fcf33bbaa6fa78df1a449",
+    "sha256_matches_expected": true,
+    "relationship": "server_side_receive_copy",
+    "note": "接收阶段产物（unit 5 折）",
+    "counts_as_original_verification": false
+   }
+  }
+ ],
+ "summary": {
+  "total": 16,
+  "verified_original": 0,
+  "mismatch_quarantined": 0,
+  "awaiting_original": 16,
+  "original_pack_complete": false,
+  "server_reconstruction_only": true
+ },
+ "gate": {
+  "original_pack_complete": false,
+  "note": "16/16 通过前：本轮回传中一切系列证据引用必须标注 server_reconstruction_only"
+ },
+ "runtime_seconds": 0.0023834705352783203
+}

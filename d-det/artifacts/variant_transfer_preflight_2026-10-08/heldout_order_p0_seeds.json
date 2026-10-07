@@ -1,0 +1,54 @@
+{
+ "schema": "variant_transfer_heldout_p0_seeds_v1",
+ "source": "execution_config_frozen.json（本目录；811ecfe 注册文件细化）",
+ "heldout_order": {
+  "CodeLlama-Instruct": [
+   "7b",
+   "13b",
+   "34b",
+   "70b"
+  ],
+  "Qwen2.5-Coder-Instruct": [
+   "1.5B",
+   "7B",
+   "14B",
+   "32B"
+  ],
+  "DeepSeek-Coder-v1-Instruct": [
+   "1.3b",
+   "6.7b",
+   "33b"
+  ]
+ },
+ "p0": {
+  "members": [
+   "tfidf_char",
+   "tfidf_word",
+   "sem_lr(codet5-base)",
+   "style_lr",
+   "style_lgb"
+  ],
+  "P0-fusion": "五成员 log-prob 特征 LR，仅 train 拟合；dev 只做预声明选择",
+  "P0-equal": "五成员概率逐元素等权平均（类别序固定、无校准）"
+ },
+ "seeds": {
+  "feature_seeds": [
+   0,
+   1,
+   2
+  ],
+  "bootstrap_resamples": 500,
+  "bootstrap_seed": 20261008
+ },
+ "r1_c_grid": [
+  0.03,
+  0.1,
+  0.3,
+  1.0
+ ],
+ "ci": {
+  "stats_unit": "task cluster",
+  "ci": "task-cluster bootstrap ×500（重采样频率）",
+  "task_macro": "按 task 计算后宏平均"
+ }
+}

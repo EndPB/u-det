@@ -1,0 +1,16 @@
+# variant_transfer 执行前闸门 2026-10-08（上游预注册 811ecfe）
+# §1 交接包身份结构（server_rebuild 快照 + provided_original 预留）
+mkdir -p d-det/artifacts/public_full_followup_2026-10-08/server_rebuild/official_docs_server_fetch
+mkdir -p d-det/artifacts/public_full_followup_2026-10-08/provided_original
+cp d-det/artifacts/public_full_followup_2026-10-08/family_series_admission.server_rebuild.json d-det/artifacts/public_full_followup_2026-10-08/server_rebuild/
+cp d-det/artifacts/public_full_followup_2026-10-08/official_docs_server_fetch/* d-det/artifacts/public_full_followup_2026-10-08/server_rebuild/official_docs_server_fetch/
+python3 scripts/variant_transfer_preflight_provenance.py        # → provenance_resolution.json（16 项；provided_original 空 → awaiting_original）
+# §3/§4 执行前冻结（必须先于 audit，audit 记录其 sha256）
+python3 scripts/variant_transfer_execution_freeze.py            # → r1_negative_set_amendment.json / execution_config_frozen.json / execution_switches.json
+# §2 协议审计（只读 manifest/task_id/行哈希/split 索引；不读 test 正文）
+python3 scripts/variant_transfer_protocol_audit.py              # → protocol_audit.json / fold_matrix.csv
+# heldout/P0/seeds 抽录（自 execution_config_frozen.json，内联 python 片段）
+# → heldout_order_p0_seeds.json（日志 logs/heldout_p0_seeds.log）
+# 校验和（两目录）
+cd d-det/artifacts/variant_transfer_preflight_2026-10-08 && find . -type f ! -name SHA256SUMS.txt | sort | xargs sha256sum > SHA256SUMS.txt
+cd d-det/artifacts/public_full_followup_2026-10-08 && find . -type f ! -name SHA256SUMS.txt | sort | xargs sha256sum > SHA256SUMS.txt

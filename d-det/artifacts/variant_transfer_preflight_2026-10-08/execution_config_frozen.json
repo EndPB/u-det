@@ -1,0 +1,119 @@
+{
+ "schema": "variant_transfer_execution_config_v1",
+ "frozen_utc": "2026-10-07T17:48:44.372792+00:00",
+ "supersedes_note": "细化 811ecfe 注册文件的可执行口径；不修改注册文本本身",
+ "data": {
+  "records": "d-det/data/public_same_task_full_2026-10-07/records.jsonl（sha256 d786667a…）",
+  "main_protocol": "BigCodeBench full/instruct",
+  "units": 118,
+  "tasks": 1140,
+  "task_split": {
+   "train": 798,
+   "dev": 171,
+   "test": 171
+  },
+  "split_source": "d-det/artifacts/public_full_receive_2026-10-08/prereg/split_index.csv（seed 20261007，已冻结）",
+  "dedup_rule": "unit-task-sha 去重（21 行 unit-task 重复输出）"
+ },
+ "heldout_order": {
+  "CodeLlama-Instruct": [
+   "7b",
+   "13b",
+   "34b",
+   "70b"
+  ],
+  "Qwen2.5-Coder-Instruct": [
+   "1.5B",
+   "7B",
+   "14B",
+   "32B"
+  ],
+  "DeepSeek-Coder-v1-Instruct": [
+   "1.3b",
+   "6.7b",
+   "33b"
+  ]
+ },
+ "seeds": {
+  "feature_seeds": [
+   0,
+   1,
+   2
+  ],
+  "bootstrap_resamples": 500,
+  "bootstrap_seed": 20261008
+ },
+ "features": [
+  "char_wb TF-IDF (2,4) min_df5 sublinear + SGD log_loss 5ep best-dev × seeds 0/1/2",
+  "word TF-IDF（P0 词表规则）+ SGD × seeds 0/1/2",
+  "CodeT5-small 冻结 mean-pool 512d（384+128、无特殊符）+ StandardScaler+LR（C∈{.03,.1,.3,1} dev 选）",
+  "CodeT5-base 冻结 mean-pool 768d 同协议",
+  "regex stylometry + LR；LightGBM(800) 仅作为 P0 成员",
+  "metadata-only（长度/结构）控制"
+ ],
+ "r1": {
+  "classifier": "LogReg(class_weight=balanced, max_iter=2000)",
+  "C_grid": [
+   0.03,
+   0.1,
+   0.3,
+   1.0
+  ],
+  "dev_selection": "AUROC 最大；平局取更小 C；仅在预声明网格内",
+  "threshold": 0.5,
+  "metrics": [
+   "AUROC",
+   "average precision",
+   "task-macro average",
+   "task-cluster 500× bootstrap 95% CI",
+   "每折支持 n",
+   "train→heldout 迁移差"
+  ]
+ },
+ "r2": {
+  "estimators": [
+   "series center（cosine / euclidean）",
+   "线性回归迁移（train 拟合）",
+   "预声明相似度函数"
+  ],
+  "fit_rule": "中心/尺度/回归系数/阈值仅用 train 拟合；dev 仅一次预声明选择；heldout variant 仅在冻结后评分",
+  "controls": [
+   "length/char count/lexical stats baseline",
+   "CodeT5-small 冻结表示",
+   "CodeT5-base 冻结表示",
+   "P0-fusion（仅 train 拟合）",
+   "P0-equal（成员概率等权、无校准）"
+  ],
+  "interpretation": "只回答系列内表示迁移是否可测；不得解释为因果后训练方向"
+ },
+ "p0": {
+  "members": [
+   "tfidf_char",
+   "tfidf_word",
+   "sem_lr(codet5-base)",
+   "style_lr",
+   "style_lgb"
+  ],
+  "P0-fusion": "五成员 log-prob 特征 LR，仅 train 拟合；dev 只做预声明选择",
+  "P0-equal": "五成员概率逐元素等权平均（类别序固定、无校准）"
+ },
+ "dev_policy_frozen_reading": "dev=已见尺寸+预声明负集（不含 heldout variant）在 DEV tasks（171）上的一次预声明选择；heldout variant 仅在冻结后（TEST tasks 单次读取）评分",
+ "metrics_protocol": {
+  "stats_unit": "task cluster",
+  "ci": "task-cluster bootstrap ×500（重采样频率）",
+  "task_macro": "按 task 计算后宏平均"
+ },
+ "stop_rules": [
+  "任何折发现 heldout variant 行进入训练 → 立即作废该折",
+  "负集或匹配规则在 dev 后改变 → 整轮降级为探索性",
+  "原件哈希未解决而使用重构版 → 结果只能写 server_reconstruction_only",
+  "仅某一系列或某一尺寸有效 → 不得扩写为普遍 family 结论"
+ ],
+ "paper_language_allow": "在固定 BigCodeBench 任务切分上，官方模型系列的未见尺寸变体保留了可测的系列迁移信号。",
+ "paper_language_forbid": [
+  "unseen independent family",
+  "后训练因果效应",
+  "无污染确认性 benchmark",
+  "所有 generator / 模型家族具有同样几何结构"
+ ]
+}
