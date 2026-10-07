@@ -1,0 +1,13 @@
+{
+ "schema": "variant_transfer_stage1b_local_cache_manifest_v1",
+ "note": "本地缓存（可重建，不入 Git）；对象 sha 见 objects_manifest.json",
+ "dev_scores_new.npz": {
+  "sha256": "6af7eeb904d9a43d60b8e4cbb48651780aeb0b94f12c0651fd8c70a590451bf5",
+  "bytes": 2206086
+ },
+ "features_src": {
+  "style_meta": "stage-1 features/style_meta.npz（float32 缓存；重建时 style 以 float64 重算）",
+  "emb_small": "stage-1 features/emb_codet5_small.npz",
+  "emb_base": "stage-1 features/emb_codet5_base.npz"
+ }
+}

@@ -1,0 +1,9 @@
+?? d-det/artifacts/variant_transfer_stage1b_2026-10-08/
+?? d-det/artifacts/variant_transfer_stage2_2026-10-08/
+?? "d-det/docx/d-det_AutoDL_stage1\344\277\256\345\244\215\345\206\273\347\273\223\344\270\216stage2\345\215\225\346\254\241\350\257\204\346\265\213\346\214\207\345\257\274_2026-10-08.md"
+?? scripts/variant_transfer_freeze_validation.py
+?? scripts/variant_transfer_stage1b_align.py
+?? scripts/variant_transfer_stage1b_fixers.py
+?? scripts/variant_transfer_stage1b_rebuild.py
+?? scripts/variant_transfer_stage2_evaluate.py
+?? scripts/variant_transfer_stage2_report.py

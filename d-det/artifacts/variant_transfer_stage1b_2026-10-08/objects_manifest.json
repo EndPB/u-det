@@ -1,0 +1,122 @@
+{
+ "schema": "variant_transfer_stage1b_objects_manifest_v1",
+ "generated_utc": "2026-10-07T19:38:48.639911+00:00",
+ "note": "确定性重建产物；拟合仅用 train；P0_equal train 字段按 §2.1.5 修正（dev 输出不变）",
+ "objects": {
+  "CodeLlama-Instruct::heldout=7b::size_mix": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/CodeLlama-Instruct__heldout-7b__size_mix.pkl",
+   "sha256": "5b82cedac766229159abb422075793f28415ae59df24cedefcfa01add81e0b62",
+   "bytes": 11143320
+  },
+  "CodeLlama-Instruct::heldout=7b::size_matched": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/CodeLlama-Instruct__heldout-7b__size_matched.pkl",
+   "sha256": "84103499a9b149f2094a0e2e9044992da3a5e00e23e5c47fbdbf521a100d3ab1",
+   "bytes": 10384578
+  },
+  "CodeLlama-Instruct::heldout=13b::size_mix": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/CodeLlama-Instruct__heldout-13b__size_mix.pkl",
+   "sha256": "02c71a40c5898bbe838eb8613c7486a72eaecda147b18e75f14e8d849f84fb8f",
+   "bytes": 11162439
+  },
+  "CodeLlama-Instruct::heldout=13b::size_matched": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/CodeLlama-Instruct__heldout-13b__size_matched.pkl",
+   "sha256": "5f5176a34eb86d76fcb3bf6e3004d7eb366d0f25f561bf591e224ab34fb29577",
+   "bytes": 10353535
+  },
+  "CodeLlama-Instruct::heldout=34b::size_mix": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/CodeLlama-Instruct__heldout-34b__size_mix.pkl",
+   "sha256": "96b9440221acdd226c742fc0cd6dce9833aba3ace7defff8b427816f17339025",
+   "bytes": 11225848
+  },
+  "CodeLlama-Instruct::heldout=34b::size_matched": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/CodeLlama-Instruct__heldout-34b__size_matched.pkl",
+   "sha256": "8c11993c837eeaeb48daa06c6629704c5971126f34522eae6828cb7b3cd2c999",
+   "bytes": 10406067
+  },
+  "CodeLlama-Instruct::heldout=70b::size_mix": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/CodeLlama-Instruct__heldout-70b__size_mix.pkl",
+   "sha256": "1bd876559a0630f62c8d5c6afe745e040f44354c59591aa6f213b48c4ae57bba",
+   "bytes": 11217243
+  },
+  "CodeLlama-Instruct::heldout=70b::size_matched": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/CodeLlama-Instruct__heldout-70b__size_matched.pkl",
+   "sha256": "d77ccc6300658f6364fd1e397be2e955913ee28ba79cf689a73efb1a776208d9",
+   "bytes": 10393140
+  },
+  "Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/Qwen2.5-Coder-Instruct__heldout-1.5B__size_mix.pkl",
+   "sha256": "489173c5121598536f9aeef4c2376cef7886dbcd654f2990078b6f264242cd52",
+   "bytes": 11378962
+  },
+  "Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/Qwen2.5-Coder-Instruct__heldout-1.5B__size_matched.pkl",
+   "sha256": "ad8e5b45cd9298e27ecf2eaf28f7a07b4101814e444705a0d74d2e301306cc7a",
+   "bytes": 9898320
+  },
+  "Qwen2.5-Coder-Instruct::heldout=7B::size_mix": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/Qwen2.5-Coder-Instruct__heldout-7B__size_mix.pkl",
+   "sha256": "7c43cff05acc3b4e49ff0d3728f84ba548c3262c30cab43405c166ec7f4d52b1",
+   "bytes": 11323376
+  },
+  "Qwen2.5-Coder-Instruct::heldout=7B::size_matched": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/Qwen2.5-Coder-Instruct__heldout-7B__size_matched.pkl",
+   "sha256": "6d3ab82cb49962a40d51477af602e3f76bb18441dec2afbb9b9fd38b3f936ea9",
+   "bytes": 10062032
+  },
+  "Qwen2.5-Coder-Instruct::heldout=14B::size_mix": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/Qwen2.5-Coder-Instruct__heldout-14B__size_mix.pkl",
+   "sha256": "c9d1ecd168af1db6fda69f8e6d31ab118122c903cb3a9cf890c7ca6a4fe85e01",
+   "bytes": 11274880
+  },
+  "Qwen2.5-Coder-Instruct::heldout=14B::size_matched": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/Qwen2.5-Coder-Instruct__heldout-14B__size_matched.pkl",
+   "sha256": "d802c507e14b60cc0b97847934155b4beabc7c59f0025c059921ab3f3d45dc82",
+   "bytes": 10038859
+  },
+  "Qwen2.5-Coder-Instruct::heldout=32B::size_mix": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/Qwen2.5-Coder-Instruct__heldout-32B__size_mix.pkl",
+   "sha256": "376180f570a345171d4c4ab217ffd5322e08b7eac29b5adcef3928c38a2e98bd",
+   "bytes": 11257140
+  },
+  "Qwen2.5-Coder-Instruct::heldout=32B::size_matched": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/Qwen2.5-Coder-Instruct__heldout-32B__size_matched.pkl",
+   "sha256": "5249114d3c6798e70912f39f1591a71ac07ed8e81bbd983b2dc9d8143a488414",
+   "bytes": 10168833
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/DeepSeek-Coder-v1-Instruct__heldout-1.3b__size_mix.pkl",
+   "sha256": "6b27f1609022c4e543d324a65bc2c1f431f8376c4c7f28c3754793c2a2ba3ef7",
+   "bytes": 11315373
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/DeepSeek-Coder-v1-Instruct__heldout-1.3b__size_matched.pkl",
+   "sha256": "5bb0609e17e4c030bee0f9278cd57674ac5dd42d0331bb79afbb8bc57b1701e0",
+   "bytes": 9032442
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/DeepSeek-Coder-v1-Instruct__heldout-6.7b__size_mix.pkl",
+   "sha256": "4e02781a33a0e5cd844cd15e82f0970a3d1ca4abafee5bc5dc0c6de1615a452f",
+   "bytes": 11306039
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/DeepSeek-Coder-v1-Instruct__heldout-6.7b__size_matched.pkl",
+   "sha256": "9b48404fefc9a2b8dfd9503d5fa348805db8ac3e9a2f6c9f0a456322ddde909e",
+   "bytes": 8977560
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/DeepSeek-Coder-v1-Instruct__heldout-33b__size_mix.pkl",
+   "sha256": "e3ead8bbadd2d99001fd3c2e24da35ab7d6a2032b3490585ae23ba9e63586026",
+   "bytes": 11287347
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched": {
+   "pkl": "d-det/artifacts/variant_transfer_stage1b_2026-10-08/objects/DeepSeek-Coder-v1-Instruct__heldout-33b__size_matched.pkl",
+   "sha256": "f197a2d7018f058fab9dc95ba2e7c57983709fac87c1d0eb0e2f16c46207aa15",
+   "bytes": 8846087
+  }
+ },
+ "env": {
+  "python": "3.12.14",
+  "numpy": "2.2.6",
+  "sklearn": "1.9.1"
+ }
+}

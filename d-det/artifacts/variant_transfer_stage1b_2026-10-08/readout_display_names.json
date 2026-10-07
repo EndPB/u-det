@@ -1,0 +1,21 @@
+{
+ "schema": "variant_transfer_readout_display_names_v1",
+ "readouts": {
+  "metadata_only": {
+   "display": "code_layout_control",
+   "note": "代码长度/行数/空行/缩进布局等派生量；非 series/model 元数据"
+  },
+  "size_length_only": {
+   "display": "oracle_size_length_control",
+   "note": "含外部已知参数规模；非未知来源单样本可部署读出"
+  }
+ },
+ "arms": {
+  "size_matched": {
+   "display": "member-size-matched / length-unweighted",
+   "length_weighting_applied": false,
+   "note": "仅成员级 size 匹配；长度加权 deferred"
+  }
+ },
+ "keep_original_keys": true
+}

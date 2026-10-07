@@ -1,0 +1,40 @@
+{
+ "schema": "variant_transfer_exposure_ledger_v2",
+ "generated_utc": "2026-10-07T19:51:28.912373+00:00",
+ "scope": "d-det/data/public_same_task_full_2026-10-07/records.jsonl（296,254 行）",
+ "by_stage": {
+  "receiving_scan": {
+   "raw_scan": "接收阶段整文件 sha256/流式行扫描（e38715d 已登记）",
+   "transient_parse": "全部行 json 解析（接收脚本）",
+   "feature_use": false,
+   "human_inspection": false,
+   "metric_evaluation": false
+  },
+  "stage1_loader": {
+   "raw_scan": "全部行按字符串前缀过滤",
+   "transient_parse": "11 成员行 json.loads()（含 1,881 test 行 solution 字符串短暂进入字典后按 split 丢弃）",
+   "feature_use": "仅 train/dev 行进入样本表；test 行未用于 fit/transform/预测",
+   "human_inspection": false,
+   "metric_evaluation": "仅 dev"
+  },
+  "stage1_audit": {
+   "raw_scan": true,
+   "transient_parse": "仅元数据字段（task_id/行哈希）",
+   "feature_use": false,
+   "human_inspection": false,
+   "metric_evaluation": false
+  },
+  "stage1b_rebuild": {
+   "raw_scan": false,
+   "transient_parse": "复合键指认的 train/dev 行",
+   "feature_use": "train（拟合）/dev（重放）",
+   "human_inspection": false,
+   "metric_evaluation": "dev"
+  }
+ },
+ "statement_correction": {
+  "old": "test 正文从未进入内存（不可再称）",
+  "new": "test 代码字符串在 stage-1 loader 的 transient_parse 阶段短暂进入进程内存（随即按 split 丢弃）；未进入训练/特征/评分样本，未人类阅读，未用于任何指标或选择"
+ },
+ "finding": "未发现 stage-1 用 test 计算特征或指标的痕迹（feature_use/metric_evaluation 均限于 train/dev）"
+}

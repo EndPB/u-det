@@ -1,0 +1,288 @@
+[1] samples
+[2] style/meta recomputed (float64, same inputs as stage-1); emb from cache
+  [CodeLlama-Instruct::heldout=7b::size_mix] train=7980 dev=1710
+    tfidf in 18.1s
+      sgd(seed=0) dev AUC 0.8882 best_ep=4
+      sgd(seed=1) dev AUC 0.8943 best_ep=3
+      sgd(seed=2) dev AUC 0.8893 best_ep=5
+      sgd(seed=0) dev AUC 0.9159 best_ep=4
+      sgd(seed=1) dev AUC 0.9188 best_ep=4
+      sgd(seed=2) dev AUC 0.9175 best_ep=5
+    sem_base: C=0.03
+    sem_small: C=0.03
+    style_lr: C=1.0
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [CodeLlama-Instruct::heldout=7b::size_matched] train=4788 dev=1026
+    tfidf in 11.0s
+      sgd(seed=0) dev AUC 0.9073 best_ep=4
+      sgd(seed=1) dev AUC 0.9142 best_ep=5
+      sgd(seed=2) dev AUC 0.9011 best_ep=5
+      sgd(seed=0) dev AUC 0.9323 best_ep=4
+      sgd(seed=1) dev AUC 0.9336 best_ep=5
+      sgd(seed=2) dev AUC 0.9367 best_ep=4
+    sem_base: C=0.03
+    sem_small: C=0.03
+    style_lr: C=1.0
+    metadata_only: C=1.0
+    size_length_only: C=0.1
+  [CodeLlama-Instruct::heldout=13b::size_mix] train=7980 dev=1710
+    tfidf in 17.4s
+      sgd(seed=0) dev AUC 0.9082 best_ep=3
+      sgd(seed=1) dev AUC 0.9114 best_ep=4
+      sgd(seed=2) dev AUC 0.9121 best_ep=4
+      sgd(seed=0) dev AUC 0.9227 best_ep=3
+      sgd(seed=1) dev AUC 0.9249 best_ep=3
+      sgd(seed=2) dev AUC 0.9244 best_ep=5
+    sem_base: C=0.03
+    sem_small: C=0.03
+    style_lr: C=0.3
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [CodeLlama-Instruct::heldout=13b::size_matched] train=4788 dev=1026
+    tfidf in 11.4s
+      sgd(seed=0) dev AUC 0.9257 best_ep=5
+      sgd(seed=1) dev AUC 0.9267 best_ep=5
+      sgd(seed=2) dev AUC 0.9273 best_ep=5
+      sgd(seed=0) dev AUC 0.9307 best_ep=5
+      sgd(seed=1) dev AUC 0.9329 best_ep=5
+      sgd(seed=2) dev AUC 0.9286 best_ep=4
+    sem_base: C=0.03
+    sem_small: C=0.03
+    style_lr: C=0.1
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [CodeLlama-Instruct::heldout=34b::size_mix] train=7980 dev=1710
+    tfidf in 17.8s
+      sgd(seed=0) dev AUC 0.9103 best_ep=3
+      sgd(seed=1) dev AUC 0.9151 best_ep=4
+      sgd(seed=2) dev AUC 0.9134 best_ep=5
+      sgd(seed=0) dev AUC 0.9294 best_ep=3
+      sgd(seed=1) dev AUC 0.9318 best_ep=4
+      sgd(seed=2) dev AUC 0.9256 best_ep=5
+    sem_base: C=0.03
+    sem_small: C=0.03
+    style_lr: C=0.3
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [CodeLlama-Instruct::heldout=34b::size_matched] train=4788 dev=1026
+    tfidf in 11.5s
+      sgd(seed=0) dev AUC 0.9183 best_ep=4
+      sgd(seed=1) dev AUC 0.9238 best_ep=4
+      sgd(seed=2) dev AUC 0.9207 best_ep=5
+      sgd(seed=0) dev AUC 0.9373 best_ep=5
+      sgd(seed=1) dev AUC 0.9395 best_ep=4
+      sgd(seed=2) dev AUC 0.9370 best_ep=3
+    sem_base: C=0.03
+    sem_small: C=0.03
+    style_lr: C=1.0
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [CodeLlama-Instruct::heldout=70b::size_mix] train=7980 dev=1710
+    tfidf in 17.7s
+      sgd(seed=0) dev AUC 0.9170 best_ep=5
+      sgd(seed=1) dev AUC 0.9176 best_ep=5
+      sgd(seed=2) dev AUC 0.9208 best_ep=5
+      sgd(seed=0) dev AUC 0.9355 best_ep=5
+      sgd(seed=1) dev AUC 0.9406 best_ep=3
+      sgd(seed=2) dev AUC 0.9370 best_ep=3
+    sem_base: C=0.03
+    sem_small: C=0.03
+    style_lr: C=1.0
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [CodeLlama-Instruct::heldout=70b::size_matched] train=4788 dev=1026
+    tfidf in 11.3s
+      sgd(seed=0) dev AUC 0.9252 best_ep=5
+      sgd(seed=1) dev AUC 0.9288 best_ep=5
+      sgd(seed=2) dev AUC 0.9242 best_ep=5
+      sgd(seed=0) dev AUC 0.9436 best_ep=5
+      sgd(seed=1) dev AUC 0.9431 best_ep=3
+      sgd(seed=2) dev AUC 0.9443 best_ep=4
+    sem_base: C=0.03
+    sem_small: C=0.03
+    style_lr: C=1.0
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix] train=7980 dev=1710
+    tfidf in 18.2s
+      sgd(seed=0) dev AUC 0.9187 best_ep=5
+      sgd(seed=1) dev AUC 0.9147 best_ep=5
+      sgd(seed=2) dev AUC 0.9225 best_ep=3
+      sgd(seed=0) dev AUC 0.9423 best_ep=4
+      sgd(seed=1) dev AUC 0.9391 best_ep=5
+      sgd(seed=2) dev AUC 0.9404 best_ep=5
+    sem_base: C=0.03
+    sem_small: C=0.1
+    style_lr: C=0.1
+    metadata_only: C=1.0
+    size_length_only: C=0.03
+  [Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched] train=4788 dev=1026
+    tfidf in 11.3s
+      sgd(seed=0) dev AUC 0.9379 best_ep=4
+      sgd(seed=1) dev AUC 0.9395 best_ep=5
+      sgd(seed=2) dev AUC 0.9397 best_ep=4
+      sgd(seed=0) dev AUC 0.9537 best_ep=5
+      sgd(seed=1) dev AUC 0.9563 best_ep=5
+      sgd(seed=2) dev AUC 0.9550 best_ep=3
+    sem_base: C=0.03
+    sem_small: C=0.1
+    style_lr: C=0.03
+    metadata_only: C=1.0
+    size_length_only: C=0.03
+  [Qwen2.5-Coder-Instruct::heldout=7B::size_mix] train=7980 dev=1710
+    tfidf in 17.8s
+      sgd(seed=0) dev AUC 0.8565 best_ep=5
+      sgd(seed=1) dev AUC 0.8598 best_ep=4
+      sgd(seed=2) dev AUC 0.8607 best_ep=4
+      sgd(seed=0) dev AUC 0.8923 best_ep=5
+      sgd(seed=1) dev AUC 0.8919 best_ep=4
+      sgd(seed=2) dev AUC 0.8938 best_ep=5
+    sem_base: C=0.03
+    sem_small: C=0.1
+    style_lr: C=0.1
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [Qwen2.5-Coder-Instruct::heldout=7B::size_matched] train=4788 dev=1026
+    tfidf in 10.4s
+      sgd(seed=0) dev AUC 0.8460 best_ep=4
+      sgd(seed=1) dev AUC 0.8499 best_ep=5
+      sgd(seed=2) dev AUC 0.8571 best_ep=5
+      sgd(seed=0) dev AUC 0.8806 best_ep=4
+      sgd(seed=1) dev AUC 0.8787 best_ep=5
+      sgd(seed=2) dev AUC 0.8808 best_ep=4
+    sem_base: C=0.03
+    sem_small: C=0.1
+    style_lr: C=0.1
+    metadata_only: C=1.0
+    size_length_only: C=0.03
+  [Qwen2.5-Coder-Instruct::heldout=14B::size_mix] train=7980 dev=1710
+    tfidf in 17.9s
+      sgd(seed=0) dev AUC 0.8596 best_ep=5
+      sgd(seed=1) dev AUC 0.8498 best_ep=4
+      sgd(seed=2) dev AUC 0.8489 best_ep=4
+      sgd(seed=0) dev AUC 0.8813 best_ep=3
+      sgd(seed=1) dev AUC 0.8788 best_ep=4
+      sgd(seed=2) dev AUC 0.8897 best_ep=3
+    sem_base: C=0.03
+    sem_small: C=0.03
+    style_lr: C=0.3
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [Qwen2.5-Coder-Instruct::heldout=14B::size_matched] train=4788 dev=1026
+    tfidf in 10.5s
+      sgd(seed=0) dev AUC 0.8498 best_ep=5
+      sgd(seed=1) dev AUC 0.8503 best_ep=5
+      sgd(seed=2) dev AUC 0.8506 best_ep=4
+      sgd(seed=0) dev AUC 0.8827 best_ep=4
+      sgd(seed=1) dev AUC 0.8870 best_ep=5
+      sgd(seed=2) dev AUC 0.8826 best_ep=5
+    sem_base: C=0.03
+    sem_small: C=0.1
+    style_lr: C=1.0
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [Qwen2.5-Coder-Instruct::heldout=32B::size_mix] train=7980 dev=1710
+    tfidf in 17.8s
+      sgd(seed=0) dev AUC 0.8519 best_ep=5
+      sgd(seed=1) dev AUC 0.8402 best_ep=3
+      sgd(seed=2) dev AUC 0.8443 best_ep=4
+      sgd(seed=0) dev AUC 0.8801 best_ep=5
+      sgd(seed=1) dev AUC 0.8762 best_ep=3
+      sgd(seed=2) dev AUC 0.8842 best_ep=3
+    sem_base: C=0.03
+    sem_small: C=0.1
+    style_lr: C=0.1
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [Qwen2.5-Coder-Instruct::heldout=32B::size_matched] train=4788 dev=1026
+    tfidf in 10.7s
+      sgd(seed=0) dev AUC 0.8592 best_ep=4
+      sgd(seed=1) dev AUC 0.8603 best_ep=4
+      sgd(seed=2) dev AUC 0.8577 best_ep=4
+      sgd(seed=0) dev AUC 0.8990 best_ep=4
+      sgd(seed=1) dev AUC 0.8940 best_ep=5
+      sgd(seed=2) dev AUC 0.8973 best_ep=5
+    sem_base: C=0.03
+    sem_small: C=0.1
+    style_lr: C=1.0
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix] train=7980 dev=1710
+    tfidf in 17.9s
+      sgd(seed=0) dev AUC 0.8603 best_ep=5
+      sgd(seed=1) dev AUC 0.8638 best_ep=5
+      sgd(seed=2) dev AUC 0.8588 best_ep=5
+      sgd(seed=0) dev AUC 0.8775 best_ep=4
+      sgd(seed=1) dev AUC 0.8788 best_ep=5
+      sgd(seed=2) dev AUC 0.8822 best_ep=5
+    sem_base: C=0.03
+    sem_small: C=0.1
+    style_lr: C=1.0
+    metadata_only: C=1.0
+    size_length_only: C=0.3
+  [DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched] train=3192 dev=684
+    tfidf in 6.8s
+      sgd(seed=0) dev AUC 0.8622 best_ep=5
+      sgd(seed=1) dev AUC 0.8492 best_ep=3
+      sgd(seed=2) dev AUC 0.8538 best_ep=5
+      sgd(seed=0) dev AUC 0.8709 best_ep=5
+      sgd(seed=1) dev AUC 0.8753 best_ep=4
+      sgd(seed=2) dev AUC 0.8679 best_ep=4
+    sem_base: C=0.03
+    sem_small: C=0.1
+    style_lr: C=1.0
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix] train=7980 dev=1710
+    tfidf in 18.2s
+      sgd(seed=0) dev AUC 0.8382 best_ep=5
+      sgd(seed=1) dev AUC 0.8507 best_ep=4
+      sgd(seed=2) dev AUC 0.8463 best_ep=5
+      sgd(seed=0) dev AUC 0.8643 best_ep=5
+      sgd(seed=1) dev AUC 0.8728 best_ep=5
+      sgd(seed=2) dev AUC 0.8676 best_ep=5
+    sem_base: C=0.03
+    sem_small: C=0.1
+    style_lr: C=1.0
+    metadata_only: C=1.0
+    size_length_only: C=1.0
+  [DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched] train=3192 dev=684
+    tfidf in 6.5s
+      sgd(seed=0) dev AUC 0.8121 best_ep=4
+      sgd(seed=1) dev AUC 0.8058 best_ep=4
+      sgd(seed=2) dev AUC 0.7994 best_ep=5
+      sgd(seed=0) dev AUC 0.8217 best_ep=5
+      sgd(seed=1) dev AUC 0.8234 best_ep=4
+      sgd(seed=2) dev AUC 0.8202 best_ep=4
+    sem_base: C=0.03
+    sem_small: C=0.1
+    style_lr: C=0.3
+    metadata_only: C=1.0
+    size_length_only: C=0.1
+  [DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix] train=7980 dev=1710
+    tfidf in 17.7s
+      sgd(seed=0) dev AUC 0.8495 best_ep=5
+      sgd(seed=1) dev AUC 0.8623 best_ep=4
+      sgd(seed=2) dev AUC 0.8542 best_ep=5
+      sgd(seed=0) dev AUC 0.8827 best_ep=5
+      sgd(seed=1) dev AUC 0.8786 best_ep=5
+      sgd(seed=2) dev AUC 0.8731 best_ep=5
+    sem_base: C=0.03
+    sem_small: C=0.03
+    style_lr: C=1.0
+    metadata_only: C=0.3
+    size_length_only: C=0.03
+  [DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched] train=3192 dev=684
+    tfidf in 6.5s
+      sgd(seed=0) dev AUC 0.8411 best_ep=5
+      sgd(seed=1) dev AUC 0.8493 best_ep=4
+      sgd(seed=2) dev AUC 0.8385 best_ep=4
+      sgd(seed=0) dev AUC 0.8630 best_ep=5
+      sgd(seed=1) dev AUC 0.8731 best_ep=4
+      sgd(seed=2) dev AUC 0.8662 best_ep=4
+    sem_base: C=0.03
+    sem_small: C=0.03
+    style_lr: C=1.0
+    metadata_only: C=1.0
+    size_length_only: C=0.3

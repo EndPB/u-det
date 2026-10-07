@@ -1,0 +1,11 @@
+# stage-1b（修复/冻结）2026-10-08 —— 依据《stage1修复冻结与stage2单次评测指导》§2/§3
+# 环境：/root/miniconda3/envs/udet（sklearn 1.9.1 / scipy / lightgbm 4.7 / torch 2.9.1+cu128）
+
+python3 scripts/variant_transfer_stage1b_rebuild.py     # 22 折确定性重建+保存（444.1s；style/meta 重算 float64；emb 用 stage-1 缓存；仅 train 拟合）
+python3 scripts/variant_transfer_stage1b_align.py       # 对齐：csv≤5.0e-7；reload≤4.4e-16；points≤1e-10（sem 走原 float32 路径）(81s)
+python3 scripts/variant_transfer_stage1b_fixers.py      # task-macro CI multiplicity 修正/paired 控制/R2 修正/偏差/账本/长度加权 deferred (111s)
+python3 scripts/variant_transfer_stage2_evaluate.py --stage freeze-config   # 读取前配置（本 commit 锚定）
+python3 scripts/variant_transfer_freeze_validation.py   # 6 项门槛（全 PASS）
+
+# 本地缓存（不入库）：objects/*.pkl（22 件，sha 见 objects_manifest.json）、dev_scores_new.npz（见 local_cache_manifest.json）
+(cd $P && find . -type f ! -name SHA256SUMS.txt ! -path "./objects/*" ! -name "dev_scores_new.npz" | sort | xargs sha256sum > SHA256SUMS.txt)

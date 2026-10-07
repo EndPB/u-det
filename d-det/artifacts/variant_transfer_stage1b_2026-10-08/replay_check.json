@@ -1,0 +1,1803 @@
+{
+ "schema": "variant_transfer_stage1b_replay_check_v1",
+ "generated_utc": "2026-10-07T19:47:13.912834+00:00",
+ "tolerances": {
+  "csv_vs_new": 5.1e-07,
+  "reload_vs_new": 1e-12,
+  "points_vs_metrics": 1e-10
+ },
+ "csv_vs_new": {
+  "per_fold_readout_max": {
+   "CodeLlama-Instruct::heldout=7b::size_mix": {
+    "tfidf_char": 4.998146130308356e-07,
+    "tfidf_word": 4.995107797944875e-07,
+    "sem_base": 4.999923706172638e-07,
+    "style_lr": 4.996704981118354e-07,
+    "style_lgb": 4.998065561361999e-07,
+    "sem_small": 4.997920990124083e-07,
+    "metadata_only": 4.994946599667927e-07,
+    "size_length_only": 4.993223411409176e-07,
+    "P0_fusion": 4.995092985904392e-07,
+    "P0_equal": 4.999997205157314e-07
+   },
+   "CodeLlama-Instruct::heldout=7b::size_matched": {
+    "tfidf_char": 4.998348697160537e-07,
+    "tfidf_word": 4.990950835948027e-07,
+    "sem_base": 4.967002869005199e-07,
+    "style_lr": 4.995036406718611e-07,
+    "style_lgb": 4.998424112160303e-07,
+    "sem_small": 4.998207092307694e-07,
+    "metadata_only": 4.995451382428656e-07,
+    "size_length_only": 4.994532464275281e-07,
+    "P0_fusion": 4.993779489925743e-07,
+    "P0_equal": 4.987080801654997e-07
+   },
+   "CodeLlama-Instruct::heldout=13b::size_mix": {
+    "tfidf_char": 4.996191128592287e-07,
+    "tfidf_word": 4.998912690089604e-07,
+    "sem_base": 4.99916076646123e-07,
+    "style_lr": 4.996158228349427e-07,
+    "style_lgb": 4.999676130879038e-07,
+    "sem_small": 4.995999336177004e-07,
+    "metadata_only": 4.996598913509231e-07,
+    "size_length_only": 4.999981697562106e-07,
+    "P0_fusion": 4.999261170590685e-07,
+    "P0_equal": 4.997705463916091e-07
+   },
+   "CodeLlama-Instruct::heldout=13b::size_matched": {
+    "tfidf_char": 4.995168051136201e-07,
+    "tfidf_word": 4.999160095886523e-07,
+    "sem_base": 4.993667602759544e-07,
+    "style_lr": 4.981984040863807e-07,
+    "style_lgb": 4.999641126657295e-07,
+    "sem_small": 4.999237060987483e-07,
+    "metadata_only": 4.986153512298586e-07,
+    "size_length_only": 4.998159551794501e-07,
+    "P0_fusion": 4.997759714964189e-07,
+    "P0_equal": 4.998356207819299e-07
+   },
+   "CodeLlama-Instruct::heldout=34b::size_mix": {
+    "tfidf_char": 4.998256675214918e-07,
+    "tfidf_word": 4.996136810930807e-07,
+    "sem_base": 4.998474121276075e-07,
+    "style_lr": 4.999468230180971e-07,
+    "style_lgb": 4.997081087287404e-07,
+    "sem_small": 4.998512268539201e-07,
+    "metadata_only": 4.998504465891784e-07,
+    "size_length_only": 4.999286916662626e-07,
+    "P0_fusion": 4.987666512243642e-07,
+    "P0_equal": 4.999781696886363e-07
+   },
+   "CodeLlama-Instruct::heldout=34b::size_matched": {
+    "tfidf_char": 4.997190156119657e-07,
+    "tfidf_word": 4.99790539065792e-07,
+    "sem_base": 4.989318848069857e-07,
+    "style_lr": 4.996487171782249e-07,
+    "style_lgb": 4.999369771287937e-07,
+    "sem_small": 4.998779297160638e-07,
+    "metadata_only": 4.991606431525852e-07,
+    "size_length_only": 4.999618360979063e-07,
+    "P0_fusion": 4.987981384596551e-07,
+    "P0_equal": 4.995419121620048e-07
+   },
+   "CodeLlama-Instruct::heldout=70b::size_mix": {
+    "tfidf_char": 4.997661572359036e-07,
+    "tfidf_word": 4.995316488232149e-07,
+    "sem_base": 4.995841980104387e-07,
+    "style_lr": 4.997684868778185e-07,
+    "style_lgb": 4.998071256867576e-07,
+    "sem_small": 4.999847411646385e-07,
+    "metadata_only": 4.999237998015715e-07,
+    "size_length_only": 4.994014664028157e-07,
+    "P0_fusion": 4.99885713128867e-07,
+    "P0_equal": 4.997922193883397e-07
+   },
+   "CodeLlama-Instruct::heldout=70b::size_matched": {
+    "tfidf_char": 4.997332762046724e-07,
+    "tfidf_word": 4.995762277332227e-07,
+    "sem_base": 4.991838634012258e-07,
+    "style_lr": 4.998186781556085e-07,
+    "style_lgb": 4.991436511336822e-07,
+    "sem_small": 4.998970031255823e-07,
+    "metadata_only": 4.999987738285583e-07,
+    "size_length_only": 4.993046898715825e-07,
+    "P0_fusion": 4.994653739487376e-07,
+    "P0_equal": 4.997138850493243e-07
+   },
+   "Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix": {
+    "tfidf_char": 4.995809443353316e-07,
+    "tfidf_word": 4.998885175799828e-07,
+    "sem_base": 4.995689392162106e-07,
+    "style_lr": 4.996860293315919e-07,
+    "style_lgb": 4.999225790003337e-07,
+    "sem_small": 4.998394846919899e-07,
+    "metadata_only": 4.997328870437467e-07,
+    "size_length_only": 4.996666778112058e-07,
+    "P0_fusion": 4.99483225779862e-07,
+    "P0_equal": 4.998509472997625e-07
+   },
+   "Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched": {
+    "tfidf_char": 4.995859160805693e-07,
+    "tfidf_word": 4.999222006363269e-07,
+    "sem_base": 4.999761320650942e-07,
+    "style_lr": 4.983656544665926e-07,
+    "style_lgb": 4.997068943635163e-07,
+    "sem_small": 4.998397826749823e-07,
+    "metadata_only": 4.983167539718281e-07,
+    "size_length_only": 4.999460483379181e-07,
+    "P0_fusion": 4.986997826916806e-07,
+    "P0_equal": 4.997865262756918e-07
+   },
+   "Qwen2.5-Coder-Instruct::heldout=7B::size_mix": {
+    "tfidf_char": 4.997545006713011e-07,
+    "tfidf_word": 4.995388928658744e-07,
+    "sem_base": 4.995727539425232e-07,
+    "style_lr": 4.98958060424215e-07,
+    "style_lgb": 4.990007612831228e-07,
+    "sem_small": 4.999389648374652e-07,
+    "metadata_only": 4.995455297196472e-07,
+    "size_length_only": 4.998310826898056e-07,
+    "P0_fusion": 4.988067490553827e-07,
+    "P0_equal": 4.99570991241427e-07
+   },
+   "Qwen2.5-Coder-Instruct::heldout=7B::size_matched": {
+    "tfidf_char": 4.989706484659351e-07,
+    "tfidf_word": 4.999177095899032e-07,
+    "sem_base": 4.987747669188414e-07,
+    "style_lr": 4.989763510293566e-07,
+    "style_lgb": 4.99334540604579e-07,
+    "sem_small": 4.999299049318617e-07,
+    "metadata_only": 4.999798182692139e-07,
+    "size_length_only": 4.997329999811839e-07,
+    "P0_fusion": 4.995254353852569e-07,
+    "P0_equal": 4.999699683150283e-07
+   },
+   "Qwen2.5-Coder-Instruct::heldout=14B::size_mix": {
+    "tfidf_char": 4.999273532924065e-07,
+    "tfidf_word": 4.991862588563708e-07,
+    "sem_base": 4.997482300206357e-07,
+    "style_lr": 4.995814731623138e-07,
+    "style_lgb": 4.998489785419777e-07,
+    "sem_small": 4.998655319179979e-07,
+    "metadata_only": 4.999225584334521e-07,
+    "size_length_only": 4.992961812888552e-07,
+    "P0_fusion": 4.998549175683209e-07,
+    "P0_equal": 4.999852069031974e-07
+   },
+   "Qwen2.5-Coder-Instruct::heldout=14B::size_matched": {
+    "tfidf_char": 4.998424380477708e-07,
+    "tfidf_word": 4.999511485914709e-07,
+    "sem_base": 4.999742508060567e-07,
+    "style_lr": 4.993912165532355e-07,
+    "style_lgb": 4.995786794812287e-07,
+    "sem_small": 4.991340637472419e-07,
+    "metadata_only": 4.995225937609593e-07,
+    "size_length_only": 4.993552891185971e-07,
+    "P0_fusion": 4.998622541441122e-07,
+    "P0_equal": 4.997265666828454e-07
+   },
+   "Qwen2.5-Coder-Instruct::heldout=32B::size_mix": {
+    "tfidf_char": 4.996758206088359e-07,
+    "tfidf_word": 4.999900519294873e-07,
+    "sem_base": 4.998111724843768e-07,
+    "style_lr": 4.997837612652489e-07,
+    "style_lgb": 4.998517857401907e-07,
+    "sem_small": 4.999198913724356e-07,
+    "metadata_only": 4.998877376205524e-07,
+    "size_length_only": 4.997226840108837e-07,
+    "P0_fusion": 4.998301841308006e-07,
+    "P0_equal": 4.99593588276781e-07
+   },
+   "Qwen2.5-Coder-Instruct::heldout=32B::size_matched": {
+    "tfidf_char": 4.999953705508986e-07,
+    "tfidf_word": 4.999499697011522e-07,
+    "sem_base": 4.998664856481483e-07,
+    "style_lr": 4.995830201748319e-07,
+    "style_lgb": 4.999805511829436e-07,
+    "sem_small": 4.999771118230356e-07,
+    "metadata_only": 4.982232505446049e-07,
+    "size_length_only": 4.997035082388024e-07,
+    "P0_fusion": 4.997727376387928e-07,
+    "P0_equal": 4.989199479110695e-07
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix": {
+    "tfidf_char": 4.996013377445152e-07,
+    "tfidf_word": 4.995479574588414e-07,
+    "sem_base": 4.999008178518949e-07,
+    "style_lr": 4.998380113141465e-07,
+    "style_lgb": 4.998109459954103e-07,
+    "sem_small": 4.995853006839468e-07,
+    "metadata_only": 4.996784768729334e-07,
+    "size_length_only": 4.992449293972356e-07,
+    "P0_fusion": 4.989838421490603e-07,
+    "P0_equal": 4.999854281706462e-07
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched": {
+    "tfidf_char": 4.996915571597871e-07,
+    "tfidf_word": 4.998089172536524e-07,
+    "sem_base": 4.996140003203642e-07,
+    "style_lr": 4.998763210029011e-07,
+    "style_lgb": 4.987059668271326e-07,
+    "sem_small": 4.994697571092388e-07,
+    "metadata_only": 4.996981938232281e-07,
+    "size_length_only": 4.990262316706406e-07,
+    "P0_fusion": 4.98264566273221e-07,
+    "P0_equal": 4.960666976083772e-07
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix": {
+    "tfidf_char": 4.997676842366516e-07,
+    "tfidf_word": 4.998811308331696e-07,
+    "sem_base": 4.99707221983392e-07,
+    "style_lr": 4.996147204838763e-07,
+    "style_lgb": 4.998637031421518e-07,
+    "sem_small": 4.995964169498407e-07,
+    "metadata_only": 4.997325968036925e-07,
+    "size_length_only": 4.998002887668385e-07,
+    "P0_fusion": 4.986591749522873e-07,
+    "P0_equal": 4.996205379970142e-07
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched": {
+    "tfidf_char": 4.988597661838972e-07,
+    "tfidf_word": 4.996955500491396e-07,
+    "sem_base": 4.999117255207602e-07,
+    "style_lr": 4.99257743258319e-07,
+    "style_lgb": 4.999344286327201e-07,
+    "sem_small": 4.990577697761012e-07,
+    "metadata_only": 4.995326811918499e-07,
+    "size_length_only": 4.997066057610411e-07,
+    "P0_fusion": 4.976144215141945e-07,
+    "P0_equal": 4.991841664470087e-07
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix": {
+    "tfidf_char": 4.998477843457059e-07,
+    "tfidf_word": 4.995671600560581e-07,
+    "sem_base": 4.992865324021309e-07,
+    "style_lr": 4.999903328584132e-07,
+    "style_lgb": 4.999178328629313e-07,
+    "sem_small": 4.997425079311668e-07,
+    "metadata_only": 4.999936087379808e-07,
+    "size_length_only": 4.998768809993948e-07,
+    "P0_fusion": 4.998241768250367e-07,
+    "P0_equal": 4.998905808462073e-07
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched": {
+    "tfidf_char": 4.998947657268394e-07,
+    "tfidf_word": 4.998962399860307e-07,
+    "sem_base": 4.995346069014417e-07,
+    "style_lr": 4.99421606070527e-07,
+    "style_lgb": 4.989884426764846e-07,
+    "sem_small": 4.999771118230356e-07,
+    "metadata_only": 4.998406024636637e-07,
+    "size_length_only": 4.99528542419192e-07,
+    "P0_fusion": 4.98098620016485e-07,
+    "P0_equal": 4.998250687782146e-07
+   }
+  },
+  "over_tolerance": [],
+  "worst": {
+   "max_abs_diff": 4.999997205157314e-07,
+   "where": "CodeLlama-Instruct::heldout=7b::size_mix::P0_equal"
+  }
+ },
+ "reload_vs_new": {
+  "per_fold_readout_max": {
+   "CodeLlama-Instruct::heldout=7b::size_mix": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 1.1102230246251565e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 2.220446049250313e-16,
+    "P0_equal": 5.551115123125783e-17
+   },
+   "CodeLlama-Instruct::heldout=7b::size_matched": {
+    "tfidf_char": 2.220446049250313e-16,
+    "tfidf_word": 2.7755575615628914e-17,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 2.220446049250313e-16,
+    "P0_equal": 2.220446049250313e-16
+   },
+   "CodeLlama-Instruct::heldout=13b::size_mix": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 1.1102230246251565e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 3.903127820947816e-18,
+    "P0_equal": 2.7755575615628914e-17
+   },
+   "CodeLlama-Instruct::heldout=13b::size_matched": {
+    "tfidf_char": 5.551115123125783e-17,
+    "tfidf_word": 1.1102230246251565e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 1.1102230246251565e-16
+   },
+   "CodeLlama-Instruct::heldout=34b::size_mix": {
+    "tfidf_char": 5.551115123125783e-17,
+    "tfidf_word": 2.220446049250313e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 1.942890293094024e-16,
+    "P0_equal": 5.551115123125783e-17
+   },
+   "CodeLlama-Instruct::heldout=34b::size_matched": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 2.7755575615628914e-17,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 4.440892098500626e-16,
+    "P0_equal": 5.551115123125783e-17
+   },
+   "CodeLlama-Instruct::heldout=70b::size_mix": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 5.551115123125783e-17,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 1.8932661725304283e-28,
+    "P0_equal": 1.1102230246251565e-16
+   },
+   "CodeLlama-Instruct::heldout=70b::size_matched": {
+    "tfidf_char": 2.7755575615628914e-17,
+    "tfidf_word": 1.1102230246251565e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 1.1249656330721176e-22,
+    "P0_equal": 6.938893903907228e-18
+   },
+   "Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 1.1102230246251565e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 6.28657265540301e-23,
+    "P0_equal": 1.1102230246251565e-16
+   },
+   "Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 5.551115123125783e-17,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   },
+   "Qwen2.5-Coder-Instruct::heldout=7B::size_mix": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 2.220446049250313e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 5.551115123125783e-17,
+    "P0_equal": 1.1102230246251565e-16
+   },
+   "Qwen2.5-Coder-Instruct::heldout=7B::size_matched": {
+    "tfidf_char": 2.220446049250313e-16,
+    "tfidf_word": 1.1102230246251565e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 3.705769144237564e-22,
+    "P0_equal": 1.1102230246251565e-16
+   },
+   "Qwen2.5-Coder-Instruct::heldout=14B::size_mix": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 1.1102230246251565e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 2.220446049250313e-16,
+    "P0_equal": 2.7755575615628914e-17
+   },
+   "Qwen2.5-Coder-Instruct::heldout=14B::size_matched": {
+    "tfidf_char": 2.220446049250313e-16,
+    "tfidf_word": 1.1102230246251565e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 4.440892098500626e-16,
+    "P0_equal": 2.220446049250313e-16
+   },
+   "Qwen2.5-Coder-Instruct::heldout=32B::size_mix": {
+    "tfidf_char": 2.220446049250313e-16,
+    "tfidf_word": 1.1102230246251565e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 4.336808689942018e-18,
+    "P0_equal": 5.551115123125783e-17
+   },
+   "Qwen2.5-Coder-Instruct::heldout=32B::size_matched": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 2.220446049250313e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 2.7755575615628914e-17
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 1.6653345369377348e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 1.3877787807814457e-17,
+    "P0_equal": 1.1102230246251565e-16
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched": {
+    "tfidf_char": 1.3877787807814457e-17,
+    "tfidf_word": 2.220446049250313e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 1.1102230246251565e-16,
+    "P0_equal": 2.220446049250313e-16
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix": {
+    "tfidf_char": 2.7755575615628914e-17,
+    "tfidf_word": 2.220446049250313e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 1.3877787807814457e-16,
+    "P0_equal": 1.1102230246251565e-16
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched": {
+    "tfidf_char": 2.220446049250313e-16,
+    "tfidf_word": 1.1102230246251565e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 2.220446049250313e-16,
+    "P0_equal": 1.1102230246251565e-16
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 1.1102230246251565e-16,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 1.6653345369377348e-16,
+    "P0_equal": 1.3877787807814457e-17
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched": {
+    "tfidf_char": 1.1102230246251565e-16,
+    "tfidf_word": 2.7755575615628914e-17,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 7.270142102516845e-26,
+    "P0_equal": 5.551115123125783e-17
+   }
+  },
+  "worst": {
+   "max_abs_diff": 4.440892098500626e-16,
+   "where": "CodeLlama-Instruct::heldout=34b::size_matched::P0_fusion"
+  }
+ },
+ "points_vs_metrics": {
+  "per_fold_readout": {
+   "CodeLlama-Instruct::heldout=7b::size_mix": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "CodeLlama-Instruct::heldout=7b::size_matched": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "CodeLlama-Instruct::heldout=13b::size_mix": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "CodeLlama-Instruct::heldout=13b::size_matched": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "CodeLlama-Instruct::heldout=34b::size_mix": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "CodeLlama-Instruct::heldout=34b::size_matched": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "CodeLlama-Instruct::heldout=70b::size_mix": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "CodeLlama-Instruct::heldout=70b::size_matched": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=7B::size_mix": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=7B::size_matched": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=14B::size_mix": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=14B::size_matched": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=32B::size_mix": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=32B::size_matched": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched": {
+    "tfidf_char": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "tfidf_word": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_base": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "sem_small": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lr": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "style_lgb": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "metadata_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "size_length_only": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_fusion": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    },
+    "P0_equal": {
+     "auroc_diff": 0.0,
+     "ap_diff": 0.0,
+     "task_macro_diff": 0.0
+    }
+   }
+  },
+  "worst": {
+   "abs_diff": 0.0,
+   "where": null
+  }
+ },
+ "r2_reload_vs_metrics": {
+  "CodeLlama-Instruct::heldout=7b::size_mix": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "CodeLlama-Instruct::heldout=7b::size_matched": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "CodeLlama-Instruct::heldout=13b::size_mix": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "CodeLlama-Instruct::heldout=13b::size_matched": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "CodeLlama-Instruct::heldout=34b::size_mix": {
+   "codet5_base": 0.0,
+   "codet5_small": 8.14251352787565e-07
+  },
+  "CodeLlama-Instruct::heldout=34b::size_matched": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "CodeLlama-Instruct::heldout=70b::size_mix": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "CodeLlama-Instruct::heldout=70b::size_matched": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "Qwen2.5-Coder-Instruct::heldout=7B::size_mix": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "Qwen2.5-Coder-Instruct::heldout=7B::size_matched": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "Qwen2.5-Coder-Instruct::heldout=14B::size_mix": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "Qwen2.5-Coder-Instruct::heldout=14B::size_matched": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "Qwen2.5-Coder-Instruct::heldout=32B::size_mix": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "Qwen2.5-Coder-Instruct::heldout=32B::size_matched": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix": {
+   "codet5_base": 1.0687049006863347e-06,
+   "codet5_small": 0.0
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched": {
+   "codet5_base": 0.0,
+   "codet5_small": 0.0
+  }
+ },
+ "pass": {
+  "csv_vs_new_within_tol": true,
+  "reload_vs_new_within_tol": true,
+  "points_within_tol": true
+ },
+ "dtype_path_note": "sem_base/sem_small 沿原 float32 路径（rankdata 对 float32 返回 float32 秩）；分数本身逐位一致（float32 roundtrip 无损）；其余读出为 float64 路径",
+ "runtime_seconds": 81.37290239334106
+}

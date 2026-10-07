@@ -1,0 +1,36 @@
+{
+ "schema": "variant_transfer_implementation_deviation_v1",
+ "generated_utc": "2026-10-07T19:51:28.912055+00:00",
+ "deviations": [
+  {
+   "id": "D1_objects_not_saved_in_stage1",
+   "found": "stage-1 脚本仅返回概率，未序列化 TF-IDF/scaler/分类器/SGD epoch/融合头/R2 统计量",
+   "action": "stage-1b 确定性重建并保存（同环境/顺序/seed/预算）；dev 重放对齐（|Δ|≤5.1e-7）与点指标核对（≤1e-10）见 replay_check.json",
+   "status": "resolved"
+  },
+  {
+   "id": "D2_r2_cosine_degenerate",
+   "found": "cosine 中心恒为 0（正集标准化后取正集均值）",
+   "action": "标记 invalid_zero_center；stage-2 排除；euclid 改名 positive_standardized_radial_score",
+   "status": "resolved"
+  },
+  {
+   "id": "D3_task_macro_bootstrap_multiplicity",
+   "found": "bootstrap 内按原 task_id 去重求宏平均，丢失重数",
+   "action": "以 M*=T^-1Σa_{t_j*}（含重数）修正 CI（task_macro_ci_fix.json）；整体 AUROC/AP 不受影响",
+   "status": "resolved"
+  },
+  {
+   "id": "D4_length_weighting_not_executed",
+   "found": "注册的长度五分位加权未实现",
+   "action": "B 方案：prereg amendment（deferred，test 前写死）；命名 member-size-matched / length-unweighted",
+   "status": "registered_deferred"
+  },
+  {
+   "id": "D5_control_names_and_loader_exposure",
+   "found": "metadata_only 为代码派生布局量（非 series 元数据）；size_length_only 含外部参数规模；loader 在 split 排除前 json.loads，test 代码字符串短暂进入字典",
+   "action": "显示名 code_layout_control / oracle_size_length_control（旧 key 保留）；暴露账本 v2 更正陈述",
+   "status": "resolved"
+  }
+ ]
+}

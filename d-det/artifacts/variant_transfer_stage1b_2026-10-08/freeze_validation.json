@@ -1,0 +1,137 @@
+{
+ "schema": "variant_transfer_freeze_validation_v1",
+ "generated_utc": "2026-10-07T19:51:34.781233+00:00",
+ "checks": {
+  "1_hashes": {
+   "pass": true,
+   "stage1_files_checked": 34,
+   "bad": [],
+   "config_sha_ok": [
+    true,
+    true
+   ],
+   "records_sha": "d786667a72f3f3864ea38115fd6ccfe8ac393141146d522673668f3730523210"
+  },
+  "2_split_heldout": {
+   "pass": true,
+   "split_sha_ok": true,
+   "heldout_exclusion_all22": true,
+   "fold_units": {
+    "CodeLlama-Instruct::heldout=7b::size_mix": {
+     "heldout_in_train_units": false
+    },
+    "CodeLlama-Instruct::heldout=7b::size_matched": {
+     "heldout_in_train_units": false
+    },
+    "CodeLlama-Instruct::heldout=13b::size_mix": {
+     "heldout_in_train_units": false
+    },
+    "CodeLlama-Instruct::heldout=13b::size_matched": {
+     "heldout_in_train_units": false
+    },
+    "CodeLlama-Instruct::heldout=34b::size_mix": {
+     "heldout_in_train_units": false
+    },
+    "CodeLlama-Instruct::heldout=34b::size_matched": {
+     "heldout_in_train_units": false
+    },
+    "CodeLlama-Instruct::heldout=70b::size_mix": {
+     "heldout_in_train_units": false
+    },
+    "CodeLlama-Instruct::heldout=70b::size_matched": {
+     "heldout_in_train_units": false
+    },
+    "Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix": {
+     "heldout_in_train_units": false
+    },
+    "Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched": {
+     "heldout_in_train_units": false
+    },
+    "Qwen2.5-Coder-Instruct::heldout=7B::size_mix": {
+     "heldout_in_train_units": false
+    },
+    "Qwen2.5-Coder-Instruct::heldout=7B::size_matched": {
+     "heldout_in_train_units": false
+    },
+    "Qwen2.5-Coder-Instruct::heldout=14B::size_mix": {
+     "heldout_in_train_units": false
+    },
+    "Qwen2.5-Coder-Instruct::heldout=14B::size_matched": {
+     "heldout_in_train_units": false
+    },
+    "Qwen2.5-Coder-Instruct::heldout=32B::size_mix": {
+     "heldout_in_train_units": false
+    },
+    "Qwen2.5-Coder-Instruct::heldout=32B::size_matched": {
+     "heldout_in_train_units": false
+    },
+    "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix": {
+     "heldout_in_train_units": false
+    },
+    "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched": {
+     "heldout_in_train_units": false
+    },
+    "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix": {
+     "heldout_in_train_units": false
+    },
+    "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched": {
+     "heldout_in_train_units": false
+    },
+    "DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix": {
+     "heldout_in_train_units": false
+    },
+    "DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched": {
+     "heldout_in_train_units": false
+    }
+   },
+   "no_test_use_evidence": "test_exposure_ledger_v2.json（feature_use/metric_evaluation 均限 train/dev）"
+  },
+  "3_objects_replay": {
+   "pass": true,
+   "n_objects": 22,
+   "csv_vs_new_worst": {
+    "max_abs_diff": 4.999997205157314e-07,
+    "where": "CodeLlama-Instruct::heldout=7b::size_mix::P0_equal"
+   },
+   "reload_worst": {
+    "max_abs_diff": 4.440892098500626e-16,
+    "where": "CodeLlama-Instruct::heldout=34b::size_matched::P0_fusion"
+   },
+   "points_worst": {
+    "abs_diff": 0.0,
+    "where": null
+   },
+   "env": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "sklearn": "1.9.1",
+    "lightgbm": "4.7.0",
+    "torch": "2.9.1+cu128",
+    "transformers": "5.17.0"
+   },
+   "commit_at_validation": "582df7a1dec6edccdf451b1bfa83b8d2ff42676a"
+  },
+  "4_stats_registration": {
+   "pass": true,
+   "multiplicity_pass": true,
+   "r2_cosine": "invalid_zero_center",
+   "length_weighting": "deferred"
+  },
+  "5_stage2_static_review": {
+   "pass": true,
+   "fit_like_calls": [],
+   "guards": {
+    "freeze_validation_before_read": "assert fv['all_pass']",
+    "ledger_before_read": true,
+    "load_failure_behavior": "assert not load_failures（中止，不重训）"
+   },
+   "note": "评分代码只 transform/predict；无任何拟合调用"
+  },
+  "6_stage2_config": {
+   "pass": true,
+   "sha256": "74c37f4bbf50c1fbe7bfcbd83a8e71a8c940ed2e7b23992b37e62fcc308becbd"
+  }
+ },
+ "all_pass": true,
+ "runtime_seconds": 5.212385654449463
+}

@@ -1,0 +1,13 @@
+{
+ "schema": "variant_transfer_prereg_amendment_length_weighting_v1",
+ "created_utc": "2026-10-07T19:51:28.911898+00:00",
+ "created_before_stage2_test_read": true,
+ "amends": "r1_negative_set_amendment.json 的 length_quantile_weighting（registered_but_not_executed）",
+ "decision": "deferred",
+ "reason": "主实验（22 折 R1/R2/控制）已在 length-unweighted 口径下拟合完成；按 §2.4‘不临时追加到已拟合主实验、不伪称已控制全部长度效应’，长度加权作为独立后续协议评估，避免在主实验拟合后引入权重实现差异无对照可比。本决定在 stage-2 读取之前写死，不会因 test 结果改变。",
+ "consequences": [
+  "现有 size_matched 结果命名 member-size-matched / length-unweighted（原 key 保留）",
+  "报告不得声称已控制全部长度效应",
+  "length_weighting_applied=false 登记于 metrics 释义"
+ ]
+}
