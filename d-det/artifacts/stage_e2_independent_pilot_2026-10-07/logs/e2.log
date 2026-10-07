@@ -1,0 +1,9 @@
+E0 ledger 已载入（AB test task 408 个；AB prompt hash 2714 个）
+LCv2 任务 168 个（train/dev/test = 118/26/24）
+候选 144（train+dev）；保守排除原 test 24（含 pair 轮已读 22/24）
+交叉命中剔除 0（预期 0）
+excluded_tasks.jsonl：LCv2 24 + AB test 408 + 交叉命中 0
+碰撞审计：候选内 multi 组 {'exact': {'multi_groups': 72, 'rows_in_groups': 144}, 'norm_ws': {'multi_groups': 72, 'rows_in_groups': 144}, 'norm_lex': {'multi_groups': 72, 'rows_in_groups': 144}}；跨 split {'exact': 0, 'norm_ws': 0, 'norm_lex': 0}
+split_plan：{'train': 102, 'dev': 20, 'test': 22}；meta 折支持 [('llama2', 90), ('llama3', 80), ('codellama', 73)]
+license_and_provenance.json 已写出
+e2_preregistration.json（blocked）已写出

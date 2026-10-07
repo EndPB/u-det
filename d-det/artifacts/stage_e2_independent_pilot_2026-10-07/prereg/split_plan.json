@@ -1,0 +1,41 @@
+{
+  "schema": "stage_e2_split_plan_v1",
+  "status": "plan_only_not_executed",
+  "rule": "CWE group（provenance_group）级随机（seed 20261007）分配；同组 task 不拆分；目标比例 70/15/15",
+  "counts": {
+    "train": 102,
+    "dev": 20,
+    "test": 22
+  },
+  "group_counts": {
+    "train": 51,
+    "test": 11,
+    "dev": 10
+  },
+  "task_lists_sha256": {
+    "train": "19acae3b84e4b181f073fb7be52c05f057fcf04537e087d4ce957f5fb33a2596",
+    "dev": "91a16bb380f92740a6026a3740d19b15515e47df8c5198596c5449a38f7e29e3",
+    "test": "e0e8e4815c5ad805f48822804ef8707a370e61bbf384016c3118e284c1c4f6b6"
+  },
+  "meta_unit_h2_support_preview": [
+    {
+      "heldout_generator": "llama2",
+      "train_tasks_with_ge2_seen_gen_nonempty": 90,
+      "dev_tasks_with_ge2_seen_gen_nonempty": 19,
+      "test_tasks_heldout_nonempty": 18
+    },
+    {
+      "heldout_generator": "llama3",
+      "train_tasks_with_ge2_seen_gen_nonempty": 80,
+      "dev_tasks_with_ge2_seen_gen_nonempty": 15,
+      "test_tasks_heldout_nonempty": 21
+    },
+    {
+      "heldout_generator": "codellama",
+      "train_tasks_with_ge2_seen_gen_nonempty": 73,
+      "dev_tasks_with_ge2_seen_gen_nonempty": 16,
+      "test_tasks_heldout_nonempty": 20
+    }
+  ],
+  "note": "该计划仅对新任务集有效；若复用 LCv2 现有输出（Path A），需先用授权口径确认 task 独立性"
+}

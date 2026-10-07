@@ -1,0 +1,12 @@
+# Stage E2 执行命令（2026-10-07，服务器；只读 metadata，无生成/训练/test 读取）
+# 依据：d-det/docx/d-det_AutoDL_E0E1完成后_E2独立数据预注册与干跑指导_2026-10-07.md
+cd /root/autodl-tmp/u-det
+D=d-det/artifacts/stage_e2_independent_pilot_2026-10-07
+mkdir -p "$D"/{prereg,task_dry_run,audit,logs}
+git rev-parse HEAD > "$D/git_head.txt"
+git status --short --branch > "$D/git_status.txt"
+source /root/miniconda3/etc/profile.d/conda.sh && conda activate udet
+export OMP_NUM_THREADS=8 MKL_NUM_THREADS=8
+python scripts/stage_e2_pilot_prereg.py 2>&1 | tee "$D/logs/e2_console.log"
+(cd "$D" && find . -type f ! -path ./SHA256SUMS.txt | sort | xargs sha256sum > SHA256SUMS.txt)
+# 未生成 generation_plan.json（E2a=blocked；按指导 §3 门槛不产出）

@@ -1,0 +1,95 @@
+{
+  "schema": "stage_e2_collision_groups_v1",
+  "levels": {
+    "exact": "sha256(prompt_sha256s join；task 级)",
+    "norm_ws": "sha256(按任务排序的 norm_ws(prompt) 哈希 join)",
+    "norm_lex": "同上；norm_lex 实现=stage_d_n0_diagnosis.norm_lex（去 C 注释/字符串后折叠空白）"
+  },
+  "norm_lex_impl_sha256": "66a7ff59156b309449e620e9ba8c853f3a61e6b0280a1981219ae4f0eb027e9c",
+  "collisions": {
+    "within_candidates": {
+      "exact": {
+        "multi_groups": 72,
+        "rows_in_groups": 144
+      },
+      "norm_ws": {
+        "multi_groups": 72,
+        "rows_in_groups": 144
+      },
+      "norm_lex": {
+        "multi_groups": 72,
+        "rows_in_groups": 144
+      }
+    },
+    "vs_ab_prompt_exact": 0,
+    "vs_lc_test_exact": 0,
+    "cross_split_groups": {
+      "exact": 0,
+      "norm_ws": 0,
+      "norm_lex": 0
+    },
+    "excluded_group_count": 0,
+    "excluded_task_count": 0,
+    "group_detail_truncated": [],
+    "multi_groups_intra_provenance_group_only": true,
+    "multi_group_samples": [
+      {
+        "level": "norm_lex",
+        "hash": "6479c55be7bcb480e405d60407ec8c55b0c30dd3dacbec02c12fe9e1edb0d1c1",
+        "tasks": [
+          "secure:CWE-119",
+          "simple:CWE-119"
+        ],
+        "groups": [
+          "CWE-119"
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "hash": "dc9992333f0589d5f9e78de8a149738fbd373c31fa7033e9d0f448809916533c",
+        "tasks": [
+          "secure:CWE-120",
+          "simple:CWE-120"
+        ],
+        "groups": [
+          "CWE-120"
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "hash": "6661ed13f8395efa6af350f7b339f975646d7ec2aa83a334a75cdc1dd16a1885",
+        "tasks": [
+          "secure:CWE-121",
+          "simple:CWE-121"
+        ],
+        "groups": [
+          "CWE-121"
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "hash": "e6953eb640ce5408b80b1de5910593ecc4849a179b6f842187e1dd8108b268c7",
+        "tasks": [
+          "secure:CWE-122",
+          "simple:CWE-122"
+        ],
+        "groups": [
+          "CWE-122"
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "hash": "43cd5ae83c1d27ce6a4473fb94dacbcec77b54b39a1306abcb10165ced6cb53f",
+        "tasks": [
+          "secure:CWE-123",
+          "simple:CWE-123"
+        ],
+        "groups": [
+          "CWE-123"
+        ]
+      }
+    ]
+  },
+  "exclusion_rule": "跨 split 组整组 excluded；命中 E0 账本/旧集合的组 excluded（本干跑：跨 split 组见上）",
+  "candidate_count": 144
+}

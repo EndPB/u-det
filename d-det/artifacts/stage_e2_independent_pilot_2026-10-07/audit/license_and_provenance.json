@@ -1,0 +1,29 @@
+{
+  "schema": "stage_e2_license_and_provenance_v1",
+  "source_unit_candidate": "h2_llm_codegen_v2（Meta 单元）/ h2_authorbench_dcan（OpenAI 单元，Path C）",
+  "h2_llm_codegen_v2": {
+    "provenance_files": [
+      "d-det/data/llm_codegen_raw/codegemma-7B/code_generator.csv",
+      "d-det/data/llm_codegen_raw/codegemma-7B/secure_code_generator.csv",
+      "d-det/data/llm_codegen_raw/codellama-7B/code_generator.csv"
+    ],
+    "csv_files_total": 36,
+    "license": "missing（README/元数据未提供 license 或使用条款）",
+    "family_mapping_basis": "release folder 推导（README 明示）；无 base/SFT/DPO 谱系",
+    "limitations": [
+      "CWE group 是相关任务集合，非正式程序语义等价",
+      "词法视图为诊断，非编译/行为等价变换",
+      "v1/v2 分数不可作为方法增量对比"
+    ]
+  },
+  "h2_authorbench_dcan": {
+    "source_archive": "LLM-AuthorBench.json.zip（sha256 记于 summary.json）",
+    "license": "missing",
+    "namespace_exposure": "已用于 P0/D1/N2（不可作为新 task 来源）"
+  },
+  "third_generator_availability": {
+    "local_weights_found": false,
+    "evidence": "服务器仅存 d-det/models/codet5-small 与 d-det/checkpoints/codet5-base；HF 缓存 1.2MB；无 API 授权记录",
+    "verdict": "google/mistral 第三 generator 版本/许可/调用均未落实（blocker）"
+  }
+}

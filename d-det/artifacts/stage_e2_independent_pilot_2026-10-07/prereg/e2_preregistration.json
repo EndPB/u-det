@@ -1,0 +1,94 @@
+{
+  "schema": "stage_e2_preregistration_v1",
+  "status": "blocked",
+  "status_reason": [
+    "不存在能同时满足『未暴露新 task 集』与『≥3 可靠 generator』的现成组合：",
+    "  • Path A（meta/LCv2 复用）：三 generator 齐备（D0 3 折 admitted），但其 task 命名空间已在 pair 轮开发使用，且原 test 24 个中 22 个已被读取——复用需指导端明确接受『命名空间先前开发使用』口径，否则只能算独立复核而非新任务集；",
+    "  • Path B（google/mistral + 第三 generator）：本机无任何候选权重/缓存，版本、许可与调用均未落实；",
+    "  • Path C（openai/AB 单元 + 新任务）：AB 命名空间已 3 次暴露，新任务需外部 API（未授权）。",
+    "按指导 §1：不得为把 status 变成 ready 而猜补字段。"
+  ],
+  "source_unit": "",
+  "family_semantics": "",
+  "target_family": "",
+  "existing_generators": [],
+  "target_third_generator": "",
+  "task_source": [],
+  "language": "C",
+  "task_namespace": "",
+  "unexposed_task_rule": "task/provenance 不得命中 E0 暴露账本且不得用于 P0/D1/N2；token 级三层 hash 审计后方可入池",
+  "positive_definition": "same task, same family, different generator",
+  "negative_definition": "same task, different family, or pre-registered cross-family control",
+  "split_rule": "task/provenance group before generation",
+  "heldout_generator_rule": "test generator absent from train/dev",
+  "generation_allowed": false,
+  "training_allowed": false,
+  "external_cost_authorized": false,
+  "test_read_allowed": false,
+  "candidate_paths": {
+    "A_meta_lcv2_reuse": {
+      "source_unit": "h2_llm_codegen_v2::meta",
+      "family_semantics": "vendor_group（Meta；release-folder 推导）",
+      "existing_generators": [
+        "llama2",
+        "llama3",
+        "codellama"
+      ],
+      "generation_needed": false,
+      "dry_run_pool": "144 个未作 test 的 task（保守排除原 test 24）",
+      "blocker": "task 命名空间在 pair 轮用于 train/dev 开发；需指导端书面裁定『独立复核』是否成立",
+      "becomes_ready_if": "指导端接受该口径 + 授权一次评测读取"
+    },
+    "B_third_generator": {
+      "source_unit": "h2_llm_codegen_v2::google 或 ::mistral",
+      "existing_generators": {
+        "google": [
+          "Gemni-1.5-pro",
+          "codegemma"
+        ],
+        "mistral": [
+          "codestral",
+          "mistral"
+        ]
+      },
+      "target_third_generator": "未指定（须真实可用版本）",
+      "blocker": "本机无权重、无 API 授权、版本/许可未证实",
+      "becomes_ready_if": "提供确切版本+许可+调用可行性后重写预注册"
+    },
+    "C_openai_new_tasks": {
+      "source_unit": "h2_authorbench_dcan::openai",
+      "existing_generators": [
+        "gpt-4.1",
+        "gpt-4o",
+        "gpt-4o-mini"
+      ],
+      "blocker": "AB 命名空间已暴露；新任务需外部 API（未授权）"
+    }
+  },
+  "dry_run_artifacts": [
+    "task_dry_run/candidate_tasks.jsonl",
+    "task_dry_run/excluded_tasks.jsonl",
+    "audit/collision_groups.json",
+    "prereg/split_plan.json",
+    "audit/license_and_provenance.json",
+    "task_dry_run/dry_run_report.md"
+  ],
+  "missing_fields": [
+    "source_unit（Target 未定）",
+    "family_semantics（Target 未定）",
+    "target_family",
+    "existing_generators[]",
+    "target_third_generator（Path B）",
+    "task_source[]",
+    "task_namespace",
+    "license（LCv2/AB 均缺）"
+  ],
+  "blockers": [
+    "Path A：task 命名空间先前开发使用需裁定",
+    "Path B：第三 generator 不可证实",
+    "Path C：命名空间已暴露 + API 未授权"
+  ],
+  "generation_plan_produced": false,
+  "generation_plan_note": "按 §3：E2a != ready ⇒ 不生成 generation_plan.json（避免无门槛的行动文件）",
+  "written_utc": "2026-10-07T10:52:37.351286+00:00"
+}
