@@ -1,0 +1,8 @@
+{"file": "d-det/data/public_same_task_full_2026-10-07/code_contests/code_contests_valid.riegeli", "bytes": 17292781, "chunks": 113, "records": 117, "chunk_types": {"s": 0, "chunk:s": 1, "m": 0, "chunk:m": 1, "r": 117, "chunk:r": 111}, "runtime_s": 0.0}
+rec0: name='1548_C. The Three Little Pigs' desc_len=1978 source=CODEFORCES solutions=139 incorrect=102 tests=2/2/200
+rec1: name='1548_D1. Gregor and the Odd Cows (Easy)' desc_len=1631 source=CODEFORCES solutions=130 incorrect=103 tests=2/2/200
+rec2: name='1548_D2. Gregor and the Odd Cows (Hard)' desc_len=1718 source=CODEFORCES solutions=49 incorrect=27 tests=3/0/200
+{"file": "d-det/data/public_same_task_full_2026-10-07/code_contests/code_contests_test.riegeli", "bytes": 20139427, "chunks": 147, "records": 165, "chunk_types": {"s": 0, "chunk:s": 1, "m": 0, "chunk:m": 1, "r": 165, "chunk:r": 145}, "runtime_s": 0.0}
+rec0: name='1575_A. Another Sorting Problem' desc_len=1350 source=CODEFORCES solutions=155 incorrect=103 tests=1/0/200
+rec1: name='1575_B. Building an Amusement Park' desc_len=1887 source=CODEFORCES solutions=83 incorrect=126 tests=2/7/200
+rec2: name='1575_C. Cyclic Sum' desc_len=1455 source=CODEFORCES solutions=23 incorrect=53 tests=3/3/200

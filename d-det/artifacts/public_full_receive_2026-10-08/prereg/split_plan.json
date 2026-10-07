@@ -1,0 +1,197 @@
+{
+  "schema": "public_full_prereg_split_v1",
+  "generated_utc": "2026-10-07T16:47:30.294949+00:00",
+  "seed": 20261007,
+  "target_population": "公开同任务语料（EvalPlus MBPP+ / BigCodeBench v0.2.4；外部 benchmark，非项目历史域）",
+  "inclusion": [
+    "records.jsonl 全量成员",
+    "BigCodeBench full/instruct = 主协议；full/complete 与 hard/instruct = 独立控制"
+  ],
+  "exclusion": [
+    "不做任何按输出行的随机切分",
+    "不混协议轴（instruct≠complete，full≠hard）"
+  ],
+  "main_protocol": {
+    "definition": "BigCodeBench full/instruct",
+    "units": 118,
+    "tasks": 1140,
+    "rows": 134528,
+    "rows_per_unit_task": "1（8 个 unit-task 为多行, 已登记）",
+    "task_split": {
+      "train": 798,
+      "dev": 171,
+      "test": 171
+    },
+    "task_split_rule": "按 sha256(f'{SEED}|task_id') 排序取前 70%/15%/15%",
+    "task_list_sha256": {
+      "train": "2f62b820e219a26f7eac720b084fd0c31236ab88582ff8eae41c4683d7137310",
+      "dev": "39908f872c65b97561bd477d9c0d2e1066074ac115a2bf83134aecce486286bc",
+      "test": "64c96d31db896c66f836a9358dcb2e80f941afa08b3282f0b90d8df78a43382e"
+    },
+    "hard_subset_in_full_overlap": {
+      "hard_tasks": 148,
+      "hard_in_each_split": {
+        "train": 106,
+        "dev": 21,
+        "test": 21
+      }
+    },
+    "unit_heldout_folds": {
+      "scheme": "5 折按 family_label 分组内 hash 排序轮转",
+      "folds": {
+        "fold_0": 31,
+        "fold_1": 23,
+        "fold_2": 23,
+        "fold_3": 21,
+        "fold_4": 20
+      },
+      "per_fold_preview": {
+        "fold_0": {
+          "heldout_units": 31,
+          "train_units": 87,
+          "test_tasks_per_fold": 171,
+          "test_rows_per_fold": 5301
+        },
+        "fold_1": {
+          "heldout_units": 23,
+          "train_units": 95,
+          "test_tasks_per_fold": 171,
+          "test_rows_per_fold": 3933
+        },
+        "fold_2": {
+          "heldout_units": 23,
+          "train_units": 95,
+          "test_tasks_per_fold": 171,
+          "test_rows_per_fold": 3933
+        },
+        "fold_3": {
+          "heldout_units": 21,
+          "train_units": 97,
+          "test_tasks_per_fold": 171,
+          "test_rows_per_fold": 3591
+        },
+        "fold_4": {
+          "heldout_units": 20,
+          "train_units": 98,
+          "test_tasks_per_fold": 171,
+          "test_rows_per_fold": 3420
+        }
+      }
+    },
+    "family_variant_heldout": {
+      "status": "blocked",
+      "reason": "family_is_confirmed=true 为 0（349 行/306 单元全部为提示）；须先完成模型卡/lineage 证据才能设 family 折"
+    },
+    "statistics_unit": "task cluster（每 task 一个 cluster；bootstrap 按 task 重采样）",
+    "contamination": {
+      "status": "unknown",
+      "note": "公开 benchmark 可能进入模型预训练；本轮定位=外部验证/诊断，不进项目主表；须登记后方可升级"
+    }
+  },
+  "secondary_slices": {
+    "bcc_full_complete": {
+      "units": 123,
+      "rows": 140220,
+      "tasks": 1140,
+      "role": "独立提示协议控制"
+    },
+    "bcc_hard_instruct": {
+      "units": 86,
+      "rows": 12728,
+      "tasks": 148,
+      "role": "难题子集控制"
+    },
+    "evalplus_mbpp": {
+      "units": 22,
+      "rows": 8778,
+      "tasks": 399,
+      "rows_per_unit_task": "1（除下述多行）",
+      "role": "规模/后端变体次级切片"
+    }
+  },
+  "human_control": {
+    "source": "CodeContests validation/test（本包 riegeli，最小解析器提取字段）",
+    "valid": {
+      "problems": 117,
+      "unique_descriptions": 117,
+      "has_tests": 117,
+      "sources": {
+        "CODEFORCES": 117
+      },
+      "difficulty_raw": {
+        "9": 20,
+        "10": 25,
+        "11": 17,
+        "7": 16,
+        "8": 18,
+        "12": 12,
+        "13": 4,
+        "15": 2,
+        "14": 3
+      },
+      "human_correct_by_lang": {
+        "CPP": 12734,
+        "JAVA": 8251,
+        "PYTHON3": 8396,
+        "PYTHON2": 482
+      },
+      "human_incorrect_by_lang": {
+        "CPP": 14366,
+        "PYTHON3": 6908,
+        "JAVA": 7082,
+        "PYTHON2": 269
+      },
+      "cf_rating_n": 117,
+      "cf_rating_median": 1800
+    },
+    "test": {
+      "problems": 165,
+      "unique_descriptions": 165,
+      "has_tests": 165,
+      "sources": {
+        "CODEFORCES": 165
+      },
+      "difficulty_raw": {
+        "7": 23,
+        "8": 23,
+        "9": 22,
+        "10": 23,
+        "11": 25,
+        "12": 22,
+        "13": 12,
+        "14": 6,
+        "15": 3,
+        "16": 3,
+        "17": 1,
+        "19": 1,
+        "20": 1
+      },
+      "human_correct_by_lang": {
+        "CPP": 14677,
+        "PYTHON3": 8248,
+        "JAVA": 8894,
+        "PYTHON2": 362
+      },
+      "human_incorrect_by_lang": {
+        "CPP": 17670,
+        "JAVA": 8463,
+        "PYTHON3": 7273,
+        "PYTHON2": 166
+      },
+      "cf_rating_n": 165,
+      "cf_rating_median": 1900
+    },
+    "valid_test_description_overlap": 0,
+    "scope": "Human/AI 与 correctness 控制（CPP/PYTHON3/PYTHON2/JAVA 语言层）；与 BCC 无同 task 对齐 → 不能做同任务三 generator 主表的人控列",
+    "code_executed": false
+  },
+  "next_steps_gate": [
+    "污染/历史使用登记",
+    "family 证据（模型卡/lineage）",
+    "双 P0（fusion + eq）在新 train/dev 冻结",
+    "test 单次读取"
+  ],
+  "training_allowed": false,
+  "generation_allowed": false,
+  "runtime_seconds": 4.1346259117126465
+}

@@ -1,0 +1,57 @@
+{
+  "schema": "public_full_received_files_v1",
+  "zip": {
+    "path": "d-det/data/public_same_task_full_2026-10-07.zip",
+    "sha256": "e98f221a2b0b88a377fe4390222f30006e18eca00433312106514f675967df82",
+    "guidance_expected_sha256": "b8511ee670ee99404f646840210b74284d20076d726ee57eb2a221d88cd2a417",
+    "matches_expected": false,
+    "note": "实测哈希与指导标注不同；包内部 SHA256SUMS 10/10 通过，且 records_sha256 与包内 integrity 一致——按内部一致性接收，差异如实登记"
+  },
+  "sha256sums_internal": "10/10 OK（Python 逐行复核）",
+  "files": {
+    "SHA256SUMS.txt": {
+      "sha256": "c78dad5eea9fc1878bd304ba7389b22253ad6113622919b51c3d1fd143064d8e",
+      "bytes": 968
+    },
+    "bigcodebench_task_metadata.jsonl": {
+      "sha256": "44087b85802fa5b23032955971f8cd072154ace34f374d6eb49a4e074cdb39c2",
+      "bytes": 6964896
+    },
+    "code_contests/code_contests_test.riegeli": {
+      "sha256": "d9bfcf83359df5379154ce8518208c40ddda08da59ea91c55201bde7e272a452",
+      "bytes": 20139427
+    },
+    "code_contests/code_contests_valid.riegeli": {
+      "sha256": "ad5fbccd778ded46273b2ed8fcde894eaa484a63f27dcac083a1a08d8ef9c11d",
+      "bytes": 17292781
+    },
+    "evalplus_mbppplus_task_metadata.jsonl": {
+      "sha256": "7b9867f3dcda411ddda54b13e14b02df54126b72524a8bb87dbc550136ddcfcf",
+      "bytes": 4891638
+    },
+    "full_integrity_check.json": {
+      "sha256": "5ad934846b392775742015ace182f1f45c977826058827e368928d9ce20af389",
+      "bytes": 500
+    },
+    "manifest.json": {
+      "sha256": "a7aee7074bfe9b3e621853f3dd553cdf8e1c90e60e8f2b4fb9f37536e6b983fb",
+      "bytes": 197446
+    },
+    "model_lineage_adjudication.json": {
+      "sha256": "c395617a02cb180617bc248743fd698ed547530bf35a96627249bb6e0096954b",
+      "bytes": 2321
+    },
+    "model_lineage_adjudication.jsonl": {
+      "sha256": "28d129dc1eb26f652b1da08719c8fea063028f1be7f2b8337a5f33ad7be5bf60",
+      "bytes": 261558
+    },
+    "records.jsonl": {
+      "sha256": "d786667a72f3f3864ea38115fd6ccfe8ac393141146d522673668f3730523210",
+      "bytes": 698815718
+    },
+    "task_metadata_audit.json": {
+      "sha256": "086f88b6127d2e8f895bf93c1d1a8759f2049a669a6aac398a14695afe67a062",
+      "bytes": 1735
+    }
+  }
+}

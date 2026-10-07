@@ -1,0 +1,104 @@
+{
+  "schema": "public_full_adjudication_audit_v1",
+  "generated_utc": "2026-10-07T16:43:09.259236+00:00",
+  "inputs": {
+    "records_sha256": "d786667a72f3f3864ea38115fd6ccfe8ac393141146d522673668f3730523210",
+    "manifest_sha256": "a7aee7074bfe9b3e621853f3dd553cdf8e1c90e60e8f2b4fb9f37536e6b983fb",
+    "adjudication_sha256": "28d129dc1eb26f652b1da08719c8fea063028f1be7f2b8337a5f33ad7be5bf60",
+    "sha256sums_verified_internally": "10/10 OK（接收时逐文件复核）"
+  },
+  "row_counts": {
+    "evalplus": 8778,
+    "bigcodebench": 287476,
+    "bcc_subset_mode": {
+      "bigcodebench|full|instruct": 134528,
+      "bigcodebench|full|complete": 140220,
+      "bigcodebench|hard|instruct": 12728
+    }
+  },
+  "unit_reconciliation": {
+    "adj_rows": 349,
+    "adj_distinct_units": 306,
+    "adj_duplicate_rows": 43,
+    "records_derived_units": 306,
+    "exact_identical_strings": 284,
+    "matched_after_evalplus_prefix": 349,
+    "unmatched": 0,
+    "only_in_adj_sample": [
+      "evalplus|code-llama-13b|unknown_release_temp_sampling|mbpp|unknown|unknown",
+      "evalplus|code-llama-34b|unknown_release_temp_sampling|mbpp|unknown|unknown",
+      "evalplus|code-llama-7b|unknown_release_temp_sampling|mbpp|unknown|unknown",
+      "evalplus|codegen-16b|unknown_release_temp_sampling|mbpp|unknown|unknown",
+      "evalplus|codegen-2b|unknown_release_temp_sampling|mbpp|unknown|unknown",
+      "evalplus|codegen-6b|unknown_release_temp_sampling|mbpp|unknown|unknown"
+    ],
+    "only_in_records_sample": [
+      "evalplus|code-llama-13b|unknown_release_temp_sampling|mbpp||",
+      "evalplus|code-llama-34b|unknown_release_temp_sampling|mbpp||",
+      "evalplus|code-llama-7b|unknown_release_temp_sampling|mbpp||",
+      "evalplus|codegen-16b|unknown_release_temp_sampling|mbpp||",
+      "evalplus|codegen-2b|unknown_release_temp_sampling|mbpp||",
+      "evalplus|codegen-6b|unknown_release_temp_sampling|mbpp||"
+    ],
+    "adj_records_sum": 296254,
+    "note": "adjudication 文件 349 行（含同 unit 多 asset/member 行），去重后 306 个精确 generator unit；records 原样字段计数同为 306；差异仅为 evalplus 22 个单元在 records 中缺 backend/temperature 字段（adj 以 unknown 占位）。研究口径 = 306 个精确单元。"
+  },
+  "protocol_axes": {
+    "bcc_tasks_full": 1140,
+    "bcc_tasks_hard": 148,
+    "full_and_hard_overlap": 148,
+    "bcc_tasks_instruct": 1140,
+    "bcc_tasks_complete": 1140,
+    "instruct_complete_overlap": 1140,
+    "evalplus_tasks": 399
+  },
+  "main_protocol_preview": {
+    "definition": "BigCodeBench full/instruct",
+    "units": 118,
+    "rows_sum": 134528,
+    "tasks_min": 1140,
+    "tasks_median": 1140,
+    "tasks_max": 1140
+  },
+  "other_slices_preview": {
+    "bcc_full_complete": {
+      "units": 123,
+      "rows_sum": 140220,
+      "tasks_min": 1140,
+      "tasks_median": 1140,
+      "tasks_max": 1140
+    },
+    "bcc_hard_instruct": {
+      "units": 86,
+      "rows_sum": 12728,
+      "tasks_min": 148,
+      "tasks_median": 148,
+      "tasks_max": 148
+    },
+    "evalplus": {
+      "units": 22,
+      "rows_sum": 8778,
+      "tasks_min": 399,
+      "tasks_median": 399,
+      "tasks_max": 399
+    }
+  },
+  "family_evidence": {
+    "counter": {
+      "name_inferred": 233,
+      "unresolved": 79,
+      "provider_or_model_name_inferred": 37
+    },
+    "family_is_confirmed_true": 0,
+    "unresolved_units": 79
+  },
+  "duplicates": {
+    "dup_identity": 0,
+    "dup_code_in_unit_task": 21,
+    "official_dup_or_malformed": 0,
+    "note": "dup_code_in_unit_task = 同一 unit-task 内 code/solution sha 重复的输出行（需去重统计）；主键重复 0。"
+  },
+  "contamination_note": "公开 benchmark 可能已被模型预训练见过；本审计无法测污染。协议定位 = 外部验证/方法诊断；完成污染与历史使用登记前不进项目主表。",
+  "code_executed": false,
+  "runtime_seconds": 6.919640064239502
+}

@@ -1,0 +1,18 @@
+# 公开完整语料接收与预注册（2026-10-08）
+id /root/autodl-tmp/u-det
+D=d-det/data/public_same_task_full_2026-10-07
+A=d-det/artifacts/public_full_receive_2026-10-08
+mkdir -p "$A"/{audit,prereg,logs}
+git rev-parse HEAD > "$A/git_head.txt"; git status --short --branch > "$A/git_status.txt"
+# 1) 解压（Python zipfile）与内部 SHA256SUMS 复核 10/10
+python3 -c "import zipfile; zipfile.ZipFile('d-det/data/public_same_task_full_2026-10-07.zip').extractall('d-det/data')"
+python3 scripts/verify_public_task_full.py   # 行数/unit/重复复核（6.7s；records_sha256 与包内一致）
+# 2) 深层审计（unit 对齐 349 行→306 单元；协议轴；交集；支持度）
+python3 scripts/public_full_adjudication_audit.py
+# 3) CodeContests riegeli 最小解析器（官方格式规范）+ 提取
+python3 scripts/cc_riegeli_extract.py --probe $D/code_contests/code_contests_valid.riegeli
+python3 scripts/cc_riegeli_extract.py --extract $D/code_contests/code_contests_valid.riegeli --out "$A/audit/cc_index_valid.jsonl"
+python3 scripts/cc_riegeli_extract.py --extract $D/code_contests/code_contests_test.riegeli  --out "$A/audit/cc_index_test.jsonl"
+# 4) 预注册 split（task 级 70/15/15 + unit 5 折 + 人类控制摘要）
+python3 scripts/public_prereg_split.py
+(cd "$A" && find . -type f ! -path ./SHA256SUMS.txt | sort | xargs sha256sum > SHA256SUMS.txt)

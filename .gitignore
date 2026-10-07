@@ -50,3 +50,9 @@ d-det/artifacts/acl_sota_p0/stacad_official_repro/*.npz
 
 # h2_alignment_v3 大索引（42MB，可自 bundle 重建；磁盘留存不入库）
 d-det/data/h2_alignment_v3/pair_index.jsonl
+
+# 公开完整语料（大文件；SHA256 登记在 artifacts/public_full_receive_2026-10-08）
+d-det/data/public_same_task_full_2026-10-07.zip
+d-det/data/public_same_task_full_2026-10-07/records.jsonl
+d-det/data/public_same_task_full_2026-10-07/code_contests/*.riegeli
+d-det/data/public_same_task_full_2026-10-07/*_task_metadata.jsonl

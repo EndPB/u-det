@@ -1,0 +1,84 @@
+{
+  "schema": "code_contests_index_v1",
+  "toolchain": {
+    "reader": "scripts/cc_riegeli_extract.py（按官方 riegeli 格式规范的最小实现）",
+    "decompression": "zstandard 0.25.0（块级 zstd，0x7a）",
+    "proto_fields": "contest_problem.proto（name/description/tests/source/difficulty/solutions/incorrect_solutions/cf_*）",
+    "code_executed": false
+  },
+  "valid": {
+    "problems": 117,
+    "unique_descriptions": 117,
+    "has_tests": 117,
+    "sources": {
+      "CODEFORCES": 117
+    },
+    "difficulty_raw": {
+      "9": 20,
+      "10": 25,
+      "11": 17,
+      "7": 16,
+      "8": 18,
+      "12": 12,
+      "13": 4,
+      "15": 2,
+      "14": 3
+    },
+    "human_correct_by_lang": {
+      "CPP": 12734,
+      "JAVA": 8251,
+      "PYTHON3": 8396,
+      "PYTHON2": 482
+    },
+    "human_incorrect_by_lang": {
+      "CPP": 14366,
+      "PYTHON3": 6908,
+      "JAVA": 7082,
+      "PYTHON2": 269
+    },
+    "cf_rating_n": 117,
+    "cf_rating_median": 1800
+  },
+  "test": {
+    "problems": 165,
+    "unique_descriptions": 165,
+    "has_tests": 165,
+    "sources": {
+      "CODEFORCES": 165
+    },
+    "difficulty_raw": {
+      "7": 23,
+      "8": 23,
+      "9": 22,
+      "10": 23,
+      "11": 25,
+      "12": 22,
+      "13": 12,
+      "14": 6,
+      "15": 3,
+      "16": 3,
+      "17": 1,
+      "19": 1,
+      "20": 1
+    },
+    "human_correct_by_lang": {
+      "CPP": 14677,
+      "PYTHON3": 8248,
+      "JAVA": 8894,
+      "PYTHON2": 362
+    },
+    "human_incorrect_by_lang": {
+      "CPP": 17670,
+      "JAVA": 8463,
+      "PYTHON3": 7273,
+      "PYTHON2": 166
+    },
+    "cf_rating_n": 165,
+    "cf_rating_median": 1900
+  },
+  "valid_test_description_overlap": 0,
+  "files": {
+    "valid_riegeli": "code_contests/code_contests_valid.riegeli",
+    "test_riegeli": "code_contests/code_contests_test.riegeli"
+  }
+}

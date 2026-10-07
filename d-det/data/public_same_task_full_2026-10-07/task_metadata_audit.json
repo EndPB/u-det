@@ -1,0 +1,57 @@
+{
+  "schema": "public_task_metadata_audit_v1",
+  "source_urls": {
+    "evalplus": "https://huggingface.co/datasets/evalplus/mbppplus/resolve/main/data/test-00000-of-00001-d5781c9c51e02795.parquet",
+    "bigcodebench": "https://huggingface.co/datasets/bigcode/bigcodebench/resolve/main/data/train-00000-of-00001.parquet",
+    "download_endpoint": "https://hf-mirror.com (TLS verified; mirror used because direct HF timed out)"
+  },
+  "raw_files": {
+    "evalplus": {
+      "path": "D:\\data\\vscode\\u-det\\d-det\\data\\public_same_task_raw_2026-10-07\\evalplus\\mbppplus_test.parquet",
+      "bytes": 1129135,
+      "sha256": "dc20030b3788fccf617444edcb34138ef13d7e4fafd17bfcb8c1279dbb12399b"
+    },
+    "bigcodebench": {
+      "path": "D:\\data\\vscode\\u-det\\d-det\\data\\public_same_task_raw_2026-10-07\\bigcodebench\\bigcodebench_train.parquet",
+      "bytes": 2385578,
+      "sha256": "ef54cbf5ba83d031029141f2d4efb990a54f95edcd96ca0c7808fe103822c8b6"
+    }
+  },
+  "evalplus": {
+    "metadata_rows": 378,
+    "sample_task_count": 399,
+    "matched": 378,
+    "missing_metadata": [
+      "mbpp/115",
+      "mbpp/117",
+      "mbpp/143",
+      "mbpp/164",
+      "mbpp/229",
+      "mbpp/249",
+      "mbpp/295",
+      "mbpp/396",
+      "mbpp/400",
+      "mbpp/407",
+      "mbpp/431",
+      "mbpp/438",
+      "mbpp/442",
+      "mbpp/461",
+      "mbpp/574",
+      "mbpp/582",
+      "mbpp/595",
+      "mbpp/640",
+      "mbpp/746",
+      "mbpp/783",
+      "mbpp/83"
+    ],
+    "metadata_only": 0
+  },
+  "bigcodebench": {
+    "metadata_rows": 1140,
+    "sample_task_count": 1140,
+    "matched": 1140,
+    "missing_metadata": [],
+    "metadata_only": 0
+  },
+  "code_executed": false
+}

@@ -1,0 +1,6 @@
+## main...origin/main
+?? d-det/artifacts/public_full_receive_2026-10-08/
+?? d-det/data/public_same_task_full_2026-10-07.zip
+?? d-det/data/public_same_task_full_2026-10-07/
+?? "d-det/docx/d-det_\345\205\254\345\274\200\345\220\214\344\273\273\345\212\241\345\256\214\346\225\264\350\257\255\346\226\231_\345\274\272\346\225\260\346\215\256\350\267\257\347\272\277\344\270\216AutoDL\346\211\247\350\241\214\346\214\207\345\257\274_2026-10-07.md"
+?? scripts/verify_public_task_full.py
