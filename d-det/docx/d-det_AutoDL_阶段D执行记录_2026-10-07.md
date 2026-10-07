@@ -115,7 +115,8 @@ llm `google`: Gemni-1.5-pro / codegemma、`mistral`: codestral / mistral —— 
 
 - 显存/内存峰值未采样（脚本内无采样逻辑）——如需要可重跑单加采样。
 - `length_quartiles` 输出含一个恒空的 `>=inf` 边界桶（显示为 n=0），无信息损失。
-- 交接本记录的最终提交号见 git log（本文件所在提交）。
+- 交付提交：**6e329da**（含本记录、两产物目录、3 个脚本、h2_alignment_v3 小件；`pair_index.jsonl` 42MB 不入库），
+  已推送 `origin/main`（运行锚点仍为 83e02c0，见两目录 `git_head.txt`）。
 
 ## 6 唯一下一步建议
 
