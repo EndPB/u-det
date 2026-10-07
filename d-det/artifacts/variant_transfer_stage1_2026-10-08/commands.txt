@@ -1,0 +1,30 @@
+# variant_transfer stage-1（train/dev）执行 2026-10-08
+# 依据：《AutoDL 变体迁移执行前闸门指导》（dccd1d2）+《AutoDL 服务器重构版最小授权与补传豁免》2026-10-08 §1/§4
+# 范围：3 系列 11 heldout 折 × 2 负集版本（size_mix / size_matched）= 22 子实验；不读 test、不生成、不下载
+# 环境：/root/miniconda3/envs/udet（sklearn 1.9.1 / scipy / lightgbm 4.7 / torch 2.9.1+cu128 / RTX 3080 Ti）
+
+cd /root/autodl-tmp/u-det
+P=d-det/artifacts/variant_transfer_stage1_2026-10-08
+
+# 0) 授权/标注先落地（§1：source_status=server_reconstruction_only；training_allowed=true，test_read=false）
+#    → $P/source_status.json、$P/execution_switches.json
+
+# 1) 特征编码（GPU；仅 11 成员 × {train,dev} 行；test 行显式排除）
+OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 TOKENIZERS_PARALLELISM=false \
+  /root/miniconda3/envs/udet/bin/python scripts/variant_transfer_stage1_execute.py --feat-only
+# → features/style_meta.npz、emb_codet5_small.npz (10659,512)、emb_codet5_base.npz (10659,768)、feature_manifest.json（97.3s）
+
+# 2) 单折验证（CodeLlama heldout=7b / size_mix）
+OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 TOKENIZERS_PARALLELISM=false \
+  /root/miniconda3/envs/udet/bin/python scripts/variant_transfer_stage1_execute.py --folds-limit 1
+# 单折 158.6s（TF-IDF char 14.3s + word 3.6s；SGD×6；LR 网格；LGBM800；bootstrap 500×10 读出）
+
+# 3) 全量 22 折（11 heldout × 2 负集版本）
+OMP_NUM_THREADS=8 MKL_NUM_THREADS=8 TOKENIZERS_PARALLELISM=false \
+  /root/miniconda3/envs/udet/bin/python -u scripts/variant_transfer_stage1_execute.py 2>&1 | tee "$P/logs/stage1_full.log"
+# → predictions/{series}__heldout={size}__{arm}.csv.gz（每折 10 读出 × 1710 dev 行）
+# → train_dev_metrics.json（每折读出 AUROC/AP/task-macro + task-cluster bootstrap 500 CI；R2 汇总）
+
+# 4) 汇总与校验
+#   git_head/git_status 记录；SHA256SUMS.txt 生成
+(cd "$P" && find . -type f ! -name SHA256SUMS.txt | sort | xargs sha256sum > SHA256SUMS.txt)

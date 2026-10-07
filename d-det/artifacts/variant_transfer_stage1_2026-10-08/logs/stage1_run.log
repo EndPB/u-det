@@ -1,0 +1,403 @@
+[1] load split + samples
+  samples=10659 (test rows excluded=1881)
+[2] style/metadata features
+  style (10659, 92) in 9.9s
+[3] CodeT5-small embedding (GPU)
+  cache hit: load embeddings from npz
+[5] folds
+  [CodeLlama-Instruct::heldout=7b::size_mix] train=7980 (pos=2394) dev=1710 (pos=513)
+    tfidf_char vocab=43618 in 14.2s
+    tfidf_word vocab=46634 in 3.6s
+    char SGD
+      sgd(seed=0) dev AUC 0.8882
+      sgd(seed=1) dev AUC 0.8943
+      sgd(seed=2) dev AUC 0.8893
+    word SGD
+      sgd(seed=0) dev AUC 0.9159
+      sgd(seed=1) dev AUC 0.9188
+      sgd(seed=2) dev AUC 0.9175
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [CodeLlama-Instruct::heldout=7b::size_matched] train=4788 (pos=2394) dev=1026 (pos=513)
+    tfidf_char vocab=38223 in 8.7s
+    tfidf_word vocab=39270 in 2.3s
+    char SGD
+      sgd(seed=0) dev AUC 0.9073
+      sgd(seed=1) dev AUC 0.9142
+      sgd(seed=2) dev AUC 0.9011
+    word SGD
+      sgd(seed=0) dev AUC 0.9323
+      sgd(seed=1) dev AUC 0.9336
+      sgd(seed=2) dev AUC 0.9367
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [CodeLlama-Instruct::heldout=13b::size_mix] train=7980 (pos=2394) dev=1710 (pos=513)
+    tfidf_char vocab=43652 in 13.7s
+    tfidf_word vocab=46807 in 3.6s
+    char SGD
+      sgd(seed=0) dev AUC 0.9082
+      sgd(seed=1) dev AUC 0.9114
+      sgd(seed=2) dev AUC 0.9121
+    word SGD
+      sgd(seed=0) dev AUC 0.9227
+      sgd(seed=1) dev AUC 0.9249
+      sgd(seed=2) dev AUC 0.9244
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [CodeLlama-Instruct::heldout=13b::size_matched] train=4788 (pos=2394) dev=1026 (pos=513)
+    tfidf_char vocab=37932 in 8.8s
+    tfidf_word vocab=38996 in 2.3s
+    char SGD
+      sgd(seed=0) dev AUC 0.9257
+      sgd(seed=1) dev AUC 0.9267
+      sgd(seed=2) dev AUC 0.9273
+    word SGD
+      sgd(seed=0) dev AUC 0.9307
+      sgd(seed=1) dev AUC 0.9329
+      sgd(seed=2) dev AUC 0.9286
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [CodeLlama-Instruct::heldout=34b::size_mix] train=7980 (pos=2394) dev=1710 (pos=513)
+    tfidf_char vocab=43772 in 13.9s
+    tfidf_word vocab=47608 in 3.7s
+    char SGD
+      sgd(seed=0) dev AUC 0.9103
+      sgd(seed=1) dev AUC 0.9151
+      sgd(seed=2) dev AUC 0.9134
+    word SGD
+      sgd(seed=0) dev AUC 0.9294
+      sgd(seed=1) dev AUC 0.9318
+      sgd(seed=2) dev AUC 0.9256
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [CodeLlama-Instruct::heldout=34b::size_matched] train=4788 (pos=2394) dev=1026 (pos=513)
+    tfidf_char vocab=38103 in 8.8s
+    tfidf_word vocab=39652 in 2.4s
+    char SGD
+      sgd(seed=0) dev AUC 0.9183
+      sgd(seed=1) dev AUC 0.9238
+      sgd(seed=2) dev AUC 0.9207
+    word SGD
+      sgd(seed=0) dev AUC 0.9373
+      sgd(seed=1) dev AUC 0.9395
+      sgd(seed=2) dev AUC 0.9370
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [CodeLlama-Instruct::heldout=70b::size_mix] train=7980 (pos=2394) dev=1710 (pos=513)
+    tfidf_char vocab=43753 in 13.7s
+    tfidf_word vocab=47401 in 3.6s
+    char SGD
+      sgd(seed=0) dev AUC 0.9170
+      sgd(seed=1) dev AUC 0.9176
+      sgd(seed=2) dev AUC 0.9208
+    word SGD
+      sgd(seed=0) dev AUC 0.9355
+      sgd(seed=1) dev AUC 0.9406
+      sgd(seed=2) dev AUC 0.9370
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [CodeLlama-Instruct::heldout=70b::size_matched] train=4788 (pos=2394) dev=1026 (pos=513)
+    tfidf_char vocab=38046 in 8.7s
+    tfidf_word vocab=39370 in 2.3s
+    char SGD
+      sgd(seed=0) dev AUC 0.9252
+      sgd(seed=1) dev AUC 0.9288
+      sgd(seed=2) dev AUC 0.9242
+    word SGD
+      sgd(seed=0) dev AUC 0.9436
+      sgd(seed=1) dev AUC 0.9431
+      sgd(seed=2) dev AUC 0.9443
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix] train=7980 (pos=2394) dev=1710 (pos=513)
+    tfidf_char vocab=44069 in 14.0s
+    tfidf_word vocab=48812 in 3.7s
+    char SGD
+      sgd(seed=0) dev AUC 0.9187
+      sgd(seed=1) dev AUC 0.9147
+      sgd(seed=2) dev AUC 0.9225
+    word SGD
+      sgd(seed=0) dev AUC 0.9423
+      sgd(seed=1) dev AUC 0.9391
+      sgd(seed=2) dev AUC 0.9404
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched] train=4788 (pos=2394) dev=1026 (pos=513)
+    tfidf_char vocab=38217 in 8.7s
+    tfidf_word vocab=38792 in 2.3s
+    char SGD
+      sgd(seed=0) dev AUC 0.9379
+      sgd(seed=1) dev AUC 0.9395
+      sgd(seed=2) dev AUC 0.9397
+    word SGD
+      sgd(seed=0) dev AUC 0.9537
+      sgd(seed=1) dev AUC 0.9563
+      sgd(seed=2) dev AUC 0.9550
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [Qwen2.5-Coder-Instruct::heldout=7B::size_mix] train=7980 (pos=2394) dev=1710 (pos=513)
+    tfidf_char vocab=44083 in 13.8s
+    tfidf_word vocab=48163 in 3.7s
+    char SGD
+      sgd(seed=0) dev AUC 0.8565
+      sgd(seed=1) dev AUC 0.8598
+      sgd(seed=2) dev AUC 0.8607
+    word SGD
+      sgd(seed=0) dev AUC 0.8923
+      sgd(seed=1) dev AUC 0.8919
+      sgd(seed=2) dev AUC 0.8938
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [Qwen2.5-Coder-Instruct::heldout=7B::size_matched] train=4788 (pos=2394) dev=1026 (pos=513)
+    tfidf_char vocab=37724 in 8.0s
+    tfidf_word vocab=35687 in 2.1s
+    char SGD
+      sgd(seed=0) dev AUC 0.8460
+      sgd(seed=1) dev AUC 0.8499
+      sgd(seed=2) dev AUC 0.8571
+    word SGD
+      sgd(seed=0) dev AUC 0.8806
+      sgd(seed=1) dev AUC 0.8787
+      sgd(seed=2) dev AUC 0.8808
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [Qwen2.5-Coder-Instruct::heldout=14B::size_mix] train=7980 (pos=2394) dev=1710 (pos=513)
+    tfidf_char vocab=43737 in 13.9s
+    tfidf_word vocab=47829 in 3.6s
+    char SGD
+      sgd(seed=0) dev AUC 0.8596
+      sgd(seed=1) dev AUC 0.8498
+      sgd(seed=2) dev AUC 0.8489
+    word SGD
+      sgd(seed=0) dev AUC 0.8813
+      sgd(seed=1) dev AUC 0.8788
+      sgd(seed=2) dev AUC 0.8897
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [Qwen2.5-Coder-Instruct::heldout=14B::size_matched] train=4788 (pos=2394) dev=1026 (pos=513)
+    tfidf_char vocab=37344 in 8.0s
+    tfidf_word vocab=35323 in 2.2s
+    char SGD
+      sgd(seed=0) dev AUC 0.8498
+      sgd(seed=1) dev AUC 0.8503
+      sgd(seed=2) dev AUC 0.8506
+    word SGD
+      sgd(seed=0) dev AUC 0.8827
+      sgd(seed=1) dev AUC 0.8870
+      sgd(seed=2) dev AUC 0.8826
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [Qwen2.5-Coder-Instruct::heldout=32B::size_mix] train=7980 (pos=2394) dev=1710 (pos=513)
+    tfidf_char vocab=43789 in 13.7s
+    tfidf_word vocab=47559 in 3.6s
+    char SGD
+      sgd(seed=0) dev AUC 0.8519
+      sgd(seed=1) dev AUC 0.8402
+      sgd(seed=2) dev AUC 0.8443
+    word SGD
+      sgd(seed=0) dev AUC 0.8801
+      sgd(seed=1) dev AUC 0.8762
+      sgd(seed=2) dev AUC 0.8842
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [Qwen2.5-Coder-Instruct::heldout=32B::size_matched] train=4788 (pos=2394) dev=1026 (pos=513)
+    tfidf_char vocab=37573 in 8.5s
+    tfidf_word vocab=37056 in 2.3s
+    char SGD
+      sgd(seed=0) dev AUC 0.8592
+      sgd(seed=1) dev AUC 0.8603
+      sgd(seed=2) dev AUC 0.8577
+    word SGD
+      sgd(seed=0) dev AUC 0.8990
+      sgd(seed=1) dev AUC 0.8940
+      sgd(seed=2) dev AUC 0.8973
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix] train=7980 (pos=1596) dev=1710 (pos=342)
+    tfidf_char vocab=43973 in 14.0s
+    tfidf_word vocab=49020 in 3.7s
+    char SGD
+      sgd(seed=0) dev AUC 0.8603
+      sgd(seed=1) dev AUC 0.8638
+      sgd(seed=2) dev AUC 0.8588
+    word SGD
+      sgd(seed=0) dev AUC 0.8775
+      sgd(seed=1) dev AUC 0.8788
+      sgd(seed=2) dev AUC 0.8822
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched] train=3192 (pos=1596) dev=684 (pos=342)
+    tfidf_char vocab=29213 in 5.1s
+    tfidf_word vocab=27817 in 1.4s
+    char SGD
+      sgd(seed=0) dev AUC 0.8622
+      sgd(seed=1) dev AUC 0.8492
+      sgd(seed=2) dev AUC 0.8538
+    word SGD
+      sgd(seed=0) dev AUC 0.8709
+      sgd(seed=1) dev AUC 0.8753
+      sgd(seed=2) dev AUC 0.8679
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix] train=7980 (pos=1596) dev=1710 (pos=342)
+    tfidf_char vocab=43957 in 14.0s
+    tfidf_word vocab=48842 in 3.7s
+    char SGD
+      sgd(seed=0) dev AUC 0.8382
+      sgd(seed=1) dev AUC 0.8507
+      sgd(seed=2) dev AUC 0.8463
+    word SGD
+      sgd(seed=0) dev AUC 0.8643
+      sgd(seed=1) dev AUC 0.8728
+      sgd(seed=2) dev AUC 0.8676
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched] train=3192 (pos=1596) dev=684 (pos=342)
+    tfidf_char vocab=29164 in 5.1s
+    tfidf_word vocab=26943 in 1.4s
+    char SGD
+      sgd(seed=0) dev AUC 0.8121
+      sgd(seed=1) dev AUC 0.8058
+      sgd(seed=2) dev AUC 0.7994
+    word SGD
+      sgd(seed=0) dev AUC 0.8217
+      sgd(seed=1) dev AUC 0.8234
+      sgd(seed=2) dev AUC 0.8202
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix] train=7980 (pos=1596) dev=1710 (pos=342)
+    tfidf_char vocab=43927 in 14.1s
+    tfidf_word vocab=48638 in 3.7s
+    char SGD
+      sgd(seed=0) dev AUC 0.8495
+      sgd(seed=1) dev AUC 0.8623
+      sgd(seed=2) dev AUC 0.8542
+    word SGD
+      sgd(seed=0) dev AUC 0.8827
+      sgd(seed=1) dev AUC 0.8786
+      sgd(seed=2) dev AUC 0.8731
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal
+  [DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched] train=3192 (pos=1596) dev=684 (pos=342)
+    tfidf_char vocab=29365 in 5.1s
+    tfidf_word vocab=27110 in 1.4s
+    char SGD
+      sgd(seed=0) dev AUC 0.8411
+      sgd(seed=1) dev AUC 0.8493
+      sgd(seed=2) dev AUC 0.8385
+    word SGD
+      sgd(seed=0) dev AUC 0.8630
+      sgd(seed=1) dev AUC 0.8731
+      sgd(seed=2) dev AUC 0.8662
+    sem_base
+    sem_small
+    style_lr
+    style_lgb
+    metadata_only
+    size_length_only
+    P0_fusion / P0_equal

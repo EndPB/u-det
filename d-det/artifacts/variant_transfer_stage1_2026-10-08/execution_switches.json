@@ -1,0 +1,17 @@
+{
+  "schema": "variant_transfer_execution_switches_v2",
+  "updated_utc": "2026-10-08",
+  "supersedes": "d-det/artifacts/variant_transfer_preflight_2026-10-08/execution_switches.json（v1，全 false；保留原文件不改）",
+  "training_allowed": true,
+  "training_scope": "train/dev 阶段：R1 train/dev、R2 train/dev、size/length-only baseline、size-mix 与 size-matched 敏感性、双 P0；不含 test 评分",
+  "generation_allowed": false,
+  "test_read_allowed": false,
+  "authority": "《AutoDL 服务器重构版最小授权与补传豁免》2026-10-08（§1/§4）：补传豁免并允许系列内迁移 train/dev；test 需另行单独授权（时间/数据 hash/输出字段）",
+  "forbidden": [
+    "读取 test（含任何 test 行正文或评分）",
+    "读取项目旧 LCv2/AuthorBench/D1/N2 test",
+    "选择性重写 heldout 顺序、负集或 seed",
+    "下载权重或生成新样本",
+    "把 server_reconstruction_only 结果写成原件复现或无污染确认性结论"
+  ]
+}

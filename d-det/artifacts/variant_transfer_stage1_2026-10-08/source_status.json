@@ -1,0 +1,16 @@
+{
+  "schema": "variant_transfer_source_status_v1",
+  "created_utc": "2026-10-08",
+  "source_status": "server_reconstruction_only",
+  "original_bundle_verified": false,
+  "claims_of_byte_identity": "forbidden",
+  "authority_doc": "d-det/docx/d-det_AutoDL_服务器重构版最小授权与补传豁免_2026-10-08.md（§1）",
+  "original_manifest": "d-det/artifacts/public_full_followup_2026-10-08/expected_followup_manifest_via_user.txt（16 件未上传；provenance_resolution.json 全部 awaiting_original）",
+  "server_rebuild_reference": {
+    "family_series_admission": "d-det/artifacts/public_full_followup_2026-10-08/server_rebuild/family_series_admission.server_rebuild.json",
+    "sha256": "c079abea65807ce2228822abdb82955f2c122bcdc299fb09093b3a0c52898ee9",
+    "must_not_be_written_as": "cc4a77851702e0bbf57e50636744ad25b572da9a665148b2b76179236b0bdfae（原件期望值）"
+  },
+  "upgrade_rule": "原件到达并 16/16 核对通过后，重跑 provenance_resolution.json，再将 reports 的 source 状态升级为 provided_original_verified；不覆盖 server_rebuild/，不回写历史结果",
+  "required_on_all_reports": "source_status=server_reconstruction_only；original_bundle_verified=false；claims_of_byte_identity=forbidden"
+}

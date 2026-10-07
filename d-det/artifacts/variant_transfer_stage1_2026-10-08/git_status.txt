@@ -1,0 +1,5 @@
+## main...origin/main
+?? d-det/artifacts/variant_transfer_stage1_2026-10-08/
+?? "d-det/docx/d-det_AutoDL_\346\234\215\345\212\241\345\231\250\351\207\215\346\236\204\347\211\210\346\234\200\345\260\217\346\216\210\346\235\203\344\270\216\350\241\245\344\274\240\350\261\201\345\205\215_2026-10-08.md"
+?? scripts/variant_transfer_stage1_execute.py
+?? scripts/variant_transfer_stage1_report.py

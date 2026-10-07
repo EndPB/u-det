@@ -1,0 +1,26 @@
+{
+ "schema": "variant_transfer_stage1_feature_manifest_v1",
+ "samples": 10659,
+ "order": "(unit, task) ascending",
+ "style_meta_npz": {
+  "path": "features/style_meta.npz",
+  "sha256": "b518d23c4f993a99618b86269a6071816100676a1a94a0f63424f2b72e96196b"
+ },
+ "emb_small_npz": {
+  "path": "features/emb_codet5_small.npz",
+  "shape": [
+   10659,
+   512
+  ],
+  "sha256": "9b2aedfc83c825a51da6054e138906d531ef8012fe00ea0434e8030261bcf713"
+ },
+ "emb_base_npz": {
+  "path": "features/emb_codet5_base.npz",
+  "shape": [
+   10659,
+   768
+  ],
+  "sha256": "c4dc6881eec61f8854d9a19f8b92e15289723457c665705ec0e35ec9a7cacc89"
+ },
+ "protocol": "codet5 frozen mean-pool 512=384+128 no special tokens fp16; style=regex stylometry (P0)"
+}
