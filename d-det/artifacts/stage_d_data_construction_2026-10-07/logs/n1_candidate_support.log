@@ -1,0 +1,1 @@
+{"n1": "done", "hard_ok": true, "excluded_rows": 66, "retained_rows": 9432, "h2_candidate_families": ["openai"], "n2_candidate": {"tasks": 280, "test_rows": 404, "test_tasks": 51}, "runtime_s": 8.0}

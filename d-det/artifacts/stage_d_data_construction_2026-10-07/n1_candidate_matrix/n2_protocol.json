@@ -1,0 +1,58 @@
+{
+  "schema": "stage_d_n2_protocol_v1",
+  "written_at_utc": "2026-10-07T09:03:08.023986+00:00",
+  "authorization": "N1 硬约束 c1/c2/c3/c4 全部满足（见 n1_candidate_support_matrix.json checks，c2 已含行级去重剔除）；依据指导 §4 允许一次固定协议 H1 复核",
+  "candidate": {
+    "definition": "task family_coverage == 6（组成均匀子集；规则仅用数据组成，不用标签/预测）",
+    "task_count": 280,
+    "task_id_sha256": "bce52b77d510e922f5b9aa73d55e3950bd378b766e1d445aa480613af88e264c",
+    "rows": {
+      "train": 1424,
+      "dev": 348,
+      "test": 404
+    },
+    "tasks": {
+      "train": 184,
+      "dev": 45,
+      "test": 51
+    },
+    "family_generator_rows": {
+      "claude::claude-3.5-haiku": 280,
+      "deepseek::deepseek-chat": 280,
+      "gemini::gemini-2.5-flash-preview-05-20": 280,
+      "llama::llama-3.3-70b-instruct": 280,
+      "openai::gpt-4.1": 260,
+      "openai::gpt-4o": 260,
+      "openai::gpt-4o-mini": 256,
+      "qwen::qwen-2.5-72b-instruct": 280
+    },
+    "base_matrix_rows": 9432,
+    "fallback_rule": "若 test tasks < 50 或 test rows < 200 则本协议作废（不降级、不换口径）"
+  },
+  "views": [
+    "metadata_only",
+    "tfidf_word(3 seeds)",
+    "tfidf_char(3 seeds)",
+    "codet5_small_meanpool(冻结)",
+    "codet5_small_centered(转导诊断，单独标注)"
+  ],
+  "p0_recompute": "在候选矩阵上按 P0 原配方整体复算：tfidf_char/word=SGD log_loss 5ep best-dev×3 seeds；sem_lr=CodeT5-base 768d 冻结特征+StandardScaler+LR(C=1)；style_lr/style_lgb=regex stylometry+LR/LightGBM(800)；fusion_lr=dev-only LR stack（log-prob 特征）；mean_ensemble=等权均值",
+  "gate": {
+    "cond1_content_above_chance_and_metadata": "best content > chance(1/6) 且 > metadata_only",
+    "cond2_plus_1pt_over_p0": "best content ≥ P0_fusion(候选) + 1pt",
+    "cond3_direction_stable": "3 个 TF-IDF seed 相对 P0 的 Δ 符号一致",
+    "verdict_rule": "三条全过 → 数据构造修复支持不足，可重新讨论 H2；否则归档为数据限制/负结果"
+  },
+  "comparators_for_context": {
+    "d1_full_p0_fusion": 0.8388311014514443,
+    "d1_full_tfidf_word": 0.8200233883183988,
+    "note": "原 D1 结果并列展示，不替换"
+  },
+  "inputs": {
+    "core_sha256": "2bd5ef8667b521bece97a26294cdbed6f5e9c3781b97ca1396dcf7548c244aca",
+    "d1_metrics_sha256": "9abe9555edd21a595e40c4149cfe01c1ee87c0272b3316127bd15cdbf388fe9f",
+    "d1_predictions_sha256": "fbf620152cdb40e751d8376ea17aff35bbc07be05ae96ba5b00df76495b82a03",
+    "d0_alignment_sha256": "2a9f6ddb3661bd06284a3a196f890cd71819d709ecc353af8c6af580601ac18a"
+  },
+  "test_read": "本协议冻结后对候选子集 test 单次读取"
+}

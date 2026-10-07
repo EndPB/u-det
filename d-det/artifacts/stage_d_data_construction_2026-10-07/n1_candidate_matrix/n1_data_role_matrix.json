@@ -1,0 +1,180 @@
+{
+  "schema": "stage_d_n1_data_role_matrix_v1",
+  "roles": {
+    "claude::claude-3.5-haiku": {
+      "family_role": "h1_only",
+      "heldout_fold_ids": [],
+      "rows": 1176,
+      "tasks": 1176,
+      "splits": {
+        "train": {
+          "rows": 812,
+          "tasks": 812
+        },
+        "dev": {
+          "rows": 190,
+          "tasks": 190
+        },
+        "test": {
+          "rows": 174,
+          "tasks": 174
+        }
+      }
+    },
+    "deepseek::deepseek-chat": {
+      "family_role": "h1_only",
+      "heldout_fold_ids": [],
+      "rows": 1223,
+      "tasks": 1223,
+      "splits": {
+        "train": {
+          "rows": 850,
+          "tasks": 850
+        },
+        "dev": {
+          "rows": 189,
+          "tasks": 189
+        },
+        "test": {
+          "rows": 184,
+          "tasks": 184
+        }
+      }
+    },
+    "gemini::gemini-2.5-flash-preview-05-20": {
+      "family_role": "h1_only",
+      "heldout_fold_ids": [],
+      "rows": 1176,
+      "tasks": 1176,
+      "splits": {
+        "train": {
+          "rows": 801,
+          "tasks": 801
+        },
+        "dev": {
+          "rows": 182,
+          "tasks": 182
+        },
+        "test": {
+          "rows": 193,
+          "tasks": 193
+        }
+      }
+    },
+    "llama::llama-3.3-70b-instruct": {
+      "family_role": "h1_only",
+      "heldout_fold_ids": [],
+      "rows": 1284,
+      "tasks": 1284,
+      "splits": {
+        "train": {
+          "rows": 892,
+          "tasks": 892
+        },
+        "dev": {
+          "rows": 192,
+          "tasks": 192
+        },
+        "test": {
+          "rows": 200,
+          "tasks": 200
+        }
+      }
+    },
+    "openai::gpt-4.1": {
+      "family_role": "h2_candidate",
+      "heldout_fold_ids": [
+        "authorbench_dcan:openai:holdout=gpt-4.1"
+      ],
+      "rows": 1127,
+      "tasks": 1127,
+      "splits": {
+        "train": {
+          "rows": 782,
+          "tasks": 782
+        },
+        "dev": {
+          "rows": 165,
+          "tasks": 165
+        },
+        "test": {
+          "rows": 180,
+          "tasks": 180
+        }
+      }
+    },
+    "openai::gpt-4o": {
+      "family_role": "h2_candidate",
+      "heldout_fold_ids": [
+        "authorbench_dcan:openai:holdout=gpt-4o"
+      ],
+      "rows": 1060,
+      "tasks": 1060,
+      "splits": {
+        "train": {
+          "rows": 727,
+          "tasks": 727
+        },
+        "dev": {
+          "rows": 172,
+          "tasks": 172
+        },
+        "test": {
+          "rows": 161,
+          "tasks": 161
+        }
+      }
+    },
+    "openai::gpt-4o-mini": {
+      "family_role": "h2_candidate",
+      "heldout_fold_ids": [
+        "authorbench_dcan:openai:holdout=gpt-4o-mini"
+      ],
+      "rows": 1125,
+      "tasks": 1125,
+      "splits": {
+        "train": {
+          "rows": 783,
+          "tasks": 783
+        },
+        "dev": {
+          "rows": 181,
+          "tasks": 181
+        },
+        "test": {
+          "rows": 161,
+          "tasks": 161
+        }
+      }
+    },
+    "qwen::qwen-2.5-72b-instruct": {
+      "family_role": "h1_only",
+      "heldout_fold_ids": [],
+      "rows": 1261,
+      "tasks": 1261,
+      "splits": {
+        "train": {
+          "rows": 874,
+          "tasks": 874
+        },
+        "dev": {
+          "rows": 196,
+          "tasks": 196
+        },
+        "test": {
+          "rows": 191,
+          "tasks": 191
+        }
+      }
+    }
+  },
+  "family_roles": {
+    "claude": "h1_only",
+    "deepseek": "h1_only",
+    "gemini": "h1_only",
+    "llama": "h1_only",
+    "openai": "h2_candidate",
+    "qwen": "h1_only"
+  },
+  "notes": "role: h2_candidate=≥3 generator 且各≥100 task 且各持有 admitted heldout 折；h1_only=单 generator，仅 H1/诊断"
+}

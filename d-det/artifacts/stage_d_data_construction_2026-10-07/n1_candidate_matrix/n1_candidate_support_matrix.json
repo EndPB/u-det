@@ -1,0 +1,1107 @@
+{
+  "schema": "stage_d_n1_candidate_support_matrix_v1",
+  "inputs": {
+    "core": {
+      "path": "d-det/data/h2_authorbench_dcan/core.jsonl",
+      "sha256": "2bd5ef8667b521bece97a26294cdbed6f5e9c3781b97ca1396dcf7548c244aca",
+      "rows": 9498
+    },
+    "d0_alignment_support": {
+      "path": "d-det/artifacts/stage_d_support_2026-10-07/alignment_support.json",
+      "sha256": "2a9f6ddb3661bd06284a3a196f890cd71819d709ecc353af8c6af580601ac18a"
+    },
+    "llm_codegen_v2_index": {
+      "path": "d-det/data/h2_llm_codegen_v2/response_tasks.jsonl",
+      "sha256": "94a42b1db7a91aa2b7fa3e863dbe980e6cc8556297ac1d1e176d33db42fe159a"
+    }
+  },
+  "matrix": {
+    "raw_rows": 9498,
+    "retained_rows": 9432,
+    "tasks": 2714,
+    "families": [
+      "claude",
+      "deepseek",
+      "gemini",
+      "llama",
+      "openai",
+      "qwen"
+    ],
+    "generators": [
+      "claude-3.5-haiku",
+      "deepseek-chat",
+      "gemini-2.5-flash-preview-05-20",
+      "gpt-4.1",
+      "gpt-4o",
+      "gpt-4o-mini",
+      "llama-3.3-70b-instruct",
+      "qwen-2.5-72b-instruct"
+    ]
+  },
+  "exclusions": {
+    "excluded_rows": 66,
+    "excluded_tasks": 51,
+    "cross_groups": [
+      {
+        "level": "norm_lex",
+        "group_sha": "808e42632b3dff896b2ca942cd47abf351f3dcfed7eaee7b1cc09a52f026b1e1",
+        "rows": [
+          {
+            "row_index": 219,
+            "task_id": "authorbench_6d8a36981e32",
+            "split": "train",
+            "generator": "gpt-4.1"
+          },
+          {
+            "row_index": 266,
+            "task_id": "authorbench_bef0621e6ba7",
+            "split": "test",
+            "generator": "gpt-4.1"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "b2021b07cb56fa2152d42e17bbdcb7e2ace0186c71dc87d2fe07c3ea590b8524",
+        "rows": [
+          {
+            "row_index": 332,
+            "task_id": "authorbench_f15c351fec29",
+            "split": "test",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 350,
+            "task_id": "authorbench_d6128d1d4687",
+            "split": "train",
+            "generator": "deepseek-chat"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "fdc151ccc07b34a122ec10dc552d2cf2b40d15f72ec2f243df32abfc1d22e998",
+        "rows": [
+          {
+            "row_index": 1433,
+            "task_id": "authorbench_d98622e0ed3c",
+            "split": "train",
+            "generator": "qwen-2.5-72b-instruct"
+          },
+          {
+            "row_index": 1440,
+            "task_id": "authorbench_dbbbb0108972",
+            "split": "test",
+            "generator": "gpt-4o-mini"
+          },
+          {
+            "row_index": 1444,
+            "task_id": "authorbench_958dc3b6d3b5",
+            "split": "train",
+            "generator": "gpt-4o-mini"
+          },
+          {
+            "row_index": 1463,
+            "task_id": "authorbench_1040ed45e96a",
+            "split": "train",
+            "generator": "gpt-4o"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "68abc7df59a476c590263012518803d3541d2b3f67b6187affab415674950d02",
+        "rows": [
+          {
+            "row_index": 1449,
+            "task_id": "authorbench_5def0461af19",
+            "split": "train",
+            "generator": "claude-3.5-haiku"
+          },
+          {
+            "row_index": 1460,
+            "task_id": "authorbench_ae85bef7f9fb",
+            "split": "dev",
+            "generator": "claude-3.5-haiku"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "fe1473aac89ee83471f4ca86b63617c7a4c0494c0edcfdaf871c50d669e32f3b",
+        "rows": [
+          {
+            "row_index": 1456,
+            "task_id": "authorbench_0287eb04b266",
+            "split": "train",
+            "generator": "llama-3.3-70b-instruct"
+          },
+          {
+            "row_index": 1461,
+            "task_id": "authorbench_ae85bef7f9fb",
+            "split": "dev",
+            "generator": "llama-3.3-70b-instruct"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "093f881b60dd087869d86ab819f74734f2977b3a67ba8429f70b8e433235a9e9",
+        "rows": [
+          {
+            "row_index": 1891,
+            "task_id": "authorbench_6ab702225836",
+            "split": "dev",
+            "generator": "claude-3.5-haiku"
+          },
+          {
+            "row_index": 1958,
+            "task_id": "authorbench_8e514e29dc98",
+            "split": "train",
+            "generator": "claude-3.5-haiku"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "499db4ca47106763bf5e53cb4cebdc31102cf70c9b2b06e64ddefe92204519f5",
+        "rows": [
+          {
+            "row_index": 1892,
+            "task_id": "authorbench_6ab702225836",
+            "split": "dev",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 1951,
+            "task_id": "authorbench_3faad656562b",
+            "split": "train",
+            "generator": "deepseek-chat"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "41e100ab9be01aa4b614967f681ba09e143b574cf8c1c896194f777edbbaa4b6",
+        "rows": [
+          {
+            "row_index": 1893,
+            "task_id": "authorbench_6ab702225836",
+            "split": "dev",
+            "generator": "gemini-2.5-flash-preview-05-20"
+          },
+          {
+            "row_index": 1918,
+            "task_id": "authorbench_4803e75c705c",
+            "split": "train",
+            "generator": "gemini-2.5-flash-preview-05-20"
+          },
+          {
+            "row_index": 1952,
+            "task_id": "authorbench_3faad656562b",
+            "split": "train",
+            "generator": "gemini-2.5-flash-preview-05-20"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "d22283bf1bc1faf1fcbfedc9177f52f6bb39262161fc894ffb621dbd03e033bd",
+        "rows": [
+          {
+            "row_index": 1896,
+            "task_id": "authorbench_6ab702225836",
+            "split": "dev",
+            "generator": "llama-3.3-70b-instruct"
+          },
+          {
+            "row_index": 1949,
+            "task_id": "authorbench_041a5c1a1b75",
+            "split": "test",
+            "generator": "llama-3.3-70b-instruct"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "0518aabcefcc73eefd85b328faa89e9414a207ebd49fa11ae97b2070e48b041d",
+        "rows": [
+          {
+            "row_index": 1899,
+            "task_id": "authorbench_01b972479923",
+            "split": "train",
+            "generator": "claude-3.5-haiku"
+          },
+          {
+            "row_index": 1917,
+            "task_id": "authorbench_4803e75c705c",
+            "split": "train",
+            "generator": "claude-3.5-haiku"
+          },
+          {
+            "row_index": 1922,
+            "task_id": "authorbench_1f34876dac9d",
+            "split": "train",
+            "generator": "claude-3.5-haiku"
+          },
+          {
+            "row_index": 1944,
+            "task_id": "authorbench_041a5c1a1b75",
+            "split": "test",
+            "generator": "claude-3.5-haiku"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "26ebea97c7c4024c5ec27b226fac1dc4f1189afb818ca461604afd3242d9bdce",
+        "rows": [
+          {
+            "row_index": 1931,
+            "task_id": "authorbench_0ff1d61449b0",
+            "split": "train",
+            "generator": "qwen-2.5-72b-instruct"
+          },
+          {
+            "row_index": 1943,
+            "task_id": "authorbench_e3749722555c",
+            "split": "dev",
+            "generator": "qwen-2.5-72b-instruct"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "9f921db66c8df7a7a62db74869547d4a22f1da7f089455cf336afee79afe970b",
+        "rows": [
+          {
+            "row_index": 1938,
+            "task_id": "authorbench_8e9f7e8872da",
+            "split": "dev",
+            "generator": "qwen-2.5-72b-instruct"
+          },
+          {
+            "row_index": 1948,
+            "task_id": "authorbench_041a5c1a1b75",
+            "split": "test",
+            "generator": "gpt-4o"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "7b651d45a8110de47f8d11a5ebf8b97b6e643fad67b620f2bbd8903be9306c52",
+        "rows": [
+          {
+            "row_index": 1945,
+            "task_id": "authorbench_041a5c1a1b75",
+            "split": "test",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 1964,
+            "task_id": "authorbench_b314a7cbb1c6",
+            "split": "train",
+            "generator": "deepseek-chat"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "03a2726f7395df06fee72b3d072f073f3f90cc7a7d981fd39aff2a33435162bb",
+        "rows": [
+          {
+            "row_index": 1996,
+            "task_id": "authorbench_3114f7873a46",
+            "split": "train",
+            "generator": "gpt-4.1"
+          },
+          {
+            "row_index": 2011,
+            "task_id": "authorbench_7ce71437c68f",
+            "split": "test",
+            "generator": "gpt-4.1"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "5d4e117004b2323261b479dc859a160293e6d5bba28e4e8016d7e87ffbaa8919",
+        "rows": [
+          {
+            "row_index": 3295,
+            "task_id": "authorbench_05e45e7c7d2e",
+            "split": "test",
+            "generator": "claude-3.5-haiku"
+          },
+          {
+            "row_index": 3313,
+            "task_id": "authorbench_e3e3e6b2f0f2",
+            "split": "train",
+            "generator": "claude-3.5-haiku"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "a9d6201149166909efa97f2270ef01556122ea012029711b7806ec3b37d85240",
+        "rows": [
+          {
+            "row_index": 3957,
+            "task_id": "authorbench_167721f954a0",
+            "split": "train",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 4000,
+            "task_id": "authorbench_dfd56ad8f7b2",
+            "split": "dev",
+            "generator": "deepseek-chat"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "cada61bf94bc8e738c06afd31f604df3cca04a533f4c3870187c5619ac430673",
+        "rows": [
+          {
+            "row_index": 3971,
+            "task_id": "authorbench_07082256601f",
+            "split": "train",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 4003,
+            "task_id": "authorbench_aed809d6106c",
+            "split": "dev",
+            "generator": "deepseek-chat"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "f97e0ca1cdc39190606a6e59f8ddd66c51ca1c5eb10d0f812caabe85bf52a84e",
+        "rows": [
+          {
+            "row_index": 5003,
+            "task_id": "authorbench_b926e1530ead",
+            "split": "train",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 5023,
+            "task_id": "authorbench_ce928e2308aa",
+            "split": "test",
+            "generator": "deepseek-chat"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "a9e25937b55d7ac7250825db5ded0c71d1d5414510392d0207c5265924a76318",
+        "rows": [
+          {
+            "row_index": 7572,
+            "task_id": "authorbench_fbf16d4fb97a",
+            "split": "train",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 7576,
+            "task_id": "authorbench_22796236e5d8",
+            "split": "dev",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 7595,
+            "task_id": "authorbench_a6f8586b172a",
+            "split": "train",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 7603,
+            "task_id": "authorbench_647ef1a21be0",
+            "split": "train",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 7625,
+            "task_id": "authorbench_8602694ed814",
+            "split": "train",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 7638,
+            "task_id": "authorbench_e18aae5ef078",
+            "split": "dev",
+            "generator": "deepseek-chat"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "6e227cf1d1c6a2a1675102d14bdfd861e3acbd358f769293e2c34f8ca48b3bbe",
+        "rows": [
+          {
+            "row_index": 7730,
+            "task_id": "authorbench_bdb12d2224e0",
+            "split": "train",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 7760,
+            "task_id": "authorbench_5a84f238a79d",
+            "split": "train",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 7774,
+            "task_id": "authorbench_0a52c1a19ac0",
+            "split": "dev",
+            "generator": "deepseek-chat"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "72fc35256f052c056cab06aed0d5424f0c340acaf0f7eac6c548e6a8ee72edb0",
+        "rows": [
+          {
+            "row_index": 7736,
+            "task_id": "authorbench_425410f4be9c",
+            "split": "train",
+            "generator": "qwen-2.5-72b-instruct"
+          },
+          {
+            "row_index": 7738,
+            "task_id": "authorbench_d69d948e8ad5",
+            "split": "train",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 7752,
+            "task_id": "authorbench_ad8eb1ba02d7",
+            "split": "dev",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 7785,
+            "task_id": "authorbench_40f61b7e6418",
+            "split": "train",
+            "generator": "qwen-2.5-72b-instruct"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "58f8a67bc642c619e6a229542fc2aecc50ce3196c3dbdfef0d615f2439420959",
+        "rows": [
+          {
+            "row_index": 7744,
+            "task_id": "authorbench_d69d948e8ad5",
+            "split": "train",
+            "generator": "qwen-2.5-72b-instruct"
+          },
+          {
+            "row_index": 7748,
+            "task_id": "authorbench_b044fc75b183",
+            "split": "train",
+            "generator": "qwen-2.5-72b-instruct"
+          },
+          {
+            "row_index": 7754,
+            "task_id": "authorbench_ad8eb1ba02d7",
+            "split": "dev",
+            "generator": "qwen-2.5-72b-instruct"
+          },
+          {
+            "row_index": 7782,
+            "task_id": "authorbench_5170c4a06ef8",
+            "split": "test",
+            "generator": "qwen-2.5-72b-instruct"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "ceb0977647de935ae437ee3844334b71c667d5560f0ce1637baa73d2073e91d1",
+        "rows": [
+          {
+            "row_index": 7745,
+            "task_id": "authorbench_b044fc75b183",
+            "split": "train",
+            "generator": "claude-3.5-haiku"
+          },
+          {
+            "row_index": 7755,
+            "task_id": "authorbench_629212ae6eda",
+            "split": "dev",
+            "generator": "claude-3.5-haiku"
+          },
+          {
+            "row_index": 7783,
+            "task_id": "authorbench_40f61b7e6418",
+            "split": "train",
+            "generator": "claude-3.5-haiku"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "8180974eee8b6bfa2f7a9fd8470ed2add2deb1938cca31d69e7ab5fccdeb5828",
+        "rows": [
+          {
+            "row_index": 7771,
+            "task_id": "authorbench_f2fe66a0e7c6",
+            "split": "train",
+            "generator": "claude-3.5-haiku"
+          },
+          {
+            "row_index": 7773,
+            "task_id": "authorbench_0a52c1a19ac0",
+            "split": "dev",
+            "generator": "claude-3.5-haiku"
+          },
+          {
+            "row_index": 7776,
+            "task_id": "authorbench_5170c4a06ef8",
+            "split": "test",
+            "generator": "claude-3.5-haiku"
+          }
+        ]
+      },
+      {
+        "level": "norm_lex",
+        "group_sha": "dcf6d75f3cc5aa9af4e2719bdee0d51280cca0e5f6f61c61c8908de518ebd89d",
+        "rows": [
+          {
+            "row_index": 8623,
+            "task_id": "authorbench_43048d37095f",
+            "split": "train",
+            "generator": "deepseek-chat"
+          },
+          {
+            "row_index": 8630,
+            "task_id": "authorbench_bfaf23054e95",
+            "split": "test",
+            "generator": "deepseek-chat"
+          }
+        ]
+      }
+    ],
+    "note": "exact/norm_ws 无跨 split；norm_lex（去注释/字符串）25 组跨 split → 整组剔除"
+  },
+  "dedup_counts": {
+    "raw_rows": 9498,
+    "rows_in_cross_split_groups": 66,
+    "retained_rows": 9432,
+    "same_split_dup_groups": {
+      "exact": 0,
+      "norm_ws": 0,
+      "norm_lex": 21
+    }
+  },
+  "checks": {
+    "c1_task_single_split": {
+      "pass": true,
+      "crossing_tasks": 0
+    },
+    "c2_hash_no_cross_split": {
+      "pre_exclusion_crossing": {
+        "exact": 0,
+        "norm_ws": 0,
+        "norm_lex": 25
+      },
+      "post_exclusion_crossing": {
+        "exact": 0,
+        "norm_ws": 0,
+        "norm_lex": 0
+      },
+      "excluded_rows": 66,
+      "exclusion_rule": "跨 split 重复组整组剔除（行级）；同 split 重复组保留",
+      "pass": true
+    },
+    "c3_train_dev_support_each_family": {
+      "claude": {
+        "train_rows": 812,
+        "train_tasks": 812,
+        "dev_rows": 190,
+        "dev_tasks": 190,
+        "pass": true
+      },
+      "deepseek": {
+        "train_rows": 850,
+        "train_tasks": 850,
+        "dev_rows": 189,
+        "dev_tasks": 189,
+        "pass": true
+      },
+      "gemini": {
+        "train_rows": 801,
+        "train_tasks": 801,
+        "dev_rows": 182,
+        "dev_tasks": 182,
+        "pass": true
+      },
+      "llama": {
+        "train_rows": 892,
+        "train_tasks": 892,
+        "dev_rows": 192,
+        "dev_tasks": 192,
+        "pass": true
+      },
+      "openai": {
+        "train_rows": 2292,
+        "train_tasks": 1451,
+        "dev_rows": 518,
+        "dev_tasks": 315,
+        "pass": true
+      },
+      "qwen": {
+        "train_rows": 874,
+        "train_tasks": 874,
+        "dev_rows": 196,
+        "dev_tasks": 196,
+        "pass": true
+      },
+      "pass": true
+    },
+    "c4_formal_h2_candidate_families": {
+      "claude": {
+        "role": "h1_only",
+        "generator_count": 1,
+        "pass": false
+      },
+      "deepseek": {
+        "role": "h1_only",
+        "generator_count": 1,
+        "pass": false
+      },
+      "gemini": {
+        "role": "h1_only",
+        "generator_count": 1,
+        "pass": false
+      },
+      "llama": {
+        "role": "h1_only",
+        "generator_count": 1,
+        "pass": false
+      },
+      "openai": {
+        "role": "h2_candidate",
+        "generator_count": 3,
+        "pass": true
+      },
+      "qwen": {
+        "role": "h1_only",
+        "generator_count": 1,
+        "pass": false
+      },
+      "pass": true
+    },
+    "c6_test_generator_holdout_roles": {
+      "claude": {
+        "heldout_fold_ids_per_generator": {
+          "claude-3.5-haiku": []
+        },
+        "note": "single-generator family：无法在族内定义 generator-heldout（按约束 4 限 H1/诊断）"
+      },
+      "deepseek": {
+        "heldout_fold_ids_per_generator": {
+          "deepseek-chat": []
+        },
+        "note": "single-generator family：无法在族内定义 generator-heldout（按约束 4 限 H1/诊断）"
+      },
+      "gemini": {
+        "heldout_fold_ids_per_generator": {
+          "gemini-2.5-flash-preview-05-20": []
+        },
+        "note": "single-generator family：无法在族内定义 generator-heldout（按约束 4 限 H1/诊断）"
+      },
+      "llama": {
+        "heldout_fold_ids_per_generator": {
+          "llama-3.3-70b-instruct": []
+        },
+        "note": "single-generator family：无法在族内定义 generator-heldout（按约束 4 限 H1/诊断）"
+      },
+      "openai": {
+        "heldout_fold_ids_per_generator": {
+          "gpt-4.1": [
+            "authorbench_dcan:openai:holdout=gpt-4.1"
+          ],
+          "gpt-4o": [
+            "authorbench_dcan:openai:holdout=gpt-4o"
+          ],
+          "gpt-4o-mini": [
+            "authorbench_dcan:openai:holdout=gpt-4o-mini"
+          ]
+        },
+        "note": "ok：3 个 generator 各有 admitted 的 generator-heldout 折"
+      },
+      "qwen": {
+        "heldout_fold_ids_per_generator": {
+          "qwen-2.5-72b-instruct": []
+        },
+        "note": "single-generator family：无法在族内定义 generator-heldout（按约束 4 限 H1/诊断）"
+      }
+    },
+    "c7_google_mistral_llm_folds_diagnostic_only": [
+      "llm_codegen_v2:google:holdout=Gemni-1.5-pro",
+      "llm_codegen_v2:google:holdout=codegemma",
+      "llm_codegen_v2:mistral:holdout=codestral",
+      "llm_codegen_v2:mistral:holdout=mistral"
+    ]
+  },
+  "hard_constraints_ok": true,
+  "designation": {
+    "claude": {
+      "generators": [
+        "claude-3.5-haiku"
+      ],
+      "generator_count": 1,
+      "generator_tasks": {
+        "claude-3.5-haiku": 1176
+      },
+      "generator_rows": {
+        "claude-3.5-haiku": 1176
+      },
+      "heldout_fold_ids": {
+        "claude-3.5-haiku": []
+      },
+      "holdout_ready": {
+        "claude-3.5-haiku": false
+      },
+      "criteria": {
+        "min_3_generators": false,
+        "each_generator_ge_100_tasks": true,
+        "admitted_heldout_fold_per_generator": false
+      },
+      "role": "h1_only"
+    },
+    "deepseek": {
+      "generators": [
+        "deepseek-chat"
+      ],
+      "generator_count": 1,
+      "generator_tasks": {
+        "deepseek-chat": 1223
+      },
+      "generator_rows": {
+        "deepseek-chat": 1223
+      },
+      "heldout_fold_ids": {
+        "deepseek-chat": []
+      },
+      "holdout_ready": {
+        "deepseek-chat": false
+      },
+      "criteria": {
+        "min_3_generators": false,
+        "each_generator_ge_100_tasks": true,
+        "admitted_heldout_fold_per_generator": false
+      },
+      "role": "h1_only"
+    },
+    "gemini": {
+      "generators": [
+        "gemini-2.5-flash-preview-05-20"
+      ],
+      "generator_count": 1,
+      "generator_tasks": {
+        "gemini-2.5-flash-preview-05-20": 1176
+      },
+      "generator_rows": {
+        "gemini-2.5-flash-preview-05-20": 1176
+      },
+      "heldout_fold_ids": {
+        "gemini-2.5-flash-preview-05-20": []
+      },
+      "holdout_ready": {
+        "gemini-2.5-flash-preview-05-20": false
+      },
+      "criteria": {
+        "min_3_generators": false,
+        "each_generator_ge_100_tasks": true,
+        "admitted_heldout_fold_per_generator": false
+      },
+      "role": "h1_only"
+    },
+    "llama": {
+      "generators": [
+        "llama-3.3-70b-instruct"
+      ],
+      "generator_count": 1,
+      "generator_tasks": {
+        "llama-3.3-70b-instruct": 1284
+      },
+      "generator_rows": {
+        "llama-3.3-70b-instruct": 1284
+      },
+      "heldout_fold_ids": {
+        "llama-3.3-70b-instruct": []
+      },
+      "holdout_ready": {
+        "llama-3.3-70b-instruct": false
+      },
+      "criteria": {
+        "min_3_generators": false,
+        "each_generator_ge_100_tasks": true,
+        "admitted_heldout_fold_per_generator": false
+      },
+      "role": "h1_only"
+    },
+    "openai": {
+      "generators": [
+        "gpt-4.1",
+        "gpt-4o",
+        "gpt-4o-mini"
+      ],
+      "generator_count": 3,
+      "generator_tasks": {
+        "gpt-4.1": 1127,
+        "gpt-4o": 1060,
+        "gpt-4o-mini": 1125
+      },
+      "generator_rows": {
+        "gpt-4.1": 1127,
+        "gpt-4o": 1060,
+        "gpt-4o-mini": 1125
+      },
+      "heldout_fold_ids": {
+        "gpt-4.1": [
+          "authorbench_dcan:openai:holdout=gpt-4.1"
+        ],
+        "gpt-4o": [
+          "authorbench_dcan:openai:holdout=gpt-4o"
+        ],
+        "gpt-4o-mini": [
+          "authorbench_dcan:openai:holdout=gpt-4o-mini"
+        ]
+      },
+      "holdout_ready": {
+        "gpt-4.1": true,
+        "gpt-4o": true,
+        "gpt-4o-mini": true
+      },
+      "criteria": {
+        "min_3_generators": true,
+        "each_generator_ge_100_tasks": true,
+        "admitted_heldout_fold_per_generator": true
+      },
+      "role": "h2_candidate"
+    },
+    "qwen": {
+      "generators": [
+        "qwen-2.5-72b-instruct"
+      ],
+      "generator_count": 1,
+      "generator_tasks": {
+        "qwen-2.5-72b-instruct": 1261
+      },
+      "generator_rows": {
+        "qwen-2.5-72b-instruct": 1261
+      },
+      "heldout_fold_ids": {
+        "qwen-2.5-72b-instruct": []
+      },
+      "holdout_ready": {
+        "qwen-2.5-72b-instruct": false
+      },
+      "criteria": {
+        "min_3_generators": false,
+        "each_generator_ge_100_tasks": true,
+        "admitted_heldout_fold_per_generator": false
+      },
+      "role": "h1_only"
+    }
+  },
+  "support": {
+    "claude": {
+      "train": {
+        "rows": 812,
+        "tasks": 812
+      },
+      "dev": {
+        "rows": 190,
+        "tasks": 190
+      },
+      "test": {
+        "rows": 174,
+        "tasks": 174
+      }
+    },
+    "deepseek": {
+      "train": {
+        "rows": 850,
+        "tasks": 850
+      },
+      "dev": {
+        "rows": 189,
+        "tasks": 189
+      },
+      "test": {
+        "rows": 184,
+        "tasks": 184
+      }
+    },
+    "gemini": {
+      "train": {
+        "rows": 801,
+        "tasks": 801
+      },
+      "dev": {
+        "rows": 182,
+        "tasks": 182
+      },
+      "test": {
+        "rows": 193,
+        "tasks": 193
+      }
+    },
+    "llama": {
+      "train": {
+        "rows": 892,
+        "tasks": 892
+      },
+      "dev": {
+        "rows": 192,
+        "tasks": 192
+      },
+      "test": {
+        "rows": 200,
+        "tasks": 200
+      }
+    },
+    "openai": {
+      "train": {
+        "rows": 2292,
+        "tasks": 1451
+      },
+      "dev": {
+        "rows": 518,
+        "tasks": 315
+      },
+      "test": {
+        "rows": 502,
+        "tasks": 293
+      }
+    },
+    "qwen": {
+      "train": {
+        "rows": 874,
+        "tasks": 874
+      },
+      "dev": {
+        "rows": 196,
+        "tasks": 196
+      },
+      "test": {
+        "rows": 191,
+        "tasks": 191
+      }
+    }
+  },
+  "candidate_subset_for_n2": {
+    "definition": "task family_coverage == 6（组成均匀子集；规则仅用数据组成，不用标签/预测）",
+    "task_count": 280,
+    "task_id_sha256": "bce52b77d510e922f5b9aa73d55e3950bd378b766e1d445aa480613af88e264c",
+    "rows": {
+      "train": 1424,
+      "dev": 348,
+      "test": 404
+    },
+    "tasks": {
+      "train": 184,
+      "dev": 45,
+      "test": 51
+    },
+    "family_generator_rows": {
+      "claude::claude-3.5-haiku": 280,
+      "deepseek::deepseek-chat": 280,
+      "gemini::gemini-2.5-flash-preview-05-20": 280,
+      "llama::llama-3.3-70b-instruct": 280,
+      "openai::gpt-4.1": 260,
+      "openai::gpt-4o": 260,
+      "openai::gpt-4o-mini": 256,
+      "qwen::qwen-2.5-72b-instruct": 280
+    }
+  },
+  "llm_codegen_v2_appendix": {
+    "google": {
+      "generators": {
+        "Gemni-1.5-pro": {
+          "responses": 168,
+          "tasks": 168
+        },
+        "codegemma": {
+          "responses": 168,
+          "tasks": 168
+        }
+      },
+      "generator_count": 2,
+      "min_3_generators": false,
+      "admitted_heldout_folds": []
+    },
+    "ibm": {
+      "generators": {
+        "granite-code:3B": {
+          "responses": 168,
+          "tasks": 168
+        }
+      },
+      "generator_count": 1,
+      "min_3_generators": false,
+      "admitted_heldout_folds": []
+    },
+    "meta": {
+      "generators": {
+        "codellama": {
+          "responses": 168,
+          "tasks": 168
+        },
+        "llama2": {
+          "responses": 168,
+          "tasks": 168
+        },
+        "llama3": {
+          "responses": 168,
+          "tasks": 168
+        }
+      },
+      "generator_count": 3,
+      "min_3_generators": true,
+      "admitted_heldout_folds": [
+        "llm_codegen_v2:meta:holdout=codellama",
+        "llm_codegen_v2:meta:holdout=llama2",
+        "llm_codegen_v2:meta:holdout=llama3"
+      ]
+    },
+    "microsoft": {
+      "generators": {
+        "phi3": {
+          "responses": 168,
+          "tasks": 168
+        }
+      },
+      "generator_count": 1,
+      "min_3_generators": false,
+      "admitted_heldout_folds": []
+    },
+    "mistral": {
+      "generators": {
+        "codestral": {
+          "responses": 168,
+          "tasks": 168
+        },
+        "mistral": {
+          "responses": 168,
+          "tasks": 168
+        }
+      },
+      "generator_count": 2,
+      "min_3_generators": false,
+      "admitted_heldout_folds": []
+    }
+  },
+  "runtime_seconds": 7.816287517547607
+}

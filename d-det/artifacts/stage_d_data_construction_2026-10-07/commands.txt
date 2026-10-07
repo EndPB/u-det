@@ -1,0 +1,10 @@
+# Stage D-N0/N1 执行命令（2026-10-07，服务器；依据 D1未过闸门_数据构造下一步指导）
+cd /root/autodl-tmp/u-det
+D=d-det/artifacts/stage_d_data_construction_2026-10-07
+mkdir -p "$D"/{n0_diagnosis,n1_candidate_matrix,logs}
+git rev-parse HEAD > "$D/git_head.txt"
+git status --short --branch > "$D/git_status.txt"
+source /root/miniconda3/etc/profile.d/conda.sh && conda activate udet
+export OMP_NUM_THREADS=8 MKL_NUM_THREADS=8
+python scripts/stage_d_n0_diagnosis.py 2>&1 | tee "$D/logs/n0_diagnosis.log"
+python scripts/stage_d_n1_candidate_support.py 2>&1 | tee "$D/logs/n1_candidate_support.log"
