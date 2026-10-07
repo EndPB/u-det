@@ -1,0 +1,183 @@
+{
+  "schema": "stage_e0_metric_reconciliation_v1",
+  "generated_utc": "2026-10-07T10:37:20.574971+00:00",
+  "post_hoc_audit": true,
+  "summary_of_finding": "四处差异全部可解析为同一原因：回传表中的 Δ 列取的是 **paired task-cluster bootstrap 的差值均值**（delta_mean），而不是两个点估计相减；点差值与其并列后完全自洽。原值不覆盖，修正并列。",
+  "issues": [
+    {
+      "issue": "tfidf_word 回传 +.0148 vs 直接相减 +.0165",
+      "resolution": "回传值 = bootstrap 差值均值（+.0148）；点差值 = .64293… − .62637… = +.01657…",
+      "status": "resolved: same test / same seed-averaged predictions / 两列统计量不同"
+    },
+    {
+      "issue": "codet5_small_centered 回传 +.0278 vs +.0274",
+      "resolution": "回传值 = bootstrap 均值 +.0278；点差值 = +.02739…",
+      "status": "resolved"
+    },
+    {
+      "issue": "mean_ensemble 回传 +.0663 vs +.0676",
+      "resolution": "回传值 = bootstrap 均值 +.0663（CI [.0296,.1064] 不含 0）；点差值 = +.0676",
+      "status": "resolved"
+    },
+    {
+      "issue": "D1 .8200−.8388=−.0188 vs 历史回传 −.0191",
+      "resolution": "−.0191 = bootstrap 均值；点差值 = −.01881…；同一原因",
+      "status": "resolved"
+    }
+  ],
+  "rows": [
+    {
+      "issue_id": "N2-word-vs-fusion",
+      "artifacts": "n2",
+      "view": "tfidf_word",
+      "comparator": "fusion_lr",
+      "seed_composition": "3-seed 平均（SGD seeds 0/1/2）",
+      "metric_definition": "sklearn f1_score(average='macro', zero_division=0) on argmax",
+      "label_set": [
+        "claude",
+        "deepseek",
+        "gemini",
+        "llama",
+        "openai",
+        "qwen"
+      ],
+      "n_samples": 404,
+      "n_tasks": 51,
+      "ordered_example_id_hash": "d4f90892a8e7b373d0455b6014a7301e3e5ed6c569febac6d658404d07e1c43b",
+      "split_hash": "494abe9314414a0d7a0536821ab8972ea1f6d0ab5a859ebec06a4eae515da307",
+      "point_estimate_view": 0.6428873050903849,
+      "point_estimate_comparator": 0.6263688237242516,
+      "point_difference": 0.01651848136613332,
+      "bootstrap_mean_difference": 0.014756613748379048,
+      "ci_method": "paired task-cluster percentile bootstrap (500, seed 20261007)",
+      "ci95": [
+        -0.03935785926538959,
+        0.07386493075637754
+      ],
+      "frac_boot_le_0": 0.324,
+      "recomputed_from_predictions": 0.6428873050903849,
+      "source_files": {
+        "metrics": "d-det/artifacts/stage_d_data_construction_2026-10-07/n2_h1_recheck/metrics.json",
+        "predictions": "d-det/artifacts/stage_d_data_construction_2026-10-07/n2_h1_recheck/predictions.npz",
+        "metrics_sha256": "85dcfb536c5e8161232a419c6ae42505a46c6ac6c77f8de122a168039f32fba2",
+        "predictions_sha256": "ff7b603695219b52e1c874c277f69c8378fb7b31137689d7c5acde0c71e83020"
+      }
+    },
+    {
+      "issue_id": "N2-centered-vs-fusion",
+      "artifacts": "n2",
+      "view": "codet5_small_centered",
+      "comparator": "fusion_lr",
+      "seed_composition": "确定性（无随机种子）",
+      "metric_definition": "sklearn f1_score(average='macro', zero_division=0) on argmax",
+      "label_set": [
+        "claude",
+        "deepseek",
+        "gemini",
+        "llama",
+        "openai",
+        "qwen"
+      ],
+      "n_samples": 404,
+      "n_tasks": 51,
+      "ordered_example_id_hash": "d4f90892a8e7b373d0455b6014a7301e3e5ed6c569febac6d658404d07e1c43b",
+      "split_hash": "494abe9314414a0d7a0536821ab8972ea1f6d0ab5a859ebec06a4eae515da307",
+      "point_estimate_view": 0.6537624922051993,
+      "point_estimate_comparator": 0.6263688237242516,
+      "point_difference": 0.027393668480947708,
+      "bootstrap_mean_difference": 0.027837121954959944,
+      "ci_method": "paired task-cluster percentile bootstrap (500, seed 20261007)",
+      "ci95": [
+        -0.01906441787575558,
+        0.07775309823183868
+      ],
+      "frac_boot_le_0": 0.132,
+      "recomputed_from_predictions": 0.6537624922051993,
+      "source_files": {
+        "metrics": "d-det/artifacts/stage_d_data_construction_2026-10-07/n2_h1_recheck/metrics.json",
+        "predictions": "d-det/artifacts/stage_d_data_construction_2026-10-07/n2_h1_recheck/predictions.npz",
+        "metrics_sha256": "85dcfb536c5e8161232a419c6ae42505a46c6ac6c77f8de122a168039f32fba2",
+        "predictions_sha256": "ff7b603695219b52e1c874c277f69c8378fb7b31137689d7c5acde0c71e83020"
+      }
+    },
+    {
+      "issue_id": "N2-ensemble-vs-fusion",
+      "artifacts": "n2",
+      "view": "mean_ensemble",
+      "comparator": "fusion_lr",
+      "seed_composition": "dev-only LR 拟合（成员为 3-seed 平均概率）",
+      "metric_definition": "sklearn f1_score(average='macro', zero_division=0) on argmax",
+      "label_set": [
+        "claude",
+        "deepseek",
+        "gemini",
+        "llama",
+        "openai",
+        "qwen"
+      ],
+      "n_samples": 404,
+      "n_tasks": 51,
+      "ordered_example_id_hash": "d4f90892a8e7b373d0455b6014a7301e3e5ed6c569febac6d658404d07e1c43b",
+      "split_hash": "494abe9314414a0d7a0536821ab8972ea1f6d0ab5a859ebec06a4eae515da307",
+      "point_estimate_view": 0.6939942376585032,
+      "point_estimate_comparator": 0.6263688237242516,
+      "point_difference": 0.06762541393425159,
+      "bootstrap_mean_difference": 0.06626504721593877,
+      "ci_method": "paired task-cluster percentile bootstrap (500, seed 20261007)",
+      "ci95": [
+        0.029579874396836257,
+        0.10643477421121378
+      ],
+      "frac_boot_le_0": 0.0,
+      "recomputed_from_predictions": 0.6939942376585032,
+      "source_files": {
+        "metrics": "d-det/artifacts/stage_d_data_construction_2026-10-07/n2_h1_recheck/metrics.json",
+        "predictions": "d-det/artifacts/stage_d_data_construction_2026-10-07/n2_h1_recheck/predictions.npz",
+        "metrics_sha256": "85dcfb536c5e8161232a419c6ae42505a46c6ac6c77f8de122a168039f32fba2",
+        "predictions_sha256": "ff7b603695219b52e1c874c277f69c8378fb7b31137689d7c5acde0c71e83020"
+      }
+    },
+    {
+      "issue_id": "D1-word-vs-fusion",
+      "artifacts": "d1",
+      "view": "tfidf_word",
+      "comparator": "p0_fusion_lr",
+      "seed_composition": "3-seed 平均（SGD seeds 0/1/2）",
+      "metric_definition": "sklearn f1_score(average='macro', zero_division=0) on argmax",
+      "label_set": [
+        "claude",
+        "deepseek",
+        "gemini",
+        "llama",
+        "openai",
+        "qwen"
+      ],
+      "n_samples": 1457,
+      "n_tasks": 408,
+      "ordered_example_id_hash": "82bc76bc7050f6a463292dcb0ecf17d249f9dc470aa0ef561a067b379daac929",
+      "split_hash": "62cdb127c964ec6cf3c52e6683981e3bf12cb0b9aa38f946afe6ef020ab70c71",
+      "point_estimate_view": 0.8200233883183988,
+      "point_estimate_comparator": 0.8388311014514443,
+      "point_difference": -0.018807713133045523,
+      "bootstrap_mean_difference": -0.01910388078591864,
+      "ci_method": "paired task-cluster percentile bootstrap (500, seed 20261007)",
+      "ci95": [
+        -0.03545617040192185,
+        -0.0035028161024620637
+      ],
+      "frac_boot_le_0": 0.99,
+      "recomputed_from_predictions": 0.8200233883183988,
+      "source_files": {
+        "metrics": "d-det/artifacts/stage_d_h1_authorbench_dcan_2026-10-07/metrics.json",
+        "predictions": "d-det/artifacts/stage_d_h1_authorbench_dcan_2026-10-07/predictions.npz",
+        "metrics_sha256": "9abe9555edd21a595e40c4149cfe01c1ee87c0272b3316127bd15cdbf388fe9f",
+        "predictions_sha256": "fbf620152cdb40e751d8376ea17aff35bbc07be05ae96ba5b00df76495b82a03"
+      }
+    }
+  ],
+  "notes": [
+    "bootstrap 均值是重采样差值的均值（含有限样本平滑），不能替代点差值；两列均已列明。",
+    "所有点差值 = 两列点估计之差（逐位核对通过）；CI 为配对 task-cluster percentile bootstrap。",
+    "500× 经验重采样频率不是模型优于对照的后验概率；N2 仅 51 个 test task，有效样本量小。"
+  ]
+}

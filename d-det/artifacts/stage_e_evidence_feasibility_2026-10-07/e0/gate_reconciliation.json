@@ -1,0 +1,91 @@
+{
+  "schema": "stage_e0_gate_reconciliation_v1",
+  "post_hoc_audit": true,
+  "original_executor_record": {
+    "n2_gate_as_run": {
+      "cond1": true,
+      "cond2": true,
+      "cond3": false,
+      "note": "cond2=true 仅由转导视图 codet5_small_centered 达成；原配置/原报告保留不改"
+    },
+    "commits": {
+      "protocol": "7a0d51a（n2_protocol.json）",
+      "script": "466d86d（运行前提交）",
+      "results": "9936df1"
+    }
+  },
+  "restated_conclusions": [
+    {
+      "question": "H1 内容可读性（内容视图高于预声明 chance/metadata 控制）",
+      "evidence": {
+        "n2": {
+          "tfidf_word": 0.6428873050903849,
+          "ci95": [
+            0.5970299388407531,
+            0.6922891077616632
+          ],
+          "metadata_only": 0.3688681476306556,
+          "chance": 0.16666666666666666
+        },
+        "d1": {
+          "tfidf_word": 0.8200233883183988,
+          "ci95": [
+            0.7965753300395184,
+            0.8400324728928037
+          ]
+        }
+      },
+      "expression": "内容视图在两套评测上均明显高于 chance 与 metadata-only：H1 可读性未被否定；‘未超越强 P0’不等于‘无来源信号’。"
+    },
+    {
+      "question": "普通单样本（inductive）预测增量",
+      "evidence": {
+        "n2_tfidf_word_point": 0.6428873050903849,
+        "n2_fusion_point": 0.6263688237242516,
+        "point_diff": 0.01651848136613332,
+        "bootstrap_mean_diff": 0.014756613748379048,
+        "ci95": [
+          -0.03935785926538959,
+          0.07386493075637754
+        ],
+        "seeds_delta_pt": [
+          -1.36,
+          2.18,
+          -0.18
+        ]
+      },
+      "expression": "未通过进入方法扩展的门槛：点差 +1.66pt 但配对 CI 覆盖 0、三 seed 方向不稳定；‘执行器 cond2=true（转导）’不能替代 inductive cond2（不通过/未确立）。"
+    },
+    {
+      "question": "转导诊断增量（test task 内无标签输出中心）",
+      "evidence": {
+        "n2_centered_point": 0.6537624922051993,
+        "point_diff": 0.027393668480947708,
+        "bootstrap_mean_diff": 0.027837121954959944,
+        "ci95": [
+          -0.01906441787575558,
+          0.07775309823183868
+        ],
+        "frac_boot_le_0": 0.132,
+        "transductive": true
+      },
+      "expression": "单独列示：方向为正但不显著（CI 含 0，frac≤0=0.13）；不替代 inductive 条件。"
+    },
+    {
+      "question": "跨 generator 迁移（进入 H2 的前提）",
+      "evidence": {
+        "families_with_ge3_generators_in_ab": [
+          "openai"
+        ],
+        "others": "claude/deepseek/gemini/llama/qwen 单 generator",
+        "candidate_has_generator_heldout": false
+      },
+      "expression": "现有六族候选不满足跨 generator 普遍性；不启动 H2。"
+    }
+  ],
+  "statistics_caveats": [
+    "500× task-cluster 经验重采样频率 ≠ 优于对照的贝叶斯后验。",
+    "N2 有效样本量按 test task 计为 51（不是 404 行）；CI 宽度已按 task 聚类。",
+    "word 三 seed 差值 −1.36/+2.18/−0.18pt 全量登记，不只挑正 seed。"
+  ]
+}

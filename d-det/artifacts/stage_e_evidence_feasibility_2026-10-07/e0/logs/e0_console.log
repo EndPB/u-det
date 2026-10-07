@@ -1,0 +1,6 @@
+指标再从 npz 预测重算完成（fp16 存储，允许 ≤1e-3 级差）
+metric_reconciliation.json 已写出
+p0_definition.json 已写出（mean_ensemble 算数复核 max|diff|=3.30e-04）
+gate_reconciliation.json 已写出
+test_exposure_ledger.json 已写出
+E0 完成 0.1s

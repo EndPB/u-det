@@ -1,0 +1,14 @@
+# Stage E0/E1 执行命令（2026-10-07，服务器）
+# 依据：d-det/docx/d-det_AutoDL_N2收尾与独立数据可行性指导_2026-10-07.md
+cd /root/autodl-tmp/u-det
+D=d-det/artifacts/stage_e_evidence_feasibility_2026-10-07
+mkdir -p "$D"/{e0/logs,e1/logs}
+source /root/miniconda3/etc/profile.d/conda.sh && conda activate udet
+export OMP_NUM_THREADS=8 MKL_NUM_THREADS=8
+python scripts/stage_e_e0_evidence_closeout.py 2>&1 | tee "$D/e0/logs/e0_console.log"
+python scripts/stage_e_e1_feasibility.py 2>&1 | tee "$D/e1/logs/e1_console.log"
+(cd "$D/e0" && sha256sum metric_reconciliation.json p0_definition.json gate_reconciliation.json \
+  test_exposure_ledger.json evidence_closeout.md logs/e0.log logs/e0_console.log > SHA256SUMS.txt)
+(cd "$D/e1" && sha256sum dataset_feasibility.json coverage_matrix.csv pilot_design.json \
+  feasibility_report.md logs/e1.log logs/e1_console.log > SHA256SUMS.txt)
+(cd "$D" && find . -type f ! -path ./SHA256SUMS.txt | sort | xargs sha256sum > SHA256SUMS.txt)

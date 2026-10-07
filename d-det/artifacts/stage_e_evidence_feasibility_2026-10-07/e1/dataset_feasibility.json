@@ -1,0 +1,453 @@
+{
+  "schema": "stage_e1_dataset_feasibility_v1",
+  "generated_utc": "2026-10-07T10:38:52.241883+00:00",
+  "metadata_only": true,
+  "inputs": {
+    "ab_summary": {
+      "path": "d-det/data/h2_authorbench_dcan/summary.json",
+      "sha256": "811d0c8c4c3dd948e243d0817e7964b00cb63b2b79ba8eb64c7b8e15b9503686"
+    },
+    "lc_summary": {
+      "path": "d-det/data/h2_llm_codegen_v2/summary.json",
+      "sha256": "c179d723c2576b36c49853586bda640393d7ee0ab958ba4ad7ff855334c5f0ef"
+    },
+    "lc_provenance_sha256": "953e78552232384b0681b25b3acaffd671b37745d6c8caa70b57d91bc6173348",
+    "d0_alignment": {
+      "path": "d-det/artifacts/stage_d_support_2026-10-07/alignment_support.json",
+      "sha256": "2a9f6ddb3661bd06284a3a196f890cd71819d709ecc353af8c6af580601ac18a"
+    },
+    "n1_candidate_matrix": {
+      "sha256": "cce23105b3392eecd43e28ec1915772dbb8c96992eac1f641dcf1bd867ec4aec"
+    },
+    "round1_audit": {
+      "path": "d-det/artifacts/acl_dcan_round1/audit_server_2026-10-03.json",
+      "sha256": "8bbf7a0a434783dce955109778075c285e2848b2cdd6de53170e3edd84b0d90a"
+    }
+  },
+  "paper_goal": {
+    "main_task": "模型来源/家族归因（见总结文档 §4/§33）",
+    "auxiliary": [
+      "detection 单独报告",
+      "unknown-family 拒识"
+    ],
+    "family_semantics_requirement": "family 必须写明是 vendor group / 已知共享谱系 lineage / generator 集合；GPT 版本同 vendor ≠ 已知共享权重；Llama 系列不能凭名字当作唯一同基座对",
+    "post_training_separation": "缺 base/SFT/DPO 配对元数据（LCv2 README 明示）；本轮不把 task 中心化当后训练因果证据"
+  },
+  "sources": [
+    {
+      "dataset": "h2_authorbench_dcan",
+      "rows": 9498,
+      "tasks": 2715,
+      "language": [
+        "C"
+      ],
+      "license_provenance": {
+        "source_archive": "d-det\\data\\h2_authorbench\\LLM-AuthorBench.json.zip",
+        "source_archive_sha256": "e24399b7b05b812c5a1148ef44245348859eaa74b1140523cb695f984337f24c",
+        "license": "missing（summary 未提供）"
+      },
+      "family_definition": "vendor group（6 厂商；gpt-4.x 同 vendor 不等同已知共享谱系）",
+      "families": [
+        "claude",
+        "deepseek",
+        "gemini",
+        "llama",
+        "openai",
+        "qwen"
+      ],
+      "generators": [
+        "claude-3.5-haiku",
+        "deepseek-chat",
+        "gemini-2.5-flash-preview-05-20",
+        "gpt-4.1",
+        "gpt-4o",
+        "gpt-4o-mini",
+        "llama-3.3-70b-instruct",
+        "qwen-2.5-72b-instruct"
+      ],
+      "generator_per_family": {
+        "claude": 1,
+        "deepseek": 1,
+        "gemini": 1,
+        "llama": 1,
+        "openai": 3,
+        "qwen": 1
+      },
+      "task_namespace": "prompt 级别 task（task_id），task 单 split",
+      "alignable_task_hash": "yes（prompt_or_task_sha256，见 n1_manifest）",
+      "split_rows": {
+        "train": 6521,
+        "dev": 1467,
+        "test": 1444
+      },
+      "split_support": "N1 c3 全过（每族 train≥801 行 / dev≥182 行）",
+      "seen_heldout_role": "openai: 3 个 generator-heldout 折（D0 admitted）；其余 5 族单 generator",
+      "dup_audit": {
+        "exact_cross_split": 0,
+        "norm_ws_cross_split": 0,
+        "norm_lex_cross_split": 25,
+        "excluded_rows": 66,
+        "status": "done(N0/N1)"
+      },
+      "evaluated_on_test": "yes：P0(10-05) → D1(08:35Z, n=1457) → N2(09:05Z, 子集 404/51 task)",
+      "independently_holdable": "no：同一 dataset 的 test 已三次读取；train/dev 未作 test 但非独立来源"
+    },
+    {
+      "dataset": "h2_llm_codegen_v2",
+      "rows": 1512,
+      "tasks": 168,
+      "language": [
+        "C"
+      ],
+      "license_provenance": {
+        "provenance": "llm_codegen_raw CSV（sha 见 provenance.json）",
+        "csv_files": 36,
+        "license": "missing（README/元数据未给 license）"
+      },
+      "family_definition": "release-folder 推导的 vendor/族（README 明确：无 base/SFT/DPO 谱系元数据）",
+      "families": [
+        "google",
+        "ibm",
+        "meta",
+        "microsoft",
+        "mistral"
+      ],
+      "generators": [
+        "Gemni-1.5-pro",
+        "codegemma",
+        "codellama",
+        "codestral",
+        "granite-code:3B",
+        "llama2",
+        "llama3",
+        "mistral",
+        "phi3"
+      ],
+      "generator_per_family": {
+        "google": 2,
+        "ibm": 1,
+        "meta": 3,
+        "microsoft": 1,
+        "mistral": 2
+      },
+      "task_namespace": "CWE/group_id 任务（同 CWE simple/secure 共组）",
+      "alignable_task_hash": "yes（prompt_sha256s / group_id）",
+      "split_rows": {
+        "train": 118,
+        "dev": 26,
+        "test": 24
+      },
+      "split_support": "group/CWE 级 split（84 group：59/13/12）",
+      "seen_heldout_role": "meta: 3 折 admitted（D0）；google/mistral: 2 generator（test-only 正支持 0 的 4 折已标 diagnostic）",
+      "dup_audit": "not run（exact/ws/lex 未做）",
+      "evaluated_on_test": "partial：pair round1/2 读过 test（22 task/196 行）；family 级 task-test 未做",
+      "independently_holdable": "partial：146 个非 test task 从未作为评测；但同源已用于开发"
+    },
+    {
+      "dataset": "h2_stacad_alignment_v1 / stacad_v2",
+      "rows": 144958,
+      "tasks": 22053,
+      "language": [
+        "py",
+        "java",
+        "c",
+        "cpp",
+        "php",
+        "go",
+        "cs"
+      ],
+      "license_provenance": {
+        "license": "missing"
+      },
+      "family_definition": "generator 集合（7 个模型），非 vendor 分组",
+      "families": "7 generators",
+      "generators": 7,
+      "generator_per_family": "n/a（单一层）",
+      "task_namespace": "file 级 pair（GroupKFold by file）",
+      "alignable_task_hash": "file identity",
+      "split_rows": "5 折 file 级",
+      "seen_heldout_role": "file-heldout 折",
+      "dup_audit": "not run",
+      "evaluated_on_test": "yes：round1–4 + P0（fold0 .3729 等）",
+      "independently_holdable": "no（已评估）"
+    },
+    {
+      "dataset": "h2_droid_full_selected（v2）",
+      "rows": 146718,
+      "tasks": "generator-heldout 折（gen 级）",
+      "language": "多语言",
+      "license_provenance": {
+        "license": "missing"
+      },
+      "family_definition": "vendor（Meta/Google/Microsoft/… + human）",
+      "families": "32 machine generator（+human）",
+      "generators": 32,
+      "generator_per_family": "多 generator（具体见表见 v2 audit）",
+      "task_namespace": "generator-heldout（无 task 对齐）",
+      "alignable_task_hash": "missing（无 task 概念）",
+      "split_rows": "fold_plan（E36 同源）",
+      "seen_heldout_role": "generator-heldout",
+      "dup_audit": "not run（exact 检查有）",
+      "evaluated_on_test": "yes：E36 / v2 / P0（.1645）",
+      "independently_holdable": "no"
+    },
+    {
+      "dataset": "aicd_t2_numeric_balanced_v1（AICD T2）",
+      "rows": 1111199,
+      "tasks": "missing（无 task/prompt 索引）",
+      "language": "多语言",
+      "license_provenance": {
+        "license": "missing；12 个 numeric 标签映射未解析"
+      },
+      "family_definition": "missing（numeric_id 12 类，未映射到 vendor/谱系）",
+      "families": "12 numeric classes（mapping pending）",
+      "generators": "missing",
+      "generator_per_family": "missing",
+      "task_namespace": "missing",
+      "alignable_task_hash": "missing",
+      "split_rows": "官方 train/validation/test",
+      "seen_heldout_role": "n/a",
+      "dup_audit": "exact 有（跨 split 泄露哈希 1,848 见 10-03 审计）；ws/lex not run",
+      "evaluated_on_test": "yes：numeric baseline 2026-10-07 + P0 char-tfidf .2444",
+      "independently_holdable": "no（test 已读）；且 family 映射缺失"
+    },
+    {
+      "dataset": "codet_m4 / balanced_control",
+      "rows": 500552,
+      "tasks": "missing（无 task 概念）",
+      "language": "java/python/cpp",
+      "license_provenance": {
+        "license": "missing"
+      },
+      "family_definition": "model 名（含缺失 13,587 null）",
+      "families": "model 级",
+      "generators": "多模型（null 需剔除）",
+      "generator_per_family": "missing",
+      "task_namespace": "missing",
+      "alignable_task_hash": "missing",
+      "split_rows": "自带 split",
+      "seen_heldout_role": "n/a",
+      "dup_audit": "not run",
+      "evaluated_on_test": "yes：外部控制（codet_m4_external_control_2026-10-07）",
+      "independently_holdable": "no"
+    }
+  ],
+  "fold_support": [
+    {
+      "fold_id": "llm_codegen_v2:google:holdout=Gemni-1.5-pro",
+      "source": "llm_codegen_v2",
+      "family": "google",
+      "heldout_generator": "Gemni-1.5-pro",
+      "admitted": false,
+      "fail_reasons": [
+        "no_train_positive_support",
+        "no_dev_positive_support"
+      ],
+      "train_pairs": 694,
+      "train_pos": 0,
+      "train_neg": 694,
+      "dev_pairs": 175,
+      "dev_pos": 0,
+      "test_pairs": 157,
+      "test_pos": 19,
+      "test_tasks": 20
+    },
+    {
+      "fold_id": "llm_codegen_v2:google:holdout=codegemma",
+      "source": "llm_codegen_v2",
+      "family": "google",
+      "heldout_generator": "codegemma",
+      "admitted": false,
+      "fail_reasons": [
+        "no_train_positive_support",
+        "no_dev_positive_support"
+      ],
+      "train_pairs": 664,
+      "train_pos": 0,
+      "train_neg": 664,
+      "dev_pairs": 162,
+      "dev_pos": 0,
+      "test_pairs": 150,
+      "test_pos": 19,
+      "test_tasks": 19
+    },
+    {
+      "fold_id": "llm_codegen_v2:meta:holdout=codellama",
+      "source": "llm_codegen_v2",
+      "family": "meta",
+      "heldout_generator": "codellama",
+      "admitted": true,
+      "fail_reasons": [],
+      "train_pairs": 1181,
+      "train_pos": 83,
+      "train_neg": 1098,
+      "dev_pairs": 312,
+      "dev_pos": 24,
+      "test_pairs": 160,
+      "test_pos": 40,
+      "test_tasks": 23
+    },
+    {
+      "fold_id": "llm_codegen_v2:meta:holdout=llama2",
+      "source": "llm_codegen_v2",
+      "family": "meta",
+      "heldout_generator": "llama2",
+      "admitted": true,
+      "fail_reasons": [],
+      "train_pairs": 1313,
+      "train_pos": 102,
+      "train_neg": 1211,
+      "dev_pairs": 324,
+      "dev_pos": 26,
+      "test_pairs": 150,
+      "test_pos": 38,
+      "test_tasks": 19
+    },
+    {
+      "fold_id": "llm_codegen_v2:meta:holdout=llama3",
+      "source": "llm_codegen_v2",
+      "family": "meta",
+      "heldout_generator": "llama3",
+      "admitted": true,
+      "fail_reasons": [],
+      "train_pairs": 1177,
+      "train_pos": 88,
+      "train_neg": 1089,
+      "dev_pairs": 312,
+      "dev_pos": 24,
+      "test_pairs": 158,
+      "test_pos": 40,
+      "test_tasks": 21
+    },
+    {
+      "fold_id": "llm_codegen_v2:mistral:holdout=codestral",
+      "source": "llm_codegen_v2",
+      "family": "mistral",
+      "heldout_generator": "codestral",
+      "admitted": false,
+      "fail_reasons": [
+        "no_train_positive_support",
+        "no_dev_positive_support"
+      ],
+      "train_pairs": 683,
+      "train_pos": 0,
+      "train_neg": 683,
+      "dev_pairs": 169,
+      "dev_pos": 0,
+      "test_pairs": 157,
+      "test_pos": 20,
+      "test_tasks": 20
+    },
+    {
+      "fold_id": "llm_codegen_v2:mistral:holdout=mistral",
+      "source": "llm_codegen_v2",
+      "family": "mistral",
+      "heldout_generator": "mistral",
+      "admitted": false,
+      "fail_reasons": [
+        "no_train_positive_support",
+        "no_dev_positive_support"
+      ],
+      "train_pairs": 690,
+      "train_pos": 0,
+      "train_neg": 690,
+      "dev_pairs": 168,
+      "dev_pos": 0,
+      "test_pairs": 157,
+      "test_pos": 20,
+      "test_tasks": 20
+    },
+    {
+      "fold_id": "authorbench_dcan:openai:holdout=gpt-4.1",
+      "source": "authorbench_dcan",
+      "family": "openai",
+      "heldout_generator": "gpt-4.1",
+      "admitted": true,
+      "fail_reasons": [],
+      "train_pairs": 4358,
+      "train_pos": 343,
+      "train_neg": 4015,
+      "dev_pairs": 1070,
+      "dev_pos": 93,
+      "test_pairs": 690,
+      "test_pos": 193,
+      "test_tasks": 182
+    },
+    {
+      "fold_id": "authorbench_dcan:openai:holdout=gpt-4o",
+      "source": "authorbench_dcan",
+      "family": "openai",
+      "heldout_generator": "gpt-4o",
+      "admitted": true,
+      "fail_reasons": [],
+      "train_pairs": 4525,
+      "train_pos": 400,
+      "train_neg": 4125,
+      "dev_pairs": 1074,
+      "dev_pos": 102,
+      "test_pairs": 645,
+      "test_pos": 181,
+      "test_tasks": 162
+    },
+    {
+      "fold_id": "authorbench_dcan:openai:holdout=gpt-4o-mini",
+      "source": "authorbench_dcan",
+      "family": "openai",
+      "heldout_generator": "gpt-4o-mini",
+      "admitted": true,
+      "fail_reasons": [],
+      "train_pairs": 4351,
+      "train_pos": 357,
+      "train_neg": 3994,
+      "dev_pairs": 1031,
+      "dev_pos": 76,
+      "test_pairs": 645,
+      "test_pos": 186,
+      "test_tasks": 162
+    }
+  ],
+  "task_coverage": {
+    "ab_tasks_by_family_coverage": {
+      "1": 8,
+      "2": 3096,
+      "3": 1866,
+      "4": 1130,
+      "5": 1156,
+      "6": 2176
+    },
+    "ab_six_family_subset": {
+      "definition": "task family_coverage == 6（组成均匀子集；规则仅用数据组成，不用标签/预测）",
+      "task_count": 280,
+      "task_id_sha256": "bce52b77d510e922f5b9aa73d55e3950bd378b766e1d445aa480613af88e264c",
+      "rows": {
+        "train": 1424,
+        "dev": 348,
+        "test": 404
+      },
+      "tasks": {
+        "train": 184,
+        "dev": 45,
+        "test": 51
+      },
+      "family_generator_rows": {
+        "claude::claude-3.5-haiku": 280,
+        "deepseek::deepseek-chat": 280,
+        "gemini::gemini-2.5-flash-preview-05-20": 280,
+        "llama::llama-3.3-70b-instruct": 280,
+        "openai::gpt-4.1": 260,
+        "openai::gpt-4o": 260,
+        "openai::gpt-4o-mini": 256,
+        "qwen::qwen-2.5-72b-instruct": 280
+      }
+    },
+    "lc_outputs_per_family": {
+      "google": 336,
+      "ibm": 168,
+      "meta": 504,
+      "microsoft": 168,
+      "mistral": 336
+    }
+  },
+  "exposure_note": "N2 子集完全落在 D1 已暴露 test 内；不存在新的独立 test；E0/E1 不新增 test 读取。",
+  "runtime_seconds": 0.10295772552490234
+}

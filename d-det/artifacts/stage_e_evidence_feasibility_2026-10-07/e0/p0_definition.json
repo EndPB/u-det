@@ -1,0 +1,98 @@
+{
+  "schema": "stage_e0_p0_definition_v1",
+  "mean_ensemble": {
+    "definition": "p_eq(f|x) = (1/M) Σ_m p_m(f|x)，M=5，逐元素算术平均（概率空间，非 logits、非 vote）",
+    "members": [
+      "sem_lr",
+      "style_lgb",
+      "style_lr",
+      "tfidf_char",
+      "tfidf_word"
+    ],
+    "weights": "等权 1/5",
+    "class_order": [
+      "claude",
+      "deepseek",
+      "gemini",
+      "llama",
+      "openai",
+      "qwen"
+    ],
+    "calibration": "无（成员输出即 sklearn log_loss/SGD log_loss 归一化概率）",
+    "member_check_full_p0_dev": {
+      "sem_lr": {
+        "dev_rows": 1484,
+        "cols": 6,
+        "max_abs_rowsum_minus_1": 0.0003571510314941406,
+        "all_classes_present": true
+      },
+      "style_lgb": {
+        "dev_rows": 1484,
+        "cols": 6,
+        "max_abs_rowsum_minus_1": 0.0003491044044494629,
+        "all_classes_present": true
+      },
+      "style_lr": {
+        "dev_rows": 1484,
+        "cols": 6,
+        "max_abs_rowsum_minus_1": 0.0003216862678527832,
+        "all_classes_present": true
+      },
+      "tfidf_char": {
+        "dev_rows": 1484,
+        "cols": 6,
+        "max_abs_rowsum_minus_1": 0.00036591291427612305,
+        "all_classes_present": true
+      },
+      "tfidf_word": {
+        "dev_rows": 1484,
+        "cols": 6,
+        "max_abs_rowsum_minus_1": 0.0003399848937988281,
+        "all_classes_present": true
+      }
+    },
+    "n2_arithmetic_recheck": {
+      "max_abs_diff_vs_saved": 0.0003295898437499778,
+      "members_te": [
+        "sem_lr",
+        "style_lgb",
+        "style_lr",
+        "tfidf_char",
+        "tfidf_word"
+      ],
+      "status": "recomputed"
+    },
+    "pre_declaration": {
+      "P0_origin": "artifacts/acl_sota_p0（2026-10-05 P0 轮）已含 mean_ensemble 行（等权均值），D1 以复用行呈现",
+      "n2_protocol": "n2_protocol.json（提交 7a0d51a，早于 N2 test 读取 2026-10-07T09:05:32Z）在 p0_recompute 中列明 『fusion_lr=dev-only LR stack；mean_ensemble=等权均值』",
+      "status": "作为 P0 组件在读取 test 前已声明；‘ensemble 优于 fusion’ 的对比本身为 post-hoc 观察，非预注册假设"
+    }
+  },
+  "fusion_lr": {
+    "full_p0": {
+      "path": "d-det/scripts/acl_sota_p0_baselines.py::fusion_dev_lr",
+      "fit": "dev-only LR on concat log(clip(p,1e-6,1)) of 5 members, C=1, max_iter=3000",
+      "members": [
+        "sem_lr",
+        "style_lgb",
+        "style_lr",
+        "tfidf_char",
+        "tfidf_word"
+      ],
+      "class_weight": null,
+      "double_dev_usage": "无（仅一次 dev 拟合；无二次选择）"
+    },
+    "n2_recompute": {
+      "path": "scripts/stage_d_n2_h1_recheck.py（候选矩阵上同配方复算）",
+      "fit": "dev=348 行上 LR(log-prob features)",
+      "members": [
+        "sem_lr",
+        "style_lgb",
+        "style_lr",
+        "tfidf_char",
+        "tfidf_word"
+      ]
+    }
+  },
+  "post_hoc_audit": true
+}

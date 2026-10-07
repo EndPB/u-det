@@ -1,0 +1,37 @@
+{
+  "schema": "stage_e0_test_exposure_ledger_v1",
+  "rule": "已暴露 test 不得改名/换 split 冒充实测；下列为系统内全部 AB test 读取记录（按时间序）",
+  "entries": [
+    {
+      "round": "P0 基线（2026-10-05，artifacts/acl_sota_p0）",
+      "read": "AB-DCan test n=1457 / 408 tasks（为 P0 表与复用预测）",
+      "artifact": "d-det/artifacts/acl_sota_p0/server_tracks/authorbench_dcan/predictions_all.npz",
+      "artifact_sha256": "4cfb47b5a2eb8a796ddece7a95049093d84127090331a592961d648f08f9eb45",
+      "purpose": "P0 强基线估计；后续 D1 复用行"
+    },
+    {
+      "round": "D1（2026-10-07T08:35:45Z）",
+      "read": "AB-DCan test n=1457 / 408 tasks（单次读取）",
+      "artifact": "d-det/artifacts/stage_d_h1_authorbench_dcan_2026-10-07/metrics.json",
+      "artifact_sha256": "9abe9555edd21a595e40c4149cfe01c1ee87c0272b3316127bd15cdbf388fe9f",
+      "predictions_sha256": "fbf620152cdb40e751d8376ea17aff35bbc07be05ae96ba5b00df76495b82a03",
+      "task_id_hash": "0cccd26c766b65663fddff5ef6a54036b705a803e25d1227a5014cb4ddca9446",
+      "purpose": "H1 控制矩阵（D1 判定）与 N0 分层诊断"
+    },
+    {
+      "round": "N2（2026-10-07T09:05:32Z）",
+      "read": "六族齐全子集 test n=404 / 51 tasks（单次读取，预注册）",
+      "artifact": "d-det/artifacts/stage_d_data_construction_2026-10-07/n2_h1_recheck/metrics.json",
+      "artifact_sha256": "85dcfb536c5e8161232a419c6ae42505a46c6ac6c77f8de122a168039f32fba2",
+      "predictions_sha256": "ff7b603695219b52e1c874c277f69c8378fb7b31137689d7c5acde0c71e83020",
+      "task_id_hash": "8550e2b1d2566ab917e3c71b566e189c2abfdd52fa39eb2a066455adc24f9e97",
+      "purpose": "候选矩阵最小 H1 复核（门未通过，归档）"
+    }
+  ],
+  "relationships": {
+    "n2_tasks_subset_of_d1_test_tasks": true,
+    "note": "N2 子集完全落在 D1 已暴露 test 内；不存在新的独立 test；E0/E1 不新增 test 读取。"
+  },
+  "e0_adds_no_new_test_read": true,
+  "generated_utc": "2026-10-07T10:37:20.582141+00:00"
+}

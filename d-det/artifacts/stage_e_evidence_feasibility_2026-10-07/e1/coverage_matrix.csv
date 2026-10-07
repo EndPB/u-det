@@ -1,0 +1,18 @@
+source,family,generator,rows,tasks,train_rows,dev_rows,test_rows,family_role,heldout_fold_ids,test_evaluated,dup_audit
+h2_authorbench_dcan,claude,claude-3.5-haiku,1176,1176,812,190,174,h1_only,,yes(D1/N2 exposure),exact/ws/lex done
+h2_authorbench_dcan,deepseek,deepseek-chat,1223,1223,850,189,184,h1_only,,yes(D1/N2 exposure),exact/ws/lex done
+h2_authorbench_dcan,gemini,gemini-2.5-flash-preview-05-20,1176,1176,801,182,193,h1_only,,yes(D1/N2 exposure),exact/ws/lex done
+h2_authorbench_dcan,llama,llama-3.3-70b-instruct,1284,1284,892,192,200,h1_only,,yes(D1/N2 exposure),exact/ws/lex done
+h2_authorbench_dcan,openai,gpt-4.1,1127,1127,782,165,180,h2_candidate,authorbench_dcan:openai:holdout=gpt-4.1,yes(D1/N2 exposure),exact/ws/lex done
+h2_authorbench_dcan,openai,gpt-4o,1060,1060,727,172,161,h2_candidate,authorbench_dcan:openai:holdout=gpt-4o,yes(D1/N2 exposure),exact/ws/lex done
+h2_authorbench_dcan,openai,gpt-4o-mini,1125,1125,783,181,161,h2_candidate,authorbench_dcan:openai:holdout=gpt-4o-mini,yes(D1/N2 exposure),exact/ws/lex done
+h2_authorbench_dcan,qwen,qwen-2.5-72b-instruct,1261,1261,874,196,191,h1_only,,yes(D1/N2 exposure),exact/ws/lex done
+h2_llm_codegen_v2,google,Gemni-1.5-pro,168,168,118,26,24,insufficient(2gen),,partial(pair rounds；family-test 未做),not run
+h2_llm_codegen_v2,google,codegemma,168,168,118,26,24,insufficient(2gen),,partial(pair rounds；family-test 未做),not run
+h2_llm_codegen_v2,ibm,granite-code:3B,168,168,118,26,24,h1_only(1gen),,partial(pair rounds；family-test 未做),not run
+h2_llm_codegen_v2,meta,codellama,168,168,118,26,24,h2_candidate(3gen),,partial(pair rounds；family-test 未做),not run
+h2_llm_codegen_v2,meta,llama2,168,168,118,26,24,h2_candidate(3gen),,partial(pair rounds；family-test 未做),not run
+h2_llm_codegen_v2,meta,llama3,168,168,118,26,24,h2_candidate(3gen),,partial(pair rounds；family-test 未做),not run
+h2_llm_codegen_v2,microsoft,phi3,168,168,118,26,24,h1_only(1gen),,partial(pair rounds；family-test 未做),not run
+h2_llm_codegen_v2,mistral,codestral,168,168,118,26,24,insufficient(2gen),,partial(pair rounds；family-test 未做),not run
+h2_llm_codegen_v2,mistral,mistral,168,168,118,26,24,insufficient(2gen),,partial(pair rounds；family-test 未做),not run

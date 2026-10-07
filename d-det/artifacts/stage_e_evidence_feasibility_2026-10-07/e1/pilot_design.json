@@ -1,0 +1,120 @@
+{
+  "schema": "stage_e1_pilot_design_v1",
+  "status": "partial",
+  "status_reason": [
+    "现成数据中同时满足『≥3 family × 每族 ≥3 generator』的只有 openai(AB) 与 meta(LCv2) 两个单元；google/mistral 各缺第 3 个 generator，其余族为单 generator。",
+    "pilot 要求同一新任务集合上的多族多 generator 采样；现有任务池无此组合，需要新增生成（未授权）。"
+  ],
+  "family_semantics": "vendor_or_lineage_explicit",
+  "target_families": [
+    {
+      "family": "openai",
+      "semantics": "vendor（gpt-4.1/gpt-4o/gpt-4o-mini；同 vendor，不等同已知共享谱系）",
+      "generators_available": [
+        "gpt-4.1",
+        "gpt-4o",
+        "gpt-4o-mini"
+      ],
+      "missing_generators": 0
+    },
+    {
+      "family": "meta",
+      "semantics": "vendor/系列（llama2/llama3/codellama；谱系需在协议中写清）",
+      "generators_available": [
+        "llama2",
+        "llama3",
+        "codellama"
+      ],
+      "missing_generators": 0
+    },
+    {
+      "family": "google 或 mistral",
+      "semantics": "vendor",
+      "generators_available": {
+        "google": [
+          "Gemni-1.5-pro",
+          "codegemma"
+        ],
+        "mistral": [
+          "codestral",
+          "mistral"
+        ]
+      },
+      "missing_generators": 1
+    }
+  ],
+  "generators_per_family": {
+    "openai": 3,
+    "meta": 3,
+    "google": 2,
+    "mistral": 2
+  },
+  "task_source": [
+    {
+      "option": "新 prompt/任务集（推荐；来源委托方指定）",
+      "status": "missing"
+    },
+    {
+      "option": "复用 AB prompts 的子集",
+      "status": "exposure：AB test 已读 3 次；train/dev task 可复用但非独立"
+    },
+    {
+      "option": "复用 LCv2 CWE 任务",
+      "status": "exposure：22 个 test task 已读；同源开发使用过其余任务"
+    }
+  ],
+  "unexposed_task_evidence": [
+    {
+      "pool": "AB train/dev tasks",
+      "count": 2307,
+      "exposed_as_test": false,
+      "note": "同 dataset 内未作 test；可作 pilot 的现实来源但独立性强于全新任务"
+    },
+    {
+      "pool": "LCv2 非 test tasks",
+      "count": 146,
+      "exposed_as_test": false,
+      "note": "pair 轮仅读 22 个 test task；其余未作评测"
+    },
+    {
+      "pool": "aicd/droid/codet_m4",
+      "exposed_as_test": true,
+      "note": "均已被既有评测读取；且 family/task 语义缺失，不可作独立 pilot 任务池"
+    }
+  ],
+  "split_grouping": "task_or_provenance_component（按 task/prompt 或 CWE group 分 split；先 task 后样本）",
+  "heldout_generator_plan": [
+    "对每个目标 family，每折 hold out 恰好 1 个 generator；该 generator 输出不进该折 train/dev；",
+    "test 同时要求未见 task（task/prompt 级隔离）；",
+    "正对定义见 positive_definition；每折核对 train/dev 正支持与 test task 数 ≥ 预注册下限。"
+  ],
+  "positive_definition": "same_task_same_family_different_generator",
+  "hard_negative_definition": "same_task_different_family",
+  "compute_and_disk_estimate": {
+    "pilot_scale_assumption": "≈300 新 task × 3 family × 3 generator ≈ 2,700 输出",
+    "raw_outputs": "≈4 MB（按 AB 实测 ≈1.4 KB/行）",
+    "light_index": "≈2–5 MB（manifest/coverage/审计 JSON/CSV）",
+    "optional_feature_cache": "冻结 CodeT5-small 768d fp32 ≈ 2,700×768×4B ≈ 8 MB（可现算不入库）",
+    "reuse": [
+      "d-det/models/codet5-small（已校准）",
+      "d-det/checkpoints/codet5-base",
+      "u-det/scripts/stage_* 审计脚本"
+    ],
+    "generation_cost": "闭源 API / 未授权（12 模型 × 300 prompt）——仅估计，未请求执行",
+    "incremental_disk_total": "≈15 MB 量级（不大；瓶颈是生成与许可而非磁盘）"
+  },
+  "power_plan": {
+    "reference": "N2：51 test tasks → tfidf_word CI 半宽 ≈4.8pt（F1）",
+    "scaling_rule": "半宽 ~ 1/sqrt(n_tasks)（粗规则，未含配对增益）",
+    "rough_requirement_for_1pt": "≈ (4.8/1)^2 × 51 ≈ 1,200 tasks（未配对、单视图；配对/多视图可显著降低，需在协议中模拟）",
+    "status": "power_unknown（最终统计功效需在预注册协议里用模拟/试验性估计冻结）"
+  },
+  "cost_and_generation_authorization": "not_requested_here",
+  "missing_assets": [
+    "google/mistral 第 3 个 generator（生成授权）",
+    "新任务 prompt 集（来源指定）",
+    "闭源 API 访问与预算（如沿用 gpt-4.x）",
+    "各来源 license/许可确认"
+  ],
+  "training_allowed": false
+}
