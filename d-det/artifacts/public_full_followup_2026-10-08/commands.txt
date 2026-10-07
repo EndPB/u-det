@@ -1,0 +1,11 @@
+# 系列证据与变体迁移预注册（2026-10-08，只读 + 预注册）
+cd /root/autodl-tmp/u-det
+F=d-det/artifacts/public_full_followup_2026-10-08
+mkdir -p "$F"/{official_docs_server_fetch,logs}
+# 期望清单核对（user 提供 manifest 16/16 缺失 → 登记）
+python3 scripts/verify_public_task_full.py            # item1（重跑 6.7s）
+python3 scripts/public_full_adjudication_audit.py     # item2（349→306、21 重复）
+python3 scripts/build_public_lineage_evidence.py      # 官方资料拉取 + commit pin（pack 缺失的服务器侧重构）
+python3 scripts/build_family_series_admission.py      # 11 成员准入 + 路径一致性
+# 预注册：variant_transfer_registration.json（不执行）
+(cd "$F" && find . -type f ! -path ./SHA256SUMS.txt | sort | xargs sha256sum > SHA256SUMS.txt)

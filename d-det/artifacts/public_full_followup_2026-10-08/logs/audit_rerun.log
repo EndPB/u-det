@@ -1,0 +1,3 @@
+扫描完成：unit keys(records)=306；rows=296254；dup_identity=0；dup_code_in_unit_task=21
+adj units=306；records units=306；归一化后仅 adj=22、仅 rec=22；adj records 合计=296254
+{"audit": "done", "adj_units": 306, "rec_units": 306, "only_adj_norm": 22, "only_rec_norm": 22, "main": {"units": 118, "rows_sum": 134528, "tasks_min": 1140, "tasks_median": 1140, "tasks_max": 1140}, "runtime_s": 6.9}

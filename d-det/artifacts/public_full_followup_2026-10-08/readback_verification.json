@@ -1,0 +1,120 @@
+{
+  "schema": "public_full_followup_readback_v1",
+  "generated_by": "server-side（只读复核）",
+  "item1_full_verification": {
+    "evalplus_rows": 8778,
+    "bigcodebench_rows": 287476,
+    "evalplus_tasks": 399,
+    "bigcodebench_tasks": 1140,
+    "duplicate_or_malformed": 0,
+    "records_sha256": "d786667a72f3f3864ea38115fd6ccfe8ac393141146d522673668f3730523210",
+    "records_sha256_matches_pack_integrity": true,
+    "zip_sha256": "e98f221a2b0b88a377fe4390222f30006e18eca00433312106514f675967df82",
+    "zip_note": "e98f221a… 为当前包实际值（指导 2026-10-08 已更正 b8511ee6 为旧标注）",
+    "internal_sha256sums": "10/10 OK（Python 复核）"
+  },
+  "item2_unit_reconciliation": {
+    "adj_rows": 349,
+    "distinct_exact_units": 306,
+    "adj_duplicate_rows": 43,
+    "records_derived_units": 306,
+    "unit_task_duplicate_outputs": 21,
+    "note": "349 行=306 单元+43 重复行；21 行为 unit-task 内重复输出（按 unit-task-sha 去重）"
+  },
+  "item3_series": {
+    "totals": {
+      "members": 11
+    },
+    "per_series": {
+      "CodeLlama-Instruct": {
+        "members": [
+          "codellama--CodeLlama-7b-Instruct-hf",
+          "codellama--CodeLlama-13b-Instruct-hf",
+          "codellama--CodeLlama-34b-Instruct-hf",
+          "codellama--CodeLlama-70b-Instruct-hf"
+        ],
+        "full_instruct_badges": {
+          "codellama--CodeLlama-7b-Instruct-hf": {
+            "rows": 1140,
+            "tasks": 1140
+          },
+          "codellama--CodeLlama-13b-Instruct-hf": {
+            "rows": 1140,
+            "tasks": 1140
+          },
+          "codellama--CodeLlama-34b-Instruct-hf": {
+            "rows": 1140,
+            "tasks": 1140
+          },
+          "codellama--CodeLlama-70b-Instruct-hf": {
+            "rows": 1140,
+            "tasks": 1140
+          }
+        },
+        "consistency_ok": true
+      },
+      "Qwen2.5-Coder-Instruct": {
+        "members": [
+          "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+          "Qwen--Qwen2.5-Coder-7B-Instruct",
+          "Qwen--Qwen2.5-Coder-14B-Instruct",
+          "Qwen--Qwen2.5-Coder-32B-Instruct"
+        ],
+        "full_instruct_badges": {
+          "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+            "rows": 1140,
+            "tasks": 1140
+          },
+          "Qwen--Qwen2.5-Coder-7B-Instruct": {
+            "rows": 1140,
+            "tasks": 1140
+          },
+          "Qwen--Qwen2.5-Coder-14B-Instruct": {
+            "rows": 1140,
+            "tasks": 1140
+          },
+          "Qwen--Qwen2.5-Coder-32B-Instruct": {
+            "rows": 1140,
+            "tasks": 1140
+          }
+        },
+        "consistency_ok": true
+      },
+      "DeepSeek-Coder-v1-Instruct": {
+        "members": [
+          "deepseek-ai--deepseek-coder-1.3b-instruct",
+          "deepseek-ai--deepseek-coder-6.7b-instruct",
+          "deepseek-ai--deepseek-coder-33b-instruct"
+        ],
+        "full_instruct_badges": {
+          "deepseek-ai--deepseek-coder-1.3b-instruct": {
+            "rows": 1140,
+            "tasks": 1140
+          },
+          "deepseek-ai--deepseek-coder-6.7b-instruct": {
+            "rows": 1140,
+            "tasks": 1140
+          },
+          "deepseek-ai--deepseek-coder-33b-instruct": {
+            "rows": 1140,
+            "tasks": 1140
+          }
+        },
+        "consistency_ok": true
+      }
+    },
+    "family_is_confirmed": false
+  },
+  "item4_admission_and_git": {
+    "family_series_admission_server_rebuild_sha256": "c079abea65807ce2228822abdb82955f2c122bcdc299fb09093b3a0c52898ee9",
+    "original_pack_expected_sha256": "cc4a77851702e0bbf57e50636744ad25b572da9a665148b2b76179236b0bdfae（expected manifest；尚未上传）",
+    "expected_manifest_missing": "16/16（见 expected_manifest_check.json）",
+    "git_head_at_verification": "e38715da77cc43269ae950c46c5f26f84321d90e"
+  },
+  "item5_policy": {
+    "project_old_test_read": false,
+    "new_outputs_generated": false,
+    "model_weights_downloaded": false,
+    "note": "本轮仅只读 + 官方资料（文档文本）拉取"
+  }
+}

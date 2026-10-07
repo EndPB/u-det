@@ -1,6 +1,6 @@
 {
   "schema": "public_full_adjudication_audit_v1",
-  "generated_utc": "2026-10-07T16:43:09.259236+00:00",
+  "generated_utc": "2026-10-07T17:30:56.757442+00:00",
   "inputs": {
     "records_sha256": "d786667a72f3f3864ea38115fd6ccfe8ac393141146d522673668f3730523210",
     "manifest_sha256": "a7aee7074bfe9b3e621853f3dd553cdf8e1c90e60e8f2b4fb9f37536e6b983fb",
@@ -100,5 +100,5 @@
   },
   "contamination_note": "公开 benchmark 可能已被模型预训练见过；本审计无法测污染。协议定位 = 外部验证/方法诊断；完成污染与历史使用登记前不进项目主表。",
   "code_executed": false,
-  "runtime_seconds": 6.919640064239502
+  "runtime_seconds": 6.903767824172974
 }

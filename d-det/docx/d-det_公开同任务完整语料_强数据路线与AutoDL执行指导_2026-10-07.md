@@ -11,7 +11,7 @@
 
 目录：`d-det/data/public_same_task_full_2026-10-07/`  
 压缩包：`d-det/data/public_same_task_full_2026-10-07.zip`  
-压缩包 SHA-256：`b8511ee670ee99404f646840210b74284d20076d726ee57eb2a221d88cd2a417`
+压缩包 SHA-256：`e98f221a2b0b88a377fe4390222f30006e18eca00433312106514f675967df82`
 
 | 来源 | 内容 | 规模 |
 |---|---|---:|
@@ -22,9 +22,9 @@
 | BigCodeBench hard/instruct | 难题子集控制 | 12,728 行 |
 | CodeContests | validation/test 原始竞赛题与人类正确/错误提交容器 | 34.0 MB，尚未解析 |
 
-完整 JSONL 约 699 MB；连同 CodeContests 原始控制文件约 749 MB。压缩包约 153 MB，已经不再是轻量演示包。
+完整 JSONL 约 699 MB；连同 CodeContests 原始控制文件约 749 MB。压缩包约 153 MB，已经不再是轻量演示包。当前包内部哈希一致；旧指导中的 `b8511ee6…` 为过期标注，不应作为重传条件。
 
-完整语料的 349 个精确观察单元定义为：
+完整语料的审核记录为 349 行；按精确字段去重后是 306 个研究 unit（另有 21 个 unit-task 重复输出行）：
 
 ```text
 source + model_id + generation_mode + subset + backend + temperature
@@ -79,10 +79,10 @@ sha256sum d-det/data/public_same_task_full_2026-10-07/SHA256SUMS.txt
 
 ```bash
 python scripts/adjudicate_public_model_units.py
-python scripts/verify_public_task_slices.py
+python scripts/verify_public_task_full.py
 ```
 
-完整语料核验需要新增一个只读脚本，检查：
+完整语料核验使用 `verify_public_task_full.py`，检查：
 
 - `records.jsonl` 总行数和源包哈希；
 - 每个精确 generator unit 的 task 支持；
@@ -103,6 +103,8 @@ CodeContests 原始文件是官方 Riegeli 格式。AutoDL 侧使用官方仓库
 只做冻结表示上的 task-cluster 诊断：字符/词法/AST/CodeT5 表示、family 候选和 exact generator unit。报告 macro-F1、balanced accuracy、per-task bootstrap CI、任务规模分层和 family/variant 支持。暂不重拟合项目旧 test 上的模型，暂不把任何外部结果回写为 LCv2 H2 主表。
 
 如果 family 证据不足，论文结果应写成“公开生成单元归因”和“谱系候选迁移”，不能写成普遍后训练 family 几何。
+
+当前新增的官方资料只足以把 CodeLlama-Instruct、Qwen2.5-Coder-Instruct、DeepSeek-Coder-v1-Instruct 作为“系列内变体迁移 pilot”候选；`family_is_confirmed` 仍保持 `false`。详细闸门见 [`d-det_AutoDL_公开语料系列证据与变体迁移指导_2026-10-08.md`](d-det_AutoDL_公开语料系列证据与变体迁移指导_2026-10-08.md)。
 
 ## 7. 相关公开来源
 

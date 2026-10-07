@@ -1,0 +1,102 @@
+{
+  "schema": "followup_expected_manifest_check_v1",
+  "entries": [
+    {
+      "file": "family_series_admission.json",
+      "expected_sha256": "cc4a77851702e0bbf57e50636744ad25b572da9a665148b2b76179236b0bdfae",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "member_protocol_and_series.jsonl",
+      "expected_sha256": "0822d210a3db08544aa90a053b017372b57c57e7440eaa6203e31199560a8db6",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "official_docs/CodeContests-schema.txt",
+      "expected_sha256": "c44121c7a16b7b8f0356a8941cee42bf50fa3eb76d4729006f1b25b9f5ec9903",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "official_docs/CodeLlama-Instruct.txt",
+      "expected_sha256": "4f5feeaee49f128eba13ea5daf36db224143580947bb6e2618ab3b7a3d6ec3b3",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "official_docs/DeepSeek-Coder-v1-Instruct.txt",
+      "expected_sha256": "aa0a95ca037f1d2c641421417abcaabaca230696cfc79b84cfea235153b8f6f2",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "official_docs/Qwen2.5-Coder-Instruct.txt",
+      "expected_sha256": "600d946e07e4cb74cd329cba828f026b2eff08ac5b639d1f4b3898c7ec1700e6",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "official_documentation_sources.json",
+      "expected_sha256": "10cc9ebea643452a5ed36115babbfbaefdc5c379b73cbd74699190d2a4d47a56",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "proposed_family_checkpoint_protocol.json",
+      "expected_sha256": "5f54ad18da0a158eaa231b5888d7ac00da90bb7a90547d663b4ec23f09c6cb98",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "source_snapshot/cc_riegeli_extract.py",
+      "expected_sha256": "bdb2aec50f0a740d30bfd5b873b379d55f3b70be52343e817dc6c2adcdeb667a",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "source_snapshot/code_contests_index.json",
+      "expected_sha256": "6cdac5f2ceff600ac6229aae4c48fe850073444302149c256ebdf35aa28e00b4",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "source_snapshot/full_adjudication_audit.json",
+      "expected_sha256": "ec9663e5cfb39eaa73533db8ac0fe32855e0de82992abd9bdc562c0e8e160282",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "source_snapshot/public_full_adjudication_audit.py",
+      "expected_sha256": "91210bd5b28f6ad15ca7228c8e58a5272a80bfb96b2d15cf40499dd1a80fd5e8",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "source_snapshot/received_files_sha256.json",
+      "expected_sha256": "ff26a6829fa0e2dc43fac922735af0cdd2029f8d88e1dc22cb0e034a75b7208c",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "source_snapshot/split_plan.json",
+      "expected_sha256": "4b7f23cad388bff723cde039de521bf9d4ce2eb92fbf5dfdfb928c453f56159a",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "source_snapshot/unit_coverage_matrix.csv",
+      "expected_sha256": "5571c94d76ace9bcc56501461898b29041910df00e66c12ba62da6bb7a216b9f",
+      "present": false,
+      "match": false
+    },
+    {
+      "file": "source_snapshot/unit_folds.json",
+      "expected_sha256": "4d5a45030e535ca67340f1f2c1733c916fa2c2b1501fcf33bbaa6fa78df1a449",
+      "present": false,
+      "match": false
+    }
+  ],
+  "missing": 16
+}
