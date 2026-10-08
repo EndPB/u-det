@@ -1,0 +1,716 @@
+{
+ "schema": "r1_posttraining_v1",
+ "generated_utc": "2026-10-08T15:55:26.622276+00:00",
+ "report_first_line": "R1 后训练比较（逐边/模式/隔离；不升级因果）",
+ "per_edge": {
+  "E1_Athene70B_Llama3": {
+   "complete": {
+    "delta_only": {
+     "acc": 0.9405653021442494,
+     "ci95": [
+      0.9005847953216374,
+      0.9707602339181286
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.9410331384015594,
+     "ci95": [
+      0.8975146198830409,
+      0.9766081871345029
+     ]
+    },
+    "mlp_swap": {
+     "acc": 0.9179792072774527,
+     "ci95": [
+      0.875243664717349,
+      0.9522904483430799
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 0.7942300194931774,
+     "ci95": [
+      0.7368421052631579,
+      0.847953216374269
+     ]
+    },
+    "full_P0": {
+     "acc": 0.7668615984405458,
+     "ci95": [
+      0.7076023391812866,
+      0.8304093567251462
+     ]
+    }
+   },
+   "instruct": {
+    "delta_only": {
+     "acc": 0.9827680311890837,
+     "ci95": [
+      0.9590643274853801,
+      1.0
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.9653411306042885,
+     "ci95": [
+      0.935672514619883,
+      0.9883040935672515
+     ]
+    },
+    "mlp_swap": {
+     "acc": 0.9237426900584793,
+     "ci95": [
+      0.885916179337232,
+      0.9620370370370369
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 0.7651461988304094,
+     "ci95": [
+      0.7017543859649122,
+      0.8304093567251462
+     ]
+    },
+    "full_P0": {
+     "acc": 0.8255360623781676,
+     "ci95": [
+      0.7602339181286549,
+      0.8830409356725146
+     ]
+    }
+   }
+  },
+  "E2_AtheneV2Agent_Qwen72B": {
+   "complete": {
+    "delta_only": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "mlp_swap": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "full_P0": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "instruct": {
+    "delta_only": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.9941910331384014,
+     "ci95": [
+      0.9824561403508771,
+      1.0
+     ]
+    },
+    "mlp_swap": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "full_P0": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "E3_AtheneV2Chat_Qwen72B": {
+   "complete": {
+    "delta_only": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "mlp_swap": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "full_P0": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    }
+   },
+   "instruct": {
+    "delta_only": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.9941910331384014,
+     "ci95": [
+      0.9824561403508771,
+      1.0
+     ]
+    },
+    "mlp_swap": {
+     "acc": 0.9880311890838205,
+     "ci95": [
+      0.9707602339181286,
+      1.0
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    },
+    "full_P0": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ]
+    }
+   }
+  },
+  "E4_SkyT1Flash_Qwen32B": {
+   "complete": {
+    "delta_only": {
+     "acc": 0.9937816764132553,
+     "ci95": [
+      0.9793859649122807,
+      1.0
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.9882066276803119,
+     "ci95": [
+      0.9707602339181286,
+      1.0
+     ]
+    },
+    "mlp_swap": {
+     "acc": 0.9730019493177386,
+     "ci95": [
+      0.9502436647173489,
+      0.9941520467836257
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 0.982280701754386,
+     "ci95": [
+      0.9590643274853801,
+      1.0
+     ]
+    },
+    "full_P0": {
+     "acc": 0.7818128654970761,
+     "ci95": [
+      0.7220760233918129,
+      0.847953216374269
+     ]
+    }
+   },
+   "instruct": {
+    "delta_only": {
+     "acc": 0.9870370370370369,
+     "ci95": [
+      0.9707602339181286,
+      1.0
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.9936062378167639,
+     "ci95": [
+      0.9766081871345029,
+      1.0
+     ]
+    },
+    "mlp_swap": {
+     "acc": 0.987543859649123,
+     "ci95": [
+      0.9649122807017544,
+      1.0
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 0.9939376218323586,
+     "ci95": [
+      0.9824561403508771,
+      1.0
+     ]
+    },
+    "full_P0": {
+     "acc": 0.8495906432748537,
+     "ci95": [
+      0.8011695906432749,
+      0.9064327485380117
+     ]
+    }
+   }
+  },
+  "E5_SkyT1Flash_SkyT1Preview": {
+   "complete": {
+    "delta_only": {
+     "acc": 0.767037037037037,
+     "ci95": [
+      0.7076023391812866,
+      0.8276315789473683
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.37635477582846005,
+     "ci95": [
+      0.30687134502923974,
+      0.4444444444444444
+     ]
+    },
+    "mlp_swap": {
+     "acc": 0.38595841455490576,
+     "ci95": [
+      0.3157894736842105,
+      0.469785575048733
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 0.3509161793372319,
+     "ci95": [
+      0.28347953216374266,
+      0.42105263157894735
+     ]
+    },
+    "full_P0": {
+     "acc": 0.23888888888888885,
+     "ci95": [
+      0.18128654970760233,
+      0.30994152046783624
+     ]
+    }
+   },
+   "instruct": {
+    "delta_only": {
+     "acc": 0.7514230019493177,
+     "ci95": [
+      0.6811403508771929,
+      0.8187134502923976
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.37348927875243665,
+     "ci95": [
+      0.30102339181286547,
+      0.4502923976608187
+     ]
+    },
+    "mlp_swap": {
+     "acc": 0.3888369070825211,
+     "ci95": [
+      0.3225633528265107,
+      0.4591130604288498
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 0.36678362573099416,
+     "ci95": [
+      0.28932748538011693,
+      0.44751461988304075
+     ]
+    },
+    "full_P0": {
+     "acc": 0.31345029239766076,
+     "ci95": [
+      0.25146198830409355,
+      0.37733918128654953
+     ]
+    }
+   }
+  },
+  "E6_SkyT1Preview_Qwen32B": {
+   "complete": {
+    "delta_only": {
+     "acc": 0.9937816764132553,
+     "ci95": [
+      0.9793859649122807,
+      1.0
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.9818908382066275,
+     "ci95": [
+      0.9590643274853801,
+      1.0
+     ]
+    },
+    "mlp_swap": {
+     "acc": 0.9666861598440545,
+     "ci95": [
+      0.9415204678362573,
+      0.9883040935672515
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 0.9759649122807017,
+     "ci95": [
+      0.9473684210526315,
+      0.9941520467836257
+     ]
+    },
+    "full_P0": {
+     "acc": 0.7879337231968812,
+     "ci95": [
+      0.7251461988304093,
+      0.8510233918128653
+     ]
+    }
+   },
+   "instruct": {
+    "delta_only": {
+     "acc": 0.9870370370370369,
+     "ci95": [
+      0.9707602339181286,
+      1.0
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.9936062378167639,
+     "ci95": [
+      0.9766081871345029,
+      1.0
+     ]
+    },
+    "mlp_swap": {
+     "acc": 0.987543859649123,
+     "ci95": [
+      0.9649122807017544,
+      1.0
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 0.9881286549707602,
+     "ci95": [
+      0.9707602339181286,
+      1.0
+     ]
+    },
+    "full_P0": {
+     "acc": 0.8086939571150096,
+     "ci95": [
+      0.7543859649122807,
+      0.8596491228070176
+     ]
+    }
+   }
+  },
+  "E7_QwQ32B_Qwen32B": {
+   "complete": {
+    "delta_only": {
+     "acc": 0.9763742690058479,
+     "ci95": [
+      0.9532163742690059,
+      0.9941520467836257
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.9763742690058479,
+     "ci95": [
+      0.9532163742690059,
+      0.9941520467836257
+     ]
+    },
+    "mlp_swap": {
+     "acc": 0.9725536062378167,
+     "ci95": [
+      0.9473684210526315,
+      0.9941520467836257
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 0.9764717348927875,
+     "ci95": [
+      0.9532163742690059,
+      0.9941520467836257
+     ]
+    },
+    "full_P0": {
+     "acc": 0.8537816764132553,
+     "ci95": [
+      0.8011695906432749,
+      0.9064327485380117
+     ]
+    }
+   },
+   "instruct": {
+    "delta_only": {
+     "acc": 0.9934307992202727,
+     "ci95": [
+      0.9824561403508771,
+      1.0
+     ]
+    },
+    "raw_joint_lr": {
+     "acc": 0.9934307992202727,
+     "ci95": [
+      0.9824561403508771,
+      1.0
+     ]
+    },
+    "mlp_swap": {
+     "acc": 1.0,
+     "ci95": [
+      1.0,
+      1.0
+     ],
+     "n_seeds": 3
+    },
+    "side_combo": {
+     "acc": 0.9881286549707602,
+     "ci95": [
+      0.9707602339181286,
+      1.0
+     ]
+    },
+    "full_P0": {
+     "acc": 0.8115399610136452,
+     "ci95": [
+      0.7543859649122807,
+      0.8596491228070176
+     ]
+    }
+   }
+  }
+ },
+ "checkpoint_isolation_table": {
+  "E1_Athene70B_Llama3": {
+   "shared_endpoints": [],
+   "held_incident_edges": [],
+   "remaining_train_edges": [
+    "E2_AtheneV2Agent_Qwen72B",
+    "E3_AtheneV2Chat_Qwen72B",
+    "E4_SkyT1Flash_Qwen32B",
+    "E5_SkyT1Flash_SkyT1Preview",
+    "E6_SkyT1Preview_Qwen32B",
+    "E7_QwQ32B_Qwen32B"
+   ],
+   "isolated_rawLR_readout": {
+    "complete": 0.5497076023391813,
+    "instruct": 0.5263157894736842
+   },
+   "status": "evaluable_descriptive"
+  },
+  "E2_AtheneV2Agent_Qwen72B": {
+   "shared_endpoints": [
+    "Qwen--Qwen2.5-72B-Instruct"
+   ],
+   "held_incident_edges": [
+    "E3_AtheneV2Chat_Qwen72B"
+   ],
+   "remaining_train_edges": [
+    "E1_Athene70B_Llama3",
+    "E4_SkyT1Flash_Qwen32B",
+    "E5_SkyT1Flash_SkyT1Preview",
+    "E6_SkyT1Preview_Qwen32B",
+    "E7_QwQ32B_Qwen32B"
+   ],
+   "isolated_rawLR_readout": {
+    "complete": 1.0,
+    "instruct": 0.9883040935672515
+   },
+   "status": "evaluable_descriptive"
+  },
+  "E3_AtheneV2Chat_Qwen72B": {
+   "shared_endpoints": [
+    "Qwen--Qwen2.5-72B-Instruct"
+   ],
+   "held_incident_edges": [
+    "E2_AtheneV2Agent_Qwen72B"
+   ],
+   "remaining_train_edges": [
+    "E1_Athene70B_Llama3",
+    "E4_SkyT1Flash_Qwen32B",
+    "E5_SkyT1Flash_SkyT1Preview",
+    "E6_SkyT1Preview_Qwen32B",
+    "E7_QwQ32B_Qwen32B"
+   ],
+   "isolated_rawLR_readout": {
+    "complete": 0.9941520467836257,
+    "instruct": 0.9824561403508771
+   },
+   "status": "evaluable_descriptive"
+  },
+  "E4_SkyT1Flash_Qwen32B": {
+   "shared_endpoints": [
+    "NovaSky-AI--Sky-T1-32B-Flash",
+    "Qwen--Qwen2.5-32B-Instruct"
+   ],
+   "held_incident_edges": [
+    "E5_SkyT1Flash_SkyT1Preview",
+    "E6_SkyT1Preview_Qwen32B",
+    "E7_QwQ32B_Qwen32B"
+   ],
+   "remaining_train_edges": [
+    "E1_Athene70B_Llama3",
+    "E2_AtheneV2Agent_Qwen72B",
+    "E3_AtheneV2Chat_Qwen72B"
+   ],
+   "isolated_rawLR_readout": {
+    "complete": 0.9298245614035088,
+    "instruct": 0.9473684210526315
+   },
+   "status": "evaluable_descriptive"
+  },
+  "E5_SkyT1Flash_SkyT1Preview": {
+   "shared_endpoints": [
+    "NovaSky-AI--Sky-T1-32B-Flash",
+    "NovaSky-AI--Sky-T1-32B-Preview"
+   ],
+   "held_incident_edges": [
+    "E4_SkyT1Flash_Qwen32B",
+    "E6_SkyT1Preview_Qwen32B"
+   ],
+   "remaining_train_edges": [
+    "E1_Athene70B_Llama3",
+    "E2_AtheneV2Agent_Qwen72B",
+    "E3_AtheneV2Chat_Qwen72B",
+    "E7_QwQ32B_Qwen32B"
+   ],
+   "isolated_rawLR_readout": {
+    "complete": 0.3391812865497076,
+    "instruct": 0.3742690058479532
+   },
+   "status": "evaluable_descriptive"
+  },
+  "E6_SkyT1Preview_Qwen32B": {
+   "shared_endpoints": [
+    "NovaSky-AI--Sky-T1-32B-Preview",
+    "Qwen--Qwen2.5-32B-Instruct"
+   ],
+   "held_incident_edges": [
+    "E4_SkyT1Flash_Qwen32B",
+    "E5_SkyT1Flash_SkyT1Preview",
+    "E7_QwQ32B_Qwen32B"
+   ],
+   "remaining_train_edges": [
+    "E1_Athene70B_Llama3",
+    "E2_AtheneV2Agent_Qwen72B",
+    "E3_AtheneV2Chat_Qwen72B"
+   ],
+   "isolated_rawLR_readout": {
+    "complete": 0.9122807017543859,
+    "instruct": 0.9298245614035088
+   },
+   "status": "evaluable_descriptive"
+  },
+  "E7_QwQ32B_Qwen32B": {
+   "shared_endpoints": [
+    "Qwen--Qwen2.5-32B-Instruct"
+   ],
+   "held_incident_edges": [
+    "E4_SkyT1Flash_Qwen32B",
+    "E6_SkyT1Preview_Qwen32B"
+   ],
+   "remaining_train_edges": [
+    "E1_Athene70B_Llama3",
+    "E2_AtheneV2Agent_Qwen72B",
+    "E3_AtheneV2Chat_Qwen72B",
+    "E5_SkyT1Flash_SkyT1Preview"
+   ],
+   "isolated_rawLR_readout": {
+    "complete": 0.8596491228070176,
+    "instruct": 0.9590643274853801
+   },
+   "status": "evaluable_descriptive"
+  }
+ },
+ "shared_endpoints": {
+  "Qwen--Qwen2.5-72B-Instruct": [
+   "E2_AtheneV2Agent_Qwen72B",
+   "E3_AtheneV2Chat_Qwen72B"
+  ],
+  "NovaSky-AI--Sky-T1-32B-Flash": [
+   "E4_SkyT1Flash_Qwen32B",
+   "E5_SkyT1Flash_SkyT1Preview"
+  ],
+  "Qwen--Qwen2.5-32B-Instruct": [
+   "E4_SkyT1Flash_Qwen32B",
+   "E6_SkyT1Preview_Qwen32B",
+   "E7_QwQ32B_Qwen32B"
+  ],
+  "NovaSky-AI--Sky-T1-32B-Preview": [
+   "E5_SkyT1Flash_SkyT1Preview",
+   "E6_SkyT1Preview_Qwen32B"
+  ]
+ },
+ "math_note": "线性 swap 分数差 f([S,D])−f([S,−D])=2·w_D·D（S 项与截距消去）——线性 swap 读数不是 S-A 非线性交互证据；小 MLP 版为非线性对照。",
+ "protocol_note": "不取 max(p,1-p)；方向不依 dev 翻转；全部边保留（含 E1/E5 低值）。"
+}

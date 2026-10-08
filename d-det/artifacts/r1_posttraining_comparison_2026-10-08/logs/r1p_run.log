@@ -1,0 +1,8 @@
+[r1p] readouts fitted
+[r1p] E1_Athene70B_Llama3: delta=0.983 rawLR=0.965 mlp=0.924 side=0.765 p0=0.826
+[r1p] E2_AtheneV2Agent_Qwen72B: delta=1.000 rawLR=0.994 mlp=1.000 side=1.000 p0=1.000
+[r1p] E3_AtheneV2Chat_Qwen72B: delta=1.000 rawLR=0.994 mlp=0.988 side=1.000 p0=1.000
+[r1p] E4_SkyT1Flash_Qwen32B: delta=0.987 rawLR=0.994 mlp=0.988 side=0.994 p0=0.850
+[r1p] E5_SkyT1Flash_SkyT1Preview: delta=0.751 rawLR=0.373 mlp=0.389 side=0.367 p0=0.313
+[r1p] E6_SkyT1Preview_Qwen32B: delta=0.987 rawLR=0.994 mlp=0.988 side=0.988 p0=0.809
+[r1p] E7_QwQ32B_Qwen32B: delta=0.993 rawLR=0.993 mlp=1.000 side=0.988 p0=0.812

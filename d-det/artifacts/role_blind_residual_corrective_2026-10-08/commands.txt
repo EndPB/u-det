@@ -1,0 +1,16 @@
+# role-blind 标准化修复轮（7ee36fb 修复裁定 §2.1-2.2）
+# 环境: /root/miniconda3/envs/udet/bin/python; OMP_NUM_THREADS=8; RTX 3080 Ti; cgroup 内存上限 32GB
+# 脚本: scripts/core_role_blind_corrective.py（新；旧 core_role_blind.py 弃用）
+# 流程（如实记录，含失败重试）:
+# 0) smoke（断言验证）: --stage smoke
+/root/miniconda3/envs/udet/bin/python -u scripts/core_role_blind_corrective.py --stage smoke
+# 1) task 折: --stage run --split task --fold -1 --skip-seen
+#    （前两次在 seen 域因内存峰值被杀[Killed]；后补内存修复: train_twin 训练后释放张量、
+#      scorer 训练后释放 fit 视图、增加 --skip-seen；第三次运行 200.2s 完成并写出 task_-1.json）
+OMP_NUM_THREADS=8 /root/miniconda3/envs/udet/bin/python -u scripts/core_role_blind_corrective.py --stage run --split task --fold -1 --skip-seen
+# 2) model 0..4 折（每折两次运行：第一轮 5 折已完成；结果保留）
+OMP_NUM_THREADS=8 /root/miniconda3/envs/udet/bin/python -u scripts/core_role_blind_corrective.py --stage run --split model --fold 0..4
+# 3) 汇总
+/root/miniconda3/envs/udet/bin/python -u scripts/core_role_blind_corrective.py --stage sum
+# 说明: model 5 折在内存修复前完成（数值有效）；task 折经修复后重跑（task_-1.json 为修复版）。
+# seen 域本轮跳过（非回传必需；cgroup 32GB 下 fit 视图+评分并存有 OOM 风险）。

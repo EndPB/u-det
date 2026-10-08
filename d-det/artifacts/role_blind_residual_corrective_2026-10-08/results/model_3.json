@@ -1,0 +1,209 @@
+{
+ "schema": "rb_corrective_kernel_v1",
+ "split": "model",
+ "fold": 3,
+ "audit": {
+  "std_swap_A_strict_negate": true,
+  "std_swap_main_identical": true,
+  "flip_of_std_equals_std_of_flip_Amax": 0.0,
+  "mu_A_raw": 0.00024334822956006974,
+  "sigma_A_used_rms": 0.030563535168766975,
+  "raw_swap_Csym_identical": true,
+  "raw_swap_A_negated": true
+ },
+ "seed_meta": {
+  "A_only::s0": {
+   "init_hash": "804776dc5f48",
+   "final_loss": 0.00012383097782731056
+  },
+  "A_only::s1": {
+   "init_hash": "5d886376b111",
+   "final_loss": 0.00010776347335195169
+  },
+  "A_only::s2": {
+   "init_hash": "827dae67add1",
+   "final_loss": 0.00010464204387972131
+  },
+  "zero_A::s0": {
+   "init_hash": "03e00219d816",
+   "final_loss": 0.00011805310350609943
+  },
+  "zero_A::s1": {
+   "init_hash": "b1257f040be4",
+   "final_loss": 0.00011748615361284465
+  },
+  "zero_A::s2": {
+   "init_hash": "bd69390b3c74",
+   "final_loss": 0.00010027641110355034
+  },
+  "SA_full::s0": {
+   "init_hash": "03e00219d816",
+   "final_loss": 4.372690455056727e-05
+  },
+  "SA_full::s1": {
+   "init_hash": "b1257f040be4",
+   "final_loss": 3.753681812668219e-05
+  },
+  "SA_full::s2": {
+   "init_hash": "bd69390b3c74",
+   "final_loss": 4.479680865188129e-05
+  },
+  "roleblind::s0": {
+   "init_hash": "03e00219d816",
+   "final_loss": 3.0875955417286605e-05
+  },
+  "roleblind::s1": {
+   "init_hash": "b1257f040be4",
+   "final_loss": 4.355535565991886e-05
+  },
+  "roleblind::s2": {
+   "init_hash": "bd69390b3c74",
+   "final_loss": 2.5153787646559067e-05
+  },
+  "oracle::s0": {
+   "init_hash": "03e00219d816",
+   "final_loss": 1.3221312656241935e-05
+  },
+  "oracle::s1": {
+   "init_hash": "b1257f040be4",
+   "final_loss": 1.6034546206356026e-05
+  },
+  "oracle::s2": {
+   "init_hash": "bd69390b3c74",
+   "final_loss": 2.3100765247363597e-05
+  },
+  "rb_shuffle::s0": {
+   "init_hash": "03e00219d816",
+   "final_loss": 3.2673662644810975e-05
+  },
+  "rb_shuffle::s1": {
+   "init_hash": "b1257f040be4",
+   "final_loss": 2.5300298148067668e-05
+  },
+  "rb_shuffle::s2": {
+   "init_hash": "bd69390b3c74",
+   "final_loss": 4.6163728256942704e-05
+  }
+ },
+ "domains": {
+  "model_train": {
+   "A_only": {
+    "pair_dir_acc_mb": 0.9487032799389776
+   },
+   "zero_A": {
+    "pair_dir_acc_mb": 0.9484853437942683
+   },
+   "SA_full": {
+    "pair_dir_acc_mb": 0.9627601612727473
+   },
+   "roleblind": {
+    "pair_dir_acc_mb": 0.9581835022338455
+   },
+   "oracle": {
+    "pair_dir_acc_mb": 0.9831916748392722
+   },
+   "rb_shuffle": {
+    "pair_dir_acc_mb": 0.9556227525335076
+   },
+   "paired_ci": {
+    "roleblind-zero_A": {
+     "mean": 0.00976746213359485,
+     "ci95": [
+      0.0071374087392391235,
+      0.012287512258907975
+     ]
+    },
+    "roleblind-A_only": {
+     "mean": 0.009552795031055893,
+     "ci95": [
+      0.007191892775416706,
+      0.01261441647597241
+     ]
+    },
+    "roleblind-SA_full": {
+     "mean": -0.004556390977443606,
+     "ci95": [
+      -0.007300860847771817,
+      -0.0020159093385639345
+     ]
+    },
+    "roleblind-oracle": {
+     "mean": -0.024996077149395227,
+     "ci95": [
+      -0.02768061457992816,
+      -0.02206603465184714
+     ]
+    },
+    "roleblind-rb_shuffle": {
+     "mean": 0.0026114198539827953,
+     "ci95": [
+      0.0003786640514331087,
+      0.004877683338781659
+     ]
+    }
+   },
+   "order_swap_identity_max_abs": 0.0,
+   "scores_sha1": "27a5c285ee0c"
+  },
+  "model_dev": {
+   "A_only": {
+    "pair_dir_acc_mb": 0.9337655733536738
+   },
+   "zero_A": {
+    "pair_dir_acc_mb": 0.93579964403763
+   },
+   "SA_full": {
+    "pair_dir_acc_mb": 0.9436816679379606
+   },
+   "roleblind": {
+    "pair_dir_acc_mb": 0.9378337147215865
+   },
+   "oracle": {
+    "pair_dir_acc_mb": 0.9759725400457665
+   },
+   "rb_shuffle": {
+    "pair_dir_acc_mb": 0.9345283498601576
+   },
+   "paired_ci": {
+    "roleblind-zero_A": {
+     "mean": 0.0021195016526824838,
+     "ci95": [
+      -0.00471014492753623,
+      0.010049580472921515
+     ]
+    },
+    "roleblind-A_only": {
+     "mean": 0.0040788202390033635,
+     "ci95": [
+      -0.0021675565725908087,
+      0.01118738876175951
+     ]
+    },
+    "roleblind-SA_full": {
+     "mean": -0.0059166031019577325,
+     "ci95": [
+      -0.012204424103737625,
+      0.0017798118484619347
+     ]
+    },
+    "roleblind-oracle": {
+     "mean": -0.038393592677345524,
+     "ci95": [
+      -0.046020849224510496,
+      -0.030765319094838588
+     ]
+    },
+    "roleblind-rb_shuffle": {
+     "mean": 0.0031919654207983477,
+     "ci95": [
+      -0.0029303330790745176,
+      0.009661835748792202
+     ]
+    }
+   },
+   "order_swap_identity_max_abs": 0.0,
+   "scores_sha1": "e0bc72e3e96c"
+  }
+ },
+ "runtime_seconds": 174.30248475074768
+}

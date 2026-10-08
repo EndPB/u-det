@@ -1,0 +1,15 @@
+{
+ "schema": "round6_v1",
+ "baseline_commit": "7ee36fba48f85f708be9e93ae48063301b9441c5",
+ "generated_utc": "2026-10-08T15:38:37.243535+00:00",
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "bootstrap": {
+  "unit": "task-cluster",
+  "n": 500,
+  "seed": 20261008
+ }
+}

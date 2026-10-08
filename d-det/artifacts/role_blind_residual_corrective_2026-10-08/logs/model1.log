@@ -1,0 +1,8 @@
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[rb] split=model fold=1 fit=(92m×798t) smoke=False
+/root/miniconda3/envs/udet/lib/python3.12/site-packages/sklearn/linear_model/_ridge.py:227: LinAlgWarning: An ill-conditioned matrix detected: slice 0 has rcond = 2.868049998086471e-19.
+  return linalg.solve(A, Xy, assume_a="pos", overwrite_a=True).T
+[rb] audit: {"std_swap_A_strict_negate": true, "std_swap_main_identical": true, "flip_of_std_equals_std_of_flip_Amax": 0.0, "raw_swap_Csym_identical": true, "raw_swap_A_negated": true}
+    [model_train] roleblind=0.9332 zero_A=0.9198 oracle=0.9732 SA=0.9377 Δ(rb-zeroA)=+0.0134
+    [model_dev] roleblind=0.9195 zero_A=0.9246 oracle=0.9701 SA=0.9231 Δ(rb-zeroA)=-0.0045
+[rb] done model_1 in 179.2s

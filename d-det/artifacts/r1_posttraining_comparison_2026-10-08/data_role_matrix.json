@@ -1,0 +1,7 @@
+{
+ "roles": {
+  "fit": "train tasks",
+  "eval": "dev tasks"
+ },
+ "test_read": false
+}

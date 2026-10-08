@@ -1,0 +1,14 @@
+{
+ "schema": "rb_corrective_interface_audit_v1",
+ "generated_utc": "2026-10-08T15:43:05.370583+00:00",
+ "stage": "smoke",
+ "split": "task",
+ "fold": -1,
+ "std_swap_A_strict_negate": true,
+ "std_swap_main_identical": true,
+ "flip_of_std_equals_std_of_flip_Amax": 0.0,
+ "mu_A_raw": 0.0002496000088285655,
+ "sigma_A_used_rms": 0.030587464570999146,
+ "raw_swap_Csym_identical": true,
+ "raw_swap_A_negated": true
+}

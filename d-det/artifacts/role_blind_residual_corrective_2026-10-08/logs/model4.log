@@ -1,0 +1,6 @@
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[rb] split=model fold=4 fit=(92m×798t) smoke=False
+[rb] audit: {"std_swap_A_strict_negate": true, "std_swap_main_identical": true, "flip_of_std_equals_std_of_flip_Amax": 0.0, "raw_swap_Csym_identical": true, "raw_swap_A_negated": true}
+    [model_train] roleblind=0.9360 zero_A=0.9229 oracle=0.9726 SA=0.9408 Δ(rb-zeroA)=+0.0130
+    [model_dev] roleblind=0.9045 zero_A=0.9165 oracle=0.9676 SA=0.9175 Δ(rb-zeroA)=-0.0120
+[rb] done model_4 in 170.8s

@@ -1,0 +1,11 @@
+# R1 后训练比较（7ee36fb 修复裁定 §3）
+# 环境: /root/miniconda3/envs/udet/bin/python; OMP_NUM_THREADS=4; 无 GPU 依赖缓解（torch CPU/GPU 皆可）
+# 1) 脚本（含修正：mlp_swap bootstrap 预计算；MLP 输入维度 1536=S(768)+D(768)）
+#    scripts/core_r1_posttraining.py
+# 2) 运行（两次；第一次发现并修复 mlp bootstrap 重复前向与维度错误）
+OMP_NUM_THREADS=4 /root/miniconda3/envs/udet/bin/python -u scripts/core_r1_posttraining.py
+# 3) 产物: metrics_r1_posttraining.json / report.md / logs/r1p_run.log
+# 4) 读出定义: delta_only=前训练基线; raw_joint_lr=[S,D] vs [S,-D] swap LR;
+#    mlp_swap=256-64 MLP 3 seeds; side_combo=单侧 child vs partner 判别;
+#    full_P0=[Δstyle|Δmeta|Δsizelen] 对称对 P0; 全部在 7 边x2 模式全量拟合（含自身）。
+# 5) checkpoint 隔离: 逐边移除共享端点 incident 边后重训 rawLR 再评该边。

@@ -1,0 +1,150 @@
+{
+ "schema": "rb_corrective_kernel_v1",
+ "split": "task",
+ "fold": -1,
+ "audit": {
+  "std_swap_A_strict_negate": true,
+  "std_swap_main_identical": true,
+  "flip_of_std_equals_std_of_flip_Amax": 0.0,
+  "mu_A_raw": 0.0002496000088285655,
+  "sigma_A_used_rms": 0.030587464570999146,
+  "raw_swap_Csym_identical": true,
+  "raw_swap_A_negated": true
+ },
+ "seed_meta": {
+  "A_only::s0": {
+   "init_hash": "804776dc5f48",
+   "final_loss": 8.515665831509978e-05
+  },
+  "A_only::s1": {
+   "init_hash": "5d886376b111",
+   "final_loss": 9.766329458216205e-05
+  },
+  "A_only::s2": {
+   "init_hash": "827dae67add1",
+   "final_loss": 0.0001021886637317948
+  },
+  "zero_A::s0": {
+   "init_hash": "03e00219d816",
+   "final_loss": 8.830604929244146e-05
+  },
+  "zero_A::s1": {
+   "init_hash": "b1257f040be4",
+   "final_loss": 9.383581345900893e-05
+  },
+  "zero_A::s2": {
+   "init_hash": "bd69390b3c74",
+   "final_loss": 8.249052916653454e-05
+  },
+  "SA_full::s0": {
+   "init_hash": "03e00219d816",
+   "final_loss": 3.2426607504021376e-05
+  },
+  "SA_full::s1": {
+   "init_hash": "b1257f040be4",
+   "final_loss": 2.6496183636481874e-05
+  },
+  "SA_full::s2": {
+   "init_hash": "bd69390b3c74",
+   "final_loss": 4.4321674067759886e-05
+  },
+  "roleblind::s0": {
+   "init_hash": "03e00219d816",
+   "final_loss": 3.793913128902204e-05
+  },
+  "roleblind::s1": {
+   "init_hash": "b1257f040be4",
+   "final_loss": 2.37879685300868e-05
+  },
+  "roleblind::s2": {
+   "init_hash": "bd69390b3c74",
+   "final_loss": 3.096604996244423e-05
+  },
+  "oracle::s0": {
+   "init_hash": "03e00219d816",
+   "final_loss": 5.776841135229915e-06
+  },
+  "oracle::s1": {
+   "init_hash": "b1257f040be4",
+   "final_loss": 8.702755621925462e-06
+  },
+  "oracle::s2": {
+   "init_hash": "bd69390b3c74",
+   "final_loss": 9.201387001667172e-06
+  },
+  "rb_shuffle::s0": {
+   "init_hash": "03e00219d816",
+   "final_loss": 3.101438414887525e-05
+  },
+  "rb_shuffle::s1": {
+   "init_hash": "b1257f040be4",
+   "final_loss": 2.886499532905873e-05
+  },
+  "rb_shuffle::s2": {
+   "init_hash": "bd69390b3c74",
+   "final_loss": 2.273823156428989e-05
+  }
+ },
+ "domains": {
+  "task_dev": {
+   "A_only": {
+    "pair_dir_acc_mb": 0.928604118993135
+   },
+   "zero_A": {
+    "pair_dir_acc_mb": 0.9273328248156621
+   },
+   "SA_full": {
+    "pair_dir_acc_mb": 0.9321637426900584
+   },
+   "roleblind": {
+    "pair_dir_acc_mb": 0.9246376811594201
+   },
+   "oracle": {
+    "pair_dir_acc_mb": 0.9709127892194253
+   },
+   "rb_shuffle": {
+    "pair_dir_acc_mb": 0.9223493516399693
+   },
+   "paired_ci": {
+    "roleblind-zero_A": {
+     "mean": -0.0025537757437071,
+     "ci95": [
+      -0.007349351639969573,
+      0.0025692855326723153
+     ]
+    },
+    "roleblind-A_only": {
+     "mean": -0.003840427154843634,
+     "ci95": [
+      -0.008390541571319635,
+      0.0007653190948385962
+     ]
+    },
+    "roleblind-SA_full": {
+     "mean": -0.007498499872870596,
+     "ci95": [
+      -0.012003559623696907,
+      -0.003658784642766338
+     ]
+    },
+    "roleblind-oracle": {
+     "mean": -0.046328604118993186,
+     "ci95": [
+      -0.05281083142639202,
+      -0.040194508009153404
+     ]
+    },
+    "roleblind-rb_shuffle": {
+     "mean": 0.002418510043224,
+     "ci95": [
+      -0.001830663615560671,
+      0.006993389270277138
+     ]
+    }
+   },
+   "order_swap_identity_max_abs": 0.0,
+   "scores_sha1": "ad0682369123"
+  }
+ },
+ "runtime_seconds": 200.1872489452362
+}

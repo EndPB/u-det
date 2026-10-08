@@ -1,0 +1,9 @@
+# 强 P0 补强（7ee36fb 修复裁定 §2.4）
+# 环境: /root/miniconda3/envs/udet/bin/python; OMP_NUM_THREADS=6; 纯 CPU（无 torch 训练）
+# 脚本: scripts/core_strong_p0.py
+# 运行（第二版：修正四成分量纲独裁——首版 full_P0 被 pairLR 数值尺度独裁，已作废并重启）
+OMP_NUM_THREADS=6 /root/miniconda3/envs/udet/bin/python -u scripts/core_strong_p0.py
+# 产物: metrics_strong_p0.json（48 折点值/CI/配对Δ）、metrics_strong_p0_folds.json（逐折）、
+#       metrics_metric_audit.json（weighted_auc/AP 合成审计 + 48 折重算）、report.md、logs/
+# 参考分数: 与 7ee36fb 保存的 s_residual/s_compose 配对（同折 npz 逐元素 y 对齐断言通过）；
+# 四成分 z 化（fit-only 尺度：三族 train OOF、pairLR train in-sample）后等权。
