@@ -1,0 +1,7 @@
+# E0 lineage 与 pair 支持审计（2026-10-08）
+# 依据《核心假设后训练差异与归因多实验指导》§6；baseline commit: 6aeee8d
+source /etc/network_turbo   # HF API 元数据（仅 api/models，不下载权重）
+OMP_NUM_THREADS=8 /root/miniconda3/envs/udet/bin/python -u scripts/core_e0_lineage_audit.py
+
+# 增量修正与重跑（2026-10-08；字段修正为 solution/solution_sha256；碰撞细分；R1 链条；HF 缓存复用）
+OMP_NUM_THREADS=8 /root/miniconda3/envs/udet/bin/python -u scripts/core_e0_lineage_audit.py --skip-hf   # 41.5s

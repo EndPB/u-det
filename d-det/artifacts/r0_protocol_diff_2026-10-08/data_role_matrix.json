@@ -1,0 +1,7 @@
+{
+ "bcc_full_complete_instruct": {"role": "R0 训练/评测（train+dev 969 tasks x 115 models x 2 modes）", "test_rows": "未读取（split=test 的行从不装载）"},
+ "bcc_full_series_members_11": {"role": "系列内尺寸迁移（F1，已冻结）；其 complete 行参与 R0"},
+ "old_test_variant_transfer": {"role": "已消费；不再读取；不用于任何选择"},
+ "fresh_same_task_v1": {"role": "未构建（D0 属本机）；待指导端上传"},
+ "huggingface_model_cards": {"role": "E0 lineage 证据（API 元数据，无权重下载）"}
+}

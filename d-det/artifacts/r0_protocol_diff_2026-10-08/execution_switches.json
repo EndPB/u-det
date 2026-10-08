@@ -1,0 +1,10 @@
+{
+ "training_allowed": true,
+ "generation_allowed": false,
+ "test_read_allowed": false,
+ "old_test_reuse": false,
+ "new_fresh_test_read": false,
+ "weights_downloaded": false,
+ "source_status": "server_reconstruction_only",
+ "original_bundle_verified": false
+}

@@ -1,0 +1,3 @@
+# R0 评估（v2：NaN 修复 + 方向校准后全量）
+bash /tmp/r0_chain2.sh   # task(含seen) -> model x5 (P2) -> size x4 (P2) -> small -> report；1h44min
+/root/miniconda3/envs/udet/bin/python -u scripts/core_r0_summary.py   # paired delta 汇总

@@ -1,0 +1,14 @@
+{
+ "data": "records.jsonl (sha d786667a...) subset=full; split_index.csv (798/171/171, seed 20261007)",
+ "models": "115 dual (complete+instruct), 任务集完全重合（1140）",
+ "representations": "CodeT5-small/base 冻结 mean-pool 512=384+128 fp16（stage-1 同协议）",
+ "readouts": ["single_hc", "single_hi", "delta_pair", "S_sanity", "u_linear", "u_mlp",
+              "p0_tfidf_char", "p0_tfidf_word", "p0_style_lr", "p0_style_lgb",
+              "p0_metadata", "p0_size_length", "late_fusion"],
+ "splits": {"task": "fit=798 train tasks; eval=dev 171（+seen 参考）",
+             "model": "5-fold model 留出（seed 20261008）；eval=train+dev 双口径",
+             "size": "参数桶 <2B/2-8B/8-20B/>=20B 留出；eval=dev（+train）"},
+ "bootstrap": "task-cluster 500, seed 20261008, 每 eval 域共享 picks",
+ "env": "udet python; sklearn 1.9.1; lightgbm 4.7.0; torch 2.9.1+cu128",
+ "equivalences": {"single_hi": "-single_hc（对称数据 L2 等价）", "u_linear": "≡delta_pair（[0;ΔA] 线性等价）"}
+}

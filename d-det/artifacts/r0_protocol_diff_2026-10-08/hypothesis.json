@@ -1,0 +1,10 @@
+{
+ "experiment": "R0",
+ "hypothesis": "同一 model_id 的 complete 与 instruct 两种生成协议，在同 task 条件下留下的差异表示可被读出；双侧联合 [S;A] 相对单侧/P0 有增量；该读出在 task-heldout、model-heldout、size-heldout 下的保持性待测。",
+ "label": "protocol_conditioned_difference",
+ "main_metric": "model-balanced pair-acc（对称化 AUROC/BA），task-macro，task-cluster bootstrap 500 CI",
+ "comparisons": ["u - best_single", "u - P0", "跨 model/task/size 泛化"],
+ "allowed_conclusions": ["协议条件差异可读性及其泛化边界"],
+ "forbidden_statements": ["后训练因果", "unseen-family 迁移证据", "test/确认性证据", "把闭集高分写成归因成功"],
+ "gate": "model-heldout 归零 → 仅保留协议指纹结论，不启动 R1"
+}

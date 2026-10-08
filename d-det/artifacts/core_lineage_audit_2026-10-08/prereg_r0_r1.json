@@ -1,0 +1,99 @@
+{
+ "schema": "core_prereg_r0_r1_v1",
+ "generated_utc": "2026-10-08T04:33:40.540345+00:00",
+ "r0": {
+  "label": "protocol_conditioned_difference",
+  "data": "115 dual model_id × 969 train/dev tasks（test 不读）",
+  "task_pairwise": "配对方向判别：same(model,task) 的 (h_complete,h_instruct)，判别哪个是 instruct",
+  "readouts": {
+   "1_single_complete": "样本级 LR（complete=1，model-balanced 权重）；评测在配对上",
+   "2_single_instruct": "样本级 LR（instruct=1）；对称一致性检查",
+   "3_delta_pair": "pairwise logistic on Δ=h_instr−h_comp",
+   "4_S_sanity": "pairwise on ΔS（理论=0.5，阴性对照）",
+   "5_u_joint": "u=[S;A]：线性（≡3，验证）+ MLP（S 条件化机会）",
+   "6_P0": "tfidf_char/word, style_lr/lgb, metadata_only, size_length_only（同任务）",
+   "7_late_fusion": "u_mlp 分数+长度/规模控制"
+  },
+  "metrics": "model-balanced pair-AUC（主）、BA、task-macro、task-cluster bootstrap 500 CI (seed 20261008)",
+  "comparisons": "u − best_single；u − P0（point + bootstrap delta_mean）",
+  "splits": {
+   "task_heldout": "train tasks fit → dev tasks eval（同 model 集）",
+   "model_heldout": "5-fold model 组留出（seed 20261008）；fit=其余 model 的 train tasks",
+   "size_heldout": "参数量桶（<2B,2-8B,8-20B,≥20B）留出；fit=其余桶"
+  },
+  "stop_rules": "model-heldout 归零 → 收窄为协议指纹；不称后训练可迁移"
+ },
+ "r1": {
+  "filter": "same base/version ∧ documented post-training relation ∧ same task/protocol ∧ independent provenance",
+  "status": "partial_candidates_available",
+  "documented_chains": [
+   {
+    "child": "Nexusflow--Athene-70B",
+    "documented_base_model": [
+     "meta-llama/Meta-Llama-3-70B-Instruct"
+    ],
+    "base_in_dual": [
+     "meta-llama--Meta-Llama-3-70B-Instruct"
+    ]
+   },
+   {
+    "child": "Nexusflow--Athene-V2-Agent",
+    "documented_base_model": [
+     "Qwen/Qwen2.5-72B-Instruct"
+    ],
+    "base_in_dual": [
+     "Qwen--Qwen2.5-72B-Instruct"
+    ]
+   },
+   {
+    "child": "Nexusflow--Athene-V2-Chat",
+    "documented_base_model": [
+     "Qwen/Qwen2.5-72B-Instruct"
+    ],
+    "base_in_dual": [
+     "Qwen--Qwen2.5-72B-Instruct"
+    ]
+   },
+   {
+    "child": "NovaSky-AI--Sky-T1-32B-Flash",
+    "documented_base_model": [
+     "Qwen/Qwen2.5-32B-Instruct",
+     "NovaSky-AI/Sky-T1-32B-Preview"
+    ],
+    "base_in_dual": [
+     "Qwen--Qwen2.5-32B-Instruct",
+     "NovaSky-AI--Sky-T1-32B-Preview"
+    ]
+   },
+   {
+    "child": "NovaSky-AI--Sky-T1-32B-Preview",
+    "documented_base_model": [
+     "Qwen/Qwen2.5-32B-Instruct"
+    ],
+    "base_in_dual": [
+     "Qwen--Qwen2.5-32B-Instruct"
+    ]
+   },
+   {
+    "child": "Qwen--QwQ-32B-Preview",
+    "documented_base_model": [
+     "Qwen/Qwen2.5-32B-Instruct"
+    ],
+    "base_in_dual": [
+     "Qwen--Qwen2.5-32B-Instruct"
+    ]
+   }
+  ],
+  "note": "若无合资格 pair：按指导写 R1 unavailable；有 documented 链但 version 证据缺 → partial，等 R0 出口再执行"
+ },
+ "switches": {
+  "training_allowed": true,
+  "generation_allowed": false,
+  "test_read_allowed": false,
+  "old_test_reuse": false,
+  "new_fresh_test_read": false,
+  "weights_downloaded": false,
+  "source_status": "server_reconstruction_only",
+  "original_bundle_verified": false
+ }
+}
