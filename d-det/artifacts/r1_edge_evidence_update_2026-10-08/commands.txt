@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=8 python -u scripts/core_r1_update.py  # 18.4s; torch 线性方向判别器（sklearn LR 在正交化残差上零驻点失效）

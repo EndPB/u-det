@@ -1,0 +1,143 @@
+{
+ "schema": "h3_smoke_v1",
+ "smoke_only": true,
+ "paper_main_result": false,
+ "generated_utc": "2026-10-08T09:36:32.838061+00:00",
+ "report_first_line": "smoke only — 工程验证（严禁作主结果引用）",
+ "subset": {
+  "train_tasks": 300,
+  "dev_tasks": 100,
+  "members_fit": 10,
+  "holdout_member": "deepseek-ai--deepseek-coder-33b-instruct"
+ },
+ "switches": {
+  "training_allowed": true,
+  "generation_allowed": false,
+  "test_read_allowed": false,
+  "old_test_reuse": false
+ },
+ "configs": [
+  {
+   "config": "c0_L_D",
+   "loss_weights": {
+    "d": 1.0,
+    "f": 0.0
+   },
+   "lambda_cos": 0.0,
+   "m_cos": 0.3,
+   "loss_hist": [
+    {
+     "epoch": 1,
+     "loss_d": 0.5410970399777094,
+     "loss_f": 0.7201431393623352
+    },
+    {
+     "epoch": 2,
+     "loss_d": 0.2585056622823079,
+     "loss_f": 0.746820479631424
+    },
+    {
+     "epoch": 3,
+     "loss_d": 0.14847159137328467,
+     "loss_f": 0.7661666572093964
+    }
+   ],
+   "grad_cos_mean": null,
+   "det_auroc_dev_smoke": 0.9910938016528925,
+   "holdout_member_rel_auroc_smoke": 0.5493625,
+   "n_params": 459394
+  },
+  {
+   "config": "c1_L_F",
+   "loss_weights": {
+    "d": 0.0,
+    "f": 1.0
+   },
+   "lambda_cos": 0.0,
+   "m_cos": 0.3,
+   "loss_hist": [
+    {
+     "epoch": 1,
+     "loss_d": 0.6947434643904368,
+     "loss_f": 0.6358310282230377
+    },
+    {
+     "epoch": 2,
+     "loss_d": 0.6994298895200094,
+     "loss_f": 0.6090673704942068
+    },
+    {
+     "epoch": 3,
+     "loss_d": 0.7054570913314819,
+     "loss_f": 0.5961447755495707
+    }
+   ],
+   "grad_cos_mean": null,
+   "det_auroc_dev_smoke": 0.07514421487603307,
+   "holdout_member_rel_auroc_smoke": 0.36891875,
+   "n_params": 459394
+  },
+  {
+   "config": "c2_L_D+L_F",
+   "loss_weights": {
+    "d": 1.0,
+    "f": 1.0
+   },
+   "lambda_cos": 0.0,
+   "m_cos": 0.3,
+   "loss_hist": [
+    {
+     "epoch": 1,
+     "loss_d": 0.5488653580347697,
+     "loss_f": 0.6386112868785858
+    },
+    {
+     "epoch": 2,
+     "loss_d": 0.2729973445336024,
+     "loss_f": 0.6048195759455363
+    },
+    {
+     "epoch": 3,
+     "loss_d": 0.15671821683645248,
+     "loss_f": 0.587295820315679
+    }
+   ],
+   "grad_cos_mean": null,
+   "det_auroc_dev_smoke": 0.9896334710743802,
+   "holdout_member_rel_auroc_smoke": 0.36729375,
+   "n_params": 459394
+  },
+  {
+   "config": "c3_L_D+L_F+cos",
+   "loss_weights": {
+    "d": 1.0,
+    "f": 1.0
+   },
+   "lambda_cos": 0.1,
+   "m_cos": 0.3,
+   "loss_hist": [
+    {
+     "epoch": 1,
+     "loss_d": 0.5488653580347697,
+     "loss_f": 0.6386112868785858
+    },
+    {
+     "epoch": 2,
+     "loss_d": 0.2729973445336024,
+     "loss_f": 0.6048195759455363
+    },
+    {
+     "epoch": 3,
+     "loss_d": 0.15671821683645248,
+     "loss_f": 0.587295820315679
+    }
+   ],
+   "grad_cos_mean": 0.027904812654014677,
+   "det_auroc_dev_smoke": 0.9896334710743802,
+   "holdout_member_rel_auroc_smoke": 0.36729375,
+   "n_params": 459394
+  }
+ ],
+ "param_count_equal_all_configs": true,
+ "runtime_seconds": 11.387953042984009
+}

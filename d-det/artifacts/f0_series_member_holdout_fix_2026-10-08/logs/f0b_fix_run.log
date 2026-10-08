@@ -1,0 +1,12 @@
+[fix] tasks train=798 dev=171
+[fix] CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf u=0.8772 ci=[0.8472338253040007, 0.9022679750057404]
+[fix] CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf u=0.7893 ci=[0.7478770024476395, 0.825008916052314]
+[fix] CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf u=0.7764 ci=[0.740032952752251, 0.8119399375632063]
+[fix] CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf u=0.8126 ci=[0.7786644975010626, 0.8445354370331286]
+[fix] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct u=0.6306 ci=[0.6018553938452369, 0.6611285768026304]
+[fix] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct u=0.8246 ci=[0.7946121395105699, 0.8528730451860645]
+[fix] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct u=0.7866 ci=[0.7552963793499342, 0.8166735063780308]
+[fix] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct u=0.8309 ci=[0.8032770767073629, 0.856895894707529]
+[fix] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct u=0.7872 ci=[0.7533761456516536, 0.818828549810198]
+[fix] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct u=0.9168 ci=[0.893875786566807, 0.9375207328750726]
+[fix] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct u=0.7312 ci=[0.7046971717793509, 0.7605018424472487]

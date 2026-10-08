@@ -1,0 +1,270 @@
+{
+ "schema": "r1_evidence_update_v1",
+ "generated_utc": "2026-10-08T09:34:18.808649+00:00",
+ "report_first_line": "新证据 — 证据分级与表面控制并列（可识别性；不升级因果）",
+ "provenance_checks": {
+  "E1_Athene70B_Llama3": {
+   "both_modes_rows_present": true,
+   "task_coverage_full": true
+  },
+  "E2_AtheneV2Agent_Qwen72B": {
+   "both_modes_rows_present": true,
+   "task_coverage_full": true
+  },
+  "E3_AtheneV2Chat_Qwen72B": {
+   "both_modes_rows_present": true,
+   "task_coverage_full": true
+  },
+  "E4_SkyT1Flash_Qwen32B": {
+   "both_modes_rows_present": true,
+   "task_coverage_full": true
+  },
+  "E5_SkyT1Flash_SkyT1Preview": {
+   "both_modes_rows_present": true,
+   "task_coverage_full": true
+  },
+  "E6_SkyT1Preview_Qwen32B": {
+   "both_modes_rows_present": true,
+   "task_coverage_full": true
+  },
+  "E7_QwQ32B_Qwen32B": {
+   "both_modes_rows_present": true,
+   "task_coverage_full": true
+  }
+ },
+ "evidence": {
+  "E1_Athene70B_Llama3": {
+   "child": "Nexusflow--Athene-70B",
+   "base": "meta-llama--Meta-Llama-3-70B-Instruct",
+   "evidence_level": "partial",
+   "source": "HF model card cardData.base_model（E0 lineage_adjudication 冻结）",
+   "missing": "version-level evidence（训练步数/数据/commit）",
+   "label": "documented base relation candidate"
+  },
+  "E2_AtheneV2Agent_Qwen72B": {
+   "child": "Nexusflow--Athene-V2-Agent",
+   "base": "Qwen--Qwen2.5-72B-Instruct",
+   "evidence_level": "partial",
+   "source": "HF model card cardData.base_model（E0 lineage_adjudication 冻结）",
+   "missing": "version-level evidence（训练步数/数据/commit）",
+   "label": "documented base relation candidate"
+  },
+  "E3_AtheneV2Chat_Qwen72B": {
+   "child": "Nexusflow--Athene-V2-Chat",
+   "base": "Qwen--Qwen2.5-72B-Instruct",
+   "evidence_level": "partial",
+   "source": "HF model card cardData.base_model（E0 lineage_adjudication 冻结）",
+   "missing": "version-level evidence（训练步数/数据/commit）",
+   "label": "documented base relation candidate"
+  },
+  "E4_SkyT1Flash_Qwen32B": {
+   "child": "NovaSky-AI--Sky-T1-32B-Flash",
+   "base": "Qwen--Qwen2.5-32B-Instruct",
+   "evidence_level": "partial",
+   "source": "HF model card cardData.base_model（E0 lineage_adjudication 冻结）",
+   "missing": "version-level evidence（训练步数/数据/commit）",
+   "label": "documented base relation candidate"
+  },
+  "E5_SkyT1Flash_SkyT1Preview": {
+   "child": "NovaSky-AI--Sky-T1-32B-Flash",
+   "base": "NovaSky-AI--Sky-T1-32B-Preview",
+   "evidence_level": "partial",
+   "source": "HF model card cardData.base_model（E0 lineage_adjudication 冻结）",
+   "missing": "version-level evidence（训练步数/数据/commit）",
+   "label": "documented base relation candidate"
+  },
+  "E6_SkyT1Preview_Qwen32B": {
+   "child": "NovaSky-AI--Sky-T1-32B-Preview",
+   "base": "Qwen--Qwen2.5-32B-Instruct",
+   "evidence_level": "partial",
+   "source": "HF model card cardData.base_model（E0 lineage_adjudication 冻结）",
+   "missing": "version-level evidence（训练步数/数据/commit）",
+   "label": "documented base relation candidate"
+  },
+  "E7_QwQ32B_Qwen32B": {
+   "child": "Qwen--QwQ-32B-Preview",
+   "base": "Qwen--Qwen2.5-32B-Instruct",
+   "evidence_level": "partial",
+   "source": "HF model card cardData.base_model（E0 lineage_adjudication 冻结）",
+   "missing": "version-level evidence（训练步数/数据/commit）",
+   "label": "documented base relation candidate"
+  }
+ },
+ "surface_regression_on_delta": {
+  "R2": 0.36204790159979205,
+  "n_rows": 11172
+ },
+ "per_edge": {
+  "E1_Athene70B_Llama3": {
+   "complete": {
+    "delta": 0.7426900584795322,
+    "delta_perp": 0.6608187134502924,
+    "p0": 0.4152046783625731,
+    "side_child": 0.7485380116959064
+   },
+   "instruct": {
+    "delta": 0.7076023391812866,
+    "delta_perp": 0.5906432748538012,
+    "p0": 0.42105263157894735,
+    "side_child": 0.7192982456140351
+   }
+  },
+  "E2_AtheneV2Agent_Qwen72B": {
+   "complete": {
+    "delta": 0.9824561403508771,
+    "delta_perp": 0.7017543859649122,
+    "p0": 0.4853801169590643,
+    "side_child": 0.9941520467836257
+   },
+   "instruct": {
+    "delta": 0.9649122807017544,
+    "delta_perp": 0.6491228070175439,
+    "p0": 0.28654970760233917,
+    "side_child": 0.9532163742690059
+   }
+  },
+  "E3_AtheneV2Chat_Qwen72B": {
+   "complete": {
+    "delta": 0.9824561403508771,
+    "delta_perp": 0.631578947368421,
+    "p0": 0.6491228070175439,
+    "side_child": 0.9824561403508771
+   },
+   "instruct": {
+    "delta": 0.9590643274853801,
+    "delta_perp": 0.6198830409356725,
+    "p0": 0.27485380116959063,
+    "side_child": 0.9415204678362573
+   }
+  },
+  "E4_SkyT1Flash_Qwen32B": {
+   "complete": {
+    "delta": 0.9473684210526315,
+    "delta_perp": 0.6432748538011696,
+    "p0": 0.40350877192982454,
+    "side_child": 0.9415204678362573
+   },
+   "instruct": {
+    "delta": 0.9707602339181286,
+    "delta_perp": 0.5730994152046783,
+    "p0": 0.4502923976608187,
+    "side_child": 0.9766081871345029
+   }
+  },
+  "E5_SkyT1Flash_SkyT1Preview": {
+   "complete": {
+    "delta": 0.7777777777777778,
+    "delta_perp": 0.8947368421052632,
+    "p0": 0.27485380116959063,
+    "side_child": 0.36257309941520466
+   },
+   "instruct": {
+    "delta": 0.8538011695906432,
+    "delta_perp": 0.8771929824561403,
+    "p0": 0.25146198830409355,
+    "side_child": 0.4152046783625731
+   }
+  },
+  "E6_SkyT1Preview_Qwen32B": {
+   "complete": {
+    "delta": 0.935672514619883,
+    "delta_perp": 0.6491228070175439,
+    "p0": 0.34502923976608185,
+    "side_child": 0.9181286549707602
+   },
+   "instruct": {
+    "delta": 0.9766081871345029,
+    "delta_perp": 0.5789473684210527,
+    "p0": 0.4093567251461988,
+    "side_child": 0.9707602339181286
+   }
+  },
+  "E7_QwQ32B_Qwen32B": {
+   "complete": {
+    "delta": 0.9181286549707602,
+    "delta_perp": 0.6374269005847953,
+    "p0": 0.2222222222222222,
+    "side_child": 0.9005847953216374
+   },
+   "instruct": {
+    "delta": 0.9649122807017544,
+    "delta_perp": 0.47368421052631576,
+    "p0": 0.5146198830409356,
+    "side_child": 0.9649122807017544
+   }
+  }
+ },
+ "edge_heldout": {
+  "per_edge_delta": {
+   "E1_Athene70B_Llama3": 0.5730994152046783,
+   "E2_AtheneV2Agent_Qwen72B": 0.9415204678362573,
+   "E3_AtheneV2Chat_Qwen72B": 0.9473684210526315,
+   "E4_SkyT1Flash_Qwen32B": 0.9707602339181286,
+   "E5_SkyT1Flash_SkyT1Preview": 0.8538011695906432,
+   "E6_SkyT1Preview_Qwen32B": 0.9707602339181286,
+   "E7_QwQ32B_Qwen32B": 0.9649122807017544
+  },
+  "mean_delta": 0.888888888888889
+ },
+ "child_heldout": {
+  "Nexusflow--Athene-70B": {
+   "held_edges": [
+    "E1_Athene70B_Llama3"
+   ],
+   "delta_mean": 0.5730994152046783,
+   "per_edge": [
+    0.5730994152046783
+   ]
+  },
+  "Nexusflow--Athene-V2-Agent": {
+   "held_edges": [
+    "E2_AtheneV2Agent_Qwen72B"
+   ],
+   "delta_mean": 0.9415204678362573,
+   "per_edge": [
+    0.9415204678362573
+   ]
+  },
+  "Nexusflow--Athene-V2-Chat": {
+   "held_edges": [
+    "E3_AtheneV2Chat_Qwen72B"
+   ],
+   "delta_mean": 0.9473684210526315,
+   "per_edge": [
+    0.9473684210526315
+   ]
+  },
+  "NovaSky-AI--Sky-T1-32B-Flash": {
+   "held_edges": [
+    "E4_SkyT1Flash_Qwen32B",
+    "E5_SkyT1Flash_SkyT1Preview"
+   ],
+   "delta_mean": 0.9064327485380117,
+   "per_edge": [
+    0.9707602339181286,
+    0.8421052631578947
+   ]
+  },
+  "NovaSky-AI--Sky-T1-32B-Preview": {
+   "held_edges": [
+    "E5_SkyT1Flash_SkyT1Preview",
+    "E6_SkyT1Preview_Qwen32B"
+   ],
+   "delta_mean": 0.9093567251461988,
+   "per_edge": [
+    0.8421052631578947,
+    0.9766081871345029
+   ]
+  },
+  "Qwen--QwQ-32B-Preview": {
+   "held_edges": [
+    "E7_QwQ32B_Qwen32B"
+   ],
+   "delta_mean": 0.9649122807017544,
+   "per_edge": [
+    0.9649122807017544
+   ]
+  }
+ },
+ "note": "所有边保持 partial；标题/摘要不得出现 'post-training effect'；delta_perp=对 style/len/size 差正交化后的方向判对率。"
+}

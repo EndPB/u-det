@@ -1,0 +1,4 @@
+{
+ "hypothesis": "对 series s 的每个 member h：train=(s\\{h})∪N 的 train tasks；eval={h}∪N 的 dev tasks；eval positive 与 train model 集合交集=0。",
+ "baseline_commit": "81c68d225747c0f59a4eb31a8904944c3737a58d"
+}

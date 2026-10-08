@@ -1,0 +1,24 @@
+{
+ "schema": "fix_round_v1",
+ "generated_utc": "2026-10-08T09:20:40.096660+00:00",
+ "baseline_commit": "81c68d225747c0f59a4eb31a8904944c3737a58d",
+ "reads": [
+  "q_only",
+  "P0_pair_only",
+  "q_plus_P0",
+  "cosine",
+  "permuted",
+  "cross_task_mismatch"
+ ],
+ "sgd": {
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "epochs": 5,
+  "bs": 4096,
+  "alpha": 1e-06
+ },
+ "seed": 20261008
+}

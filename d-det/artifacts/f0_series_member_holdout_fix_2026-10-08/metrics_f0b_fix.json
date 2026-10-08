@@ -1,0 +1,610 @@
+{
+ "schema": "f0b_member_holdout_fix_v1",
+ "generated_utc": "2026-10-08T09:25:18.408744+00:00",
+ "report_first_line": "corrective rerun — true member-heldout (unseen member)",
+ "protocol": "P_train=s\\{h} on train tasks; P_eval={h} on dev tasks; N=other series; eval positive disjoint from train model set (asserted)",
+ "per_member": {
+  "CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-7b-Instruct-hf",
+   "train_positive_members": [
+    "codellama--CodeLlama-13b-Instruct-hf",
+    "codellama--CodeLlama-34b-Instruct-hf",
+    "codellama--CodeLlama-70b-Instruct-hf"
+   ],
+   "eval_positive_member": "codellama--CodeLlama-7b-Instruct-hf",
+   "n_train_units": 7980,
+   "n_eval_units": 1368,
+   "n_eval_pos": 171,
+   "n_eval_neg": 1197,
+   "support_ok": true,
+   "views": {
+    "u": {
+     "auroc": 0.8771978679642577,
+     "ap": 0.5913341629330874,
+     "auroc_ci95_task_cluster": [
+      0.8472338253040007,
+      0.9022679750057404
+     ]
+    },
+    "h_instruct": {
+     "auroc": 0.8647618070517424,
+     "ap": 0.5552864328340775,
+     "auroc_ci95_task_cluster": [
+      0.8321693610243933,
+      0.8958092111370043
+     ]
+    },
+    "delta": {
+     "auroc": 0.8005002760312087,
+     "ap": 0.36666266234997347,
+     "auroc_ci95_task_cluster": [
+      0.7657120383805518,
+      0.8307204414545135
+     ]
+    },
+    "p0": {
+     "auroc": 0.5928222114741043,
+     "ap": 0.1348834551612792
+    },
+    "h_complete": {
+     "auroc": 0.6839051820584601,
+     "ap": 0.20496067208815663
+    }
+   }
+  },
+  "CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-13b-Instruct-hf",
+   "train_positive_members": [
+    "codellama--CodeLlama-7b-Instruct-hf",
+    "codellama--CodeLlama-34b-Instruct-hf",
+    "codellama--CodeLlama-70b-Instruct-hf"
+   ],
+   "eval_positive_member": "codellama--CodeLlama-13b-Instruct-hf",
+   "n_train_units": 7980,
+   "n_eval_units": 1368,
+   "n_eval_pos": 171,
+   "n_eval_neg": 1197,
+   "support_ok": true,
+   "views": {
+    "u": {
+     "auroc": 0.7892636073614838,
+     "ap": 0.49836123383325936,
+     "auroc_ci95_task_cluster": [
+      0.7478770024476395,
+      0.825008916052314
+     ]
+    },
+    "h_instruct": {
+     "auroc": 0.7507975592001446,
+     "ap": 0.4725263297222216,
+     "auroc_ci95_task_cluster": [
+      0.7024678533565883,
+      0.7936083507990248
+     ]
+    },
+    "delta": {
+     "auroc": 0.688695422767445,
+     "ap": 0.2743740853054583,
+     "auroc_ci95_task_cluster": [
+      0.6428867001812524,
+      0.7298412942688104
+     ]
+    },
+    "p0": {
+     "auroc": 0.6908597028633963,
+     "ap": 0.18469581573381788
+    },
+    "h_complete": {
+     "auroc": 0.6767503554207155,
+     "ap": 0.205248866302738
+    }
+   }
+  },
+  "CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-34b-Instruct-hf",
+   "train_positive_members": [
+    "codellama--CodeLlama-7b-Instruct-hf",
+    "codellama--CodeLlama-13b-Instruct-hf",
+    "codellama--CodeLlama-70b-Instruct-hf"
+   ],
+   "eval_positive_member": "codellama--CodeLlama-34b-Instruct-hf",
+   "n_train_units": 7980,
+   "n_eval_units": 1368,
+   "n_eval_pos": 171,
+   "n_eval_neg": 1197,
+   "support_ok": true,
+   "views": {
+    "u": {
+     "auroc": 0.7763805224562379,
+     "ap": 0.47934607878646074,
+     "auroc_ci95_task_cluster": [
+      0.740032952752251,
+      0.8119399375632063
+     ]
+    },
+    "h_instruct": {
+     "auroc": 0.7413538720094582,
+     "ap": 0.4714922216865742,
+     "auroc_ci95_task_cluster": [
+      0.6982954462178839,
+      0.7823142163400705
+     ]
+    },
+    "delta": {
+     "auroc": 0.6790807427926542,
+     "ap": 0.27283929489946723,
+     "auroc_ci95_task_cluster": [
+      0.6381599710777919,
+      0.7184151289529868
+     ]
+    },
+    "p0": {
+     "auroc": 0.7763756369481207,
+     "ap": 0.28395710995448625
+    },
+    "h_complete": {
+     "auroc": 0.6214073194682612,
+     "ap": 0.17665813437844635
+    }
+   }
+  },
+  "CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-70b-Instruct-hf",
+   "train_positive_members": [
+    "codellama--CodeLlama-7b-Instruct-hf",
+    "codellama--CodeLlama-13b-Instruct-hf",
+    "codellama--CodeLlama-34b-Instruct-hf"
+   ],
+   "eval_positive_member": "codellama--CodeLlama-70b-Instruct-hf",
+   "n_train_units": 7980,
+   "n_eval_units": 1368,
+   "n_eval_pos": 171,
+   "n_eval_neg": 1197,
+   "support_ok": true,
+   "views": {
+    "u": {
+     "auroc": 0.8125821376052216,
+     "ap": 0.48771115892328115,
+     "auroc_ci95_task_cluster": [
+      0.7786644975010626,
+      0.8445354370331286
+     ]
+    },
+    "h_instruct": {
+     "auroc": 0.7863225314748861,
+     "ap": 0.46286937124611877,
+     "auroc_ci95_task_cluster": [
+      0.7454250880612838,
+      0.8254732835988606
+     ]
+    },
+    "delta": {
+     "auroc": 0.7015736221645732,
+     "ap": 0.26196697456273693,
+     "auroc_ci95_task_cluster": [
+      0.6577854235979813,
+      0.7423740882420475
+     ]
+    },
+    "p0": {
+     "auroc": 0.8814629165506359,
+     "ap": 0.4530370006625365
+    },
+    "h_complete": {
+     "auroc": 0.6229804530820229,
+     "ap": 0.16402385348481277
+    }
+   }
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "train_positive_members": [
+    "Qwen--Qwen2.5-Coder-7B-Instruct",
+    "Qwen--Qwen2.5-Coder-14B-Instruct",
+    "Qwen--Qwen2.5-Coder-32B-Instruct"
+   ],
+   "eval_positive_member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "n_train_units": 7980,
+   "n_eval_units": 1368,
+   "n_eval_pos": 171,
+   "n_eval_neg": 1197,
+   "support_ok": true,
+   "views": {
+    "u": {
+     "auroc": 0.6305676471881457,
+     "ap": 0.1926475586767656,
+     "auroc_ci95_task_cluster": [
+      0.6018553938452369,
+      0.6611285768026304
+     ]
+    },
+    "h_instruct": {
+     "auroc": 0.6128454664927426,
+     "ap": 0.19708402096855504,
+     "auroc_ci95_task_cluster": [
+      0.5756343832290277,
+      0.6464503119396933
+     ]
+    },
+    "delta": {
+     "auroc": 0.7198112239663486,
+     "ap": 0.22447753063851808,
+     "auroc_ci95_task_cluster": [
+      0.69104107735225,
+      0.7468504350544978
+     ]
+    },
+    "p0": {
+     "auroc": 0.5362577984923321,
+     "ap": 0.12898040313932455
+    },
+    "h_complete": {
+     "auroc": 0.568318945511928,
+     "ap": 0.14519040709083472
+    }
+   }
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+   "train_positive_members": [
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen--Qwen2.5-Coder-14B-Instruct",
+    "Qwen--Qwen2.5-Coder-32B-Instruct"
+   ],
+   "eval_positive_member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+   "n_train_units": 7980,
+   "n_eval_units": 1368,
+   "n_eval_pos": 171,
+   "n_eval_neg": 1197,
+   "support_ok": true,
+   "views": {
+    "u": {
+     "auroc": 0.8245516324925373,
+     "ap": 0.4461389875790403,
+     "auroc_ci95_task_cluster": [
+      0.7946121395105699,
+      0.8528730451860645
+     ]
+    },
+    "h_instruct": {
+     "auroc": 0.8273998837249068,
+     "ap": 0.47935958731229145,
+     "auroc_ci95_task_cluster": [
+      0.7906738092795341,
+      0.8546698129338941
+     ]
+    },
+    "delta": {
+     "auroc": 0.7200457283559776,
+     "ap": 0.23801130238517018,
+     "auroc_ci95_task_cluster": [
+      0.6858971258555746,
+      0.7521736846990771
+     ]
+    },
+    "p0": {
+     "auroc": 0.6994435406254427,
+     "ap": 0.21111639208181218
+    },
+    "h_complete": {
+     "auroc": 0.6421292021476693,
+     "ap": 0.17988609739126984
+    }
+   }
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "train_positive_members": [
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen--Qwen2.5-Coder-7B-Instruct",
+    "Qwen--Qwen2.5-Coder-32B-Instruct"
+   ],
+   "eval_positive_member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "n_train_units": 7980,
+   "n_eval_units": 1368,
+   "n_eval_pos": 171,
+   "n_eval_neg": 1197,
+   "support_ok": true,
+   "views": {
+    "u": {
+     "auroc": 0.7866010054375706,
+     "ap": 0.3539315788344154,
+     "auroc_ci95_task_cluster": [
+      0.7552963793499342,
+      0.8166735063780308
+     ]
+    },
+    "h_instruct": {
+     "auroc": 0.7812367175248062,
+     "ap": 0.3556840104390283,
+     "auroc_ci95_task_cluster": [
+      0.7496379838485102,
+      0.8125817711921128
+     ]
+    },
+    "delta": {
+     "auroc": 0.6557280139920953,
+     "ap": 0.1847422242160867,
+     "auroc_ci95_task_cluster": [
+      0.6194885361552027,
+      0.6914083454249659
+     ]
+    },
+    "p0": {
+     "auroc": 0.5694401696248418,
+     "ap": 0.1316366375352613
+    },
+    "h_complete": {
+     "auroc": 0.6340729992622883,
+     "ap": 0.1698243711016284
+    }
+   }
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "train_positive_members": [
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen--Qwen2.5-Coder-7B-Instruct",
+    "Qwen--Qwen2.5-Coder-14B-Instruct"
+   ],
+   "eval_positive_member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "n_train_units": 7980,
+   "n_eval_units": 1368,
+   "n_eval_pos": 171,
+   "n_eval_neg": 1197,
+   "support_ok": true,
+   "views": {
+    "u": {
+     "auroc": 0.8309321060936943,
+     "ap": 0.41552622075917167,
+     "auroc_ci95_task_cluster": [
+      0.8032770767073629,
+      0.856895894707529
+     ]
+    },
+    "h_instruct": {
+     "auroc": 0.8149418380258637,
+     "ap": 0.412261345653244,
+     "auroc_ci95_task_cluster": [
+      0.7858849120852814,
+      0.8433550982719958
+     ]
+    },
+    "delta": {
+     "auroc": 0.6850557192200775,
+     "ap": 0.20227671707574438,
+     "auroc_ci95_task_cluster": [
+      0.6510783537791848,
+      0.7197494222886651
+     ]
+    },
+    "p0": {
+     "auroc": 0.4262556977238418,
+     "ap": 0.09962086490242146
+    },
+    "h_complete": {
+     "auroc": 0.6578922940880466,
+     "ap": 0.17737263770868433
+    }
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct": {
+   "series": "DeepSeek-Coder-v1-Instruct",
+   "heldout_member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "train_positive_members": [
+    "deepseek-ai--deepseek-coder-6.7b-instruct",
+    "deepseek-ai--deepseek-coder-33b-instruct"
+   ],
+   "eval_positive_member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "n_train_units": 7980,
+   "n_eval_units": 1539,
+   "n_eval_pos": 171,
+   "n_eval_neg": 1368,
+   "support_ok": true,
+   "views": {
+    "u": {
+     "auroc": 0.7872379535583598,
+     "ap": 0.44868588710252244,
+     "auroc_ci95_task_cluster": [
+      0.7533761456516536,
+      0.818828549810198
+     ]
+    },
+    "h_instruct": {
+     "auroc": 0.7738043329571492,
+     "ap": 0.2772136878874951,
+     "auroc_ci95_task_cluster": [
+      0.7374283967716563,
+      0.8076545988509285
+     ]
+    },
+    "delta": {
+     "auroc": 0.5053606237816763,
+     "ap": 0.18686576809470415,
+     "auroc_ci95_task_cluster": [
+      0.4591793201326904,
+      0.5549125158168324
+     ]
+    },
+    "p0": {
+     "auroc": 0.5935202284463595,
+     "ap": 0.25748624595100356
+    },
+    "h_complete": {
+     "auroc": 0.6655295646523717,
+     "ap": 0.35344819335027816
+    }
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct": {
+   "series": "DeepSeek-Coder-v1-Instruct",
+   "heldout_member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+   "train_positive_members": [
+    "deepseek-ai--deepseek-coder-1.3b-instruct",
+    "deepseek-ai--deepseek-coder-33b-instruct"
+   ],
+   "eval_positive_member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+   "n_train_units": 7980,
+   "n_eval_units": 1539,
+   "n_eval_pos": 171,
+   "n_eval_neg": 1368,
+   "support_ok": true,
+   "views": {
+    "u": {
+     "auroc": 0.9168419342703736,
+     "ap": 0.7265960206536364,
+     "auroc_ci95_task_cluster": [
+      0.893875786566807,
+      0.9375207328750726
+     ]
+    },
+    "h_instruct": {
+     "auroc": 0.8191430696624603,
+     "ap": 0.3447120469287397,
+     "auroc_ci95_task_cluster": [
+      0.7905681983345303,
+      0.8437464732738278
+     ]
+    },
+    "delta": {
+     "auroc": 0.27307120139530106,
+     "ap": 0.07499247377722072,
+     "auroc_ci95_task_cluster": [
+      0.23111694623986867,
+      0.31632735286070923
+     ]
+    },
+    "p0": {
+     "auroc": 0.9188083512875757,
+     "ap": 0.7743430076519728
+    },
+    "h_complete": {
+     "auroc": 0.8780671830648745,
+     "ap": 0.752760350884579
+    }
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct": {
+   "series": "DeepSeek-Coder-v1-Instruct",
+   "heldout_member": "deepseek-ai--deepseek-coder-33b-instruct",
+   "train_positive_members": [
+    "deepseek-ai--deepseek-coder-1.3b-instruct",
+    "deepseek-ai--deepseek-coder-6.7b-instruct"
+   ],
+   "eval_positive_member": "deepseek-ai--deepseek-coder-33b-instruct",
+   "n_train_units": 7980,
+   "n_eval_units": 1539,
+   "n_eval_pos": 171,
+   "n_eval_neg": 1368,
+   "support_ok": true,
+   "views": {
+    "u": {
+     "auroc": 0.7311736944700933,
+     "ap": 0.27950826030964754,
+     "auroc_ci95_task_cluster": [
+      0.7046971717793509,
+      0.7605018424472487
+     ]
+    },
+    "h_instruct": {
+     "auroc": 0.7801332033788174,
+     "ap": 0.2693784412888554,
+     "auroc_ci95_task_cluster": [
+      0.7474855511097431,
+      0.8077638204917752
+     ]
+    },
+    "delta": {
+     "auroc": 0.35065703977292156,
+     "ap": 0.08713748331268462,
+     "auroc_ci95_task_cluster": [
+      0.3144978369412811,
+      0.38751902294723156
+     ]
+    },
+    "p0": {
+     "auroc": 0.43872901063575115,
+     "ap": 0.09769636122280728
+    },
+    "h_complete": {
+     "auroc": 0.5757882767347218,
+     "ap": 0.1747768343105347
+    }
+   }
+  }
+ },
+ "aggregate": {
+  "u": {
+   "mean_auroc": 0.7966663735361795,
+   "min": 0.6305676471881457,
+   "max": 0.9168419342703736,
+   "n_folds_above_0.5": 11,
+   "n_folds": 11
+  },
+  "h_instruct": {
+   "mean_auroc": 0.7775218437729979,
+   "min": 0.6128454664927426,
+   "max": 0.8647618070517424,
+   "n_folds_above_0.5": 11,
+   "n_folds": 11
+  },
+  "delta": {
+   "mean_auroc": 0.6163254194763891,
+   "min": 0.27307120139530106,
+   "max": 0.8005002760312087,
+   "n_folds_above_0.5": 9,
+   "n_folds": 11
+  },
+  "p0": {
+   "mean_auroc": 0.6476341149702183,
+   "min": 0.4262556977238418,
+   "max": 0.9188083512875757,
+   "n_folds_above_0.5": 9,
+   "n_folds": 11
+  },
+  "h_complete": {
+   "mean_auroc": 0.6569856159537598,
+   "min": 0.568318945511928,
+   "max": 0.8780671830648745,
+   "n_folds_above_0.5": 11,
+   "n_folds": 11
+  }
+ },
+ "previous_errored_result": {
+  "h_instruct": {
+   "mean_auroc": 0.7870667479585607,
+   "min": 0.7569353858981437,
+   "max": 0.8140412760295801
+  },
+  "delta": {
+   "mean_auroc": 0.6971990660240891,
+   "min": 0.6022600971239014,
+   "max": 0.7390658257078694
+  },
+  "u": {
+   "mean_auroc": 0.811576750000111,
+   "min": 0.7705423402560984,
+   "max": 0.8585718682671591
+  },
+  "p0": {
+   "mean_auroc": 0.723288687931655,
+   "min": 0.6212086421381589,
+   "max": 0.8621990526999762
+  },
+  "h_complete": {
+   "mean_auroc": 0.670715711949553,
+   "min": 0.62054991279368,
+   "max": 0.7771087685099689
+  }
+ },
+ "previous_errored_note": "旧 81c68d2 F0-B: units=pos+neg，heldout member 从未进入评测；该结果仅作 same-member task-heldout 诊断，不得作 unseen-member transfer 证据。",
+ "runtime_seconds": 70.12049412727356
+}

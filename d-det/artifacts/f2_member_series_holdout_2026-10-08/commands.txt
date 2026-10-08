@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=8 python -u scripts/core_f2_holdout.py  # 248.6s; M-HO 11 折 + S-HO 3 折; 修复: p0_pair_only size 来源 sizelen(2列) 维度

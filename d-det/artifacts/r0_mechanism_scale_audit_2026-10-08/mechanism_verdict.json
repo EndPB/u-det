@@ -1,0 +1,80 @@
+{
+ "schema": "mechanism_verdict_v1",
+ "generated_utc": "2026-10-08T09:36:41.886101+00:00",
+ "canonical": true,
+ "note": "本文件为本轮机制判词唯一 canonical 来源；旧目录的报告仅保留历史记录。",
+ "raw_SA_mechanism": "unresolved",
+ "raw_SA_basis": {
+  "old_claim_file": "r0_mechanism_controls_2026-10-08/mechanism_claim.json",
+  "old_verdict_string": "SA_interaction_conditional_evidence",
+  "old_deltas": {
+   "model·model_dev": {
+    "dSA": 0.0027459954233410187,
+    "dShuffle": -0.0007627765064835534,
+    "dResid": 0.0420544113907958
+   },
+   "model·model_train": {
+    "dSA": 0.0016454178925574103,
+    "dShuffle": -0.005012531328320913,
+    "dResid": 0.048926664487305205
+   },
+   "task·seen": {
+    "dSA": -0.005121499400675744,
+    "dShuffle": -0.015310014165849317,
+    "dResid": 0.055105154189822425
+   },
+   "task·task_dev": {
+    "dSA": 0.004729214340198351,
+    "dShuffle": 0.0002542588354945696,
+    "dResid": 0.04164759725400469
+   }
+  }
+ },
+ "raw_SA_summary": "task-dev dSA≈+0.47pt、model 折 +0.16~0.27pt 且 CI 重叠；task-dev shuffle 未形成强分离 —— 按指导 §4.1 判定 raw_SA_mechanism=unresolved；S_shuffle 仅辅助诊断。",
+ "s_resid_status": "residualized_representation_candidate",
+ "s_resid_evidence": {
+  "task_dev": {
+   "kernel": "task_-1",
+   "dResid": 0.04032545130943299,
+   "dResidStd": 0.03707093821510288,
+   "dShuffle": -0.01118738876175962,
+   "M": {
+    "A_only": 0.9279430460208492,
+    "S_resid": 0.9682684973302822,
+    "S_resid_std": 0.9650139842359521,
+    "S_resid_shuffle": 0.9167556572590896
+   },
+   "ci": {
+    "A_only": [
+     0.9210354691075514,
+     0.9344533435036867
+    ],
+    "S_resid": [
+     0.9643529112636664,
+     0.9717543859649121
+    ],
+    "S_resid_std": [
+     0.9606661581489956,
+     0.9686632341723875
+    ],
+    "S_resid_shuffle": [
+     0.9074739384693616,
+     0.9243885075006356
+    ]
+   }
+  },
+  "model_folds_mean": {
+   "dResid": 0.04210526315789469,
+   "dResidStd": 0.037579455886091996
+  },
+  "strong_task_gt_1pt": true,
+  "strong_model_all_positive": true,
+  "std_variant_robust": true,
+  "shuffle_reduces_vs_resid": true
+ },
+ "caveats": [
+  "S⊥ 原尺度在 MLP 上可被放大；std 变体是尺度控制的直接对照；",
+  "残差化表示的机制未解释，不得写后训练因果；",
+  "旧 r0_mechanism_controls_2026-10-08 的 claim 字符串 SA_interaction_conditional_evidence 不采用。"
+ ]
+}

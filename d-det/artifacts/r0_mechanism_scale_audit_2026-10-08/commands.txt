@@ -1,0 +1,1 @@
+bash /tmp/mech_audit_chain.sh  # task(72.1s)+model0-4+sum; S_resid_std/置换/审计量

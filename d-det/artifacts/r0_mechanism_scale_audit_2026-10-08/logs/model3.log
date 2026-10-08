@@ -1,0 +1,15 @@
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[audit] split=model fold=3 fit=(92m×798t)
+    train A_only
+    train S_resid
+    train S_resid_std
+    train S_resid_shuffle
+    [model_train][A_only] mb=0.9436 ci=[0.9398339598997494, 0.9470558188950637]
+    [model_train][S_resid] mb=0.9823 ci=[0.9802624768442845, 0.984077721477607]
+    [model_train][S_resid_std] mb=0.9776 ci=[0.9753990955649994, 0.9795426065162908]
+    [model_train][S_resid_shuffle] mb=0.9515 ci=[0.9477198430859758, 0.9552195706657949]
+    [model_dev][A_only] mb=0.9358 ci=[0.9269005847953216, 0.9445175438596491]
+    [model_dev][S_resid] mb=0.9747 ci=[0.9692950673785913, 0.9794050343249426]
+    [model_dev][S_resid_std] mb=0.9709 ci=[0.9641495041952708, 0.9764206712433257]
+    [model_dev][S_resid_shuffle] mb=0.9358 ci=[0.9258771929824562, 0.9447654462242562]
+[audit] done model/3 in 51.6s

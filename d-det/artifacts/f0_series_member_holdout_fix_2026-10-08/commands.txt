@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=8 python -u scripts/core_f0b_member_holdout_fix.py  # corrective rerun; 70.1s; 修复: eval positive 与 train 集合交集=0 断言 + task-cluster CI model-major tile

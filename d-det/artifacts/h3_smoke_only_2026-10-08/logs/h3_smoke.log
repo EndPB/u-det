@@ -1,0 +1,5 @@
+[h3] smoke subset: train=300 tasks, dev=100; members=10(+1 holdout)
+[h3] c0_L_D: det=0.9911 rel=0.5494 cos=None params=459394
+[h3] c1_L_F: det=0.0751 rel=0.3689 cos=None params=459394
+[h3] c2_L_D+L_F: det=0.9896 rel=0.3673 cos=None params=459394
+[h3] c3_L_D+L_F+cos: det=0.9896 rel=0.3673 cos=0.027904812654014677 params=459394

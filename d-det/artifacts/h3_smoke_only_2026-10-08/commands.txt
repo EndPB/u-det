@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=4 python -u scripts/core_h3_smoke.py  # 11.4s; smoke only

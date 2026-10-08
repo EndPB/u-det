@@ -1,0 +1,20 @@
+[f2ho] tasks train=798 dev=171; u built for 10659 cells
+[f2ho] M-HO 11 folds
+  [MHO:CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf] q=0.9859 P0=0.6523 qP0=0.6939 cos=0.6614 perm=0.2670 mm=0.9166 swap=0.9844 (n_tr=4788, n_ev=1026)
+  [MHO:CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf] q=0.9737 P0=0.6796 qP0=0.6700 cos=0.6856 perm=0.2978 mm=0.8880 swap=0.9664 (n_tr=4788, n_ev=1026)
+  [MHO:CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf] q=0.9702 P0=0.6635 qP0=0.6677 cos=0.6584 perm=0.3691 mm=0.8715 swap=0.9619 (n_tr=4788, n_ev=1026)
+  [MHO:CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf] q=0.9654 P0=0.6461 qP0=0.6509 cos=0.6363 perm=0.4857 mm=0.8493 swap=0.9640 (n_tr=4788, n_ev=1026)
+  [MHO:Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct] q=0.9631 P0=0.5523 qP0=0.5605 cos=0.5447 perm=0.3797 mm=0.7867 swap=0.9604 (n_tr=4788, n_ev=1026)
+  [MHO:Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct] q=0.9621 P0=0.5476 qP0=0.5801 cos=0.6436 perm=0.4156 mm=0.8175 swap=0.9630 (n_tr=4788, n_ev=1026)
+  [MHO:Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct] q=0.9571 P0=0.5591 qP0=0.5741 cos=0.6673 perm=0.3698 mm=0.8099 swap=0.9559 (n_tr=4788, n_ev=1026)
+  [MHO:Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct] q=0.9670 P0=0.5772 qP0=0.5723 cos=0.6627 perm=0.3486 mm=0.8431 swap=0.9679 (n_tr=4788, n_ev=1026)
+  [MHO:DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct] q=0.9435 P0=0.7176 qP0=0.7082 cos=0.3658 perm=0.5170 mm=0.8942 swap=0.9416 (n_tr=1596, n_ev=684)
+  [MHO:DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct] q=0.9788 P0=0.8315 qP0=0.8463 cos=0.2712 perm=0.4419 mm=0.9398 swap=0.9784 (n_tr=1596, n_ev=684)
+  [MHO:DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct] q=0.9430 P0=0.7382 qP0=0.7388 cos=0.3778 perm=0.4901 mm=0.8103 swap=0.9488 (n_tr=1596, n_ev=684)
+[f2ho] S-HO 3 folds（低功效压力测试）
+  [SHO:CodeLlama-Instruct] q=0.4670 P0=0.6064 qP0=0.6137 cos=0.6859 perm=0.4817 mm=0.4406 swap=0.4705 (n_tr=14364, n_ev=2052)
+  [SHO:Qwen2.5-Coder-Instruct] q=0.5187 P0=0.6016 qP0=0.6027 cos=0.6964 perm=0.4496 mm=0.5341 swap=0.5186 (n_tr=14364, n_ev=2052)
+  [SHO:DeepSeek-Coder-v1-Instruct] q=0.7046 P0=0.3927 qP0=0.4054 cos=0.4226 perm=0.4961 mm=0.5979 swap=0.6956 (n_tr=19152, n_ev=1026)
+  [lenbucket:short] n=3506 q=0.9410 P0=0.7446
+  [lenbucket:mid] n=3451 q=0.9650 P0=0.5445
+  [lenbucket:long] n=3303 q=0.9613 P0=0.5258

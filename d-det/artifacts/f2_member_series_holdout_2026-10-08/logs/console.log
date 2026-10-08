@@ -1,0 +1,20 @@
+nohup: ignoring input
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[f2ho] tasks train=798 dev=171; u built for 10659 cells
+[f2ho] M-HO 11 folds
+Traceback (most recent call last):
+  File "/root/autodl-tmp/u-det/scripts/core_f2_holdout.py", line 373, in <module>
+    main()
+  File "/root/autodl-tmp/u-det/scripts/core_f2_holdout.py", line 246, in main
+    out = run_fold(U, P0, A, fit_pos_pool, eval_pos_pool, fit_neg_pool, eval_neg_pool,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/u-det/scripts/core_f2_holdout.py", line 140, in run_fold
+    Qtr, P0tr, ytr, pairs_tr = eval_reads(U, P0, A, fit_pos, fit_neg, None)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/u-det/scripts/core_f2_holdout.py", line 116, in eval_reads
+    P0F = np.stack([p0_pair_only(P0, p[0], p[1], p[2], A) for p in all_pairs])
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/u-det/scripts/core_f2_holdout.py", line 66, in p0_pair_only
+    return np.concatenate([np.abs(fa - fb), fa + fb, [sa, sb]])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: all the input arrays must have same number of dimensions, but the array at index 0 has 1 dimension(s) and the array at index 2 has 2 dimension(s)

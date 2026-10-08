@@ -1,0 +1,855 @@
+{
+ "schema": "f2_holdout_v1",
+ "generated_utc": "2026-10-08T09:31:13.228426+00:00",
+ "report_first_line": "新证据 — member/series-heldout (unseen member/series)",
+ "m_ho": {
+  "CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf": {
+   "n_train_pairs": 4788,
+   "n_eval_pairs": 1026,
+   "n_eval_pos": 513,
+   "n_train_pos": 2394,
+   "reads": {
+    "cosine": {
+     "auroc": 0.6613734900387205,
+     "ap": 0.6083334767668843
+    },
+    "q_only": {
+     "auroc": 0.9859329936276688,
+     "ap": 0.985552193788649
+    },
+    "P0_pair_only": {
+     "auroc": 0.6522880734433008,
+     "ap": 0.5840667455052411
+    },
+    "q_plus_P0": {
+     "auroc": 0.6938963175753984,
+     "ap": 0.6393834875488995
+    },
+    "permuted": {
+     "auroc": 0.2670375310161911,
+     "ap": 0.363455846650967
+    },
+    "mismatched_partner": {
+     "auroc": 0.9166049192724067,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.9843978584103751,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.9797099962381587,
+    0.9908607206775873
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.61526699573278,
+    0.6842296205100145
+   ],
+   "delta_q_minus_P0": 0.3336449201843681,
+   "delta_qp_minus_q": -0.29203667605227046,
+   "runtime_s": 14.395334720611572,
+   "heldout_member": "codellama--CodeLlama-7b-Instruct-hf",
+   "series": "CodeLlama-Instruct"
+  },
+  "CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf": {
+   "n_train_pairs": 4788,
+   "n_eval_pairs": 1026,
+   "n_eval_pos": 513,
+   "n_train_pos": 2394,
+   "reads": {
+    "cosine": {
+     "auroc": 0.6855860682679191,
+     "ap": 0.6327828443576395
+    },
+    "q_only": {
+     "auroc": 0.97372030900296,
+     "ap": 0.9758092120761892
+    },
+    "P0_pair_only": {
+     "auroc": 0.6795975209846143,
+     "ap": 0.6144177525558506
+    },
+    "q_plus_P0": {
+     "auroc": 0.6699649274800603,
+     "ap": 0.605465126941275
+    },
+    "permuted": {
+     "auroc": 0.29775163488100803,
+     "ap": 0.37471269968638116
+    },
+    "mismatched_partner": {
+     "auroc": 0.8879617280150777,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.9663980180036402,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.9624545444182255,
+    0.982436381184714
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.6428156431798578,
+    0.7131428853702373
+   ],
+   "delta_q_minus_P0": 0.2941227880183457,
+   "delta_qp_minus_q": -0.3037553815228997,
+   "runtime_s": 13.985274076461792,
+   "heldout_member": "codellama--CodeLlama-13b-Instruct-hf",
+   "series": "CodeLlama-Instruct"
+  },
+  "CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf": {
+   "n_train_pairs": 4788,
+   "n_eval_pairs": 1026,
+   "n_eval_pos": 513,
+   "n_train_pos": 2394,
+   "reads": {
+    "cosine": {
+     "auroc": 0.6583564173591875,
+     "ap": 0.6122770661427666
+    },
+    "q_only": {
+     "auroc": 0.9702396558865216,
+     "ap": 0.9720180894638576
+    },
+    "P0_pair_only": {
+     "auroc": 0.6634748013633824,
+     "ap": 0.5992248306611556
+    },
+    "q_plus_P0": {
+     "auroc": 0.6677306217677614,
+     "ap": 0.6027711111341423
+    },
+    "permuted": {
+     "auroc": 0.36905182601294223,
+     "ap": 0.40539537843341134
+    },
+    "mismatched_partner": {
+     "auroc": 0.8715464207410447,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.9619408060979826,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.9579951476047711,
+    0.9798518252529742
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.6267408965341662,
+    0.6966314421531411
+   ],
+   "delta_q_minus_P0": 0.3067648545231392,
+   "delta_qp_minus_q": -0.3025090341187602,
+   "runtime_s": 13.831716299057007,
+   "heldout_member": "codellama--CodeLlama-34b-Instruct-hf",
+   "series": "CodeLlama-Instruct"
+  },
+  "CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf": {
+   "n_train_pairs": 4788,
+   "n_eval_pairs": 1026,
+   "n_eval_pos": 513,
+   "n_train_pos": 2394,
+   "reads": {
+    "cosine": {
+     "auroc": 0.6363325467665265,
+     "ap": 0.5787219066541365
+    },
+    "q_only": {
+     "auroc": 0.9654442582523016,
+     "ap": 0.9646267459362429
+    },
+    "P0_pair_only": {
+     "auroc": 0.6461361330551851,
+     "ap": 0.5846711515524036
+    },
+    "q_plus_P0": {
+     "auroc": 0.6508935322929372,
+     "ap": 0.5895730368378783
+    },
+    "permuted": {
+     "auroc": 0.4857411017255072,
+     "ap": 0.4807824833854163
+    },
+    "mismatched_partner": {
+     "auroc": 0.8492641610524035,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.9639699204693561,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.9542235217673813,
+    0.976202839240184
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.6104045309287949,
+    0.6801339633467467
+   ],
+   "delta_q_minus_P0": 0.3193081251971165,
+   "delta_qp_minus_q": -0.3145507259593644,
+   "runtime_s": 16.24123525619507,
+   "heldout_member": "codellama--CodeLlama-70b-Instruct-hf",
+   "series": "CodeLlama-Instruct"
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+   "n_train_pairs": 4788,
+   "n_eval_pairs": 1026,
+   "n_eval_pos": 513,
+   "n_train_pos": 2394,
+   "reads": {
+    "cosine": {
+     "auroc": 0.5447355121613867,
+     "ap": 0.49048238476235656
+    },
+    "q_only": {
+     "auroc": 0.9631111567091869,
+     "ap": 0.962185731537576
+    },
+    "P0_pair_only": {
+     "auroc": 0.5523104924972166,
+     "ap": 0.52416658875923
+    },
+    "q_plus_P0": {
+     "auroc": 0.5605447450117604,
+     "ap": 0.5308561294562674
+    },
+    "permuted": {
+     "auroc": 0.37971417606177016,
+     "ap": 0.4072857778264093
+    },
+    "mismatched_partner": {
+     "auroc": 0.7867415995045008,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.9603676724842211,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.9485435214633942,
+    0.9769189190216172
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.5289920165369021,
+    0.5775478874791483
+   ],
+   "delta_q_minus_P0": 0.41080066421197026,
+   "delta_qp_minus_q": -0.40256641169742646,
+   "runtime_s": 14.262208938598633,
+   "heldout_member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "series": "Qwen2.5-Coder-Instruct"
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct": {
+   "n_train_pairs": 4788,
+   "n_eval_pairs": 1026,
+   "n_eval_pos": 513,
+   "n_train_pos": 2394,
+   "reads": {
+    "cosine": {
+     "auroc": 0.6435883405720279,
+     "ap": 0.5812662469302019
+    },
+    "q_only": {
+     "auroc": 0.9620776003252662,
+     "ap": 0.9652446257756246
+    },
+    "P0_pair_only": {
+     "auroc": 0.5475644927784047,
+     "ap": 0.5226370406523124
+    },
+    "q_plus_P0": {
+     "auroc": 0.5801405180701374,
+     "ap": 0.5320168763431283
+    },
+    "permuted": {
+     "auroc": 0.4156378600823045,
+     "ap": 0.4345931234620582
+    },
+    "mismatched_partner": {
+     "auroc": 0.8175051012847258,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.9629629629629629,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.9502874578692778,
+    0.9722284919576394
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.526326334028704,
+    0.5748562710653611
+   ],
+   "delta_q_minus_P0": 0.41451310754686155,
+   "delta_qp_minus_q": -0.3819370822551288,
+   "runtime_s": 14.198066473007202,
+   "heldout_member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+   "series": "Qwen2.5-Coder-Instruct"
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct": {
+   "n_train_pairs": 4788,
+   "n_eval_pairs": 1026,
+   "n_eval_pos": 513,
+   "n_train_pos": 2394,
+   "reads": {
+    "cosine": {
+     "auroc": 0.667282240689443,
+     "ap": 0.636420348337827
+    },
+    "q_only": {
+     "auroc": 0.9570846110294144,
+     "ap": 0.9598140309474644
+    },
+    "P0_pair_only": {
+     "auroc": 0.5590552078702279,
+     "ap": 0.5316997646176416
+    },
+    "q_plus_P0": {
+     "auroc": 0.5741101725507184,
+     "ap": 0.5185628195042282
+    },
+    "permuted": {
+     "auroc": 0.36978519506476826,
+     "ap": 0.4110469167538516
+    },
+    "mismatched_partner": {
+     "auroc": 0.8098940224722517,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.9559332596164442,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.9458264461239736,
+    0.9679916707514943
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.5374738286044329,
+    0.5839827259289658
+   ],
+   "delta_q_minus_P0": 0.39802940315918656,
+   "delta_qp_minus_q": -0.38297443847869606,
+   "runtime_s": 13.95058012008667,
+   "heldout_member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "series": "Qwen2.5-Coder-Instruct"
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct": {
+   "n_train_pairs": 4788,
+   "n_eval_pairs": 1026,
+   "n_eval_pos": 513,
+   "n_train_pos": 2394,
+   "reads": {
+    "cosine": {
+     "auroc": 0.6627186332736759,
+     "ap": 0.6290910752146226
+    },
+    "q_only": {
+     "auroc": 0.9670439907435907,
+     "ap": 0.967872186490272
+    },
+    "P0_pair_only": {
+     "auroc": 0.5771880426645996,
+     "ap": 0.5477204083461876
+    },
+    "q_plus_P0": {
+     "auroc": 0.5722520509634492,
+     "ap": 0.5417948991301057
+    },
+    "permuted": {
+     "auroc": 0.34855549095828153,
+     "ap": 0.3958379915805209
+    },
+    "mismatched_partner": {
+     "auroc": 0.8431274200228749,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.9679217537019937,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.9560223658561608,
+    0.9773212270442186
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.5502997123521387,
+    0.6075014534386649
+   ],
+   "delta_q_minus_P0": 0.38985594807899115,
+   "delta_qp_minus_q": -0.3947919397801415,
+   "runtime_s": 14.258333683013916,
+   "heldout_member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "series": "Qwen2.5-Coder-Instruct"
+  },
+  "DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct": {
+   "n_train_pairs": 1596,
+   "n_eval_pairs": 684,
+   "n_eval_pos": 342,
+   "n_train_pos": 798,
+   "reads": {
+    "cosine": {
+     "auroc": 0.36583906159160084,
+     "ap": 0.43916160461942216
+    },
+    "q_only": {
+     "auroc": 0.9434526862966383,
+     "ap": 0.9333294950359229
+    },
+    "P0_pair_only": {
+     "auroc": 0.71758831777299,
+     "ap": 0.7565918556741177
+    },
+    "q_plus_P0": {
+     "auroc": 0.7082093635648576,
+     "ap": 0.7492736235882678
+    },
+    "permuted": {
+     "auroc": 0.5170137820183988,
+     "ap": 0.5298810720391941
+    },
+    "mismatched_partner": {
+     "auroc": 0.8942153141137443,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.9415974145891043,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.9232289422386375,
+    0.9614924250196641
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.6852074142471188,
+    0.7526512431175404
+   ],
+   "delta_q_minus_P0": 0.22586436852364822,
+   "delta_qp_minus_q": -0.2352433227317806,
+   "runtime_s": 6.391700983047485,
+   "heldout_member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "series": "DeepSeek-Coder-v1-Instruct"
+  },
+  "DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct": {
+   "n_train_pairs": 1596,
+   "n_eval_pairs": 684,
+   "n_eval_pos": 342,
+   "n_train_pos": 798,
+   "reads": {
+    "cosine": {
+     "auroc": 0.27115180739372796,
+     "ap": 0.3895578310763697
+    },
+    "q_only": {
+     "auroc": 0.9787883451318354,
+     "ap": 0.9744942251845709
+    },
+    "P0_pair_only": {
+     "auroc": 0.8314866112650046,
+     "ap": 0.847028643036269
+    },
+    "q_plus_P0": {
+     "auroc": 0.846320235286071,
+     "ap": 0.8582779833909401
+    },
+    "permuted": {
+     "auroc": 0.44192230087890294,
+     "ap": 0.45810811880585467
+    },
+    "mismatched_partner": {
+     "auroc": 0.939844738552033,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.9784121610068055,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.9670056598611537,
+    0.9889153927704251
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.7950536062378168,
+    0.8666797048664546
+   ],
+   "delta_q_minus_P0": 0.14730173386683088,
+   "delta_qp_minus_q": -0.1324681098457644,
+   "runtime_s": 6.700299263000488,
+   "heldout_member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+   "series": "DeepSeek-Coder-v1-Instruct"
+  },
+  "DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct": {
+   "n_train_pairs": 1596,
+   "n_eval_pairs": 684,
+   "n_eval_pos": 342,
+   "n_train_pos": 798,
+   "reads": {
+    "cosine": {
+     "auroc": 0.37783420539653223,
+     "ap": 0.4544121892400219
+    },
+    "q_only": {
+     "auroc": 0.943025204336377,
+     "ap": 0.9402900969675646
+    },
+    "P0_pair_only": {
+     "auroc": 0.7382271468144045,
+     "ap": 0.7786737260684808
+    },
+    "q_plus_P0": {
+     "auroc": 0.7387657740843336,
+     "ap": 0.7784917408990297
+    },
+    "permuted": {
+     "auroc": 0.4900738688827332,
+     "ap": 0.4996407275784107
+    },
+    "mismatched_partner": {
+     "auroc": 0.8103348038712765,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.94882185971752,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.9235412178106084,
+    0.9579094849697343
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.7054311583051195,
+    0.7722023443110702
+   ],
+   "delta_q_minus_P0": 0.20479805752197255,
+   "delta_qp_minus_q": -0.2042594302520434,
+   "runtime_s": 6.785493850708008,
+   "heldout_member": "deepseek-ai--deepseek-coder-33b-instruct",
+   "series": "DeepSeek-Coder-v1-Instruct"
+  }
+ },
+ "s_ho": {
+  "CodeLlama-Instruct": {
+   "n_train_pairs": 14364,
+   "n_eval_pairs": 2052,
+   "n_eval_pos": 1026,
+   "n_train_pos": 7182,
+   "reads": {
+    "cosine": {
+     "auroc": 0.6859138044374529,
+     "ap": 0.677791120995529
+    },
+    "q_only": {
+     "auroc": 0.46701074214668137,
+     "ap": 0.4556428714384927
+    },
+    "P0_pair_only": {
+     "auroc": 0.6063698611918577,
+     "ap": 0.5704353107203544
+    },
+    "q_plus_P0": {
+     "auroc": 0.6136579536343567,
+     "ap": 0.5823312519056906
+    },
+    "permuted": {
+     "auroc": 0.4817208713792278,
+     "ap": 0.49271182192121177
+    },
+    "mismatched_partner": {
+     "auroc": 0.4406346302186048,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.47046099654594575,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.44086449676823636,
+    0.4901088274074834
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.5795720145609855,
+    0.631807745213152
+   ],
+   "delta_q_minus_P0": -0.13935911904517628,
+   "delta_qp_minus_q": 0.14664721148767534,
+   "runtime_s": 32.04060935974121,
+   "heldout_series": "CodeLlama-Instruct"
+  },
+  "Qwen2.5-Coder-Instruct": {
+   "n_train_pairs": 14364,
+   "n_eval_pairs": 2052,
+   "n_eval_pos": 1026,
+   "n_train_pos": 7182,
+   "reads": {
+    "cosine": {
+     "auroc": 0.6963847375640748,
+     "ap": 0.7050708124754832
+    },
+    "q_only": {
+     "auroc": 0.5187294096189141,
+     "ap": 0.46909550468332195
+    },
+    "P0_pair_only": {
+     "auroc": 0.6016295612325159,
+     "ap": 0.5529436884582488
+    },
+    "q_plus_P0": {
+     "auroc": 0.6026906664538757,
+     "ap": 0.5534566070104125
+    },
+    "permuted": {
+     "auroc": 0.44964642492086826,
+     "ap": 0.45832763109246966
+    },
+    "mismatched_partner": {
+     "auroc": 0.5340736370925147,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.5185726662334849,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.48557272133115986,
+    0.5545270814571626
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.5790643559841775,
+    0.6257128499177335
+   ],
+   "delta_q_minus_P0": -0.08290015161360176,
+   "delta_qp_minus_q": 0.08396125683496158,
+   "runtime_s": 31.855620861053467,
+   "heldout_series": "Qwen2.5-Coder-Instruct"
+  },
+  "DeepSeek-Coder-v1-Instruct": {
+   "n_train_pairs": 19152,
+   "n_eval_pairs": 1026,
+   "n_eval_pos": 513,
+   "n_train_pos": 9576,
+   "reads": {
+    "cosine": {
+     "auroc": 0.42257256743765415,
+     "ap": 0.4581944123280395
+    },
+    "q_only": {
+     "auroc": 0.7046498637757487,
+     "ap": 0.6437598514097845
+    },
+    "P0_pair_only": {
+     "auroc": 0.39266402957795177,
+     "ap": 0.42725617041488917
+    },
+    "q_plus_P0": {
+     "auroc": 0.40542009127214834,
+     "ap": 0.4339214173917137
+    },
+    "permuted": {
+     "auroc": 0.4961298633197679,
+     "ap": 0.5172451133056036
+    },
+    "mismatched_partner": {
+     "auroc": 0.597940866895417,
+     "note": "pseudo-positive (member swapped, same task) vs matched negatives"
+    },
+    "cross_task_swap": {
+     "auroc": 0.6956100452560902,
+     "note": "member pair kept, features from another dev task vs matched negatives"
+    }
+   },
+   "q_only_ci95_task_cluster": [
+    0.6741034278353453,
+    0.7349150165863
+   ],
+   "P0_pair_only_ci95_task_cluster": [
+    0.37427100076376774,
+    0.413723310876281
+   ],
+   "delta_q_minus_P0": 0.3119858341977969,
+   "delta_qp_minus_q": -0.29922977250360033,
+   "runtime_s": 40.61086344718933,
+   "heldout_series": "DeepSeek-Coder-v1-Instruct"
+  }
+ },
+ "aggregate_m_ho": {
+  "n_folds": 11,
+  "q_only": {
+   "mean": 0.9645382555765238,
+   "min": 0.943025204336377,
+   "max": 0.9859329936276688,
+   "mean_ci95_member_cluster": [
+    0.9570258106698805,
+    0.9717380881072272
+   ],
+   "n_folds_above_0.5": 11
+  },
+  "P0_pair_only": {
+   "mean": 0.6513560764099391,
+   "min": 0.5475644927784047,
+   "max": 0.8314866112650046
+  },
+  "q_plus_P0": {
+   "mean": 0.6602571144224986,
+   "min": 0.5605447450117604,
+   "max": 0.846320235286071
+  },
+  "cosine": {
+   "mean": 0.5613453021373407
+  },
+  "permuted": {
+   "mean": 0.39838952432570984,
+   "max": 0.5170137820183988
+  },
+  "mismatched_partner": {
+   "mean": 0.8570036571729399
+  },
+  "cross_task_swap": {
+   "mean": 0.9629748806418551,
+   "max": 0.9843978584103751
+  },
+  "delta_q_minus_P0": {
+   "mean": 0.31318217916658464,
+   "per_fold": [
+    0.3336449201843681,
+    0.2941227880183457,
+    0.3067648545231392,
+    0.3193081251971165,
+    0.41080066421197026,
+    0.41451310754686155,
+    0.39802940315918656,
+    0.38985594807899115,
+    0.22586436852364822,
+    0.14730173386683088,
+    0.20479805752197255
+   ],
+   "mean_ci95_member_cluster": [
+    0.26103007737164396,
+    0.36115389816913357
+   ]
+  },
+  "delta_qp_minus_q": {
+   "mean": -0.30428114115402505,
+   "per_fold": [
+    -0.29203667605227046,
+    -0.3037553815228997,
+    -0.3025090341187602,
+    -0.3145507259593644,
+    -0.40256641169742646,
+    -0.3819370822551288,
+    -0.38297443847869606,
+    -0.3947919397801415,
+    -0.2352433227317806,
+    -0.1324681098457644,
+    -0.2042594302520434
+   ]
+  }
+ },
+ "aggregate_s_ho": {
+  "n_folds": 3,
+  "q_only": {
+   "mean": 0.5634633385137814,
+   "min": 0.46701074214668137,
+   "max": 0.7046498637757487,
+   "mean_ci95_member_cluster": [
+    0.46701074214668137,
+    0.7046498637757487
+   ],
+   "n_folds_above_0.5": 2
+  },
+  "P0_pair_only": {
+   "mean": 0.5335544840007751,
+   "min": 0.39266402957795177,
+   "max": 0.6063698611918577
+  },
+  "q_plus_P0": {
+   "mean": 0.5405895704534602,
+   "min": 0.40542009127214834,
+   "max": 0.6136579536343567
+  },
+  "cosine": {
+   "mean": 0.6016237031463939
+  },
+  "permuted": {
+   "mean": 0.4758323865399547,
+   "max": 0.4961298633197679
+  },
+  "mismatched_partner": {
+   "mean": 0.5242163780688455
+  },
+  "cross_task_swap": {
+   "mean": 0.561547902678507,
+   "max": 0.6956100452560902
+  },
+  "delta_q_minus_P0": {
+   "mean": 0.02990885451300629,
+   "per_fold": [
+    -0.13935911904517628,
+    -0.08290015161360176,
+    0.3119858341977969
+   ],
+   "mean_ci95_member_cluster": [
+    -0.13935911904517628,
+    0.3119858341977969
+   ]
+  },
+  "delta_qp_minus_q": {
+   "mean": -0.022873768060321136,
+   "per_fold": [
+    0.14664721148767534,
+    0.08396125683496158,
+    -0.29922977250360033
+   ]
+  }
+ },
+ "m_ho_series_means": {
+  "CodeLlama-Instruct": 0.973834304192363,
+  "Qwen2.5-Coder-Instruct": 0.9623293397018646,
+  "DeepSeek-Coder-v1-Instruct": 0.9550887452549502
+ },
+ "m_ho_length_buckets": {
+  "short": {
+   "n": 3506,
+   "q_only_auroc": 0.9409763737480301,
+   "P0_auroc": 0.7445776188801626
+  },
+  "mid": {
+   "n": 3451,
+   "q_only_auroc": 0.9650429086774597,
+   "P0_auroc": 0.5445082605648424
+  },
+  "long": {
+   "n": 3303,
+   "q_only_auroc": 0.9612833763996554,
+   "P0_auroc": 0.5258363933088536
+  }
+ },
+ "length_bucket_note": "池化 M-HO 全部折的逐对分数后按 sizelen 均值三分位分桶（粗略检查，非同折口径）",
+ "gate_m_ho": {
+  "two_folds_same_direction": true,
+  "delta_q_minus_P0_positive": true,
+  "permutation_not_reproduced": true,
+  "not_single_series": true,
+  "ci_reported": true,
+  "q_only_mean": 0.9645382555765238,
+  "delta_mean": 0.31318217916658464,
+  "verdict": "member_holdout_transfer_candidate"
+ }
+}

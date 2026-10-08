@@ -1,0 +1,7 @@
+{
+ "training_allowed": true,
+ "generation_allowed": false,
+ "test_read_allowed": false,
+ "old_test_reuse": false,
+ "original_bundle_verified": false
+}

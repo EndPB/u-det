@@ -1,0 +1,23 @@
+[r1u] provenance checks passed (rows/models/tasks)
+[r1u] surface regression on Δ: R2=0.3620 (fit=11172 rows)
+[r1u] readouts fitted (raw/perp/p0/side, torch linear)
+[r1u] E1_Athene70B_Llama3: delta=0.708 delta_perp=0.591 p0=0.421 side=0.719
+[r1u] E2_AtheneV2Agent_Qwen72B: delta=0.965 delta_perp=0.649 p0=0.287 side=0.953
+[r1u] E3_AtheneV2Chat_Qwen72B: delta=0.959 delta_perp=0.620 p0=0.275 side=0.942
+[r1u] E4_SkyT1Flash_Qwen32B: delta=0.971 delta_perp=0.573 p0=0.450 side=0.977
+[r1u] E5_SkyT1Flash_SkyT1Preview: delta=0.854 delta_perp=0.877 p0=0.251 side=0.415
+[r1u] E6_SkyT1Preview_Qwen32B: delta=0.977 delta_perp=0.579 p0=0.409 side=0.971
+[r1u] E7_QwQ32B_Qwen32B: delta=0.965 delta_perp=0.474 p0=0.515 side=0.965
+[r1u] edge-heldout E1_Athene70B_Llama3: delta=0.573 delta_perp=0.170
+[r1u] edge-heldout E2_AtheneV2Agent_Qwen72B: delta=0.942 delta_perp=0.491
+[r1u] edge-heldout E3_AtheneV2Chat_Qwen72B: delta=0.947 delta_perp=0.626
+[r1u] edge-heldout E4_SkyT1Flash_Qwen32B: delta=0.971 delta_perp=0.275
+[r1u] edge-heldout E5_SkyT1Flash_SkyT1Preview: delta=0.854 delta_perp=0.029
+[r1u] edge-heldout E6_SkyT1Preview_Qwen32B: delta=0.971 delta_perp=0.263
+[r1u] edge-heldout E7_QwQ32B_Qwen32B: delta=0.965 delta_perp=0.240
+[r1u] child-heldout Nexusflow--Athene-70B: [0.5730994152046783] mean=0.573
+[r1u] child-heldout Nexusflow--Athene-V2-Agent: [0.9415204678362573] mean=0.942
+[r1u] child-heldout Nexusflow--Athene-V2-Chat: [0.9473684210526315] mean=0.947
+[r1u] child-heldout NovaSky-AI--Sky-T1-32B-Flash: [0.9707602339181286, 0.8421052631578947] mean=0.906
+[r1u] child-heldout NovaSky-AI--Sky-T1-32B-Preview: [0.8421052631578947, 0.9766081871345029] mean=0.909
+[r1u] child-heldout Qwen--QwQ-32B-Preview: [0.9649122807017544] mean=0.965

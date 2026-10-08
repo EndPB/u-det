@@ -1,0 +1,12 @@
+{
+ "schema": "fix_round_v1",
+ "generated_utc": "2026-10-08T09:20:40.096660+00:00",
+ "baseline_commit": "81c68d225747c0f59a4eb31a8904944c3737a58d",
+ "edges": 7,
+ "loo": "edge-heldout + child-heldout",
+ "controls": [
+  "style",
+  "length",
+  "size"
+ ]
+}
