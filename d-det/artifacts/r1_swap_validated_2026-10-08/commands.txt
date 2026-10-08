@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=8 python -u scripts/core_r1_swap_validated.py  # 40.0s

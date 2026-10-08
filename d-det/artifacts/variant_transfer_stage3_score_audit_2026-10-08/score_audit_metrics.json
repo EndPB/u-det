@@ -1,0 +1,1920 @@
+{
+  "source_commit": "958eeb4",
+  "input_scores_sha256": "a3ae6ee38c35df40a29d1fad29817d87cab1ab9407e5ce0c0e32fc5b505646d2",
+  "raw_test_read": false,
+  "training": false,
+  "inference": false,
+  "validation_max_ci_error": 2.220446049250313e-16,
+  "aggregates": {
+    "size_mix": {
+      "heldout::tfidf_char::auroc": {
+        "point": 0.8544818837216498,
+        "bootstrap_mean": 0.8548795018600215,
+        "ci95": [
+          0.8393223530520584,
+          0.8709686805681085
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::tfidf_char::task_macro": {
+        "point": 0.8953634085213033,
+        "bootstrap_mean": 0.8952561380302609,
+        "ci95": [
+          0.8811650074259724,
+          0.9101541469414276
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::tfidf_word::auroc": {
+        "point": 0.8775519994484804,
+        "bootstrap_mean": 0.877686326290602,
+        "ci95": [
+          0.8641069420084758,
+          0.8933179158232379
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::tfidf_word::task_macro": {
+        "point": 0.911433676784554,
+        "bootstrap_mean": 0.9112529819920171,
+        "ci95": [
+          0.8986111111111111,
+          0.9237805161050775
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_base::auroc": {
+        "point": 0.9077550927350865,
+        "bootstrap_mean": 0.907849200445884,
+        "ci95": [
+          0.8943144882321681,
+          0.9205942080672767
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_base::task_macro": {
+        "point": 0.9266105077508585,
+        "bootstrap_mean": 0.926730982548965,
+        "ci95": [
+          0.9157204353476284,
+          0.9375165343915344
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_small::auroc": {
+        "point": 0.9060403133130639,
+        "bootstrap_mean": 0.90622739346471,
+        "ci95": [
+          0.8931578128027996,
+          0.9189405712882488
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_small::task_macro": {
+        "point": 0.9279622667780564,
+        "bootstrap_mean": 0.9282076835607537,
+        "ci95": [
+          0.9174952717441752,
+          0.93899230135524
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lr::auroc": {
+        "point": 0.9153141951695352,
+        "bootstrap_mean": 0.9153775344930445,
+        "ci95": [
+          0.9004903684582367,
+          0.9276980914083998
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lr::task_macro": {
+        "point": 0.9249048547294162,
+        "bootstrap_mean": 0.9252078692100622,
+        "ci95": [
+          0.9127942831616078,
+          0.9362571649029983
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lgb::auroc": {
+        "point": 0.9294740261960945,
+        "bootstrap_mean": 0.9296070780563062,
+        "ci95": [
+          0.9177853403068533,
+          0.9396004902878812
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lgb::task_macro": {
+        "point": 0.933641975308642,
+        "bootstrap_mean": 0.9336353267427828,
+        "ci95": [
+          0.9211648913951546,
+          0.9445591699155296
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::metadata_only::auroc": {
+        "point": 0.8805719220077485,
+        "bootstrap_mean": 0.8807305588668444,
+        "ci95": [
+          0.8647717494000324,
+          0.8966486737473964
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::metadata_only::task_macro": {
+        "point": 0.8965585259444908,
+        "bootstrap_mean": 0.8968934953123548,
+        "ci95": [
+          0.8805838380673907,
+          0.9110374315418175
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::size_length_only::auroc": {
+        "point": 0.5835499920474784,
+        "bootstrap_mean": 0.5838824615958349,
+        "ci95": [
+          0.5747233750664293,
+          0.5935661640971608
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::size_length_only::task_macro": {
+        "point": 0.6027684953123549,
+        "bootstrap_mean": 0.6031406757634828,
+        "ci95": [
+          0.5924588670750951,
+          0.613821881091618
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_fusion::auroc": {
+        "point": 0.943869379426474,
+        "bootstrap_mean": 0.9439683824164049,
+        "ci95": [
+          0.9343134044296902,
+          0.952769292600138
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_fusion::task_macro": {
+        "point": 0.9542954608744082,
+        "bootstrap_mean": 0.9541784205885084,
+        "ci95": [
+          0.9460608987747146,
+          0.9620666248955723
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_equal::auroc": {
+        "point": 0.9413002128453036,
+        "bootstrap_mean": 0.9414335921702676,
+        "ci95": [
+          0.9322124408582101,
+          0.9501951489075733
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_equal::task_macro": {
+        "point": 0.9518704167826973,
+        "bootstrap_mean": 0.9518347373062286,
+        "ci95": [
+          0.9427429975401467,
+          0.9597693597419474
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_base::auroc": {
+        "point": 0.5552991342336782,
+        "bootstrap_mean": 0.5556052292986094,
+        "ci95": [
+          0.5492984808987489,
+          0.5627514611740527
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_base::task_macro": {
+        "point": 0.586825860948668,
+        "bootstrap_mean": 0.5866647289520097,
+        "ci95": [
+          0.5762323923234011,
+          0.5986808746403045
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_small::auroc": {
+        "point": 0.5766135544080039,
+        "bootstrap_mean": 0.5770889235081422,
+        "ci95": [
+          0.5683732798261627,
+          0.586121981366672
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_small::task_macro": {
+        "point": 0.6161062378167642,
+        "bootstrap_mean": 0.6159700060336025,
+        "ci95": [
+          0.6036272684024877,
+          0.6278724879327949
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_char::auroc": {
+        "point": 0.8787314086059853,
+        "bootstrap_mean": 0.8791558717293559,
+        "ci95": [
+          0.8645093399379975,
+          0.8935975602722422
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_char::task_macro": {
+        "point": 0.9167246820755593,
+        "bootstrap_mean": 0.916733860113246,
+        "ci95": [
+          0.9045308583959899,
+          0.9288516429963798
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_word::auroc": {
+        "point": 0.9038896719272732,
+        "bootstrap_mean": 0.9041049262613974,
+        "ci95": [
+          0.8915016654154336,
+          0.9177369602056364
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_word::task_macro": {
+        "point": 0.9309442587951361,
+        "bootstrap_mean": 0.9308430335097002,
+        "ci95": [
+          0.9202289578111946,
+          0.9409933978464681
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_base::auroc": {
+        "point": 0.9210700701287547,
+        "bootstrap_mean": 0.9211203356968336,
+        "ci95": [
+          0.9083576777524274,
+          0.9330622945033149
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_base::task_macro": {
+        "point": 0.936026408614128,
+        "bootstrap_mean": 0.9361646941427644,
+        "ci95": [
+          0.9256261313004736,
+          0.9461537234289428
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_small::auroc": {
+        "point": 0.919128352069257,
+        "bootstrap_mean": 0.9192967754153631,
+        "ci95": [
+          0.9067990242418914,
+          0.931798359269953
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_small::task_macro": {
+        "point": 0.9373839691822149,
+        "bootstrap_mean": 0.9376351178873108,
+        "ci95": [
+          0.9274776930752808,
+          0.9477465364800891
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lr::auroc": {
+        "point": 0.9230881581797249,
+        "bootstrap_mean": 0.9231697861314538,
+        "ci95": [
+          0.9077456185813245,
+          0.9348145345766408
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lr::task_macro": {
+        "point": 0.9319653299916458,
+        "bootstrap_mean": 0.9322113501345957,
+        "ci95": [
+          0.9191565429778148,
+          0.9427463334261581
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lgb::auroc": {
+        "point": 0.9399954768337349,
+        "bootstrap_mean": 0.9402237889775338,
+        "ci95": [
+          0.9300239545962588,
+          0.9497472546837096
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lgb::task_macro": {
+        "point": 0.941247795414462,
+        "bootstrap_mean": 0.9414177341501905,
+        "ci95": [
+          0.9303192878028405,
+          0.9514492249141372
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::metadata_only::auroc": {
+        "point": 0.8860113585349555,
+        "bootstrap_mean": 0.8861866612193252,
+        "ci95": [
+          0.8705925481819667,
+          0.901301233882573
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::metadata_only::task_macro": {
+        "point": 0.9009386893158823,
+        "bootstrap_mean": 0.9012662559175717,
+        "ci95": [
+          0.8853895444630094,
+          0.9141593857328506
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::size_length_only::auroc": {
+        "point": 0.7294396105055796,
+        "bootstrap_mean": 0.7297346910567517,
+        "ci95": [
+          0.7200488674645787,
+          0.7394153218966303
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::size_length_only::task_macro": {
+        "point": 0.763065070082614,
+        "bootstrap_mean": 0.7633185045948203,
+        "ci95": [
+          0.7536929708530586,
+          0.773380499860763
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_fusion::auroc": {
+        "point": 0.9556244547908651,
+        "bootstrap_mean": 0.9558122227134872,
+        "ci95": [
+          0.9479540441964778,
+          0.9630557986435115
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_fusion::task_macro": {
+        "point": 0.9620405179615706,
+        "bootstrap_mean": 0.9620760814072219,
+        "ci95": [
+          0.9548115079365078,
+          0.968657900538383
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_equal::auroc": {
+        "point": 0.9545496090779255,
+        "bootstrap_mean": 0.9547182690997582,
+        "ci95": [
+          0.9460957911415425,
+          0.9623747011358263
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_equal::task_macro": {
+        "point": 0.9632530400074261,
+        "bootstrap_mean": 0.9632382344750765,
+        "ci95": [
+          0.955566433444723,
+          0.970516134085213
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout_minus_seen::tfidf_char::auroc": {
+        "point": -0.024249524884335516,
+        "bootstrap_mean": -0.024276369869334374,
+        "ci95": [
+          -0.02795464334976502,
+          -0.020900047660845977
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::tfidf_word::auroc": {
+        "point": -0.026337672478792817,
+        "bootstrap_mean": -0.026418599970795514,
+        "ci95": [
+          -0.030302174953574058,
+          -0.022428527221508315
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_base::auroc": {
+        "point": -0.01331497739366827,
+        "bootstrap_mean": -0.013271135250949556,
+        "ci95": [
+          -0.015836029353489822,
+          -0.010894307358443739
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_small::auroc": {
+        "point": -0.013088038756193132,
+        "bootstrap_mean": -0.013069381950653113,
+        "ci95": [
+          -0.015315382619424922,
+          -0.010747807424669473
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::style_lr::auroc": {
+        "point": -0.007773963010189733,
+        "bootstrap_mean": -0.007792251638409429,
+        "ci95": [
+          -0.00969425014371541,
+          -0.005719966474557702
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::style_lgb::auroc": {
+        "point": -0.010521450637640317,
+        "bootstrap_mean": -0.0106167109212277,
+        "ci95": [
+          -0.013290885731764892,
+          -0.007824310885509188
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::metadata_only::auroc": {
+        "point": -0.00543943652720702,
+        "bootstrap_mean": -0.005456102352480723,
+        "ci95": [
+          -0.0070914142691035405,
+          -0.003970722167667416
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::size_length_only::auroc": {
+        "point": -0.14588961845810122,
+        "bootstrap_mean": -0.14585222946091675,
+        "ci95": [
+          -0.15012692397416547,
+          -0.14214559404521704
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::P0_fusion::auroc": {
+        "point": -0.011755075364391132,
+        "bootstrap_mean": -0.011843840297082317,
+        "ci95": [
+          -0.01436398250065273,
+          -0.009198658602321295
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::P0_equal::auroc": {
+        "point": -0.01324939623262189,
+        "bootstrap_mean": -0.013284676929490718,
+        "ci95": [
+          -0.01579273238597889,
+          -0.010909378642078502
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "fusion_minus::P0_equal::auroc": {
+        "point": 0.0025691665811703457,
+        "bootstrap_mean": 0.0025347902461373283,
+        "ci95": [
+          -0.00016425146144533328,
+          0.005310918825654086
+        ],
+        "frac_le_0_descriptive_only": 0.034
+      },
+      "fusion_minus::metadata_only::auroc": {
+        "point": 0.0632974574187255,
+        "bootstrap_mean": 0.06323782354956049,
+        "ci95": [
+          0.0520947175850607,
+          0.07484232531458597
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "fusion_minus::size_length_only::auroc": {
+        "point": 0.3603193873789956,
+        "bootstrap_mean": 0.36008592082057,
+        "ci95": [
+          0.3510998491667223,
+          0.3697185630105695
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout_minus_seen::tfidf_char::task_macro": {
+        "point": -0.0213612735542561,
+        "bootstrap_mean": -0.021477722082985238,
+        "ci95": [
+          -0.02634320175438611,
+          -0.016820262461709905
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::tfidf_word::task_macro": {
+        "point": -0.01951058201058209,
+        "bootstrap_mean": -0.019590051517683095,
+        "ci95": [
+          -0.02463363269284321,
+          -0.014979433537547673
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_base::task_macro": {
+        "point": -0.009415900863269488,
+        "bootstrap_mean": -0.009433711593799318,
+        "ci95": [
+          -0.012933230065905568,
+          -0.006245213728766422
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_small::task_macro": {
+        "point": -0.009421702404158516,
+        "bootstrap_mean": -0.009427434326557146,
+        "ci95": [
+          -0.012741344100993183,
+          -0.0060653659611992925
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::style_lr::task_macro": {
+        "point": -0.007060475262229637,
+        "bootstrap_mean": -0.007003480924533562,
+        "ci95": [
+          -0.009809390374083246,
+          -0.00458321730251543
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::style_lgb::task_macro": {
+        "point": -0.007605820105820005,
+        "bootstrap_mean": -0.00778240740740741,
+        "ci95": [
+          -0.011526356400259827,
+          -0.004379438178780255
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::metadata_only::task_macro": {
+        "point": -0.004380163371391466,
+        "bootstrap_mean": -0.004372760605216746,
+        "ci95": [
+          -0.006141076069804061,
+          -0.0025261359417061316
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::size_length_only::task_macro": {
+        "point": -0.16029657477025916,
+        "bootstrap_mean": -0.1601778288313376,
+        "ci95": [
+          -0.16576409194282005,
+          -0.15467850761162175
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::P0_fusion::task_macro": {
+        "point": -0.0077450570871624436,
+        "bootstrap_mean": -0.007897660818713445,
+        "ci95": [
+          -0.010863820430706333,
+          -0.00509230251554804
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::P0_equal::task_macro": {
+        "point": -0.011382623224728716,
+        "bootstrap_mean": -0.011403497168848047,
+        "ci95": [
+          -0.014276866935858095,
+          -0.008167409263900494
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "fusion_minus::P0_equal::task_macro": {
+        "point": 0.0024250440917108484,
+        "bootstrap_mean": 0.002343683282279781,
+        "ci95": [
+          -0.001236018286456944,
+          0.006278427550357381
+        ],
+        "frac_le_0_descriptive_only": 0.126
+      },
+      "fusion_minus::metadata_only::task_macro": {
+        "point": 0.05773693492991738,
+        "bootstrap_mean": 0.05728492527615336,
+        "ci95": [
+          0.04603232618583496,
+          0.0692184744268077
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "fusion_minus::size_length_only::task_macro": {
+        "point": 0.3515269655620533,
+        "bootstrap_mean": 0.3510377448250256,
+        "ci95": [
+          0.3409978940406572,
+          0.3611595539775364
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      }
+    },
+    "size_matched": {
+      "heldout::tfidf_char::auroc": {
+        "point": 0.8529419308505181,
+        "bootstrap_mean": 0.8534788671918045,
+        "ci95": [
+          0.8385711035494302,
+          0.8685477179113041
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::tfidf_char::task_macro": {
+        "point": 0.8993664717348927,
+        "bootstrap_mean": 0.899367771280052,
+        "ci95": [
+          0.8835891812865496,
+          0.9135883690708253
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::tfidf_word::auroc": {
+        "point": 0.8792548704444672,
+        "bootstrap_mean": 0.8797243710315424,
+        "ci95": [
+          0.8658827834965365,
+          0.8942830581299469
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::tfidf_word::task_macro": {
+        "point": 0.9195094217024041,
+        "bootstrap_mean": 0.9194132553606238,
+        "ci95": [
+          0.9066946881091619,
+          0.9317048408057179
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_base::auroc": {
+        "point": 0.9124165460217579,
+        "bootstrap_mean": 0.9124902610109854,
+        "ci95": [
+          0.9000121594868696,
+          0.9246383027636234
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_base::task_macro": {
+        "point": 0.9319363222871996,
+        "bootstrap_mean": 0.9321731643924627,
+        "ci95": [
+          0.920804905782976,
+          0.9442129629629629
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_small::auroc": {
+        "point": 0.9125063172334128,
+        "bootstrap_mean": 0.9127215914488409,
+        "ci95": [
+          0.8978603102949055,
+          0.9261479434317871
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_small::task_macro": {
+        "point": 0.9362410656270305,
+        "bootstrap_mean": 0.9366975308641976,
+        "ci95": [
+          0.9253147335932423,
+          0.9483430799220273
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lr::auroc": {
+        "point": 0.921136703031132,
+        "bootstrap_mean": 0.9212682933780194,
+        "ci95": [
+          0.9058416953554559,
+          0.9337281366726324
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lr::task_macro": {
+        "point": 0.9346166341780378,
+        "bootstrap_mean": 0.9351159844054581,
+        "ci95": [
+          0.9227968648473035,
+          0.9472100389863547
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lgb::auroc": {
+        "point": 0.9365061044423926,
+        "bootstrap_mean": 0.9366270590381085,
+        "ci95": [
+          0.9250426413255359,
+          0.9470148578479989
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lgb::task_macro": {
+        "point": 0.9362410656270305,
+        "bootstrap_mean": 0.936311241065627,
+        "ci95": [
+          0.921412037037037,
+          0.9492405782975959
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::metadata_only::auroc": {
+        "point": 0.8901205119143972,
+        "bootstrap_mean": 0.8903532007949264,
+        "ci95": [
+          0.8745433067724543,
+          0.9070839104339797
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::metadata_only::task_macro": {
+        "point": 0.901803118908382,
+        "bootstrap_mean": 0.9021835607537362,
+        "ci95": [
+          0.8852724983755685,
+          0.9171966374269006
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::size_length_only::auroc": {
+        "point": 0.6283509835884925,
+        "bootstrap_mean": 0.6288338197128083,
+        "ci95": [
+          0.6126880208155215,
+          0.6453334169298056
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::size_length_only::task_macro": {
+        "point": 0.6965562053281351,
+        "bootstrap_mean": 0.6969038336582196,
+        "ci95": [
+          0.6765675763482781,
+          0.7151600064977258
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_fusion::auroc": {
+        "point": 0.946174321443635,
+        "bootstrap_mean": 0.9463149573088016,
+        "ci95": [
+          0.9372979197777854,
+          0.9546823286557307
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_fusion::task_macro": {
+        "point": 0.955003248862898,
+        "bootstrap_mean": 0.9547426900584796,
+        "ci95": [
+          0.9432220597790774,
+          0.9652371669915528
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_equal::auroc": {
+        "point": 0.947598311351261,
+        "bootstrap_mean": 0.9477929201387703,
+        "ci95": [
+          0.9385529355661191,
+          0.956514587584404
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_equal::task_macro": {
+        "point": 0.9574398960363874,
+        "bootstrap_mean": 0.9573771929824562,
+        "ci95": [
+          0.9456587069525667,
+          0.967511371020143
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_base::auroc": {
+        "point": 0.5527674232147403,
+        "bootstrap_mean": 0.5528254999639015,
+        "ci95": [
+          0.5455966270723376,
+          0.5608643115260536
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_base::task_macro": {
+        "point": 0.590480831708902,
+        "bootstrap_mean": 0.5898502274204029,
+        "ci95": [
+          0.576262995451592,
+          0.6038864522417154
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_small::auroc": {
+        "point": 0.5732233849731542,
+        "bootstrap_mean": 0.5735900523997888,
+        "ci95": [
+          0.5645367021761681,
+          0.5837889222324817
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_small::task_macro": {
+        "point": 0.6170402858999351,
+        "bootstrap_mean": 0.6165854450942171,
+        "ci95": [
+          0.601835607537362,
+          0.6329414392462638
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_char::auroc": {
+        "point": 0.8784038646902433,
+        "bootstrap_mean": 0.8790221761808318,
+        "ci95": [
+          0.8654618364688343,
+          0.8925252641838514
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_char::task_macro": {
+        "point": 0.919861381849686,
+        "bootstrap_mean": 0.919979261425168,
+        "ci95": [
+          0.9064286874593892,
+          0.9318009529997834
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_word::auroc": {
+        "point": 0.9039672859138678,
+        "bootstrap_mean": 0.9043488205297736,
+        "ci95": [
+          0.8905817570331864,
+          0.9177459240386722
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_word::task_macro": {
+        "point": 0.9328026857266623,
+        "bootstrap_mean": 0.9327140459172623,
+        "ci95": [
+          0.9205625947585011,
+          0.9433229098982022
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_base::auroc": {
+        "point": 0.9238138483889312,
+        "bootstrap_mean": 0.923866701308538,
+        "ci95": [
+          0.9116464689356776,
+          0.9362613789364755
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_base::task_macro": {
+        "point": 0.9412497292614251,
+        "bootstrap_mean": 0.9414767706302793,
+        "ci95": [
+          0.9309745235001083,
+          0.9521144682694391
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_small::auroc": {
+        "point": 0.9242601712207744,
+        "bootstrap_mean": 0.9244361275454176,
+        "ci95": [
+          0.9102882479192712,
+          0.9373402127846872
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_small::task_macro": {
+        "point": 0.9394357808100499,
+        "bootstrap_mean": 0.9399164500758068,
+        "ci95": [
+          0.9285608891054797,
+          0.9514024258176305
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lr::auroc": {
+        "point": 0.9283020923183708,
+        "bootstrap_mean": 0.9284065647929657,
+        "ci95": [
+          0.9122775193886818,
+          0.9407570404695589
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lr::task_macro": {
+        "point": 0.935672514619883,
+        "bootstrap_mean": 0.9359600931340698,
+        "ci95": [
+          0.9220631633095083,
+          0.948466942820013
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lgb::auroc": {
+        "point": 0.9448386778077965,
+        "bootstrap_mean": 0.9449904380201822,
+        "ci95": [
+          0.9345981574577553,
+          0.9547031327777968
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lgb::task_macro": {
+        "point": 0.9424951267056528,
+        "bootstrap_mean": 0.942680582629413,
+        "ci95": [
+          0.931922785358458,
+          0.9532305880441846
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::metadata_only::auroc": {
+        "point": 0.8955291086716141,
+        "bootstrap_mean": 0.8957328500570609,
+        "ci95": [
+          0.8807819587096758,
+          0.9112400048384625
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::metadata_only::task_macro": {
+        "point": 0.9030214424951266,
+        "bootstrap_mean": 0.9034502382499459,
+        "ci95": [
+          0.8861273554256011,
+          0.918523256443578
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::size_length_only::auroc": {
+        "point": 0.632947522947865,
+        "bootstrap_mean": 0.6333471520835154,
+        "ci95": [
+          0.6161489068494642,
+          0.6491127216098147
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::size_length_only::task_macro": {
+        "point": 0.690599956681828,
+        "bootstrap_mean": 0.6909279835390946,
+        "ci95": [
+          0.671361273554256,
+          0.711800140784059
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_fusion::auroc": {
+        "point": 0.9596460196046394,
+        "bootstrap_mean": 0.9598387249891388,
+        "ci95": [
+          0.9514772945331708,
+          0.9670123570785313
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_fusion::task_macro": {
+        "point": 0.9661035304310158,
+        "bootstrap_mean": 0.9662110136452242,
+        "ci95": [
+          0.9583319796404592,
+          0.9735102609919862
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_equal::auroc": {
+        "point": 0.9598911092618558,
+        "bootstrap_mean": 0.9600666292382461,
+        "ci95": [
+          0.9512470242505765,
+          0.967803653894139
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_equal::task_macro": {
+        "point": 0.965616200996318,
+        "bootstrap_mean": 0.9656817738791423,
+        "ci95": [
+          0.9573133257526533,
+          0.9739021550790556
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout_minus_seen::tfidf_char::auroc": {
+        "point": -0.02546193383972528,
+        "bootstrap_mean": -0.025543308989027326,
+        "ci95": [
+          -0.029660265836781684,
+          -0.021473309451341082
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::tfidf_word::auroc": {
+        "point": -0.024712415469400617,
+        "bootstrap_mean": -0.024624449498231164,
+        "ci95": [
+          -0.028840462307490617,
+          -0.020435304088500795
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_base::auroc": {
+        "point": -0.01139730236717329,
+        "bootstrap_mean": -0.011376440297552777,
+        "ci95": [
+          -0.014017042439142563,
+          -0.008992720298870018
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_small::auroc": {
+        "point": -0.011753853987361618,
+        "bootstrap_mean": -0.011714536096576723,
+        "ci95": [
+          -0.014089939987865953,
+          -0.009307964495564976
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::style_lr::auroc": {
+        "point": -0.007165389287238755,
+        "bootstrap_mean": -0.00713827141494629,
+        "ci95": [
+          -0.009829005632629001,
+          -0.004445551147741536
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::style_lgb::auroc": {
+        "point": -0.008332573365403939,
+        "bootstrap_mean": -0.008363378982073627,
+        "ci95": [
+          -0.01113698564420589,
+          -0.005626006957506316
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::metadata_only::auroc": {
+        "point": -0.0054085967572168325,
+        "bootstrap_mean": -0.005379649262134477,
+        "ci95": [
+          -0.007836393470862027,
+          -0.002901656508428774
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::size_length_only::auroc": {
+        "point": -0.004596539359372542,
+        "bootstrap_mean": -0.004513332370707287,
+        "ci95": [
+          -0.008325504080394388,
+          -0.00029906321286564803
+        ],
+        "frac_le_0_descriptive_only": 0.982
+      },
+      "heldout_minus_seen::P0_fusion::auroc": {
+        "point": -0.013471698161004353,
+        "bootstrap_mean": -0.013523767680337221,
+        "ci95": [
+          -0.01620362849854407,
+          -0.010690682603194165
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::P0_equal::auroc": {
+        "point": -0.012292797910594788,
+        "bootstrap_mean": -0.012273709099475998,
+        "ci95": [
+          -0.01482283010156971,
+          -0.00966973693710116
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "fusion_minus::P0_equal::auroc": {
+        "point": -0.0014239899076260443,
+        "bootstrap_mean": -0.001477962829968581,
+        "ci95": [
+          -0.004897613320717925,
+          0.001628302535633005
+        ],
+        "frac_le_0_descriptive_only": 0.798
+      },
+      "fusion_minus::metadata_only::auroc": {
+        "point": 0.056053809529237775,
+        "bootstrap_mean": 0.05596175651387512,
+        "ci95": [
+          0.04523881279709985,
+          0.06634533085203803
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "fusion_minus::size_length_only::auroc": {
+        "point": 0.3178233378551425,
+        "bootstrap_mean": 0.31748113759599345,
+        "ci95": [
+          0.30397152115180737,
+          0.3314691082536316
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout_minus_seen::tfidf_char::task_macro": {
+        "point": -0.02049491011479332,
+        "bootstrap_mean": -0.02061149014511588,
+        "ci95": [
+          -0.02822788065843631,
+          -0.013505793805501393
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::tfidf_word::task_macro": {
+        "point": -0.013293264024258122,
+        "bootstrap_mean": -0.013300790556638522,
+        "ci95": [
+          -0.020698640892354417,
+          -0.005779591726229034
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_base::task_macro": {
+        "point": -0.009313406974225558,
+        "bootstrap_mean": -0.00930360623781677,
+        "ci95": [
+          -0.014596870262074943,
+          -0.004006930907515693
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_small::task_macro": {
+        "point": -0.003194715183019392,
+        "bootstrap_mean": -0.003218919211609289,
+        "ci95": [
+          -0.00866769547325101,
+          0.0014958306259474773
+        ],
+        "frac_le_0_descriptive_only": 0.87
+      },
+      "heldout_minus_seen::style_lr::task_macro": {
+        "point": -0.001055880441845236,
+        "bootstrap_mean": -0.0008441087286116622,
+        "ci95": [
+          -0.006243908382066254,
+          0.004468540177604489
+        ],
+        "frac_le_0_descriptive_only": 0.63
+      },
+      "heldout_minus_seen::style_lgb::task_macro": {
+        "point": -0.006254061078622364,
+        "bootstrap_mean": -0.006369341563786016,
+        "ci95": [
+          -0.0128912172406324,
+          -0.000999025341130599
+        ],
+        "frac_le_0_descriptive_only": 0.994
+      },
+      "heldout_minus_seen::metadata_only::task_macro": {
+        "point": -0.001218323586744563,
+        "bootstrap_mean": -0.001266677496209669,
+        "ci95": [
+          -0.006899095733160151,
+          0.004048218540177633
+        ],
+        "frac_le_0_descriptive_only": 0.662
+      },
+      "heldout_minus_seen::size_length_only::task_macro": {
+        "point": 0.005956248646307061,
+        "bootstrap_mean": 0.0059758501191249785,
+        "ci95": [
+          -0.0034938813082087405,
+          0.014408706952566587
+        ],
+        "frac_le_0_descriptive_only": 0.08
+      },
+      "heldout_minus_seen::P0_fusion::task_macro": {
+        "point": -0.01110028156811782,
+        "bootstrap_mean": -0.011468323586744648,
+        "ci95": [
+          -0.01779429283084254,
+          -0.005316628763266305
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::P0_equal::task_macro": {
+        "point": -0.008176304959930603,
+        "bootstrap_mean": -0.008304580896686172,
+        "ci95": [
+          -0.013436755468919228,
+          -0.0031920077972709014
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "fusion_minus::P0_equal::task_macro": {
+        "point": -0.002436647173489348,
+        "bootstrap_mean": -0.002634502923976603,
+        "ci95": [
+          -0.008044996751137111,
+          0.0025219298245614907
+        ],
+        "frac_le_0_descriptive_only": 0.848
+      },
+      "fusion_minus::metadata_only::task_macro": {
+        "point": 0.05320012995451595,
+        "bootstrap_mean": 0.05255912930474334,
+        "ci95": [
+          0.04080774853801169,
+          0.06530620532813507
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "fusion_minus::size_length_only::task_macro": {
+        "point": 0.2584470435347629,
+        "bootstrap_mean": 0.25783885640025994,
+        "ci95": [
+          0.24171539961013655,
+          0.2776397011046135
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      }
+    },
+    "both_arms_legacy": {
+      "heldout::tfidf_char::auroc": {
+        "point": 0.8537119072860838,
+        "bootstrap_mean": 0.854179184525913,
+        "ci95": [
+          0.8398865325472551,
+          0.8689861269550854
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::tfidf_char::task_macro": {
+        "point": 0.897364940128098,
+        "bootstrap_mean": 0.8973119546551563,
+        "ci95": [
+          0.8840008006126427,
+          0.9113982148658684
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::tfidf_word::auroc": {
+        "point": 0.8784034349464739,
+        "bootstrap_mean": 0.8787053486610722,
+        "ci95": [
+          0.8655517203468656,
+          0.8931711334460257
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::tfidf_word::task_macro": {
+        "point": 0.915471549243479,
+        "bootstrap_mean": 0.9153331186763205,
+        "ci95": [
+          0.9034482183467929,
+          0.9271913870323959
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_base::auroc": {
+        "point": 0.9100858193784221,
+        "bootstrap_mean": 0.9101697307284347,
+        "ci95": [
+          0.8974217409453893,
+          0.9225936043847164
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_base::task_macro": {
+        "point": 0.9292734150190292,
+        "bootstrap_mean": 0.9294520734707138,
+        "ci95": [
+          0.9185516598208484,
+          0.9402277394876078
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_small::auroc": {
+        "point": 0.9092733152732383,
+        "bootstrap_mean": 0.9094744924567755,
+        "ci95": [
+          0.8956549122019908,
+          0.9224595714025154
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::sem_small::task_macro": {
+        "point": 0.9321016662025433,
+        "bootstrap_mean": 0.9324526072124757,
+        "ci95": [
+          0.9217451905226028,
+          0.9438791568040472
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lr::auroc": {
+        "point": 0.9182254491003335,
+        "bootstrap_mean": 0.9183229139355319,
+        "ci95": [
+          0.9030059042892318,
+          0.9302774802367625
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lr::task_macro": {
+        "point": 0.9297607444537269,
+        "bootstrap_mean": 0.9301619268077602,
+        "ci95": [
+          0.9177392265385687,
+          0.9414075553467001
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lgb::auroc": {
+        "point": 0.9329900653192436,
+        "bootstrap_mean": 0.9331170685472073,
+        "ci95": [
+          0.921349805756947,
+          0.94278171858469
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::style_lgb::task_macro": {
+        "point": 0.9349415204678362,
+        "bootstrap_mean": 0.934973283904205,
+        "ci95": [
+          0.9222795124385037,
+          0.9462099983755686
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::metadata_only::auroc": {
+        "point": 0.8853462169610729,
+        "bootstrap_mean": 0.8855418798308855,
+        "ci95": [
+          0.8696894569174181,
+          0.9012641812051246
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::metadata_only::task_macro": {
+        "point": 0.8991808224264366,
+        "bootstrap_mean": 0.8995385280330456,
+        "ci95": [
+          0.8837147846468022,
+          0.9136524035783904
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::size_length_only::auroc": {
+        "point": 0.6059504878179854,
+        "bootstrap_mean": 0.6063581406543215,
+        "ci95": [
+          0.5935587128491034,
+          0.6188582089157266
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::size_length_only::task_macro": {
+        "point": 0.6496623503202451,
+        "bootstrap_mean": 0.6500222547108513,
+        "ci95": [
+          0.6350949712243572,
+          0.6642030423280424
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_fusion::auroc": {
+        "point": 0.9450218504350545,
+        "bootstrap_mean": 0.9451416698626033,
+        "ci95": [
+          0.9364493680866667,
+          0.9532859749479285
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_fusion::task_macro": {
+        "point": 0.9546493548686531,
+        "bootstrap_mean": 0.9544605553234939,
+        "ci95": [
+          0.9456693672839506,
+          0.9627295234614314
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_equal::auroc": {
+        "point": 0.9444492620982823,
+        "bootstrap_mean": 0.9446132561545189,
+        "ci95": [
+          0.935657666831281,
+          0.9530571584432708
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::P0_equal::task_macro": {
+        "point": 0.9546551564095423,
+        "bootstrap_mean": 0.9546059651443423,
+        "ci95": [
+          0.9445889753318482,
+          0.9629098788638262
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_base::auroc": {
+        "point": 0.5540332787242092,
+        "bootstrap_mean": 0.5542153646312554,
+        "ci95": [
+          0.5476509493085107,
+          0.5613057159121814
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_base::task_macro": {
+        "point": 0.588653346328785,
+        "bootstrap_mean": 0.5882574781862063,
+        "ci95": [
+          0.5770233599043906,
+          0.6004626728859186
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_small::auroc": {
+        "point": 0.574918469690579,
+        "bootstrap_mean": 0.5753394879539655,
+        "ci95": [
+          0.5660623344016311,
+          0.584517084740631
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout::R2_codet5_small::task_macro": {
+        "point": 0.6165732618583496,
+        "bootstrap_mean": 0.6162777255639098,
+        "ci95": [
+          0.6029661102988955,
+          0.6288211849067112
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_char::auroc": {
+        "point": 0.8785676366481144,
+        "bootstrap_mean": 0.8790890239550938,
+        "ci95": [
+          0.8657634912910843,
+          0.8926281068156185
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_char::task_macro": {
+        "point": 0.9182930319626227,
+        "bootstrap_mean": 0.918356560769207,
+        "ci95": [
+          0.906525113903586,
+          0.9301672874315418
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_word::auroc": {
+        "point": 0.9039284789205704,
+        "bootstrap_mean": 0.9042268733955855,
+        "ci95": [
+          0.8907473889051287,
+          0.9175879471189886
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::tfidf_word::task_macro": {
+        "point": 0.9318734722608992,
+        "bootstrap_mean": 0.9317785397134813,
+        "ci95": [
+          0.9205539891395155,
+          0.9417581376280207
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_base::auroc": {
+        "point": 0.9224419592588431,
+        "bootstrap_mean": 0.9224935185026858,
+        "ci95": [
+          0.9104882447323819,
+          0.9342591874468136
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_base::task_macro": {
+        "point": 0.9386380689377766,
+        "bootstrap_mean": 0.938820732386522,
+        "ci95": [
+          0.9282976441876296,
+          0.9489389706906154
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_small::auroc": {
+        "point": 0.9216942616450158,
+        "bootstrap_mean": 0.9218664514803904,
+        "ci95": [
+          0.9082542890350741,
+          0.9341241068228112
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::sem_small::task_macro": {
+        "point": 0.9384098749961322,
+        "bootstrap_mean": 0.9387757839815589,
+        "ci95": [
+          0.9283593580788392,
+          0.9493018812463256
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lr::auroc": {
+        "point": 0.9256951252490477,
+        "bootstrap_mean": 0.9257881754622097,
+        "ci95": [
+          0.9097863375894704,
+          0.9379321493451428
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lr::task_macro": {
+        "point": 0.9338189223057644,
+        "bootstrap_mean": 0.9340857216343327,
+        "ci95": [
+          0.92146833615675,
+          0.9452255494059223
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lgb::auroc": {
+        "point": 0.9424170773207656,
+        "bootstrap_mean": 0.9426071134988581,
+        "ci95": [
+          0.9324686726121943,
+          0.9520912184246897
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::style_lgb::task_macro": {
+        "point": 0.9418714610600576,
+        "bootstrap_mean": 0.9420491583898016,
+        "ci95": [
+          0.9316125479594046,
+          0.9517811697453511
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::metadata_only::auroc": {
+        "point": 0.8907702336032847,
+        "bootstrap_mean": 0.8909597556381931,
+        "ci95": [
+          0.8754141309239726,
+          0.9061309264832357
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::metadata_only::task_macro": {
+        "point": 0.9019800659055046,
+        "bootstrap_mean": 0.9023582470837588,
+        "ci95": [
+          0.8863932835561125,
+          0.9163194927906186
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::size_length_only::auroc": {
+        "point": 0.681193566726722,
+        "bootstrap_mean": 0.6815409215701335,
+        "ci95": [
+          0.6682113659446429,
+          0.6939732236156777
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::size_length_only::task_macro": {
+        "point": 0.7268325133822211,
+        "bootstrap_mean": 0.7271232440669576,
+        "ci95": [
+          0.7128629830749715,
+          0.7424615502877564
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_fusion::auroc": {
+        "point": 0.9576352371977522,
+        "bootstrap_mean": 0.9578254738513131,
+        "ci95": [
+          0.9501416979712385,
+          0.9649033568744708
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_fusion::task_macro": {
+        "point": 0.9640720241962932,
+        "bootstrap_mean": 0.964143547526223,
+        "ci95": [
+          0.9567235266019989,
+          0.9705510641959838
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_equal::auroc": {
+        "point": 0.9572203591698907,
+        "bootstrap_mean": 0.9573924491690022,
+        "ci95": [
+          0.9490049793336222,
+          0.9648907721674502
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "seen::P0_equal::task_macro": {
+        "point": 0.9644346205018719,
+        "bootstrap_mean": 0.9644600041771094,
+        "ci95": [
+          0.956595820183174,
+          0.9718726068643833
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout_minus_seen::tfidf_char::auroc": {
+        "point": -0.02485572936203062,
+        "bootstrap_mean": -0.02490983942918085,
+        "ci95": [
+          -0.028319394452804125,
+          -0.021539143510941484
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::tfidf_word::auroc": {
+        "point": -0.025525043974096495,
+        "bootstrap_mean": -0.025521524734513346,
+        "ci95": [
+          -0.029259920499212007,
+          -0.021842916234887266
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_base::auroc": {
+        "point": -0.012356139880420947,
+        "bootstrap_mean": -0.01232378777425116,
+        "ci95": [
+          -0.014728510391385341,
+          -0.010089913960095198
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_small::auroc": {
+        "point": -0.012420946371777486,
+        "bootstrap_mean": -0.01239195902361491,
+        "ci95": [
+          -0.014527719117753305,
+          -0.01019684156084566
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::style_lr::auroc": {
+        "point": -0.007469676148714188,
+        "bootstrap_mean": -0.007465261526677861,
+        "ci95": [
+          -0.009666166953825984,
+          -0.0052153008369237915
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::style_lgb::auroc": {
+        "point": -0.009427012001522073,
+        "bootstrap_mean": -0.009490044951650666,
+        "ci95": [
+          -0.011937533825358277,
+          -0.006918020291686636
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::metadata_only::auroc": {
+        "point": -0.005424016642211815,
+        "bootstrap_mean": -0.005417875807307588,
+        "ci95": [
+          -0.0074472705242910695,
+          -0.003515719501220455
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::size_length_only::auroc": {
+        "point": -0.0752430789087366,
+        "bootstrap_mean": -0.07518278091581203,
+        "ci95": [
+          -0.07831208810190585,
+          -0.0720179408354562
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::P0_fusion::auroc": {
+        "point": -0.012613386762697743,
+        "bootstrap_mean": -0.012683803988709769,
+        "ci95": [
+          -0.014928616054069161,
+          -0.010039380757774734
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::P0_equal::auroc": {
+        "point": -0.012771097071608395,
+        "bootstrap_mean": -0.012779193014483365,
+        "ci95": [
+          -0.01511507198027211,
+          -0.01066301049714748
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "fusion_minus::P0_equal::auroc": {
+        "point": 0.0005725883367722062,
+        "bootstrap_mean": 0.0005284137080843778,
+        "ci95": [
+          -0.002216587263589051,
+          0.003232681348704241
+        ],
+        "frac_le_0_descriptive_only": 0.372
+      },
+      "fusion_minus::metadata_only::auroc": {
+        "point": 0.05967563347398164,
+        "bootstrap_mean": 0.0595997900317178,
+        "ci95": [
+          0.04892981163516334,
+          0.07013987701683276
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "fusion_minus::size_length_only::auroc": {
+        "point": 0.33907136261706905,
+        "bootstrap_mean": 0.3387835292082817,
+        "ci95": [
+          0.32824553803829476,
+          0.3497817017568288
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "heldout_minus_seen::tfidf_char::task_macro": {
+        "point": -0.02092809183452471,
+        "bootstrap_mean": -0.02104460611405055,
+        "ci95": [
+          -0.026045510187505762,
+          -0.01623541879389833
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::tfidf_word::task_macro": {
+        "point": -0.016401923017420272,
+        "bootstrap_mean": -0.016445421037160797,
+        "ci95": [
+          -0.021481607181534034,
+          -0.01159118861969743
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_base::task_macro": {
+        "point": -0.009364653918747412,
+        "bootstrap_mean": -0.009368658915808034,
+        "ci95": [
+          -0.012717122667780611,
+          -0.005867436724527489
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::sem_small::task_macro": {
+        "point": -0.006308208793588843,
+        "bootstrap_mean": -0.006323176769083218,
+        "ci95": [
+          -0.010075052600637405,
+          -0.002930189091555955
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::style_lr::task_macro": {
+        "point": -0.004058177852037437,
+        "bootstrap_mean": -0.003923794826572607,
+        "ci95": [
+          -0.0072678561759336345,
+          -0.0005048549228006945
+        ],
+        "frac_le_0_descriptive_only": 0.99
+      },
+      "heldout_minus_seen::style_lgb::task_macro": {
+        "point": -0.006929940592221406,
+        "bootstrap_mean": -0.007075874485596713,
+        "ci95": [
+          -0.011026867902781661,
+          -0.0034402895742441804
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::metadata_only::task_macro": {
+        "point": -0.0027992434790680143,
+        "bootstrap_mean": -0.002819719050713204,
+        "ci95": [
+          -0.006132011162164699,
+          0.00026534797642256447
+        ],
+        "frac_le_0_descriptive_only": 0.962
+      },
+      "heldout_minus_seen::size_length_only::task_macro": {
+        "point": -0.077170163061976,
+        "bootstrap_mean": -0.0771009893561063,
+        "ci95": [
+          -0.0823227774296854,
+          -0.07184676583433892
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::P0_fusion::task_macro": {
+        "point": -0.009422669327640132,
+        "bootstrap_mean": -0.009682992202729068,
+        "ci95": [
+          -0.01340001237662071,
+          -0.005889917695473336
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "heldout_minus_seen::P0_equal::task_macro": {
+        "point": -0.009779464092329548,
+        "bootstrap_mean": -0.009854039032767124,
+        "ci95": [
+          -0.013215716761038462,
+          -0.0068576630619759694
+        ],
+        "frac_le_0_descriptive_only": 1.0
+      },
+      "fusion_minus::P0_equal::task_macro": {
+        "point": -5.801540889249779e-06,
+        "bootstrap_mean": -0.00014540982084841226,
+        "ci95": [
+          -0.003837864336768007,
+          0.003658306646245346
+        ],
+        "frac_le_0_descriptive_only": 0.52
+      },
+      "fusion_minus::metadata_only::task_macro": {
+        "point": 0.0554685324422165,
+        "bootstrap_mean": 0.05492202729044832,
+        "ci95": [
+          0.0440772069061543,
+          0.06684622435718919
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      },
+      "fusion_minus::size_length_only::task_macro": {
+        "point": 0.304987004548408,
+        "bootstrap_mean": 0.3044383006126427,
+        "ci95": [
+          0.29192925891116667,
+          0.3174452334540054
+        ],
+        "frac_le_0_descriptive_only": 0.0
+      }
+    }
+  },
+  "fold_control_exceptions": [
+    {
+      "fold": "CodeLlama-Instruct::heldout=70b::size_mix",
+      "control": "size_length_only",
+      "point_delta": -0.01532583896388151
+    },
+    {
+      "fold": "Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix",
+      "control": "metadata_only",
+      "point_delta": -0.0028384802161347533
+    }
+  ],
+  "equivalence_established": false,
+  "confounding_eliminated": false
+}

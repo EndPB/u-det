@@ -1,0 +1,36 @@
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[B] split=task fold=-1 fit=(115m×798t)
+/root/miniconda3/envs/udet/lib/python3.12/site-packages/sklearn/linear_model/_ridge.py:227: LinAlgWarning: An ill-conditioned matrix detected: slice 0 has rcond = 2.4097422407906937e-19.
+  return linalg.solve(A, Xy, assume_a="pos", overwrite_a=True).T
+[B] interface audit: True/True/True
+    train A_only seed0
+    train A_only seed1
+    train A_only seed2
+    train zero_A seed0
+    train zero_A seed1
+    train zero_A seed2
+    train SA_full seed0
+    train SA_full seed1
+    train SA_full seed2
+    train roleblind seed0
+    train roleblind seed1
+    train roleblind seed2
+    train oracle seed0
+    train oracle seed1
+    train oracle seed2
+    train rb_shuffle seed0
+    train rb_shuffle seed1
+    train rb_shuffle seed2
+    [task_dev][A_only] mb=0.9767 ci=[0.971694635138571, 0.980858123569794]
+    [task_dev][zero_A] mb=0.9750 ci=[0.9693338418510044, 0.97976353928299]
+    [task_dev][SA_full] mb=0.9990 ci=[0.9984744469870328, 0.99941647597254]
+    [task_dev][roleblind] mb=0.9742 ci=[0.9666653953724891, 0.9804754640223747]
+    [task_dev][oracle] mb=0.9939 ci=[0.9909216882786677, 0.9961886600559368]
+    [task_dev][rb_shuffle] mb=0.9569 ci=[0.947673531655225, 0.9650406814136792]
+    [seen][A_only] mb=0.9999 ci=[0.9998692383131742, 0.9999782063855291]
+    [seen][zero_A] mb=0.9999 ci=[0.9998147542769968, 0.9999455159638226]
+    [seen][SA_full] mb=1.0000 ci=[1.0, 1.0]
+    [seen][roleblind] mb=1.0000 ci=[0.9999673095782935, 1.0]
+    [seen][oracle] mb=1.0000 ci=[1.0, 1.0]
+    [seen][rb_shuffle] mb=1.0000 ci=[0.9999673095782935, 1.0]
+[B] done task/-1 in 264.3s

@@ -1,0 +1,50 @@
+{
+  "created_utc": "2026-10-07T20:19:20.534346+00:00",
+  "type": "post_test_score_only_validation_of_existing_estimands",
+  "source_commit": "958eeb4",
+  "inputs": {
+    "d-det/artifacts/variant_transfer_stage2_2026-10-08/test_scores.npz": {
+      "sha256": "a3ae6ee38c35df40a29d1fad29817d87cab1ab9407e5ce0c0e32fc5b505646d2",
+      "bytes": 5445233
+    },
+    "d-det/artifacts/variant_transfer_stage2_2026-10-08/test_rows_index.csv": {
+      "sha256": "b75cfbbd65d5e89ea9d7535f4684a33755d3009f44a9441c9f2059379bab538a",
+      "bytes": 116195
+    },
+    "d-det/artifacts/variant_transfer_stage2_2026-10-08/stage2_metrics.json": {
+      "sha256": "ab5124a76964e11b29d62cfc3e518dbc22b620ece492a313b4f736481a640e08",
+      "bytes": 433313
+    },
+    "d-det/artifacts/variant_transfer_preflight_2026-10-08/r1_negative_set_amendment.json": {
+      "sha256": "4d0d1631a6ff06724c10ea2c3b38997e48fec2a1ae14e08fc907ee9eef6cb6ef",
+      "bytes": 27131
+    },
+    "scripts/variant_transfer_stage1_execute.py": {
+      "sha256": "75869b2fd91709a8ab2dae5d4a5a8398a7c670a6e69dd2e03ef9b3c8e8c6476f",
+      "bytes": 30459
+    },
+    "scripts/variant_transfer_stage2_evaluate.py": {
+      "sha256": "67c0401f5dde7441adee0badd24e1f64f614e2a4b5112b80a09fffefa4498e61",
+      "bytes": 21152
+    },
+    "scripts/variant_transfer_stage2_report.py": {
+      "sha256": "e5110aff698783240451c4877066d4cda8522f9dfabfd88d7fae1f38849339b3",
+      "bytes": 6029
+    },
+    "d-det/artifacts/variant_transfer_stage2_2026-10-08/test_access_ledger.json": {
+      "sha256": "694de9d3a1b62990024f833605ea34e17710f74477cbcf4ca7087b48f7a4c73b",
+      "bytes": 1370
+    }
+  },
+  "allowed_inputs": "saved predictions and metadata only; no raw code, model inference, training or new test acquisition",
+  "statistics": [
+    "point estimators separate from bootstrap mean",
+    "main size_mix separate from sensitivity size_matched",
+    "series-equal shared-task bootstrap 500 seed 20261008",
+    "paired control deltas of same aggregate",
+    "invalid R2 cosine excluded; radial separate",
+    "fold exceptions all retained"
+  ],
+  "new_hypothesis": false,
+  "equivalence_test": false
+}

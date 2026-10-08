@@ -1,0 +1,584 @@
+{
+ "schema": "endpoint_balanced_construction_audit_v1",
+ "generated_utc": "2026-10-08T11:29:43.714579+00:00",
+ "n_folds": 48,
+ "all_passed": true,
+ "folds": [
+  {
+   "fold_id": 0,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 1,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 2,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 3,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 4,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 5,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 6,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 7,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 8,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 9,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 10,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 11,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 12,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 13,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 14,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 15,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 16,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 17,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 18,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 19,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 20,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 21,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 22,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 23,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 24,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 25,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 26,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 27,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 28,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 29,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 30,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 31,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 32,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 33,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 34,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 35,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 36,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 37,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 38,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 39,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 40,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 41,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 42,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 43,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 44,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 45,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 46,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  },
+  {
+   "fold_id": 47,
+   "checks": {
+    "heldout_excluded": true,
+    "train_pos_endpoint": true,
+    "train_neg_endpoint": true,
+    "eval_anchor_balanced": true,
+    "eval_partner_balanced": true,
+    "partner_pos_equals_other_anchor_negs": true
+   },
+   "passed": true
+  }
+ ]
+}

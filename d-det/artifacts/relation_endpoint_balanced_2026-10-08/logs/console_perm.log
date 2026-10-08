@@ -1,0 +1,15 @@
+nohup: ignoring input
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[A] tasks train=798 dev=171; members=11; folds=48
+/root/miniconda3/envs/udet/lib/python3.12/site-packages/sklearn/linear_model/_logistic.py:599: ConvergenceWarning: lbfgs failed to converge after 2000 iteration(s) (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT
+
+Increase the number of iterations to improve the convergence (max_iter=2000).
+You might also want to scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+[A] fold0 (codellama--CodeLlama...) endpoint(anchor/partner)=0.500/0.500 compose=0.8075 q=0.6275 P0c=0.7847 P0p=0.6947 resid=0.8021 gamma=[1.038195013999939, 1.0394337177276611, 1.0355210304260254] (17s)
+[A] permutation fold0: q p=0.048 resid p=0.143
+[A] folds done in 129.2s

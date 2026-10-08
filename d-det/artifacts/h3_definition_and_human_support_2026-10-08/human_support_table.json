@@ -1,0 +1,170 @@
+{
+ "schema": "h3_human_support_table_v1",
+ "generated_utc": "2026-10-08T11:43:02.988539+00:00",
+ "h3_original_definition": "Human/AI detection（检测轴）与 来源归因（归因轴）的任务分离",
+ "label_rename_note": "已完成四配置的“检测”分支实为 protocol_direction（complete/instruct 均为 AI 生成），应称 protocol_direction_plus_relation_multitask；D、F 与协议方向 R0 分开报告。",
+ "sources": [
+  {
+   "name": "public_same_task_full_2026-10-07 (BCC)",
+   "path": "d-det/data/public_same_task_full_2026-10-07",
+   "has_human": false,
+   "human_evidence": "全部 rows 为机器输出（complete/instruct 双协议）；used records 字段含 solution；无 human 行",
+   "same_task_human_ai": false,
+   "verdict": "not_applicable_no_human"
+  },
+  {
+   "name": "DroidCollection (h2_droid_full_selected)",
+   "path": "d-det/data/h2_droid_full_selected",
+   "rows": {
+    "source": "project-droid/DroidCollection",
+    "source_revision": "9a42843be99456a3af70d2b9c9a53a4d7624598f",
+    "mirror": "https://hf-mirror.com",
+    "selected_families": {
+     "qwen": [
+      "Qwen/Qwen2.5-72B-Instruct",
+      "Qwen/Qwen2.5-Codder-14B-Instruct",
+      "Qwen/Qwen2.5-Coder-1.5B",
+      "Qwen/Qwen2.5-Coder-1.5B-Instruct",
+      "Qwen/Qwen2.5-Coder-32B-Instruct",
+      "Qwen/Qwen2.5-Coder-7B",
+      "Qwen/Qwen2.5-Coder-7B-Instruct"
+     ],
+     "meta-llama": [
+      "meta-llama/Llama-3.1-8B",
+      "meta-llama/Llama-3.1-8B-Instruct",
+      "meta-llama/Llama-3.2-1B",
+      "meta-llama/Llama-3.2-3B",
+      "meta-llama/Llama-3.3-70B-Instruct",
+      "meta-llama/Llama-3.3-70B-Instruct-Turbo"
+     ],
+     "microsoft": [
+      "microsoft/Phi-3-medium-4k-instruct",
+      "microsoft/Phi-3-mini-4k-instruct",
+      "microsoft/Phi-3-small-8k-instruct",
+      "microsoft/Phi-3.5-mini-instruct",
+      "microsoft/phi-2",
+      "microsoft/phi-4"
+     ],
+     "01-ai": [
+      "01-ai/Yi-Coder-1.5B",
+      "01-ai/Yi-Coder-1.5B-Chat",
+      "01-ai/Yi-Coder-9B",
+      "01-ai/Yi-Coder-9B-Chat"
+     ],
+     "codellama": [
+      "codellama/CodeLlama-34b-Instruct-hf",
+      "codellama/CodeLlama-70b-Instruct-hf",
+      "codellama/CodeLlama-7b-hf"
+     ],
+     "deepseek-ai": [
+      "deepseek-ai/deepseek-coder-1.3b-base",
+      "deepseek-ai/deepseek-coder-1.3b-instruct",
+      "deepseek-ai/deepseek-coder-6.7b-base",
+      "deepseek-ai/deepseek-coder-6.7b-instruct"
+     ],
+     "ibm-granite": [
+      "ibm-granite/granite-8b-code-base-4k",
+      "ibm-granite/granite-8b-code-instruct-4k"
+     ]
+    },
+    "counts_all_source": {
+     "train|MACHINE_GENERATED": 212193,
+     "train|MACHINE_REFINED": 105842,
+     "train|HUMAN_GENERATED": 399448,
+     "train|MACHINE_GENERATED_ADVERSARIAL": 129115,
+     "dev|MACHINE_GENERATED": 26524,
+     "dev|HUMAN_GENERATED": 49930,
+     "dev|MACHINE_REFINED": 13231,
+     "dev|MACHINE_GENERATED_ADVERSARIAL": 16139,
+     "test|MACHINE_GENERATED": 26524,
+     "test|MACHINE_REFINED": 13230,
+     "test|HUMAN_GENERATED": 49932,
+     "test|MACHINE_GENERATED_ADVERSARIAL": 16140
+    },
+    "counts_selected_output": {
+     "train": 107599,
+     "dev": 19609,
+     "test": 19510
+    },
+    "diagnostic_rows": 2000,
+    "diagnostic_counts_by_label": {
+     "MACHINE_REFINED": 1000,
+     "MACHINE_GENERATED_ADVERSARIAL": 1000
+    },
+    "columns": [
+     "Code",
+     "Generator",
+     "Generation_Mode",
+     "Source",
+     "Language",
+     "Sampling_Params",
+     "Rewriting_Params",
+     "Label",
+     "Model_Family",
+     "split_source",
+     "source_row_sha1"
+    ],
+    "notes": [
+     "Streaming row-group selection; raw shards deleted after each pass.",
+     "DroidCollection has no public task_id/prompt_id; this subset is H2 candidate, not proof of same-task pairing.",
+     "Primary core keeps HUMAN_GENERATED and MACHINE_GENERATED; refined/adversarial rows are diagnostic only.",
+     "Rebuild generator-held-out folds on the server after inspecting per-generator counts."
+    ]
+   },
+   "has_human": true,
+   "human_evidence": "HUMAN_GENERATED 21,000（controls，每 family/source ≤1000）",
+   "same_task_human_ai": false,
+   "same_task_evidence": "README 明示：DroidCollection does not expose a public task_id/prompt_id, so results must not be described as same-task paired generalization",
+   "verdict": "not_same_task"
+  },
+  {
+   "name": "CoDET-M4",
+   "path": "d-det/data/codet_m4",
+   "rows": 500552,
+   "has_human": true,
+   "human_evidence": "target=human 246221 行",
+   "same_task_human_ai": false,
+   "same_task_evidence": "audit role=external structural/source-fingerprint control; not a same-task semantic-pair corpus",
+   "verdict": "not_same_task"
+  },
+  {
+   "name": "STACAD-v2 alignment (h2_stacad_alignment_v1)",
+   "path": "d-det/data/h2_stacad_alignment_v1",
+   "rows": 22260,
+   "tasks": 3180,
+   "has_human": true,
+   "human_evidence": "task_index 每任务含 human_sha256 + human_code（原作者版本）；tasks=3180",
+   "ai_units": {
+    "generators": 7,
+    "families": 7,
+    "per_task": 7,
+    "languages": [
+     "c",
+     "cpp",
+     "cs",
+     "go",
+     "java",
+     "php",
+     "py"
+    ]
+   },
+   "same_task_human_ai": true,
+   "same_task_evidence": "task_index: 同 file 的 human_code + 7 个模型输出；pairs: 66780 same_task_cross_generator；splits 无重叠（no_task_split_overlap=true）",
+   "splits": {
+    "train": 2100,
+    "dev": 660,
+    "test": 420
+   },
+   "verdict": "support_candidate"
+  }
+ ],
+ "conclusion": {
+  "h3_on_bcc": "H3_original_unavailable（当前同题全 machine 集无 human；不得把协议方向 D 当检测轴）",
+  "human_support_candidate": "STACAD-v2（同题 human×AI + 7 generator/7 family 归因轴）",
+  "next_requirements": [
+   "检测轴（human vs AI）与归因轴（generator）在同一 STACAD 任务集上的分离设计验证（另行立项）",
+   "许可与使用条款复核；语言/难度分层；test 轴策略须预先冻结",
+   "不得在无同题支持的数据（Droid/CoDET-M4/BCC 拼接）上写“检测轴与归因轴分离”"
+  ]
+ }
+}

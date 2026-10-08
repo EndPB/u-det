@@ -1,0 +1,55 @@
+{
+ "schema": "f2_balanced_partial_v1",
+ "folds_done": [
+  0
+ ],
+ "metrics": {
+  "0": {
+   "endpoint_anchor_size": {
+    "weighted_auc": 0.4999999999994999,
+    "weighted_ap": 0.4999999999995417,
+    "unweighted_auc": 0.5625
+   },
+   "endpoint_partner_size": {
+    "weighted_auc": 0.49999999999949984,
+    "weighted_ap": 0.49999999999930844,
+    "unweighted_auc": 0.5
+   },
+   "endpoint_unorm_diff": {
+    "weighted_auc": 0.503399405155702,
+    "weighted_ap": 0.4936470915845048,
+    "unweighted_auc": 0.5085804980592319
+   },
+   "compose": {
+    "weighted_auc": 0.8074504089252561,
+    "weighted_ap": 0.8121967493864877,
+    "unweighted_auc": 0.8132416812010533
+   },
+   "q_sym": {
+    "weighted_auc": 0.6275182909497068,
+    "weighted_ap": 0.6075598744926837,
+    "unweighted_auc": 0.6304485247597552
+   },
+   "P0_compose": {
+    "weighted_auc": 0.7846674148120761,
+    "weighted_ap": 0.7652094482435299,
+    "unweighted_auc": 0.8017739432645943
+   },
+   "P0_pair": {
+    "weighted_auc": 0.6946653101232054,
+    "weighted_ap": 0.6493268082995246,
+    "unweighted_auc": 0.6894316841079305
+   },
+   "residual": {
+    "weighted_auc": 0.8021457800028186,
+    "weighted_ap": 0.8093569120510876,
+    "unweighted_auc": 0.807590102510174
+   },
+   "residual_gammas": [
+    1.038195013999939,
+    1.0394337177276611,
+    1.0355210304260254
+   ]
+  }
+ }
+}

@@ -1,0 +1,266 @@
+{
+ "schema": "r1_swap_validated_v1",
+ "generated_utc": "2026-10-08T11:40:23.109237+00:00",
+ "report_first_line": "更正性重跑 — [S;D]↔[S;-D] 交换修正",
+ "protocol": "pos=[S;D] vs neg=[S;-D]（只反 D）; old 接口以 sign-construction diagnostic 并列",
+ "per_edge": {
+  "E1_Athene70B_Llama3": {
+   "complete": {
+    "swap_direction": 0.9415204678362573,
+    "old_sd_diagnostic": 1.0,
+    "side": 0.7894736842105263,
+    "p0": 0.7719298245614035,
+    "swap_ci95": [
+     0.8975146198830409,
+     0.9766081871345029
+    ]
+   },
+   "instruct": {
+    "swap_direction": 0.9649122807017544,
+    "old_sd_diagnostic": 1.0,
+    "side": 0.7777777777777778,
+    "p0": 0.8187134502923976,
+    "swap_ci95": [
+     0.935672514619883,
+     0.9883040935672515
+    ]
+   }
+  },
+  "E2_AtheneV2Agent_Qwen72B": {
+   "complete": {
+    "swap_direction": 1.0,
+    "old_sd_diagnostic": 1.0,
+    "side": 1.0,
+    "p0": 1.0,
+    "swap_ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "instruct": {
+    "swap_direction": 0.9941520467836257,
+    "old_sd_diagnostic": 1.0,
+    "side": 1.0,
+    "p0": 1.0,
+    "swap_ci95": [
+     0.9824561403508771,
+     1.0
+    ]
+   }
+  },
+  "E3_AtheneV2Chat_Qwen72B": {
+   "complete": {
+    "swap_direction": 1.0,
+    "old_sd_diagnostic": 1.0,
+    "side": 1.0,
+    "p0": 1.0,
+    "swap_ci95": [
+     1.0,
+     1.0
+    ]
+   },
+   "instruct": {
+    "swap_direction": 0.9941520467836257,
+    "old_sd_diagnostic": 1.0,
+    "side": 1.0,
+    "p0": 1.0,
+    "swap_ci95": [
+     0.9824561403508771,
+     1.0
+    ]
+   }
+  },
+  "E4_SkyT1Flash_Qwen32B": {
+   "complete": {
+    "swap_direction": 0.9883040935672515,
+    "old_sd_diagnostic": 1.0,
+    "side": 0.9824561403508771,
+    "p0": 0.7953216374269005,
+    "swap_ci95": [
+     0.9707602339181286,
+     1.0
+    ]
+   },
+   "instruct": {
+    "swap_direction": 0.9941520467836257,
+    "old_sd_diagnostic": 1.0,
+    "side": 0.9941520467836257,
+    "p0": 0.8654970760233918,
+    "swap_ci95": [
+     0.9766081871345029,
+     1.0
+    ]
+   }
+  },
+  "E5_SkyT1Flash_SkyT1Preview": {
+   "complete": {
+    "swap_direction": 0.391812865497076,
+    "old_sd_diagnostic": 1.0,
+    "side": 0.3508771929824561,
+    "p0": 0.24561403508771928,
+    "swap_ci95": [
+     0.3216374269005848,
+     0.4619883040935672
+    ]
+   },
+   "instruct": {
+    "swap_direction": 0.38011695906432746,
+    "old_sd_diagnostic": 1.0,
+    "side": 0.3742690058479532,
+    "p0": 0.3157894736842105,
+    "swap_ci95": [
+     0.30687134502923974,
+     0.4502923976608187
+    ]
+   }
+  },
+  "E6_SkyT1Preview_Qwen32B": {
+   "complete": {
+    "swap_direction": 0.9824561403508771,
+    "old_sd_diagnostic": 1.0,
+    "side": 0.9766081871345029,
+    "p0": 0.7894736842105263,
+    "swap_ci95": [
+     0.9590643274853801,
+     1.0
+    ]
+   },
+   "instruct": {
+    "swap_direction": 0.9941520467836257,
+    "old_sd_diagnostic": 1.0,
+    "side": 0.9883040935672515,
+    "p0": 0.8187134502923976,
+    "swap_ci95": [
+     0.9766081871345029,
+     1.0
+    ]
+   }
+  },
+  "E7_QwQ32B_Qwen32B": {
+   "complete": {
+    "swap_direction": 0.9649122807017544,
+    "old_sd_diagnostic": 1.0,
+    "side": 0.9707602339181286,
+    "p0": 0.8654970760233918,
+    "swap_ci95": [
+     0.935672514619883,
+     0.9883040935672515
+    ]
+   },
+   "instruct": {
+    "swap_direction": 0.9941520467836257,
+    "old_sd_diagnostic": 1.0,
+    "side": 0.9883040935672515,
+    "p0": 0.8304093567251462,
+    "swap_ci95": [
+     0.9824561403508771,
+     1.0
+    ]
+   }
+  }
+ },
+ "edge_heldout_swap": {
+  "E1_Athene70B_Llama3": {
+   "instruct_swap": 0.5263157894736842
+  },
+  "E2_AtheneV2Agent_Qwen72B": {
+   "instruct_swap": 0.9941520467836257
+  },
+  "E3_AtheneV2Chat_Qwen72B": {
+   "instruct_swap": 0.9883040935672515
+  },
+  "E4_SkyT1Flash_Qwen32B": {
+   "instruct_swap": 0.9883040935672515
+  },
+  "E5_SkyT1Flash_SkyT1Preview": {
+   "instruct_swap": 0.3684210526315789
+  },
+  "E6_SkyT1Preview_Qwen32B": {
+   "instruct_swap": 0.9883040935672515
+  },
+  "E7_QwQ32B_Qwen32B": {
+   "instruct_swap": 0.9941520467836257
+  }
+ },
+ "edge_heldout_mean": 0.8354218880534668,
+ "evidence_table": {
+  "E1_Athene70B_Llama3": {
+   "child": "Nexusflow--Athene-70B",
+   "base": "meta-llama--Meta-Llama-3-70B-Instruct",
+   "child_level": "partial",
+   "documented_base_relation": {
+    "ok": true,
+    "evidence": "HF cardData.base_model=['meta-llama/Meta-Llama-3-70B-Instruct']"
+   },
+   "relation_type_note": "post-training or further training on documented base; specifics unverified",
+   "version_evidence": "partial (HF cardData.base_model; training steps/data unverified)"
+  },
+  "E2_AtheneV2Agent_Qwen72B": {
+   "child": "Nexusflow--Athene-V2-Agent",
+   "base": "Qwen--Qwen2.5-72B-Instruct",
+   "child_level": "partial",
+   "documented_base_relation": {
+    "ok": true,
+    "evidence": "HF cardData.base_model=['Qwen/Qwen2.5-72B-Instruct']"
+   },
+   "relation_type_note": "post-training or further training on documented base; specifics unverified",
+   "version_evidence": "partial (HF cardData.base_model; training steps/data unverified)"
+  },
+  "E3_AtheneV2Chat_Qwen72B": {
+   "child": "Nexusflow--Athene-V2-Chat",
+   "base": "Qwen--Qwen2.5-72B-Instruct",
+   "child_level": "partial",
+   "documented_base_relation": {
+    "ok": true,
+    "evidence": "HF cardData.base_model=['Qwen/Qwen2.5-72B-Instruct']"
+   },
+   "relation_type_note": "post-training or further training on documented base; specifics unverified",
+   "version_evidence": "partial (HF cardData.base_model; training steps/data unverified)"
+  },
+  "E4_SkyT1Flash_Qwen32B": {
+   "child": "NovaSky-AI--Sky-T1-32B-Flash",
+   "base": "Qwen--Qwen2.5-32B-Instruct",
+   "child_level": "partial",
+   "documented_base_relation": {
+    "ok": true,
+    "evidence": "HF cardData.base_model=['Qwen/Qwen2.5-32B-Instruct', 'NovaSky-AI/Sky-T1-32B-Preview']"
+   },
+   "relation_type_note": "post-training or further training on documented base; specifics unverified",
+   "version_evidence": "partial (HF cardData.base_model; training steps/data unverified)"
+  },
+  "E5_SkyT1Flash_SkyT1Preview": {
+   "child": "NovaSky-AI--Sky-T1-32B-Flash",
+   "base": "NovaSky-AI--Sky-T1-32B-Preview",
+   "child_level": "partial",
+   "documented_base_relation": {
+    "ok": true,
+    "evidence": "HF cardData.base_model=['Qwen/Qwen2.5-32B-Instruct', 'NovaSky-AI/Sky-T1-32B-Preview']"
+   },
+   "relation_type_note": "same-repo iteration (Sky-T1 Preview -> Flash)",
+   "version_evidence": "partial (HF cardData.base_model; training steps/data unverified)"
+  },
+  "E6_SkyT1Preview_Qwen32B": {
+   "child": "NovaSky-AI--Sky-T1-32B-Preview",
+   "base": "Qwen--Qwen2.5-32B-Instruct",
+   "child_level": "partial",
+   "documented_base_relation": {
+    "ok": true,
+    "evidence": "HF cardData.base_model=['Qwen/Qwen2.5-32B-Instruct']"
+   },
+   "relation_type_note": "post-training or further training on documented base; specifics unverified",
+   "version_evidence": "partial (HF cardData.base_model; training steps/data unverified)"
+  },
+  "E7_QwQ32B_Qwen32B": {
+   "child": "Qwen--QwQ-32B-Preview",
+   "base": "Qwen--Qwen2.5-32B-Instruct",
+   "child_level": "partial",
+   "documented_base_relation": {
+    "ok": true,
+    "evidence": "HF cardData.base_model=['Qwen/Qwen2.5-32B-Instruct']"
+   },
+   "relation_type_note": "post-training or further training on documented base; specifics unverified",
+   "version_evidence": "partial (HF cardData.base_model; training steps/data unverified)"
+  }
+ },
+ "note": "旧 [S;D]/-[S;D] 的 ~1.0 SD 数字降级为 sign-construction diagnostic；所有边仍 partial；不得写 verified post-training effect。"
+}

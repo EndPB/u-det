@@ -1,0 +1,82 @@
+{
+ "schema": "h3_cos_stats_v1",
+ "generated_utc": "2026-10-08T11:44:37.208302+00:00",
+ "m_cos_threshold": 0.3,
+ "n_folds": 14,
+ "n_batches_total": 58,
+ "activation_rate": 0.0,
+ "penalty_mean": 0.0,
+ "negative_cos_rate": 0.1724137931034483,
+ "cos": {
+  "mean": 0.07102921640436197,
+  "std": 0.07781547729643588,
+  "p05": -0.019550218246877193,
+  "p50": 0.04925372079014778,
+  "p95": 0.2244816109538078
+ },
+ "grad_norms": {
+  "gd_mean": 0.1746880546982946,
+  "gf_mean": 0.0224265206267993,
+  "gd_median": 0.17340952157974243,
+  "gf_median": 0.020855076611042023
+ },
+ "note": "c2/c3 输出相同不能证明梯度分离有效；本统计给出实际激活证据（cos>m 比例、罚项均值、梯度范数）。正对齐惩罚的目的与效果需在正式协议前重新论证。",
+ "records": {
+  "MHO::CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf": {
+   "n": 4,
+   "activation_rate": 0.0
+  },
+  "MHO::CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf": {
+   "n": 4,
+   "activation_rate": 0.0
+  },
+  "MHO::CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf": {
+   "n": 4,
+   "activation_rate": 0.0
+  },
+  "MHO::CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf": {
+   "n": 4,
+   "activation_rate": 0.0
+  },
+  "MHO::Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+   "n": 4,
+   "activation_rate": 0.0
+  },
+  "MHO::Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct": {
+   "n": 4,
+   "activation_rate": 0.0
+  },
+  "MHO::Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct": {
+   "n": 4,
+   "activation_rate": 0.0
+  },
+  "MHO::Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct": {
+   "n": 4,
+   "activation_rate": 0.0
+  },
+  "MHO::DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct": {
+   "n": 2,
+   "activation_rate": 0.0
+  },
+  "MHO::DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct": {
+   "n": 2,
+   "activation_rate": 0.0
+  },
+  "MHO::DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct": {
+   "n": 2,
+   "activation_rate": 0.0
+  },
+  "SHO::CodeLlama-Instruct": {
+   "n": 6,
+   "activation_rate": 0.0
+  },
+  "SHO::Qwen2.5-Coder-Instruct": {
+   "n": 6,
+   "activation_rate": 0.0
+  },
+  "SHO::DeepSeek-Coder-v1-Instruct": {
+   "n": 8,
+   "activation_rate": 0.0
+  }
+ }
+}

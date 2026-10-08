@@ -1,0 +1,1 @@
+python scripts/build_endpoint_balanced_relation_plan.py --members-json d-det/artifacts/f0_series_member_holdout_fix_2026-10-08/metrics_f0b_fix.json --out d-det/artifacts/endpoint_balanced_relation_plan_2026-10-08  # 服务器重建脚本（上传版不在服务器）

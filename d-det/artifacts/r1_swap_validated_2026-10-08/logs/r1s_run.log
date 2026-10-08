@@ -1,0 +1,8 @@
+[r1s] readouts fitted (swap / old-diagnostic / side / p0)
+[r1s] E1_Athene70B_Llama3: swap=0.965 (old=1.000) side=0.778 p0=0.819
+[r1s] E2_AtheneV2Agent_Qwen72B: swap=0.994 (old=1.000) side=1.000 p0=1.000
+[r1s] E3_AtheneV2Chat_Qwen72B: swap=0.994 (old=1.000) side=1.000 p0=1.000
+[r1s] E4_SkyT1Flash_Qwen32B: swap=0.994 (old=1.000) side=0.994 p0=0.865
+[r1s] E5_SkyT1Flash_SkyT1Preview: swap=0.380 (old=1.000) side=0.374 p0=0.316
+[r1s] E6_SkyT1Preview_Qwen32B: swap=0.994 (old=1.000) side=0.988 p0=0.819
+[r1s] E7_QwQ32B_Qwen32B: swap=0.994 (old=1.000) side=0.988 p0=0.830

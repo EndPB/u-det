@@ -1,0 +1,696 @@
+{
+ "schema": "variant_transfer_r1_negative_set_amendment_v1",
+ "created_utc": "2026-10-07T17:48:44.371839+00:00",
+ "amends": "variant_transfer_registration.json（811ecfe）readouts.R1_series_membership 的负集选择；原注册版全文保留、不改写",
+ "registry_policy": {
+  "original_kept": "R1 原注册版=负集为另外两个 series 全体成员；结果命名 series-transfer-with-size-mix",
+  "no_silent_rewrite": true,
+  "amendment_role": "size-matched 匹配控制版为预注册 amendment 敏感性分析；结果命名 series-transfer-size-matched",
+  "main_result_default": "series-transfer-with-size-mix（除非指导端另行把匹配版升级为主结果；升级需新 prereg 版本并保留原注册结果）",
+  "decision_timing": "两版本并行报告；不得看完 dev/test 后决定采用哪一个",
+  "change_log": [
+   "2026-10-08: 首次写入 amendment（执行前，未读任何 train/dev/test 数据内容）"
+  ]
+ },
+ "size_buckets": {
+  "A_lt2B": {
+   "lo": null,
+   "hi": 2.0
+  },
+  "B_2to10B": {
+   "lo": 2.0,
+   "hi": 10.0
+  },
+  "C_10to40B": {
+   "lo": 10.0,
+   "hi": 40.0
+  },
+  "D_ge40B": {
+   "lo": 40.0,
+   "hi": null
+  }
+ },
+ "member_param_sizes_B": {
+  "codellama--CodeLlama-7b-Instruct-hf": 7.0,
+  "codellama--CodeLlama-13b-Instruct-hf": 13.0,
+  "codellama--CodeLlama-34b-Instruct-hf": 34.0,
+  "codellama--CodeLlama-70b-Instruct-hf": 70.0,
+  "Qwen--Qwen2.5-Coder-1.5B-Instruct": 1.5,
+  "Qwen--Qwen2.5-Coder-7B-Instruct": 7.0,
+  "Qwen--Qwen2.5-Coder-14B-Instruct": 14.0,
+  "Qwen--Qwen2.5-Coder-32B-Instruct": 32.0,
+  "deepseek-ai--deepseek-coder-1.3b-instruct": 1.3,
+  "deepseek-ai--deepseek-coder-6.7b-instruct": 6.7,
+  "deepseek-ai--deepseek-coder-33b-instruct": 33.0
+ },
+ "member_size_buckets": {
+  "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+  "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+  "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+  "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B",
+  "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+  "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+  "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+  "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+  "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+  "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+  "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B"
+ },
+ "size_matched_arm": {
+  "member_selection_rule": "每折：正集=目标 series 的已见尺寸成员（按参数升序）；负池=另外两个 series 全体；穷举选择 |正集| 个负成员并一一匹配，最小化 Σ|log10(size_pos)-log10(size_neg)|；平局按 (总距离, 成员名升序) 取小；|正集|≥2 时要求每个负 series 至少 1 名成员",
+  "pure_metadata": true,
+  "per_fold": {
+   "CodeLlama-Instruct::heldout=7b": {
+    "heldout_member": "codellama--CodeLlama-7b-Instruct-hf",
+    "heldout_size": 7.0,
+    "positive_seen_members": [
+     "codellama--CodeLlama-13b-Instruct-hf",
+     "codellama--CodeLlama-34b-Instruct-hf",
+     "codellama--CodeLlama-70b-Instruct-hf"
+    ],
+    "negative_pool": [
+     "deepseek-ai--deepseek-coder-1.3b-instruct",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+     "deepseek-ai--deepseek-coder-6.7b-instruct",
+     "Qwen--Qwen2.5-Coder-7B-Instruct",
+     "Qwen--Qwen2.5-Coder-14B-Instruct",
+     "Qwen--Qwen2.5-Coder-32B-Instruct",
+     "deepseek-ai--deepseek-coder-33b-instruct"
+    ],
+    "size_matched_negatives": {
+     "selected": [
+      "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "Qwen--Qwen2.5-Coder-32B-Instruct",
+      "deepseek-ai--deepseek-coder-33b-instruct"
+     ],
+     "assignment": [
+      {
+       "positive": "codellama--CodeLlama-13b-Instruct-hf",
+       "negative": "Qwen--Qwen2.5-Coder-14B-Instruct",
+       "abs_log10_size_diff": 0.0322
+      },
+      {
+       "positive": "codellama--CodeLlama-34b-Instruct-hf",
+       "negative": "Qwen--Qwen2.5-Coder-32B-Instruct",
+       "abs_log10_size_diff": 0.0263
+      },
+      {
+       "positive": "codellama--CodeLlama-70b-Instruct-hf",
+       "negative": "deepseek-ai--deepseek-coder-33b-instruct",
+       "abs_log10_size_diff": 0.3266
+      }
+     ],
+     "total_abs_log10_size_diff": 0.3851
+    },
+    "original_arm_negatives": "负池全体（size-mix 原注册版）",
+    "size_bucket_strata": {
+     "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+     "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B",
+     "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+     "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+     "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B"
+    }
+   },
+   "CodeLlama-Instruct::heldout=13b": {
+    "heldout_member": "codellama--CodeLlama-13b-Instruct-hf",
+    "heldout_size": 13.0,
+    "positive_seen_members": [
+     "codellama--CodeLlama-7b-Instruct-hf",
+     "codellama--CodeLlama-34b-Instruct-hf",
+     "codellama--CodeLlama-70b-Instruct-hf"
+    ],
+    "negative_pool": [
+     "deepseek-ai--deepseek-coder-1.3b-instruct",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+     "deepseek-ai--deepseek-coder-6.7b-instruct",
+     "Qwen--Qwen2.5-Coder-7B-Instruct",
+     "Qwen--Qwen2.5-Coder-14B-Instruct",
+     "Qwen--Qwen2.5-Coder-32B-Instruct",
+     "deepseek-ai--deepseek-coder-33b-instruct"
+    ],
+    "size_matched_negatives": {
+     "selected": [
+      "Qwen--Qwen2.5-Coder-7B-Instruct",
+      "Qwen--Qwen2.5-Coder-32B-Instruct",
+      "deepseek-ai--deepseek-coder-33b-instruct"
+     ],
+     "assignment": [
+      {
+       "positive": "codellama--CodeLlama-7b-Instruct-hf",
+       "negative": "Qwen--Qwen2.5-Coder-7B-Instruct",
+       "abs_log10_size_diff": 0.0
+      },
+      {
+       "positive": "codellama--CodeLlama-34b-Instruct-hf",
+       "negative": "Qwen--Qwen2.5-Coder-32B-Instruct",
+       "abs_log10_size_diff": 0.0263
+      },
+      {
+       "positive": "codellama--CodeLlama-70b-Instruct-hf",
+       "negative": "deepseek-ai--deepseek-coder-33b-instruct",
+       "abs_log10_size_diff": 0.3266
+      }
+     ],
+     "total_abs_log10_size_diff": 0.3529
+    },
+    "original_arm_negatives": "负池全体（size-mix 原注册版）",
+    "size_bucket_strata": {
+     "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+     "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B",
+     "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+     "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+     "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B"
+    }
+   },
+   "CodeLlama-Instruct::heldout=34b": {
+    "heldout_member": "codellama--CodeLlama-34b-Instruct-hf",
+    "heldout_size": 34.0,
+    "positive_seen_members": [
+     "codellama--CodeLlama-7b-Instruct-hf",
+     "codellama--CodeLlama-13b-Instruct-hf",
+     "codellama--CodeLlama-70b-Instruct-hf"
+    ],
+    "negative_pool": [
+     "deepseek-ai--deepseek-coder-1.3b-instruct",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+     "deepseek-ai--deepseek-coder-6.7b-instruct",
+     "Qwen--Qwen2.5-Coder-7B-Instruct",
+     "Qwen--Qwen2.5-Coder-14B-Instruct",
+     "Qwen--Qwen2.5-Coder-32B-Instruct",
+     "deepseek-ai--deepseek-coder-33b-instruct"
+    ],
+    "size_matched_negatives": {
+     "selected": [
+      "Qwen--Qwen2.5-Coder-7B-Instruct",
+      "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "deepseek-ai--deepseek-coder-33b-instruct"
+     ],
+     "assignment": [
+      {
+       "positive": "codellama--CodeLlama-7b-Instruct-hf",
+       "negative": "Qwen--Qwen2.5-Coder-7B-Instruct",
+       "abs_log10_size_diff": 0.0
+      },
+      {
+       "positive": "codellama--CodeLlama-13b-Instruct-hf",
+       "negative": "Qwen--Qwen2.5-Coder-14B-Instruct",
+       "abs_log10_size_diff": 0.0322
+      },
+      {
+       "positive": "codellama--CodeLlama-70b-Instruct-hf",
+       "negative": "deepseek-ai--deepseek-coder-33b-instruct",
+       "abs_log10_size_diff": 0.3266
+      }
+     ],
+     "total_abs_log10_size_diff": 0.3588
+    },
+    "original_arm_negatives": "负池全体（size-mix 原注册版）",
+    "size_bucket_strata": {
+     "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+     "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B",
+     "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+     "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+     "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B"
+    }
+   },
+   "CodeLlama-Instruct::heldout=70b": {
+    "heldout_member": "codellama--CodeLlama-70b-Instruct-hf",
+    "heldout_size": 70.0,
+    "positive_seen_members": [
+     "codellama--CodeLlama-7b-Instruct-hf",
+     "codellama--CodeLlama-13b-Instruct-hf",
+     "codellama--CodeLlama-34b-Instruct-hf"
+    ],
+    "negative_pool": [
+     "deepseek-ai--deepseek-coder-1.3b-instruct",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+     "deepseek-ai--deepseek-coder-6.7b-instruct",
+     "Qwen--Qwen2.5-Coder-7B-Instruct",
+     "Qwen--Qwen2.5-Coder-14B-Instruct",
+     "Qwen--Qwen2.5-Coder-32B-Instruct",
+     "deepseek-ai--deepseek-coder-33b-instruct"
+    ],
+    "size_matched_negatives": {
+     "selected": [
+      "Qwen--Qwen2.5-Coder-7B-Instruct",
+      "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "deepseek-ai--deepseek-coder-33b-instruct"
+     ],
+     "assignment": [
+      {
+       "positive": "codellama--CodeLlama-7b-Instruct-hf",
+       "negative": "Qwen--Qwen2.5-Coder-7B-Instruct",
+       "abs_log10_size_diff": 0.0
+      },
+      {
+       "positive": "codellama--CodeLlama-13b-Instruct-hf",
+       "negative": "Qwen--Qwen2.5-Coder-14B-Instruct",
+       "abs_log10_size_diff": 0.0322
+      },
+      {
+       "positive": "codellama--CodeLlama-34b-Instruct-hf",
+       "negative": "deepseek-ai--deepseek-coder-33b-instruct",
+       "abs_log10_size_diff": 0.013
+      }
+     ],
+     "total_abs_log10_size_diff": 0.0451
+    },
+    "original_arm_negatives": "负池全体（size-mix 原注册版）",
+    "size_bucket_strata": {
+     "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B",
+     "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+     "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+     "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+     "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+     "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B"
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=1.5B": {
+    "heldout_member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "heldout_size": 1.5,
+    "positive_seen_members": [
+     "Qwen--Qwen2.5-Coder-7B-Instruct",
+     "Qwen--Qwen2.5-Coder-14B-Instruct",
+     "Qwen--Qwen2.5-Coder-32B-Instruct"
+    ],
+    "negative_pool": [
+     "deepseek-ai--deepseek-coder-1.3b-instruct",
+     "deepseek-ai--deepseek-coder-6.7b-instruct",
+     "codellama--CodeLlama-7b-Instruct-hf",
+     "codellama--CodeLlama-13b-Instruct-hf",
+     "deepseek-ai--deepseek-coder-33b-instruct",
+     "codellama--CodeLlama-34b-Instruct-hf",
+     "codellama--CodeLlama-70b-Instruct-hf"
+    ],
+    "size_matched_negatives": {
+     "selected": [
+      "codellama--CodeLlama-7b-Instruct-hf",
+      "codellama--CodeLlama-13b-Instruct-hf",
+      "deepseek-ai--deepseek-coder-33b-instruct"
+     ],
+     "assignment": [
+      {
+       "positive": "Qwen--Qwen2.5-Coder-7B-Instruct",
+       "negative": "codellama--CodeLlama-7b-Instruct-hf",
+       "abs_log10_size_diff": 0.0
+      },
+      {
+       "positive": "Qwen--Qwen2.5-Coder-14B-Instruct",
+       "negative": "codellama--CodeLlama-13b-Instruct-hf",
+       "abs_log10_size_diff": 0.0322
+      },
+      {
+       "positive": "Qwen--Qwen2.5-Coder-32B-Instruct",
+       "negative": "deepseek-ai--deepseek-coder-33b-instruct",
+       "abs_log10_size_diff": 0.0134
+      }
+     ],
+     "total_abs_log10_size_diff": 0.0455
+    },
+    "original_arm_negatives": "负池全体（size-mix 原注册版）",
+    "size_bucket_strata": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+     "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+     "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+     "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+     "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+     "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+     "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B",
+     "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B"
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=7B": {
+    "heldout_member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+    "heldout_size": 7.0,
+    "positive_seen_members": [
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+     "Qwen--Qwen2.5-Coder-14B-Instruct",
+     "Qwen--Qwen2.5-Coder-32B-Instruct"
+    ],
+    "negative_pool": [
+     "deepseek-ai--deepseek-coder-1.3b-instruct",
+     "deepseek-ai--deepseek-coder-6.7b-instruct",
+     "codellama--CodeLlama-7b-Instruct-hf",
+     "codellama--CodeLlama-13b-Instruct-hf",
+     "deepseek-ai--deepseek-coder-33b-instruct",
+     "codellama--CodeLlama-34b-Instruct-hf",
+     "codellama--CodeLlama-70b-Instruct-hf"
+    ],
+    "size_matched_negatives": {
+     "selected": [
+      "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "codellama--CodeLlama-13b-Instruct-hf",
+      "deepseek-ai--deepseek-coder-33b-instruct"
+     ],
+     "assignment": [
+      {
+       "positive": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+       "negative": "deepseek-ai--deepseek-coder-1.3b-instruct",
+       "abs_log10_size_diff": 0.0621
+      },
+      {
+       "positive": "Qwen--Qwen2.5-Coder-14B-Instruct",
+       "negative": "codellama--CodeLlama-13b-Instruct-hf",
+       "abs_log10_size_diff": 0.0322
+      },
+      {
+       "positive": "Qwen--Qwen2.5-Coder-32B-Instruct",
+       "negative": "deepseek-ai--deepseek-coder-33b-instruct",
+       "abs_log10_size_diff": 0.0134
+      }
+     ],
+     "total_abs_log10_size_diff": 0.1077
+    },
+    "original_arm_negatives": "负池全体（size-mix 原注册版）",
+    "size_bucket_strata": {
+     "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+     "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+     "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+     "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+     "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+     "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+     "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B",
+     "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B"
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=14B": {
+    "heldout_member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+    "heldout_size": 14.0,
+    "positive_seen_members": [
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+     "Qwen--Qwen2.5-Coder-7B-Instruct",
+     "Qwen--Qwen2.5-Coder-32B-Instruct"
+    ],
+    "negative_pool": [
+     "deepseek-ai--deepseek-coder-1.3b-instruct",
+     "deepseek-ai--deepseek-coder-6.7b-instruct",
+     "codellama--CodeLlama-7b-Instruct-hf",
+     "codellama--CodeLlama-13b-Instruct-hf",
+     "deepseek-ai--deepseek-coder-33b-instruct",
+     "codellama--CodeLlama-34b-Instruct-hf",
+     "codellama--CodeLlama-70b-Instruct-hf"
+    ],
+    "size_matched_negatives": {
+     "selected": [
+      "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "codellama--CodeLlama-7b-Instruct-hf",
+      "deepseek-ai--deepseek-coder-33b-instruct"
+     ],
+     "assignment": [
+      {
+       "positive": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+       "negative": "deepseek-ai--deepseek-coder-1.3b-instruct",
+       "abs_log10_size_diff": 0.0621
+      },
+      {
+       "positive": "Qwen--Qwen2.5-Coder-7B-Instruct",
+       "negative": "codellama--CodeLlama-7b-Instruct-hf",
+       "abs_log10_size_diff": 0.0
+      },
+      {
+       "positive": "Qwen--Qwen2.5-Coder-32B-Instruct",
+       "negative": "deepseek-ai--deepseek-coder-33b-instruct",
+       "abs_log10_size_diff": 0.0134
+      }
+     ],
+     "total_abs_log10_size_diff": 0.0755
+    },
+    "original_arm_negatives": "负池全体（size-mix 原注册版）",
+    "size_bucket_strata": {
+     "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+     "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+     "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+     "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+     "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+     "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+     "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B",
+     "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B"
+    }
+   },
+   "Qwen2.5-Coder-Instruct::heldout=32B": {
+    "heldout_member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+    "heldout_size": 32.0,
+    "positive_seen_members": [
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+     "Qwen--Qwen2.5-Coder-7B-Instruct",
+     "Qwen--Qwen2.5-Coder-14B-Instruct"
+    ],
+    "negative_pool": [
+     "deepseek-ai--deepseek-coder-1.3b-instruct",
+     "deepseek-ai--deepseek-coder-6.7b-instruct",
+     "codellama--CodeLlama-7b-Instruct-hf",
+     "codellama--CodeLlama-13b-Instruct-hf",
+     "deepseek-ai--deepseek-coder-33b-instruct",
+     "codellama--CodeLlama-34b-Instruct-hf",
+     "codellama--CodeLlama-70b-Instruct-hf"
+    ],
+    "size_matched_negatives": {
+     "selected": [
+      "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "codellama--CodeLlama-7b-Instruct-hf",
+      "codellama--CodeLlama-13b-Instruct-hf"
+     ],
+     "assignment": [
+      {
+       "positive": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+       "negative": "deepseek-ai--deepseek-coder-1.3b-instruct",
+       "abs_log10_size_diff": 0.0621
+      },
+      {
+       "positive": "Qwen--Qwen2.5-Coder-7B-Instruct",
+       "negative": "codellama--CodeLlama-7b-Instruct-hf",
+       "abs_log10_size_diff": 0.0
+      },
+      {
+       "positive": "Qwen--Qwen2.5-Coder-14B-Instruct",
+       "negative": "codellama--CodeLlama-13b-Instruct-hf",
+       "abs_log10_size_diff": 0.0322
+      }
+     ],
+     "total_abs_log10_size_diff": 0.0943
+    },
+    "original_arm_negatives": "负池全体（size-mix 原注册版）",
+    "size_bucket_strata": {
+     "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+     "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+     "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+     "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+     "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+     "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+     "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B",
+     "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B"
+    }
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=1.3b": {
+    "heldout_member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+    "heldout_size": 1.3,
+    "positive_seen_members": [
+     "deepseek-ai--deepseek-coder-6.7b-instruct",
+     "deepseek-ai--deepseek-coder-33b-instruct"
+    ],
+    "negative_pool": [
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+     "codellama--CodeLlama-7b-Instruct-hf",
+     "Qwen--Qwen2.5-Coder-7B-Instruct",
+     "codellama--CodeLlama-13b-Instruct-hf",
+     "Qwen--Qwen2.5-Coder-14B-Instruct",
+     "Qwen--Qwen2.5-Coder-32B-Instruct",
+     "codellama--CodeLlama-34b-Instruct-hf",
+     "codellama--CodeLlama-70b-Instruct-hf"
+    ],
+    "size_matched_negatives": {
+     "selected": [
+      "Qwen--Qwen2.5-Coder-7B-Instruct",
+      "codellama--CodeLlama-34b-Instruct-hf"
+     ],
+     "assignment": [
+      {
+       "positive": "deepseek-ai--deepseek-coder-6.7b-instruct",
+       "negative": "Qwen--Qwen2.5-Coder-7B-Instruct",
+       "abs_log10_size_diff": 0.019
+      },
+      {
+       "positive": "deepseek-ai--deepseek-coder-33b-instruct",
+       "negative": "codellama--CodeLlama-34b-Instruct-hf",
+       "abs_log10_size_diff": 0.013
+      }
+     ],
+     "total_abs_log10_size_diff": 0.032
+    },
+    "original_arm_negatives": "负池全体（size-mix 原注册版）",
+    "size_bucket_strata": {
+     "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+     "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+     "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+     "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+     "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+     "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B"
+    }
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=6.7b": {
+    "heldout_member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+    "heldout_size": 6.7,
+    "positive_seen_members": [
+     "deepseek-ai--deepseek-coder-1.3b-instruct",
+     "deepseek-ai--deepseek-coder-33b-instruct"
+    ],
+    "negative_pool": [
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+     "codellama--CodeLlama-7b-Instruct-hf",
+     "Qwen--Qwen2.5-Coder-7B-Instruct",
+     "codellama--CodeLlama-13b-Instruct-hf",
+     "Qwen--Qwen2.5-Coder-14B-Instruct",
+     "Qwen--Qwen2.5-Coder-32B-Instruct",
+     "codellama--CodeLlama-34b-Instruct-hf",
+     "codellama--CodeLlama-70b-Instruct-hf"
+    ],
+    "size_matched_negatives": {
+     "selected": [
+      "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+      "codellama--CodeLlama-34b-Instruct-hf"
+     ],
+     "assignment": [
+      {
+       "positive": "deepseek-ai--deepseek-coder-1.3b-instruct",
+       "negative": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+       "abs_log10_size_diff": 0.0621
+      },
+      {
+       "positive": "deepseek-ai--deepseek-coder-33b-instruct",
+       "negative": "codellama--CodeLlama-34b-Instruct-hf",
+       "abs_log10_size_diff": 0.013
+      }
+     ],
+     "total_abs_log10_size_diff": 0.0751
+    },
+    "original_arm_negatives": "负池全体（size-mix 原注册版）",
+    "size_bucket_strata": {
+     "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+     "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+     "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+     "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+     "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+     "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B"
+    }
+   },
+   "DeepSeek-Coder-v1-Instruct::heldout=33b": {
+    "heldout_member": "deepseek-ai--deepseek-coder-33b-instruct",
+    "heldout_size": 33.0,
+    "positive_seen_members": [
+     "deepseek-ai--deepseek-coder-1.3b-instruct",
+     "deepseek-ai--deepseek-coder-6.7b-instruct"
+    ],
+    "negative_pool": [
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+     "codellama--CodeLlama-7b-Instruct-hf",
+     "Qwen--Qwen2.5-Coder-7B-Instruct",
+     "codellama--CodeLlama-13b-Instruct-hf",
+     "Qwen--Qwen2.5-Coder-14B-Instruct",
+     "Qwen--Qwen2.5-Coder-32B-Instruct",
+     "codellama--CodeLlama-34b-Instruct-hf",
+     "codellama--CodeLlama-70b-Instruct-hf"
+    ],
+    "size_matched_negatives": {
+     "selected": [
+      "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+      "codellama--CodeLlama-7b-Instruct-hf"
+     ],
+     "assignment": [
+      {
+       "positive": "deepseek-ai--deepseek-coder-1.3b-instruct",
+       "negative": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+       "abs_log10_size_diff": 0.0621
+      },
+      {
+       "positive": "deepseek-ai--deepseek-coder-6.7b-instruct",
+       "negative": "codellama--CodeLlama-7b-Instruct-hf",
+       "abs_log10_size_diff": 0.019
+      }
+     ],
+     "total_abs_log10_size_diff": 0.0812
+    },
+    "original_arm_negatives": "负池全体（size-mix 原注册版）",
+    "size_bucket_strata": {
+     "deepseek-ai--deepseek-coder-33b-instruct": "C_10to40B",
+     "deepseek-ai--deepseek-coder-1.3b-instruct": "A_lt2B",
+     "deepseek-ai--deepseek-coder-6.7b-instruct": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": "A_lt2B",
+     "codellama--CodeLlama-7b-Instruct-hf": "B_2to10B",
+     "Qwen--Qwen2.5-Coder-7B-Instruct": "B_2to10B",
+     "codellama--CodeLlama-13b-Instruct-hf": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-14B-Instruct": "C_10to40B",
+     "Qwen--Qwen2.5-Coder-32B-Instruct": "C_10to40B",
+     "codellama--CodeLlama-34b-Instruct-hf": "C_10to40B",
+     "codellama--CodeLlama-70b-Instruct-hf": "D_ge40B"
+    }
+   }
+  },
+  "length_quantile_weighting": {
+   "status": "frozen_formula_not_executed",
+   "when": "执行阶段（获得 training 授权后）",
+   "cluster": "task cluster（每个 task 内）",
+   "buckets": "输出字符长度五分位桶（由 TRAIN 正集长度分布定义边界）",
+   "weight": "w_b = p_pos(b)/p_neg(b)，截断 [0.1,10]；权重在 train 上估计并冻结，dev/test 复用同一权重",
+   "length_field": "records.jsonl 行 output 的字符数（执行阶段读取；本阶段不读正文）",
+   "no_test_in_fit": true
+  }
+ },
+ "required_baselines": {
+  "size_length_only": {
+   "features": [
+    "log10(参数规模 B)",
+    "输出字符长度",
+    "metadata-only 结构特征（行数/nl/缩进量级）"
+   ],
+   "model": "同折同 split 的 LogReg（class_weight=balanced）",
+   "report": "每折 AUROC/AP 与主读出并列；用于判断系列信号是否超出 size/length 混杂"
+  },
+  "size_strata_report": "原版（size-mix）结果额外按 size bucket 分层报告（参数规模、代码长度、token 长度、任务难度 in_hard）"
+ },
+ "note": "R1 标签=目标 series 正域 vs 预声明负域；heldout variant 为正域迁移样本；禁止把未见 variant 当新类别报告 macro-F1"
+}

@@ -1,0 +1,15 @@
+[c3] tasks train=798 dev=171
+[c3] MHO CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf: n_batch=4 activation_rate=0.000 cos_mean=0.102 neg_rate=0.250
+[c3] MHO CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf: n_batch=4 activation_rate=0.000 cos_mean=0.064 neg_rate=0.250
+[c3] MHO CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf: n_batch=4 activation_rate=0.000 cos_mean=0.075 neg_rate=0.000
+[c3] MHO CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf: n_batch=4 activation_rate=0.000 cos_mean=0.087 neg_rate=0.250
+[c3] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct: n_batch=4 activation_rate=0.000 cos_mean=0.099 neg_rate=0.000
+[c3] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct: n_batch=4 activation_rate=0.000 cos_mean=0.126 neg_rate=0.000
+[c3] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct: n_batch=4 activation_rate=0.000 cos_mean=0.101 neg_rate=0.000
+[c3] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct: n_batch=4 activation_rate=0.000 cos_mean=0.043 neg_rate=0.000
+[c3] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct: n_batch=2 activation_rate=0.000 cos_mean=-0.008 neg_rate=0.500
+[c3] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct: n_batch=2 activation_rate=0.000 cos_mean=0.059 neg_rate=0.000
+[c3] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct: n_batch=2 activation_rate=0.000 cos_mean=-0.008 neg_rate=0.500
+[c3] SHO CodeLlama-Instruct: n_batch=6 activation_rate=0.000 cos_mean=0.081
+[c3] SHO Qwen2.5-Coder-Instruct: n_batch=6 activation_rate=0.000 cos_mean=0.053
+[c3] SHO DeepSeek-Coder-v1-Instruct: n_batch=8 activation_rate=0.000 cos_mean=0.055

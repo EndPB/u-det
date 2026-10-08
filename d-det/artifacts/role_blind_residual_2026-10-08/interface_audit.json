@@ -1,0 +1,11 @@
+{
+ "schema": "role_blind_interface_audit_v1",
+ "generated_utc": "2026-10-08T11:38:11.324818+00:00",
+ "swap_Csym_identical": true,
+ "swap_S_identical": true,
+ "swap_A_negated": true,
+ "n_checked": 300,
+ "role_name_dependence": "none (C_sym uses only the multiset of per-side features; no mode labels)",
+ "flip50_note": "50% 随机翻转与交换等价（row-order swap），由 swap_* 断言覆盖；训练/评测不使用 mode 先验构造控制残差",
+ "swap_R_identical": true
+}

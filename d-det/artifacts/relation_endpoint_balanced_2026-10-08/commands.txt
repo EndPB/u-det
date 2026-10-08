@@ -1,0 +1,3 @@
+OMP_NUM_THREADS=8 python -u scripts/core_relation_endpoint_balanced.py --folds all --skip-perm  # 48 折 ~13min
+OMP_NUM_THREADS=8 python -u scripts/core_relation_endpoint_balanced.py --folds 0 --perm-folds 0  # 折0 20-seed 置换 129s
+OMP_NUM_THREADS=8 python -u scripts/core_relation_balanced_stats.py  # 共享 task bootstrap 500 92s（向量化指标；与段循环版 diff<1e-15）
