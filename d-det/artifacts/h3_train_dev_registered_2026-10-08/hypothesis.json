@@ -1,0 +1,4 @@
+{
+ "hypothesis": "H3 四配置联合训练可同时保持检测与归因；S-resid 作为候选编码需通过范数匹配与置换等补充检查。",
+ "baseline_commit": "67b4ccde335e9b24ed599480ceeca310f9844da2"
+}

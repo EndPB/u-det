@@ -1,0 +1,1 @@
+bash /tmp/h3_chain.sh  # sres task(77.2s)+model0-4+sum; core_h3_registered.py 11+3 folds x 4 configs

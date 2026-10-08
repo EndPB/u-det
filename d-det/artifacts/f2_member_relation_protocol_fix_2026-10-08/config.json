@@ -1,0 +1,30 @@
+{
+ "schema": "fix_round2_v1",
+ "generated_utc": "2026-10-08T10:03:16.789939+00:00",
+ "baseline_commit": "67b4ccde335e9b24ed599480ceeca310f9844da2",
+ "folds": 11,
+ "matching": "partner surface (size/length/style) greedy per (h,task)",
+ "pair_order": "canonicalize by model_idx ascending (predeclared)",
+ "reads": [
+  "q_only",
+  "P0_pair_only",
+  "q_plus_P0",
+  "cosine",
+  "h_only_probe",
+  "partner_only_probe",
+  "task_cross",
+  "pair_order_swap",
+  "partner_swap==eval_neg"
+ ],
+ "sgd": {
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "epochs": 5,
+  "bs": 4096,
+  "alpha": 1e-06
+ },
+ "seed": 20261008
+}

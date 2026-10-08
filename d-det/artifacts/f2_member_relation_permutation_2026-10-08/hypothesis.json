@@ -1,0 +1,4 @@
+{
+ "hypothesis": "单次 permutation=0.398 不足以证明回机会；每折 20 seeds null 分布（mean/std/2.5/50/97.5 分位）+ 真值 percentile + AUC_norm。",
+ "baseline_commit": "67b4ccde335e9b24ed599480ceeca310f9844da2"
+}

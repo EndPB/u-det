@@ -1,0 +1,19 @@
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[sres] split=model fold=4 fit=(92m×798t)
+    normmatch scale = 0.6861
+    train A_only
+    train SA_full
+    train S_resid
+    train S_resid_normmatch
+    train S_resid_shuffle
+    [model_train][A_only] mb=0.9200 ci=[0.9155497439250299, 0.9243788819875776]
+    [model_train][SA_full] mb=0.9220 ci=[0.9175384112455051, 0.9264193091424212]
+    [model_train][S_resid] mb=0.9710 ci=[0.9685484090661435, 0.9733729704696523]
+    [model_train][S_resid_normmatch] mb=0.9714 ci=[0.9689297973193853, 0.9739981747847881]
+    [model_train][S_resid_shuffle] mb=0.9245 ci=[0.9199486487959029, 0.9286531546256948]
+    [model_dev][A_only] mb=0.9203 ci=[0.9111301805237731, 0.9286803966437834]
+    [model_dev][SA_full] mb=0.9226 ci=[0.9133581235697941, 0.9318649885583523]
+    [model_dev][S_resid] mb=0.9648 ci=[0.9581744215611492, 0.9708873633358759]
+    [model_dev][S_resid_normmatch] mb=0.9663 ci=[0.9604627510805999, 0.9724129163488431]
+    [model_dev][S_resid_shuffle] mb=0.9150 ci=[0.9036295448766845, 0.9258231629799136]
+[sres] done model/4 in 54.2s

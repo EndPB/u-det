@@ -1,0 +1,12 @@
+[fix2] tasks train=798 dev=171
+[fix2] CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf q=0.8390 P0=0.5448 h_only=0.5000 partner=0.8402 cross=0.8438 swap=0.8390 true_pct=100 (n_ev=1026)
+[fix2] CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf q=0.8281 P0=0.5542 h_only=0.5000 partner=0.8759 cross=0.8250 swap=0.8281 true_pct=100 (n_ev=1026)
+[fix2] CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf q=0.8488 P0=0.5997 h_only=0.5000 partner=0.8867 cross=0.8474 swap=0.8488 true_pct=100 (n_ev=1026)
+[fix2] CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf q=0.8693 P0=0.5930 h_only=0.5000 partner=0.8971 cross=0.8681 swap=0.8693 true_pct=100 (n_ev=1026)
+[fix2] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct q=0.8620 P0=0.6398 h_only=0.5000 partner=0.9633 cross=0.8663 swap=0.8620 true_pct=100 (n_ev=1026)
+[fix2] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct q=0.8358 P0=0.5993 h_only=0.5000 partner=0.9167 cross=0.8492 swap=0.8358 true_pct=100 (n_ev=1026)
+[fix2] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct q=0.8220 P0=0.5311 h_only=0.5000 partner=0.9192 cross=0.8161 swap=0.8220 true_pct=100 (n_ev=1026)
+[fix2] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct q=0.8346 P0=0.5611 h_only=0.5000 partner=0.9170 cross=0.8393 swap=0.8346 true_pct=100 (n_ev=1026)
+[fix2] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct q=0.7426 P0=0.5299 h_only=0.5001 partner=0.7821 cross=0.7838 swap=0.7426 true_pct=100 (n_ev=684)
+[fix2] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct q=0.6681 P0=0.5165 h_only=0.5000 partner=0.7115 cross=0.7091 swap=0.6681 true_pct=100 (n_ev=684)
+[fix2] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct q=0.8026 P0=0.5439 h_only=0.4999 partner=0.8245 cross=0.8182 swap=0.8026 true_pct=100 (n_ev=684)

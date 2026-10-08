@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=8 python -u scripts/core_f2_relation_fix.py  # v2 双向平均 471.1s; v1 canonical 版 interim 保留 local/metrics_f2_fix_canonical_interim.json

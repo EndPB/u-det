@@ -1,0 +1,21 @@
+{
+ "schema": "h3_registered_v1",
+ "generated_utc": "2026-10-08T10:15:18.018226+00:00",
+ "baseline_commit": "67b4ccde335e9b24ed599480ceeca310f9844da2",
+ "exec_condition": "F2 v2 gate=candidate（字面四六条件）+ partner 警告记录在案",
+ "configs": [
+  "c0_L_D",
+  "c1_L_F",
+  "c2_L_D+L_F",
+  "c3_L_D+L_F+cos"
+ ],
+ "m_ho_folds": 11,
+ "s_ho_folds": 3,
+ "sres_variants": [
+  "A_only",
+  "SA_full",
+  "S_resid",
+  "S_resid_normmatch",
+  "S_resid_shuffle"
+ ]
+}

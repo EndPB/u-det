@@ -1,0 +1,4 @@
+{
+ "hypothesis": "P+_eval=(h,m_seen), P-_eval=(h,m_other)（双方都含 h）；partner 按 size/length/style 匹配；pair canonical 按 model_idx 排序（预声明）；主比较 Δ=q_only−P0_pair_only；新增 h_only/partner_only probe、task_cross、pair_order_swap 诊断。",
+ "baseline_commit": "67b4ccde335e9b24ed599480ceeca310f9844da2"
+}

@@ -1,0 +1,1014 @@
+{
+ "schema": "f2_relation_fix_v1",
+ "generated_utc": "2026-10-08T10:22:04.295070+00:00",
+ "report_first_line": "corrective rerun — 同 h 正负 + 匹配 partner + canonical 顺序",
+ "protocol": "P+=(h,m_seen), P-=(h,m_other) both contain h; partner matched on size/length/style; pairs canonicalized by model_idx; train=seen-inner pos + cross-series neg",
+ "folds": {
+  "CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-7b-Instruct-hf",
+   "train_members": [
+    "codellama--CodeLlama-13b-Instruct-hf",
+    "codellama--CodeLlama-34b-Instruct-hf",
+    "codellama--CodeLlama-70b-Instruct-hf"
+   ],
+   "n_fit_pos": 2394,
+   "n_fit_neg": 2394,
+   "n_eval_pos": 513,
+   "n_eval_neg": 513,
+   "protocol_v2": "bidirectional averaging (order-2 of §3.3)",
+   "reads": {
+    "q_only": {
+     "auroc": 0.8390425924026006
+    },
+    "P0_pair_only": {
+     "auroc": 0.5448096090344987
+    },
+    "q_plus_P0": {
+     "auroc": 0.5362029722345717
+    },
+    "cosine": {
+     "auroc": 0.7199632175522193
+    },
+    "h_only_probe": {
+     "auroc": 0.5
+    },
+    "partner_only_probe": {
+     "auroc": 0.8402205426930984
+    },
+    "task_cross": {
+     "auroc": 0.8437695929231787,
+     "note": "h+partner 保留、task 变换；与同 h 负类联合解读"
+    },
+    "pair_order_swap": {
+     "auroc": 0.8390425924026006,
+     "note": "双向平均吸收顺序自由度；记录方向差替代",
+     "direction_gap_mean": 45.10656638529643
+    },
+    "partner_swap": {
+     "auroc": 0.8390425924026006,
+     "note": "eval_neg 即 partner_swap（匹配负类）；该 AUC = q_only 主读数本身（协议别名）"
+    }
+   },
+   "direction_gap_q_mean": 45.10656638529643,
+   "delta_q_minus_P0": 0.2942329833681019,
+   "permutation": {
+    "heldout_member": "codellama--CodeLlama-7b-Instruct-hf",
+    "series": "CodeLlama-Instruct",
+    "true_auc": 0.8390425924026006,
+    "true_auc_norm": 0.8390425924026006,
+    "null_aucs": [
+     0.4450828175051013,
+     0.49111787482568237,
+     0.5461167538729865,
+     0.48698364928999993,
+     0.4839551770915268,
+     0.5074685848257203,
+     0.5010126572658634,
+     0.5846661270894368,
+     0.49997530104229604,
+     0.5347324342912729,
+     0.5229909297827632,
+     0.46636191952699596,
+     0.4521695184463215,
+     0.5477962829968576,
+     0.590498880947224,
+     0.4800185432174762,
+     0.451770535283411,
+     0.4890469622181944,
+     0.4689762092039716,
+     0.4810065015256356
+    ],
+    "null_mean": 0.5015873830124369,
+    "null_std": 0.040385912709343615,
+    "null_p2_5": 0.44825948344979843,
+    "null_p50": 0.49008241852193835,
+    "null_p97_5": 0.587728322864775,
+    "true_percentile": 100.0,
+    "true_gt_null_p97_5": true,
+    "n_seeds": 20
+   }
+  },
+  "CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-13b-Instruct-hf",
+   "train_members": [
+    "codellama--CodeLlama-7b-Instruct-hf",
+    "codellama--CodeLlama-34b-Instruct-hf",
+    "codellama--CodeLlama-70b-Instruct-hf"
+   ],
+   "n_fit_pos": 2394,
+   "n_fit_neg": 2394,
+   "n_eval_pos": 513,
+   "n_eval_neg": 513,
+   "protocol_v2": "bidirectional averaging (order-2 of §3.3)",
+   "reads": {
+    "q_only": {
+     "auroc": 0.8281446522956731
+    },
+    "P0_pair_only": {
+     "auroc": 0.5542370111981274
+    },
+    "q_plus_P0": {
+     "auroc": 0.546663930782121
+    },
+    "cosine": {
+     "auroc": 0.7073629492835403
+    },
+    "h_only_probe": {
+     "auroc": 0.5
+    },
+    "partner_only_probe": {
+     "auroc": 0.8759390353727073
+    },
+    "task_cross": {
+     "auroc": 0.8250401833042645,
+     "note": "h+partner 保留、task 变换；与同 h 负类联合解读"
+    },
+    "pair_order_swap": {
+     "auroc": 0.8281446522956731,
+     "note": "双向平均吸收顺序自由度；记录方向差替代",
+     "direction_gap_mean": 36.411362422759694
+    },
+    "partner_swap": {
+     "auroc": 0.8281446522956731,
+     "note": "eval_neg 即 partner_swap（匹配负类）；该 AUC = q_only 主读数本身（协议别名）"
+    }
+   },
+   "direction_gap_q_mean": 36.411362422759694,
+   "delta_q_minus_P0": 0.27390764109754573,
+   "permutation": {
+    "heldout_member": "codellama--CodeLlama-13b-Instruct-hf",
+    "series": "CodeLlama-Instruct",
+    "true_auc": 0.8281446522956731,
+    "true_auc_norm": 0.8281446522956731,
+    "null_aucs": [
+     0.44686494229943496,
+     0.4670496905030608,
+     0.5772602396178881,
+     0.48938134810710987,
+     0.4967853356588352,
+     0.4987099544399226,
+     0.5270073602893958,
+     0.5648195646143732,
+     0.4978853892365742,
+     0.5192176890135236,
+     0.5226147456577332,
+     0.48509892882520356,
+     0.46272167314539325,
+     0.525438026515281,
+     0.5719366642727677,
+     0.4365407779791693,
+     0.4629268644863187,
+     0.5260004027830025,
+     0.4714575044933103,
+     0.4815878769915909
+    ],
+    "null_mean": 0.5015652489464945,
+    "null_std": 0.039009634145104985,
+    "null_p2_5": 0.44144475603129546,
+    "null_p50": 0.4973353624477047,
+    "null_p97_5": 0.5747315413289559,
+    "true_percentile": 100.0,
+    "true_gt_null_p97_5": true,
+    "n_seeds": 20
+   }
+  },
+  "CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-34b-Instruct-hf",
+   "train_members": [
+    "codellama--CodeLlama-7b-Instruct-hf",
+    "codellama--CodeLlama-13b-Instruct-hf",
+    "codellama--CodeLlama-70b-Instruct-hf"
+   ],
+   "n_fit_pos": 2394,
+   "n_fit_neg": 2394,
+   "n_eval_pos": 513,
+   "n_eval_neg": 513,
+   "protocol_v2": "bidirectional averaging (order-2 of §3.3)",
+   "reads": {
+    "q_only": {
+     "auroc": 0.8488499785309059
+    },
+    "P0_pair_only": {
+     "auroc": 0.5997286914492208
+    },
+    "q_plus_P0": {
+     "auroc": 0.602023794595868
+    },
+    "cosine": {
+     "auroc": 0.6818242270176199
+    },
+    "h_only_probe": {
+     "auroc": 0.5
+    },
+    "partner_only_probe": {
+     "auroc": 0.8867153806109384
+    },
+    "task_cross": {
+     "auroc": 0.8473680410686668,
+     "note": "h+partner 保留、task 变换；与同 h 负类联合解读"
+    },
+    "pair_order_swap": {
+     "auroc": 0.8488499785309059,
+     "note": "双向平均吸收顺序自由度；记录方向差替代",
+     "direction_gap_mean": 42.840644499324526
+    },
+    "partner_swap": {
+     "auroc": 0.8488499785309059,
+     "note": "eval_neg 即 partner_swap（匹配负类）；该 AUC = q_only 主读数本身（协议别名）"
+    }
+   },
+   "direction_gap_q_mean": 42.840644499324526,
+   "delta_q_minus_P0": 0.24912128708168513,
+   "permutation": {
+    "heldout_member": "codellama--CodeLlama-34b-Instruct-hf",
+    "series": "CodeLlama-Instruct",
+    "true_auc": 0.8488499785309059,
+    "true_auc_norm": 0.8488499785309059,
+    "null_aucs": [
+     0.45424423089345634,
+     0.4325281473121835,
+     0.5400788086742739,
+     0.4893129509934681,
+     0.4887809734429207,
+     0.4589332330175666,
+     0.5220561692296585,
+     0.5379774973496119,
+     0.4723694660085344,
+     0.5183247266965334,
+     0.5439660446329164,
+     0.49124706937367246,
+     0.48041372654074,
+     0.5222347616930566,
+     0.5449654024600162,
+     0.4724758615186439,
+     0.44516261413768343,
+     0.5321637426900584,
+     0.48435796009408405,
+     0.4691396023087826
+    ],
+    "null_mean": 0.495036649453393,
+    "null_std": 0.03436568281643925,
+    "null_p2_5": 0.43852951905429594,
+    "null_p50": 0.48904696221819444,
+    "null_p97_5": 0.5444907074921438,
+    "true_percentile": 100.0,
+    "true_gt_null_p97_5": true,
+    "n_seeds": 20
+   }
+  },
+  "CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf": {
+   "series": "CodeLlama-Instruct",
+   "heldout_member": "codellama--CodeLlama-70b-Instruct-hf",
+   "train_members": [
+    "codellama--CodeLlama-7b-Instruct-hf",
+    "codellama--CodeLlama-13b-Instruct-hf",
+    "codellama--CodeLlama-34b-Instruct-hf"
+   ],
+   "n_fit_pos": 2394,
+   "n_fit_neg": 2394,
+   "n_eval_pos": 513,
+   "n_eval_neg": 513,
+   "protocol_v2": "bidirectional averaging (order-2 of §3.3)",
+   "reads": {
+    "q_only": {
+     "auroc": 0.8693387139062732
+    },
+    "P0_pair_only": {
+     "auroc": 0.5930181746330305
+    },
+    "q_plus_P0": {
+     "auroc": 0.5984329461296733
+    },
+    "cosine": {
+     "auroc": 0.5860264696829793
+    },
+    "h_only_probe": {
+     "auroc": 0.5000000000000001
+    },
+    "partner_only_probe": {
+     "auroc": 0.8970889428466118
+    },
+    "task_cross": {
+     "auroc": 0.8680771671435464,
+     "note": "h+partner 保留、task 变换；与同 h 负类联合解读"
+    },
+    "pair_order_swap": {
+     "auroc": 0.8693387139062732,
+     "note": "双向平均吸收顺序自由度；记录方向差替代",
+     "direction_gap_mean": 40.47870768193225
+    },
+    "partner_swap": {
+     "auroc": 0.8693387139062732,
+     "note": "eval_neg 即 partner_swap（匹配负类）；该 AUC = q_only 主读数本身（协议别名）"
+    }
+   },
+   "direction_gap_q_mean": 40.47870768193225,
+   "delta_q_minus_P0": 0.2763205392732426,
+   "permutation": {
+    "heldout_member": "codellama--CodeLlama-70b-Instruct-hf",
+    "series": "CodeLlama-Instruct",
+    "true_auc": 0.8693387139062732,
+    "true_auc_norm": 0.8693387139062732,
+    "null_aucs": [
+     0.4667837017277871,
+     0.46676850236920003,
+     0.5399990120416918,
+     0.4875878237938359,
+     0.4637286306517865,
+     0.5275203386417093,
+     0.47284824580402707,
+     0.563911402938796,
+     0.46179071243193537,
+     0.4936029699546679,
+     0.5116750073146914,
+     0.44416705615023044,
+     0.48430476233902936,
+     0.512119588553363,
+     0.550330776041251,
+     0.5043223175981973,
+     0.433333713317298,
+     0.5356215967686164,
+     0.5021032112444855,
+     0.5089125238914918
+    ],
+    "null_mean": 0.49657159467870454,
+    "null_std": 0.0347261883317418,
+    "null_p2_5": 0.4384795511629409,
+    "null_p50": 0.4978530905995767,
+    "null_p97_5": 0.5574606051624621,
+    "true_percentile": 100.0,
+    "true_gt_null_p97_5": true,
+    "n_seeds": 20
+   }
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "train_members": [
+    "Qwen--Qwen2.5-Coder-7B-Instruct",
+    "Qwen--Qwen2.5-Coder-14B-Instruct",
+    "Qwen--Qwen2.5-Coder-32B-Instruct"
+   ],
+   "n_fit_pos": 2394,
+   "n_fit_neg": 2394,
+   "n_eval_pos": 513,
+   "n_eval_neg": 513,
+   "protocol_v2": "bidirectional averaging (order-2 of §3.3)",
+   "reads": {
+    "q_only": {
+     "auroc": 0.8620354221051872
+    },
+    "P0_pair_only": {
+     "auroc": 0.6397752014864972
+    },
+    "q_plus_P0": {
+     "auroc": 0.6422146985397216
+    },
+    "cosine": {
+     "auroc": 0.555008378646421
+    },
+    "h_only_probe": {
+     "auroc": 0.5000113995189404
+    },
+    "partner_only_probe": {
+     "auroc": 0.9633467467672864
+    },
+    "task_cross": {
+     "auroc": 0.8662950423492128,
+     "note": "h+partner 保留、task 变换；与同 h 负类联合解读"
+    },
+    "pair_order_swap": {
+     "auroc": 0.8620354221051872,
+     "note": "双向平均吸收顺序自由度；记录方向差替代",
+     "direction_gap_mean": 33.009874124508386
+    },
+    "partner_swap": {
+     "auroc": 0.8620354221051872,
+     "note": "eval_neg 即 partner_swap（匹配负类）；该 AUC = q_only 主读数本身（协议别名）"
+    }
+   },
+   "direction_gap_q_mean": 33.009874124508386,
+   "delta_q_minus_P0": 0.22226022061869,
+   "permutation": {
+    "heldout_member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "series": "Qwen2.5-Coder-Instruct",
+    "true_auc": 0.8620354221051872,
+    "true_auc_norm": 0.8620354221051872,
+    "null_aucs": [
+     0.49360296995466796,
+     0.53740372156295,
+     0.5115192138891739,
+     0.42781254631054566,
+     0.48860998065881617,
+     0.5038739365198789,
+     0.5107706454787608,
+     0.4589560320554472,
+     0.4936599675493694,
+     0.44634056442818115,
+     0.49609186492330026,
+     0.5094255022438053,
+     0.49373596434230477,
+     0.4500606074423659,
+     0.5356177969289696,
+     0.5125831689902686,
+     0.4268207881627395,
+     0.5247730545770968,
+     0.4960424670078923,
+     0.509493899357447
+    ],
+    "null_mean": 0.491359734619199,
+    "null_std": 0.03185470000431081,
+    "null_p2_5": 0.42729187328294743,
+    "null_p50": 0.4960671659655963,
+    "null_p97_5": 0.5365554073618093,
+    "true_percentile": 100.0,
+    "true_gt_null_p97_5": true,
+    "n_seeds": 20
+   }
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+   "train_members": [
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen--Qwen2.5-Coder-14B-Instruct",
+    "Qwen--Qwen2.5-Coder-32B-Instruct"
+   ],
+   "n_fit_pos": 2394,
+   "n_fit_neg": 2394,
+   "n_eval_pos": 513,
+   "n_eval_neg": 513,
+   "protocol_v2": "bidirectional averaging (order-2 of §3.3)",
+   "reads": {
+    "q_only": {
+     "auroc": 0.8358203283821423
+    },
+    "P0_pair_only": {
+     "auroc": 0.5993411078052506
+    },
+    "q_plus_P0": {
+     "auroc": 0.5954956700827225
+    },
+    "cosine": {
+     "auroc": 0.7119949538129491
+    },
+    "h_only_probe": {
+     "auroc": 0.5000056997594702
+    },
+    "partner_only_probe": {
+     "auroc": 0.9166619168671082
+    },
+    "task_cross": {
+     "auroc": 0.8491843644198215,
+     "note": "h+partner 保留、task 变换；与同 h 负类联合解读"
+    },
+    "pair_order_swap": {
+     "auroc": 0.8358203283821423,
+     "note": "双向平均吸收顺序自由度；记录方向差替代",
+     "direction_gap_mean": 36.40950348564679
+    },
+    "partner_swap": {
+     "auroc": 0.8358203283821423,
+     "note": "eval_neg 即 partner_swap（匹配负类）；该 AUC = q_only 主读数本身（协议别名）"
+    }
+   },
+   "direction_gap_q_mean": 36.40950348564679,
+   "delta_q_minus_P0": 0.23647922057689164,
+   "permutation": {
+    "heldout_member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+    "series": "Qwen2.5-Coder-Instruct",
+    "true_auc": 0.8358203283821423,
+    "true_auc_norm": 0.8358203283821423,
+    "null_aucs": [
+     0.4762681014861173,
+     0.556722106327113,
+     0.4947999194433995,
+     0.4598451945327907,
+     0.5079435647815662,
+     0.4668103006053145,
+     0.4858835957122609,
+     0.5215545903962853,
+     0.4772712591528637,
+     0.4631016571100699,
+     0.4730952353810669,
+     0.5064806265175609,
+     0.43706135601077634,
+     0.4945187313095388,
+     0.5623116704475071,
+     0.5018296227899183,
+     0.47213007611078817,
+     0.516816190356767,
+     0.527607734953585,
+     0.49735341168602687
+    ],
+    "null_mean": 0.4949702472555659,
+    "null_std": 0.030897149200129828,
+    "null_p2_5": 0.4478836793087332,
+    "null_p50": 0.49465932537646917,
+    "null_p97_5": 0.5596566274903199,
+    "true_percentile": 100.0,
+    "true_gt_null_p97_5": true,
+    "n_seeds": 20
+   }
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "train_members": [
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen--Qwen2.5-Coder-7B-Instruct",
+    "Qwen--Qwen2.5-Coder-32B-Instruct"
+   ],
+   "n_fit_pos": 2394,
+   "n_fit_neg": 2394,
+   "n_eval_pos": 513,
+   "n_eval_neg": 513,
+   "protocol_v2": "bidirectional averaging (order-2 of §3.3)",
+   "reads": {
+    "q_only": {
+     "auroc": 0.8219889120679107
+    },
+    "P0_pair_only": {
+     "auroc": 0.5310579893528493
+    },
+    "q_plus_P0": {
+     "auroc": 0.5444676234662897
+    },
+    "cosine": {
+     "auroc": 0.7564378783215348
+    },
+    "h_only_probe": {
+     "auroc": 0.5
+    },
+    "partner_only_probe": {
+     "auroc": 0.9192116092700888
+    },
+    "task_cross": {
+     "auroc": 0.8161257594929494,
+     "note": "h+partner 保留、task 变换；与同 h 负类联合解读"
+    },
+    "pair_order_swap": {
+     "auroc": 0.8219889120679107,
+     "note": "双向平均吸收顺序自由度；记录方向差替代",
+     "direction_gap_mean": 33.19065659878082
+    },
+    "partner_swap": {
+     "auroc": 0.8219889120679107,
+     "note": "eval_neg 即 partner_swap（匹配负类）；该 AUC = q_only 主读数本身（协议别名）"
+    }
+   },
+   "direction_gap_q_mean": 33.19065659878082,
+   "delta_q_minus_P0": 0.2909309227150614,
+   "permutation": {
+    "heldout_member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+    "series": "Qwen2.5-Coder-Instruct",
+    "true_auc": 0.8219889120679107,
+    "true_auc_norm": 0.8219889120679107,
+    "null_aucs": [
+     0.47964995877173977,
+     0.5214747937637032,
+     0.478555604953471,
+     0.46931439493253385,
+     0.5054318707750532,
+     0.42519825663357,
+     0.4927822045909662,
+     0.5594959892692528,
+     0.4789051902009735,
+     0.47460757156048017,
+     0.5225653477423252,
+     0.5085933373611633,
+     0.43937165851601057,
+     0.489411746824284,
+     0.6129863319767905,
+     0.4600389863547758,
+     0.45259510048675944,
+     0.4874738286044329,
+     0.5158016331710802,
+     0.4499694112908435
+    ],
+    "null_mean": 0.4912111608890105,
+    "null_std": 0.04179051881675892,
+    "null_p2_5": 0.4319306225277293,
+    "null_p50": 0.48356189368808633,
+    "null_p97_5": 0.5875784191907101,
+    "true_percentile": 100.0,
+    "true_gt_null_p97_5": true,
+    "n_seeds": 20
+   }
+  },
+  "Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct": {
+   "series": "Qwen2.5-Coder-Instruct",
+   "heldout_member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "train_members": [
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen--Qwen2.5-Coder-7B-Instruct",
+    "Qwen--Qwen2.5-Coder-14B-Instruct"
+   ],
+   "n_fit_pos": 2394,
+   "n_fit_neg": 2394,
+   "n_eval_pos": 513,
+   "n_eval_neg": 513,
+   "protocol_v2": "bidirectional averaging (order-2 of §3.3)",
+   "reads": {
+    "q_only": {
+     "auroc": 0.8346195790537639
+    },
+    "P0_pair_only": {
+     "auroc": 0.5610501236847805
+    },
+    "q_plus_P0": {
+     "auroc": 0.5506233636940522
+    },
+    "cosine": {
+     "auroc": 0.7709836644893586
+    },
+    "h_only_probe": {
+     "auroc": 0.49999999999999994
+    },
+    "partner_only_probe": {
+     "auroc": 0.917003902435317
+    },
+    "task_cross": {
+     "auroc": 0.8393047813382275,
+     "note": "h+partner 保留、task 变换；与同 h 负类联合解读"
+    },
+    "pair_order_swap": {
+     "auroc": 0.8346195790537639,
+     "note": "双向平均吸收顺序自由度；记录方向差替代",
+     "direction_gap_mean": 40.89168998031666
+    },
+    "partner_swap": {
+     "auroc": 0.8346195790537639,
+     "note": "eval_neg 即 partner_swap（匹配负类）；该 AUC = q_only 主读数本身（协议别名）"
+    }
+   },
+   "direction_gap_q_mean": 40.89168998031666,
+   "delta_q_minus_P0": 0.27356945536898347,
+   "permutation": {
+    "heldout_member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+    "series": "Qwen2.5-Coder-Instruct",
+    "true_auc": 0.8346195790537639,
+    "true_auc_norm": 0.8346195790537639,
+    "null_aucs": [
+     0.470078162701534,
+     0.523287317275211,
+     0.4702301562874046,
+     0.5005756757064852,
+     0.4937701628991256,
+     0.42976186404933714,
+     0.4700705630222405,
+     0.5262777910772166,
+     0.44961222636404746,
+     0.5124501746026318,
+     0.506431228602153,
+     0.43885868016369706,
+     0.47419338903898256,
+     0.49599306909248425,
+     0.5478798794690865,
+     0.4624176859736519,
+     0.44435324829292205,
+     0.5044629116651277,
+     0.5148668726179755,
+     0.45511059433291917
+    ],
+    "null_mean": 0.4845340826617116,
+    "null_std": 0.03186837456084342,
+    "null_p2_5": 0.4340828517036581,
+    "null_p50": 0.4839817759690541,
+    "null_p97_5": 0.5376188874829483,
+    "true_percentile": 100.0,
+    "true_gt_null_p97_5": true,
+    "n_seeds": 20
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct": {
+   "series": "DeepSeek-Coder-v1-Instruct",
+   "heldout_member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "train_members": [
+    "deepseek-ai--deepseek-coder-6.7b-instruct",
+    "deepseek-ai--deepseek-coder-33b-instruct"
+   ],
+   "n_fit_pos": 798,
+   "n_fit_neg": 798,
+   "n_eval_pos": 342,
+   "n_eval_neg": 342,
+   "protocol_v2": "bidirectional averaging (order-2 of §3.3)",
+   "reads": {
+    "q_only": {
+     "auroc": 0.7426387606443008
+    },
+    "P0_pair_only": {
+     "auroc": 0.5298809890222633
+    },
+    "q_plus_P0": {
+     "auroc": 0.5328562634656817
+    },
+    "cosine": {
+     "auroc": 0.4670924386990869
+    },
+    "h_only_probe": {
+     "auroc": 0.5000683971136418
+    },
+    "partner_only_probe": {
+     "auroc": 0.7820525973803905
+    },
+    "task_cross": {
+     "auroc": 0.7838223726958723,
+     "note": "h+partner 保留、task 变换；与同 h 负类联合解读"
+    },
+    "pair_order_swap": {
+     "auroc": 0.7426387606443008,
+     "note": "双向平均吸收顺序自由度；记录方向差替代",
+     "direction_gap_mean": 76.36519585250647
+    },
+    "partner_swap": {
+     "auroc": 0.7426387606443008,
+     "note": "eval_neg 即 partner_swap（匹配负类）；该 AUC = q_only 主读数本身（协议别名）"
+    }
+   },
+   "direction_gap_q_mean": 76.36519585250647,
+   "delta_q_minus_P0": 0.21275777162203746,
+   "permutation": {
+    "heldout_member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+    "series": "DeepSeek-Coder-v1-Instruct",
+    "true_auc": 0.7426387606443008,
+    "true_auc_norm": 0.7426387606443008,
+    "null_aucs": [
+     0.4950839574569953,
+     0.5440220922677064,
+     0.5543928046236449,
+     0.5362248213125407,
+     0.48969768475770326,
+     0.49001402140829653,
+     0.5008977121165487,
+     0.5423634622618926,
+     0.5287951848431995,
+     0.4872097397489826,
+     0.4523614103484833,
+     0.48540576587668005,
+     0.5271707533942068,
+     0.5370113881194214,
+     0.4877911152149379,
+     0.49494716322971166,
+     0.5197838651208919,
+     0.5168085906774734,
+     0.47962620977394754,
+     0.47115351732156907
+    ],
+    "null_mean": 0.5070380629937417,
+    "null_std": 0.02731535154536583,
+    "null_p2_5": 0.461287661160699,
+    "null_p50": 0.497990834786772,
+    "null_p97_5": 0.5494667162545741,
+    "true_percentile": 100.0,
+    "true_gt_null_p97_5": true,
+    "n_seeds": 20
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct": {
+   "series": "DeepSeek-Coder-v1-Instruct",
+   "heldout_member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+   "train_members": [
+    "deepseek-ai--deepseek-coder-1.3b-instruct",
+    "deepseek-ai--deepseek-coder-33b-instruct"
+   ],
+   "n_fit_pos": 798,
+   "n_fit_neg": 798,
+   "n_eval_pos": 342,
+   "n_eval_neg": 342,
+   "protocol_v2": "bidirectional averaging (order-2 of §3.3)",
+   "reads": {
+    "q_only": {
+     "auroc": 0.6681286549707602
+    },
+    "P0_pair_only": {
+     "auroc": 0.5165093533052905
+    },
+    "q_plus_P0": {
+     "auroc": 0.5296415991245169
+    },
+    "cosine": {
+     "auroc": 0.551366232344995
+    },
+    "h_only_probe": {
+     "auroc": 0.4999914503607948
+    },
+    "partner_only_probe": {
+     "auroc": 0.7114582264628433
+    },
+    "task_cross": {
+     "auroc": 0.7090985260422009,
+     "note": "h+partner 保留、task 变换；与同 h 负类联合解读"
+    },
+    "pair_order_swap": {
+     "auroc": 0.6681286549707602,
+     "note": "双向平均吸收顺序自由度；记录方向差替代",
+     "direction_gap_mean": 69.44990876683018
+    },
+    "partner_swap": {
+     "auroc": 0.6681286549707602,
+     "note": "eval_neg 即 partner_swap（匹配负类）；该 AUC = q_only 主读数本身（协议别名）"
+    }
+   },
+   "direction_gap_q_mean": 69.44990876683018,
+   "delta_q_minus_P0": 0.15161930166546977,
+   "permutation": {
+    "heldout_member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+    "series": "DeepSeek-Coder-v1-Instruct",
+    "true_auc": 0.6681286549707602,
+    "true_auc_norm": 0.6681286549707602,
+    "null_aucs": [
+     0.5241698300331725,
+     0.5237936459081427,
+     0.533283745425943,
+     0.48952669197359877,
+     0.4787455969358093,
+     0.5050699360486988,
+     0.47907048322560786,
+     0.49317738791423005,
+     0.5357973393522794,
+     0.48173797065763824,
+     0.46858007592079615,
+     0.529487705618823,
+     0.46743442426729587,
+     0.5159878253137717,
+     0.5163640094388017,
+     0.49642625081221564,
+     0.5065404739919975,
+     0.5169026367087308,
+     0.5000427481960261,
+     0.4657244964262508
+    ],
+    "null_mean": 0.5013931637084915,
+    "null_std": 0.022206644240774797,
+    "null_p2_5": 0.4665367121507472,
+    "null_p50": 0.5025563421223624,
+    "null_p97_5": 0.5346033822372696,
+    "true_percentile": 100.0,
+    "true_gt_null_p97_5": true,
+    "n_seeds": 20
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct": {
+   "series": "DeepSeek-Coder-v1-Instruct",
+   "heldout_member": "deepseek-ai--deepseek-coder-33b-instruct",
+   "train_members": [
+    "deepseek-ai--deepseek-coder-1.3b-instruct",
+    "deepseek-ai--deepseek-coder-6.7b-instruct"
+   ],
+   "n_fit_pos": 798,
+   "n_fit_neg": 798,
+   "n_eval_pos": 342,
+   "n_eval_neg": 342,
+   "protocol_v2": "bidirectional averaging (order-2 of §3.3)",
+   "reads": {
+    "q_only": {
+     "auroc": 0.8025717314729319
+    },
+    "P0_pair_only": {
+     "auroc": 0.5438596491228069
+    },
+    "q_plus_P0": {
+     "auroc": 0.5466810300605315
+    },
+    "cosine": {
+     "auroc": 0.3420325912246503
+    },
+    "h_only_probe": {
+     "auroc": 0.49994870216476867
+    },
+    "partner_only_probe": {
+     "auroc": 0.824527204951951
+    },
+    "task_cross": {
+     "auroc": 0.8182261208576999,
+     "note": "h+partner 保留、task 变换；与同 h 负类联合解读"
+    },
+    "pair_order_swap": {
+     "auroc": 0.8025717314729319,
+     "note": "双向平均吸收顺序自由度；记录方向差替代",
+     "direction_gap_mean": 66.92990022421348
+    },
+    "partner_swap": {
+     "auroc": 0.8025717314729319,
+     "note": "eval_neg 即 partner_swap（匹配负类）；该 AUC = q_only 主读数本身（协议别名）"
+    }
+   },
+   "direction_gap_q_mean": 66.92990022421348,
+   "delta_q_minus_P0": 0.258712082350125,
+   "permutation": {
+    "heldout_member": "deepseek-ai--deepseek-coder-33b-instruct",
+    "series": "DeepSeek-Coder-v1-Instruct",
+    "true_auc": 0.8025717314729319,
+    "true_auc_norm": 0.8025717314729319,
+    "null_aucs": [
+     0.4838326322629185,
+     0.5269399131356658,
+     0.5139444615437229,
+     0.535369857392018,
+     0.4191204131185664,
+     0.4987261037584214,
+     0.433509455900961,
+     0.5505625662597038,
+     0.5577870113881195,
+     0.44531650764337743,
+     0.4261054683492356,
+     0.5180910365582572,
+     0.5049673403782361,
+     0.5241185321979412,
+     0.45413973530317014,
+     0.445453301870661,
+     0.501290995519989,
+     0.4967083889059882,
+     0.5084641428131733,
+     0.4598594439314661
+    ],
+    "null_mean": 0.49021536541157956,
+    "null_std": 0.04094883024421946,
+    "null_p2_5": 0.4224383143531343,
+    "null_p50": 0.5000085496392053,
+    "null_p97_5": 0.554355399952122,
+    "true_percentile": 100.0,
+    "true_gt_null_p97_5": true,
+    "n_seeds": 20
+   }
+  }
+ },
+ "aggregate": {
+  "q_only": {
+   "mean": 0.8139253932574954,
+   "min": 0.6681286549707602,
+   "max": 0.8693387139062732,
+   "mean_ci95_member_cluster": [
+    0.7772368079930663,
+    0.8422408397092915
+   ],
+   "n_folds_above_0.5": 11,
+   "n_folds": 11
+  },
+  "P0_pair_only": {
+   "mean": 0.5648425363722378,
+   "min": 0.5165093533052905,
+   "max": 0.6397752014864972
+  },
+  "q_plus_P0": {
+   "mean": 0.5659367174705228
+  },
+  "cosine": {
+   "mean": 0.6227357273704869
+  },
+  "h_only_probe": {
+   "mean": 0.5000023317197834,
+   "min": 0.49994870216476867,
+   "max": 0.5000683971136418
+  },
+  "partner_only_probe": {
+   "mean": 0.8667478277871219
+  },
+  "task_cross": {
+   "mean": 0.8242101774214219
+  },
+  "pair_order_swap": {
+   "mean": 0.8139253932574954,
+   "mean_direction_gap": 47.37127363837415
+  },
+  "delta_q_minus_P0": {
+   "mean": 0.2490828568852576,
+   "per_fold": [
+    0.2942329833681019,
+    0.27390764109754573,
+    0.24912128708168513,
+    0.2763205392732426,
+    0.22226022061869,
+    0.23647922057689164,
+    0.2909309227150614,
+    0.27356945536898347,
+    0.21275777162203746,
+    0.15161930166546977,
+    0.258712082350125
+   ],
+   "mean_ci95_member_cluster": [
+    0.22350982595352664,
+    0.27084194774253256
+   ]
+  }
+ },
+ "gate": {
+  "both_classes_contain_same_h": true,
+  "order_leak_removed": "bidirectional_averaging (option 2; canonical 选项在本数据存在位置-标签相关 gap=1.0，已弃用并记录)",
+  "direction_gap_q_max": 76.36519585250647,
+  "delta_q_minus_P0_positive": true,
+  "two_series_two_members_same_direction": true,
+  "permutation_separated_folds": 11,
+  "permutation_separated_ok": true,
+  "not_h_identity_only": true,
+  "h_only_probe_mean": 0.5000023317197834,
+  "task_cross_mean": 0.8242101774214219,
+  "partner_only_probe_mean": 0.8667478277871219,
+  "partner_identity_warning": "q_only 均值低于 partner_only_probe（身份可单独识别）——『关系 vs partner 身份』未分解，已列入警告",
+  "verdict": "member_holdout_relation_candidate"
+ }
+}

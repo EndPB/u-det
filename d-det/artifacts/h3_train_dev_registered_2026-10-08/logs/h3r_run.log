@@ -1,0 +1,57 @@
+[h3r] tasks train=798 dev=171; u cells=10659
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf c0_L_D: det=0.9919462398686775 rel=0.5153 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf c1_L_F: det=0.7301904859614924 rel=0.7280 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf c2_L_D+L_F: det=0.9920830340959611 rel=0.6949 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf c3_L_D+L_F+cos: det=0.9920830340959611 rel=0.6949 cos=0.10205937479622662
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf c0_L_D: det=0.9992476317499402 rel=0.5337 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf c1_L_F: det=0.5979275674566533 rel=0.7153 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf c2_L_D+L_F: det=0.9992476317499402 rel=0.7031 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf c3_L_D+L_F+cos: det=0.9992476317499402 rel=0.7031 cos=0.06380491680465639
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf c0_L_D: det=0.9950583085393796 rel=0.5065 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf c1_L_F: det=0.8500906261755753 rel=0.7124 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf c2_L_D+L_F: det=0.9950925070962006 rel=0.7098 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf c3_L_D+L_F+cos: det=0.9950925070962006 rel=0.7098 cos=0.07471056911163032
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf c0_L_D: det=0.9997948086590746 rel=0.5374 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf c1_L_F: det=0.6798331110427139 rel=0.7261 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf c2_L_D+L_F: det=0.9997264115454328 rel=0.7153 cos=None
+[h3r] MHO CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf c3_L_D+L_F+cos: det=0.9997264115454328 rel=0.7153 cos=0.08673033956438303
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct c0_L_D: det=0.9998974043295373 rel=0.4760 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct c1_L_F: det=0.9766081871345029 rel=0.7189 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct c2_L_D+L_F: det=0.9998974043295373 rel=0.6998 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct c3_L_D+L_F+cos: det=0.9998974043295373 rel=0.6998 cos=0.09944038465619087
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct c0_L_D: det=0.9998632057727164 rel=0.5164 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct c1_L_F: det=0.9406655039157348 rel=0.7135 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct c2_L_D+L_F: det=0.9999316028863582 rel=0.6870 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct c3_L_D+L_F+cos: det=0.9999316028863582 rel=0.6870 cos=0.12609892804175615
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct c0_L_D: det=0.9988714476249103 rel=0.5026 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct c1_L_F: det=0.8696009028419001 rel=0.7249 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct c2_L_D+L_F: det=0.9987004548408058 rel=0.7175 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct c3_L_D+L_F+cos: det=0.9987004548408058 rel=0.7175 cos=0.10138618852943182
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct c0_L_D: det=0.9998974043295373 rel=0.5283 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct c1_L_F: det=0.9915871550220581 rel=0.7315 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct c2_L_D+L_F: det=0.9998974043295373 rel=0.7177 cos=None
+[h3r] MHO Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct c3_L_D+L_F+cos: det=0.9998974043295373 rel=0.7177 cos=0.04269004613161087
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct c0_L_D: det=0.9682979378270238 rel=0.4494 cos=None
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct c1_L_F: det=0.06802092951677441 rel=0.6709 cos=None
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct c2_L_D+L_F: det=0.9675455695769638 rel=0.6643 cos=None
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct c3_L_D+L_F+cos: det=0.9675455695769638 rel=0.6643 cos=-0.008041895925998688
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct c0_L_D: det=0.7375260763995759 rel=0.4773 cos=None
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct c1_L_F: det=0.4364077835915324 rel=0.5833 cos=None
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct c2_L_D+L_F: det=0.7355425601039637 rel=0.5564 cos=None
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct c3_L_D+L_F+cos: det=0.7355425601039637 rel=0.5564 cos=0.05931665748357773
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct c0_L_D: det=0.9987346533976267 rel=0.4917 cos=None
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct c1_L_F: det=0.07017543859649124 rel=0.7502 cos=None
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct c2_L_D+L_F: det=0.9987346533976267 rel=0.7486 cos=None
+[h3r] MHO DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct c3_L_D+L_F+cos: det=0.9987346533976267 rel=0.7486 cos=-0.0077141025103628635
+[h3r] SHO CodeLlama-Instruct c0_L_D: rel=0.5641 cos=None
+[h3r] SHO CodeLlama-Instruct c1_L_F: rel=0.5741 cos=None
+[h3r] SHO CodeLlama-Instruct c2_L_D+L_F: rel=0.6060 cos=None
+[h3r] SHO CodeLlama-Instruct c3_L_D+L_F+cos: rel=0.6060 cos=0.08123969131459792
+[h3r] SHO Qwen2.5-Coder-Instruct c0_L_D: rel=0.5404 cos=None
+[h3r] SHO Qwen2.5-Coder-Instruct c1_L_F: rel=0.6354 cos=None
+[h3r] SHO Qwen2.5-Coder-Instruct c2_L_D+L_F: rel=0.6408 cos=None
+[h3r] SHO Qwen2.5-Coder-Instruct c3_L_D+L_F+cos: rel=0.6408 cos=0.052684541093185544
+[h3r] SHO DeepSeek-Coder-v1-Instruct c0_L_D: rel=0.3758 cos=None
+[h3r] SHO DeepSeek-Coder-v1-Instruct c1_L_F: rel=0.5081 cos=None
+[h3r] SHO DeepSeek-Coder-v1-Instruct c2_L_D+L_F: rel=0.4263 cos=None
+[h3r] SHO DeepSeek-Coder-v1-Instruct c3_L_D+L_F+cos: rel=0.4263 cos=0.05516774533316493

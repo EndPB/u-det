@@ -1,0 +1,15 @@
+nohup: ignoring input
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[fix2] tasks train=798 dev=171
+[fix2] CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf q=0.8496 P0=0.5044 h_only=0.5000 partner=0.8402 cross=0.8568 swap=0.6847 true_pct=100 (n_ev=1026)
+[fix2] CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf q=0.8273 P0=0.5453 h_only=0.5000 partner=0.8759 cross=0.8334 swap=0.6741 true_pct=100 (n_ev=1026)
+[fix2] CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf q=0.8642 P0=0.5685 h_only=0.5000 partner=0.8867 cross=0.8684 swap=0.7066 true_pct=100 (n_ev=1026)
+[fix2] CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf q=0.8800 P0=0.5814 h_only=0.5000 partner=0.8971 cross=0.8810 swap=0.7400 true_pct=100 (n_ev=1026)
+[fix2] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct q=0.8133 P0=0.5878 h_only=0.5000 partner=0.9633 cross=0.8201 swap=0.7728 true_pct=100 (n_ev=1026)
+[fix2] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct q=0.8943 P0=0.5727 h_only=0.5000 partner=0.9167 cross=0.9052 swap=0.5939 true_pct=100 (n_ev=1026)
+[fix2] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct q=0.8619 P0=0.5048 h_only=0.5000 partner=0.9192 cross=0.8656 swap=0.5710 true_pct=100 (n_ev=1026)
+[fix2] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct q=0.8879 P0=0.5178 h_only=0.5000 partner=0.9170 cross=0.8859 swap=0.5497 true_pct=100 (n_ev=1026)
+[fix2] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct q=0.6401 P0=0.5025 h_only=0.5001 partner=0.7821 cross=0.6434 swap=0.6928 true_pct=100 (n_ev=684)
+[fix2] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct q=0.6793 P0=0.4956 h_only=0.5000 partner=0.7115 cross=0.7031 swap=0.5950 true_pct=100 (n_ev=684)
+[fix2] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct q=0.7772 P0=0.5360 h_only=0.4999 partner=0.8245 cross=0.7855 swap=0.6597 true_pct=100 (n_ev=684)
+[fix2] done in 241.6s; verdict=member_holdout_relation_candidate

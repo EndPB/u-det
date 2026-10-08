@@ -1,0 +1,9 @@
+{
+ "train_tasks": 798,
+ "dev_tasks": 171,
+ "roles": {
+  "fit": "train tasks only",
+  "eval": "dev tasks only"
+ },
+ "test_read": false
+}
