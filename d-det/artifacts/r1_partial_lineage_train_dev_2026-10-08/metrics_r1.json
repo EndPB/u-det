@@ -1,0 +1,453 @@
+{
+ "schema": "r1_edge_metrics_v1",
+ "generated_utc": "2026-10-08T08:34:30.229308+00:00",
+ "label": "documented post-training candidate relation (observational; partial)",
+ "edges": {
+  "E1_Athene70B_Llama3": {
+   "child": "Nexusflow--Athene-70B",
+   "base": "meta-llama--Meta-Llama-3-70B-Instruct",
+   "by_mode": {
+    "complete": {
+     "acc": {
+      "delta": 0.9415204678362573,
+      "side_child": 0.7894736842105263,
+      "SD": 1.0,
+      "p0": 0.7602339181286549
+     },
+     "ci95": {
+      "delta": [
+       0.9005847953216374,
+       0.9707602339181286
+      ],
+      "side_child": [
+       0.7309941520467836,
+       0.8421052631578947
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       0.70453216374269,
+       0.821783625730994
+      ]
+     },
+     "n_tasks": 171
+    },
+    "instruct": {
+     "acc": {
+      "delta": 0.9824561403508771,
+      "side_child": 0.7807017543859649,
+      "SD": 1.0,
+      "p0": 0.8128654970760234
+     },
+     "ci95": {
+      "delta": [
+       0.9590643274853801,
+       1.0
+      ],
+      "side_child": [
+       0.7103801169590643,
+       0.8421052631578947
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       0.7543859649122807,
+       0.8713450292397661
+      ]
+     },
+     "n_tasks": 171
+    }
+   },
+   "evidence": "partial (HF cardData.base_model; version 级证据缺)"
+  },
+  "E2_AtheneV2Agent_Qwen72B": {
+   "child": "Nexusflow--Athene-V2-Agent",
+   "base": "Qwen--Qwen2.5-72B-Instruct",
+   "by_mode": {
+    "complete": {
+     "acc": {
+      "delta": 1.0,
+      "side_child": 1.0,
+      "SD": 1.0,
+      "p0": 1.0
+     },
+     "ci95": {
+      "delta": [
+       1.0,
+       1.0
+      ],
+      "side_child": [
+       1.0,
+       1.0
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       1.0,
+       1.0
+      ]
+     },
+     "n_tasks": 171
+    },
+    "instruct": {
+     "acc": {
+      "delta": 1.0,
+      "side_child": 1.0,
+      "SD": 1.0,
+      "p0": 1.0
+     },
+     "ci95": {
+      "delta": [
+       1.0,
+       1.0
+      ],
+      "side_child": [
+       1.0,
+       1.0
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       1.0,
+       1.0
+      ]
+     },
+     "n_tasks": 171
+    }
+   },
+   "evidence": "partial (HF cardData.base_model; version 级证据缺)"
+  },
+  "E3_AtheneV2Chat_Qwen72B": {
+   "child": "Nexusflow--Athene-V2-Chat",
+   "base": "Qwen--Qwen2.5-72B-Instruct",
+   "by_mode": {
+    "complete": {
+     "acc": {
+      "delta": 1.0,
+      "side_child": 1.0,
+      "SD": 1.0,
+      "p0": 1.0
+     },
+     "ci95": {
+      "delta": [
+       1.0,
+       1.0
+      ],
+      "side_child": [
+       1.0,
+       1.0
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       1.0,
+       1.0
+      ]
+     },
+     "n_tasks": 171
+    },
+    "instruct": {
+     "acc": {
+      "delta": 1.0,
+      "side_child": 1.0,
+      "SD": 1.0,
+      "p0": 1.0
+     },
+     "ci95": {
+      "delta": [
+       1.0,
+       1.0
+      ],
+      "side_child": [
+       1.0,
+       1.0
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       1.0,
+       1.0
+      ]
+     },
+     "n_tasks": 171
+    }
+   },
+   "evidence": "partial (HF cardData.base_model; version 级证据缺)"
+  },
+  "E4_SkyT1Flash_Qwen32B": {
+   "child": "NovaSky-AI--Sky-T1-32B-Flash",
+   "base": "Qwen--Qwen2.5-32B-Instruct",
+   "by_mode": {
+    "complete": {
+     "acc": {
+      "delta": 0.9941520467836257,
+      "side_child": 0.9853801169590642,
+      "SD": 1.0,
+      "p0": 0.7953216374269005
+     },
+     "ci95": {
+      "delta": [
+       0.9793859649122807,
+       1.0
+      ],
+      "side_child": [
+       0.9590643274853801,
+       1.0
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       0.7309941520467836,
+       0.847953216374269
+      ]
+     },
+     "n_tasks": 171
+    },
+    "instruct": {
+     "acc": {
+      "delta": 0.9883040935672515,
+      "side_child": 0.9941520467836257,
+      "SD": 1.0,
+      "p0": 0.7953216374269005
+     },
+     "ci95": {
+      "delta": [
+       0.9707602339181286,
+       1.0
+      ],
+      "side_child": [
+       0.9824561403508771,
+       1.0
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       0.7368421052631579,
+       0.847953216374269
+      ]
+     },
+     "n_tasks": 171
+    }
+   },
+   "evidence": "partial (HF cardData.base_model; version 级证据缺)"
+  },
+  "E5_SkyT1Flash_SkyT1Preview": {
+   "child": "NovaSky-AI--Sky-T1-32B-Flash",
+   "base": "NovaSky-AI--Sky-T1-32B-Preview",
+   "by_mode": {
+    "complete": {
+     "acc": {
+      "delta": 0.7660818713450293,
+      "side_child": 0.5292397660818713,
+      "SD": 1.0,
+      "p0": 0.7368421052631579
+     },
+     "ci95": {
+      "delta": [
+       0.7076023391812866,
+       0.8276315789473683
+      ],
+      "side_child": [
+       0.28347953216374266,
+       0.42105263157894735
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       0.672514619883041,
+       0.8011695906432749
+      ]
+     },
+     "n_tasks": 171
+    },
+    "instruct": {
+     "acc": {
+      "delta": 0.7485380116959064,
+      "side_child": 0.5526315789473684,
+      "SD": 1.0,
+      "p0": 0.7894736842105263
+     },
+     "ci95": {
+      "delta": [
+       0.6811403508771929,
+       0.8187134502923976
+      ],
+      "side_child": [
+       0.2982456140350877,
+       0.44751461988304075
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       0.7309941520467836,
+       0.8538011695906432
+      ]
+     },
+     "n_tasks": 171
+    }
+   },
+   "evidence": "partial (HF cardData.base_model; version 级证据缺)"
+  },
+  "E6_SkyT1Preview_Qwen32B": {
+   "child": "NovaSky-AI--Sky-T1-32B-Preview",
+   "base": "Qwen--Qwen2.5-32B-Instruct",
+   "by_mode": {
+    "complete": {
+     "acc": {
+      "delta": 0.9941520467836257,
+      "side_child": 0.9824561403508771,
+      "SD": 1.0,
+      "p0": 0.783625730994152
+     },
+     "ci95": {
+      "delta": [
+       0.9793859649122807,
+       1.0
+      ],
+      "side_child": [
+       0.9473684210526315,
+       0.9941520467836257
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       0.7251461988304093,
+       0.845175438596491
+      ]
+     },
+     "n_tasks": 171
+    },
+    "instruct": {
+     "acc": {
+      "delta": 0.9883040935672515,
+      "side_child": 0.9883040935672515,
+      "SD": 1.0,
+      "p0": 0.7602339181286549
+     },
+     "ci95": {
+      "delta": [
+       0.9707602339181286,
+       1.0
+      ],
+      "side_child": [
+       0.9707602339181286,
+       1.0
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       0.6986842105263158,
+       0.8187134502923976
+      ]
+     },
+     "n_tasks": 171
+    }
+   },
+   "evidence": "partial (HF cardData.base_model; version 级证据缺)"
+  },
+  "E7_QwQ32B_Qwen32B": {
+   "child": "Qwen--QwQ-32B-Preview",
+   "base": "Qwen--Qwen2.5-32B-Instruct",
+   "by_mode": {
+    "complete": {
+     "acc": {
+      "delta": 0.9766081871345029,
+      "side_child": 0.9707602339181286,
+      "SD": 1.0,
+      "p0": 0.8187134502923976
+     },
+     "ci95": {
+      "delta": [
+       0.9532163742690059,
+       0.9941520467836257
+      ],
+      "side_child": [
+       0.9415204678362573,
+       0.9941520467836257
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       0.7543859649122807,
+       0.8771929824561403
+      ]
+     },
+     "n_tasks": 171
+    },
+    "instruct": {
+     "acc": {
+      "delta": 0.9941520467836257,
+      "side_child": 0.9883040935672515,
+      "SD": 1.0,
+      "p0": 0.7777777777777778
+     },
+     "ci95": {
+      "delta": [
+       0.9824561403508771,
+       1.0
+      ],
+      "side_child": [
+       0.9707602339181286,
+       1.0
+      ],
+      "SD": [
+       1.0,
+       1.0
+      ],
+      "p0": [
+       0.7134502923976608,
+       0.845175438596491
+      ]
+     },
+     "n_tasks": 171
+    }
+   },
+   "evidence": "partial (HF cardData.base_model; version 级证据缺)"
+  }
+ },
+ "fit": {
+  "n_tasks": 798,
+  "n_edges": 7
+ },
+ "edge_identification": {
+  "acc_7way": 0.41562238930659984,
+  "macro_f1": 0.3888720398757109,
+  "chance": 0.14285714285714285,
+  "per_edge_acc": {
+   "E1_Athene70B_Llama3": 0.7076023391812866,
+   "E2_AtheneV2Agent_Qwen72B": 0.13450292397660818,
+   "E3_AtheneV2Chat_Qwen72B": 0.7456140350877193,
+   "E4_SkyT1Flash_Qwen32B": 0.14912280701754385,
+   "E5_SkyT1Flash_SkyT1Preview": 0.5994152046783626,
+   "E6_SkyT1Preview_Qwen32B": 0.3391812865497076,
+   "E7_QwQ32B_Qwen32B": 0.23391812865497075
+  },
+  "note": "dev 任务 heldout；fit=train 任务"
+ }
+}

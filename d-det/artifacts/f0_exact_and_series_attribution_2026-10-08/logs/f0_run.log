@@ -1,0 +1,12 @@
+[f0] F0-B series member (11 folds)
+[f0b] CodeLlama-Instruct::codellama--CodeLlama-7b-Instruct-hf u_auroc=0.8010 delta=0.7108
+[f0b] CodeLlama-Instruct::codellama--CodeLlama-13b-Instruct-hf u_auroc=0.8278 delta=0.7391
+[f0b] CodeLlama-Instruct::codellama--CodeLlama-34b-Instruct-hf u_auroc=0.8294 delta=0.7346
+[f0b] CodeLlama-Instruct::codellama--CodeLlama-70b-Instruct-hf u_auroc=0.8234 delta=0.7325
+[f0b] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-1.5B-Instruct u_auroc=0.8146 delta=0.7303
+[f0b] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-7B-Instruct u_auroc=0.7749 delta=0.6949
+[f0b] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-14B-Instruct u_auroc=0.7815 delta=0.7123
+[f0b] Qwen2.5-Coder-Instruct::Qwen--Qwen2.5-Coder-32B-Instruct u_auroc=0.7705 delta=0.7004
+[f0b] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-1.3b-instruct u_auroc=0.8440 delta=0.6023
+[f0b] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-6.7b-instruct u_auroc=0.8015 delta=0.6666
+[f0b] DeepSeek-Coder-v1-Instruct::deepseek-ai--deepseek-coder-33b-instruct u_auroc=0.8586 delta=0.6454

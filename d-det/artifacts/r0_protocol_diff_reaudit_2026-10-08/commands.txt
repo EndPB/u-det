@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=8 python -u scripts/core_r0_reaudit.py  # console2.log 149.2s

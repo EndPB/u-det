@@ -1,0 +1,65 @@
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[mech] split=model fold=4 fit=(92m×798t)
+    train A_only
+      ep1 loss=0.0004
+      ep2 loss=0.0002
+      ep3 loss=0.0002
+      ep4 loss=0.0002
+      ep5 loss=0.0002
+      ep6 loss=0.0002
+      ep7 loss=0.0002
+      ep8 loss=0.0002
+      ep9 loss=0.0002
+      ep10 loss=0.0002
+      ep11 loss=0.0002
+      ep12 loss=0.0002
+    train SA_full
+      ep1 loss=0.0004
+      ep2 loss=0.0002
+      ep3 loss=0.0002
+      ep4 loss=0.0002
+      ep5 loss=0.0002
+      ep6 loss=0.0002
+      ep7 loss=0.0002
+      ep8 loss=0.0002
+      ep9 loss=0.0002
+      ep10 loss=0.0002
+      ep11 loss=0.0002
+      ep12 loss=0.0002
+    train SA_shuffle
+      ep1 loss=0.0004
+      ep2 loss=0.0002
+      ep3 loss=0.0002
+      ep4 loss=0.0002
+      ep5 loss=0.0002
+      ep6 loss=0.0002
+      ep7 loss=0.0002
+      ep8 loss=0.0002
+      ep9 loss=0.0002
+      ep10 loss=0.0002
+      ep11 loss=0.0002
+      ep12 loss=0.0002
+    train S_resid
+      ep1 loss=0.0004
+      ep2 loss=0.0002
+      ep3 loss=0.0001
+      ep4 loss=0.0001
+      ep5 loss=0.0001
+      ep6 loss=0.0001
+      ep7 loss=0.0000
+      ep8 loss=0.0000
+      ep9 loss=0.0000
+      ep10 loss=0.0000
+      ep11 loss=0.0000
+      ep12 loss=0.0000
+    [model_train][A_only] mb=0.9208 ci=[0.9163111583306089, 0.925372534597363]
+    [model_train][SA_full] mb=0.9217 ci=[0.9172789310232103, 0.9260249809305874]
+    [model_train][SA_shuffle] mb=0.9156 ci=[0.9106563964258474, 0.920456031382805]
+    [model_train][S_resid] mb=0.9704 ci=[0.9680580527405469, 0.9728008880897895]
+    [model_train][S_only] mb=0.5000 ci=[0.5, 0.5]
+    [model_dev][A_only] mb=0.9218 ci=[0.9121535723366386, 0.9307144673277397]
+    [model_dev][SA_full] mb=0.9223 ci=[0.9126620900076278, 0.9314232138316807]
+    [model_dev][SA_shuffle] mb=0.9221 ci=[0.9124078311721332, 0.9303998220188152]
+    [model_dev][S_resid] mb=0.9653 ci=[0.9589371980676328, 0.9712687515891176]
+    [model_dev][S_only] mb=0.5000 ci=[0.5, 0.5]
+[mech] done model/4 in 45.9s

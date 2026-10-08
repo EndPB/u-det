@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=8 python -u scripts/core_f2_relations.py  # output-v2: 负对 size+length+style 匹配 210.7s; 前一版仅 size 匹配(201.2s)

@@ -1,0 +1,1 @@
+bash /tmp/f0_chain2.sh  # stage a(18.3s)+open(12.3s)+b(22.0s); 首跑修复: unit_views 标签展开 + open-set 索引重映射

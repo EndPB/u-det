@@ -1,0 +1,5 @@
+{
+ "inputs": "r0_protocol_diff_2026-10-08/local/scores_*.npz + results axis",
+ "bootstrap": "task-cluster 与 model-cluster；500; seed 20261008；重数保留 M_b=(1/|Q|)Σa(q_j)",
+ "permutation": "50% 配对方向翻转；期望 0.50（阈值 0.01）"
+}

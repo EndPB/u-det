@@ -1,0 +1,8 @@
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[f0] F0-A 115-way
+[f0a][h_complete] top1=0.0645 top5=0.2212 bal=0.0645 macroF1=0.0401 (chance 0.0087)
+[f0a][h_instruct] top1=0.0854 top5=0.2696 bal=0.0854 macroF1=0.0574 (chance 0.0087)
+[f0a][delta] top1=0.0826 top5=0.2440 bal=0.0826 macroF1=0.0600 (chance 0.0087)
+[f0a][u] top1=0.1286 top5=0.3536 bal=0.1286 macroF1=0.1004 (chance 0.0087)
+[f0a][p0] top1=0.0194 top5=0.0808 bal=0.0194 macroF1=0.0129 (chance 0.0087)
+[f0] done in 18.3s

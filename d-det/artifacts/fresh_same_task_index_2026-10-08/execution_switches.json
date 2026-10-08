@@ -1,0 +1,10 @@
+{
+ "training_allowed": true,
+ "generation_allowed": false,
+ "test_read_allowed": false,
+ "old_test_reuse": false,
+ "original_bundle_verified": false,
+ "weights_downloaded": false,
+ "source_status": "server_reconstruction_only",
+ "directory": "fresh_same_task_index_2026-10-08"
+}

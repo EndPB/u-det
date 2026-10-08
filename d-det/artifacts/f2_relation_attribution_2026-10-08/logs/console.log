@@ -1,0 +1,10 @@
+nohup: ignoring input
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+  pairs: pos=14535 neg=14535
+  q matrix (29070, 6144) in 0.9s (714MB)
+  [fold0] cos=0.657 lr_q=0.889 lr_q+p0=0.610 perm=0.519
+  [fold1] cos=0.665 lr_q=0.905 lr_q+p0=0.588 perm=0.535
+  [fold2] cos=0.674 lr_q=0.892 lr_q+p0=0.622 perm=0.493
+  [fold3] cos=0.668 lr_q=0.896 lr_q+p0=0.618 perm=0.515
+  [fold4] cos=0.666 lr_q=0.888 lr_q+p0=0.611 perm=0.477
+[f2] done in 201.2s; verdict=relation_gain_observed

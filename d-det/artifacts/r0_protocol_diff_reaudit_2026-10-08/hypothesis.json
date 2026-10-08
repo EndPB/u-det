@@ -1,0 +1,4 @@
+{
+ "directory": "r0_protocol_diff_reaudit_2026-10-08",
+ "statement": "R0 统计口径复核：重数保留 cluster bootstrap + 双 cluster + permutation check（不改变模型、不重读文本）"
+}

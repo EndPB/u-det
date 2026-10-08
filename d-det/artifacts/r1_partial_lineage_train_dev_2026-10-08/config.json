@@ -1,0 +1,11 @@
+{
+ "edges": "7 条 (child,base) 边冻结自 E0；evidence=partial",
+ "readouts": [
+  "delta",
+  "side_child",
+  "SD",
+  "p0",
+  "7-way edge id"
+ ],
+ "split": "task-heldout; CI=task-cluster 300"
+}

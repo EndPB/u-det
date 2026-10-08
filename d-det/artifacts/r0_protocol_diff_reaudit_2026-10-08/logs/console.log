@@ -1,0 +1,33 @@
+nohup: ignoring input
+[reaudit] load results + scores (no text re-read)
+  domains: ['base·model_dev·f0', 'base·model_dev·f1', 'base·model_dev·f2', 'base·model_dev·f3', 'base·model_dev·f4', 'base·model_train·f0', 'base·model_train·f1', 'base·model_train·f2', 'base·model_train·f3', 'base·model_train·f4', 'base·seen·f-1', 'base·size_dev·f0', 'base·size_dev·f1', 'base·size_dev·f2', 'base·size_dev·f3', 'base·size_train·f0', 'base·size_train·f1', 'base·size_train·f2', 'base·size_train·f3', 'base·task_dev·f-1', 'small·seen·f-1', 'small·task_dev·f-1']
+  [base·model_dev·f0] u_mlp mb=0.9108 taskCI=[0.9002034070683956, 0.9200546656496312] modelCI=[0.8767206477732793, 0.946870126705653]
+  [base·model_dev·f1] u_mlp mb=0.9226 taskCI=[0.9119533435036865, 0.9327548944825833] modelCI=[0.8959535256410256, 0.9538011695906434]
+  [base·model_dev·f2] u_mlp mb=0.9320 taskCI=[0.9226989575387745, 0.9402491736587847] modelCI=[0.9061212325686009, 0.9629227582846002]
+  [base·model_dev·f3] u_mlp mb=0.9429 taskCI=[0.9349701245868293, 0.9510551741673022] modelCI=[0.9174767849109954, 0.9728182636077373]
+  [base·model_dev·f4] u_mlp mb=0.9244 taskCI=[0.9157672260361046, 0.932748538011696] modelCI=[0.8962522492127755, 0.9523117690058479]
+  [base·model_train·f0] u_mlp mb=0.9092 taskCI=[0.9042300043587228, 0.9138348588863463] modelCI=[0.877297261009667, 0.9437553820448555]
+  [base·model_train·f1] u_mlp mb=0.9198 taskCI=[0.9145145472376593, 0.9241194017652827] modelCI=[0.8938857560568084, 0.9490948675775978]
+  [base·model_train·f2] u_mlp mb=0.9277 taskCI=[0.9233668410155823, 0.9319364988558352] modelCI=[0.9008506844033161, 0.9598410087719298]
+  [base·model_train·f3] u_mlp mb=0.9487 taskCI=[0.9447920071918928, 0.9521630162362428] modelCI=[0.9246279761904762, 0.9764739372469636]
+  [base·model_train·f4] u_mlp mb=0.9220 taskCI=[0.9177222948676037, 0.926189795140024] modelCI=[0.8957188644688644, 0.9470335996240603]
+  [base·seen·f-1] u_mlp mb=0.9366 taskCI=[0.9338127928516944, 0.939434591914569] modelCI=[0.9247537041132243, 0.9468084345124907]
+  [base·size_dev·f0] u_mlp mb=0.9478 taskCI=[0.9321115288220551, 0.9603174603174603] modelCI=[0.9247076023391813, 0.9809941520467836]
+  [base·size_dev·f1] u_mlp mb=0.9366 taskCI=[0.9259259259259257, 0.9468114731272625] modelCI=[0.911827244393034, 0.9614996114996115]
+  [base·size_dev·f2] u_mlp mb=0.8850 taskCI=[0.8707504873294346, 0.8976803118908381] modelCI=[0.8367750974658869, 0.9366776315789472]
+  [base·size_dev·f3] u_mlp mb=0.8997 taskCI=[0.8893734335839598, 0.9096198830409357] modelCI=[0.8702356806046737, 0.9295099160945842]
+  [base·size_train·f0] u_mlp mb=0.9350 taskCI=[0.9286609380594343, 0.9415503043322593] modelCI=[0.9020989974937343, 0.9793233082706767]
+  [base·size_train·f1] u_mlp mb=0.9344 taskCI=[0.9291084854994629, 0.9391193758205035] modelCI=[0.9079159953455067, 0.9592246240601505]
+  [base·size_train·f2] u_mlp mb=0.8779 taskCI=[0.8729741019214704, 0.8835421888053466] modelCI=[0.830686090225564, 0.9305541196741854]
+  [base·size_train·f3] u_mlp mb=0.8936 taskCI=[0.8878965270318654, 0.8987383637665592] modelCI=[0.8642829591270667, 0.9237700895595633]
+  [base·task_dev·f-1] u_mlp mb=0.9311 taskCI=[0.923975336892957, 0.9374535977625222] modelCI=[0.9180860136452242, 0.9433278667683702]
+  [small·seen·f-1] u_mlp mb=0.9364 taskCI=[0.9333669772256727, 0.9392723656968508] modelCI=[0.9247024730945009, 0.9466416040100253]
+  [small·task_dev·f-1] u_mlp mb=0.9295 taskCI=[0.9224497838799898, 0.9351144164759724] modelCI=[0.9164135178544001, 0.9414711729471067]
+[reaudit] paired deltas (u_mlp − baselines; shared picks)
+Traceback (most recent call last):
+  File "/root/autodl-tmp/u-det/scripts/core_r0_reaudit.py", line 244, in <module>
+    main()
+  File "/root/autodl-tmp/u-det/scripts/core_r0_reaudit.py", line 189, in main
+    idx = np.concatenate([idx_by_t[q] for q in pick])
+                          ~~~~~~~~^^^
+KeyError: np.int64(12)

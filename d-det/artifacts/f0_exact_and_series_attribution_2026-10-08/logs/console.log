@@ -1,0 +1,25 @@
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[f0] F0-A 115-way
+Traceback (most recent call last):
+  File "/root/autodl-tmp/u-det/scripts/core_f0_attribution.py", line 262, in <module>
+    main()
+  File "/root/autodl-tmp/u-det/scripts/core_f0_attribution.py", line 229, in main
+    f0a(A, results)
+  File "/root/autodl-tmp/u-det/scripts/core_f0_attribution.py", line 122, in f0a
+    logits = train_softmax(Xtr, ytr, len(models), Xdv)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/u-det/scripts/core_f0_attribution.py", line 82, in train_softmax
+    net = fit_softmax(Xtr, ytr, n_class, epochs=epochs, lr=lr, bs=bs, seed=seed)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/autodl-tmp/u-det/scripts/core_f0_attribution.py", line 68, in fit_softmax
+    loss = nn.functional.cross_entropy(net(Xt[sel]), yt[sel])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/udet/lib/python3.12/site-packages/torch/nn/functional.py", line 3458, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.AcceleratorError: CUDA error: device-side assert triggered
+Search for `cudaErrorAssert' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

@@ -1,0 +1,5 @@
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[f0] F0-A open-set (2 folds)
+[f0a-openset] fold0: AUC=0.5007 (fit 92 类, hold 23)
+[f0a-openset] fold3: AUC=0.4697 (fit 92 类, hold 23)
+[f0] done in 12.3s

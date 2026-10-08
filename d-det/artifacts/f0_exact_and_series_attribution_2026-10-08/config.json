@@ -1,0 +1,4 @@
+{
+ "f0a": "115-way softmax probe; views h_c/h_i/delta/u/p0; task-heldout + open-set 2 folds",
+ "f0b": "11 折 heldout member; member vs 负集; observed_series 命名"
+}

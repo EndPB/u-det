@@ -1,0 +1,65 @@
+  [assets] sizelen NaN filled: 71706 rows, median=1.130, +missing_flag
+[mech] split=task fold=-1 fit=(115m×798t)
+    train A_only
+      ep1 loss=0.0004
+      ep2 loss=0.0002
+      ep3 loss=0.0002
+      ep4 loss=0.0002
+      ep5 loss=0.0002
+      ep6 loss=0.0002
+      ep7 loss=0.0002
+      ep8 loss=0.0002
+      ep9 loss=0.0002
+      ep10 loss=0.0002
+      ep11 loss=0.0002
+      ep12 loss=0.0002
+    train SA_full
+      ep1 loss=0.0004
+      ep2 loss=0.0002
+      ep3 loss=0.0002
+      ep4 loss=0.0002
+      ep5 loss=0.0002
+      ep6 loss=0.0002
+      ep7 loss=0.0002
+      ep8 loss=0.0002
+      ep9 loss=0.0002
+      ep10 loss=0.0002
+      ep11 loss=0.0002
+      ep12 loss=0.0002
+    train SA_shuffle
+      ep1 loss=0.0004
+      ep2 loss=0.0002
+      ep3 loss=0.0002
+      ep4 loss=0.0002
+      ep5 loss=0.0002
+      ep6 loss=0.0002
+      ep7 loss=0.0002
+      ep8 loss=0.0002
+      ep9 loss=0.0002
+      ep10 loss=0.0002
+      ep11 loss=0.0002
+      ep12 loss=0.0002
+    train S_resid
+      ep1 loss=0.0003
+      ep2 loss=0.0001
+      ep3 loss=0.0001
+      ep4 loss=0.0001
+      ep5 loss=0.0001
+      ep6 loss=0.0000
+      ep7 loss=0.0000
+      ep8 loss=0.0000
+      ep9 loss=0.0000
+      ep10 loss=0.0000
+      ep11 loss=0.0000
+      ep12 loss=0.0000
+    [task_dev][A_only] mb=0.9276 ci=[0.9207971014492752, 0.933741418764302]
+    [task_dev][SA_full] mb=0.9324 ci=[0.9258180778032036, 0.9385335621662851]
+    [task_dev][SA_shuffle] mb=0.9279 ci=[0.9209509280447494, 0.93371726417493]
+    [task_dev][S_resid] mb=0.9693 ci=[0.9648480803457921, 0.9729106280193237]
+    [task_dev][S_only] mb=0.5000 ci=[0.5, 0.5]
+    [seen][A_only] mb=0.9429 ci=[0.9401221804511278, 0.9457511986487959]
+    [seen][SA_full] mb=0.9378 ci=[0.9350886727688786, 0.9406708346954344]
+    [seen][SA_shuffle] mb=0.9276 ci=[0.924267189713414, 0.9307837528604119]
+    [seen][S_resid] mb=0.9980 ci=[0.9976517380407541, 0.9984417565653264]
+    [seen][S_only] mb=0.5000 ci=[0.5, 0.5]
+[mech] done task/-1 in 68.4s

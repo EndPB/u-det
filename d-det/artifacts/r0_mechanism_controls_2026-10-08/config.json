@@ -1,0 +1,11 @@
+{
+ "variants": [
+  "A_only",
+  "S_only",
+  "SA_full",
+  "SA_shuffle",
+  "S_resid"
+ ],
+ "train": "twin-MLP (256,64), 12ep, seed 20261008; fit=train(或其余 model)",
+ "splits": "task (fit=798 → eval=dev) + model 5 折"
+}

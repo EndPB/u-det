@@ -1,0 +1,1 @@
+bash /tmp/mech_chain.sh  # 含 make_claim 重写后的最终跑

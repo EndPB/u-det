@@ -1,0 +1,7 @@
+  pairs: pos=14535 neg=14535
+  q matrix (29070, 6144) in 0.9s (714MB)
+  [fold0] cos=0.638 lr_q=0.888 lr_q+p0=0.571 perm=0.507
+  [fold1] cos=0.647 lr_q=0.900 lr_q+p0=0.553 perm=0.516
+  [fold2] cos=0.656 lr_q=0.893 lr_q+p0=0.575 perm=0.457
+  [fold3] cos=0.644 lr_q=0.888 lr_q+p0=0.571 perm=0.486
+  [fold4] cos=0.649 lr_q=0.885 lr_q+p0=0.571 perm=0.476

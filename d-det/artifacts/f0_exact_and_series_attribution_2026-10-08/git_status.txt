@@ -1,0 +1,7 @@
+ M "d-det/docx/d-det_ACL\346\200\273\347\240\224\347\251\266\346\200\273\347\273\223\344\270\216\345\217\257\350\277\255\344\273\243\350\267\257\347\272\277_2026-10-06.md"
+?? d-det/artifacts/f0_exact_and_series_attribution_2026-10-08/
+?? d-det/artifacts/r0_mechanism_controls_2026-10-08/
+?? d-det/artifacts/r0_protocol_diff_reaudit_2026-10-08/
+?? d-det/artifacts/r1_partial_lineage_train_dev_2026-10-08/
+?? d-det/artifacts/variant_transfer_stage3_score_audit_2026-10-08/
+?? "d-det/docx/d-det_AutoDL_R0\345\244\215\346\240\270_R1\345\220\216\350\256\255\347\273\203\345\200\231\351\200\211\344\270\216F0F2\345\275\222\345\233\240\346\211\247\350\241\214\346\214\207\345\257\274_2026-10-08.md"

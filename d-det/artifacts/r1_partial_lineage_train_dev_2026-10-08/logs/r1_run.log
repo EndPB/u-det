@@ -1,0 +1,11 @@
+[r1] models ok; tasks train=798 dev=171; edges=7
+[r1] direction readouts fitted (delta/side/SD/P0)
+[r1] E1_Athene70B_Llama3: delta=0.982 side=0.781 SD=1.000 p0=0.813
+[r1] E2_AtheneV2Agent_Qwen72B: delta=1.000 side=1.000 SD=1.000 p0=1.000
+[r1] E3_AtheneV2Chat_Qwen72B: delta=1.000 side=1.000 SD=1.000 p0=1.000
+[r1] E4_SkyT1Flash_Qwen32B: delta=0.988 side=0.994 SD=1.000 p0=0.795
+[r1] E5_SkyT1Flash_SkyT1Preview: delta=0.749 side=0.553 SD=1.000 p0=0.789
+[r1] E6_SkyT1Preview_Qwen32B: delta=0.988 side=0.988 SD=1.000 p0=0.760
+[r1] E7_QwQ32B_Qwen32B: delta=0.994 side=0.988 SD=1.000 p0=0.778
+[r1] edge identification (7-way)
+[r1] 7-way acc=0.416 macroF1=0.389 (chance 0.143)

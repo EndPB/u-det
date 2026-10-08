@@ -1,0 +1,10 @@
+{
+ "pairs": "15 正 + 15 匹配负 / task; q=[u_i;u_j;|Δu|;u_i⊙u_j]",
+ "readouts": [
+  "cosine_u",
+  "lr_q",
+  "lr_q_p0",
+  "permuted_labels"
+ ],
+ "cv": "5 折 task-CV"
+}

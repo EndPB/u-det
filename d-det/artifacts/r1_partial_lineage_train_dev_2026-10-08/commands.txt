@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=8 python -u scripts/core_r1_edges.py  # 14.3s

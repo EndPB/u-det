@@ -1,0 +1,4 @@
+{
+ "directory": "r1_partial_lineage_train_dev_2026-10-08",
+ "statement": "R1：6 条 HF 文档链的 child/base 方向可读性与 edge 识别（train/dev, observational）"
+}
