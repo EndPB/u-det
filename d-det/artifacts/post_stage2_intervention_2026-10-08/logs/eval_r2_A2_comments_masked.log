@@ -1,0 +1,67 @@
+  [A2_comments_masked] CodeLlama-Instruct::heldout=7b::size_mix train=7980 dev=1710
+    tfidf in 14.8s
+    P0_fusion dev AUROC 0.9383
+  [A2_comments_masked] CodeLlama-Instruct::heldout=7b::size_matched train=4788 dev=1026
+    tfidf in 9.1s
+    P0_fusion dev AUROC 0.9516
+  [A2_comments_masked] CodeLlama-Instruct::heldout=13b::size_mix train=7980 dev=1710
+    tfidf in 14.3s
+    P0_fusion dev AUROC 0.9469
+  [A2_comments_masked] CodeLlama-Instruct::heldout=13b::size_matched train=4788 dev=1026
+    tfidf in 9.3s
+    P0_fusion dev AUROC 0.9562
+  [A2_comments_masked] CodeLlama-Instruct::heldout=34b::size_mix train=7980 dev=1710
+    tfidf in 14.4s
+    P0_fusion dev AUROC 0.9465
+  [A2_comments_masked] CodeLlama-Instruct::heldout=34b::size_matched train=4788 dev=1026
+    tfidf in 9.2s
+    P0_fusion dev AUROC 0.9589
+  [A2_comments_masked] CodeLlama-Instruct::heldout=70b::size_mix train=7980 dev=1710
+    tfidf in 14.3s
+    P0_fusion dev AUROC 0.9535
+  [A2_comments_masked] CodeLlama-Instruct::heldout=70b::size_matched train=4788 dev=1026
+    tfidf in 9.2s
+    P0_fusion dev AUROC 0.9563
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix train=7980 dev=1710
+    tfidf in 14.8s
+    P0_fusion dev AUROC 0.9858
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched train=4788 dev=1026
+    tfidf in 9.1s
+    P0_fusion dev AUROC 0.9907
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=7B::size_mix train=7980 dev=1710
+    tfidf in 14.8s
+    P0_fusion dev AUROC 0.9723
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=7B::size_matched train=4788 dev=1026
+    tfidf in 8.3s
+    P0_fusion dev AUROC 0.9814
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=14B::size_mix train=7980 dev=1710
+    tfidf in 14.7s
+    P0_fusion dev AUROC 0.9735
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=14B::size_matched train=4788 dev=1026
+    tfidf in 8.3s
+    P0_fusion dev AUROC 0.9711
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=32B::size_mix train=7980 dev=1710
+    tfidf in 14.5s
+    P0_fusion dev AUROC 0.9747
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=32B::size_matched train=4788 dev=1026
+    tfidf in 8.8s
+    P0_fusion dev AUROC 0.9781
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix train=7980 dev=1710
+    tfidf in 14.8s
+    P0_fusion dev AUROC 0.9064
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched train=3192 dev=684
+    tfidf in 5.5s
+    P0_fusion dev AUROC 0.9047
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix train=7980 dev=1710
+    tfidf in 14.9s
+    P0_fusion dev AUROC 0.9097
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched train=3192 dev=684
+    tfidf in 5.3s
+    P0_fusion dev AUROC 0.9038
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix train=7980 dev=1710
+    tfidf in 14.7s
+    P0_fusion dev AUROC 0.9000
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched train=3192 dev=684
+    tfidf in 5.5s
+    P0_fusion dev AUROC 0.9260
+[r2:A2_comments_masked] done in 2263.6s folds=22

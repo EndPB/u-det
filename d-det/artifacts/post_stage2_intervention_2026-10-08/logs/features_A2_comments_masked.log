@@ -1,0 +1,7 @@
+[1] samples + transformed texts
+[2] style/meta/size-length (CPU)
+  style (10659, 92) in 8.6s
+[3] CodeT5-small embedding (GPU)
+  small (10659, 512) in 25.8s
+[4] CodeT5-base embedding (GPU)
+  base (10659, 768) in 50.4s

@@ -1,0 +1,363 @@
+{
+ "schema": "post_stage2_a0_replay_check_v1",
+ "generated_utc": "2026-10-07T20:56:51.217621+00:00",
+ "note": "原始文本 + stage-1 缓存特征重放 22 对象；与 dev_scores_new.npz 对齐",
+ "folds": {
+  "CodeLlama-Instruct::heldout=7b::size_mix": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "CodeLlama-Instruct::heldout=7b::size_matched": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "CodeLlama-Instruct::heldout=13b::size_mix": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "CodeLlama-Instruct::heldout=13b::size_matched": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "CodeLlama-Instruct::heldout=34b::size_mix": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "CodeLlama-Instruct::heldout=34b::size_matched": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "CodeLlama-Instruct::heldout=70b::size_mix": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "CodeLlama-Instruct::heldout=70b::size_matched": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "Qwen2.5-Coder-Instruct::heldout=7B::size_mix": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "Qwen2.5-Coder-Instruct::heldout=7B::size_matched": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "Qwen2.5-Coder-Instruct::heldout=14B::size_mix": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "Qwen2.5-Coder-Instruct::heldout=14B::size_matched": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "Qwen2.5-Coder-Instruct::heldout=32B::size_mix": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "Qwen2.5-Coder-Instruct::heldout=32B::size_matched": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  },
+  "DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched": {
+   "meta_ok": true,
+   "max_abs_diff": 0.0,
+   "per_readout": {
+    "tfidf_char": 0.0,
+    "tfidf_word": 0.0,
+    "sem_base": 0.0,
+    "sem_small": 0.0,
+    "style_lr": 0.0,
+    "style_lgb": 0.0,
+    "metadata_only": 0.0,
+    "size_length_only": 0.0,
+    "P0_fusion": 0.0,
+    "P0_equal": 0.0
+   }
+  }
+ },
+ "worst_max_abs_diff": 0.0,
+ "pass_1e-9": true,
+ "note_precision": "dev_scores_new.npz 由 stage-1b rebuild 以 float64 style 特征生成；本重放同式 float64 重算；emb 为 float32 原精度。",
+ "runtime_seconds": 182.10680413246155
+}

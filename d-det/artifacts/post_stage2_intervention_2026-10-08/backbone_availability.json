@@ -1,0 +1,51 @@
+{
+ "schema": "post_stage2_backbone_availability_v1",
+ "generated_utc": "2026-10-07T21:04:23.504799+00:00",
+ "note": "不下载新权重（指导 §2）；encoder-only/decoder-only 代码模型本地不存在 → not_executed，等待单独授权后再执行；编码器网络访问=off（local_files_only=True）。",
+ "encoder_decoder": [
+  {
+   "label": "codet5-small (existing baseline)",
+   "path": "d-det/models/codet5-small",
+   "available": true,
+   "weights_file": "pytorch_model.bin",
+   "weights_sha256": "968fb0f45e1efc8cf3dd50012d1f82ad82098107cbadde2c0fdd8e61bac02908",
+   "weights_bytes": 242026427,
+   "arch": [
+    "T5ForConditionalGeneration"
+   ],
+   "d_model": 512,
+   "num_layers": 6,
+   "max_length_used_in_protocol": 512,
+   "tokenizer": "roberta (CodeT5)"
+  },
+  {
+   "label": "codet5-base (existing baseline)",
+   "path": "d-det/checkpoints/codet5-base",
+   "available": true,
+   "weights_file": "pytorch_model.bin",
+   "weights_sha256": "053fbafd36f4011e13fe10f45d588102ffa7448f338443ff787e85360cd5e13c",
+   "weights_bytes": 891641279,
+   "arch": [
+    "T5ForConditionalGeneration"
+   ],
+   "d_model": 768,
+   "num_layers": 12,
+   "max_length_used_in_protocol": 512,
+   "tokenizer": "roberta (CodeT5)"
+  }
+ ],
+ "encoder_only": {
+  "status": "not_executed",
+  "reason": "本地无 encoder-only 代码模型权重（unixcoder/codebert 等不存在）；未获下载授权"
+ },
+ "decoder_only": {
+  "status": "not_executed",
+  "reason": "本地 HF 缓存已清理，无 decoder-only 权重（Qwen/DeepSeek/Yi/SmolLM2 均已删除）；未获下载授权"
+ },
+ "probe_design_if_authorized": {
+  "minimal_2x3": "encoder-only / encoder-decoder / decoder-only × (fixed LR + style_lgb control) × (原始 + A2_comments_masked)",
+  "frozen": true,
+  "same_split": true,
+  "same_bootstrap": "task-cluster 500 seed 20261008"
+ }
+}

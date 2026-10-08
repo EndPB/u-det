@@ -1,0 +1,42 @@
+# post-stage2 干预矩阵与主干探针：命令记录（2026-10-08）
+# baseline commit: 958eeb4 (HEAD at start)
+# env: /root/miniconda3/envs/udet/bin/python (sklearn 1.9.1 / lightgbm 4.7.0 / torch 2.9.1+cu128 / RTX 3080 Ti)
+
+# 环境与状态
+git rev-parse HEAD > d-det/artifacts/post_stage2_intervention_2026-10-08/git_head.txt
+git status --short > d-det/artifacts/post_stage2_intervention_2026-10-08/git_status.txt
+
+# §3 变换（A1/A2/A3 全量审计；A4=not_executed）
+OMP_NUM_THREADS=8 TOKENIZERS_PARALLELISM=false /root/miniconda3/envs/udet/bin/python -u scripts/post_stage2_transforms.py --run
+
+# §4 特征（每变换：style/meta/sizelen + CodeT5 small/base 冻结嵌入）
+for T in A1_format_norm A2_comments_masked A3_literals_masked; do
+  OMP_NUM_THREADS=8 TOKENIZERS_PARALLELISM=false /root/miniconda3/envs/udet/bin/python -u scripts/post_stage2_features.py --transform $T
+done
+
+# A0 对照（22 折重放 vs stage-1b dev 分数）与 smoke
+/root/miniconda3/envs/udet/bin/python -u scripts/post_stage2_eval.py --stage a0
+/root/miniconda3/envs/udet/bin/python -u scripts/post_stage2_eval.py --stage r1 --transform A2_comments_masked --folds-limit 1
+/root/miniconda3/envs/udet/bin/python -u scripts/post_stage2_eval.py --stage r2 --transform A2_comments_masked --folds-limit 1
+
+# §4 全量读出（r1 冻结对象 ×3；r2 重训 ×3；paired delta）
+bash /tmp/post_stage2_chain.sh   # logs/chain.log; r1×3 -> r2×3 -> paired
+
+# §6 Phase B 可用性
+/root/miniconda3/envs/udet/bin/python scripts/post_stage2_backbones.py
+
+# 报告与校验和（链完成后）
+/root/miniconda3/envs/udet/bin/python scripts/post_stage2_report.py
+(cd d-det/artifacts/post_stage2_intervention_2026-10-08 && find . -type f ! -path "./local/*" ! -name SHA256SUMS.txt | sort | xargs sha256sum > SHA256SUMS.txt)
+
+# ---- paired 修复与口径修正（2026-10-08）----
+# 首版 paired 实现低效（每折每读出重复计算 task-macro bootstrap），且 task-macro 口径
+# 需与 stage-2 一致（去重 → 重数保留 M*=T^-1 Σ a_{t_j*}）。修正后重跑：
+#   fix_tm : 重算 r1/r2 metrics JSON 的 task_macro CI（修正口径；point 不变）41.6s
+#   paired : per-task a_t 预计算 + 共享 idx_lists / yy_lists；470.2s（约 14x 提速）
+/root/miniconda3/envs/udet/bin/python -u scripts/post_stage2_eval.py --stage fix_tm
+/root/miniconda3/envs/udet/bin/python -u scripts/post_stage2_eval.py --stage paired
+
+# 报告与校验和
+/root/miniconda3/envs/udet/bin/python scripts/post_stage2_report.py
+(cd d-det/artifacts/post_stage2_intervention_2026-10-08 && find . -type f ! -path "./local/*" ! -name SHA256SUMS.txt | sort | xargs sha256sum > SHA256SUMS.txt)

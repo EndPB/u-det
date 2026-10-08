@@ -1,0 +1,13 @@
+{
+ "schema": "post_stage2_switches_v1",
+ "generated_utc": "2026-10-08T01:21:27.222470+00:00",
+ "authority": "《d-det_AutoDL_后续干预与主干探针指导_2026-10-08》§2（仅新增 train/dev 探索）",
+ "test_read": false,
+ "generation": false,
+ "exploratory_train_dev_only": true,
+ "weights_downloaded": false,
+ "overwrites_previous_artifacts": false,
+ "note": "不读取旧 test；不使用 test_scores.npz 做任何选择；不覆盖 stage1b/stage2 产物",
+ "phase_a_status": "complete (A0 + r1x3 + r2x3 + paired + fix_tm)",
+ "phase_b_status": "registered (codet5 small/base available; encoder-only/decoder-only not_executed)"
+}

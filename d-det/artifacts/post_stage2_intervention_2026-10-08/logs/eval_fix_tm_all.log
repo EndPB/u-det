@@ -1,0 +1,7 @@
+  [fix_tm] r1:A1_format_norm fixed 220 entries
+  [fix_tm] r2:A1_format_norm fixed 220 entries
+  [fix_tm] r1:A2_comments_masked fixed 220 entries
+  [fix_tm] r2:A2_comments_masked fixed 220 entries
+  [fix_tm] r1:A3_literals_masked fixed 220 entries
+  [fix_tm] r2:A3_literals_masked fixed 220 entries
+[fix_tm] done in 41.6s

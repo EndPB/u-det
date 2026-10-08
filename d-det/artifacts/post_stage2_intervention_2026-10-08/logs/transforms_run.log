@@ -1,0 +1,24 @@
+[1] load samples (train/dev only)
+  n=10659
+[2] CodeT5 tokenizer for token stats
+[3] apply A1_format_norm
+    2000/10659
+    4000/10659
+    6000/10659
+    8000/10659
+    10000/10659
+  A1_format_norm: fail=0 line_change=10659 compile_fail_after=0 tok 2786882 -> 2781410 (-0.20%)
+[3] apply A2_comments_masked
+    2000/10659
+    4000/10659
+    6000/10659
+    8000/10659
+    10000/10659
+  A2_comments_masked: fail=0 line_change=0 compile_fail_after=0 tok 2786882 -> 2432169 (-12.73%)
+[3] apply A3_literals_masked
+    2000/10659
+    4000/10659
+    6000/10659
+    8000/10659
+    10000/10659
+  A3_literals_masked: fail=0 line_change=2917 compile_fail_after=0 tok 2786882 -> 2415165 (-13.34%)

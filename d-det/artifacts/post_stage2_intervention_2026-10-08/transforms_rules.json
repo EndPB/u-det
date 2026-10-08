@@ -1,0 +1,26 @@
+{
+ "schema": "post_stage2_transforms_rules_v1",
+ "generated_utc": "2026-10-07T20:47:07.001144+00:00",
+ "transforms": {
+  "A1_format_norm": {
+   "rules": "CRLF/LF 统一；删除行尾空白（空格/制表符）；文件末尾统一为恰好一个换行。不重排缩进/括号/语句。",
+   "semantic_risk": "none_expected",
+   "version": "v1"
+  },
+  "A2_comments_masked": {
+   "rules": "状态机屏蔽注释：Python 模式 # 行注释；C-family 模式 // 行注释与 /* */ 块注释；字符串/字符常量/三引号字符串内部不误判；行注释删除至行尾（不含换行），块注释删除但保留其中换行。失败样本保留原文并单独记录。",
+   "semantic_risk": "low（注释理论上不影响语义；docstring 按字符串处理不屏蔽）",
+   "version": "v1"
+  },
+  "A3_literals_masked": {
+   "rules": "字符串/字符常量整体替换为 \"<str>\"（含前缀）；数字替换为 0。仅敏感性分析；可能改变任务语义与可运行性，不得命名为\"去风格后的纯代码\"。",
+   "semantic_risk": "high_sensitivity_only",
+   "version": "v1"
+  }
+ },
+ "a4_status": {
+  "transform_id": "A4_identifiers_masked",
+  "status": "not_executed",
+  "reason": "指导 §3/§7：仅在语言 tokenizer 能稳定区分局部变量/函数名/API 名/关键字时才允许执行；无法排除误伤库 API 与类型名；多语言覆盖率不足。按指导状态写为 not_executed。"
+ }
+}

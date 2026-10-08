@@ -1,0 +1,681 @@
+nohup: ignoring input
+== r1 A1_format_norm 2026-10-07T21:04:04Z
+  samples=10659 (test rows excluded=1881)
+  [A1_format_norm] CodeLlama-Instruct::heldout=7b::size_mix: P0_fusion AUROC 0.9159 | tfidf_char 0.8963 | style_lgb 0.8295
+  [A1_format_norm] CodeLlama-Instruct::heldout=7b::size_matched: P0_fusion AUROC 0.9233 | tfidf_char 0.9141 | style_lgb 0.8272
+  [A1_format_norm] CodeLlama-Instruct::heldout=13b::size_mix: P0_fusion AUROC 0.9184 | tfidf_char 0.9175 | style_lgb 0.8562
+  [A1_format_norm] CodeLlama-Instruct::heldout=13b::size_matched: P0_fusion AUROC 0.9317 | tfidf_char 0.9318 | style_lgb 0.8418
+  [A1_format_norm] CodeLlama-Instruct::heldout=34b::size_mix: P0_fusion AUROC 0.9256 | tfidf_char 0.9205 | style_lgb 0.8551
+  [A1_format_norm] CodeLlama-Instruct::heldout=34b::size_matched: P0_fusion AUROC 0.9348 | tfidf_char 0.9245 | style_lgb 0.8461
+  [A1_format_norm] CodeLlama-Instruct::heldout=70b::size_mix: P0_fusion AUROC 0.9254 | tfidf_char 0.9232 | style_lgb 0.8690
+  [A1_format_norm] CodeLlama-Instruct::heldout=70b::size_matched: P0_fusion AUROC 0.9357 | tfidf_char 0.9300 | style_lgb 0.8629
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix: P0_fusion AUROC 0.8726 | tfidf_char 0.9243 | style_lgb 0.7200
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched: P0_fusion AUROC 0.9204 | tfidf_char 0.9451 | style_lgb 0.7706
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=7B::size_mix: P0_fusion AUROC 0.8657 | tfidf_char 0.8661 | style_lgb 0.6537
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=7B::size_matched: P0_fusion AUROC 0.7630 | tfidf_char 0.8592 | style_lgb 0.6485
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=14B::size_mix: P0_fusion AUROC 0.8344 | tfidf_char 0.8597 | style_lgb 0.6641
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=14B::size_matched: P0_fusion AUROC 0.7989 | tfidf_char 0.8571 | style_lgb 0.6477
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=32B::size_mix: P0_fusion AUROC 0.8029 | tfidf_char 0.8546 | style_lgb 0.6680
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=32B::size_matched: P0_fusion AUROC 0.7994 | tfidf_char 0.8659 | style_lgb 0.7115
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix: P0_fusion AUROC 0.8824 | tfidf_char 0.8677 | style_lgb 0.7705
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched: P0_fusion AUROC 0.8883 | tfidf_char 0.8627 | style_lgb 0.7615
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix: P0_fusion AUROC 0.8750 | tfidf_char 0.8491 | style_lgb 0.7653
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched: P0_fusion AUROC 0.8428 | tfidf_char 0.8169 | style_lgb 0.7344
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix: P0_fusion AUROC 0.8740 | tfidf_char 0.8625 | style_lgb 0.7751
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched: P0_fusion AUROC 0.8798 | tfidf_char 0.8498 | style_lgb 0.7836
+[r1:A1_format_norm] done in 2075.7s folds=22
+== r1 A2_comments_masked 2026-10-07T21:38:40Z
+  samples=10659 (test rows excluded=1881)
+  [A2_comments_masked] CodeLlama-Instruct::heldout=7b::size_mix: P0_fusion AUROC 0.8357 | tfidf_char 0.8845 | style_lgb 0.6702
+  [A2_comments_masked] CodeLlama-Instruct::heldout=7b::size_matched: P0_fusion AUROC 0.8064 | tfidf_char 0.8954 | style_lgb 0.6860
+  [A2_comments_masked] CodeLlama-Instruct::heldout=13b::size_mix: P0_fusion AUROC 0.8462 | tfidf_char 0.9090 | style_lgb 0.7779
+  [A2_comments_masked] CodeLlama-Instruct::heldout=13b::size_matched: P0_fusion AUROC 0.8678 | tfidf_char 0.9171 | style_lgb 0.7808
+  [A2_comments_masked] CodeLlama-Instruct::heldout=34b::size_mix: P0_fusion AUROC 0.8428 | tfidf_char 0.9120 | style_lgb 0.6779
+  [A2_comments_masked] CodeLlama-Instruct::heldout=34b::size_matched: P0_fusion AUROC 0.8365 | tfidf_char 0.9112 | style_lgb 0.6430
+  [A2_comments_masked] CodeLlama-Instruct::heldout=70b::size_mix: P0_fusion AUROC 0.8448 | tfidf_char 0.9109 | style_lgb 0.7342
+  [A2_comments_masked] CodeLlama-Instruct::heldout=70b::size_matched: P0_fusion AUROC 0.8608 | tfidf_char 0.9171 | style_lgb 0.7540
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix: P0_fusion AUROC 0.9044 | tfidf_char 0.8688 | style_lgb 0.5783
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched: P0_fusion AUROC 0.9421 | tfidf_char 0.9074 | style_lgb 0.4556
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=7B::size_mix: P0_fusion AUROC 0.8610 | tfidf_char 0.8229 | style_lgb 0.5168
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=7B::size_matched: P0_fusion AUROC 0.8596 | tfidf_char 0.8107 | style_lgb 0.5437
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=14B::size_mix: P0_fusion AUROC 0.8675 | tfidf_char 0.8132 | style_lgb 0.5046
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=14B::size_matched: P0_fusion AUROC 0.8698 | tfidf_char 0.8137 | style_lgb 0.5642
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=32B::size_mix: P0_fusion AUROC 0.8595 | tfidf_char 0.8078 | style_lgb 0.5119
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=32B::size_matched: P0_fusion AUROC 0.8902 | tfidf_char 0.8328 | style_lgb 0.5596
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix: P0_fusion AUROC 0.7677 | tfidf_char 0.8257 | style_lgb 0.7143
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched: P0_fusion AUROC 0.7542 | tfidf_char 0.8073 | style_lgb 0.6971
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix: P0_fusion AUROC 0.7850 | tfidf_char 0.8142 | style_lgb 0.7226
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched: P0_fusion AUROC 0.7390 | tfidf_char 0.7939 | style_lgb 0.6317
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix: P0_fusion AUROC 0.7779 | tfidf_char 0.8126 | style_lgb 0.7451
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched: P0_fusion AUROC 0.7789 | tfidf_char 0.8290 | style_lgb 0.7035
+[r1:A2_comments_masked] done in 1987.3s folds=22
+== r1 A3_literals_masked 2026-10-07T22:11:48Z
+  samples=10659 (test rows excluded=1881)
+  [A3_literals_masked] CodeLlama-Instruct::heldout=7b::size_mix: P0_fusion AUROC 0.8664 | tfidf_char 0.7187 | style_lgb 0.8132
+  [A3_literals_masked] CodeLlama-Instruct::heldout=7b::size_matched: P0_fusion AUROC 0.8899 | tfidf_char 0.7678 | style_lgb 0.8467
+  [A3_literals_masked] CodeLlama-Instruct::heldout=13b::size_mix: P0_fusion AUROC 0.8685 | tfidf_char 0.7305 | style_lgb 0.8215
+  [A3_literals_masked] CodeLlama-Instruct::heldout=13b::size_matched: P0_fusion AUROC 0.8913 | tfidf_char 0.7706 | style_lgb 0.8475
+  [A3_literals_masked] CodeLlama-Instruct::heldout=34b::size_mix: P0_fusion AUROC 0.8721 | tfidf_char 0.7219 | style_lgb 0.8255
+  [A3_literals_masked] CodeLlama-Instruct::heldout=34b::size_matched: P0_fusion AUROC 0.8870 | tfidf_char 0.7239 | style_lgb 0.8438
+  [A3_literals_masked] CodeLlama-Instruct::heldout=70b::size_mix: P0_fusion AUROC 0.8763 | tfidf_char 0.7602 | style_lgb 0.8348
+  [A3_literals_masked] CodeLlama-Instruct::heldout=70b::size_matched: P0_fusion AUROC 0.8931 | tfidf_char 0.7668 | style_lgb 0.8511
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix: P0_fusion AUROC 0.9795 | tfidf_char 0.8545 | style_lgb 0.9710
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched: P0_fusion AUROC 0.9826 | tfidf_char 0.8653 | style_lgb 0.9787
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=7B::size_mix: P0_fusion AUROC 0.9586 | tfidf_char 0.7892 | style_lgb 0.9611
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=7B::size_matched: P0_fusion AUROC 0.9753 | tfidf_char 0.7930 | style_lgb 0.9670
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=14B::size_mix: P0_fusion AUROC 0.9652 | tfidf_char 0.7727 | style_lgb 0.9592
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=14B::size_matched: P0_fusion AUROC 0.9652 | tfidf_char 0.7680 | style_lgb 0.9632
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=32B::size_mix: P0_fusion AUROC 0.9650 | tfidf_char 0.7595 | style_lgb 0.9579
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=32B::size_matched: P0_fusion AUROC 0.9672 | tfidf_char 0.7442 | style_lgb 0.9624
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix: P0_fusion AUROC 0.8150 | tfidf_char 0.7283 | style_lgb 0.7762
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched: P0_fusion AUROC 0.8172 | tfidf_char 0.7117 | style_lgb 0.7917
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix: P0_fusion AUROC 0.8292 | tfidf_char 0.7308 | style_lgb 0.7818
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched: P0_fusion AUROC 0.8244 | tfidf_char 0.7074 | style_lgb 0.7944
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix: P0_fusion AUROC 0.8262 | tfidf_char 0.7436 | style_lgb 0.7896
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched: P0_fusion AUROC 0.8419 | tfidf_char 0.7269 | style_lgb 0.8099
+[r1:A3_literals_masked] done in 2006.0s folds=22
+== r2 A1_format_norm 2026-10-07T22:45:15Z
+  samples=10659 (test rows excluded=1881)
+  [A1_format_norm] CodeLlama-Instruct::heldout=7b::size_mix train=7980 dev=1710
+    tfidf in 18.0s
+      sgd(seed=0) dev AUC 0.8882
+      sgd(seed=1) dev AUC 0.8943
+      sgd(seed=2) dev AUC 0.8893
+      sgd(seed=0) dev AUC 0.9159
+      sgd(seed=1) dev AUC 0.9188
+      sgd(seed=2) dev AUC 0.9175
+    P0_fusion dev AUROC 0.9236
+  [A1_format_norm] CodeLlama-Instruct::heldout=7b::size_matched train=4788 dev=1026
+    tfidf in 11.0s
+      sgd(seed=0) dev AUC 0.9073
+      sgd(seed=1) dev AUC 0.9142
+      sgd(seed=2) dev AUC 0.9011
+      sgd(seed=0) dev AUC 0.9323
+      sgd(seed=1) dev AUC 0.9336
+      sgd(seed=2) dev AUC 0.9367
+    P0_fusion dev AUROC 0.9283
+  [A1_format_norm] CodeLlama-Instruct::heldout=13b::size_mix train=7980 dev=1710
+    tfidf in 17.2s
+      sgd(seed=0) dev AUC 0.9082
+      sgd(seed=1) dev AUC 0.9114
+      sgd(seed=2) dev AUC 0.9121
+      sgd(seed=0) dev AUC 0.9227
+      sgd(seed=1) dev AUC 0.9249
+      sgd(seed=2) dev AUC 0.9244
+    P0_fusion dev AUROC 0.9271
+  [A1_format_norm] CodeLlama-Instruct::heldout=13b::size_matched train=4788 dev=1026
+    tfidf in 11.0s
+      sgd(seed=0) dev AUC 0.9257
+      sgd(seed=1) dev AUC 0.9267
+      sgd(seed=2) dev AUC 0.9273
+      sgd(seed=0) dev AUC 0.9307
+      sgd(seed=1) dev AUC 0.9329
+      sgd(seed=2) dev AUC 0.9286
+    P0_fusion dev AUROC 0.9407
+  [A1_format_norm] CodeLlama-Instruct::heldout=34b::size_mix train=7980 dev=1710
+    tfidf in 17.3s
+      sgd(seed=0) dev AUC 0.9103
+      sgd(seed=1) dev AUC 0.9151
+      sgd(seed=2) dev AUC 0.9134
+      sgd(seed=0) dev AUC 0.9294
+      sgd(seed=1) dev AUC 0.9318
+      sgd(seed=2) dev AUC 0.9256
+    P0_fusion dev AUROC 0.9325
+  [A1_format_norm] CodeLlama-Instruct::heldout=34b::size_matched train=4788 dev=1026
+    tfidf in 11.2s
+      sgd(seed=0) dev AUC 0.9183
+      sgd(seed=1) dev AUC 0.9238
+      sgd(seed=2) dev AUC 0.9207
+      sgd(seed=0) dev AUC 0.9373
+      sgd(seed=1) dev AUC 0.9395
+      sgd(seed=2) dev AUC 0.9370
+    P0_fusion dev AUROC 0.9431
+  [A1_format_norm] CodeLlama-Instruct::heldout=70b::size_mix train=7980 dev=1710
+    tfidf in 17.2s
+      sgd(seed=0) dev AUC 0.9170
+      sgd(seed=1) dev AUC 0.9176
+      sgd(seed=2) dev AUC 0.9208
+      sgd(seed=0) dev AUC 0.9355
+      sgd(seed=1) dev AUC 0.9406
+      sgd(seed=2) dev AUC 0.9370
+    P0_fusion dev AUROC 0.9363
+  [A1_format_norm] CodeLlama-Instruct::heldout=70b::size_matched train=4788 dev=1026
+    tfidf in 10.9s
+      sgd(seed=0) dev AUC 0.9252
+      sgd(seed=1) dev AUC 0.9288
+      sgd(seed=2) dev AUC 0.9242
+      sgd(seed=0) dev AUC 0.9436
+      sgd(seed=1) dev AUC 0.9431
+      sgd(seed=2) dev AUC 0.9443
+    P0_fusion dev AUROC 0.9463
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix train=7980 dev=1710
+    tfidf in 17.7s
+      sgd(seed=0) dev AUC 0.9187
+      sgd(seed=1) dev AUC 0.9147
+      sgd(seed=2) dev AUC 0.9225
+      sgd(seed=0) dev AUC 0.9423
+      sgd(seed=1) dev AUC 0.9391
+      sgd(seed=2) dev AUC 0.9404
+    P0_fusion dev AUROC 0.9329
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched train=4788 dev=1026
+    tfidf in 11.1s
+      sgd(seed=0) dev AUC 0.9379
+      sgd(seed=1) dev AUC 0.9395
+      sgd(seed=2) dev AUC 0.9397
+      sgd(seed=0) dev AUC 0.9537
+      sgd(seed=1) dev AUC 0.9563
+      sgd(seed=2) dev AUC 0.9550
+    P0_fusion dev AUROC 0.9618
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=7B::size_mix train=7980 dev=1710
+    tfidf in 17.5s
+      sgd(seed=0) dev AUC 0.8565
+      sgd(seed=1) dev AUC 0.8598
+      sgd(seed=2) dev AUC 0.8607
+      sgd(seed=0) dev AUC 0.8923
+      sgd(seed=1) dev AUC 0.8919
+      sgd(seed=2) dev AUC 0.8938
+    P0_fusion dev AUROC 0.8906
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=7B::size_matched train=4788 dev=1026
+    tfidf in 10.2s
+      sgd(seed=0) dev AUC 0.8460
+      sgd(seed=1) dev AUC 0.8499
+      sgd(seed=2) dev AUC 0.8571
+      sgd(seed=0) dev AUC 0.8806
+      sgd(seed=1) dev AUC 0.8787
+      sgd(seed=2) dev AUC 0.8808
+    P0_fusion dev AUROC 0.8596
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=14B::size_mix train=7980 dev=1710
+    tfidf in 17.4s
+      sgd(seed=0) dev AUC 0.8596
+      sgd(seed=1) dev AUC 0.8498
+      sgd(seed=2) dev AUC 0.8489
+      sgd(seed=0) dev AUC 0.8813
+      sgd(seed=1) dev AUC 0.8788
+      sgd(seed=2) dev AUC 0.8897
+    P0_fusion dev AUROC 0.8712
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=14B::size_matched train=4788 dev=1026
+    tfidf in 10.1s
+      sgd(seed=0) dev AUC 0.8498
+      sgd(seed=1) dev AUC 0.8503
+      sgd(seed=2) dev AUC 0.8506
+      sgd(seed=0) dev AUC 0.8827
+      sgd(seed=1) dev AUC 0.8870
+      sgd(seed=2) dev AUC 0.8826
+    P0_fusion dev AUROC 0.8713
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=32B::size_mix train=7980 dev=1710
+    tfidf in 17.4s
+      sgd(seed=0) dev AUC 0.8519
+      sgd(seed=1) dev AUC 0.8402
+      sgd(seed=2) dev AUC 0.8443
+      sgd(seed=0) dev AUC 0.8801
+      sgd(seed=1) dev AUC 0.8762
+      sgd(seed=2) dev AUC 0.8842
+    P0_fusion dev AUROC 0.8636
+  [A1_format_norm] Qwen2.5-Coder-Instruct::heldout=32B::size_matched train=4788 dev=1026
+    tfidf in 10.5s
+      sgd(seed=0) dev AUC 0.8592
+      sgd(seed=1) dev AUC 0.8603
+      sgd(seed=2) dev AUC 0.8577
+      sgd(seed=0) dev AUC 0.8990
+      sgd(seed=1) dev AUC 0.8940
+      sgd(seed=2) dev AUC 0.8973
+    P0_fusion dev AUROC 0.8929
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix train=7980 dev=1710
+    tfidf in 17.9s
+      sgd(seed=0) dev AUC 0.8603
+      sgd(seed=1) dev AUC 0.8638
+      sgd(seed=2) dev AUC 0.8588
+      sgd(seed=0) dev AUC 0.8775
+      sgd(seed=1) dev AUC 0.8788
+      sgd(seed=2) dev AUC 0.8822
+    P0_fusion dev AUROC 0.8630
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched train=3192 dev=684
+    tfidf in 6.5s
+      sgd(seed=0) dev AUC 0.8622
+      sgd(seed=1) dev AUC 0.8492
+      sgd(seed=2) dev AUC 0.8538
+      sgd(seed=0) dev AUC 0.8709
+      sgd(seed=1) dev AUC 0.8753
+      sgd(seed=2) dev AUC 0.8679
+    P0_fusion dev AUROC 0.8747
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix train=7980 dev=1710
+    tfidf in 17.7s
+      sgd(seed=0) dev AUC 0.8382
+      sgd(seed=1) dev AUC 0.8507
+      sgd(seed=2) dev AUC 0.8463
+      sgd(seed=0) dev AUC 0.8643
+      sgd(seed=1) dev AUC 0.8728
+      sgd(seed=2) dev AUC 0.8676
+    P0_fusion dev AUROC 0.8693
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched train=3192 dev=684
+    tfidf in 6.3s
+      sgd(seed=0) dev AUC 0.8121
+      sgd(seed=1) dev AUC 0.8058
+      sgd(seed=2) dev AUC 0.7994
+      sgd(seed=0) dev AUC 0.8217
+      sgd(seed=1) dev AUC 0.8234
+      sgd(seed=2) dev AUC 0.8202
+    P0_fusion dev AUROC 0.8279
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix train=7980 dev=1710
+    tfidf in 17.8s
+      sgd(seed=0) dev AUC 0.8495
+      sgd(seed=1) dev AUC 0.8623
+      sgd(seed=2) dev AUC 0.8542
+      sgd(seed=0) dev AUC 0.8827
+      sgd(seed=1) dev AUC 0.8786
+      sgd(seed=2) dev AUC 0.8731
+    P0_fusion dev AUROC 0.8636
+  [A1_format_norm] DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched train=3192 dev=684
+    tfidf in 6.4s
+      sgd(seed=0) dev AUC 0.8411
+      sgd(seed=1) dev AUC 0.8493
+      sgd(seed=2) dev AUC 0.8385
+      sgd(seed=0) dev AUC 0.8630
+      sgd(seed=1) dev AUC 0.8731
+      sgd(seed=2) dev AUC 0.8662
+    P0_fusion dev AUROC 0.8746
+[r2:A1_format_norm] done in 2306.3s folds=22
+== r2 A2_comments_masked 2026-10-07T23:23:41Z
+  samples=10659 (test rows excluded=1881)
+  [A2_comments_masked] CodeLlama-Instruct::heldout=7b::size_mix train=7980 dev=1710
+    tfidf in 14.8s
+      sgd(seed=0) dev AUC 0.8807
+      sgd(seed=1) dev AUC 0.8772
+      sgd(seed=2) dev AUC 0.8812
+      sgd(seed=0) dev AUC 0.8968
+      sgd(seed=1) dev AUC 0.8939
+      sgd(seed=2) dev AUC 0.8956
+    P0_fusion dev AUROC 0.9383
+  [A2_comments_masked] CodeLlama-Instruct::heldout=7b::size_matched train=4788 dev=1026
+    tfidf in 9.1s
+      sgd(seed=0) dev AUC 0.8983
+      sgd(seed=1) dev AUC 0.9009
+      sgd(seed=2) dev AUC 0.8924
+      sgd(seed=0) dev AUC 0.9067
+      sgd(seed=1) dev AUC 0.9062
+      sgd(seed=2) dev AUC 0.9070
+    P0_fusion dev AUROC 0.9516
+  [A2_comments_masked] CodeLlama-Instruct::heldout=13b::size_mix train=7980 dev=1710
+    tfidf in 14.3s
+      sgd(seed=0) dev AUC 0.8970
+      sgd(seed=1) dev AUC 0.9015
+      sgd(seed=2) dev AUC 0.9039
+      sgd(seed=0) dev AUC 0.9045
+      sgd(seed=1) dev AUC 0.9081
+      sgd(seed=2) dev AUC 0.9067
+    P0_fusion dev AUROC 0.9469
+  [A2_comments_masked] CodeLlama-Instruct::heldout=13b::size_matched train=4788 dev=1026
+    tfidf in 9.3s
+      sgd(seed=0) dev AUC 0.9145
+      sgd(seed=1) dev AUC 0.9180
+      sgd(seed=2) dev AUC 0.9154
+      sgd(seed=0) dev AUC 0.9197
+      sgd(seed=1) dev AUC 0.9162
+      sgd(seed=2) dev AUC 0.9129
+    P0_fusion dev AUROC 0.9562
+  [A2_comments_masked] CodeLlama-Instruct::heldout=34b::size_mix train=7980 dev=1710
+    tfidf in 14.4s
+      sgd(seed=0) dev AUC 0.9021
+      sgd(seed=1) dev AUC 0.9029
+      sgd(seed=2) dev AUC 0.9083
+      sgd(seed=0) dev AUC 0.9148
+      sgd(seed=1) dev AUC 0.9126
+      sgd(seed=2) dev AUC 0.9131
+    P0_fusion dev AUROC 0.9465
+  [A2_comments_masked] CodeLlama-Instruct::heldout=34b::size_matched train=4788 dev=1026
+    tfidf in 9.2s
+      sgd(seed=0) dev AUC 0.9143
+      sgd(seed=1) dev AUC 0.9131
+      sgd(seed=2) dev AUC 0.9098
+      sgd(seed=0) dev AUC 0.9217
+      sgd(seed=1) dev AUC 0.9214
+      sgd(seed=2) dev AUC 0.9151
+    P0_fusion dev AUROC 0.9589
+  [A2_comments_masked] CodeLlama-Instruct::heldout=70b::size_mix train=7980 dev=1710
+    tfidf in 14.3s
+      sgd(seed=0) dev AUC 0.9048
+      sgd(seed=1) dev AUC 0.9087
+      sgd(seed=2) dev AUC 0.9155
+      sgd(seed=0) dev AUC 0.9200
+      sgd(seed=1) dev AUC 0.9206
+      sgd(seed=2) dev AUC 0.9196
+    P0_fusion dev AUROC 0.9535
+  [A2_comments_masked] CodeLlama-Instruct::heldout=70b::size_matched train=4788 dev=1026
+    tfidf in 9.2s
+      sgd(seed=0) dev AUC 0.9164
+      sgd(seed=1) dev AUC 0.9214
+      sgd(seed=2) dev AUC 0.9183
+      sgd(seed=0) dev AUC 0.9206
+      sgd(seed=1) dev AUC 0.9252
+      sgd(seed=2) dev AUC 0.9253
+    P0_fusion dev AUROC 0.9563
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix train=7980 dev=1710
+    tfidf in 14.8s
+      sgd(seed=0) dev AUC 0.8896
+      sgd(seed=1) dev AUC 0.8845
+      sgd(seed=2) dev AUC 0.8895
+      sgd(seed=0) dev AUC 0.9020
+      sgd(seed=1) dev AUC 0.8953
+      sgd(seed=2) dev AUC 0.8958
+    P0_fusion dev AUROC 0.9858
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched train=4788 dev=1026
+    tfidf in 9.1s
+      sgd(seed=0) dev AUC 0.9130
+      sgd(seed=1) dev AUC 0.9141
+      sgd(seed=2) dev AUC 0.9175
+      sgd(seed=0) dev AUC 0.9201
+      sgd(seed=1) dev AUC 0.9204
+      sgd(seed=2) dev AUC 0.9211
+    P0_fusion dev AUROC 0.9907
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=7B::size_mix train=7980 dev=1710
+    tfidf in 14.8s
+      sgd(seed=0) dev AUC 0.8371
+      sgd(seed=1) dev AUC 0.8406
+      sgd(seed=2) dev AUC 0.8469
+      sgd(seed=0) dev AUC 0.8520
+      sgd(seed=1) dev AUC 0.8514
+      sgd(seed=2) dev AUC 0.8544
+    P0_fusion dev AUROC 0.9723
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=7B::size_matched train=4788 dev=1026
+    tfidf in 8.3s
+      sgd(seed=0) dev AUC 0.8163
+      sgd(seed=1) dev AUC 0.8209
+      sgd(seed=2) dev AUC 0.8204
+      sgd(seed=0) dev AUC 0.8280
+      sgd(seed=1) dev AUC 0.8207
+      sgd(seed=2) dev AUC 0.8239
+    P0_fusion dev AUROC 0.9814
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=14B::size_mix train=7980 dev=1710
+    tfidf in 14.7s
+      sgd(seed=0) dev AUC 0.8318
+      sgd(seed=1) dev AUC 0.8281
+      sgd(seed=2) dev AUC 0.8299
+      sgd(seed=0) dev AUC 0.8464
+      sgd(seed=1) dev AUC 0.8420
+      sgd(seed=2) dev AUC 0.8429
+    P0_fusion dev AUROC 0.9735
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=14B::size_matched train=4788 dev=1026
+    tfidf in 8.3s
+      sgd(seed=0) dev AUC 0.8268
+      sgd(seed=1) dev AUC 0.8266
+      sgd(seed=2) dev AUC 0.8254
+      sgd(seed=0) dev AUC 0.8396
+      sgd(seed=1) dev AUC 0.8340
+      sgd(seed=2) dev AUC 0.8398
+    P0_fusion dev AUROC 0.9711
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=32B::size_mix train=7980 dev=1710
+    tfidf in 14.5s
+      sgd(seed=0) dev AUC 0.8302
+      sgd(seed=1) dev AUC 0.8176
+      sgd(seed=2) dev AUC 0.8222
+      sgd(seed=0) dev AUC 0.8446
+      sgd(seed=1) dev AUC 0.8467
+      sgd(seed=2) dev AUC 0.8443
+    P0_fusion dev AUROC 0.9747
+  [A2_comments_masked] Qwen2.5-Coder-Instruct::heldout=32B::size_matched train=4788 dev=1026
+    tfidf in 8.8s
+      sgd(seed=0) dev AUC 0.8521
+      sgd(seed=1) dev AUC 0.8430
+      sgd(seed=2) dev AUC 0.8553
+      sgd(seed=0) dev AUC 0.8715
+      sgd(seed=1) dev AUC 0.8653
+      sgd(seed=2) dev AUC 0.8676
+    P0_fusion dev AUROC 0.9781
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix train=7980 dev=1710
+    tfidf in 14.8s
+      sgd(seed=0) dev AUC 0.8203
+      sgd(seed=1) dev AUC 0.8274
+      sgd(seed=2) dev AUC 0.8190
+      sgd(seed=0) dev AUC 0.8239
+      sgd(seed=1) dev AUC 0.8248
+      sgd(seed=2) dev AUC 0.8262
+    P0_fusion dev AUROC 0.9064
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched train=3192 dev=684
+    tfidf in 5.5s
+      sgd(seed=0) dev AUC 0.8172
+      sgd(seed=1) dev AUC 0.8041
+      sgd(seed=2) dev AUC 0.8179
+      sgd(seed=0) dev AUC 0.8161
+      sgd(seed=1) dev AUC 0.8161
+      sgd(seed=2) dev AUC 0.8136
+    P0_fusion dev AUROC 0.9047
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix train=7980 dev=1710
+    tfidf in 14.9s
+      sgd(seed=0) dev AUC 0.8103
+      sgd(seed=1) dev AUC 0.8222
+      sgd(seed=2) dev AUC 0.8097
+      sgd(seed=0) dev AUC 0.8182
+      sgd(seed=1) dev AUC 0.8243
+      sgd(seed=2) dev AUC 0.8191
+    P0_fusion dev AUROC 0.9097
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched train=3192 dev=684
+    tfidf in 5.3s
+      sgd(seed=0) dev AUC 0.7891
+      sgd(seed=1) dev AUC 0.7903
+      sgd(seed=2) dev AUC 0.7860
+      sgd(seed=0) dev AUC 0.7947
+      sgd(seed=1) dev AUC 0.7971
+      sgd(seed=2) dev AUC 0.7956
+    P0_fusion dev AUROC 0.9038
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix train=7980 dev=1710
+    tfidf in 14.7s
+      sgd(seed=0) dev AUC 0.8146
+      sgd(seed=1) dev AUC 0.8196
+      sgd(seed=2) dev AUC 0.8179
+      sgd(seed=0) dev AUC 0.8250
+      sgd(seed=1) dev AUC 0.8190
+      sgd(seed=2) dev AUC 0.8193
+    P0_fusion dev AUROC 0.9000
+  [A2_comments_masked] DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched train=3192 dev=684
+    tfidf in 5.5s
+      sgd(seed=0) dev AUC 0.8229
+      sgd(seed=1) dev AUC 0.8280
+      sgd(seed=2) dev AUC 0.8226
+      sgd(seed=0) dev AUC 0.8386
+      sgd(seed=1) dev AUC 0.8437
+      sgd(seed=2) dev AUC 0.8397
+    P0_fusion dev AUROC 0.9260
+[r2:A2_comments_masked] done in 2263.6s folds=22
+== r2 A3_literals_masked 2026-10-08T00:01:25Z
+  samples=10659 (test rows excluded=1881)
+  [A3_literals_masked] CodeLlama-Instruct::heldout=7b::size_mix train=7980 dev=1710
+    tfidf in 14.8s
+      sgd(seed=0) dev AUC 0.8101
+      sgd(seed=1) dev AUC 0.8174
+      sgd(seed=2) dev AUC 0.8098
+      sgd(seed=0) dev AUC 0.8797
+      sgd(seed=1) dev AUC 0.8786
+      sgd(seed=2) dev AUC 0.8854
+    P0_fusion dev AUROC 0.9150
+  [A3_literals_masked] CodeLlama-Instruct::heldout=7b::size_matched train=4788 dev=1026
+    tfidf in 8.4s
+      sgd(seed=0) dev AUC 0.8401
+      sgd(seed=1) dev AUC 0.8442
+      sgd(seed=2) dev AUC 0.8404
+      sgd(seed=0) dev AUC 0.9063
+      sgd(seed=1) dev AUC 0.8945
+      sgd(seed=2) dev AUC 0.8983
+    P0_fusion dev AUROC 0.9365
+  [A3_literals_masked] CodeLlama-Instruct::heldout=13b::size_mix train=7980 dev=1710
+    tfidf in 14.0s
+      sgd(seed=0) dev AUC 0.8251
+      sgd(seed=1) dev AUC 0.8282
+      sgd(seed=2) dev AUC 0.8397
+      sgd(seed=0) dev AUC 0.8977
+      sgd(seed=1) dev AUC 0.8916
+      sgd(seed=2) dev AUC 0.8915
+    P0_fusion dev AUROC 0.9319
+  [A3_literals_masked] CodeLlama-Instruct::heldout=13b::size_matched train=4788 dev=1026
+    tfidf in 8.5s
+      sgd(seed=0) dev AUC 0.8507
+      sgd(seed=1) dev AUC 0.8483
+      sgd(seed=2) dev AUC 0.8525
+      sgd(seed=0) dev AUC 0.9025
+      sgd(seed=1) dev AUC 0.8973
+      sgd(seed=2) dev AUC 0.8986
+    P0_fusion dev AUROC 0.9437
+  [A3_literals_masked] CodeLlama-Instruct::heldout=34b::size_mix train=7980 dev=1710
+    tfidf in 14.0s
+      sgd(seed=0) dev AUC 0.8290
+      sgd(seed=1) dev AUC 0.8299
+      sgd(seed=2) dev AUC 0.8375
+      sgd(seed=0) dev AUC 0.8930
+      sgd(seed=1) dev AUC 0.8986
+      sgd(seed=2) dev AUC 0.9002
+    P0_fusion dev AUROC 0.9200
+  [A3_literals_masked] CodeLlama-Instruct::heldout=34b::size_matched train=4788 dev=1026
+    tfidf in 8.5s
+      sgd(seed=0) dev AUC 0.8384
+      sgd(seed=1) dev AUC 0.8335
+      sgd(seed=2) dev AUC 0.8262
+      sgd(seed=0) dev AUC 0.8967
+      sgd(seed=1) dev AUC 0.8870
+      sgd(seed=2) dev AUC 0.8863
+    P0_fusion dev AUROC 0.9437
+  [A3_literals_masked] CodeLlama-Instruct::heldout=70b::size_mix train=7980 dev=1710
+    tfidf in 14.0s
+      sgd(seed=0) dev AUC 0.8568
+      sgd(seed=1) dev AUC 0.8569
+      sgd(seed=2) dev AUC 0.8533
+      sgd(seed=0) dev AUC 0.9091
+      sgd(seed=1) dev AUC 0.9095
+      sgd(seed=2) dev AUC 0.9072
+    P0_fusion dev AUROC 0.9425
+  [A3_literals_masked] CodeLlama-Instruct::heldout=70b::size_matched train=4788 dev=1026
+    tfidf in 8.4s
+      sgd(seed=0) dev AUC 0.8514
+      sgd(seed=1) dev AUC 0.8533
+      sgd(seed=2) dev AUC 0.8575
+      sgd(seed=0) dev AUC 0.9079
+      sgd(seed=1) dev AUC 0.8966
+      sgd(seed=2) dev AUC 0.9065
+    P0_fusion dev AUROC 0.9382
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=1.5B::size_mix train=7980 dev=1710
+    tfidf in 13.9s
+      sgd(seed=0) dev AUC 0.8807
+      sgd(seed=1) dev AUC 0.8832
+      sgd(seed=2) dev AUC 0.8826
+      sgd(seed=0) dev AUC 0.9093
+      sgd(seed=1) dev AUC 0.9089
+      sgd(seed=2) dev AUC 0.9088
+    P0_fusion dev AUROC 0.9839
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=1.5B::size_matched train=4788 dev=1026
+    tfidf in 8.7s
+      sgd(seed=0) dev AUC 0.9036
+      sgd(seed=1) dev AUC 0.8971
+      sgd(seed=2) dev AUC 0.8936
+      sgd(seed=0) dev AUC 0.9212
+      sgd(seed=1) dev AUC 0.9207
+      sgd(seed=2) dev AUC 0.9232
+    P0_fusion dev AUROC 0.9855
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=7B::size_mix train=7980 dev=1710
+    tfidf in 13.9s
+      sgd(seed=0) dev AUC 0.8174
+      sgd(seed=1) dev AUC 0.8110
+      sgd(seed=2) dev AUC 0.8209
+      sgd(seed=0) dev AUC 0.8666
+      sgd(seed=1) dev AUC 0.8602
+      sgd(seed=2) dev AUC 0.8646
+    P0_fusion dev AUROC 0.9757
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=7B::size_matched train=4788 dev=1026
+    tfidf in 8.6s
+      sgd(seed=0) dev AUC 0.8213
+      sgd(seed=1) dev AUC 0.8229
+      sgd(seed=2) dev AUC 0.8276
+      sgd(seed=0) dev AUC 0.8569
+      sgd(seed=1) dev AUC 0.8498
+      sgd(seed=2) dev AUC 0.8528
+    P0_fusion dev AUROC 0.9790
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=14B::size_mix train=7980 dev=1710
+    tfidf in 13.7s
+      sgd(seed=0) dev AUC 0.8026
+      sgd(seed=1) dev AUC 0.7955
+      sgd(seed=2) dev AUC 0.8004
+      sgd(seed=0) dev AUC 0.8471
+      sgd(seed=1) dev AUC 0.8450
+      sgd(seed=2) dev AUC 0.8456
+    P0_fusion dev AUROC 0.9755
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=14B::size_matched train=4788 dev=1026
+    tfidf in 8.6s
+      sgd(seed=0) dev AUC 0.8009
+      sgd(seed=1) dev AUC 0.8063
+      sgd(seed=2) dev AUC 0.8064
+      sgd(seed=0) dev AUC 0.8444
+      sgd(seed=1) dev AUC 0.8389
+      sgd(seed=2) dev AUC 0.8393
+    P0_fusion dev AUROC 0.9766
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=32B::size_mix train=7980 dev=1710
+    tfidf in 13.8s
+      sgd(seed=0) dev AUC 0.7976
+      sgd(seed=1) dev AUC 0.7934
+      sgd(seed=2) dev AUC 0.7943
+      sgd(seed=0) dev AUC 0.8380
+      sgd(seed=1) dev AUC 0.8323
+      sgd(seed=2) dev AUC 0.8390
+    P0_fusion dev AUROC 0.9740
+  [A3_literals_masked] Qwen2.5-Coder-Instruct::heldout=32B::size_matched train=4788 dev=1026
+    tfidf in 8.4s
+      sgd(seed=0) dev AUC 0.8097
+      sgd(seed=1) dev AUC 0.8073
+      sgd(seed=2) dev AUC 0.8140
+      sgd(seed=0) dev AUC 0.8542
+      sgd(seed=1) dev AUC 0.8553
+      sgd(seed=2) dev AUC 0.8536
+    P0_fusion dev AUROC 0.9751
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_mix train=7980 dev=1710
+    tfidf in 14.1s
+      sgd(seed=0) dev AUC 0.7761
+      sgd(seed=1) dev AUC 0.7860
+      sgd(seed=2) dev AUC 0.7862
+      sgd(seed=0) dev AUC 0.8334
+      sgd(seed=1) dev AUC 0.8382
+      sgd(seed=2) dev AUC 0.8380
+    P0_fusion dev AUROC 0.8941
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=1.3b::size_matched train=3192 dev=684
+    tfidf in 5.5s
+      sgd(seed=0) dev AUC 0.7599
+      sgd(seed=1) dev AUC 0.7649
+      sgd(seed=2) dev AUC 0.7552
+      sgd(seed=0) dev AUC 0.8263
+      sgd(seed=1) dev AUC 0.8291
+      sgd(seed=2) dev AUC 0.8220
+    P0_fusion dev AUROC 0.8990
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_mix train=7980 dev=1710
+    tfidf in 14.2s
+      sgd(seed=0) dev AUC 0.7877
+      sgd(seed=1) dev AUC 0.7846
+      sgd(seed=2) dev AUC 0.7732
+      sgd(seed=0) dev AUC 0.8348
+      sgd(seed=1) dev AUC 0.8354
+      sgd(seed=2) dev AUC 0.8308
+    P0_fusion dev AUROC 0.8921
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=6.7b::size_matched train=3192 dev=684
+    tfidf in 5.4s
+      sgd(seed=0) dev AUC 0.7403
+      sgd(seed=1) dev AUC 0.7410
+      sgd(seed=2) dev AUC 0.7320
+      sgd(seed=0) dev AUC 0.7768
+      sgd(seed=1) dev AUC 0.7893
+      sgd(seed=2) dev AUC 0.7790
+    P0_fusion dev AUROC 0.8868
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=33b::size_mix train=7980 dev=1710
+    tfidf in 14.2s
+      sgd(seed=0) dev AUC 0.7932
+      sgd(seed=1) dev AUC 0.7929
+      sgd(seed=2) dev AUC 0.7880
+      sgd(seed=0) dev AUC 0.8514
+      sgd(seed=1) dev AUC 0.8451
+      sgd(seed=2) dev AUC 0.8470
+    P0_fusion dev AUROC 0.8830
+  [A3_literals_masked] DeepSeek-Coder-v1-Instruct::heldout=33b::size_matched train=3192 dev=684
+    tfidf in 5.3s
+      sgd(seed=0) dev AUC 0.7757
+      sgd(seed=1) dev AUC 0.7913
+      sgd(seed=2) dev AUC 0.7845
+      sgd(seed=0) dev AUC 0.8205
+      sgd(seed=1) dev AUC 0.8337
+      sgd(seed=2) dev AUC 0.8319
+    P0_fusion dev AUROC 0.9113
+[r2:A3_literals_masked] done in 2232.6s folds=22
+== paired 2026-10-08T00:38:39Z
+  samples=10659 (test rows excluded=1881)

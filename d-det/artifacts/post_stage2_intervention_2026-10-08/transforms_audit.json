@@ -1,0 +1,91 @@
+{
+ "schema": "post_stage2_transforms_audit_v1",
+ "generated_utc": "2026-10-07T20:47:07.001144+00:00",
+ "n_samples": 10659,
+ "order": "(unit, task) ascending (stage-1 identical)",
+ "transforms": {
+  "A1_format_norm": {
+   "n_fail": 0,
+   "fail_reasons": {},
+   "warnings": {},
+   "mode_counts": {
+    "py": 10659
+   },
+   "lines_orig": 269546,
+   "lines_new": 280205,
+   "chars_orig": 9508400,
+   "chars_new": 9447192,
+   "tok_orig": 2786882,
+   "tok_new": 2781410,
+   "tok_trunc_orig": 316,
+   "tok_trunc_new": 319,
+   "samples_line_change": 10659,
+   "samples_compile_fail_after": 0,
+   "counts": {
+    "crlf": 0,
+    "cr": 0,
+    "end_newline_added": 10659,
+    "trailing_ws_lines": 16473
+   },
+   "joint_hash_map_sha256": "9db76bc76051546808dbe8d5210aa40f9deecca6a8a6331d551df966f159c73f",
+   "rule": "CRLF/LF 统一；删除行尾空白（空格/制表符）；文件末尾统一为恰好一个换行。不重排缩进/括号/语句。",
+   "semantic_risk": "none_expected"
+  },
+  "A2_comments_masked": {
+   "n_fail": 0,
+   "fail_reasons": {},
+   "warnings": {},
+   "mode_counts": {
+    "py": 10659
+   },
+   "lines_orig": 269546,
+   "lines_new": 269546,
+   "chars_orig": 9508400,
+   "chars_new": 7801604,
+   "tok_orig": 2786882,
+   "tok_new": 2432169,
+   "tok_trunc_orig": 316,
+   "tok_trunc_new": 165,
+   "samples_line_change": 0,
+   "samples_compile_fail_after": 0,
+   "counts": {
+    "comment_line": 41649,
+    "comment_block": 0,
+    "removed_chars": 1706796
+   },
+   "joint_hash_map_sha256": "aeb537c5f244d494e96d3285880536d48568ab41d418a334e6ad33115a9d00ee",
+   "rule": "状态机屏蔽注释：Python 模式 # 行注释；C-family 模式 // 行注释与 /* */ 块注释；字符串/字符常量/三引号字符串内部不误判；行注释删除至行尾（不含换行），块注释删除但保留其中换行。失败样本保留原文并单独记录。",
+   "semantic_risk": "low（注释理论上不影响语义；docstring 按字符串处理不屏蔽）"
+  },
+  "A3_literals_masked": {
+   "n_fail": 0,
+   "fail_reasons": {},
+   "warnings": {},
+   "mode_counts": {
+    "py": 10659
+   },
+   "lines_orig": 269546,
+   "lines_new": 243666,
+   "chars_orig": 9508400,
+   "chars_new": 7756497,
+   "tok_orig": 2786882,
+   "tok_new": 2415165,
+   "tok_trunc_orig": 316,
+   "tok_trunc_new": 98,
+   "samples_line_change": 2917,
+   "samples_compile_fail_after": 0,
+   "counts": {
+    "strings": 72140,
+    "numbers": 42820
+   },
+   "joint_hash_map_sha256": "3679ce054c43d114999ec6859f55091c3cba8c532b8f1f1190095ad0e0c3a522",
+   "rule": "字符串/字符常量整体替换为 \"<str>\"（含前缀）；数字替换为 0。仅敏感性分析；可能改变任务语义与可运行性，不得命名为\"去风格后的纯代码\"。",
+   "semantic_risk": "high_sensitivity_only"
+  }
+ },
+ "a4_status": {
+  "transform_id": "A4_identifiers_masked",
+  "status": "not_executed",
+  "reason": "指导 §3/§7：仅在语言 tokenizer 能稳定区分局部变量/函数名/API 名/关键字时才允许执行；无法排除误伤库 API 与类型名；多语言覆盖率不足。按指导状态写为 not_executed。"
+ }
+}
