@@ -1,0 +1,235 @@
+{
+  "schema": "code_conditioned_fresh_c0_cross_side_local_reproduction_v1",
+  "date": "2026-10-10",
+  "server_delivery": "b57b8be4c5c95eed665c5a847a8935edd6189fcb",
+  "local_reproduction_dir": "d-det/artifacts/code_conditioned_fresh_c0_corrected_local_repro_2026-10-10",
+  "scope": {
+    "rows": 10659,
+    "test_read": false,
+    "generation": false,
+    "weights_downloaded": false,
+    "code_execution": false
+  },
+  "local_environment": {
+    "python": "3.11.5",
+    "numpy": "1.26.4",
+    "sklearn": "1.7.1"
+  },
+  "server_environment": {
+    "python": "3.12.14",
+    "numpy": "2.2.6",
+    "sklearn": "1.9.1"
+  },
+  "feature_order_audit": {
+    "server_features_manifest_order": [
+      "codellama--CodeLlama-13b-Instruct-hf",
+      "codellama--CodeLlama-34b-Instruct-hf",
+      "codellama--CodeLlama-70b-Instruct-hf",
+      "codellama--CodeLlama-7b-Instruct-hf",
+      "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "deepseek-ai--deepseek-coder-33b-instruct",
+      "deepseek-ai--deepseek-coder-6.7b-instruct",
+      "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+      "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "Qwen--Qwen2.5-Coder-32B-Instruct",
+      "Qwen--Qwen2.5-Coder-7B-Instruct"
+    ],
+    "admission_and_fold_setup_order": [
+      "codellama--CodeLlama-13b-Instruct-hf",
+      "codellama--CodeLlama-34b-Instruct-hf",
+      "codellama--CodeLlama-70b-Instruct-hf",
+      "codellama--CodeLlama-7b-Instruct-hf",
+      "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+      "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "Qwen--Qwen2.5-Coder-32B-Instruct",
+      "Qwen--Qwen2.5-Coder-7B-Instruct",
+      "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "deepseek-ai--deepseek-coder-33b-instruct",
+      "deepseek-ai--deepseek-coder-6.7b-instruct"
+    ],
+    "orders_equal": false,
+    "first_mismatch_index": 4,
+    "permutation_description": "CodeLlama positions 0-3 match; server positions 4-6 are DeepSeek while canonical positions 4-6 are Qwen; server positions 7-10 are Qwen while canonical positions 7-10 are DeepSeek.",
+    "consequence": "bundle member_idx was constructed in endpoint-plan order while fold_setup interprets it in admission order; non-CodeLlama feature rows can be assigned to the wrong member label."
+  },
+  "cross_side_results": {
+    "server_corrected_dev_row_mean": 0.9327539786911903,
+    "server_corrected_dev_task_macro": 0.9450615174299384,
+    "local_repro_dev_row_mean": 0.9439306333350657,
+    "local_repro_dev_task_macro": 0.9580580238474976,
+    "fit_text_hash_equal_folds": 0,
+    "lexical_vocab_equal_folds": 4,
+    "fused_score_digest_equal_folds": 0,
+    "per_fold_lexical": [
+      {
+        "heldout_member": "codellama--CodeLlama-13b-Instruct-hf",
+        "fit_texts_hash_equal": false,
+        "char_vocab_equal": true,
+        "word_vocab_equal": true,
+        "server_fit_texts_sha256": "70ed94331bc8401b8e0ee14bcd14e34c04a7f335e185b00611c6cdafe65ab2c3",
+        "local_fit_texts_sha256": "5bca7d1f3782c2d99df931c299ab2c30479325b11edc143bc18de21838315b4c"
+      },
+      {
+        "heldout_member": "codellama--CodeLlama-34b-Instruct-hf",
+        "fit_texts_hash_equal": false,
+        "char_vocab_equal": true,
+        "word_vocab_equal": true,
+        "server_fit_texts_sha256": "e54b67cadb8fe796fd096aee2a58fc7aa2f0091b06dc104ca1338a39be303009",
+        "local_fit_texts_sha256": "ac61656b09f3d02d628dea04d6dd6e5b6044c229fe44fd131f1e977c94c0a754"
+      },
+      {
+        "heldout_member": "codellama--CodeLlama-70b-Instruct-hf",
+        "fit_texts_hash_equal": false,
+        "char_vocab_equal": true,
+        "word_vocab_equal": true,
+        "server_fit_texts_sha256": "f3bfe50dcd1301bfd566c6649e8eb198bd793b1d38c6d2dfe1001916c321de2d",
+        "local_fit_texts_sha256": "bc4a03c74e3bacf98b7109ceb0bdf8fecc61878511d29df393e7923962d14e0c"
+      },
+      {
+        "heldout_member": "codellama--CodeLlama-7b-Instruct-hf",
+        "fit_texts_hash_equal": false,
+        "char_vocab_equal": true,
+        "word_vocab_equal": true,
+        "server_fit_texts_sha256": "ab728bd4b1662ba84dea24f7f2d35c083d4f3538b0051b0b1e031fc3f0f4f8ac",
+        "local_fit_texts_sha256": "676ea50bc0af2abe82d621f8c00964660e03ea6cf840f1d9c879a557b2cb585d"
+      },
+      {
+        "heldout_member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+        "fit_texts_hash_equal": false,
+        "char_vocab_equal": false,
+        "word_vocab_equal": false,
+        "server_fit_texts_sha256": "9e0902278b88e7c8739b0b27efffa3752d5ad5d7cc2a19979d0c1cdcef42b636",
+        "local_fit_texts_sha256": "bad94dcf15675df235acd587ecf22b68b50e4ee0baa05df9f7a51486b801e4d0"
+      },
+      {
+        "heldout_member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+        "fit_texts_hash_equal": false,
+        "char_vocab_equal": false,
+        "word_vocab_equal": false,
+        "server_fit_texts_sha256": "568cfb694b9ed638d1cc8f665a2db111b34b0f58794799b5a91c1edfe76c8d4b",
+        "local_fit_texts_sha256": "feb439560071b639c494bccc5f6eae51ecae66ef43e7a5217dfe8d2183db0446"
+      },
+      {
+        "heldout_member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+        "fit_texts_hash_equal": false,
+        "char_vocab_equal": false,
+        "word_vocab_equal": false,
+        "server_fit_texts_sha256": "fc7cd9cb17f3ab6481c760487a2280954f40fdcb666685323291542fc555045c",
+        "local_fit_texts_sha256": "b7dc1d27a78fa35c53d0b46558cdc090feb2c2e5c74ad266552bf425c46d72ec"
+      },
+      {
+        "heldout_member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+        "fit_texts_hash_equal": false,
+        "char_vocab_equal": false,
+        "word_vocab_equal": false,
+        "server_fit_texts_sha256": "d14683bc1fa4b1afd5b680e2fb049f8e261f0548dfa53cd3af00f2ccb986912a",
+        "local_fit_texts_sha256": "dc04453c5f617285c97622191892897357eb539c99b76a2759fe5ba803e330c5"
+      },
+      {
+        "heldout_member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+        "fit_texts_hash_equal": false,
+        "char_vocab_equal": false,
+        "word_vocab_equal": false,
+        "server_fit_texts_sha256": "fd87dfb6b0b8b3d9fd3f77841e23d3346ad7a32b2a07cf1b914f5b389275bd4f",
+        "local_fit_texts_sha256": "068cbcc2f86b0ad335d89e31843acf1f2f897c6d6f7b80099f10e41345d249a4"
+      },
+      {
+        "heldout_member": "deepseek-ai--deepseek-coder-33b-instruct",
+        "fit_texts_hash_equal": false,
+        "char_vocab_equal": false,
+        "word_vocab_equal": false,
+        "server_fit_texts_sha256": "c30af6306bd0ff79557f149d9ab625c347bd616c2327b32286612d69ab3cfcbd",
+        "local_fit_texts_sha256": "e1965142f7c1584770f2c29894e834231f3725c2689d40428c4b65aa4218f495"
+      },
+      {
+        "heldout_member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+        "fit_texts_hash_equal": false,
+        "char_vocab_equal": false,
+        "word_vocab_equal": false,
+        "server_fit_texts_sha256": "1e93592b3af291f7d7cfbc4c17a64ce621d271b1d2bef3b809225325ee9b9e1b",
+        "local_fit_texts_sha256": "4c109925631bf84388203ea3922861487761c482bb41aacb7c91d21c27d4b174"
+      }
+    ],
+    "per_fold_scores": [
+      {
+        "heldout_member": "codellama--CodeLlama-13b-Instruct-hf",
+        "fused_digest_equal": false,
+        "server_fused_digest": "49e644e7376289fb441a7cb6354cb6735824dca36e9bd7b63dcda42a7f5246cc",
+        "local_fused_digest": "584e64a0c89d691283cdd489bb5a9b8a9053c3ef9bbf27c8cebaf7bc69432d8a"
+      },
+      {
+        "heldout_member": "codellama--CodeLlama-34b-Instruct-hf",
+        "fused_digest_equal": false,
+        "server_fused_digest": "f75eeb77e01da3c1838da325a017716108f9cd11b60dc825dced33cc43bf8ae4",
+        "local_fused_digest": "bc349217c6aac5bb1639f065bc5ec3accc2f0667daf11bb9dd991c330fb2dd2c"
+      },
+      {
+        "heldout_member": "codellama--CodeLlama-70b-Instruct-hf",
+        "fused_digest_equal": false,
+        "server_fused_digest": "8253c3e39a0db26db94575afd6cc8c0c2038afc6f04af46204d1fae0fc05076b",
+        "local_fused_digest": "dd1aed78ccad8b8a45394256b571e87cf369ea2eaa0c8655252baeb0ad8736e2"
+      },
+      {
+        "heldout_member": "codellama--CodeLlama-7b-Instruct-hf",
+        "fused_digest_equal": false,
+        "server_fused_digest": "ee361d70ba9f44553871028cf7ba30638c5106e9a649c2b6d6565e3e608c8c03",
+        "local_fused_digest": "fd968b214edb53e44ca0635d5184d849dcb2218f52ebe2785ba2bfd6b95a6128"
+      },
+      {
+        "heldout_member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+        "fused_digest_equal": false,
+        "server_fused_digest": "cab981824b5ee11e13cb428018b44ff07c18de188d888c147f269af066792ef2",
+        "local_fused_digest": "96a98cbcc00da0719354207642cdd9757b940d614802e6610142c71b740060cf"
+      },
+      {
+        "heldout_member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+        "fused_digest_equal": false,
+        "server_fused_digest": "6765edecfa279516a39478480e9ec76a7d3a2b6ff9e417fbc142ee0515c017fa",
+        "local_fused_digest": "f5119cdabb9e0d4ae70ad1b6f158c8c640029fbd44038de0a3bfdb4c4ed9f301"
+      },
+      {
+        "heldout_member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+        "fused_digest_equal": false,
+        "server_fused_digest": "05818add2d3ee1fc85baca32a371128243c41231fc90829fd1bbad00f15376f3",
+        "local_fused_digest": "74f42247af934232cbf173d620fcc2aa4f0daec44cd5410a816fd73f8fb0152f"
+      },
+      {
+        "heldout_member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+        "fused_digest_equal": false,
+        "server_fused_digest": "31b7413b3db19f950ede350692b77206e43e680af789727d83c3e7171c09ae7b",
+        "local_fused_digest": "c448666570a7d9e444128f73a89004a4c20970a79ea210b0dd6e7b830ddb0c98"
+      },
+      {
+        "heldout_member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+        "fused_digest_equal": false,
+        "server_fused_digest": "ffc2d6a2b5d3ba78577e3c8bdd30026008e033d3e78784d3c087f554f05c1fbb",
+        "local_fused_digest": "3a466a4717c887a9c168e4433f2b95166f0f7b9eaa69c042cae5934177a9e671"
+      },
+      {
+        "heldout_member": "deepseek-ai--deepseek-coder-33b-instruct",
+        "fused_digest_equal": false,
+        "server_fused_digest": "76222d4187c29c9e78733e2781063405ee0ce6445f5fd6345d1262ad2c52cb39",
+        "local_fused_digest": "133e3abcbbab4d718d875c47908738f272bfe5b0a3d912120b45f7a846768f50"
+      },
+      {
+        "heldout_member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+        "fused_digest_equal": false,
+        "server_fused_digest": "ec7ea554be05c35b974ae8e3f64ec51c0592563fdf206873342785c31c41c04b",
+        "local_fused_digest": "b3f220949f29aac5c28cd1adc8805c80db417eb844b28d62b1930ccbd255b729"
+      }
+    ]
+  },
+  "gate": {
+    "protocol_lexical_fix": "pass in server artifact and local implementation",
+    "cross_side_1e3": "blocked",
+    "reason": "feature member-order mismatch plus local/server runtime mismatch; score digests are not comparable as the same protocol instance",
+    "aligned": false,
+    "c1_c3_rerun_allowed": false
+  },
+  "required_fix": [
+    "Canonicalize feature bundle member_idx and members_order to the admission map before any fold fit.",
+    "Write members_order_sha256 and row-level member/task mapping hash into features_manifest and each C0 manifest.",
+    "Rebuild the corrected C0 once on AutoDL after the mapping fix; keep test/generation/weights/code execution off.",
+    "Only then repeat the local score-digest comparison under a matched sklearn/numpy runtime or use a server-produced digest comparison with explicit runtime attestation."
+  ]
+}

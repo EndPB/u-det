@@ -45,9 +45,20 @@ def load_design():
     member_series = {m: s for s, ms in series_of.items() for m in ms}
     members_order = [m["model_id"] for s in series_map["series"] for m in s["members"]]
     tasks_all = json.loads((R0 / "row_index.json").read_text(encoding="utf-8"))["tasks"]
+    # ---- member-order guard (2026-10-10, guidance §12): the feature bundle MUST be
+    # built in the same member order as the admission map; fail loudly otherwise. ----
+    assert "member_ids" in bundle, ("feature bundle lacks member_ids; rebuild with "
+                                    "the canonicalized cc_build_features.py")
+    member_ids = [str(x) for x in bundle["member_ids"]]
+    assert member_ids == members_order, "feature bundle members_order != admission members_order"
+    member_idx_recomputed = np.array([members_order.index(r["model_id"]) for r in rows],
+                                     dtype=np.int64)
+    assert (bundle["member_idx"] == member_idx_recomputed).all(), \
+        "bundle member_idx inconsistent with admission member order (stop before folds)"
     return {"rows": rows, "bundle": bundle, "emb_task": emb_task, "folds": folds,
             "series_of": series_of, "member_series": member_series,
-            "members_order": members_order, "tasks_all": tasks_all}
+            "members_order": members_order, "member_ids": member_ids,
+            "tasks_all": tasks_all}
 
 
 def inner_split(tasks):

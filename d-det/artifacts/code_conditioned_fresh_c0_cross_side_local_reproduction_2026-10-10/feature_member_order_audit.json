@@ -1,0 +1,40 @@
+{
+  "schema": "code_conditioned_feature_member_order_audit_v1",
+  "feature_members_order": [
+    "codellama--CodeLlama-13b-Instruct-hf",
+    "codellama--CodeLlama-34b-Instruct-hf",
+    "codellama--CodeLlama-70b-Instruct-hf",
+    "codellama--CodeLlama-7b-Instruct-hf",
+    "deepseek-ai--deepseek-coder-1.3b-instruct",
+    "deepseek-ai--deepseek-coder-33b-instruct",
+    "deepseek-ai--deepseek-coder-6.7b-instruct",
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen--Qwen2.5-Coder-14B-Instruct",
+    "Qwen--Qwen2.5-Coder-32B-Instruct",
+    "Qwen--Qwen2.5-Coder-7B-Instruct"
+  ],
+  "admission_members_order": [
+    "codellama--CodeLlama-13b-Instruct-hf",
+    "codellama--CodeLlama-34b-Instruct-hf",
+    "codellama--CodeLlama-70b-Instruct-hf",
+    "codellama--CodeLlama-7b-Instruct-hf",
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen--Qwen2.5-Coder-14B-Instruct",
+    "Qwen--Qwen2.5-Coder-32B-Instruct",
+    "Qwen--Qwen2.5-Coder-7B-Instruct",
+    "deepseek-ai--deepseek-coder-1.3b-instruct",
+    "deepseek-ai--deepseek-coder-33b-instruct",
+    "deepseek-ai--deepseek-coder-6.7b-instruct"
+  ],
+  "members_order_equal": false,
+  "members_order_sha256": "1afd29b6c240095269cb5f498302a0e07143e7b286869a47431872a2b2629175",
+  "feature_members_order_sha256": "e6d7852c82b84d60185c7c57b78106df6f669fcad35bef2382c6bf7d31dff286",
+  "rows": 10659,
+  "row_mapping_sha256": "3f93554a806f1bb0160f8d5ed31a77ae7d3e519a2cae4edfc9f23d5cb58aa373",
+  "assertions": {
+    "all_rows_member_known": true,
+    "members_order_equal": false,
+    "row_count_expected": true
+  },
+  "policy": "stop before fitting if members_order_equal is false"
+}

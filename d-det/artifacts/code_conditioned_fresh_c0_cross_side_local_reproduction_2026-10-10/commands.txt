@@ -1,0 +1,1 @@
+Built local feature bundle from existing train/dev records and caches; ran corrected C0 locally; compared server/local manifests, lexical attestations, score digests, and feature member order. No AutoDL connection and no test access.

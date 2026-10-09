@@ -243,3 +243,35 @@ C0 仍为 `not_aligned`，原因是连续分数没有逐点达到容差，旧产
 下一轮只允许修正 C0：将 char 和 word vectorizer 的 fit 移入每个 fold，只使用该折 `fit_rows` 的文本；eval 行只调用 transform。每折 manifest 追加 vectorizer 参数、fit-row hash、词表大小和 IDF 摘要。重新生成 score digest、metrics 和审计报告。test、生成、权重下载、代码执行继续关闭。
 
 在修正版 C0 通过 lexical fit-scope 审计并满足 `row_score_max_abs ≤ 1e-3`、`metric_abs ≤ 1e-3` 后，才允许考虑 C1–C3。此前所有 C1–C3 数字继续标为服务器内部开发诊断。
+
+## 11. 修正版 fresh C0 回传后的执行闸门（2026-10-10）
+
+`b57b8be` 的修正版 fresh C0 已解决 §10 的 global lexical fit：每折 char/word TF-IDF 只在 `fit_rows` 拟合，eval 只 transform；11 折 manifest 必须保留 fit-row/text hash、vocabulary/IDF attestation 和 pre/post manifest hash。修正版 C0 的协议审计通过，报告数字只作为修正版 train/dev C0 结果保存。
+
+执行端仍不得把 C0 标为 `aligned`。唯一剩余闸门是本机按 `spec_sheet.json` 完成跨侧逐点对账：每折 fused 和四组件 score digest，以及 pooled/row/task 指标，必须同时满足 `row_score_max_abs ≤ 1e-3` 与 `metric_abs ≤ 1e-3`。服务器报告中的 execution head 为 `be8df507…`，交付提交为 `b57b8be…`，执行时工作树曾有未提交文件；应在对账前把修正版脚本 SHA 写入 manifest/metrics，或提供等价的干净来源证明。
+
+在闸门闭合之前：
+
+- `training_allowed` 仅保持现有 train/dev 结果的可追溯性，不启动新训练；
+- `test_read_allowed=false`、`generation_allowed=false`、`weights_downloaded=false`、`code_execution=false`；
+- C1–C3 不重跑、不升级为统一强 P0 的确认性负结果；
+- 不增加 encoder/decoder、参数量、温度、融合权重或新的变换；
+- 若本机重算受环境版本或特征缓存限制，只交换逐折 score digest/必要 feature attestation，不交换 test、权重或无关数据。
+
+对账完成后只有两条合法路径：C0 `aligned` 且候选需要统一规格下重跑，或对账失败并继续保留 `cross_side_alignment_pending`。不得用旧 global-fit 结果、历史折猜测或近似指标提前关闭闸门。
+
+## 12. 本机复现后的新增阻断：feature member order 必须先规范化（2026-10-10）
+
+本机已在 AutoDL 关机期间完成修正版 C0 的 train/dev 复现准备与运行。对账没有通过，原因不是 lexical fit，而是 feature bundle 的成员顺序：服务器 `features_manifest.json` 使用 CodeLlama → DeepSeek → Qwen，admission map 与 `cc_common.fold_setup()` 使用 CodeLlama → Qwen → DeepSeek。`member_idx` 若按前者写入、按后者解释，会把 Qwen/DeepSeek 的特征行循环错配到标签。
+
+因此下一次服务器执行前必须增加以下断言：
+
+```text
+features.members_order == admission.members_order
+member_idx[i] == admission.members_order.index(rows[i].model_id)
+row_mapping_sha256 = sha256(model_id + "|" + task_id + "|" + split + "|" + solution_sha256)
+```
+
+该断言与哈希必须在 bundle 写入前落盘；失败时停止，不进入任何折拟合。修正后只运行一次 train/dev corrected C0，补写 `members_order_sha256`、逐行 mapping hash 和脚本 SHA。test、生成、权重下载、代码执行继续关闭。
+
+本机结果只能作为结构诊断：fit-text hash 0/11 对齐、词表同时对齐 4/11、fused digest 0/11；C0 状态为 `blocked_feature_member_order`。在该问题修复并完成跨侧 `row_score_max_abs ≤ 1e-3`、`metric_abs ≤ 1e-3` 前，不得重跑 C1–C3，也不得增加 backbone 或参数量。

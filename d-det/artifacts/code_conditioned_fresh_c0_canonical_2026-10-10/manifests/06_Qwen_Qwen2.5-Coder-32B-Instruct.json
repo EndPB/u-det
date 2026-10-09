@@ -1,0 +1,238 @@
+{
+ "schema": "code_conditioned_fresh_c0_fold_manifest_v3_canonical",
+ "generated_utc": "2026-10-09T18:18:54.894742+00:00",
+ "source_status": "server_reconstruction_only",
+ "original_bundle_verified": false,
+ "correction_note": "supersedes code_conditioned_fresh_c0_corrected_2026-10-10 (member-order canonicalization, guidance §12; fold-fit-only lexical retained)",
+ "switches": {
+  "training_allowed": true,
+  "test_read_allowed": false,
+  "generation_allowed": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ },
+ "effective_series_map_sha256": "0b0acf8eb42398b14314b0f0fc02d53ded224c0fb90da06ef64686a8f160a7f1",
+ "effective_series_map_canonical": {
+  "CodeLlama-Instruct": [
+   "codellama--CodeLlama-13b-Instruct-hf",
+   "codellama--CodeLlama-34b-Instruct-hf",
+   "codellama--CodeLlama-70b-Instruct-hf",
+   "codellama--CodeLlama-7b-Instruct-hf"
+  ],
+  "Qwen2.5-Coder-Instruct": [
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "Qwen--Qwen2.5-Coder-7B-Instruct"
+  ],
+  "DeepSeek-Coder-v1-Instruct": [
+   "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "deepseek-ai--deepseek-coder-33b-instruct",
+   "deepseek-ai--deepseek-coder-6.7b-instruct"
+  ]
+ },
+ "official_expected_admission_sha256": "cc4a77851702e0bbf57e50636744ad25b572da9a665148b2b76179236b0bdfae",
+ "server_admission_file": "d-det/artifacts/code_conditioned_design_2026-10-09/inputs/family_series_admission.json",
+ "server_admission_file_sha256": "7fc5e78f948d307ba05a626e10479da171d08dd5e0548ad8579081200bfe8d68",
+ "heldout_member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+ "heldout_series": "Qwen2.5-Coder-Instruct",
+ "fit_member_ids": [
+  "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+  "Qwen--Qwen2.5-Coder-14B-Instruct",
+  "Qwen--Qwen2.5-Coder-7B-Instruct",
+  "codellama--CodeLlama-13b-Instruct-hf",
+  "codellama--CodeLlama-34b-Instruct-hf",
+  "codellama--CodeLlama-70b-Instruct-hf",
+  "codellama--CodeLlama-7b-Instruct-hf",
+  "deepseek-ai--deepseek-coder-1.3b-instruct",
+  "deepseek-ai--deepseek-coder-33b-instruct",
+  "deepseek-ai--deepseek-coder-6.7b-instruct"
+ ],
+ "eval_member_ids": [
+  "Qwen--Qwen2.5-Coder-32B-Instruct",
+  "codellama--CodeLlama-13b-Instruct-hf",
+  "codellama--CodeLlama-34b-Instruct-hf",
+  "codellama--CodeLlama-70b-Instruct-hf",
+  "codellama--CodeLlama-7b-Instruct-hf",
+  "deepseek-ai--deepseek-coder-1.3b-instruct",
+  "deepseek-ai--deepseek-coder-33b-instruct",
+  "deepseek-ai--deepseek-coder-6.7b-instruct"
+ ],
+ "positive_row_sha256": "d35799b20f1cc673d280de4eb86d1e774bcda20ee26e559b5cc8b56574895da5",
+ "negative_row_sha256": "5ea9ecf076e3a046f5ccba2b506f59b98dbda210af18a01f2d4d57e222ef0493",
+ "train_row_sha256": "e18a08b83c727e3205308b70da6ef686b832c095763e8e40f0d7e08ea3ce436f",
+ "eval_task_sha256": "a2549f9a91ad5b10e4fab086cbd4618e1169791ec0e1e61485b6cc2c320de7e8",
+ "component_specs": {
+  "member_indexing": "member_idx = admission members order [CodeLlama, Qwen, DeepSeek]; feature bundle canonicalized 2026-10-10 (guidance §12)",
+  "semantic": {
+   "input_block": "hy_small = frozen CodeT5-small mean-pooled code embedding (512-d), from r0 corpus cache row = gmodel_idx*nT*2 + task_idx*2 + 1 (instruct)",
+   "scaler": "StandardScaler fit on fold-fit rows (server sklearn)",
+   "model": "LogisticRegression(max_iter=2000, C=1.0)",
+   "score": "decision_function"
+  },
+  "char_tfidf": {
+   "vectorizer": {
+    "analyzer": "char_wb",
+    "ngram_range": [
+     2,
+     5
+    ],
+    "min_df": 1,
+    "sublinear_tf": true,
+    "lowercase": false
+   },
+   "fit_scope": "fold-fit rows texts only (fold-train-only vocabulary & IDF; CORRECTED 2026-10-10)",
+   "model": "SGDClassifier(loss=log_loss, alpha=1e-6) x seeds(0,1,2), 5 epochs of shuffled partial_fit, batch=4096, seed-local RNG permutation",
+   "score": "mean decision_function over 3 seeds"
+  },
+  "word_tfidf": {
+   "vectorizer": {
+    "analyzer": "word",
+    "token_pattern": "[A-Za-z_][A-Za-z0-9_]*",
+    "ngram_range": [
+     1,
+     3
+    ],
+    "min_df": 1,
+    "sublinear_tf": true,
+    "lowercase": false
+   },
+   "fit_scope": "fold-fit rows texts only (CORRECTED 2026-10-10)",
+   "model": "same SGD ensemble as char_tfidf"
+  },
+  "style_meta": {
+   "input_block": "concat(style 92, meta 10, sizelen 3) = 105-d server static features",
+   "scaler": "StandardScaler fit on fold-fit rows",
+   "model": "LogisticRegression(max_iter=2000, C=1.0)"
+  },
+  "fusion": {
+   "z_stats": "per-component mean/std (population, ddof=0) of fold-fit-row scores",
+   "weights": "equal (mean over 4 components, keys sorted)"
+  },
+  "target": "y_fit = 1 iff row member's series == heldout member's series",
+  "eval_layout": "eval member blocks in ASCII-sorted member order; rows within block in sorted dev task order",
+  "inner_split_rule": "sha256('cc_inner_split_v1|'+task_id) % 5 == 0 -> inner_dev",
+  "metrics": "AUROC ties=0.5; task-macro = mean of per-task AUROC; member-macro = mean over folds; task-cluster bootstrap B=500 seed 20261009 (shared indices)"
+ },
+ "component_specs_sha256": "35ad2454e597f082c4a95844c4e4fefaeb22ac40253006d63bebd9e05055e0ba",
+ "code_commit": "b57b8be4c5c95eed665c5a847a8935edd6189fcb",
+ "feature_mapping": {
+  "members_order": [
+   "codellama--CodeLlama-13b-Instruct-hf",
+   "codellama--CodeLlama-34b-Instruct-hf",
+   "codellama--CodeLlama-70b-Instruct-hf",
+   "codellama--CodeLlama-7b-Instruct-hf",
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "Qwen--Qwen2.5-Coder-7B-Instruct",
+   "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "deepseek-ai--deepseek-coder-33b-instruct",
+   "deepseek-ai--deepseek-coder-6.7b-instruct"
+  ],
+  "members_order_sha256": "1afd29b6c240095269cb5f498302a0e07143e7b286869a47431872a2b2629175",
+  "row_mapping_sha256": "b38a41e492493d85b84f2d52f0531c4e8d45663ab297d70651b16f0ca00c53fd",
+  "row_mapping_convention": "sha256(utf-8) over '\\n'.join(model_id+'|'+task_id+'|'+split+'|'+solution_sha256) for all rows in record order; no trailing newline",
+  "feature_member_order_check_sha256": "11428bf8f88dea0e44fbdf434f60a074138af70685d17dab8b105ade66d422e2",
+  "feature_bundle_sha256": "d05f8c899d771e0572fb3e1756e06810ef5919cd9a2aac5d598e2bbc7caac19a",
+  "features_manifest_sha256": "aaef7b4716c1821780719ba18415351abcdb7abbb793ba3c619bfc8a18fae507",
+  "bundle_member_ids": [
+   "codellama--CodeLlama-13b-Instruct-hf",
+   "codellama--CodeLlama-34b-Instruct-hf",
+   "codellama--CodeLlama-70b-Instruct-hf",
+   "codellama--CodeLlama-7b-Instruct-hf",
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "Qwen--Qwen2.5-Coder-7B-Instruct",
+   "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "deepseek-ai--deepseek-coder-33b-instruct",
+   "deepseek-ai--deepseek-coder-6.7b-instruct"
+  ]
+ },
+ "script_sha256": {
+  "cc_fresh_c0_canonical.py": "a391126016de36263361927f348610b7ed2bc4c194aca039b04b346dfc37e652",
+  "cc_common.py": "851b62e9b65dc3844d9b366602fc5e41466e89fda0fafe55d8c00ad91397d59b"
+ },
+ "runtime_attestation": {
+  "python": "3.12.14",
+  "numpy": "2.2.6",
+  "sklearn": "1.9.1",
+  "platform": "Linux-5.15.0-78-generic-x86_64-with-glibc2.35",
+  "omp_num_threads": "8"
+ },
+ "lexical_fit_spec": {
+  "fit_scope": "fold-fit rows only (fit_rows texts); eval rows transform-only",
+  "char_vectorizer_params": {
+   "analyzer": "char_wb",
+   "ngram_range": [
+    2,
+    5
+   ],
+   "min_df": 1,
+   "sublinear_tf": true,
+   "lowercase": false
+  },
+  "word_vectorizer_params": {
+   "analyzer": "word",
+   "token_pattern": "[A-Za-z_][A-Za-z0-9_]*",
+   "ngram_range": [
+    1,
+    3
+   ],
+   "min_df": 1,
+   "sublinear_tf": true,
+   "lowercase": false
+  },
+  "fit_rows_key_sha256": "e18a08b83c727e3205308b70da6ef686b832c095763e8e40f0d7e08ea3ce436f",
+  "fit_texts_sha256": "fc7cd9cb17f3ab6481c760487a2280954f40fdcb666685323291542fc555045c",
+  "fit_texts_digest_convention": "sha256 over utf-8 bytes of fit texts in fit-row index order, each followed by 0x00",
+  "n_fit_rows": 7980
+ },
+ "counts": {
+  "n_fit_rows": 7980,
+  "n_eval_rows": 1368,
+  "n_pos": 171,
+  "n_neg": 1197,
+  "n_eval_tasks": 171
+ },
+ "manifest_sha256_pre_fit": "40d1cc91cf64b9b425006037a04ee402f48ef70a145151f19a1a1995184c61a3",
+ "lexical_fit_attestation": {
+  "written_after_fitting": true,
+  "dev_fold": {
+   "char": {
+    "n_features": 195087,
+    "vocab_sha256": "2e027ce9fcf14b7e292d446459c40aa01b38552d5ac4ff2c323686f1d0bd8900",
+    "idf_sha256": "06fb0efc6a1d6f6f110b1a4594a8505944e4385e3561acf95c45c4c5e2b747b4",
+    "idf_min": 1.0001253054321544,
+    "idf_max": 9.291671815316064
+   },
+   "word": {
+    "n_features": 341225,
+    "vocab_sha256": "96e1d56b518eef1d33e8670677896c439194b46d63c80f24063e588b6f8de50b",
+    "idf_sha256": "f9682b3d4db834e51ed7424b29202801c0f0e491b2acf231afd4c1d6963b1018",
+    "idf_min": 1.0001253054321544,
+    "idf_max": 9.291671815316064
+   },
+   "fit_scope": "fit_rows only (corrected)"
+  },
+  "inner_fold": {
+   "char": {
+    "n_features": 180912,
+    "vocab_sha256": "de4f31570de05907c94f05fc2ff94857028d59b949beaaccf2d67802d15dfba7",
+    "idf_sha256": "801a19e1b21b6a1d3fe8d2f1bfbb17aefbe4700d180a83b51cd497f2836a9ab4",
+    "idf_min": 1.0,
+    "idf_max": 9.122816380293493
+   },
+   "word": {
+    "n_features": 299973,
+    "vocab_sha256": "b22e123842b28826f01bf3b828dc42622987dfa39749d1e82fa0e0e6f9f522fa",
+    "idf_sha256": "e466d1d606c21717c8e29ac0d130ae12aff6e794b8d6539e16c37c0f7c45d7e8",
+    "idf_min": 1.0,
+    "idf_max": 9.122816380293493
+   },
+   "fit_scope": "fit_rows only (corrected)"
+  }
+ },
+ "manifest_sha256_post_fit": "b61e6db581f6a0f62eb32e69427a517b36a99a3e7564ab2e717221c77b46ce67"
+}

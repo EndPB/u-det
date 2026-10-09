@@ -1,0 +1,38 @@
+[18:18:54] manifest[pre-fit] CodeLlama-13b-Instruct-hf    fit_texts=70ed94331bc8…
+[18:18:54] manifest[pre-fit] CodeLlama-34b-Instruct-hf    fit_texts=e54b67cadb8f…
+[18:18:54] manifest[pre-fit] CodeLlama-70b-Instruct-hf    fit_texts=f3bfe50dcd13…
+[18:18:54] manifest[pre-fit] CodeLlama-7b-Instruct-hf     fit_texts=ab728bd4b166…
+[18:18:54] manifest[pre-fit] Qwen2.5-Coder-1.5B-Instruc   fit_texts=9e0902278b88…
+[18:18:54] manifest[pre-fit] Qwen2.5-Coder-14B-Instruct   fit_texts=568cfb694b9e…
+[18:18:54] manifest[pre-fit] Qwen2.5-Coder-32B-Instruct   fit_texts=fc7cd9cb17f3…
+[18:18:54] manifest[pre-fit] Qwen2.5-Coder-7B-Instruct    fit_texts=d14683bc1fa4…
+[18:18:54] manifest[pre-fit] deepseek-coder-1.3b-instru   fit_texts=fd87dfb6b0b8…
+[18:18:55] manifest[pre-fit] deepseek-coder-33b-instruc   fit_texts=c30af6306bd0…
+[18:18:55] manifest[pre-fit] deepseek-coder-6.7b-instru   fit_texts=1e93592b3af2…
+[18:18:55] all pre-fit manifests written & hashed BEFORE any vectorizer fitting
+[18:19:11] [dev] CodeLlama-13b-Instruct-hf    row=0.9556 tm=0.9574 charF=194175 wordF=345092 (17s)
+[18:19:26] [dev] CodeLlama-34b-Instruct-hf    row=0.9485 tm=0.9724 charF=193875 wordF=345917 (32s)
+[18:19:41] [dev] CodeLlama-70b-Instruct-hf    row=0.9381 tm=0.9624 charF=193318 wordF=341307 (48s)
+[18:19:56] [dev] CodeLlama-7b-Instruct-hf     row=0.9773 tm=0.9783 charF=191799 wordF=340314 (63s)
+[18:20:12] [dev] Qwen2.5-Coder-1.5B-Instruc   row=0.8744 tm=0.9165 charF=193952 wordF=347089 (78s)
+[18:20:28] [dev] Qwen2.5-Coder-14B-Instruct   row=0.9838 tm=0.9916 charF=195220 wordF=345561 (94s)
+[18:20:43] [dev] Qwen2.5-Coder-32B-Instruct   row=0.9851 tm=0.9858 charF=195087 wordF=341225 (109s)
+[18:20:58] [dev] Qwen2.5-Coder-7B-Instruct    row=0.9841 tm=0.9850 charF=195927 wordF=343828 (125s)
+[18:21:14] [dev] deepseek-coder-1.3b-instru   row=0.9285 tm=0.9488 charF=192850 wordF=343052 (140s)
+[18:21:31] [dev] deepseek-coder-33b-instruc   row=0.8866 tm=0.8991 charF=192416 wordF=345783 (157s)
+[18:21:47] [dev] deepseek-coder-6.7b-instru   row=0.9242 tm=0.9466 charF=192839 wordF=344427 (173s)
+[18:22:00] [inner] CodeLlama-13b-Instruct-hf    row=0.9567 tm=0.9643 charF=180199 wordF=303047 (187s)
+[18:22:13] [inner] CodeLlama-34b-Instruct-hf    row=0.9617 tm=0.9816 charF=179779 wordF=304065 (200s)
+[18:22:26] [inner] CodeLlama-70b-Instruct-hf    row=0.9332 tm=0.9585 charF=179321 wordF=299587 (212s)
+[18:22:39] [inner] CodeLlama-7b-Instruct-hf     row=0.9727 tm=0.9793 charF=178008 wordF=299517 (225s)
+[18:22:52] [inner] Qwen2.5-Coder-1.5B-Instruc   row=0.9048 tm=0.9401 charF=179935 wordF=305072 (238s)
+[18:23:05] [inner] Qwen2.5-Coder-14B-Instruct   row=0.9794 tm=0.9908 charF=181295 wordF=303743 (252s)
+[18:23:18] [inner] Qwen2.5-Coder-32B-Instruct   row=0.9857 tm=0.9896 charF=180912 wordF=299973 (264s)
+[18:23:31] [inner] Qwen2.5-Coder-7B-Instruct    row=0.9820 tm=0.9896 charF=181900 wordF=302322 (277s)
+[18:23:45] [inner] deepseek-coder-1.3b-instru   row=0.9317 tm=0.9526 charF=178879 wordF=301405 (291s)
+[18:23:58] [inner] deepseek-coder-33b-instruc   row=0.8970 tm=0.9315 charF=178579 wordF=303831 (304s)
+[18:24:11] [inner] deepseek-coder-6.7b-instru   row=0.9357 tm=0.9546 charF=179151 wordF=302931 (318s)
+[18:24:11] post-fit lexical attestations appended to all 11 manifests
+[18:24:35] determinism refit max|delta|: {'semantic': 0.0, 'char_tfidf': 0.0, 'vocab_sha256_match': True}
+[18:24:35] member-order impact vs permuted corrected run: invariant folds 4/11, redefined folds 7/11
+[18:24:35] historical diagnostic complete (canonical member mapping; not the gate)

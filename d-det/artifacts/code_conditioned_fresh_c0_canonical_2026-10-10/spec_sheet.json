@@ -1,0 +1,97 @@
+{
+ "schema": "code_conditioned_fresh_c0_spec_v3_canonical",
+ "component_specs": {
+  "member_indexing": "member_idx = admission members order [CodeLlama, Qwen, DeepSeek]; feature bundle canonicalized 2026-10-10 (guidance §12)",
+  "semantic": {
+   "input_block": "hy_small = frozen CodeT5-small mean-pooled code embedding (512-d), from r0 corpus cache row = gmodel_idx*nT*2 + task_idx*2 + 1 (instruct)",
+   "scaler": "StandardScaler fit on fold-fit rows (server sklearn)",
+   "model": "LogisticRegression(max_iter=2000, C=1.0)",
+   "score": "decision_function"
+  },
+  "char_tfidf": {
+   "vectorizer": {
+    "analyzer": "char_wb",
+    "ngram_range": [
+     2,
+     5
+    ],
+    "min_df": 1,
+    "sublinear_tf": true,
+    "lowercase": false
+   },
+   "fit_scope": "fold-fit rows texts only (fold-train-only vocabulary & IDF; CORRECTED 2026-10-10)",
+   "model": "SGDClassifier(loss=log_loss, alpha=1e-6) x seeds(0,1,2), 5 epochs of shuffled partial_fit, batch=4096, seed-local RNG permutation",
+   "score": "mean decision_function over 3 seeds"
+  },
+  "word_tfidf": {
+   "vectorizer": {
+    "analyzer": "word",
+    "token_pattern": "[A-Za-z_][A-Za-z0-9_]*",
+    "ngram_range": [
+     1,
+     3
+    ],
+    "min_df": 1,
+    "sublinear_tf": true,
+    "lowercase": false
+   },
+   "fit_scope": "fold-fit rows texts only (CORRECTED 2026-10-10)",
+   "model": "same SGD ensemble as char_tfidf"
+  },
+  "style_meta": {
+   "input_block": "concat(style 92, meta 10, sizelen 3) = 105-d server static features",
+   "scaler": "StandardScaler fit on fold-fit rows",
+   "model": "LogisticRegression(max_iter=2000, C=1.0)"
+  },
+  "fusion": {
+   "z_stats": "per-component mean/std (population, ddof=0) of fold-fit-row scores",
+   "weights": "equal (mean over 4 components, keys sorted)"
+  },
+  "target": "y_fit = 1 iff row member's series == heldout member's series",
+  "eval_layout": "eval member blocks in ASCII-sorted member order; rows within block in sorted dev task order",
+  "inner_split_rule": "sha256('cc_inner_split_v1|'+task_id) % 5 == 0 -> inner_dev",
+  "metrics": "AUROC ties=0.5; task-macro = mean of per-task AUROC; member-macro = mean over folds; task-cluster bootstrap B=500 seed 20261009 (shared indices)"
+ },
+ "component_specs_sha256": "35ad2454e597f082c4a95844c4e4fefaeb22ac40253006d63bebd9e05055e0ba",
+ "canonicalization_note": "member_idx rebuilt in admission members order (guidance §12, 2026-10-10); fold-fit-only lexical fix retained from v2",
+ "feature_mapping": {
+  "members_order": [
+   "codellama--CodeLlama-13b-Instruct-hf",
+   "codellama--CodeLlama-34b-Instruct-hf",
+   "codellama--CodeLlama-70b-Instruct-hf",
+   "codellama--CodeLlama-7b-Instruct-hf",
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "Qwen--Qwen2.5-Coder-7B-Instruct",
+   "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "deepseek-ai--deepseek-coder-33b-instruct",
+   "deepseek-ai--deepseek-coder-6.7b-instruct"
+  ],
+  "members_order_sha256": "1afd29b6c240095269cb5f498302a0e07143e7b286869a47431872a2b2629175",
+  "row_mapping_sha256": "b38a41e492493d85b84f2d52f0531c4e8d45663ab297d70651b16f0ca00c53fd",
+  "row_mapping_convention": "sha256(utf-8) over '\\n'.join(model_id+'|'+task_id+'|'+split+'|'+solution_sha256) for all rows in record order; no trailing newline",
+  "feature_member_order_check_sha256": "11428bf8f88dea0e44fbdf434f60a074138af70685d17dab8b105ade66d422e2",
+  "feature_bundle_sha256": "d05f8c899d771e0572fb3e1756e06810ef5919cd9a2aac5d598e2bbc7caac19a",
+  "features_manifest_sha256": "aaef7b4716c1821780719ba18415351abcdb7abbb793ba3c619bfc8a18fae507",
+  "bundle_member_ids": [
+   "codellama--CodeLlama-13b-Instruct-hf",
+   "codellama--CodeLlama-34b-Instruct-hf",
+   "codellama--CodeLlama-70b-Instruct-hf",
+   "codellama--CodeLlama-7b-Instruct-hf",
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "Qwen--Qwen2.5-Coder-7B-Instruct",
+   "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "deepseek-ai--deepseek-coder-33b-instruct",
+   "deepseek-ai--deepseek-coder-6.7b-instruct"
+  ]
+ },
+ "environment": {
+  "python": "3.12.14",
+  "numpy": "2.2.6",
+  "sklearn": "1.9.1"
+ },
+ "replication_note": "run this exact spec on the local side against its own rebuilt bundle; compare per-fold vocab hashes (expect 11/11) and score digests under matched runtime or server runtime attestation (guidance §12)"
+}
