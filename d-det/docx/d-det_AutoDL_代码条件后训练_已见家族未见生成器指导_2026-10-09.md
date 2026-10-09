@@ -234,3 +234,12 @@ C0 仍为 `not_aligned`，原因是连续分数没有逐点达到容差，旧产
 
 当前 C1–C3 结果的写法限定为“服务器内部开发诊断”；共同成员块上的结果只能作为待核实对照，不得写成相对历史本机强 P0 的确认性比较。
 
+
+
+## 10. fresh C0 规格修正
+
+本机审计发现 `91ea14f` 的 `cc_fresh_c0.py` 在折循环之前执行全体 train/dev 文本的 `fit_transform(texts)`，再按折切片。这与 `spec_sheet.json` 声明的 fold-fit-only vocabulary/IDF 不一致，裁定为 `spec_violation_global_lexical_fit`。与旧 C0 逐位一致不等于协议正确。
+
+下一轮只允许修正 C0：将 char 和 word vectorizer 的 fit 移入每个 fold，只使用该折 `fit_rows` 的文本；eval 行只调用 transform。每折 manifest 追加 vectorizer 参数、fit-row hash、词表大小和 IDF 摘要。重新生成 score digest、metrics 和审计报告。test、生成、权重下载、代码执行继续关闭。
+
+在修正版 C0 通过 lexical fit-scope 审计并满足 `row_score_max_abs ≤ 1e-3`、`metric_abs ≤ 1e-3` 后，才允许考虑 C1–C3。此前所有 C1–C3 数字继续标为服务器内部开发诊断。

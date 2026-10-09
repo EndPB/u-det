@@ -1,0 +1,193 @@
+{
+ "schema": "code_conditioned_fresh_c0_fold_manifest_v2_corrected",
+ "generated_utc": "2026-10-09T16:31:39.322875+00:00",
+ "source_status": "server_reconstruction_only",
+ "original_bundle_verified": false,
+ "correction_note": "supersedes code_conditioned_fresh_c0_2026-10-09 (spec_violation_global_lexical_fit); vectorizers now fold-fit only",
+ "switches": {
+  "training_allowed": true,
+  "test_read_allowed": false,
+  "generation_allowed": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ },
+ "effective_series_map_sha256": "0b0acf8eb42398b14314b0f0fc02d53ded224c0fb90da06ef64686a8f160a7f1",
+ "effective_series_map_canonical": {
+  "CodeLlama-Instruct": [
+   "codellama--CodeLlama-13b-Instruct-hf",
+   "codellama--CodeLlama-34b-Instruct-hf",
+   "codellama--CodeLlama-70b-Instruct-hf",
+   "codellama--CodeLlama-7b-Instruct-hf"
+  ],
+  "Qwen2.5-Coder-Instruct": [
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "Qwen--Qwen2.5-Coder-7B-Instruct"
+  ],
+  "DeepSeek-Coder-v1-Instruct": [
+   "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "deepseek-ai--deepseek-coder-33b-instruct",
+   "deepseek-ai--deepseek-coder-6.7b-instruct"
+  ]
+ },
+ "official_expected_admission_sha256": "cc4a77851702e0bbf57e50636744ad25b572da9a665148b2b76179236b0bdfae",
+ "server_admission_file": "d-det/artifacts/code_conditioned_design_2026-10-09/inputs/family_series_admission.json",
+ "server_admission_file_sha256": "7fc5e78f948d307ba05a626e10479da171d08dd5e0548ad8579081200bfe8d68",
+ "heldout_member": "deepseek-ai--deepseek-coder-33b-instruct",
+ "heldout_series": "DeepSeek-Coder-v1-Instruct",
+ "fit_member_ids": [
+  "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+  "Qwen--Qwen2.5-Coder-14B-Instruct",
+  "Qwen--Qwen2.5-Coder-32B-Instruct",
+  "Qwen--Qwen2.5-Coder-7B-Instruct",
+  "codellama--CodeLlama-13b-Instruct-hf",
+  "codellama--CodeLlama-34b-Instruct-hf",
+  "codellama--CodeLlama-70b-Instruct-hf",
+  "codellama--CodeLlama-7b-Instruct-hf",
+  "deepseek-ai--deepseek-coder-1.3b-instruct",
+  "deepseek-ai--deepseek-coder-6.7b-instruct"
+ ],
+ "eval_member_ids": [
+  "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+  "Qwen--Qwen2.5-Coder-14B-Instruct",
+  "Qwen--Qwen2.5-Coder-32B-Instruct",
+  "Qwen--Qwen2.5-Coder-7B-Instruct",
+  "codellama--CodeLlama-13b-Instruct-hf",
+  "codellama--CodeLlama-34b-Instruct-hf",
+  "codellama--CodeLlama-70b-Instruct-hf",
+  "codellama--CodeLlama-7b-Instruct-hf",
+  "deepseek-ai--deepseek-coder-33b-instruct"
+ ],
+ "positive_row_sha256": "34ef7fafc53d58bb52f413826e0da8683f300ff1bc763109cfb158299a570f5e",
+ "negative_row_sha256": "b34fea8f682e5f4b24ee1413ab5ad4329951e03e0faf4f11a17a2397bd9ba05e",
+ "train_row_sha256": "03b2fcf5fe331c5f9f914001d28553633cf7d397ec66ea77538c6e4f488249c9",
+ "eval_task_sha256": "a2549f9a91ad5b10e4fab086cbd4618e1169791ec0e1e61485b6cc2c320de7e8",
+ "component_specs": {
+  "semantic": {
+   "input_block": "hy_small = frozen CodeT5-small mean-pooled code embedding (512-d), from r0 corpus cache row = gmodel_idx*nT*2 + task_idx*2 + 1 (instruct)",
+   "scaler": "StandardScaler fit on fold-fit rows (server sklearn)",
+   "model": "LogisticRegression(max_iter=2000, C=1.0)",
+   "score": "decision_function"
+  },
+  "char_tfidf": {
+   "vectorizer": {
+    "analyzer": "char_wb",
+    "ngram_range": [
+     2,
+     5
+    ],
+    "min_df": 1,
+    "sublinear_tf": true,
+    "lowercase": false
+   },
+   "fit_scope": "fold-fit rows texts only (fold-train-only vocabulary & IDF; CORRECTED 2026-10-10)",
+   "model": "SGDClassifier(loss=log_loss, alpha=1e-6) x seeds(0,1,2), 5 epochs of shuffled partial_fit, batch=4096, seed-local RNG permutation",
+   "score": "mean decision_function over 3 seeds"
+  },
+  "word_tfidf": {
+   "vectorizer": {
+    "analyzer": "word",
+    "token_pattern": "[A-Za-z_][A-Za-z0-9_]*",
+    "ngram_range": [
+     1,
+     3
+    ],
+    "min_df": 1,
+    "sublinear_tf": true,
+    "lowercase": false
+   },
+   "fit_scope": "fold-fit rows texts only (CORRECTED 2026-10-10)",
+   "model": "same SGD ensemble as char_tfidf"
+  },
+  "style_meta": {
+   "input_block": "concat(style 92, meta 10, sizelen 3) = 105-d server static features",
+   "scaler": "StandardScaler fit on fold-fit rows",
+   "model": "LogisticRegression(max_iter=2000, C=1.0)"
+  },
+  "fusion": {
+   "z_stats": "per-component mean/std (population, ddof=0) of fold-fit-row scores",
+   "weights": "equal (mean over 4 components, keys sorted)"
+  },
+  "target": "y_fit = 1 iff row member's series == heldout member's series",
+  "eval_layout": "eval member blocks in ASCII-sorted member order; rows within block in sorted dev task order",
+  "inner_split_rule": "sha256('cc_inner_split_v1|'+task_id) % 5 == 0 -> inner_dev",
+  "metrics": "AUROC ties=0.5; task-macro = mean of per-task AUROC; member-macro = mean over folds; task-cluster bootstrap B=500 seed 20261009 (shared indices)"
+ },
+ "component_specs_sha256": "1ab7bd87a280754b7b76d1bbffef041640848590d51095cdfc1c77d249c27ae2",
+ "code_commit": "be8df5075a79e3b5425ec6c79eaafa2bfca19bff",
+ "lexical_fit_spec": {
+  "fit_scope": "fold-fit rows only (fit_rows texts); eval rows transform-only",
+  "char_vectorizer_params": {
+   "analyzer": "char_wb",
+   "ngram_range": [
+    2,
+    5
+   ],
+   "min_df": 1,
+   "sublinear_tf": true,
+   "lowercase": false
+  },
+  "word_vectorizer_params": {
+   "analyzer": "word",
+   "token_pattern": "[A-Za-z_][A-Za-z0-9_]*",
+   "ngram_range": [
+    1,
+    3
+   ],
+   "min_df": 1,
+   "sublinear_tf": true,
+   "lowercase": false
+  },
+  "fit_rows_key_sha256": "03b2fcf5fe331c5f9f914001d28553633cf7d397ec66ea77538c6e4f488249c9",
+  "fit_texts_sha256": "c30af6306bd0ff79557f149d9ab625c347bd616c2327b32286612d69ab3cfcbd",
+  "fit_texts_digest_convention": "sha256 over utf-8 bytes of fit texts in fit-row index order, each followed by 0x00",
+  "n_fit_rows": 7980
+ },
+ "counts": {
+  "n_fit_rows": 7980,
+  "n_eval_rows": 1539,
+  "n_pos": 171,
+  "n_neg": 1368,
+  "n_eval_tasks": 171
+ },
+ "manifest_sha256_pre_fit": "c4694fb88ab24044a6a002b1742413d6c73aaf6169f360eb695f640583d2110b",
+ "lexical_fit_attestation": {
+  "written_after_fitting": true,
+  "dev_fold": {
+   "char": {
+    "n_features": 195087,
+    "vocab_sha256": "2e027ce9fcf14b7e292d446459c40aa01b38552d5ac4ff2c323686f1d0bd8900",
+    "idf_sha256": "06fb0efc6a1d6f6f110b1a4594a8505944e4385e3561acf95c45c4c5e2b747b4",
+    "idf_min": 1.0001253054321544,
+    "idf_max": 9.291671815316064
+   },
+   "word": {
+    "n_features": 341225,
+    "vocab_sha256": "96e1d56b518eef1d33e8670677896c439194b46d63c80f24063e588b6f8de50b",
+    "idf_sha256": "f9682b3d4db834e51ed7424b29202801c0f0e491b2acf231afd4c1d6963b1018",
+    "idf_min": 1.0001253054321544,
+    "idf_max": 9.291671815316064
+   },
+   "fit_scope": "fit_rows only (corrected)"
+  },
+  "inner_fold": {
+   "char": {
+    "n_features": 180912,
+    "vocab_sha256": "de4f31570de05907c94f05fc2ff94857028d59b949beaaccf2d67802d15dfba7",
+    "idf_sha256": "801a19e1b21b6a1d3fe8d2f1bfbb17aefbe4700d180a83b51cd497f2836a9ab4",
+    "idf_min": 1.0,
+    "idf_max": 9.122816380293493
+   },
+   "word": {
+    "n_features": 299973,
+    "vocab_sha256": "b22e123842b28826f01bf3b828dc42622987dfa39749d1e82fa0e0e6f9f522fa",
+    "idf_sha256": "e466d1d606c21717c8e29ac0d130ae12aff6e794b8d6539e16c37c0f7c45d7e8",
+    "idf_min": 1.0,
+    "idf_max": 9.122816380293493
+   },
+   "fit_scope": "fit_rows only (corrected)"
+  }
+ },
+ "manifest_sha256_post_fit": "4d136bf5de52cca1bddc0db57aab37c26013a0c3c1712b4865109ef952625d30"
+}

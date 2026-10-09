@@ -1,0 +1,1260 @@
+{
+ "schema": "code_conditioned_fresh_c0_corrected_metrics_v1",
+ "generated_utc": "2026-10-09T16:37:21.046615+00:00",
+ "report_first_line": "Corrected fresh train/dev C0 (fold-fit-only lexical; supersedes code_conditioned_fresh_c0_2026-10-09)",
+ "source_status": "server_reconstruction_only",
+ "original_bundle_verified": false,
+ "correction": {
+  "reason": "spec_violation_global_lexical_fit (see d-det/artifacts/code_conditioned_fresh_c0_spec_adjudication_2026-10-09/)",
+  "change": "char/word TfidfVectorizer fit inside each fold on fit_rows texts; eval rows transform-only; vocab/IDF digests recorded per fold",
+  "supersedes": "code_conditioned_fresh_c0_2026-10-09 (blocked_before_gate)"
+ },
+ "effective_series_map_sha256": "0b0acf8eb42398b14314b0f0fc02d53ded224c0fb90da06ef64686a8f160a7f1",
+ "official_expected_admission_sha256": "cc4a77851702e0bbf57e50636744ad25b572da9a665148b2b76179236b0bdfae",
+ "server_admission_file_sha256": "7fc5e78f948d307ba05a626e10479da171d08dd5e0548ad8579081200bfe8d68",
+ "code_commit": "be8df5075a79e3b5425ec6c79eaafa2bfca19bff",
+ "component_specs_sha256": "1ab7bd87a280754b7b76d1bbffef041640848590d51095cdfc1c77d249c27ae2",
+ "manifest_sha256_pre_fit": {
+  "codellama--CodeLlama-13b-Instruct-hf": "cf667484b8b7d4c11f2ee5674311037c5bc4bfa10cfeaa3fd5e884b2217257a6",
+  "codellama--CodeLlama-34b-Instruct-hf": "aec4dc84bfa24c8fa559d15ca2fdada99e9572977cb335eb51a2b77e5e0e97e3",
+  "codellama--CodeLlama-70b-Instruct-hf": "a6cd9d57c0f947b48ffa25bc670edf51b500bd0df7a82da5fa9bec2c14741897",
+  "codellama--CodeLlama-7b-Instruct-hf": "541bb7b98eafee037d14b1c6199b24766c1245cdc56d01201af8facacc3d83c6",
+  "Qwen--Qwen2.5-Coder-1.5B-Instruct": "8315c80dc4ca736fc20abfc79163de4374483b49402d50acd3d1f0b778d1559e",
+  "Qwen--Qwen2.5-Coder-14B-Instruct": "1f69723cad738710b1a80989a7bd0f4c58fb58f3049706658b26321bbd484ca5",
+  "Qwen--Qwen2.5-Coder-32B-Instruct": "c8ca52947b24e0d585fd4cf83e3f3fc370016c4d1760aec10f26ed37b40f2044",
+  "Qwen--Qwen2.5-Coder-7B-Instruct": "c3015a71199817397bf8098e2559677030b489482133a792ca48d04cf5e33de0",
+  "deepseek-ai--deepseek-coder-1.3b-instruct": "a35e58c7d57086264ad204962f2331fcb1d4f42659b3aee03e641bc2a1497241",
+  "deepseek-ai--deepseek-coder-33b-instruct": "c4694fb88ab24044a6a002b1742413d6c73aaf6169f360eb695f640583d2110b",
+  "deepseek-ai--deepseek-coder-6.7b-instruct": "a2016449f6d0bd9c7b9d0c157910e2d5dfae6c5ef2fda2d34da8ee77793648be"
+ },
+ "manifest_sha256_post_fit": {
+  "codellama--CodeLlama-13b-Instruct-hf": "88b0ff2b3f90c495b9de6f31bcc682811fb65d8c8637f420be14b88a87a3e6c9",
+  "codellama--CodeLlama-34b-Instruct-hf": "743ed7260945c08d7fc8b926a3a94fec86608026a20b918efff22b74e2d1a831",
+  "codellama--CodeLlama-70b-Instruct-hf": "d470454851a4e4590e624b51f6a2a95e7c3c75aee69e0340af5cc881158fd909",
+  "codellama--CodeLlama-7b-Instruct-hf": "ce6b64fcab2ffd298ebd940e170a958e60f88a107695a58777d76cb38536bd18",
+  "Qwen--Qwen2.5-Coder-1.5B-Instruct": "f0ba45853e62be16781ac890563eb9e610c26e039ff5e5cc37470dae98d1ce4b",
+  "Qwen--Qwen2.5-Coder-14B-Instruct": "b9513a99a66a6cca7c8067ad7904a6899b140ae871c814194cee1639e8bfdd9b",
+  "Qwen--Qwen2.5-Coder-32B-Instruct": "61365285b4281b588641a11f1c514bd2f0b7dede85eaf21c8f6ea59db14d4054",
+  "Qwen--Qwen2.5-Coder-7B-Instruct": "d1ce95d6103da8ab9588256a835d8224189ce3360980be4646e1ad40ad0ed9d7",
+  "deepseek-ai--deepseek-coder-1.3b-instruct": "98b8449fd3e8782acb8cce43206e96556ea8c53e6d33efa40d38941e64f74756",
+  "deepseek-ai--deepseek-coder-33b-instruct": "4d136bf5de52cca1bddc0db57aab37c26013a0c3c1712b4865109ef952625d30",
+  "deepseek-ai--deepseek-coder-6.7b-instruct": "71cacd0c4472c8eca1b54cb39de437064377a6e732229c018c9a51fc361e263d"
+ },
+ "protocols": {
+  "dev": {
+   "row_level_mean_over_folds": 0.9327539786911903,
+   "member_macro": 0.9327539786911903,
+   "task_macro_mean_over_folds": 0.9450615174299384,
+   "pooled": 0.9319789927592328,
+   "bootstrap": {
+    "row_level": {
+     "ci95": [
+      0.9228340599416316,
+      0.9421261653602374
+     ]
+    },
+    "task_macro": {
+     "ci95": [
+      0.9349690514164198,
+      0.9539772727272726
+     ]
+    }
+   },
+   "per_component_row_level_mean": {
+    "semantic": 0.8694037614859407,
+    "char_tfidf": 0.8687964039995433,
+    "word_tfidf": 0.8809458854472706,
+    "style_meta": 0.8924287171055407
+   },
+   "per_fold": {
+    "codellama--CodeLlama-13b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9556493573114072,
+      "semantic": 0.9106123007323377,
+      "char_tfidf": 0.9081988597224054,
+      "word_tfidf": 0.9195698798653554,
+      "style_meta": 0.9254129475736124
+     },
+     "task_macro": 0.9573934837092732,
+     "n_tasks": 171
+    },
+    "codellama--CodeLlama-34b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9484774313952523,
+      "semantic": 0.8871911748181369,
+      "char_tfidf": 0.89006873909921,
+      "word_tfidf": 0.8877359089732128,
+      "style_meta": 0.9498307171437366
+     },
+     "task_macro": 0.9724310776942355,
+     "n_tasks": 171
+    },
+    "codellama--CodeLlama-70b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9380566425811117,
+      "semantic": 0.8766164924983023,
+      "char_tfidf": 0.868071738801194,
+      "word_tfidf": 0.8822152848006957,
+      "style_meta": 0.9621373120911441
+     },
+     "task_macro": 0.9624060150375939,
+     "n_tasks": 171
+    },
+    "codellama--CodeLlama-7b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9772872727628037,
+      "semantic": 0.9469849086654257,
+      "char_tfidf": 0.9491003336802044,
+      "word_tfidf": 0.9489000278473962,
+      "style_meta": 0.9212798077064005
+     },
+     "task_macro": 0.9782790309106099,
+     "n_tasks": 171
+    },
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+     "row_level": {
+      "fused": 0.9684542740867764,
+      "semantic": 0.8639508127042753,
+      "char_tfidf": 0.8395379286422684,
+      "word_tfidf": 0.8712131205205997,
+      "style_meta": 0.992144102947427
+     },
+     "task_macro": 0.9832915622389307,
+     "n_tasks": 171
+    },
+    "Qwen--Qwen2.5-Coder-14B-Instruct": {
+     "row_level": {
+      "fused": 0.8488472643597297,
+      "semantic": 0.8278933200447512,
+      "char_tfidf": 0.8427012951482019,
+      "word_tfidf": 0.8539672768666305,
+      "style_meta": 0.4057316781231832
+     },
+     "task_macro": 0.8696741854636592,
+     "n_tasks": 171
+    },
+    "Qwen--Qwen2.5-Coder-32B-Instruct": {
+     "row_level": {
+      "fused": 0.9361415233991411,
+      "semantic": 0.8588454567217263,
+      "char_tfidf": 0.8520008598494286,
+      "word_tfidf": 0.8711764792097202,
+      "style_meta": 0.9462154411369554
+     },
+     "task_macro": 0.9632414369256475,
+     "n_tasks": 171
+    },
+    "Qwen--Qwen2.5-Coder-7B-Instruct": {
+     "row_level": {
+      "fused": 0.7688324124150532,
+      "semantic": 0.6154885263841866,
+      "char_tfidf": 0.7222759628115122,
+      "word_tfidf": 0.7282191834361733,
+      "style_meta": 0.8605089722356574
+     },
+     "task_macro": 0.7769423558897242,
+     "n_tasks": 171
+    },
+    "deepseek-ai--deepseek-coder-1.3b-instruct": {
+     "row_level": {
+      "fused": 0.9707174857221025,
+      "semantic": 0.9228095824356212,
+      "char_tfidf": 0.903525871208235,
+      "word_tfidf": 0.9204584316541842,
+      "style_meta": 0.9483302554632195
+     },
+     "task_macro": 0.9766081871345029,
+     "n_tasks": 171
+    },
+    "deepseek-ai--deepseek-coder-33b-instruct": {
+     "row_level": {
+      "fused": 0.9872909613214322,
+      "semantic": 0.9433116172497521,
+      "char_tfidf": 0.9231686672822407,
+      "word_tfidf": 0.9319363222871995,
+      "style_meta": 0.9817165965596252
+     },
+     "task_macro": 0.9912280701754386,
+     "n_tasks": 171
+    },
+    "deepseek-ai--deepseek-coder-6.7b-instruct": {
+     "row_level": {
+      "fused": 0.9605391402482816,
+      "semantic": 0.9097371840908314,
+      "char_tfidf": 0.858110187750077,
+      "word_tfidf": 0.8750128244588078,
+      "style_meta": 0.923408057179987
+     },
+     "task_macro": 0.9641812865497076,
+     "n_tasks": 171
+    }
+   }
+  },
+  "inner": {
+   "row_level_mean_over_folds": 0.9296173958065865,
+   "member_macro": 0.9296173958065865,
+   "task_macro_mean_over_folds": 0.9520187473816506,
+   "pooled": 0.9299885890644215,
+   "bootstrap": {
+    "row_level": {
+     "ci95": [
+      0.9196425404070435,
+      0.9392123899448626
+     ]
+    },
+    "task_macro": {
+     "ci95": [
+      0.9441535531001256,
+      0.959649599392543
+     ]
+    }
+   },
+   "per_component_row_level_mean": {
+    "semantic": 0.8661324530048516,
+    "char_tfidf": 0.8632923885427787,
+    "word_tfidf": 0.8811701192278065,
+    "style_meta": 0.8992867742949038
+   },
+   "per_fold": {
+    "codellama--CodeLlama-13b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.956732198602646,
+      "semantic": 0.9118106139438086,
+      "char_tfidf": 0.8986732570239334,
+      "word_tfidf": 0.9148115801991973,
+      "style_meta": 0.940426638917794
+     },
+     "task_macro": 0.9642857142857143,
+     "n_tasks": 124
+    },
+    "codellama--CodeLlama-34b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9616563847182994,
+      "semantic": 0.9106213765422922,
+      "char_tfidf": 0.9128790694217334,
+      "word_tfidf": 0.8915935781180319,
+      "style_meta": 0.9733257767206779
+     },
+     "task_macro": 0.9815668202764977,
+     "n_tasks": 124
+    },
+    "codellama--CodeLlama-70b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9332168871711015,
+      "semantic": 0.8583460309201725,
+      "char_tfidf": 0.8751068455477925,
+      "word_tfidf": 0.8727469525791586,
+      "style_meta": 0.9740597591794262
+     },
+     "task_macro": 0.9585253456221199,
+     "n_tasks": 124
+    },
+    "codellama--CodeLlama-7b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.972712576185521,
+      "semantic": 0.9429537683960161,
+      "char_tfidf": 0.9381689460383529,
+      "word_tfidf": 0.9386985283187156,
+      "style_meta": 0.9288315742530102
+     },
+     "task_macro": 0.9792626728110599,
+     "n_tasks": 124
+    },
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+     "row_level": {
+      "fused": 0.9624182399286457,
+      "semantic": 0.8582345399137803,
+      "char_tfidf": 0.8380453768396016,
+      "word_tfidf": 0.8582252489965809,
+      "style_meta": 0.9978259253753531
+     },
+     "task_macro": 0.9792626728110598,
+     "n_tasks": 124
+    },
+    "Qwen--Qwen2.5-Coder-14B-Instruct": {
+     "row_level": {
+      "fused": 0.8487159952430504,
+      "semantic": 0.8407258064516129,
+      "char_tfidf": 0.8307287795451167,
+      "word_tfidf": 0.8698063772855656,
+      "style_meta": 0.4206834398691839
+     },
+     "task_macro": 0.8986175115207372,
+     "n_tasks": 124
+    },
+    "Qwen--Qwen2.5-Coder-32B-Instruct": {
+     "row_level": {
+      "fused": 0.9280232644566672,
+      "semantic": 0.8410602794707893,
+      "char_tfidf": 0.8353277835587929,
+      "word_tfidf": 0.8793016946632971,
+      "style_meta": 0.9525048312769436
+     },
+     "task_macro": 0.9585253456221198,
+     "n_tasks": 124
+    },
+    "Qwen--Qwen2.5-Coder-7B-Instruct": {
+     "row_level": {
+      "fused": 0.7739426936227144,
+      "semantic": 0.623281180318121,
+      "char_tfidf": 0.7208079381596552,
+      "word_tfidf": 0.7401980823546901,
+      "style_meta": 0.8614538427233537
+     },
+     "task_macro": 0.8076036866359446,
+     "n_tasks": 124
+    },
+    "deepseek-ai--deepseek-coder-1.3b-instruct": {
+     "row_level": {
+      "fused": 0.9641649323621228,
+      "semantic": 0.9090140478668054,
+      "char_tfidf": 0.8624886186264308,
+      "word_tfidf": 0.9214603928199792,
+      "style_meta": 0.957897047346514
+     },
+     "task_macro": 0.9838709677419355,
+     "n_tasks": 124
+    },
+    "deepseek-ai--deepseek-coder-33b-instruct": {
+     "row_level": {
+      "fused": 0.9875048777315296,
+      "semantic": 0.9420931971904266,
+      "char_tfidf": 0.9264194198751301,
+      "word_tfidf": 0.9525396722164412,
+      "style_meta": 0.9872609911550468
+     },
+     "task_macro": 0.9899193548387096,
+     "n_tasks": 124
+    },
+    "deepseek-ai--deepseek-coder-6.7b-instruct": {
+     "row_level": {
+      "fused": 0.9367033038501561,
+      "semantic": 0.8893161420395421,
+      "char_tfidf": 0.8575702393340271,
+      "word_tfidf": 0.8534892039542143,
+      "style_meta": 0.8978846904266389
+     },
+     "task_macro": 0.9707661290322581,
+     "n_tasks": 124
+    }
+   }
+  }
+ },
+ "lexical_fit_attestations": {
+  "dev": {
+   "codellama--CodeLlama-13b-Instruct-hf": {
+    "char": {
+     "n_features": 194175,
+     "vocab_sha256": "549c5fda638d574151735331fac92ffc239530d5d228ad0122dfa3e845cc4d51",
+     "idf_sha256": "a4601e98d96ff042931164aa296ddfa3659b6a527d39b172788c1dc53bd0966c",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "word": {
+     "n_features": 345092,
+     "vocab_sha256": "3eac5bdb4f75ec75a6ad229a34f633797941bcf23c8e103bc68bf535315228f0",
+     "idf_sha256": "a51b503226585b9b5ac3aba965dd792ec71980a852de67e99417cf427318bfbd",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "codellama--CodeLlama-34b-Instruct-hf": {
+    "char": {
+     "n_features": 193875,
+     "vocab_sha256": "e7ef35c7e1c6b154210f1ae441409b7dc3c81b2c7fffb93e0d55138548fa68f4",
+     "idf_sha256": "ddeb0d05b42ceab9f90db01e2c60633778fbe190c457151e42511b8858439fb1",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "word": {
+     "n_features": 345917,
+     "vocab_sha256": "fa2d2c35e024b7053d9b1d6455050bd788f521e8681fe28041a64de1c0def67f",
+     "idf_sha256": "fc32cb0a677ca7e7b0abf4d5295997d3323f1d4196d6839bbb3f87fe132c6a75",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "codellama--CodeLlama-70b-Instruct-hf": {
+    "char": {
+     "n_features": 193318,
+     "vocab_sha256": "10dab19a5a3517213e70a159d7b876809c7cc0f44acea83f70d720ddca6db13c",
+     "idf_sha256": "554743580aba5d63feb628e467a128a9317a2d546346c78769ad31873761d78f",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "word": {
+     "n_features": 341307,
+     "vocab_sha256": "a4f64725b4557151a666fbf95c0a9a44b58e04497bfa34218dd224d9624b15b2",
+     "idf_sha256": "bc02bdb9fdee4722d8f1e10f878af4270b960a883e2cc6d98b241df52c8af251",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "codellama--CodeLlama-7b-Instruct-hf": {
+    "char": {
+     "n_features": 191799,
+     "vocab_sha256": "78a506089e4cf9808de859ce66a8e91e427ef463126e9f83a8e80a1f5cbc118f",
+     "idf_sha256": "f53b8e6d976cc1fada8175c940b524aa0d7fd7d8a4998ce887836143a235a1ee",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "word": {
+     "n_features": 340314,
+     "vocab_sha256": "af4ef2feffda89db4654e817538f73f624668e245342b2658c638ead5dadd5d4",
+     "idf_sha256": "e40d2c17bba5bed4e981b871ee36d3d0ea69e5b1ec948f901dcff16c795d8b96",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+    "char": {
+     "n_features": 192850,
+     "vocab_sha256": "25267cdd8a735e81e635308754de7678735274fb7b784b69571d798164901a6d",
+     "idf_sha256": "fab87127d8041bb2ff1d78f33c91b10fe03a0f315642959cece6de5d128d949f",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "word": {
+     "n_features": 343052,
+     "vocab_sha256": "7c7bbdb932e37f38b885b1e0b2e36f6bb820ae8f4b57694d3ddfdbf2634d2ec4",
+     "idf_sha256": "82494406a381a8f9cb79b150b9d2de6f9a5fcbe95ed41ba9f08cc2b2fecb416d",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "Qwen--Qwen2.5-Coder-14B-Instruct": {
+    "char": {
+     "n_features": 192416,
+     "vocab_sha256": "159e55e1eed4c7924cc46e38a115980c94b05ea997ef4eb3515d35e0402d3422",
+     "idf_sha256": "e9e56817ffb3a8196b269d31cb87c1ea643373a21dc49136cfc0b9ee7f1bbc7d",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "word": {
+     "n_features": 345783,
+     "vocab_sha256": "ab321e648ad508e540b54ccb843164f530998a12fa8c362a323565af1b518490",
+     "idf_sha256": "6e1545987ee876456aa23767f28dc92341e8baf08c2df78836691d061b206826",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "Qwen--Qwen2.5-Coder-32B-Instruct": {
+    "char": {
+     "n_features": 192839,
+     "vocab_sha256": "b3bd1dd34b85eb1d6589b61f02b016df748d45a36633914f7cd5dc04d285f00f",
+     "idf_sha256": "53ce21f289d7401fc66f8898fed309afa83a576bcd337edb1dcb3f4668f94e6a",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "word": {
+     "n_features": 344427,
+     "vocab_sha256": "d38fd2b3377b740a5ed4694326a76ceee5d8e7140a7415d10849c69b0ef6fd5c",
+     "idf_sha256": "59430412a2650791768ac6b26a3ff5f938e8c4648ecca09cf701437e3810d6ce",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "Qwen--Qwen2.5-Coder-7B-Instruct": {
+    "char": {
+     "n_features": 193952,
+     "vocab_sha256": "c35a2a2d059555f293b2167348513cab093985b6e2b071ee12b39dbb50bd6098",
+     "idf_sha256": "dabf42f72af1d3addd07268b7099993b16c6b12fcbc1073fd78c49ee25174e18",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "word": {
+     "n_features": 347089,
+     "vocab_sha256": "b5fd95e0ed4bc034311d3991c1ac386bd352d94220cacfa87f8b14ddb5473db8",
+     "idf_sha256": "b301c888495cf23aa71b1a122a9b06901fac5f3a0116702f869bd73f86011b43",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "deepseek-ai--deepseek-coder-1.3b-instruct": {
+    "char": {
+     "n_features": 195220,
+     "vocab_sha256": "d3c347e492fd1cd5efa76c1787b5a67374f70faf1b6cf9f5a803f72d8dd92b62",
+     "idf_sha256": "4b463dc7d5baccf3670c1a29e3421795a487e9333318f35a7199b93808038f2b",
+     "idf_min": 1.0001253054321544,
+     "idf_max": 9.291671815316064
+    },
+    "word": {
+     "n_features": 345561,
+     "vocab_sha256": "04e64012b883c610feb0bc994d5cbeb8c8a9fb31690c341fb6dc0e5faa29ff26",
+     "idf_sha256": "8d96b93ec51428cdd9fc30e07b500042360fbca247ca4d687b10e4ae33ea86d6",
+     "idf_min": 1.0001253054321544,
+     "idf_max": 9.291671815316064
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "deepseek-ai--deepseek-coder-33b-instruct": {
+    "char": {
+     "n_features": 195087,
+     "vocab_sha256": "2e027ce9fcf14b7e292d446459c40aa01b38552d5ac4ff2c323686f1d0bd8900",
+     "idf_sha256": "06fb0efc6a1d6f6f110b1a4594a8505944e4385e3561acf95c45c4c5e2b747b4",
+     "idf_min": 1.0001253054321544,
+     "idf_max": 9.291671815316064
+    },
+    "word": {
+     "n_features": 341225,
+     "vocab_sha256": "96e1d56b518eef1d33e8670677896c439194b46d63c80f24063e588b6f8de50b",
+     "idf_sha256": "f9682b3d4db834e51ed7424b29202801c0f0e491b2acf231afd4c1d6963b1018",
+     "idf_min": 1.0001253054321544,
+     "idf_max": 9.291671815316064
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "deepseek-ai--deepseek-coder-6.7b-instruct": {
+    "char": {
+     "n_features": 195927,
+     "vocab_sha256": "b90c999692ea54c6079cd77863da74b6999bb8131470c376e5edf4e3833e2909",
+     "idf_sha256": "83e39aceb724a4167ae399acfe48a5caf30f09a3faece05f73081383090405be",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "word": {
+     "n_features": 343828,
+     "vocab_sha256": "127f4bf97b30e11023fb9eb525914ba9864a3f773e71f248180de8d39f22548d",
+     "idf_sha256": "1861c1d9f4e3f14c50458cada37e0bca5eb93d65874f78b71bba6970d8b62df1",
+     "idf_min": 1.000250626567728,
+     "idf_max": 9.291671815316064
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   }
+  },
+  "inner": {
+   "codellama--CodeLlama-13b-Instruct-hf": {
+    "char": {
+     "n_features": 180199,
+     "vocab_sha256": "89fd1daeca51432286ca629941b7ec0a679b426de78681760b6e3bb16cf3a71a",
+     "idf_sha256": "3ea6d0de6858f7fd5f6ee0c8ef71af545ab9e13b0cdec673381c96f1fccd75ed",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "word": {
+     "n_features": 303047,
+     "vocab_sha256": "ed03e0c472b1dcc1cb24197607e5c490e0dda1959dc2d1ce5435b815a2c5fe1f",
+     "idf_sha256": "fc6aea918f32abcbaa88e20302fe365f4fa4c92166c74c5cafaa9087f82191bc",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "codellama--CodeLlama-34b-Instruct-hf": {
+    "char": {
+     "n_features": 179779,
+     "vocab_sha256": "64b05ec96fff1a99f7656ed52941395d1a6dda3b52e065bb249d08cf395d4079",
+     "idf_sha256": "e73200c86f02f7a10ad19a4e042605fb81825fbb4273aba2a8a746d96c3de3de",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "word": {
+     "n_features": 304065,
+     "vocab_sha256": "e266e4ee34e760cc61e890315744e083b1957e7ec5a6b211513c05d030c8eebb",
+     "idf_sha256": "7fba04ee3d5dd06aaa9fd058cbfde772a2db2da586af35349c966b3e947824a9",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "codellama--CodeLlama-70b-Instruct-hf": {
+    "char": {
+     "n_features": 179321,
+     "vocab_sha256": "a39a4f19208e5b9187a260c1ce8212f92d6a7c2fdee6720407334840f01b1d7e",
+     "idf_sha256": "96de295a6881219f5795303a49bbab4e8ab3586a1bb8e47eaa4d31d27ed97f34",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "word": {
+     "n_features": 299587,
+     "vocab_sha256": "8f3f4b73b2b2c61525b7075e51fefaf6eee53c374c2663b29974e330c398ecc9",
+     "idf_sha256": "51dcf0960b7092010a2d869f74707bb5ae4168188faf7131a9c0579d20a7b6b3",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "codellama--CodeLlama-7b-Instruct-hf": {
+    "char": {
+     "n_features": 178008,
+     "vocab_sha256": "161a5f6c042c94d573917319d498be0393fe5b69cf7fe72ba2f965f60b6d1fdd",
+     "idf_sha256": "ce3c015ff5597ab2afea0ac823e07d8e8d074e0de2d71daf208c8a475355c1c2",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "word": {
+     "n_features": 299517,
+     "vocab_sha256": "b3ad31d9204be8bd1da98a910d808201603a73518210bf9e31edd4f678abba04",
+     "idf_sha256": "5c95ebab86f50f13abd431885aac5cf6c294a4e6dfff077e615fcb472f68d7f1",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+    "char": {
+     "n_features": 178879,
+     "vocab_sha256": "963e4245d1967dc377b046ff436ce420fc06a32655bb4d7f6c5ff99af65bfaee",
+     "idf_sha256": "976f2e1fe2ae116af5d73fe99be51432cac08f00cee8001ac24dc432aed83da0",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "word": {
+     "n_features": 301405,
+     "vocab_sha256": "f3139a5d356c9677cd3f399aaf124e47fd9f34bdc7a084585fb29bac6af1f6e5",
+     "idf_sha256": "79e8fe01a2c376f377ab9269eab4f22590e6a9f6910c48f9c792fd27f34f0fce",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "Qwen--Qwen2.5-Coder-14B-Instruct": {
+    "char": {
+     "n_features": 178579,
+     "vocab_sha256": "ab163f86b4274d286a16279e6ddd32829a3d852b82cbe3e3c111aafc14c02043",
+     "idf_sha256": "02de36c5b97dd738a4aac1323cb94939d14bd8c19880e219b4a3a5297c65e0ba",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "word": {
+     "n_features": 303831,
+     "vocab_sha256": "550cdf57fac56f6665a130337d9374f4f2ece698bd3eaa4533e20f7248b637ad",
+     "idf_sha256": "00f63492701cf5e70619068a2005480a6306ef5591d04474c2879e62a382b3cf",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "Qwen--Qwen2.5-Coder-32B-Instruct": {
+    "char": {
+     "n_features": 179151,
+     "vocab_sha256": "5b136cb45373eddbb543dc661576d9a2759489277a2ab5c4a580630c319fcb61",
+     "idf_sha256": "2f58bbb59f6d686d470b0932dd7855897db8b94f96af24b0b0f1e6f05033b431",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "word": {
+     "n_features": 302931,
+     "vocab_sha256": "bdad7fd0cba48b4fcb8de4ce09901af90144643aa537753b047e3cf50e9ac5c2",
+     "idf_sha256": "6b84d65a1a157bea233e234b904fb02f1f0d9b0f3cd32881f1a3334eeeb5b910",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "Qwen--Qwen2.5-Coder-7B-Instruct": {
+    "char": {
+     "n_features": 179935,
+     "vocab_sha256": "6d3a87c671db74315c45234690cd9a09bdca1c531ee1a51c19217ba42884fe39",
+     "idf_sha256": "c476722890c32959388f209ad5c80bcd00cf4fc81606d6c124db154832855b25",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "word": {
+     "n_features": 305072,
+     "vocab_sha256": "c44f1782da6b9aee8e5eaaa8fffbf1394983d548573b1ed4b0002cfd26c42fbd",
+     "idf_sha256": "deeb47817377cc3a2c83fbd5a255db9ec4c00eb537aa71011eeda234dcf6a99d",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "deepseek-ai--deepseek-coder-1.3b-instruct": {
+    "char": {
+     "n_features": 181295,
+     "vocab_sha256": "b01bdfb63e1fc1fbcf7f7c821a848e099eec2d456d4fb5629ea30adee92eba9b",
+     "idf_sha256": "00a498d571441b53868568de6919ecabffd022defc32e948d1b2ce7f7939e959",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "word": {
+     "n_features": 303743,
+     "vocab_sha256": "4145c5952ef68bc80e386792b3b2c3d5498f0a429cb6818d175908bd4377b4d1",
+     "idf_sha256": "4eb0d3b5a4abc5d25861012fe805983676a8667db198cab794df93e13e18bd63",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "deepseek-ai--deepseek-coder-33b-instruct": {
+    "char": {
+     "n_features": 180912,
+     "vocab_sha256": "de4f31570de05907c94f05fc2ff94857028d59b949beaaccf2d67802d15dfba7",
+     "idf_sha256": "801a19e1b21b6a1d3fe8d2f1bfbb17aefbe4700d180a83b51cd497f2836a9ab4",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "word": {
+     "n_features": 299973,
+     "vocab_sha256": "b22e123842b28826f01bf3b828dc42622987dfa39749d1e82fa0e0e6f9f522fa",
+     "idf_sha256": "e466d1d606c21717c8e29ac0d130ae12aff6e794b8d6539e16c37c0f7c45d7e8",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   },
+   "deepseek-ai--deepseek-coder-6.7b-instruct": {
+    "char": {
+     "n_features": 181900,
+     "vocab_sha256": "c54995f20784f8eec13f7687543f619cd5029cd491929fbf477def40387eb213",
+     "idf_sha256": "168b177fca20932528c3e391a8db4b80b2eae14ec0cbb81de45566d863e9341c",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "word": {
+     "n_features": 302322,
+     "vocab_sha256": "0b4d66ba22483e8e281e4673581b9f89073e3f2f2a949ab1c908c3699ae52573",
+     "idf_sha256": "76c61740f7454c1c65036bcdbb3baad9237c3645cc4db4819b3047c8b4eea25b",
+     "idf_min": 1.0,
+     "idf_max": 9.122816380293493
+    },
+    "fit_scope": "fit_rows only (corrected)"
+   }
+  }
+ },
+ "score_digests": {
+  "dev": {
+   "codellama--CodeLlama-13b-Instruct-hf": {
+    "fused": "49e644e7376289fb441a7cb6354cb6735824dca36e9bd7b63dcda42a7f5246cc",
+    "n_eval_rows": 1368,
+    "n_tasks": 171,
+    "s_semantic": "ffee7247f601fcf9fda6ac1a3739cc66a1128832423f6a82b58c3c77e1f83b3a",
+    "s_char_tfidf": "301f36c7838a3c7ced93b0d04d498409183d28494d88399bc8500f980a6669fb",
+    "s_word_tfidf": "e455bc00dd17f9439e9fe33aa3f1b6e6071afbc85558cbbcbf090451b03ba329",
+    "s_style_meta": "b804d169508e2bfe9934c8e3e9bba0e150006bc7c7c1ea8d179a4e7ea8c1d040",
+    "t_s_semantic": "4cb817a1c51ca5ccadfff21e554f21dce21fb47e3bfb70cb5605ca8fa0ad8348",
+    "t_s_char_tfidf": "653dbef9ccffb533c95dd48cb41ddbbceb56777d1a3bbdb47a92cc670a6d9a3c",
+    "t_s_word_tfidf": "06a51344e693fb18adbc247fcac2aecf79d89b17ba9a8a3b305a5049813c3914",
+    "t_s_style_meta": "073d51893cb9fd7a662689a507ac1ce9111f148ff180a16b7c49a48a53a0d44c",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "codellama--CodeLlama-34b-Instruct-hf": {
+    "fused": "f75eeb77e01da3c1838da325a017716108f9cd11b60dc825dced33cc43bf8ae4",
+    "n_eval_rows": 1368,
+    "n_tasks": 171,
+    "s_semantic": "04861f18f3a33d91f3fac62ccfefd34bec345daf35daf9955d6e8c8d17431f12",
+    "s_char_tfidf": "63f553717af1230651d1dd423bf057560e6b0b75f7e8403ba58f4a345c2bda0a",
+    "s_word_tfidf": "b68413370bbaa4c803740aaf8c6858554f1d9bf8ec5005c4892bbe34ba4d6f28",
+    "s_style_meta": "b3fe8ef5d4af9232dbc5dbb0b8c7c427a1b9cbd343935495e1103dc56125b63c",
+    "t_s_semantic": "6db4c64c60a698f35742df186231e409defc050fa591db3b3de5ef074a019bfd",
+    "t_s_char_tfidf": "e6aa4520c2674c4342596fd3941b356e85a0a4436de25da114ea36d002b6059f",
+    "t_s_word_tfidf": "2423b192fca76979f4f760b067b12a56cddeae4ea510026d0f0e2cfc905f78d7",
+    "t_s_style_meta": "d059ea88ba263da850ba89bcd958c2184f44960be52605e6c053cbc29767a627",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "codellama--CodeLlama-70b-Instruct-hf": {
+    "fused": "8253c3e39a0db26db94575afd6cc8c0c2038afc6f04af46204d1fae0fc05076b",
+    "n_eval_rows": 1368,
+    "n_tasks": 171,
+    "s_semantic": "f130fcd96d5090544aa71b66dcadbdc688bc7d4f7b99066e18bdb85c793469f5",
+    "s_char_tfidf": "b44186eed1e0eaf736aed47743468bbf0e7bf48406ddaabcd331da84ff43bbb0",
+    "s_word_tfidf": "65927946cfa0581e183878c8a2a7cd3eb444497c2f2e759fc401f84813bab34c",
+    "s_style_meta": "40673f9116142f4e77b9b259365965d70526941512da8998a850572a9c91130f",
+    "t_s_semantic": "358a44482d7a4f7b740846721c4066c248092b217d0221251e3e2790dd9047dd",
+    "t_s_char_tfidf": "55089619e5954ddf413f2c1cf3ed8ca68fe5d336dae94be4db77c0e54797f0cc",
+    "t_s_word_tfidf": "bb6fd087920f97648854c920e4dee87c65253e2ec52ddae3fd7fe10cf92e8fd8",
+    "t_s_style_meta": "3855ee065446487d42a3f170d3c45a978d5fe1a3846da4e40689b0b7bce77ca3",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "codellama--CodeLlama-7b-Instruct-hf": {
+    "fused": "ee361d70ba9f44553871028cf7ba30638c5106e9a649c2b6d6565e3e608c8c03",
+    "n_eval_rows": 1368,
+    "n_tasks": 171,
+    "s_semantic": "7b6cf9a2b0a2d43a54dfe1bcd87e59b62b67223facda71610dc9d44f1205e7ad",
+    "s_char_tfidf": "4d263b4ae7623f81b1ab4810436a56ea3af76aa4ec5bbd419f98cc73dc3f7ec5",
+    "s_word_tfidf": "c0d0532d95c53c7e8cd7aa4cef7a2d7b562fe2788e0ae6342a0f46708d69fbbe",
+    "s_style_meta": "f5f0c0945ddd5b61ef8adc61cbb386f075706e55c4f0fca9ef45f07f1c7bde2d",
+    "t_s_semantic": "c2155b013efe06ca168a56c10cbab0eaa18092a6975b51a5730fb953a5c4236f",
+    "t_s_char_tfidf": "22eef70876404c9f883412a6dbab9226660f41262f8ef78991f60e313c66ba3e",
+    "t_s_word_tfidf": "ef5f9addbd54061ad7a6237662df009707f16408ef066f07672ff08c2f6e689b",
+    "t_s_style_meta": "9e95fa1cab42c73be27af6d002c3f0d1225472940b15174c55ff2c6f338df761",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+    "fused": "cab981824b5ee11e13cb428018b44ff07c18de188d888c147f269af066792ef2",
+    "n_eval_rows": 1368,
+    "n_tasks": 171,
+    "s_semantic": "d99b06e6de7ba60b1667da8298d0660e5d6eface7e42f0a3c7707af7d02b3f3c",
+    "s_char_tfidf": "41e4428701e447e4f69451798f971cd80308372b5ce7828942e142aee4921a03",
+    "s_word_tfidf": "e4848826349d1d0dc7b1c48c7ecbbb3f43569a08c7530636cefd714794ebf082",
+    "s_style_meta": "78b0072f876ba6237f488094985875fdd65a5ec39cb75c382fe46a26ecfa9e88",
+    "t_s_semantic": "ce40ca59b9238181ef3a1d6dec08dbd9e7c2dd8b128d20ed4dc0437239017b82",
+    "t_s_char_tfidf": "94c9fa2a65e409fd5537ba0bf47db7b61df837a6979533caa1ba8f0a473101ee",
+    "t_s_word_tfidf": "1e9bcc13bf531b467775cdeffe3a6775d89b4cff2597ffbfb40458b866c4ad46",
+    "t_s_style_meta": "f2f204914bf18a229ce7277d6b201f8421df9aa680ec7f593422fa39d53f6150",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "Qwen--Qwen2.5-Coder-14B-Instruct": {
+    "fused": "6765edecfa279516a39478480e9ec76a7d3a2b6ff9e417fbc142ee0515c017fa",
+    "n_eval_rows": 1368,
+    "n_tasks": 171,
+    "s_semantic": "705f9a379461f1893616b25dadc4cf18bb62eb84a17f80874fba472d6a844ea6",
+    "s_char_tfidf": "239347b92e5a2fcbddb96d45fe248b312f178ea99e01c27dbf6d5253ab5ff924",
+    "s_word_tfidf": "0980d4b917c86120a0b0aed6dcb3702bf6e9c5d87c97c7ea1937d9d2ebd83de4",
+    "s_style_meta": "2064f5a333d30a23fc4374ca3f7b76e0afe78f089ea7742b8ee68122d27141ef",
+    "t_s_semantic": "3981691a385466a52756262c38f925c85762150959c2ead08ffddf885139b076",
+    "t_s_char_tfidf": "d3bade579f031f6331564435823b0dafdc1df6751ecdbc1053ac1ab435c64477",
+    "t_s_word_tfidf": "4ca9f42a868ea5a6f4415eafdecaf94af80aa17ba0c7baf9b124d7b3f51e306c",
+    "t_s_style_meta": "81ef7d5fa1af9b35fceb5ac360523667f9512fd887a86628b10fabca3b8aab37",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "Qwen--Qwen2.5-Coder-32B-Instruct": {
+    "fused": "05818add2d3ee1fc85baca32a371128243c41231fc90829fd1bbad00f15376f3",
+    "n_eval_rows": 1368,
+    "n_tasks": 171,
+    "s_semantic": "e52085c6e134f5146da7934cfc35178a3d85c001c0852e92ffda2c794041477c",
+    "s_char_tfidf": "c625b8c22724d4cbe7d1ed3d26c6fc5abc913a4ba63b03f65bede82d47ca182a",
+    "s_word_tfidf": "c50dfdf249b16ac11f5f1c9bc26e700d02acf65e12f43dfb3ee04dc0cb03630a",
+    "s_style_meta": "f1083a522a0f97629f993f78dcfb62c8ae2abd77304cd81e2719ffc9aea453fa",
+    "t_s_semantic": "99ac5369a3ec53ffc466c682dec043d3c312223776c37583b7b157dea61aec82",
+    "t_s_char_tfidf": "bf4f7290ccc562f82c1adaf880a4f8725007c9ae3cb4d947fe0463c9bbfbdeaf",
+    "t_s_word_tfidf": "5aa380c831a42a69db7dbe6ef1d37451bb58ac003530f9585e1a327f6aa5c6a1",
+    "t_s_style_meta": "ed19edb9bf0460c764cf6ad9cee60f148a772638de4e24159aa77257733b7ae2",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "Qwen--Qwen2.5-Coder-7B-Instruct": {
+    "fused": "31b7413b3db19f950ede350692b77206e43e680af789727d83c3e7171c09ae7b",
+    "n_eval_rows": 1368,
+    "n_tasks": 171,
+    "s_semantic": "d022e19fb203cc1773abdf84d0347a4546d17f105ebea8f4127ffefe90ba6794",
+    "s_char_tfidf": "89648796c8ca3e768da7e88e402077cd03706e85924b854940680151d6bdc7a6",
+    "s_word_tfidf": "aa662a5d5326353ae42d82448bef7779b8faa26014af821c73ab27ed42d73ef8",
+    "s_style_meta": "915b0ef63ac1e6af5634e226c850e2c20f829a375ea6df6db865636abcc1c3db",
+    "t_s_semantic": "d7c5d14a66854583d8dca472bf4993fd8e191ded621dda95248332467b69cfce",
+    "t_s_char_tfidf": "d25fbd44aa7d0faec48bc6764d1390d6678f84b0ae522c3c11030b6b53ac71d2",
+    "t_s_word_tfidf": "dc7ec2cada0ccab76e3696f27cba3519d41be6ef0a3154653377b5b19ffb6a30",
+    "t_s_style_meta": "abaa42af554632cdf8b11345d97431e7f197662a94e5b88b42b735830d306fcb",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "deepseek-ai--deepseek-coder-1.3b-instruct": {
+    "fused": "ffc2d6a2b5d3ba78577e3c8bdd30026008e033d3e78784d3c087f554f05c1fbb",
+    "n_eval_rows": 1539,
+    "n_tasks": 171,
+    "s_semantic": "1095f3d54a40c65f5664a6e0bd1f51a645880c7d682832b84a9ad30f8f4eb4bc",
+    "s_char_tfidf": "d5b25272b0b9ec4dda6e214b1a164757d1ea819a545d0518b023ae172aebb5e8",
+    "s_word_tfidf": "10db1c47cf25be5f6b2dc89648ba700afe614e820ef88d38b2095a4aa16318c5",
+    "s_style_meta": "38f4ab4e49cebbb39f56b160d318a373b897d9c09fd8bf97c872e380cf643add",
+    "t_s_semantic": "65e241564bf8c29f7a467308c605a279061bbd1d8c9dc0270003f2cbbf9a6bda",
+    "t_s_char_tfidf": "6127020ca6450cf14b2dd21efad5bd4c20bbd79ddb9d3f8d64310f7716b9506d",
+    "t_s_word_tfidf": "11546935c211aaf675099264cabfb2b972b85566ab516d8174b1a087d104fe3b",
+    "t_s_style_meta": "905410ec6c3813003fc674e55db106af024663a2677fed68bcd55d87ece0c29f",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "deepseek-ai--deepseek-coder-33b-instruct": {
+    "fused": "76222d4187c29c9e78733e2781063405ee0ce6445f5fd6345d1262ad2c52cb39",
+    "n_eval_rows": 1539,
+    "n_tasks": 171,
+    "s_semantic": "0f9590fbd62316c869078618b61650f04ef47143bfd15faf0ac79d82420cc0f7",
+    "s_char_tfidf": "42f5df4890ca360b0737a71b8a4129b89995f9c65cf8c8780356091e6d18251b",
+    "s_word_tfidf": "25a2bc7958bd9f0cd4fd51b79a4284ca886b016beaa7d3cfc147cf34370e68e7",
+    "s_style_meta": "aca997a2b7b3405125fa481699be25edc47a714d2ab0b3f155e41a1356b26b75",
+    "t_s_semantic": "a34358151f6d48b37829c419c2ea485140af97f7e06e17656938a28a0248e7b7",
+    "t_s_char_tfidf": "a531505257dea2161f5ad9aab14bd41f44fc2977649cb4becc18c5c0954814e9",
+    "t_s_word_tfidf": "d73cb050f61838821d7e306e718cbc2c6f2e065d0cdfa9f1a9f38d41caccb124",
+    "t_s_style_meta": "8703284322cbc7719bb250476bcc0fd0fe57fe05c7130fbc0a5651b0b807eb01",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "deepseek-ai--deepseek-coder-6.7b-instruct": {
+    "fused": "ec7ea554be05c35b974ae8e3f64ec51c0592563fdf206873342785c31c41c04b",
+    "n_eval_rows": 1539,
+    "n_tasks": 171,
+    "s_semantic": "eba710026150defbf861bd46ca7bf9792257d67670ec20f6b006d83e9a8371bf",
+    "s_char_tfidf": "8cab4adc3b592689b7b375717027fa5b90530f4449e5e806aea9767ae0b1ee97",
+    "s_word_tfidf": "1aae4dd1d5eb05bef6db843e655229f5c7f91863712e8bba2f6f12efcf8b40c9",
+    "s_style_meta": "3d6fe33d725e3ea6340928bb73129a784de271e023b8344182b3c222d35cf86e",
+    "t_s_semantic": "da34aa8ca6b753633561821764830816fac9774d2c4c53efa09d225430aeabea",
+    "t_s_char_tfidf": "36e8bde2ff02bc7057df2bdae527e0330ea5c82b0aba086538bc775c14d7343f",
+    "t_s_word_tfidf": "2e4b608c81b6d6a5dc49713ae1323a26d2448e9a8c45b9b3d2f1ddcb45ff03f1",
+    "t_s_style_meta": "dbaa28a479d39d5a144932566c8a19781befa66f67359a40b492195fc370fefa",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   }
+  },
+  "inner": {
+   "codellama--CodeLlama-13b-Instruct-hf": {
+    "fused": "c2fcb29a3366017ff3e14aa35eda937d1b3a6742bd6f387861dd7ce82cb490f8",
+    "n_eval_rows": 992,
+    "n_tasks": 124,
+    "s_semantic": "4695c73a6c3b24a5f9651c81147d5f7f9bdd0eee04ed20ae3cbaa256af40b329",
+    "s_char_tfidf": "28e9fa4a4e69023465bb44281afcd52f21da82e90a1fc4669810350111132eb2",
+    "s_word_tfidf": "317dfd82ba2f4dcb7ba7fd1da15a3c1f82dc3620d2d2f6ffa83fc4ab7e050cbb",
+    "s_style_meta": "e09dd9e8594cf72872330c7666fff641982318d204b5279fae84ae9082e9cf85",
+    "t_s_semantic": "3c9d907a6f1b5062127ba7153c41d4cca9b68609751d81d9447d1ddbf657480e",
+    "t_s_char_tfidf": "1500a3f7c0b634aa5bcc2d6674fa9e19c07a28843cb9d44af75dd12ec14f7c0c",
+    "t_s_word_tfidf": "8b1894269ffd0d5dd951bf4cd139d2d78e0ee3675ee604009a6a7dfc046c7658",
+    "t_s_style_meta": "42c0951a295a9bf54d4a5a43dd15e150fd9c8ab5db8d8988809374e8a354896b",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "codellama--CodeLlama-34b-Instruct-hf": {
+    "fused": "502ed5c18b8679bd7b4374daaac17890c63d84d8c734d8387add9689b57ad8ac",
+    "n_eval_rows": 992,
+    "n_tasks": 124,
+    "s_semantic": "10c4a765a4001adbf2d414315efacf16448cd2e0a97c50886111a8770dbbfd62",
+    "s_char_tfidf": "876f368688944fa880ae2dfbdcc3802e6277a65ff251acbeb72e43e50463e05d",
+    "s_word_tfidf": "1b19a65d0c552212d792a19d50d93e7e11466eb4722dd1483bdd0bda8e59d303",
+    "s_style_meta": "37f6fc6b1cdff62ff8ed81040c140da579dfbb19412bfae05ba4e29b48eda555",
+    "t_s_semantic": "f0df13e3c3951bb00a1327623580f5b2cd3ad0a729066fb0fe195b77c028d446",
+    "t_s_char_tfidf": "2af7e4fb3a87a048ee57c7eec17b116bc14e19dcaaf94358b6176c26de98b09a",
+    "t_s_word_tfidf": "205f16b08331757a8cf44473a9fcfdc4d7267a592136b89e40f94e5730e57c97",
+    "t_s_style_meta": "61d2692fb847d2911df29de5574909cb7928e53bf012b4026ed049aaa0214ba8",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "codellama--CodeLlama-70b-Instruct-hf": {
+    "fused": "6141b4d3be9a326f7bfc4c3b636e2c7adcda41e8f7fa47542ba6123ede3ba832",
+    "n_eval_rows": 992,
+    "n_tasks": 124,
+    "s_semantic": "d85cc1337ad379c4a8a6ce9d89da0406344f0c3459d14b15ca2f73ea0011a98d",
+    "s_char_tfidf": "f94ddfc104923ff9d038f6a6a06d6f3192a6067c8ed360a5400f0b7e56ef64b7",
+    "s_word_tfidf": "fb4a0541bf06a6dce99d4934aabd0b8579153c2601069ebbc0766c9d64329b23",
+    "s_style_meta": "5cb0625d4c4ddb2ad0a15fa2b5a3b7399ff5d97552995d5970d8e66c4b93b714",
+    "t_s_semantic": "56b5fd21e55eb6373afe936599b50f2e0fbb2d4c67c1167784717e34801610ab",
+    "t_s_char_tfidf": "5353eb6820f18b485fd4371e3bb2b3122c030f8e808d3ec18f97041ac8abdaad",
+    "t_s_word_tfidf": "e191cc17debc6248be8b32f4d09370be5eb00896918c772081db17984c628d1c",
+    "t_s_style_meta": "18c89886773544d0526d887e393cc91ae03d945f338ad63942f907e4866b91d1",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "codellama--CodeLlama-7b-Instruct-hf": {
+    "fused": "6295e33d54501263122fc5b85fcca4bdfc8b82dc6b89dcdd71dfbffc3ae67785",
+    "n_eval_rows": 992,
+    "n_tasks": 124,
+    "s_semantic": "0d4315a1632d59e17c3a311ecda635f8db71f17690f0570957a4bb61b67084b6",
+    "s_char_tfidf": "7764cec365a60cfeb32e6e7a0e76dcb7b03629c94821ae496323f55a3941f118",
+    "s_word_tfidf": "a22015a471375eb576ffc237e82949ec3791cb858fa256e4f6ec3e2ef12f4b8f",
+    "s_style_meta": "0679df8883b8be5754cbbee7b0f1afded6912972c5eadcc4624ecc5e940be62f",
+    "t_s_semantic": "1a2ead044c204adf707d581bf5d865568a1f7a4db4d352c1349f014579761f28",
+    "t_s_char_tfidf": "210c3752d758ee574eee61a63d748665111a4a2d2f4066e8b57bab77d9712e9b",
+    "t_s_word_tfidf": "bde75162f549637fe64c99e407f119920557ca913204273eeab3e99bcc688963",
+    "t_s_style_meta": "8e00cbd1404162785505e1e6d7470426852906e498d96175e66f9ca4f8378783",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+    "fused": "decf82a85213b141abcc90a72b90fbec5319f53efb4fd9f08ebeb3ee58a1df69",
+    "n_eval_rows": 992,
+    "n_tasks": 124,
+    "s_semantic": "452436e8d0818ee9c63328da35290297753294f60ed0b53691f408b4cbddf79a",
+    "s_char_tfidf": "c0bf0ad8544d2fd54f76348a18a4a31f3116c803dc18cc179533ca2886299342",
+    "s_word_tfidf": "b5081f909737a3a6a2a029392f685f671ccb2bcdd2927f0f50a3aef2d1f02a9a",
+    "s_style_meta": "6cf89c6ac1b2a79956daca83fde7e3d6f4897d9692e25c59ea722be19cfc23bc",
+    "t_s_semantic": "117c465af2fe80240cbf74ff21d7ff5cd3aef0af66baea5d543b3366c31140df",
+    "t_s_char_tfidf": "cf58836f71b343122d53928414626d51dce2ce9822a52fdd328a6bdedcc5193f",
+    "t_s_word_tfidf": "926760def8bb8184dd8951f62ee5652a790b0dcb0bcc36810e8435a454e0bebe",
+    "t_s_style_meta": "79746ddcb02315f72ca3d18e2afe5dc4042b97788437ec41ddfb2a3e62bfdbde",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "Qwen--Qwen2.5-Coder-14B-Instruct": {
+    "fused": "ce85855feddb3dfa3415042c2595db39e2e278e2e62378464a156727b9df5a9e",
+    "n_eval_rows": 992,
+    "n_tasks": 124,
+    "s_semantic": "41ab036772bec4c6c7b990793e4a6bc766b71ac412a85365d1f1104c3932fce1",
+    "s_char_tfidf": "6c6d4dc9bcc7c30521fd5b069210d9b2ea9cfbdd1a5f7ca1d7b51bf94dec6a55",
+    "s_word_tfidf": "1bb38f15f8c3f425c9a2d1cf245394971697bfd2a979e62eeafd1e56555bdde4",
+    "s_style_meta": "05bbb6121465842c41af3af3644d6b6661d6ac17d4ce74f8d51d74934c2a425c",
+    "t_s_semantic": "22947a8f3223c121ff3138d9fd41bfa08484995363862b3f1ce802acd4693f83",
+    "t_s_char_tfidf": "3d43951f9d08e5200c517bf18feada15e7bb0621ac6ae8092bb590fae1e89c8e",
+    "t_s_word_tfidf": "4e346ab9750b88f193ab7ae47569c982382ce01a39f002be4f6ddec77bdc4a28",
+    "t_s_style_meta": "7369d534932d4782367e0311521baa1b00ccf8219446022d0be77fe2e91f8c1e",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "Qwen--Qwen2.5-Coder-32B-Instruct": {
+    "fused": "8b66767416772584ba81f2caf2835188dfa54c6290aad5aeab3ad321193b5d5c",
+    "n_eval_rows": 992,
+    "n_tasks": 124,
+    "s_semantic": "87fbe1bbc2470a4ecb0d165e8ead421c2c2d76297e971aa27123a1d2bc548198",
+    "s_char_tfidf": "6ac3a2d27593cd30c5f4d2866e88e7b917e9cd84a3d7a7faf493c683a3cdc268",
+    "s_word_tfidf": "b9977b85909202606cfe857283356b916b236c12c1583b7f5aa60ffa1e3983fc",
+    "s_style_meta": "a255a059d228670a9e324b9755eca5ab3275d8860a654c496dbe685eba07d655",
+    "t_s_semantic": "5c7a9c2239aef29b283fd0ed59d780b232f2d28081696be46393f9e6d4e99d9e",
+    "t_s_char_tfidf": "63eb7d00e0a36146d96041c872d3674c8a223d141d3c3421db017983e867b0f0",
+    "t_s_word_tfidf": "60bac7c797961537cf41112db920d68699568e20c4c580fd71f0bd20413df273",
+    "t_s_style_meta": "f475a70e0ebdc6191dab4bbbbd28e11fa2bc636933a080c9713f84508c0dabf5",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "Qwen--Qwen2.5-Coder-7B-Instruct": {
+    "fused": "d6eaf18b05cff3d5ebe6e7e2874bcf882fbb5bfd85cfe50dd85e7777258d7a91",
+    "n_eval_rows": 992,
+    "n_tasks": 124,
+    "s_semantic": "711a462f75cc100183c6657bfa053db9aa5cc1a7bf7701483d6262d7b5456f65",
+    "s_char_tfidf": "a2aa200870b94f1b797ee36b494535fc29c8c6b60fe4033cd18ac0a195c6576a",
+    "s_word_tfidf": "57fad855d5209bff0ded3bd3466c465110bc9f4bcc56ee8829faf337c2dda0c6",
+    "s_style_meta": "0688fb9e67dde925ca173bb7d720962534254ade8637920bad70cf757e729327",
+    "t_s_semantic": "37992c8496e04256a65ab4a3d75ef4e825ee28294023fd398436b257de2d6ed6",
+    "t_s_char_tfidf": "fd04c586fbd5b29e604f94937dd03c5ea15044da793b28fc905e52f2088f8655",
+    "t_s_word_tfidf": "dd0019d2f1604da1d3251e8e61ad309766e6359010bb0b08f8df6fe4bb84e974",
+    "t_s_style_meta": "36b09a99a625e1ff884e12f0e045e6a49dff0ff757e3e7484d804259eaaca35f",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "deepseek-ai--deepseek-coder-1.3b-instruct": {
+    "fused": "fa70d71718d2a4c0d2530daca99b99c2e972ad146699e1efb0b7c329434e22d3",
+    "n_eval_rows": 1116,
+    "n_tasks": 124,
+    "s_semantic": "0c751766c4fac9f3704275a5518c90637c3cb85dac11d46858b0b0a2c0b217bf",
+    "s_char_tfidf": "335e9343104380e9c67a699692ffb1d532c7ffbf61d8e3f9946f77011892b2b7",
+    "s_word_tfidf": "96047e453b13c94e767456f1e597f698bfe5c1a9a026743ba1de2533d9b64463",
+    "s_style_meta": "a631c2efb6a8f6891cf3ea37bd67c676363134199ef506559ef957cd9ce8518d",
+    "t_s_semantic": "63a3ce95adbb09d24c885e9451aed21b3ac18147e98c47d68e7d1b656bb47e56",
+    "t_s_char_tfidf": "02290b928c4142409ce9caaa0f54af2372382363ed1727e4cb3071b2d52f6bb9",
+    "t_s_word_tfidf": "2ef3d56f943b04625e10e1ac13397908f91c0b5f6746a7ebdbde644e9d1a98c4",
+    "t_s_style_meta": "9f58595f5c4d442d3305f97de111091c5e1a3f7e16bb6e163a66d9dd840dd373",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "deepseek-ai--deepseek-coder-33b-instruct": {
+    "fused": "a9465a940228f6a87e374bd7ba0350243260b7cecee77d7bcffebdc74cf92c44",
+    "n_eval_rows": 1116,
+    "n_tasks": 124,
+    "s_semantic": "08aa7eb74982e9c7760b8c1239a3cd201535d1f603b6e9016d190b8416554035",
+    "s_char_tfidf": "17071ebcbb3f3f8338590be55090ad0a31444149f59b44882e2e19bd26d073ca",
+    "s_word_tfidf": "29a5f795405f5faa89aa34df67da8ee32950450c9473044f3e3a182107563d75",
+    "s_style_meta": "41251ce01a1e457f4d8f0d3b2243792f09021c5e50a0aee66900792b213e7eb4",
+    "t_s_semantic": "2f0643f829df5d3ba994e8d063cde35c9a47ab271f84bd98b7575f0cc367978d",
+    "t_s_char_tfidf": "0d5f8bdd973d99d22206c88d4fd437de4e126e7cd6d3aeb48777f8dfecdc7d2f",
+    "t_s_word_tfidf": "7e39a17c2ed72c1e4d01873ad76c11a1106c901793078ac19b17206bd8af1c97",
+    "t_s_style_meta": "3833878553669dbdb67ac2ea34af58d9b5faee698e7a6769a40a0731c1d19dd3",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   },
+   "deepseek-ai--deepseek-coder-6.7b-instruct": {
+    "fused": "ad830e6ade2f26e760bc2ce09d4ed2371c6b4c5b665d286e8b50ea1dbf1e5f90",
+    "n_eval_rows": 1116,
+    "n_tasks": 124,
+    "s_semantic": "e2514abf137b30a8f721db38828b36c2f2e1188bb20556e401682b491c2b7b4f",
+    "s_char_tfidf": "191ff0eadab0fd08970a070ce184c9003793f0f6feb7c69051eb33f53f88f975",
+    "s_word_tfidf": "4c9316e87a41600edd22776e45b03a95541ceecb5ecf9bc6a78d4874d96d9e18",
+    "s_style_meta": "6bb2537d5183a15f5b2ee0ac79a64a5e614c39844b883394a17ba140b63af62c",
+    "t_s_semantic": "a8330089b7cbd9f954723e12fc3f8413707e8bebebcab172d4ea6654b72f53ee",
+    "t_s_char_tfidf": "ce7e0bbd4ad910b50138baca16fb986d5f81a8d0be04366b46db38ff131ae5b3",
+    "t_s_word_tfidf": "b2358947a3770e7be117633da2d1c29c20bdb09623a3cdee4c8df7290c91fce7",
+    "t_s_style_meta": "3b1c27c04ada413c469e3df0571916be7e37244dbb9b9b16b6d9dabc31f83901",
+    "order": "eval rows in taskpos-sorted order (blocks = ASCII-sorted eval members); train arrays in fit-row index order"
+   }
+  }
+ },
+ "determinism_refit_fold4": {
+  "semantic": 0.0,
+  "char_tfidf": 0.0,
+  "vocab_sha256_match": true
+ },
+ "impact_vs_blocked_global_fit_fresh_c0": {
+  "codellama--CodeLlama-13b-Instruct-hf": {
+   "r_fused": 0.9978794485271986,
+   "max_abs_diff": 0.28996762908970264,
+   "mean_abs_diff": 0.04678883559936995,
+   "row_corrected": 0.9556493573114072,
+   "row_blocked": 0.9557226399331662,
+   "tm_corrected": 0.9573934837092732,
+   "tm_blocked": 0.960735171261487
+  },
+  "codellama--CodeLlama-34b-Instruct-hf": {
+   "r_fused": 0.997496734676016,
+   "max_abs_diff": 0.2784571933445461,
+   "mean_abs_diff": 0.04487342827373663,
+   "row_corrected": 0.9484774313952523,
+   "row_blocked": 0.9499919389116065,
+   "tm_corrected": 0.9724310776942355,
+   "tm_blocked": 0.9715956558061822
+  },
+  "codellama--CodeLlama-70b-Instruct-hf": {
+   "r_fused": 0.9978924651341784,
+   "max_abs_diff": 0.35453202069217515,
+   "mean_abs_diff": 0.04692770641804594,
+   "row_corrected": 0.9380566425811117,
+   "row_blocked": 0.9378514512401862,
+   "tm_corrected": 0.9624060150375939,
+   "tm_blocked": 0.9632414369256475
+  },
+  "codellama--CodeLlama-7b-Instruct-hf": {
+   "r_fused": 0.9977434940750028,
+   "max_abs_diff": 0.41752729085578544,
+   "mean_abs_diff": 0.04788164001052417,
+   "row_corrected": 0.9772872727628037,
+   "row_blocked": 0.9766716987400275,
+   "tm_corrected": 0.9782790309106099,
+   "tm_blocked": 0.9774436090225566
+  },
+  "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+   "r_fused": 0.9978884295667171,
+   "max_abs_diff": 0.33313098457291157,
+   "mean_abs_diff": 0.06664439128560125,
+   "row_corrected": 0.9684542740867764,
+   "row_blocked": 0.9708823716210605,
+   "tm_corrected": 0.9832915622389307,
+   "tm_blocked": 0.9824561403508771
+  },
+  "Qwen--Qwen2.5-Coder-14B-Instruct": {
+   "r_fused": 0.9968540172656981,
+   "max_abs_diff": 0.32211779359838566,
+   "mean_abs_diff": 0.06419470246569726,
+   "row_corrected": 0.8488472643597297,
+   "row_blocked": 0.8452710724178868,
+   "tm_corrected": 0.8696741854636592,
+   "tm_blocked": 0.8663324979114454
+  },
+  "Qwen--Qwen2.5-Coder-32B-Instruct": {
+   "r_fused": 0.9977036610740966,
+   "max_abs_diff": 0.30220013613096586,
+   "mean_abs_diff": 0.06300854091546153,
+   "row_corrected": 0.9361415233991411,
+   "row_blocked": 0.937954046910649,
+   "tm_corrected": 0.9632414369256475,
+   "tm_blocked": 0.9657477025898078
+  },
+  "Qwen--Qwen2.5-Coder-7B-Instruct": {
+   "r_fused": 0.9974685516180034,
+   "max_abs_diff": 0.40925775005269904,
+   "mean_abs_diff": 0.06271205845804927,
+   "row_corrected": 0.7688324124150532,
+   "row_blocked": 0.7684953123549615,
+   "tm_corrected": 0.7769423558897242,
+   "tm_blocked": 0.7736006683375104
+  },
+  "deepseek-ai--deepseek-coder-1.3b-instruct": {
+   "r_fused": 0.9975280259178306,
+   "max_abs_diff": 0.29347780669136925,
+   "mean_abs_diff": 0.05117194826481507,
+   "row_corrected": 0.9707174857221025,
+   "row_blocked": 0.970148934714955,
+   "tm_corrected": 0.9766081871345029,
+   "tm_blocked": 0.9766081871345029
+  },
+  "deepseek-ai--deepseek-coder-33b-instruct": {
+   "r_fused": 0.9978899416967982,
+   "max_abs_diff": 0.2987028464139194,
+   "mean_abs_diff": 0.05290395651744163,
+   "row_corrected": 0.9872909613214322,
+   "row_blocked": 0.9879792072774529,
+   "tm_corrected": 0.9912280701754386,
+   "tm_blocked": 0.9912280701754386
+  },
+  "deepseek-ai--deepseek-coder-6.7b-instruct": {
+   "r_fused": 0.9974389477716414,
+   "max_abs_diff": 0.30316042919841224,
+   "mean_abs_diff": 0.04567119273398022,
+   "row_corrected": 0.9605391402482816,
+   "row_blocked": 0.9605092165110632,
+   "tm_corrected": 0.9641812865497076,
+   "tm_blocked": 0.9568713450292398
+  }
+ },
+ "diagnostic_vs_historical_official_reading": {
+  "codellama--CodeLlama-13b-Instruct-hf": {
+   "n": 1368,
+   "r": 0.6057195870946137,
+   "max_abs_diff": 2.38949262875449,
+   "row_mine": 0.9556493573114072,
+   "row_hist": 0.9280560074650565,
+   "tm_mine": 0.9573934837092732,
+   "tm_hist": 0.9348370927318295
+  },
+  "codellama--CodeLlama-34b-Instruct-hf": {
+   "n": 1368,
+   "r": 0.5811624351019202,
+   "max_abs_diff": 2.131227855091412,
+   "row_mine": 0.9484774313952523,
+   "row_hist": 0.9112010044604689,
+   "tm_mine": 0.9724310776942355,
+   "tm_hist": 0.9331662489557228
+  },
+  "codellama--CodeLlama-70b-Instruct-hf": {
+   "n": 1368,
+   "r": 0.5802466772315074,
+   "max_abs_diff": 2.614309586892853,
+   "row_mine": 0.9380566425811117,
+   "row_hist": 0.9038385437277404,
+   "tm_mine": 0.9624060150375939,
+   "tm_hist": 0.9273182957393484
+  },
+  "codellama--CodeLlama-7b-Instruct-hf": {
+   "n": 1368,
+   "r": 0.6151729320558651,
+   "max_abs_diff": 2.1806922479492385,
+   "row_mine": 0.9772872727628037,
+   "row_hist": 0.9679950363237528,
+   "tm_mine": 0.9782790309106099,
+   "tm_hist": 0.9724310776942355
+  },
+  "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+   "n": 1368,
+   "r": 0.41060309742411605,
+   "max_abs_diff": 3.0652983568294383,
+   "row_mine": 0.9684542740867764,
+   "row_hist": 0.8811795570798341,
+   "tm_mine": 0.9832915622389307,
+   "tm_hist": 0.923141186299081
+  },
+  "Qwen--Qwen2.5-Coder-14B-Instruct": {
+   "n": 1368,
+   "r": 0.48965632174770307,
+   "max_abs_diff": 2.8239663904198573,
+   "row_mine": 0.8488472643597297,
+   "row_hist": 0.9801404095032904,
+   "tm_mine": 0.8696741854636592,
+   "tm_hist": 0.9841269841269841
+  },
+  "Qwen--Qwen2.5-Coder-32B-Instruct": {
+   "n": 1368,
+   "r": 0.5846060907213476,
+   "max_abs_diff": 2.305154046983012,
+   "row_mine": 0.9361415233991411,
+   "row_hist": 0.9850845437179694,
+   "tm_mine": 0.9632414369256475,
+   "tm_hist": 0.9883040935672515
+  },
+  "Qwen--Qwen2.5-Coder-7B-Instruct": {
+   "n": 1368,
+   "r": 0.3958260890277244,
+   "max_abs_diff": 2.7593244522121334,
+   "row_mine": 0.7688324124150532,
+   "row_hist": 0.9832720202064615,
+   "tm_mine": 0.7769423558897242,
+   "tm_hist": 0.9807852965747703
+  },
+  "deepseek-ai--deepseek-coder-1.3b-instruct": {
+   "n": 1539,
+   "r": 0.28178864478930926,
+   "max_abs_diff": 3.3952327231633457,
+   "row_mine": 0.9707174857221025,
+   "row_hist": 0.9191546116753873,
+   "tm_mine": 0.9766081871345029,
+   "tm_hist": 0.9283625730994152
+  },
+  "deepseek-ai--deepseek-coder-33b-instruct": {
+   "n": 1539,
+   "r": 0.32458011209546567,
+   "max_abs_diff": 4.316027110657977,
+   "row_mine": 0.9872909613214322,
+   "row_hist": 0.9013157894736842,
+   "tm_mine": 0.9912280701754386,
+   "tm_hist": 0.9137426900584795
+  },
+  "deepseek-ai--deepseek-coder-6.7b-instruct": {
+   "n": 1539,
+   "r": 0.23266914283109352,
+   "max_abs_diff": 5.472999532227925,
+   "row_mine": 0.9605391402482816,
+   "row_hist": 0.9175259054067918,
+   "tm_mine": 0.9641812865497076,
+   "tm_hist": 0.9422514619883041
+  }
+ },
+ "alignment_gate": {
+  "row_score_max_abs": 0.001,
+  "metric_abs": 0.001,
+  "all_fold_effective_map_logged": true,
+  "all_fold_lexical_fit_attested": true,
+  "status": "prepared (corrected); cross-side counterpart required",
+  "note": "historical package remains provenance-incomplete; diagnostics are NOT the gate"
+ },
+ "switches": {
+  "training_allowed": true,
+  "test_read_allowed": false,
+  "generation_allowed": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ },
+ "c1_c3_status": "stopped; prior values remain server-internal diagnostics (do_not_rerun_or_upgrade until the corrected C0 passes protocol audit and the 1e-3 cross-side gate)"
+}

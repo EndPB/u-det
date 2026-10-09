@@ -1,0 +1,171 @@
+{
+  "schema": "code_conditioned_fresh_c0_spec_adjudication_v1",
+  "created_utc": "2026-10-09T16:04:22.966223+00:00",
+  "input_commit": "be8df5075a79e3b5425ec6c79eaafa2bfca19bff",
+  "fresh_c0_reported_code_commit": "edf3813f56c408536e9b00d4b14cb909dacad1bd",
+  "reported_fresh_metrics": {
+    "dev_row_level_mean": 0.9328616264211832,
+    "dev_task_macro_mean": 0.9441691349586087,
+    "inner_row_level_mean": 0.9300937664702623
+  },
+  "checks": {
+    "manifests_count": 11,
+    "manifests_all_required_fields": true,
+    "self_check_vs_previous_c0": {
+      "codellama--CodeLlama-13b-Instruct-hf": {
+        "max_abs_diff_fused": 0.0,
+        "ev_rows_equal": true
+      },
+      "codellama--CodeLlama-34b-Instruct-hf": {
+        "max_abs_diff_fused": 0.0,
+        "ev_rows_equal": true
+      },
+      "codellama--CodeLlama-70b-Instruct-hf": {
+        "max_abs_diff_fused": 0.0,
+        "ev_rows_equal": true
+      },
+      "codellama--CodeLlama-7b-Instruct-hf": {
+        "max_abs_diff_fused": 0.0,
+        "ev_rows_equal": true
+      },
+      "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+        "max_abs_diff_fused": 0.0,
+        "ev_rows_equal": true
+      },
+      "Qwen--Qwen2.5-Coder-14B-Instruct": {
+        "max_abs_diff_fused": 0.0,
+        "ev_rows_equal": true
+      },
+      "Qwen--Qwen2.5-Coder-32B-Instruct": {
+        "max_abs_diff_fused": 0.0,
+        "ev_rows_equal": true
+      },
+      "Qwen--Qwen2.5-Coder-7B-Instruct": {
+        "max_abs_diff_fused": 0.0,
+        "ev_rows_equal": true
+      },
+      "deepseek-ai--deepseek-coder-1.3b-instruct": {
+        "max_abs_diff_fused": 0.0,
+        "ev_rows_equal": true
+      },
+      "deepseek-ai--deepseek-coder-33b-instruct": {
+        "max_abs_diff_fused": 0.0,
+        "ev_rows_equal": true
+      },
+      "deepseek-ai--deepseek-coder-6.7b-instruct": {
+        "max_abs_diff_fused": 0.0,
+        "ev_rows_equal": true
+      }
+    },
+    "reported_cross_side_gate_status": "prepared; cross-side counterpart required (fresh local C0 under the logged spec, or adoption of the logged spec on the local side)"
+  },
+  "spec_claim": "fold-fit rows texts only (fold-train-only vocabulary & IDF)",
+  "actual_code_evidence": {
+    "script": "artifacts\\code_conditioned_fresh_c0_local_review_2026-10-09\\source_snapshot\\scripts\\cc_fresh_c0.py",
+    "script_sha256": "166aafa21d9e785868c3b9963612ef0f019d2fabe71a16636993db8ac789830c",
+    "global_fit_lines": [
+      [
+        225,
+        "    Xc = vc.fit_transform(texts)"
+      ],
+      [
+        228,
+        "    Xw = vw.fit_transform(texts)"
+      ],
+      [
+        268,
+        "            comps_tr[\"char_tfidf\"], comps_ev[\"char_tfidf\"] = Xc[fit_rows], Xc[ev_rows]"
+      ],
+      [
+        269,
+        "            comps_tr[\"word_tfidf\"], comps_ev[\"word_tfidf\"] = Xw[fit_rows], Xw[ev_rows]"
+      ],
+      [
+        343,
+        "    s_char2 = sgd_ensemble(Xc[fit_rows], y_fit, Xc[ev_rows])"
+      ]
+    ],
+    "operation": "Xc = TfidfVectorizer(...).fit_transform(texts); Xw = TfidfVectorizer(...).fit_transform(texts) before run_protocol and before any fold mask",
+    "texts_population": "all 10,659 train+dev rows, including heldout members and dev rows",
+    "later_fold_use": "folds slice Xc/Xw by fit_rows and ev_rows, but never refit vocabulary/IDF per fold",
+    "semantic_style_fit_scope": "fold-fit rows (as implemented)",
+    "lexical_fit_scope": "global train+dev rows (as implemented)"
+  },
+  "adjudication": {
+    "verdict": "spec_violation_global_lexical_fit",
+    "c0_alignment": "blocked_before_gate",
+    "aligned_allowed": false,
+    "why": "The implementation violates its own fold-fit-only TF-IDF specification. Exact reproduction of the same global-fit implementation is not evidence of protocol correctness.",
+    "c1_c3_status": "do_not_rerun_or_upgrade; prior values remain server-internal diagnostics",
+    "required_fix": "fit each char and word vectorizer inside each fold on fit_rows texts only, then transform eval rows; record vocabulary/IDF fit-row hash and vectorizer parameters in each manifest",
+    "test_generation_weights_code_execution": false
+  },
+  "manifest_checks": [
+    {
+      "file": "00_codellama_CodeLlama-13b-Instruct-hf.json",
+      "fields_complete": true,
+      "manifest_sha_present": true,
+      "heldout_member": "codellama--CodeLlama-13b-Instruct-hf"
+    },
+    {
+      "file": "01_codellama_CodeLlama-34b-Instruct-hf.json",
+      "fields_complete": true,
+      "manifest_sha_present": true,
+      "heldout_member": "codellama--CodeLlama-34b-Instruct-hf"
+    },
+    {
+      "file": "02_codellama_CodeLlama-70b-Instruct-hf.json",
+      "fields_complete": true,
+      "manifest_sha_present": true,
+      "heldout_member": "codellama--CodeLlama-70b-Instruct-hf"
+    },
+    {
+      "file": "03_codellama_CodeLlama-7b-Instruct-hf.json",
+      "fields_complete": true,
+      "manifest_sha_present": true,
+      "heldout_member": "codellama--CodeLlama-7b-Instruct-hf"
+    },
+    {
+      "file": "04_Qwen_Qwen2.5-Coder-1.5B-Instruct.json",
+      "fields_complete": true,
+      "manifest_sha_present": true,
+      "heldout_member": "Qwen--Qwen2.5-Coder-1.5B-Instruct"
+    },
+    {
+      "file": "05_Qwen_Qwen2.5-Coder-14B-Instruct.json",
+      "fields_complete": true,
+      "manifest_sha_present": true,
+      "heldout_member": "Qwen--Qwen2.5-Coder-14B-Instruct"
+    },
+    {
+      "file": "06_Qwen_Qwen2.5-Coder-32B-Instruct.json",
+      "fields_complete": true,
+      "manifest_sha_present": true,
+      "heldout_member": "Qwen--Qwen2.5-Coder-32B-Instruct"
+    },
+    {
+      "file": "07_Qwen_Qwen2.5-Coder-7B-Instruct.json",
+      "fields_complete": true,
+      "manifest_sha_present": true,
+      "heldout_member": "Qwen--Qwen2.5-Coder-7B-Instruct"
+    },
+    {
+      "file": "08_deepseek-ai_deepseek-coder-1.3b-instruct.json",
+      "fields_complete": true,
+      "manifest_sha_present": true,
+      "heldout_member": "deepseek-ai--deepseek-coder-1.3b-instruct"
+    },
+    {
+      "file": "09_deepseek-ai_deepseek-coder-33b-instruct.json",
+      "fields_complete": true,
+      "manifest_sha_present": true,
+      "heldout_member": "deepseek-ai--deepseek-coder-33b-instruct"
+    },
+    {
+      "file": "10_deepseek-ai_deepseek-coder-6.7b-instruct.json",
+      "fields_complete": true,
+      "manifest_sha_present": true,
+      "heldout_member": "deepseek-ai--deepseek-coder-6.7b-instruct"
+    }
+  ]
+}

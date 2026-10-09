@@ -1,0 +1,2 @@
+Audit only; no training or test read performed locally.
+Evidence: fresh C0 spec_sheet.json, cc_fresh_c0.py, metrics.json, 11 manifests.
