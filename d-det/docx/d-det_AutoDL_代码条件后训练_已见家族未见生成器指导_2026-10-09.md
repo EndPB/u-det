@@ -275,3 +275,17 @@ row_mapping_sha256 = sha256(model_id + "|" + task_id + "|" + split + "|" + solut
 该断言与哈希必须在 bundle 写入前落盘；失败时停止，不进入任何折拟合。修正后只运行一次 train/dev corrected C0，补写 `members_order_sha256`、逐行 mapping hash 和脚本 SHA。test、生成、权重下载、代码执行继续关闭。
 
 本机结果只能作为结构诊断：fit-text hash 0/11 对齐、词表同时对齐 4/11、fused digest 0/11；C0 状态为 `blocked_feature_member_order`。在该问题修复并完成跨侧 `row_score_max_abs ≤ 1e-3`、`metric_abs ≤ 1e-3` 前，不得重跑 C1–C3，也不得增加 backbone 或参数量。
+
+## 13. v3 本机复现结果与最小补传（2026-10-10）
+
+本机已经按 v3 的 canonical member order 和服务器原始行序完成复现。11/11 折的 fit-text、词表、heldout/train/eval 行哈希一致，说明映射与词法拟合协议已经对齐。
+
+数值对账仍未通过：本机 bundle 不是 AutoDL canonical bundle，服务器 bundle SHA 为 `d05f8c899d771e0572fb3e1756e06810ef5919cd9a2aac5d598e2bbc7caac19a`；本机与服务器最大 dev 折级差为 row `.001383`、task-macro `.003342`。因此 C0 仍为 `cross_side_score_pending`。
+
+下一次开机仅需补交三个 train/dev 文件：
+
+1. `features/bundle.npz`；
+2. `features/features_manifest.json`；
+3. `features/feature_member_order_check.json`。
+
+三者应分别匹配 SHA `d05f8c89…`、`aaef7b47…`、`11428bf8…`。不补传 test、权重、生成资产或原始语料。替换后本机按 v3 重新运行 C0，并同时检查逐行 score max absolute difference 与 metric absolute difference；两者均不超过 `1e-3` 才关闭闸门。

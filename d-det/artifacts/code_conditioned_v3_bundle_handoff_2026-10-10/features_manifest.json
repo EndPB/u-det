@@ -1,0 +1,78 @@
+{
+  "schema": "code_conditioned_features_manifest_v1",
+  "generated_utc": "2026-10-09T18:08:45.593306+00:00",
+  "encoder_protocol": "CodeT5 frozen mean-pool no-special-tokens fp16; truncation 512=384+128",
+  "encoder_model": "/root/autodl-tmp/u-det/d-det/models/codet5-small",
+  "rows": 10659,
+  "tasks": 969,
+  "members": 11,
+  "members_order": [
+    "codellama--CodeLlama-13b-Instruct-hf",
+    "codellama--CodeLlama-34b-Instruct-hf",
+    "codellama--CodeLlama-70b-Instruct-hf",
+    "codellama--CodeLlama-7b-Instruct-hf",
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen--Qwen2.5-Coder-14B-Instruct",
+    "Qwen--Qwen2.5-Coder-32B-Instruct",
+    "Qwen--Qwen2.5-Coder-7B-Instruct",
+    "deepseek-ai--deepseek-coder-1.3b-instruct",
+    "deepseek-ai--deepseek-coder-33b-instruct",
+    "deepseek-ai--deepseek-coder-6.7b-instruct"
+  ],
+  "members_order_sha256": "1afd29b6c240095269cb5f498302a0e07143e7b286869a47431872a2b2629175",
+  "expected_members_order_sha256": "1afd29b6c240095269cb5f498302a0e07143e7b286869a47431872a2b2629175",
+  "row_mapping_sha256": "b38a41e492493d85b84f2d52f0531c4e8d45663ab297d70651b16f0ca00c53fd",
+  "row_mapping_convention": "sha256(utf-8) over '\\n'.join(model_id+'|'+task_id+'|'+split+'|'+solution_sha256) for all rows in record order; no trailing newline",
+  "row_mapping_sha256_variants": {
+    "nl_join_trailing_newline": "d9e8104dad7f811d69582201fc3358e9d77d22ebfd76cdc95547b52d8e855603",
+    "concat_no_separator": "3ad5c1b8ca72d9f76beaf375ddba5fe2267bb403191fb9fc476719852a1d5e02"
+  },
+  "canonicalization": {
+    "utc": "2026-10-09T18:08:45.593342+00:00",
+    "reason": "cross-side reproduction 2026-10-10: member_idx was built in endpoint-plan order [CodeLlama, DeepSeek, Qwen] but interpreted in admission order; canonicalized to admission order before any fold fit (guidance §12)",
+    "superseded_feature_order_sha256": "e6d7852c82b84d60185c7c57b78106df6f669fcad35bef2382c6bf7d31dff286",
+    "superseded_bundle_sha256": "be5cc9d63b489a7e3a790d654415c0d019b7d261366e0d1f6d2be3154f40a968",
+    "assertion_file": "feature_member_order_check.json"
+  },
+  "assertions": {
+    "members_order_equals_admission": true,
+    "member_idx_recomputed_equal": true,
+    "assertions_written_before_bundle_write": true
+  },
+  "script_sha256": {
+    "cc_build_features.py": "15304671d70b9af6fe863c8b9cf40f56cca47550354fb0f75a567c4060d40ade",
+    "cc_common.py": "851b62e9b65dc3844d9b366602fc5e41466e89fda0fafe55d8c00ad91397d59b"
+  },
+  "split_rows": {
+    "train": 8778,
+    "dev": 1881
+  },
+  "empty_code_rows": 2,
+  "psi_fields": [
+    "parse_ok",
+    "entrypoint_present",
+    "n_ast_nodes",
+    "n_calls",
+    "n_branches",
+    "n_handlers",
+    "n_returns",
+    "n_import_roots",
+    "required_root_overlap_proxy"
+  ],
+  "row_mapping_check": {
+    "checked": 10659,
+    "ok": 10659,
+    "rule": "gmodel_idx*nT*2 + task_idx*2 + 1 (instruct) vs texts.jsonl.gz"
+  },
+  "notes": "hy_small extracted from r0 emb_small cache; style/meta/sizelen from style_meta.npz; psi from static_preflight; task prompts encoded fresh on server",
+  "files": {
+    "bundle.npz": {
+      "bytes": 21477099,
+      "sha256": "d05f8c899d771e0572fb3e1756e06810ef5919cd9a2aac5d598e2bbc7caac19a"
+    },
+    "emb_task_small.npz": {
+      "bytes": 1839543,
+      "sha256": "f1e7529934629a79a1205cd1941bac5839402763be28c1b923bd776ac44fffcf"
+    }
+  }
+}

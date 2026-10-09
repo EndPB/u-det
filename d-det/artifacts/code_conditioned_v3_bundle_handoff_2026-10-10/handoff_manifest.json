@@ -1,0 +1,34 @@
+{
+ "schema": "code_conditioned_v3_bundle_handoff_v1",
+ "date": "2026-10-10",
+ "guidance_ref": "d-det/docx/d-det_AutoDL_代码条件后训练_已见家族未见生成器指导_2026-10-09.md §13; ACL 总路线 §55",
+ "source_commit_at_handoff": "53524e7bd4ed76506177077a59cb1b8c69ca85dd",
+ "files": {
+  "bundle.npz": {
+   "sha256": "d05f8c899d771e0572fb3e1756e06810ef5919cd9a2aac5d598e2bbc7caac19a",
+   "bytes": 21477099,
+   "source_path": "d-det/artifacts/code_conditioned_design_2026-10-09/features/bundle.npz"
+  },
+  "features_manifest.json": {
+   "sha256": "aaef7b4716c1821780719ba18415351abcdb7abbb793ba3c619bfc8a18fae507",
+   "bytes": 3348,
+   "source_path": "d-det/artifacts/code_conditioned_design_2026-10-09/features/features_manifest.json"
+  },
+  "feature_member_order_check.json": {
+   "sha256": "11428bf8f88dea0e44fbdf434f60a074138af70685d17dab8b105ade66d422e2",
+   "bytes": 2445,
+   "source_path": "d-det/artifacts/code_conditioned_design_2026-10-09/features/feature_member_order_check.json"
+  }
+ },
+ "expected_shas_match": true,
+ "verification": "on-disk sha256 == git blob sha256 (commit 53524e7) == SHAs recorded in canonical C0 metrics.feature_mapping and ACL §55",
+ "scope": "train/dev feature handoff only; no test data, no weights, no generation assets, no raw corpus",
+ "switches": {
+  "training_allowed": true,
+  "test_read_allowed": false,
+  "generation_allowed": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ },
+ "usage": "replace local equivalents under …/code_conditioned_design_2026-10-09/features/, re-run the v3 spec C0 unchanged, then check row_score_max_abs and metric_abs both <= 1e-3"
+}
