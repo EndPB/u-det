@@ -1,0 +1,10 @@
+{
+ "n_local": 10659,
+ "n_mine": 10659,
+ "n_common": 10659,
+ "only_local": 0,
+ "only_mine": 0,
+ "same_solution_sha256": 10659,
+ "same_split": 10659,
+ "static_proxy_deep_equal": 10659
+}

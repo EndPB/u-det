@@ -39,5 +39,24 @@
     "test_read_allowed": false,
     "weights_downloaded": false,
     "code_execution": false
-  }
+  },
+  "optional_audit_transfer": [
+    {
+      "path": "d-det/artifacts/code_conditioned_p0_reference_2026-10-09/",
+      "purpose": "exact fit-only C0 row/component scores",
+      "bytes": 4245717,
+      "contains_code": false,
+      "contains_weights": false,
+      "contains_test": false
+    },
+    {
+      "path": "d-det/artifacts/code_conditioned_static_preflight_reference_2026-10-09/",
+      "purpose": "byte-exact local static preflight originals",
+      "bytes": 5690552,
+      "contains_code": false,
+      "contains_weights": false,
+      "contains_test": false
+    }
+  ],
+  "next_action": "Before any new C1-C3 interpretation, compare server fold scores against optional_audit_transfer and freeze one identical C0 implementation."
 }

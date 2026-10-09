@@ -1,0 +1,39 @@
+{
+  "schema": "code_conditioned_static_preflight_v1",
+  "rows": 10659,
+  "tasks": 969,
+  "members": 11,
+  "split_rows": {
+    "train": 8778,
+    "dev": 1881
+  },
+  "split_tasks": {
+    "train": 798,
+    "dev": 171
+  },
+  "static_coverage": {
+    "parse_ok": 10659,
+    "entrypoint_present": 10602
+  },
+  "folds": 11,
+  "selected_metadata_columns": [
+    "task_id",
+    "entry_point",
+    "libs",
+    "instruct_prompt",
+    "code_prompt"
+  ],
+  "metadata_filter": "train/dev task whitelist; Parquet decoder may scan pages",
+  "test_model_outputs_read": false,
+  "test_body_selected": false,
+  "canonical_solution_selected": false,
+  "code_executed": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "correctness_labels_available_in_this_output": false,
+  "input_sha256": {
+    "d-det\\data\\public_series_train_dev_2026-10-09\\records_train_dev.jsonl": "f5f0c539870a4e0fb2cbd25d070c17c7c0767e479ea5155aae1208e2500f358d",
+    "d-det\\data\\public_same_task_raw_2026-10-07\\bigcodebench\\bigcodebench_train.parquet": "ef54cbf5ba83d031029141f2d4efb990a54f95edcd96ca0c7808fe103822c8b6",
+    "d-det\\artifacts\\public_full_followup_2026-10-08\\family_series_admission.json": "cc4a77851702e0bbf57e50636744ad25b572da9a665148b2b76179236b0bdfae"
+  }
+}

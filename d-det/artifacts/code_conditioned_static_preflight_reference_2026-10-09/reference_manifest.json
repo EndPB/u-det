@@ -1,0 +1,30 @@
+{
+  "schema": "code_conditioned_static_preflight_reference_v1",
+  "purpose": "byte-exact local static preflight originals for server audit",
+  "source": "d-det/artifacts/code_conditioned_design_2026-10-09/static_preflight",
+  "contains_code": false,
+  "contains_weights": false,
+  "contains_test": false,
+  "files": [
+    {
+      "path": "audit.json",
+      "bytes": 1295,
+      "sha256": "7230755b0784a32cfc54aafad0b94a7e422f49e2195a7f2c62a3814c204c7950"
+    },
+    {
+      "path": "fold_plan.json",
+      "bytes": 5422,
+      "sha256": "4d00d7c7159f91eaf5d43a4abd00ce2d0e1abd02c2763ea59da9c8bb5a5ea55f"
+    },
+    {
+      "path": "SHA256SUMS.txt",
+      "bytes": 248,
+      "sha256": "c488a30695a2c88d6225752b4f9a4a3d34c551159ef05ff76c9907618f1f45b7"
+    },
+    {
+      "path": "static_proxies.jsonl",
+      "bytes": 5682634,
+      "sha256": "f6793d48bff8508b5cb440e23e06ef8e430bc891b913824946a11825daad9a51"
+    }
+  ]
+}

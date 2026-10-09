@@ -1,0 +1,39 @@
+nohup: ignoring input
+[align2] tfidf (10659, 216919) 11s
+[align2] fit Qwen2.5-Coder-1.5B-Instruct 13s
+[align2] fit Qwen2.5-Coder-7B-Instruct 14s
+[align2] fit CodeLlama-13b-Instruct-hf 16s
+[align2] fit deepseek-coder-1.3b-instruct 18s
+[align2] heldout mapping reproduced exactly (11/11)
+[align2] Qwen2.5-Coder-1.5B-Instruct slots: ['Qwen2.5-Coder-7B-Instruct', 'CodeLlama-13b-Instruct-hf', 'CodeLlama-34b-Instruct-hf', 'CodeLlama-70b-Instruct-hf', 'CodeLlama-7b-Instruct-hf', 'Qwen2.5-Coder-1.5B-Instruct', 'Qwen2.5-Coder-14B-Instruct', 'Qwen2.5-Coder-32B-Instruct'] unique=True
+[align2] Qwen2.5-Coder-14B-Instruct slots: ['deepseek-coder-1.3b-instruct', 'CodeLlama-13b-Instruct-hf', 'CodeLlama-34b-Instruct-hf', 'CodeLlama-70b-Instruct-hf', 'CodeLlama-7b-Instruct-hf', 'Qwen2.5-Coder-1.5B-Instruct', 'Qwen2.5-Coder-14B-Instruct', 'Qwen2.5-Coder-32B-Instruct'] unique=True
+[align2] Qwen2.5-Coder-32B-Instruct slots: ['deepseek-coder-33b-instruct', 'CodeLlama-13b-Instruct-hf', 'CodeLlama-34b-Instruct-hf', 'CodeLlama-70b-Instruct-hf', 'CodeLlama-7b-Instruct-hf', 'Qwen2.5-Coder-1.5B-Instruct', 'Qwen2.5-Coder-14B-Instruct', 'Qwen2.5-Coder-32B-Instruct'] unique=True
+[align2] Qwen2.5-Coder-7B-Instruct slots: ['deepseek-coder-6.7b-instruct', 'CodeLlama-13b-Instruct-hf', 'CodeLlama-34b-Instruct-hf', 'CodeLlama-70b-Instruct-hf', 'CodeLlama-7b-Instruct-hf', 'Qwen2.5-Coder-1.5B-Instruct', 'Qwen2.5-Coder-14B-Instruct', 'Qwen2.5-Coder-32B-Instruct'] unique=True
+[align2] CodeLlama-13b-Instruct-hf slots: ['Qwen2.5-Coder-7B-Instruct', 'deepseek-coder-1.3b-instruct', 'deepseek-coder-33b-instruct', 'deepseek-coder-6.7b-instruct', 'CodeLlama-13b-Instruct-hf', 'Qwen2.5-Coder-1.5B-Instruct', 'Qwen2.5-Coder-14B-Instruct', 'Qwen2.5-Coder-32B-Instruct'] unique=True
+[align2] CodeLlama-34b-Instruct-hf slots: ['Qwen2.5-Coder-7B-Instruct', 'deepseek-coder-1.3b-instruct', 'deepseek-coder-33b-instruct', 'deepseek-coder-6.7b-instruct', 'CodeLlama-34b-Instruct-hf', 'Qwen2.5-Coder-1.5B-Instruct', 'Qwen2.5-Coder-14B-Instruct', 'Qwen2.5-Coder-32B-Instruct'] unique=True
+[align2] CodeLlama-70b-Instruct-hf slots: ['Qwen2.5-Coder-7B-Instruct', 'deepseek-coder-1.3b-instruct', 'deepseek-coder-33b-instruct', 'deepseek-coder-6.7b-instruct', 'CodeLlama-70b-Instruct-hf', 'Qwen2.5-Coder-1.5B-Instruct', 'Qwen2.5-Coder-14B-Instruct', 'Qwen2.5-Coder-32B-Instruct'] unique=True
+[align2] CodeLlama-7b-Instruct-hf slots: ['Qwen2.5-Coder-7B-Instruct', 'deepseek-coder-1.3b-instruct', 'deepseek-coder-33b-instruct', 'deepseek-coder-6.7b-instruct', 'CodeLlama-7b-Instruct-hf', 'Qwen2.5-Coder-1.5B-Instruct', 'Qwen2.5-Coder-14B-Instruct', 'Qwen2.5-Coder-32B-Instruct'] unique=True
+[align2] deepseek-coder-1.3b-instruct slots: ['Qwen2.5-Coder-7B-Instruct', 'deepseek-coder-1.3b-instruct', 'deepseek-coder-33b-instruct', 'deepseek-coder-6.7b-instruct', 'CodeLlama-13b-Instruct-hf', 'CodeLlama-34b-Instruct-hf', 'CodeLlama-70b-Instruct-hf', 'CodeLlama-7b-Instruct-hf', 'Qwen2.5-Coder-1.5B-Instruct'] unique=True
+[align2] deepseek-coder-33b-instruct slots: ['Qwen2.5-Coder-7B-Instruct', 'deepseek-coder-1.3b-instruct', 'deepseek-coder-33b-instruct', 'deepseek-coder-6.7b-instruct', 'CodeLlama-13b-Instruct-hf', 'CodeLlama-34b-Instruct-hf', 'CodeLlama-70b-Instruct-hf', 'CodeLlama-7b-Instruct-hf', 'Qwen2.5-Coder-14B-Instruct'] unique=True
+[align2] deepseek-coder-6.7b-instruct slots: ['Qwen2.5-Coder-7B-Instruct', 'deepseek-coder-1.3b-instruct', 'deepseek-coder-33b-instruct', 'deepseek-coder-6.7b-instruct', 'CodeLlama-13b-Instruct-hf', 'CodeLlama-34b-Instruct-hf', 'CodeLlama-70b-Instruct-hf', 'CodeLlama-7b-Instruct-hf', 'Qwen2.5-Coder-32B-Instruct'] unique=True
+[align2] Qwen2.5-Coder-1.5B-Instruct common=1368 max|d|=2.005 r=+0.889 row 0.9709/0.9249 tm 0.9825/0.9307
+[align2] Qwen2.5-Coder-14B-Instruct common=1368 max|d|=2.086 r=+0.820 row 0.8453/0.9083 tm 0.8663/0.9114
+[align2] Qwen2.5-Coder-32B-Instruct common=1368 max|d|=2.049 r=+0.883 row 0.9380/0.9220 tm 0.9657/0.9449
+[align2] Qwen2.5-Coder-7B-Instruct  common=855 max|d|=2.583 r=+0.306 row 0.7531/0.9154 tm 0.7120/0.9488
+[align2] CodeLlama-13b-Instruct-hf  common=1368 max|d|=1.113 r=+0.917 row 0.9557/0.9281 tm 0.9607/0.9348
+[align2] CodeLlama-34b-Instruct-hf  common=1368 max|d|=1.050 r=+0.902 row 0.9500/0.9112 tm 0.9716/0.9332
+[align2] CodeLlama-70b-Instruct-hf  common=1368 max|d|=1.081 r=+0.913 row 0.9379/0.9038 tm 0.9632/0.9273
+[align2] CodeLlama-7b-Instruct-hf   common=1368 max|d|=1.089 r=+0.920 row 0.9767/0.9680 tm 0.9774/0.9724
+[align2] deepseek-coder-1.3b-instruct common=1368 max|d|=2.334 r=+0.821 row 0.9804/0.9801 tm 0.9841/0.9841
+[align2] deepseek-coder-33b-instruct common=1368 max|d|=1.955 r=+0.844 row 0.9942/0.9851 tm 0.9933/0.9883
+[align2] deepseek-coder-6.7b-instruct common=1368 max|d|=3.607 r=+0.729 row 0.9724/0.9833 tm 0.9649/0.9808
+[align2] VERDICT not_aligned; mean row 0.9340 vs ref 0.9391 (CL-only {'mine': 0.9550594322062467, 'ref': 0.9277726479942547})
+[align2] c1.code_only_mlp    vs localP0(common): dRow -0.0425 dTM -0.0468 | vs C0: dTM -0.0366
+[align2] c1.full_mlp         vs localP0(common): dRow -0.0503 dTM -0.0509 | vs C0: dTM -0.0406
+[align2] c1.ht_hy_mlp        vs localP0(common): dRow -0.0468 dTM -0.0488 | vs C0: dTM -0.0385
+[align2] c1.code_only_linear vs localP0(common): dRow -0.0643 dTM -0.0554 | vs C0: dTM -0.0451
+[align2] c1.full_linear      vs localP0(common): dRow -0.1189 dTM -0.0754 | vs C0: dTM -0.0651
+[align2] c1.psi_only_mlp     vs localP0(common): dRow -0.3863 dTM -0.3658 | vs C0: dTM -0.3555
+[align2] c2.s_c2             vs localP0(common): dRow -0.0505 dTM -0.0504 | vs C0: dTM -0.0402
+[align2] c3.s_orig           vs localP0(common): dRow -0.0612 dTM -0.0543 | vs C0: dTM -0.0441
+[align2] done in 228s

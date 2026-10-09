@@ -1,0 +1,24 @@
+nohup: ignoring input
+[Qwen2.5-Coder-1.5B-Instruct         ] max|dfused|=3.048 r=0.420269 row:0.9709/0.8812 tm:0.9825/0.9231
+[Qwen2.5-Coder-14B-Instruct          ] max|dfused|=2.816 r=0.491609 row:0.8453/0.9801 tm:0.8663/0.9841
+[Qwen2.5-Coder-32B-Instruct          ] max|dfused|=2.252 r=0.587795 row:0.9380/0.9851 tm:0.9657/0.9883
+[Qwen2.5-Coder-7B-Instruct           ] max|dfused|=2.652 r=0.398714 row:0.7685/0.9833 tm:0.7736/0.9808
+[CodeLlama-13b-Instruct-hf           ] max|dfused|=2.446 r=0.598598 row:0.9557/0.9281 tm:0.9607/0.9348
+[CodeLlama-34b-Instruct-hf           ] max|dfused|=2.148 r=0.570678 row:0.9500/0.9112 tm:0.9716/0.9332
+[CodeLlama-70b-Instruct-hf           ] max|dfused|=2.641 r=0.569949 row:0.9379/0.9038 tm:0.9632/0.9273
+[CodeLlama-7b-Instruct-hf            ] max|dfused|=2.225 r=0.605362 row:0.9767/0.9680 tm:0.9774/0.9724
+[deepseek-coder-1.3b-instruct        ] max|dfused|=3.388 r=0.282671 row:0.9701/0.9192 tm:0.9766/0.9284
+[deepseek-coder-33b-instruct         ] max|dfused|=4.31 r=0.328203 row:0.9880/0.9013 tm:0.9912/0.9137
+[deepseek-coder-6.7b-instruct        ] max|dfused|=5.468 r=0.231014 row:0.9605/0.9175 tm:0.9569/0.9423
+VERDICT: not_aligned; mean row 0.9329 vs ref 0.9344; mean tm 0.9442 vs ref 0.9480
+c1.code_only_mlp      vs P0(ref): dRow -0.0422 dTM -0.0438 (4/11) | vs C0: dTM -0.0401
+c1.full_mlp           vs P0(ref): dRow -0.0496 dTM -0.0482 (2/11) | vs C0: dTM -0.0445
+c1.ht_hy_mlp          vs P0(ref): dRow -0.0463 dTM -0.0457 (3/11) | vs C0: dTM -0.0420
+c1.code_only_linear   vs P0(ref): dRow -0.0648 dTM -0.0551 (2/11) | vs C0: dTM -0.0514
+c1.full_linear        vs P0(ref): dRow -0.1201 dTM -0.0754 (2/11) | vs C0: dTM -0.0717
+c1.psi_only_mlp       vs P0(ref): dRow -0.3846 dTM -0.3685 (0/11) | vs C0: dTM -0.3648
+c1.prompt_only_mlp    vs P0(ref): dRow -0.4346 dTM -0.4481 (0/11) | vs C0: dTM -0.4445
+c2.s_c2               vs P0(ref): dRow -0.0497 dTM -0.0483 (2/11) | vs C0: dTM -0.0446
+c3.s_orig             vs P0(ref): dRow -0.0595 dTM -0.0510 (2/11) | vs C0: dTM -0.0473
+static proxies: {'n_local': 10659, 'n_mine': 10659, 'n_common': 10659, 'only_local': 0, 'only_mine': 0, 'same_solution_sha256': 10659, 'same_split': 10659, 'static_proxy_deep_equal': 10659}
+DONE

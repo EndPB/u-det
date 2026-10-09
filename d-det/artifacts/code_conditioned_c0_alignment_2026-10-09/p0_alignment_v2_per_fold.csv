@@ -1,0 +1,12 @@
+heldout,local_file,n_common,max_abs_diff_fused,pearson_fused,row_mine,row_ref,delta_row,tm_mine,tm_ref,delta_tm
+Qwen--Qwen2.5-Coder-1.5B-Instruct,deepseek-ai--deepseek-coder-1.3b-instruct,1368,2.00522,0.889287,0.970882,0.924851,0.046031,0.982456,0.930660,0.051796
+Qwen--Qwen2.5-Coder-14B-Instruct,deepseek-ai--deepseek-coder-33b-instruct,1368,2.08617,0.820431,0.845271,0.908275,-0.063004,0.866332,0.911445,-0.045113
+Qwen--Qwen2.5-Coder-32B-Instruct,deepseek-ai--deepseek-coder-6.7b-instruct,1368,2.0488,0.883306,0.937954,0.922013,0.015941,0.965748,0.944862,0.020886
+Qwen--Qwen2.5-Coder-7B-Instruct,Qwen--Qwen2.5-Coder-1.5B-Instruct,855,2.58276,0.306498,0.753129,0.915350,-0.162221,0.711988,0.948830,-0.236842
+codellama--CodeLlama-13b-Instruct-hf,codellama--CodeLlama-13b-Instruct-hf,1368,1.11268,0.917378,0.955723,0.928056,0.027667,0.960735,0.934837,0.025898
+codellama--CodeLlama-34b-Instruct-hf,codellama--CodeLlama-34b-Instruct-hf,1368,1.05011,0.902158,0.949992,0.911201,0.038791,0.971596,0.933166,0.038429
+codellama--CodeLlama-70b-Instruct-hf,codellama--CodeLlama-70b-Instruct-hf,1368,1.08086,0.912685,0.937851,0.903839,0.034013,0.963241,0.927318,0.035923
+codellama--CodeLlama-7b-Instruct-hf,codellama--CodeLlama-7b-Instruct-hf,1368,1.08851,0.920006,0.976672,0.967995,0.008677,0.977444,0.972431,0.005013
+deepseek-ai--deepseek-coder-1.3b-instruct,Qwen--Qwen2.5-Coder-14B-Instruct,1368,2.3337,0.821358,0.980399,0.980140,0.000259,0.984127,0.984127,0.000000
+deepseek-ai--deepseek-coder-33b-instruct,Qwen--Qwen2.5-Coder-32B-Instruct,1368,1.95479,0.844059,0.994181,0.985085,0.009097,0.993317,0.988304,0.005013
+deepseek-ai--deepseek-coder-6.7b-instruct,Qwen--Qwen2.5-Coder-7B-Instruct,1368,3.60693,0.729226,0.972392,0.983272,-0.010880,0.964912,0.980785,-0.015873

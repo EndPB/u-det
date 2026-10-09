@@ -208,3 +208,15 @@ source_status=server_reconstruction_only; original_bundle_verified=false
 ```
 
 然后按七项回传：执行开关、数据和角色审计、C0、C1–C3、变换安全、闸门判定、产物与哈希。C4 若未获授权必须写 `not_executed`，不能生成空的执行结果文件。
+
+## 8. 2968ff9 后的唯一补充动作：C0 逐点对账
+
+服务器 C0 的 `.9329/.9301` 与本机旧近似值 `.9344/.9324` 差异超过 `1e-3`。这不是可直接接受的浮点误差。下一轮只允许做一次有限对账：
+
+1. 接收 `d-det/artifacts/code_conditioned_p0_reference_2026-10-09/`；其中每折 `p0_scores.npz` 是本机已保存的 fit-only 逐行分数、组件分数、train 分数和 task 顺序，约 4.2 MB，不含代码、权重或 test；
+2. 按 `reference_manifest.json` 逐折核对 heldout member、`y/task/train_task`、行数和哈希；
+3. 明确统一 semantic 输入块。服务器当前只用 `h_y`；本机旧强 P0 曾有 embedding、style、meta、size 拼接路径，名称相同不代表规格相同；
+4. 明确统一 lexical 规格：词表、IDF、`min_df`、ngram、solver/SGD seed 和训练范围必须 fold-train-only；
+5. 输出 `p0_alignment.json` 和逐折最大绝对分数差。只有所有折的逐行分数与指标达到预注册容差，C0 才标记 `aligned`。
+
+在 C0 标记 `aligned` 之前，C1–C3 结果只能写为“相对服务器当前 C0 的开发诊断”，不能写成相对本机完整强 P0 的确认性负结果。对账完成后若候选仍低于统一 P0，正式状态才是 `code_conditioned_increment_not_observed`；若基线规格改变了比较，必须按统一 C0 重新跑一次 C1–C3，不能把旧差值直接沿用。

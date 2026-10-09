@@ -1,0 +1,117 @@
+{
+  "evaluation": "seen_observed_series_unseen_positive_generator_member",
+  "claim_limit": "size-variant transfer; family_is_confirmed remains false",
+  "row_order": "input records order",
+  "folds": [
+    {
+      "heldout_generator_member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+      "seen_series": "Qwen2.5-Coder-Instruct",
+      "train_rows": 7980,
+      "eval_rows": 1368,
+      "eval_positive_rows": 171,
+      "ordered_train_key_sha256": "92ccb7e87cc837e16d54032226a396fb33f6c24a77457d6888dcea2e77336fad",
+      "ordered_eval_key_sha256": "d3fd192a97d58e9a3821925162f717abda6ce624915abe68cd457470b57f1c02",
+      "negative_members_seen_in_fit": true
+    },
+    {
+      "heldout_generator_member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "seen_series": "Qwen2.5-Coder-Instruct",
+      "train_rows": 7980,
+      "eval_rows": 1368,
+      "eval_positive_rows": 171,
+      "ordered_train_key_sha256": "8477fb0f41e256aed90cc5d87972cb83cec5c3acde2d0c33a6ce06572309851d",
+      "ordered_eval_key_sha256": "717be46d6b93c2e01a347b0a092364f48eef59901d31a71e69de1a4c6544e6ac",
+      "negative_members_seen_in_fit": true
+    },
+    {
+      "heldout_generator_member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+      "seen_series": "Qwen2.5-Coder-Instruct",
+      "train_rows": 7980,
+      "eval_rows": 1368,
+      "eval_positive_rows": 171,
+      "ordered_train_key_sha256": "5bb78f7234e5eacf442b0929afea17461d06388432030f430084ace84efc15a0",
+      "ordered_eval_key_sha256": "8ac5becfd4ebe09e63ca5bbc7393aaadce3fdd49f61a2f804afad52683ffedcb",
+      "negative_members_seen_in_fit": true
+    },
+    {
+      "heldout_generator_member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+      "seen_series": "Qwen2.5-Coder-Instruct",
+      "train_rows": 7980,
+      "eval_rows": 1368,
+      "eval_positive_rows": 171,
+      "ordered_train_key_sha256": "10a7582f30da5d38ef54697b4b66df10b118396a3fd802e9639b7dadb27e562e",
+      "ordered_eval_key_sha256": "d3ae5656721786099b10558272526f81958fa6eb3b308e0e63eb36ce47af2917",
+      "negative_members_seen_in_fit": true
+    },
+    {
+      "heldout_generator_member": "codellama--CodeLlama-13b-Instruct-hf",
+      "seen_series": "CodeLlama-Instruct",
+      "train_rows": 7980,
+      "eval_rows": 1368,
+      "eval_positive_rows": 171,
+      "ordered_train_key_sha256": "98238de8f9aa2916d9451cc3f706f738504125329bb9b9da046877648d6b88f2",
+      "ordered_eval_key_sha256": "0e93d18c161d8fa326dcbedc53199877bc71eba7989c3b3af61824ae8bfd57e9",
+      "negative_members_seen_in_fit": true
+    },
+    {
+      "heldout_generator_member": "codellama--CodeLlama-34b-Instruct-hf",
+      "seen_series": "CodeLlama-Instruct",
+      "train_rows": 7980,
+      "eval_rows": 1368,
+      "eval_positive_rows": 171,
+      "ordered_train_key_sha256": "b50440d3d2b0996957d708a8a55cdb682a8eb73bcf83f5d18d063752d0a042be",
+      "ordered_eval_key_sha256": "be10903e1950d58b2a89e4a7ffaeab6d8b9244467975bf8522da2579c37610a7",
+      "negative_members_seen_in_fit": true
+    },
+    {
+      "heldout_generator_member": "codellama--CodeLlama-70b-Instruct-hf",
+      "seen_series": "CodeLlama-Instruct",
+      "train_rows": 7980,
+      "eval_rows": 1368,
+      "eval_positive_rows": 171,
+      "ordered_train_key_sha256": "0019135c86245e12c543c0e8fdb80b65cc0e5fd41e2f7d862c89ed3aa9c2854f",
+      "ordered_eval_key_sha256": "7044f42a5280febe7f489f70706e17961e3357a345291d6e18b9ac997f1c8823",
+      "negative_members_seen_in_fit": true
+    },
+    {
+      "heldout_generator_member": "codellama--CodeLlama-7b-Instruct-hf",
+      "seen_series": "CodeLlama-Instruct",
+      "train_rows": 7980,
+      "eval_rows": 1368,
+      "eval_positive_rows": 171,
+      "ordered_train_key_sha256": "7c1ea6660312a24957f1790ea5a3d5ebfd89d1c13b667f028535dde3d64ef951",
+      "ordered_eval_key_sha256": "76fd87ac6b04ba4e85dc70544c1876909506358fdbc198c4d02f767f42e543da",
+      "negative_members_seen_in_fit": true
+    },
+    {
+      "heldout_generator_member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "seen_series": "DeepSeek-Coder-v1-Instruct",
+      "train_rows": 7980,
+      "eval_rows": 1539,
+      "eval_positive_rows": 171,
+      "ordered_train_key_sha256": "daa4b871189874031f897a0b9c4fbae80b27940a241220131cd97660a3ae4c75",
+      "ordered_eval_key_sha256": "028eea7fed9d8c0a0d1353604c1476cb40396b0886059eaa67cbabefe54fa0c3",
+      "negative_members_seen_in_fit": true
+    },
+    {
+      "heldout_generator_member": "deepseek-ai--deepseek-coder-33b-instruct",
+      "seen_series": "DeepSeek-Coder-v1-Instruct",
+      "train_rows": 7980,
+      "eval_rows": 1539,
+      "eval_positive_rows": 171,
+      "ordered_train_key_sha256": "dc1a4ac629b4168f3b92664b625b5676f70f90619bd089c424118f581fcc9727",
+      "ordered_eval_key_sha256": "df61350e2e471c7167f091a1e44d592f95d271527224505fe9f160cb3ccf6017",
+      "negative_members_seen_in_fit": true
+    },
+    {
+      "heldout_generator_member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+      "seen_series": "DeepSeek-Coder-v1-Instruct",
+      "train_rows": 7980,
+      "eval_rows": 1539,
+      "eval_positive_rows": 171,
+      "ordered_train_key_sha256": "cd541bf7e20105875541a2543261563fcfdd00d01fc7e0f2e9fca2be4e5eafb8",
+      "ordered_eval_key_sha256": "9acb30408a32a798f2607141a88f3a455efc631eb7e15423edb23330f8b03300",
+      "negative_members_seen_in_fit": true
+    }
+  ]
+}

@@ -1,0 +1,495 @@
+{
+ "schema": "code_conditioned_unified_p0_deltas_v1",
+ "note": "candidates re-scored against the local fit-only strong P0 reference rows; paired task-cluster bootstrap with shared indices (seed 20261009, B=500)",
+ "c0_vs_unified_p0": {
+  "delta_row_mean": -0.0015386811215527736,
+  "delta_row_ci95": [
+   -0.00861866088666643,
+   0.0053494245870746165
+  ],
+  "delta_tm_mean": -0.0036915964152806255,
+  "delta_tm_ci95": [
+   -0.011740288220551379,
+   0.0035823460165565406
+  ]
+ },
+ "candidates": {
+  "c1.code_only_mlp": {
+   "vs_unified_p0": {
+    "delta_row_mean": -0.04220231810698108,
+    "delta_row_ci95": [
+     -0.05191750364303459,
+     -0.032397933407859535
+    ],
+    "delta_tm_mean": -0.043756949191159716,
+    "delta_tm_ci95": [
+     -0.05411302878408142,
+     -0.033799698108908635
+    ],
+    "folds_positive_tm": 4,
+    "per_fold_delta_tm": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.03717627401837927,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.11779448621553887,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.06641604010025062,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.3145363408521303,
+     "codellama--CodeLlama-13b-Instruct-hf": 0.002923976608187134,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.01879699248120301,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.010025062656641605,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.005430242272347536,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.019736842105263157,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.06286549707602339,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": 0.0021929824561403508
+    },
+    "per_fold_delta_row": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": 0.0015755763678201307,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.12155632746583811,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.08890891947216972,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.3162462686931754,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.003700772398833374,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.011302623029308179,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.0038839789532310043,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.0023377156341145566,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.015043090181594332,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.05690639854998125,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": 0.008814678020587552
+    }
+   },
+   "vs_server_c0": {
+    "delta_row_mean": -0.04066363698542831,
+    "delta_row_ci95": [
+     -0.04832406807822319,
+     -0.033277426187744735
+    ],
+    "delta_tm_mean": -0.04006535277587909,
+    "delta_tm_ci95": [
+     -0.048475355054302414,
+     -0.03172016214779373
+    ]
+   }
+  },
+  "c1.full_mlp": {
+   "vs_unified_p0": {
+    "delta_row_mean": -0.049610721602873026,
+    "delta_row_ci95": [
+     -0.05995781058396479,
+     -0.039114289855864195
+    ],
+    "delta_tm_mean": -0.048192374876585405,
+    "delta_tm_ci95": [
+     -0.05922547846889952,
+     -0.037469621022252604
+    ],
+    "folds_positive_tm": 2,
+    "per_fold_delta_tm": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.058061821219715946,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.12531328320802007,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.07309941520467837,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.30367585630743527,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.0037593984962406013,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.02213868003341688,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.01670843776106934,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.002923976608187133,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.02046783625730994,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.06140350877192982,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.007309941520467836
+    },
+    "per_fold_delta_row": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.015084006312076514,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.13779087093953213,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.10002833594708016,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.30796044692628255,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.00598230468959926,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.018327983701944883,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.016898972577642946,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.005904136559722883,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.0075493314182142335,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.05839831059129308,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.0046339044492321735
+    }
+   },
+   "vs_server_c0": {
+    "delta_row_mean": -0.04807204048132026,
+    "delta_row_ci95": [
+     -0.05541047261961388,
+     -0.0406347529731648
+    ],
+    "delta_tm_mean": -0.04450077846130478,
+    "delta_tm_ci95": [
+     -0.05395211513632566,
+     -0.036030179615705926
+    ]
+   }
+  },
+  "c1.ht_hy_mlp": {
+   "vs_unified_p0": {
+    "delta_row_mean": -0.04634911230317509,
+    "delta_row_ci95": [
+     -0.05576429791140085,
+     -0.03661248499371767
+    ],
+    "delta_tm_mean": -0.04569670388091441,
+    "delta_tm_ci95": [
+     -0.05577722715880612,
+     -0.035176245538087646
+    ],
+    "folds_positive_tm": 3,
+    "per_fold_delta_tm": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.04636591478696742,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.11027568922305762,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.06641604010025062,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.31871345029239767,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.008771929824561403,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.019632414369256477,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.012531328320802004,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.007936507936507936,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.021198830409356724,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.06286549707602339,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": 0.0021929824561403508
+    },
+    "per_fold_delta_row": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.008273607996599708,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.12953924772946013,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.0961345859776146,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.3175897834254251,
+     "codellama--CodeLlama-13b-Instruct-hf": 0.004091613048215037,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.014561256943528389,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.010508727960251485,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.002088554720133695,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.00870994494032351,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.05546150952429807,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.00043603159946647985
+    }
+   },
+   "vs_server_c0": {
+    "delta_row_mean": -0.04481043118162232,
+    "delta_row_ci95": [
+     -0.05248249947147685,
+     -0.03704590312392713
+    ],
+    "delta_tm_mean": -0.04200510746563378,
+    "delta_tm_ci95": [
+     -0.05029643236880079,
+     -0.03418418204602416
+    ]
+   }
+  },
+  "c1.code_only_linear": {
+   "vs_unified_p0": {
+    "delta_row_mean": -0.06476534704651049,
+    "delta_row_ci95": [
+     -0.07482057138682252,
+     -0.05471071240923503
+    ],
+    "delta_tm_mean": -0.05505479608111188,
+    "delta_tm_ci95": [
+     -0.0660066359079517,
+     -0.04414896141869826
+    ],
+    "folds_positive_tm": 2,
+    "per_fold_delta_tm": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.045530492898913956,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.12698412698412698,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.09064327485380116,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.3521303258145363,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.008771929824561403,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.017126148705096076,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.020050125313283207,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.01879699248120301,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.017543859649122806,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.05701754385964912,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.003654970760233918
+    },
+    "per_fold_delta_row": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.017204316834972366,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.15237411266958822,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.12634656817482304,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.36763692857875685,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.017556073419416007,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.023907233971869224,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.02706082946156818,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.02095638706903713,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.003654970760233911,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.0419274306624261,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.007728873841523876
+    }
+   },
+   "vs_server_c0": {
+    "delta_row_mean": -0.06322666592495771,
+    "delta_row_ci95": [
+     -0.07140782467421435,
+     -0.05619617474707502
+    ],
+    "delta_tm_mean": -0.05136319966583124,
+    "delta_tm_ci95": [
+     -0.06029325206956786,
+     -0.04286544960887066
+    ]
+   }
+  },
+  "c1.full_linear": {
+   "vs_unified_p0": {
+    "delta_row_mean": -0.12005563860919355,
+    "delta_row_ci95": [
+     -0.13213373984091897,
+     -0.10862212931984401
+    ],
+    "delta_tm_mean": -0.07543280549859498,
+    "delta_tm_ci95": [
+     -0.08617519176729702,
+     -0.06494242234373813
+    ],
+    "folds_positive_tm": 2,
+    "per_fold_delta_tm": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.09398496240601505,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.1662489557226399,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.11403508771929827,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.36633249791144534,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.025480367585630746,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.05221386800334168,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.016708437761069343,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.033834586466165405,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.01023391812865497,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.056286549707602336,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.02631578947368421
+    },
+    "per_fold_delta_row": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.12234533702677752,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.24478838421590043,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.2093953206603253,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.3882537728336435,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.07054429445934529,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.062238930659983316,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.06006732230185596,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.08427745777699602,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": -0.03639153927704242,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.00557436476180706,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.051430354639034226
+    }
+   },
+   "vs_server_c0": {
+    "delta_row_mean": -0.11851695748764078,
+    "delta_row_ci95": [
+     -0.1289730895109473,
+     -0.1082059478729608
+    ],
+    "delta_tm_mean": -0.07174120908331434,
+    "delta_tm_ci95": [
+     -0.08047628541049594,
+     -0.06248837054758108
+    ]
+   }
+  },
+  "c1.psi_only_mlp": {
+   "vs_unified_p0": {
+    "delta_row_mean": -0.3845670190117328,
+    "delta_row_ci95": [
+     -0.3973332093080477,
+     -0.37061147227785035
+    ],
+    "delta_tm_mean": -0.3685111073137389,
+    "delta_tm_ci95": [
+     -0.384080703653072,
+     -0.35206565181894134
+    ],
+    "folds_positive_tm": 0,
+    "per_fold_delta_tm": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.42940685045948196,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.46825396825396826,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.3500417710944027,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.49289891395154556,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.32080200501253137,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.28989139515455303,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.36382623224728483,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.3308270676691729,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": -0.3019005847953216,
+     "deepseek-ai--deepseek-coder-33b-instruct": -0.3048245614035088,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.3961988304093567
+    },
+    "per_fold_delta_row": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.3943191311612364,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.44985514468432286,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.41949415448953764,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.4888268429357995,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.3315965351976433,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.3118053418145754,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.3780772594253665,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.36314958937304276,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": -0.35734926986081184,
+     "deepseek-ai--deepseek-coder-33b-instruct": -0.34076510721247566,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.39470050613864094
+    }
+   },
+   "vs_server_c0": {
+    "delta_row_mean": -0.38302833789018004,
+    "delta_row_ci95": [
+     -0.39637993355819995,
+     -0.36931694517393965
+    ],
+    "delta_tm_mean": -0.36481951089845827,
+    "delta_tm_ci95": [
+     -0.383312447786132,
+     -0.3473813558517506
+    ]
+   }
+  },
+  "c1.prompt_only_mlp": {
+   "vs_unified_p0": {
+    "delta_row_mean": -0.4346190651624631,
+    "delta_row_ci95": [
+     -0.44493180718942493,
+     -0.42313127510207377
+    ],
+    "delta_tm_mean": -0.448143654591023,
+    "delta_tm_ci95": [
+     -0.45743644148249407,
+     -0.4381099529125845
+    ],
+    "folds_positive_tm": 0,
+    "per_fold_delta_tm": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.42314118629908104,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.4841269841269842,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.48830409356725146,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.4807852965747703,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.4348370927318296,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.43316624895572264,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.42731829573934843,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.47243107769423553,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": -0.4283625730994152,
+     "deepseek-ai--deepseek-coder-33b-instruct": -0.4137426900584795,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.4422514619883041
+    },
+    "per_fold_delta_row": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.3811795570798341,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.4801404095032904,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.4850845437179694,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.48327202020646154,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.42805600746505645,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.4112010044604689,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.4038385437277404,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.46799503632375283,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": -0.41915461167538726,
+     "deepseek-ai--deepseek-coder-33b-instruct": -0.4013157894736842,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.4175259054067918
+    }
+   },
+   "vs_server_c0": {
+    "delta_row_mean": -0.43308038404091037,
+    "delta_row_ci95": [
+     -0.44241061851865177,
+     -0.42278346439819203
+    ],
+    "delta_tm_mean": -0.44445205817574235,
+    "delta_tm_ci95": [
+     -0.45304027113237644,
+     -0.433830077086656
+    ]
+   }
+  },
+  "c2.s_c2": {
+   "vs_unified_p0": {
+    "delta_row_mean": -0.04972779270078439,
+    "delta_row_ci95": [
+     -0.05998340953615652,
+     -0.03927324791244458
+    ],
+    "delta_tm_mean": -0.048266860332649805,
+    "delta_tm_ci95": [
+     -0.05901852168299537,
+     -0.03724889876205666
+    ],
+    "folds_positive_tm": 2,
+    "per_fold_delta_tm": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.05639097744360902,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.12447786131996658,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.07059314954051796,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.30451127819548873,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.004594820384294069,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.022974101921470345,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.02005012531328321,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.0020885547201336652,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.019736842105263157,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.06067251461988304,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.005847953216374269
+    },
+    "per_fold_delta_row": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.015513931026396421,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.13545071255135888,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.09940054815401078,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.310539995212202,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.005264134996360359,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.019989056461817367,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.018428136618348967,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.006251007636049133,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.007634827810266476,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.058851441469169985,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.0032659621763960756
+    }
+   },
+   "vs_server_c0": {
+    "delta_row_mean": -0.04818911157923162,
+    "delta_row_ci95": [
+     -0.05571504935251473,
+     -0.040780528485399224
+    ],
+    "delta_tm_mean": -0.04457526391736918,
+    "delta_tm_ci95": [
+     -0.053805678970152655,
+     -0.036011192754613806
+    ]
+   }
+  },
+  "c3.s_orig": {
+   "vs_unified_p0": {
+    "delta_row_mean": -0.0595203383702922,
+    "delta_row_ci95": [
+     -0.07092870761211018,
+     -0.0485839063257115
+    ],
+    "delta_tm_mean": -0.05096897546897547,
+    "delta_tm_ci95": [
+     -0.0624613142705248,
+     -0.039270524796840595
+    ],
+    "folds_positive_tm": 2,
+    "per_fold_delta_tm": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.06056808688387636,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.1294903926482874,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.08563074352548036,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.2777777777777778,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.008771929824561405,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.016290726817042602,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.026733500417710943,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.013784461152882203,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": 0.013157894736842105,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.06067251461988304,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.013888888888888888
+    },
+    "per_fold_delta_row": {
+     "Qwen--Qwen2.5-Coder-1.5B-Instruct": -0.029926179972348033,
+     "Qwen--Qwen2.5-Coder-14B-Instruct": -0.1525939605348654,
+     "Qwen--Qwen2.5-Coder-32B-Instruct": -0.12281434580603556,
+     "Qwen--Qwen2.5-Coder-7B-Instruct": -0.2842315340006937,
+     "codellama--CodeLlama-13b-Instruct-hf": -0.012797588513193348,
+     "codellama--CodeLlama-34b-Instruct-hf": -0.023777768006761568,
+     "codellama--CodeLlama-70b-Instruct-hf": -0.028702360188971432,
+     "codellama--CodeLlama-7b-Instruct-hf": -0.015553015091334554,
+     "deepseek-ai--deepseek-coder-1.3b-instruct": -0.007369788994904369,
+     "deepseek-ai--deepseek-coder-33b-instruct": 0.04629202147669376,
+     "deepseek-ai--deepseek-coder-6.7b-instruct": -0.024015936527478465
+    }
+   },
+   "vs_server_c0": {
+    "delta_row_mean": -0.057981657248739424,
+    "delta_row_ci95": [
+     -0.06690866170609937,
+     -0.04924268100918609
+    ],
+    "delta_tm_mean": -0.04727737905369484,
+    "delta_tm_ci95": [
+     -0.05771198830409356,
+     -0.03781090985038354
+    ]
+   }
+  }
+ }
+}
