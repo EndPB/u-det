@@ -1,0 +1,10 @@
+{
+ "rows": "records_train_dev.jsonl（instruct）",
+ "fit": "折内 train（排除 heldout 成员）；辅助目标=静态代理（mask-free）",
+ "eval": "dev：heldout（正）+ 其它系列（负）",
+ "never_used": [
+  "test",
+  "canonical_solution",
+  "执行结果"
+ ]
+}

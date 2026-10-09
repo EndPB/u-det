@@ -1,0 +1,43 @@
+{
+  "schema": "code_conditioned_autodl_manifest_v1",
+  "created": "2026-10-09",
+  "server_state": "awaiting_server_boot",
+  "transfer_policy": "send only these small protocol/script/audit files; reuse server data/cache when present",
+  "required_files": [
+    {
+      "path": "d-det/docx/d-det_AutoDL_代码条件后训练_已见家族未见生成器指导_2026-10-09.md",
+      "sha256": "b75eeb741be25a44ceea67ba008c641f649cbdd5e1d62c4a22f12328d89de59b"
+    },
+    {
+      "path": "d-det/docx/d-det_代码条件后训练_公式与论文核对_2026-10-09.md",
+      "sha256": "8b136b50b1a5941b1a0a56d591d5a7132cec0d6f59bedc8e701fa7859583fd26"
+    },
+    {
+      "path": "scripts/prepare_code_conditioned_pilot.py",
+      "sha256": "2e44198c1f18d12f21c29eccf2a8466c08d960ddd028a39b582cfc7b4af6f3c6"
+    },
+    {
+      "path": "d-det/artifacts/code_conditioned_design_2026-10-09/static_preflight/audit.json",
+      "sha256": "7230755b0784a32cfc54aafad0b94a7e422f49e2195a7f2c62a3814c204c7950"
+    },
+    {
+      "path": "d-det/artifacts/code_conditioned_design_2026-10-09/static_preflight/fold_plan.json",
+      "sha256": "4d00d7c7159f91eaf5d43a4abd00ce2d0e1abd02c2763ea59da9c8bb5a5ea55f"
+    },
+    {
+      "path": "d-det/artifacts/code_conditioned_design_2026-10-09/static_preflight/static_proxies.jsonl",
+      "sha256": "f6793d48bff8508b5cb440e23e06ef8e430bc891b913824946a11825daad9a51"
+    },
+    {
+      "path": "d-det/artifacts/code_conditioned_design_2026-10-09/static_preflight/SHA256SUMS.txt",
+      "sha256": "c488a30695a2c88d6225752b4f9a4a3d34c551159ef05ff76c9907618f1f45b7"
+    }
+  ],
+  "switches": {
+    "training_allowed": true,
+    "generation_allowed": false,
+    "test_read_allowed": false,
+    "weights_downloaded": false,
+    "code_execution": false
+  }
+}

@@ -1,0 +1,349 @@
+{
+ "schema": "cc_c0_strong_p0_v1",
+ "generated_utc": "2026-10-09T12:18:02.863072+00:00",
+ "report_first_line": "C0 强 P0 重建（11 折 member-heldout；四个 fit-only 组件等权 z-score 融合；train/dev only）",
+ "protocols": {
+  "dev": {
+   "per_fold": {
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+     "row_level": {
+      "fused": 0.9708823716210605,
+      "semantic": 0.8639508127042753,
+      "char_tfidf": 0.8455324471021609,
+      "word_tfidf": 0.8723025888307513,
+      "style_meta": 0.992144102947427
+     },
+     "task_macro": 0.9824561403508771,
+     "runtime_s": 4.3
+    },
+    "Qwen--Qwen2.5-Coder-14B-Instruct": {
+     "row_level": {
+      "fused": 0.8452710724178868,
+      "semantic": 0.8278933200447512,
+      "char_tfidf": 0.8445187041678269,
+      "word_tfidf": 0.8581736993556015,
+      "style_meta": 0.4057316781231832
+     },
+     "task_macro": 0.8663324979114454,
+     "runtime_s": 4.4
+    },
+    "Qwen--Qwen2.5-Coder-32B-Instruct": {
+     "row_level": {
+      "fused": 0.937954046910649,
+      "semantic": 0.8588454567217263,
+      "char_tfidf": 0.8544826979730027,
+      "word_tfidf": 0.8727349562991299,
+      "style_meta": 0.9462154411369554
+     },
+     "task_macro": 0.9657477025898078,
+     "runtime_s": 4.5
+    },
+    "Qwen--Qwen2.5-Coder-7B-Instruct": {
+     "row_level": {
+      "fused": 0.7684953123549615,
+      "semantic": 0.6154885263841866,
+      "char_tfidf": 0.7209373335873798,
+      "word_tfidf": 0.7279333812113129,
+      "style_meta": 0.8605089722356574
+     },
+     "task_macro": 0.7736006683375104,
+     "runtime_s": 4.4
+    },
+    "codellama--CodeLlama-13b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9557226399331662,
+      "semantic": 0.9106123007323377,
+      "char_tfidf": 0.9116138298963784,
+      "word_tfidf": 0.921558281669085,
+      "style_meta": 0.9254129475736124
+     },
+     "task_macro": 0.960735171261487,
+     "runtime_s": 4.3
+    },
+    "codellama--CodeLlama-34b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9499919389116065,
+      "semantic": 0.8871911748181369,
+      "char_tfidf": 0.8945340935183964,
+      "word_tfidf": 0.89017622027779,
+      "style_meta": 0.9498307171437366
+     },
+     "task_macro": 0.9715956558061822,
+     "runtime_s": 4.3
+    },
+    "codellama--CodeLlama-70b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9378514512401862,
+      "semantic": 0.8766164924983023,
+      "char_tfidf": 0.8665230327280189,
+      "word_tfidf": 0.8796894771040662,
+      "style_meta": 0.9621373120911441
+     },
+     "task_macro": 0.9632414369256475,
+     "runtime_s": 4.2
+    },
+    "codellama--CodeLlama-7b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9766716987400275,
+      "semantic": 0.9469849086654257,
+      "char_tfidf": 0.947312237709283,
+      "word_tfidf": 0.9490710206315007,
+      "style_meta": 0.9212798077064005
+     },
+     "task_macro": 0.9774436090225566,
+     "runtime_s": 4.2
+    },
+    "deepseek-ai--deepseek-coder-1.3b-instruct": {
+     "row_level": {
+      "fused": 0.970148934714955,
+      "semantic": 0.9228095824356212,
+      "char_tfidf": 0.9008968571526281,
+      "word_tfidf": 0.9214501898019903,
+      "style_meta": 0.9483302554632195
+     },
+     "task_macro": 0.9766081871345029,
+     "runtime_s": 4.2
+    },
+    "deepseek-ai--deepseek-coder-33b-instruct": {
+     "row_level": {
+      "fused": 0.9879792072774529,
+      "semantic": 0.9433116172497521,
+      "char_tfidf": 0.9236431722581308,
+      "word_tfidf": 0.9347961766013474,
+      "style_meta": 0.9817165965596252
+     },
+     "task_macro": 0.9912280701754386,
+     "runtime_s": 4.2
+    },
+    "deepseek-ai--deepseek-coder-6.7b-instruct": {
+     "row_level": {
+      "fused": 0.9605092165110632,
+      "semantic": 0.9097371840908314,
+      "char_tfidf": 0.8566567490851886,
+      "word_tfidf": 0.8779966485414316,
+      "style_meta": 0.923408057179987
+     },
+     "task_macro": 0.9568713450292398,
+     "runtime_s": 4.2
+    }
+   },
+   "aggregate": {
+    "row_level_mean_over_folds": 0.9328616264211832,
+    "task_macro_mean_over_folds": 0.9441691349586087,
+    "member_macro": 0.9328616264211832,
+    "pooled": 0.9323477153809564,
+    "bootstrap": {
+     "row_level": {
+      "ci95": [
+       0.922783464398192,
+       0.9424106185186518
+      ]
+     },
+     "task_macro": {
+      "ci95": [
+       0.933830077086656,
+       0.9530402711323762
+      ]
+     }
+    },
+    "per_component_row_level_mean": {
+     "semantic": 0.8694037614859407,
+     "char_tfidf": 0.8696955595616722,
+     "word_tfidf": 0.8823529673021825,
+     "style_meta": 0.8924287171055407
+    },
+    "per_component_task_macro_mean": {
+     "semantic": 0.8925058859269387,
+     "char_tfidf": 0.9070403280929598,
+     "word_tfidf": 0.9054644186223135,
+     "style_meta": 0.8980120756436545
+    }
+   },
+   "n_tasks": 171
+  },
+  "inner": {
+   "per_fold": {
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+     "row_level": {
+      "fused": 0.966292552400773,
+      "semantic": 0.8582345399137803,
+      "char_tfidf": 0.8357876839601606,
+      "word_tfidf": 0.8572032481046529,
+      "style_meta": 0.9978259253753531
+     },
+     "task_macro": 0.9827188940092166,
+     "runtime_s": 3.4
+    },
+    "Qwen--Qwen2.5-Coder-14B-Instruct": {
+     "row_level": {
+      "fused": 0.8431135721718448,
+      "semantic": 0.8407258064516129,
+      "char_tfidf": 0.8303013973539468,
+      "word_tfidf": 0.8687193399732421,
+      "style_meta": 0.4206834398691839
+     },
+     "task_macro": 0.8870967741935484,
+     "runtime_s": 3.3
+    },
+    "Qwen--Qwen2.5-Coder-32B-Instruct": {
+     "row_level": {
+      "fused": 0.9284041920618403,
+      "semantic": 0.8410602794707893,
+      "char_tfidf": 0.8341385461572767,
+      "word_tfidf": 0.8792645309944997,
+      "style_meta": 0.9525048312769436
+     },
+     "task_macro": 0.956221198156682,
+     "runtime_s": 3.4
+    },
+    "Qwen--Qwen2.5-Coder-7B-Instruct": {
+     "row_level": {
+      "fused": 0.7753920767058124,
+      "semantic": 0.623281180318121,
+      "char_tfidf": 0.7234837223130668,
+      "word_tfidf": 0.7383491898320202,
+      "style_meta": 0.8614538427233537
+     },
+     "task_macro": 0.8076036866359447,
+     "runtime_s": 3.4
+    },
+    "codellama--CodeLlama-13b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9575683811505872,
+      "semantic": 0.9118106139438086,
+      "char_tfidf": 0.8985060205143451,
+      "word_tfidf": 0.9138639066448639,
+      "style_meta": 0.940426638917794
+     },
+     "task_macro": 0.9642857142857143,
+     "runtime_s": 3.3
+    },
+    "codellama--CodeLlama-34b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9635145681581686,
+      "semantic": 0.9106213765422922,
+      "char_tfidf": 0.9113832317526386,
+      "word_tfidf": 0.8917236509588227,
+      "style_meta": 0.9733257767206779
+     },
+     "task_macro": 0.9838709677419355,
+     "runtime_s": 3.3
+    },
+    "codellama--CodeLlama-70b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.935298052623755,
+      "semantic": 0.8583460309201725,
+      "char_tfidf": 0.8746980451910212,
+      "word_tfidf": 0.8731000074327337,
+      "style_meta": 0.9740597591794262
+     },
+     "task_macro": 0.9608294930875577,
+     "runtime_s": 3.3
+    },
+    "codellama--CodeLlama-7b-Instruct-hf": {
+     "row_level": {
+      "fused": 0.9721644120707597,
+      "semantic": 0.9429537683960161,
+      "char_tfidf": 0.935539616470938,
+      "word_tfidf": 0.9354281254645459,
+      "style_meta": 0.9288315742530102
+     },
+     "task_macro": 0.9792626728110599,
+     "runtime_s": 3.3
+    },
+    "deepseek-ai--deepseek-coder-1.3b-instruct": {
+     "row_level": {
+      "fused": 0.9633194588969823,
+      "semantic": 0.9090140478668054,
+      "char_tfidf": 0.8626430801248699,
+      "word_tfidf": 0.9212734131113424,
+      "style_meta": 0.957897047346514
+     },
+     "task_macro": 0.9838709677419355,
+     "runtime_s": 3.3
+    },
+    "deepseek-ai--deepseek-coder-33b-instruct": {
+     "row_level": {
+      "fused": 0.9873504162330905,
+      "semantic": 0.9420931971904266,
+      "char_tfidf": 0.9254926508844953,
+      "word_tfidf": 0.9497837539021852,
+      "style_meta": 0.9872609911550468
+     },
+     "task_macro": 0.9899193548387096,
+     "runtime_s": 3.2
+    },
+    "deepseek-ai--deepseek-coder-6.7b-instruct": {
+     "row_level": {
+      "fused": 0.9386137486992716,
+      "semantic": 0.8893161420395421,
+      "char_tfidf": 0.8639438085327783,
+      "word_tfidf": 0.8551557622268471,
+      "style_meta": 0.8978846904266389
+     },
+     "task_macro": 0.9707661290322581,
+     "runtime_s": 3.2
+    }
+   },
+   "aggregate": {
+    "row_level_mean_over_folds": 0.9300937664702623,
+    "task_macro_mean_over_folds": 0.9514950775031422,
+    "member_macro": 0.9300937664702623,
+    "pooled": 0.9303123669709583,
+    "bootstrap": {
+     "row_level": {
+      "ci95": [
+       0.9198764814789788,
+       0.9394584039302268
+      ]
+     },
+     "task_macro": {
+      "ci95": [
+       0.9436063180770843,
+       0.9591213474025974
+      ]
+     }
+    },
+    "per_component_row_level_mean": {
+     "semantic": 0.8661324530048516,
+     "char_tfidf": 0.8632652548414125,
+     "word_tfidf": 0.8803513571496143,
+     "style_meta": 0.8992867742949038
+    },
+    "per_component_task_macro_mean": {
+     "semantic": 0.8973476120653541,
+     "char_tfidf": 0.9053859447004607,
+     "word_tfidf": 0.9105440930037705,
+     "style_meta": 0.9036447423544197
+    }
+   },
+   "n_tasks": null
+  }
+ },
+ "local_reference": {
+  "dev_row_level_mean": 0.9344,
+  "inner_row_level_mean": 0.9324,
+  "source": "ACL 总结 §48（本机约值）；本机逐点参考表未随本轮传输"
+ },
+ "reference_check": {
+  "dev_row_level_mean": 0.9328616264211832,
+  "inner_row_level_mean": 0.9300937664702623,
+  "dev_delta_vs_ref": -0.0015383735788168096,
+  "inner_delta_vs_ref": -0.002306233529737689,
+  "within_1e-3": false,
+  "spec_probe_history": {
+   "row_mapping_fix": "emb row mapping used local member index before; fixed to global 115-model index; texts.jsonl.gz check 10659/10659",
+   "dev_row_level_by_variant": {
+    "S1_LR_insample_z": 0.9245,
+    "S1_LR_oof_z": 0.9236,
+    "semantic_base": 0.8649,
+    "semantic_small+base": 0.8553,
+    "wide_LR_C4": 0.9303,
+    "wide_LR_balanced": 0.9294,
+    "wide_SGD3_frozen": 0.9329
+   },
+   "frozen": "wide_SGD3（char 2-5 min_df=1 / word 1-3 min_df=1 / SGD×3 seed 集成）"
+  },
+  "note": "本机逐点参考表未随本轮传输；此处仅对 ACL §48 的 approx 值做报告性对照；冻结规格下的残差 Δdev=-0.0015/Δinner 待读；严格 1e-3 逐点审计需本机强 P0 参考分数。"
+ }
+}

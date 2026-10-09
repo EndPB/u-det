@@ -1,0 +1,11 @@
+{
+ "rows": "records_train_dev.jsonl（instruct）",
+ "transforms": "comment_strip/whitespace/rename，独立 Bernoulli p=.2/.3/.4，固定 seed",
+ "fit": "折内 train 原样本 + 已接受变换样本（混合）；JS 配对一致性",
+ "eval": "dev：heldout（正）+ 其它系列（负）；原分数为主，变换分数为配对诊断",
+ "never_used": [
+  "test",
+  "canonical_solution",
+  "执行结果"
+ ]
+}

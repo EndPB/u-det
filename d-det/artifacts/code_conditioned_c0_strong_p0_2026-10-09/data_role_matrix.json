@@ -1,0 +1,13 @@
+{
+ "rows": "records_train_dev.jsonl（10,659 行 = 11 成员 × 969 task；instruct 模式）",
+ "fit": "折内 train split 行（排除 heldout 成员）",
+ "eval": "dev split：heldout 成员（正）+ 其它系列成员（负）；同系列兄弟排除（fold_plan 规格）",
+ "inner": "train split 内 inner_dev task 同构评测（train-only 方向检查）",
+ "never_used": [
+  "test 行",
+  "canonical_solution",
+  "test 正文",
+  "生成输出",
+  "权重下载"
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "schema": "cc_c1_config_v1",
+ "views": {
+  "code_only": "h_y(512)",
+  "prompt_only": "h_t(512)",
+  "ht_hy": "[h_t;h_y](1024)",
+  "full": "[h_t;h_y;h_t*h_y;|h_t-h_y|;psi](2057)",
+  "psi_only": "psi(9)"
+ },
+ "heads": {
+  "linear": "LogisticRegression(C=1,max_iter=3000, l2)",
+  "mlp": "torch d->256->1 ReLU, Adam 1e-3, 20 epochs, bs=2048, 3 seeds avg"
+ },
+ "standardization": "train-fold mean/std per fold (zero-std dims scale=1)",
+ "bootstrap": {
+  "n": 500,
+  "seed": 20261009,
+  "shared_task_indices": true,
+  "paired_vs": "C0"
+ },
+ "switches": {
+  "train_dev_only": true,
+  "test_read": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ }
+}

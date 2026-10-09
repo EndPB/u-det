@@ -1,0 +1,54 @@
+{
+  "schema": "code_conditioned_features_manifest_v1",
+  "generated_utc": "2026-10-09T11:29:55.346475+00:00",
+  "encoder_protocol": "CodeT5 frozen mean-pool no-special-tokens fp16; truncation 512=384+128",
+  "encoder_model": "/root/autodl-tmp/u-det/d-det/models/codet5-small",
+  "rows": 10659,
+  "tasks": 969,
+  "members": 11,
+  "members_order": [
+    "codellama--CodeLlama-13b-Instruct-hf",
+    "codellama--CodeLlama-34b-Instruct-hf",
+    "codellama--CodeLlama-70b-Instruct-hf",
+    "codellama--CodeLlama-7b-Instruct-hf",
+    "deepseek-ai--deepseek-coder-1.3b-instruct",
+    "deepseek-ai--deepseek-coder-33b-instruct",
+    "deepseek-ai--deepseek-coder-6.7b-instruct",
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+    "Qwen--Qwen2.5-Coder-14B-Instruct",
+    "Qwen--Qwen2.5-Coder-32B-Instruct",
+    "Qwen--Qwen2.5-Coder-7B-Instruct"
+  ],
+  "split_rows": {
+    "train": 8778,
+    "dev": 1881
+  },
+  "empty_code_rows": 2,
+  "psi_fields": [
+    "parse_ok",
+    "entrypoint_present",
+    "n_ast_nodes",
+    "n_calls",
+    "n_branches",
+    "n_handlers",
+    "n_returns",
+    "n_import_roots",
+    "required_root_overlap_proxy"
+  ],
+  "row_mapping_check": {
+    "checked": 10659,
+    "ok": 10659,
+    "rule": "gmodel_idx*nT*2 + task_idx*2 + 1 (instruct) vs texts.jsonl.gz"
+  },
+  "notes": "hy_small extracted from r0 emb_small cache; style/meta/sizelen from style_meta.npz; psi from static_preflight; task prompts encoded fresh on server",
+  "files": {
+    "bundle.npz": {
+      "bytes": 21476722,
+      "sha256": "be5cc9d63b489a7e3a790d654415c0d019b7d261366e0d1f6d2be3154f40a968"
+    },
+    "emb_task_small.npz": {
+      "bytes": 1839543,
+      "sha256": "f1e7529934629a79a1205cd1941bac5839402763be28c1b923bd776ac44fffcf"
+    }
+  }
+}

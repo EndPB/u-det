@@ -1,0 +1,57 @@
+{
+  "schema": "family_series_admission_v1",
+  "created": "2026-10-09",
+  "source_status": "server_reconstruction_only",
+  "family_is_confirmed": false,
+  "admission_note": "observed series are official release families; members are size variants within an observed series; family_is_confirmed=false for all",
+  "series": [
+    {
+      "series": "CodeLlama-Instruct",
+      "members": [
+        {
+          "model_id": "codellama--CodeLlama-13b-Instruct-hf"
+        },
+        {
+          "model_id": "codellama--CodeLlama-34b-Instruct-hf"
+        },
+        {
+          "model_id": "codellama--CodeLlama-70b-Instruct-hf"
+        },
+        {
+          "model_id": "codellama--CodeLlama-7b-Instruct-hf"
+        }
+      ]
+    },
+    {
+      "series": "Qwen2.5-Coder-Instruct",
+      "members": [
+        {
+          "model_id": "Qwen--Qwen2.5-Coder-1.5B-Instruct"
+        },
+        {
+          "model_id": "Qwen--Qwen2.5-Coder-14B-Instruct"
+        },
+        {
+          "model_id": "Qwen--Qwen2.5-Coder-32B-Instruct"
+        },
+        {
+          "model_id": "Qwen--Qwen2.5-Coder-7B-Instruct"
+        }
+      ]
+    },
+    {
+      "series": "DeepSeek-Coder-v1-Instruct",
+      "members": [
+        {
+          "model_id": "deepseek-ai--deepseek-coder-1.3b-instruct"
+        },
+        {
+          "model_id": "deepseek-ai--deepseek-coder-33b-instruct"
+        },
+        {
+          "model_id": "deepseek-ai--deepseek-coder-6.7b-instruct"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+ "schema": "cc_c0_config_v1",
+ "folds": "static_preflight/fold_plan.json（11 折）",
+ "components": {
+  "semantic": "LR(C=1, lbfgs) on train-fold standardized CodeT5-small h_y (512d)",
+  "char_tfidf": "TfidfVectorizer(char_wb,2-5,min_df=1,sublinear,lowercase=False)+SGD log_loss x3 seeds (alpha=1e-6, 5ep)",
+  "word_tfidf": "TfidfVectorizer(word,[A-Za-z_][A-Za-z0-9_]*,1-3,min_df=1,sublinear)+SGD log_loss x3 seeds",
+  "style_meta": "LR on train-fold standardized [style(92),meta(10),sizelen(3)]"
+ },
+ "fusion": "equal-weight mean of per-component z-scores (train-fold score mean/std)",
+ "bootstrap": {
+  "n": 500,
+  "seed": 20261009,
+  "cluster": "dev task",
+  "shared_across_folds": true
+ },
+ "inner_split": {
+  "rule": "sha256('cc_inner_split_v1|'+task_id) % 5 == 0 -> inner_dev",
+  "note": "server-frozen"
+ },
+ "switches": {
+  "train_dev_only": true,
+  "test_read": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ }
+}

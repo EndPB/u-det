@@ -1,0 +1,48 @@
+{
+  "schema": "code_conditioned_inputs_hashes_v1",
+  "generated_utc": "2026-10-09T11:04:12.255681+00:00",
+  "row_order": "input records.jsonl order (filtered)",
+  "mode": "instruct",
+  "input_sha256": {
+    "records.jsonl": "d786667a72f3f3864ea38115fd6ccfe8ac393141146d522673668f3730523210",
+    "split_index.csv": "5d2af509485b6ff8faf8cc6e2018f4ec1a9a4ee55f96fec65c0d00ea76b69c18",
+    "endpoint_balanced_plan.json": "20b0debdc3a96d2d0d816a0383e1f63804172823a88d4eacc47397d6f432b9f2"
+  },
+  "output_sha256": {
+    "records_train_dev.jsonl": "76890b22a38931d4a9bc8e2d8f3355f77f5d142c9ff50d758dba91f9b1542bd2",
+    "family_series_admission.json": "7fc5e78f948d307ba05a626e10479da171d08dd5e0548ad8579081200bfe8d68"
+  },
+  "counts": {
+    "rows": 10659,
+    "tasks": 969,
+    "members": 11,
+    "split_rows": {
+      "train": 8778,
+      "dev": 1881
+    },
+    "split_tasks": {
+      "train": 798,
+      "dev": 171
+    }
+  },
+  "row_order_sha256": "e61c239476751b79bff810b63721ed776684e26a8114a150ed5bbf3d3709c386",
+  "task_split_sha256": {
+    "train": "a132934bc76a095550b47dca4bcf5a794b9377c71602430ae0bd215fedb0a970",
+    "dev": "a2549f9a91ad5b10e4fab086cbd4618e1169791ec0e1e61485b6cc2c320de7e8"
+  },
+  "member_mapping_sha256": "0aaaa4dd187d97090969c18c51d61bf2cd1a37aa05ef3a252e369de301aa0b1a",
+  "code_sha256_list_sha256": "fb8953a17e9d3dbd6c29f47304c9281965e5c11e9812b48ce666408b1cc8181f",
+  "member_row_counts": {
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct": 969,
+    "Qwen--Qwen2.5-Coder-14B-Instruct": 969,
+    "Qwen--Qwen2.5-Coder-32B-Instruct": 969,
+    "Qwen--Qwen2.5-Coder-7B-Instruct": 969,
+    "codellama--CodeLlama-13b-Instruct-hf": 969,
+    "codellama--CodeLlama-34b-Instruct-hf": 969,
+    "codellama--CodeLlama-70b-Instruct-hf": 969,
+    "codellama--CodeLlama-7b-Instruct-hf": 969,
+    "deepseek-ai--deepseek-coder-1.3b-instruct": 969,
+    "deepseek-ai--deepseek-coder-33b-instruct": 969,
+    "deepseek-ai--deepseek-coder-6.7b-instruct": 969
+  }
+}

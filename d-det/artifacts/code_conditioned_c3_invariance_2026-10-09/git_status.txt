@@ -1,0 +1,20 @@
+ M "d-det/docx/d-det_ACL\346\200\273\347\240\224\347\251\266\346\200\273\347\273\223\344\270\216\345\217\257\350\277\255\344\273\243\350\267\257\347\272\277_2026-10-06.md"
+?? d-det/artifacts/code_conditioned_c0_strong_p0_2026-10-09/
+?? d-det/artifacts/code_conditioned_c1_prompt_conditioned_2026-10-09/
+?? d-det/artifacts/code_conditioned_c2_static_proxy_2026-10-09/
+?? d-det/artifacts/code_conditioned_c3_invariance_2026-10-09/
+?? d-det/artifacts/code_conditioned_design_2026-10-09/
+?? d-det/docx/code_conditioned_autodl_manifest_2026-10-09.json
+?? "d-det/docx/d-det_AutoDL_\344\273\243\347\240\201\346\235\241\344\273\266\345\220\216\350\256\255\347\273\203_\345\267\262\350\247\201\345\256\266\346\227\217\346\234\252\350\247\201\347\224\237\346\210\220\345\231\250\346\214\207\345\257\274_2026-10-09.md"
+?? "d-det/docx/d-det_\344\273\243\347\240\201\346\235\241\344\273\266\345\220\216\350\256\255\347\273\203_\345\205\254\345\274\217\344\270\216\350\256\272\346\226\207\346\240\270\345\257\271_2026-10-09.md"
+?? scripts/cc_build_features.py
+?? scripts/cc_build_inputs.py
+?? scripts/cc_c0_probe2.py
+?? scripts/cc_c0_strong_p0.py
+?? scripts/cc_c1_prompt_conditioned.py
+?? scripts/cc_c2_static_proxy.py
+?? scripts/cc_c3_invariance.py
+?? scripts/cc_common.py
+?? scripts/prepare_code_conditioned_pilot.py
+ ...\273\243\350\267\257\347\272\277_2026-10-06.md" | 2333 +++++++++++---------
+ 1 file changed, 1274 insertions(+), 1059 deletions(-)

@@ -1,0 +1,147 @@
+{
+ "schema": "cc_c2_v1",
+ "generated_utc": "2026-10-09T12:37:00.306516+00:00",
+ "report_first_line": "C2 静态代理条件（static_proxy_conditioning；11 折；对照 C0/C1；train/dev only）",
+ "lambda_v": 0.1,
+ "proxy_audit": {
+  "n_ast_nodes": {
+   "variance": 2601.9083919916725,
+   "missing_rate": 0.0,
+   "corr_nchar": 0.700247440866834,
+   "corr_nlines": 0.7143371762191126
+  },
+  "n_calls": {
+   "variance": 19.239452441722534,
+   "missing_rate": 0.0,
+   "corr_nchar": 0.5769103388611769,
+   "corr_nlines": 0.6147636956326988
+  },
+  "n_branches": {
+   "variance": 2.3958404489660947,
+   "missing_rate": 0.0,
+   "corr_nchar": 0.4094016514262634,
+   "corr_nlines": 0.40937538325366235
+  },
+  "n_handlers": {
+   "variance": 0.27047363878489894,
+   "missing_rate": 0.0,
+   "corr_nchar": 0.18729506744980237,
+   "corr_nlines": 0.2024674584763488
+  },
+  "n_returns": {
+   "variance": 0.5088075503465976,
+   "missing_rate": 0.0,
+   "corr_nchar": 0.14284070811092844,
+   "corr_nlines": 0.17609213454288486
+  },
+  "n_import_roots": {
+   "variance": 0.6526266006999595,
+   "missing_rate": 0.0,
+   "corr_nchar": 0.2916012463854286,
+   "corr_nlines": 0.35462339363200085
+  },
+  "required_root_overlap_proxy": {
+   "variance": 0.003284735148939791,
+   "missing_rate": 0.0,
+   "corr_nchar": 0.022102078842558614,
+   "corr_nlines": 0.032186949635179575
+  },
+  "entrypoint_present": {
+   "variance": 0.005318996825759959,
+   "missing_rate": 0.0,
+   "corr_nchar": 0.1499982641608099,
+   "corr_nlines": 0.16259732179082909
+  },
+  "parse_ok": {
+   "variance": 0.0,
+   "note": "zero variance -> excluded from targets"
+  }
+ },
+ "c2": {
+  "row_level_mean": 0.8846496557715394,
+  "task_macro_mean": 0.89975886686413,
+  "ci95": {
+   "row_level": [
+    0.8698065050096445,
+    0.8972672785432482
+   ],
+   "task_macro": [
+    0.8847915242652085,
+    0.9123568865345181
+   ]
+  }
+ },
+ "c1_full_mlp": {
+  "row_level_mean": 0.884736373540621,
+  "task_macro_mean": 0.89975886686413,
+  "ci95": {
+   "row_level": [
+    0.8698582761284747,
+    0.8977621638603863
+   ],
+   "task_macro": [
+    0.8852754518872941,
+    0.9129692128047391
+   ]
+  }
+ },
+ "c0": {
+  "row_level_mean": 0.9328616264211832,
+  "task_macro_mean": 0.9441691349586087,
+  "ci95": {
+   "row_level": [
+    0.922783464398192,
+    0.9424106185186518
+   ],
+   "task_macro": [
+    0.933830077086656,
+    0.9530402711323762
+   ]
+  }
+ },
+ "c2_vs_c0": {
+  "row_level": {
+   "mean": -0.04818911157923162,
+   "ci95": [
+    -0.05571504935251473,
+    -0.040780528485399224
+   ]
+  },
+  "task_macro": {
+   "mean": -0.04457526391736918,
+   "ci95": [
+    -0.053805678970152655,
+    -0.036011192754613806
+   ]
+  }
+ },
+ "c2_vs_c1full": {
+  "row_level": {
+   "mean": -0.00011707109791135656,
+   "ci95": [
+    -0.0009672098574452952,
+    0.0006372298702631036
+   ]
+  },
+  "task_macro": {
+   "mean": -7.448545606440349e-05,
+   "ci95": [
+    -0.0016993240677451204,
+    0.0017467912204754308
+   ]
+  }
+ },
+ "task_macro_positive_folds_vs_c0": 0,
+ "length_style_control": {
+  "c2": {
+   "row_level_mean": 0.8404785555062564,
+   "task_macro_mean": 0.8530796688691425
+  },
+  "c0": {
+   "row_level_mean": 0.9094939079934463,
+   "task_macro_mean": 0.9327295511506037
+  },
+  "c2_minus_c0_row_level": -0.06901535248718993,
+  "c2_minus_c0_task_macro": -0.07964988228146119
+ }
+}

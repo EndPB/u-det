@@ -1,0 +1,13 @@
+[c3] transforms: {"comment_strip": [2103, 1677], "whitespace": [3161, 1076], "rename": [4271, 3657]}
+[c3] transformed embeddings (6410, 512) in 18s
+[c3] fold Qwen--Qwen2.5-Coder-1.5B-Instruct        done (7s)
+[c3] fold Qwen--Qwen2.5-Coder-14B-Instruct         done (7s)
+[c3] fold Qwen--Qwen2.5-Coder-32B-Instruct         done (7s)
+[c3] fold Qwen--Qwen2.5-Coder-7B-Instruct          done (7s)
+[c3] fold codellama--CodeLlama-13b-Instruct-hf     done (7s)
+[c3] fold codellama--CodeLlama-34b-Instruct-hf     done (7s)
+[c3] fold codellama--CodeLlama-70b-Instruct-hf     done (7s)
+[c3] fold codellama--CodeLlama-7b-Instruct-hf      done (7s)
+[c3] fold deepseek-ai--deepseek-coder-1.3b-instruc done (7s)
+[c3] fold deepseek-ai--deepseek-coder-33b-instruct done (6s)
+[c3] fold deepseek-ai--deepseek-coder-6.7b-instruc done (6s)

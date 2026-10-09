@@ -1,0 +1,6 @@
+{
+ "schema": "cc_c0_hypothesis_v1",
+ "hypothesis": "同一 11 member-held-out 折上，四个 fit-only 组件（CodeT5-small semantic linear、char TF-IDF、word TF-IDF、style/meta linear）等权 z-score 融合可复现本机强 P0 (dev 行级均值≈.9344、内部 train-only≈.9324，±1e-3)。",
+ "gate": "dev/inner 行级均值与本机参考差 ≤1e-3；否则停在 C0 修复。",
+ "claim_limit": "拟合与选择仅用折内 train；dev 仅开发评测；family_is_confirmed=false。"
+}
