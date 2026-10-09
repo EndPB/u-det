@@ -1,0 +1,39 @@
+nohup: ignoring input
+[15:44:40] manifest[before-fit] CodeLlama-13b-Instruct-hf    pos 171 neg 1197 fit 7980
+[15:44:40] manifest[before-fit] CodeLlama-34b-Instruct-hf    pos 171 neg 1197 fit 7980
+[15:44:40] manifest[before-fit] CodeLlama-70b-Instruct-hf    pos 171 neg 1197 fit 7980
+[15:44:40] manifest[before-fit] CodeLlama-7b-Instruct-hf     pos 171 neg 1197 fit 7980
+[15:44:40] manifest[before-fit] Qwen2.5-Coder-1.5B-Instruc   pos 171 neg 1197 fit 7980
+[15:44:40] manifest[before-fit] Qwen2.5-Coder-14B-Instruct   pos 171 neg 1197 fit 7980
+[15:44:40] manifest[before-fit] Qwen2.5-Coder-32B-Instruct   pos 171 neg 1197 fit 7980
+[15:44:40] manifest[before-fit] Qwen2.5-Coder-7B-Instruct    pos 171 neg 1197 fit 7980
+[15:44:40] manifest[before-fit] deepseek-coder-1.3b-instru   pos 171 neg 1368 fit 7980
+[15:44:40] manifest[before-fit] deepseek-coder-33b-instruc   pos 171 neg 1368 fit 7980
+[15:44:40] manifest[before-fit] deepseek-coder-6.7b-instru   pos 171 neg 1368 fit 7980
+[15:44:40] all manifests written & hashed BEFORE fitting; map_sha=0b0acf8eb42398b1…
+[15:44:54] tfidf char (10659, 216919) word (10659, 418094) (14s)
+[15:44:58] [dev] CodeLlama-13b-Instruct-hf    row=0.9557 tm=0.9607 (19s)
+[15:45:03] [dev] CodeLlama-34b-Instruct-hf    row=0.9500 tm=0.9716 (23s)
+[15:45:07] [dev] CodeLlama-70b-Instruct-hf    row=0.9379 tm=0.9632 (27s)
+[15:45:11] [dev] CodeLlama-7b-Instruct-hf     row=0.9767 tm=0.9774 (31s)
+[15:45:16] [dev] Qwen2.5-Coder-1.5B-Instruc   row=0.9709 tm=0.9825 (36s)
+[15:45:20] [dev] Qwen2.5-Coder-14B-Instruct   row=0.8453 tm=0.8663 (40s)
+[15:45:24] [dev] Qwen2.5-Coder-32B-Instruct   row=0.9380 tm=0.9657 (44s)
+[15:45:28] [dev] Qwen2.5-Coder-7B-Instruct    row=0.7685 tm=0.7736 (49s)
+[15:45:33] [dev] deepseek-coder-1.3b-instru   row=0.9701 tm=0.9766 (53s)
+[15:45:37] [dev] deepseek-coder-33b-instruc   row=0.9880 tm=0.9912 (57s)
+[15:45:41] [dev] deepseek-coder-6.7b-instru   row=0.9605 tm=0.9569 (61s)
+[15:45:45] [inner] CodeLlama-13b-Instruct-hf    row=0.9576 tm=0.9643 (65s)
+[15:45:48] [inner] CodeLlama-34b-Instruct-hf    row=0.9635 tm=0.9839 (68s)
+[15:45:51] [inner] CodeLlama-70b-Instruct-hf    row=0.9353 tm=0.9608 (72s)
+[15:45:55] [inner] CodeLlama-7b-Instruct-hf     row=0.9722 tm=0.9793 (75s)
+[15:45:58] [inner] Qwen2.5-Coder-1.5B-Instruc   row=0.9663 tm=0.9827 (78s)
+[15:46:02] [inner] Qwen2.5-Coder-14B-Instruct   row=0.8431 tm=0.8871 (82s)
+[15:46:05] [inner] Qwen2.5-Coder-32B-Instruct   row=0.9284 tm=0.9562 (85s)
+[15:46:08] [inner] Qwen2.5-Coder-7B-Instruct    row=0.7754 tm=0.8076 (89s)
+[15:46:12] [inner] deepseek-coder-1.3b-instru   row=0.9633 tm=0.9839 (92s)
+[15:46:15] [inner] deepseek-coder-33b-instruc   row=0.9874 tm=0.9899 (95s)
+[15:46:19] [inner] deepseek-coder-6.7b-instru   row=0.9386 tm=0.9708 (99s)
+[15:46:33] determinism refit max|delta|: {'semantic': 0.0, 'char_tfidf': 0.0}
+[15:46:33] diagnostic vs historical & vs 2968ff9 C0 complete
+[15:46:33] done in 113s; dev 0.9329/0.9442; inner 0.9301

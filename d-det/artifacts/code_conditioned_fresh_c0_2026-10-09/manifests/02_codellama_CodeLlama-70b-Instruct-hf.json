@@ -1,0 +1,106 @@
+{
+ "schema": "code_conditioned_fresh_c0_fold_manifest_v1",
+ "generated_utc": "2026-10-09T15:47:34.530477+00:00",
+ "source_status": "server_reconstruction_only",
+ "original_bundle_verified": false,
+ "switches": {
+  "training_allowed": true,
+  "test_read_allowed": false,
+  "generation_allowed": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ },
+ "effective_series_map_sha256": "0b0acf8eb42398b14314b0f0fc02d53ded224c0fb90da06ef64686a8f160a7f1",
+ "effective_series_map_canonical": {
+  "CodeLlama-Instruct": [
+   "codellama--CodeLlama-13b-Instruct-hf",
+   "codellama--CodeLlama-34b-Instruct-hf",
+   "codellama--CodeLlama-70b-Instruct-hf",
+   "codellama--CodeLlama-7b-Instruct-hf"
+  ],
+  "Qwen2.5-Coder-Instruct": [
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+   "Qwen--Qwen2.5-Coder-14B-Instruct",
+   "Qwen--Qwen2.5-Coder-32B-Instruct",
+   "Qwen--Qwen2.5-Coder-7B-Instruct"
+  ],
+  "DeepSeek-Coder-v1-Instruct": [
+   "deepseek-ai--deepseek-coder-1.3b-instruct",
+   "deepseek-ai--deepseek-coder-33b-instruct",
+   "deepseek-ai--deepseek-coder-6.7b-instruct"
+  ]
+ },
+ "official_expected_admission_sha256": "cc4a77851702e0bbf57e50636744ad25b572da9a665148b2b76179236b0bdfae",
+ "server_admission_file": "d-det/artifacts/code_conditioned_design_2026-10-09/inputs/family_series_admission.json",
+ "server_admission_file_sha256": "7fc5e78f948d307ba05a626e10479da171d08dd5e0548ad8579081200bfe8d68",
+ "heldout_member": "codellama--CodeLlama-70b-Instruct-hf",
+ "heldout_series": "CodeLlama-Instruct",
+ "fit_member_ids": [
+  "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+  "Qwen--Qwen2.5-Coder-14B-Instruct",
+  "Qwen--Qwen2.5-Coder-32B-Instruct",
+  "Qwen--Qwen2.5-Coder-7B-Instruct",
+  "codellama--CodeLlama-13b-Instruct-hf",
+  "codellama--CodeLlama-34b-Instruct-hf",
+  "codellama--CodeLlama-7b-Instruct-hf",
+  "deepseek-ai--deepseek-coder-1.3b-instruct",
+  "deepseek-ai--deepseek-coder-33b-instruct",
+  "deepseek-ai--deepseek-coder-6.7b-instruct"
+ ],
+ "eval_member_ids": [
+  "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+  "Qwen--Qwen2.5-Coder-14B-Instruct",
+  "Qwen--Qwen2.5-Coder-32B-Instruct",
+  "Qwen--Qwen2.5-Coder-7B-Instruct",
+  "codellama--CodeLlama-70b-Instruct-hf",
+  "deepseek-ai--deepseek-coder-1.3b-instruct",
+  "deepseek-ai--deepseek-coder-33b-instruct",
+  "deepseek-ai--deepseek-coder-6.7b-instruct"
+ ],
+ "positive_row_sha256": "f4534ef86a6a3c15b9da97b6842efa57fcf7b2c19dfdc54b547bb5f4269a28b6",
+ "negative_row_sha256": "37e8e18a094f7f5d2f49821e3fa6cc969d1af75e41a2bc7f41af1a2236ef4991",
+ "train_row_sha256": "84712657da60b8c1272f9786dc0ea7e37b050595509e44f520c83e219d40540d",
+ "eval_task_sha256": "a2549f9a91ad5b10e4fab086cbd4618e1169791ec0e1e61485b6cc2c320de7e8",
+ "component_specs": {
+  "semantic": {
+   "input_block": "hy_small = frozen CodeT5-small mean-pooled code embedding (512-d), from r0 corpus cache row = gmodel_idx*nT*2 + task_idx*2 + 1 (instruct)",
+   "scaler": "StandardScaler fit on fold-fit rows (server sklearn)",
+   "model": "LogisticRegression(max_iter=2000, C=1.0)",
+   "score": "decision_function"
+  },
+  "char_tfidf": {
+   "vectorizer": "TfidfVectorizer(analyzer=char_wb, ngram_range=(2,5), min_df=1, sublinear_tf=True, lowercase=False)",
+   "fit_scope": "fold-fit rows texts only (fold-train-only vocabulary & IDF)",
+   "model": "SGDClassifier(loss=log_loss, alpha=1e-6) x seeds(0,1,2), 5 epochs of shuffled partial_fit, batch=4096, seed-local RNG permutation",
+   "score": "mean decision_function over 3 seeds"
+  },
+  "word_tfidf": {
+   "vectorizer": "TfidfVectorizer(analyzer=word, token_pattern=[A-Za-z_][A-Za-z0-9_]*, ngram_range=(1,3), min_df=1, sublinear_tf=True, lowercase=False)",
+   "fit_scope": "fold-fit rows texts only",
+   "model": "same SGD ensemble as char_tfidf"
+  },
+  "style_meta": {
+   "input_block": "concat(style 92, meta 10, sizelen 3) = 105-d server static features",
+   "scaler": "StandardScaler fit on fold-fit rows",
+   "model": "LogisticRegression(max_iter=2000, C=1.0)"
+  },
+  "fusion": {
+   "z_stats": "per-component mean/std (population, ddof=0) of fold-fit-row scores",
+   "weights": "equal (mean over 4 components, keys sorted)"
+  },
+  "target": "y_fit = 1 iff row member's series == heldout member's series",
+  "eval_layout": "eval member blocks in ASCII-sorted member order; rows within block in sorted dev task order",
+  "inner_split_rule": "sha256('cc_inner_split_v1|'+task_id) % 5 == 0 -> inner_dev",
+  "metrics": "AUROC ties=0.5; task-macro = mean of per-task AUROC; member-macro = mean over folds; task-cluster bootstrap B=500 seed 20261009 (shared indices)"
+ },
+ "component_specs_sha256": "afa3e6fc0cec04ee40f26a64ce71c61edd27c6d2a839eb415d5b20e916bb2f1c",
+ "code_commit": "edf3813f56c408536e9b00d4b14cb909dacad1bd",
+ "counts": {
+  "n_fit_rows": 7980,
+  "n_eval_rows": 1368,
+  "n_pos": 171,
+  "n_neg": 1197,
+  "n_eval_tasks": 171
+ },
+ "manifest_sha256": "f6c95cc9c443d1d9da381fc0af7530fbb0e764d8a887724c2dd093f337f731cb"
+}

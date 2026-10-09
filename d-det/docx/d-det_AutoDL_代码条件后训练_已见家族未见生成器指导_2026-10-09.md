@@ -220,3 +220,17 @@ source_status=server_reconstruction_only; original_bundle_verified=false
 5. 输出 `p0_alignment.json` 和逐折最大绝对分数差。只有所有折的逐行分数与指标达到预注册容差，C0 才标记 `aligned`。
 
 在 C0 标记 `aligned` 之前，C1–C3 结果只能写为“相对服务器当前 C0 的开发诊断”，不能写成相对本机完整强 P0 的确认性负结果。对账完成后若候选仍低于统一 P0，正式状态才是 `code_conditioned_increment_not_observed`；若基线规格改变了比较，必须按统一 C0 重新跑一次 C1–C3，不能把旧差值直接沿用。
+
+
+## 9. edf3813 后的 provenance 裁定
+
+`edf3813` 的字符分数块审计发现了一个 7-cycle 和不同的分区。这是重要的结构异常信号，但它是从连续分数相似性反推的，不能单独证明历史训练使用了另一张 series map。
+
+本机已经核对注册命令与源码：`attribution_family_member_ho.py` 把当前 `family_series_admission.json` 传入每个 heldout 折；`attribution_family_metric.py` 从该文件计算 heldout series；`audit_public_full_p0_local.py` 用同一规则构造 eval 行。按当前 admission 重建后，11 个历史 `p0_scores.npz` 的 `y` 和 task 顺序全部逐位一致。因此当前官方 map 由命令、源码、标签和 task 顺序共同支持；7-cycle 暂记为 `score_block_alignment_hypothesis`。
+
+C0 仍为 `not_aligned`，原因是连续分数没有逐点达到容差，旧产物也没有记录每折 effective map hash、fit/eval member IDs 和完整 semantic/lexical 规格。旧 P0 包降级为 `map_consistent_but_spec_and_per_fold_provenance_incomplete`，不能作为精确对齐参考。不要重命名目录、改标签或再次从连续分数猜 map。
+
+下一轮若服务器重新开机，只允许做一次 train/dev fresh C0 重建。每折必须在拟合前写入并哈希：`effective_series_map`、`heldout_member`、`heldout_series`、`fit_member_ids`、`eval_member_ids`、train/eval 行序与 task 哈希、组件规格和代码提交号。test、生成、权重下载、代码执行均保持关闭。只有 fresh C0 对齐，才允许重新跑 C1–C3；否则不增加 backbone、参数量、温度、融合权重或新的解释。
+
+当前 C1–C3 结果的写法限定为“服务器内部开发诊断”；共同成员块上的结果只能作为待核实对照，不得写成相对历史本机强 P0 的确认性比较。
+

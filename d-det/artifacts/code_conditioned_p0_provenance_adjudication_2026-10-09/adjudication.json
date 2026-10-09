@@ -1,0 +1,357 @@
+{
+  "schema": "code_conditioned_p0_provenance_adjudication_v1",
+  "created_utc": "2026-10-09T14:46:25.841792+00:00",
+  "question": "Can the historical local public_series_member_ho_v2 be used as an exact C0 reference for server edf3813?",
+  "current_official_admission": {
+    "path": "artifacts\\public_full_followup_2026-10-08\\family_series_admission.json",
+    "sha256": "cc4a77851702e0bbf57e50636744ad25b572da9a665148b2b76179236b0bdfae",
+    "series_members": {
+      "CodeLlama-Instruct": [
+        "codellama--CodeLlama-13b-Instruct-hf",
+        "codellama--CodeLlama-34b-Instruct-hf",
+        "codellama--CodeLlama-70b-Instruct-hf",
+        "codellama--CodeLlama-7b-Instruct-hf"
+      ],
+      "DeepSeek-Coder-v1-Instruct": [
+        "deepseek-ai--deepseek-coder-1.3b-instruct",
+        "deepseek-ai--deepseek-coder-33b-instruct",
+        "deepseek-ai--deepseek-coder-6.7b-instruct"
+      ],
+      "Qwen2.5-Coder-Instruct": [
+        "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+        "Qwen--Qwen2.5-Coder-14B-Instruct",
+        "Qwen--Qwen2.5-Coder-32B-Instruct",
+        "Qwen--Qwen2.5-Coder-7B-Instruct"
+      ]
+    },
+    "declared_series_partition": "CodeLlama=4, Qwen=4, DeepSeek=3"
+  },
+  "current_cache": {
+    "path": "artifacts\\attribution_method_design_2026-10-09\\public_series_cache\\row_index.json",
+    "sha256": "2c0f41efa5a34fb62aa8ce9d840a9a8353dfeac19e91f60322aeae199d367a01",
+    "models_order": [
+      "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+      "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "Qwen--Qwen2.5-Coder-32B-Instruct",
+      "Qwen--Qwen2.5-Coder-7B-Instruct",
+      "codellama--CodeLlama-13b-Instruct-hf",
+      "codellama--CodeLlama-34b-Instruct-hf",
+      "codellama--CodeLlama-70b-Instruct-hf",
+      "codellama--CodeLlama-7b-Instruct-hf",
+      "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "deepseek-ai--deepseek-coder-33b-instruct",
+      "deepseek-ai--deepseek-coder-6.7b-instruct"
+    ]
+  },
+  "local_output_checks": [
+    {
+      "member": "codellama--CodeLlama-13b-Instruct-hf",
+      "declared_heldout": "codellama--CodeLlama-13b-Instruct-hf",
+      "official_map_y_exact": true,
+      "official_map_task_order_exact": true,
+      "expected_eval_rows": 1368,
+      "stored_eval_rows": 1368,
+      "expected_y_sha256": "da70d8eccefce3143f56dc2eb85a12273cc8ac7daf03cc8a797ed32e004fc50e",
+      "stored_y_sha256": "da70d8eccefce3143f56dc2eb85a12273cc8ac7daf03cc8a797ed32e004fc50e",
+      "y_transition_indices": [
+        684,
+        855
+      ]
+    },
+    {
+      "member": "codellama--CodeLlama-34b-Instruct-hf",
+      "declared_heldout": "codellama--CodeLlama-34b-Instruct-hf",
+      "official_map_y_exact": true,
+      "official_map_task_order_exact": true,
+      "expected_eval_rows": 1368,
+      "stored_eval_rows": 1368,
+      "expected_y_sha256": "da70d8eccefce3143f56dc2eb85a12273cc8ac7daf03cc8a797ed32e004fc50e",
+      "stored_y_sha256": "da70d8eccefce3143f56dc2eb85a12273cc8ac7daf03cc8a797ed32e004fc50e",
+      "y_transition_indices": [
+        684,
+        855
+      ]
+    },
+    {
+      "member": "codellama--CodeLlama-70b-Instruct-hf",
+      "declared_heldout": "codellama--CodeLlama-70b-Instruct-hf",
+      "official_map_y_exact": true,
+      "official_map_task_order_exact": true,
+      "expected_eval_rows": 1368,
+      "stored_eval_rows": 1368,
+      "expected_y_sha256": "da70d8eccefce3143f56dc2eb85a12273cc8ac7daf03cc8a797ed32e004fc50e",
+      "stored_y_sha256": "da70d8eccefce3143f56dc2eb85a12273cc8ac7daf03cc8a797ed32e004fc50e",
+      "y_transition_indices": [
+        684,
+        855
+      ]
+    },
+    {
+      "member": "codellama--CodeLlama-7b-Instruct-hf",
+      "declared_heldout": "codellama--CodeLlama-7b-Instruct-hf",
+      "official_map_y_exact": true,
+      "official_map_task_order_exact": true,
+      "expected_eval_rows": 1368,
+      "stored_eval_rows": 1368,
+      "expected_y_sha256": "da70d8eccefce3143f56dc2eb85a12273cc8ac7daf03cc8a797ed32e004fc50e",
+      "stored_y_sha256": "da70d8eccefce3143f56dc2eb85a12273cc8ac7daf03cc8a797ed32e004fc50e",
+      "y_transition_indices": [
+        684,
+        855
+      ]
+    },
+    {
+      "member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "declared_heldout": "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "official_map_y_exact": true,
+      "official_map_task_order_exact": true,
+      "expected_eval_rows": 1539,
+      "stored_eval_rows": 1539,
+      "expected_y_sha256": "69ef2fe5fcc3482c39d1dd9f6e2520f29abe390296ef37059d5d9d12b844026f",
+      "stored_y_sha256": "69ef2fe5fcc3482c39d1dd9f6e2520f29abe390296ef37059d5d9d12b844026f",
+      "y_transition_indices": [
+        1368
+      ]
+    },
+    {
+      "member": "deepseek-ai--deepseek-coder-33b-instruct",
+      "declared_heldout": "deepseek-ai--deepseek-coder-33b-instruct",
+      "official_map_y_exact": true,
+      "official_map_task_order_exact": true,
+      "expected_eval_rows": 1539,
+      "stored_eval_rows": 1539,
+      "expected_y_sha256": "69ef2fe5fcc3482c39d1dd9f6e2520f29abe390296ef37059d5d9d12b844026f",
+      "stored_y_sha256": "69ef2fe5fcc3482c39d1dd9f6e2520f29abe390296ef37059d5d9d12b844026f",
+      "y_transition_indices": [
+        1368
+      ]
+    },
+    {
+      "member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+      "declared_heldout": "deepseek-ai--deepseek-coder-6.7b-instruct",
+      "official_map_y_exact": true,
+      "official_map_task_order_exact": true,
+      "expected_eval_rows": 1539,
+      "stored_eval_rows": 1539,
+      "expected_y_sha256": "69ef2fe5fcc3482c39d1dd9f6e2520f29abe390296ef37059d5d9d12b844026f",
+      "stored_y_sha256": "69ef2fe5fcc3482c39d1dd9f6e2520f29abe390296ef37059d5d9d12b844026f",
+      "y_transition_indices": [
+        1368
+      ]
+    },
+    {
+      "member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+      "declared_heldout": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+      "official_map_y_exact": true,
+      "official_map_task_order_exact": true,
+      "expected_eval_rows": 1368,
+      "stored_eval_rows": 1368,
+      "expected_y_sha256": "1e3c7361e81e22bcf7f3c4391e30e7f8334c848ca8370c4b8b7608c6bbd5d2ff",
+      "stored_y_sha256": "1e3c7361e81e22bcf7f3c4391e30e7f8334c848ca8370c4b8b7608c6bbd5d2ff",
+      "y_transition_indices": [
+        171
+      ]
+    },
+    {
+      "member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "declared_heldout": "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "official_map_y_exact": true,
+      "official_map_task_order_exact": true,
+      "expected_eval_rows": 1368,
+      "stored_eval_rows": 1368,
+      "expected_y_sha256": "1e3c7361e81e22bcf7f3c4391e30e7f8334c848ca8370c4b8b7608c6bbd5d2ff",
+      "stored_y_sha256": "1e3c7361e81e22bcf7f3c4391e30e7f8334c848ca8370c4b8b7608c6bbd5d2ff",
+      "y_transition_indices": [
+        171
+      ]
+    },
+    {
+      "member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+      "declared_heldout": "Qwen--Qwen2.5-Coder-32B-Instruct",
+      "official_map_y_exact": true,
+      "official_map_task_order_exact": true,
+      "expected_eval_rows": 1368,
+      "stored_eval_rows": 1368,
+      "expected_y_sha256": "1e3c7361e81e22bcf7f3c4391e30e7f8334c848ca8370c4b8b7608c6bbd5d2ff",
+      "stored_y_sha256": "1e3c7361e81e22bcf7f3c4391e30e7f8334c848ca8370c4b8b7608c6bbd5d2ff",
+      "y_transition_indices": [
+        171
+      ]
+    },
+    {
+      "member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+      "declared_heldout": "Qwen--Qwen2.5-Coder-7B-Instruct",
+      "official_map_y_exact": true,
+      "official_map_task_order_exact": true,
+      "expected_eval_rows": 1368,
+      "stored_eval_rows": 1368,
+      "expected_y_sha256": "1e3c7361e81e22bcf7f3c4391e30e7f8334c848ca8370c4b8b7608c6bbd5d2ff",
+      "stored_y_sha256": "1e3c7361e81e22bcf7f3c4391e30e7f8334c848ca8370c4b8b7608c6bbd5d2ff",
+      "y_transition_indices": [
+        171
+      ]
+    }
+  ],
+  "local_output_summary": {
+    "all_11_config_heldout_equals_directory": true,
+    "eval_rows_by_series": {
+      "CodeLlama-Instruct": [
+        1368
+      ],
+      "DeepSeek-Coder-v1-Instruct": [
+        1539
+      ],
+      "Qwen2.5-Coder-Instruct": [
+        1368
+      ]
+    },
+    "effective_series_map_logged_in_config": false,
+    "effective_train_member_set_logged": false,
+    "effective_eval_member_set_logged": false,
+    "alternate_historical_map_file_found_in_current_repo": false,
+    "search_candidate_count": 35,
+    "search_candidates": [
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_internal_member_ho_ce_only\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\config.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_internal_member_ho_ce_only\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\metrics.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_internal_member_ho_sc05\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\config.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_internal_member_ho_sc05\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\metrics.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_member_ho\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\config.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_member_ho\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\metrics.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_member_ho_adv01\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\config.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_member_ho_adv01\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\metrics.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_member_ho_ce_only\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\config.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_member_ho_ce_only\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\metrics.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_member_ho_sc05\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\config.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_member_ho_sc05\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\metrics.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_member_ho_v2\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\config.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_series_member_ho_v2\\members\\Qwen--Qwen2.5-Coder-7B-Instruct\\metrics.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_task_centered_internal_refheldout\\metrics.json",
+      "artifacts\\attribution_method_design_2026-10-09\\public_task_centered_original_refheldout\\metrics.json",
+      "artifacts\\code_conditioned_design_2026-10-09\\static_preflight\\fold_plan.json",
+      "artifacts\\code_conditioned_p0_reference_2026-10-09\\reference_manifest.json",
+      "artifacts\\code_conditioned_static_preflight_reference_2026-10-09\\fold_plan.json",
+      "artifacts\\core_round2_local_review_2026-10-08\\source_snapshot\\d-det\\artifacts\\f0_exact_and_series_attribution_2026-10-08\\metrics_f0.json",
+      "artifacts\\core_round3_local_review_2026-10-08\\source_snapshot\\d-det\\artifacts\\f0_series_member_holdout_fix_2026-10-08\\metrics_f0b_fix.json",
+      "artifacts\\core_round3_local_review_2026-10-08\\source_snapshot\\d-det\\artifacts\\f2_member_series_holdout_2026-10-08\\metrics_f2_holdout.json",
+      "artifacts\\core_round4_local_review_2026-10-08\\source_snapshot\\d-det\\artifacts\\f2_member_relation_permutation_2026-10-08\\metrics_f2_permutation.json",
+      "artifacts\\core_round4_local_review_2026-10-08\\source_snapshot\\d-det\\artifacts\\f2_member_relation_protocol_fix_2026-10-08\\metrics_f2_fix.json",
+      "artifacts\\core_round5_local_review_2026-10-08\\github_commit.json",
+      "artifacts\\core_round5_local_review_2026-10-08\\source_snapshot\\d-det\\artifacts\\endpoint_balanced_relation_plan_2026-10-08\\endpoint_balanced_plan.json",
+      "artifacts\\core_round5_local_review_2026-10-08\\source_snapshot\\d-det\\artifacts\\relation_endpoint_balanced_2026-10-08\\metrics_final.json",
+      "artifacts\\core_round_local_review_2026-10-08\\source_snapshot\\d-det\\artifacts\\core_lineage_audit_2026-10-08\\local_hf_meta.json",
+      "artifacts\\variant_transfer_local_review_2026-10-08\\r1_negative_set_amendment.json",
+      "artifacts\\variant_transfer_stage3_score_audit_2026-10-08\\source_snapshot\\r1_negative_set_amendment.json",
+      "artifacts\\variant_transfer_stage3_score_audit_2026-10-08\\source_snapshot\\stage2_metrics.json",
+      "data\\public_same_task_full_2026-10-07\\records.jsonl",
+      "data\\public_same_task_slices_2026-10-07\\bigcodebench_instruct_scale_variants.jsonl",
+      "data\\public_series_internal_task_ho_2026-10-09\\records.jsonl",
+      "data\\public_series_train_dev_2026-10-09\\records_train_dev.jsonl"
+    ],
+    "official_map_y_and_task_exact_all_11": true,
+    "score_derived_cycle_is_not_proven_historical_map": true,
+    "effective_series_map_logged_per_fold": false
+  },
+  "remote_edf3813_evidence": {
+    "commit": "edf3813",
+    "source_snapshot": "artifacts\\code_conditioned_2968ff9_review_2026-10-09\\edf\\d-det\\artifacts\\code_conditioned_c0_alignment_2026-10-09\\structure_findings.json",
+    "finding": "local public_series_member_ho_v2 uses a different same-series partition than the server C0; dir-name->heldout is permuted for non-CL members",
+    "local_partition_inferred": {
+      "P1": [
+        "codellama--CodeLlama-13b-Instruct-hf",
+        "codellama--CodeLlama-34b-Instruct-hf",
+        "codellama--CodeLlama-70b-Instruct-hf",
+        "codellama--CodeLlama-7b-Instruct-hf"
+      ],
+      "P2": [
+        "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+        "Qwen--Qwen2.5-Coder-14B-Instruct",
+        "Qwen--Qwen2.5-Coder-32B-Instruct"
+      ],
+      "P3": [
+        "Qwen--Qwen2.5-Coder-7B-Instruct",
+        "deepseek-ai--deepseek-coder-1.3b-instruct",
+        "deepseek-ai--deepseek-coder-33b-instruct",
+        "deepseek-ai--deepseek-coder-6.7b-instruct"
+      ]
+    },
+    "dir_to_heldout_inferred": {
+      "Qwen--Qwen2.5-Coder-1.5B-Instruct": "Qwen--Qwen2.5-Coder-7B-Instruct",
+      "Qwen--Qwen2.5-Coder-14B-Instruct": "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "Qwen--Qwen2.5-Coder-32B-Instruct": "deepseek-ai--deepseek-coder-33b-instruct",
+      "Qwen--Qwen2.5-Coder-7B-Instruct": "deepseek-ai--deepseek-coder-6.7b-instruct",
+      "codellama--CodeLlama-13b-Instruct-hf": "codellama--CodeLlama-13b-Instruct-hf",
+      "codellama--CodeLlama-34b-Instruct-hf": "codellama--CodeLlama-34b-Instruct-hf",
+      "codellama--CodeLlama-70b-Instruct-hf": "codellama--CodeLlama-70b-Instruct-hf",
+      "codellama--CodeLlama-7b-Instruct-hf": "codellama--CodeLlama-7b-Instruct-hf",
+      "deepseek-ai--deepseek-coder-1.3b-instruct": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+      "deepseek-ai--deepseek-coder-33b-instruct": "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "deepseek-ai--deepseek-coder-6.7b-instruct": "Qwen--Qwen2.5-Coder-32B-Instruct"
+    },
+    "server_partition": {
+      "P1": [
+        "codellama--CodeLlama-13b-Instruct-hf",
+        "codellama--CodeLlama-34b-Instruct-hf",
+        "codellama--CodeLlama-70b-Instruct-hf",
+        "codellama--CodeLlama-7b-Instruct-hf"
+      ],
+      "P2": [
+        "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+        "Qwen--Qwen2.5-Coder-14B-Instruct",
+        "Qwen--Qwen2.5-Coder-32B-Instruct",
+        "Qwen--Qwen2.5-Coder-7B-Instruct"
+      ],
+      "P3": [
+        "deepseek-ai--deepseek-coder-1.3b-instruct",
+        "deepseek-ai--deepseek-coder-33b-instruct",
+        "deepseek-ai--deepseek-coder-6.7b-instruct"
+      ]
+    }
+  },
+  "adjudication": {
+    "verdict": "not_aligned_but_official_map_supported",
+    "exact_c0_alignment_status": "not_aligned",
+    "old_local_p0_reference_status": "map_consistent_but_spec_and_per_fold_provenance_incomplete",
+    "server_structure_finding_status": "heuristic_score_block_inference; not sufficient to overrule source_and_label_order",
+    "cause_identified": "false",
+    "most_specific_explanation": "The current admission map is reproduced exactly by the registered command, source code, stored y vectors, and stored task order. Continuous score differences remain unexplained by the retained per-fold specification; the 7-cycle is not established as the historical training map.",
+    "paper_use": "Do not use old local scores as an exact aligned P0; may use them as map-consistent historical diagnostics with the provenance caveat.",
+    "c1_c3_interpretation": "Server-internal development diagnostics; common-block comparison is not confirmation until component specs and per-fold manifests are aligned.",
+    "rerun_required": true
+  },
+  "next_action": {
+    "type": "fresh_train_dev_reconstruction_only",
+    "must_write_per_fold": [
+      "effective_series_map_sha256",
+      "heldout_member",
+      "heldout_series",
+      "fit_member_ids",
+      "eval_member_ids",
+      "positive_row_sha256",
+      "negative_row_sha256",
+      "train_row_sha256",
+      "eval_task_sha256",
+      "component_specs",
+      "code_commit"
+    ],
+    "must_not_do": [
+      "test_read",
+      "generation",
+      "weight_download",
+      "code_execution",
+      "directory_rename_repair"
+    ],
+    "stop_after": "fresh C0 alignment; rerun C1-C3 only if the fresh C0 is aligned"
+  },
+  "source_code_evidence": {
+    "registered_command_path": "artifacts/attribution_method_design_2026-10-09/public_series_member_ho_v2/commands.txt",
+    "registered_command_declares_current_admission": true,
+    "script_sha256": {
+      "scripts/attribution_family_member_ho.py": "b2870c1b6e7cf19ad39d0caddcec3ed9a4dfe4db5f0db01d902b98bada63fc58",
+      "scripts/attribution_family_metric.py": "88db1b3ebf19c5bafbf747ce0f5fc538e21eaea0367b6f2ed99f0f2639acde7e",
+      "scripts/audit_public_full_p0_local.py": "e65ad9e9099569d33c62eac514ce73c3fac5d59b322c22dbc514d7079679d29e"
+    },
+    "rule": "attribution_family_metric.py maps each member to the supplied admission series and audit_public_full_p0_local.py constructs dv_keys with m==heldout or series_map[m]!=series_map[heldout]",
+    "direct_result": "all 11 stored y vectors and task arrays exactly match the current official admission reconstruction",
+    "interpretation": "The edf3813 7-cycle is a score-block heuristic finding, not independently established historical fold provenance."
+  }
+}

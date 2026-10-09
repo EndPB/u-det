@@ -1,0 +1,3 @@
+python - << audit provenance
+Inputs: current family_series_admission.json, public_series_member_ho_v2/*.npz/config.json, edf3813 structure_findings.json
+No test rows read; no training; no generation; no weights; no code execution.

@@ -1,0 +1,73 @@
+{
+  "schema": "code_conditioned_fresh_c0_protocol_v1",
+  "status": "prepared_not_executed",
+  "source_status": "server_reconstruction_only",
+  "original_bundle_verified": false,
+  "admission_path": "artifacts\\public_full_followup_2026-10-08\\family_series_admission.json",
+  "admission_sha256": "cc4a77851702e0bbf57e50636744ad25b572da9a665148b2b76179236b0bdfae",
+  "series": {
+    "CodeLlama-Instruct": [
+      "codellama--CodeLlama-13b-Instruct-hf",
+      "codellama--CodeLlama-34b-Instruct-hf",
+      "codellama--CodeLlama-70b-Instruct-hf",
+      "codellama--CodeLlama-7b-Instruct-hf"
+    ],
+    "Qwen2.5-Coder-Instruct": [
+      "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+      "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "Qwen--Qwen2.5-Coder-32B-Instruct",
+      "Qwen--Qwen2.5-Coder-7B-Instruct"
+    ],
+    "DeepSeek-Coder-v1-Instruct": [
+      "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "deepseek-ai--deepseek-coder-33b-instruct",
+      "deepseek-ai--deepseek-coder-6.7b-instruct"
+    ]
+  },
+  "fold_definition": {
+    "heldout_order": [
+      "codellama--CodeLlama-13b-Instruct-hf",
+      "codellama--CodeLlama-34b-Instruct-hf",
+      "codellama--CodeLlama-70b-Instruct-hf",
+      "codellama--CodeLlama-7b-Instruct-hf",
+      "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+      "Qwen--Qwen2.5-Coder-14B-Instruct",
+      "Qwen--Qwen2.5-Coder-32B-Instruct",
+      "Qwen--Qwen2.5-Coder-7B-Instruct",
+      "deepseek-ai--deepseek-coder-1.3b-instruct",
+      "deepseek-ai--deepseek-coder-33b-instruct",
+      "deepseek-ai--deepseek-coder-6.7b-instruct"
+    ],
+    "fit_member_rule": "all member ids except heldout member",
+    "eval_member_rule": "heldout member dev rows plus dev rows from series != heldout series",
+    "positive_rule": "heldout member dev rows only",
+    "negative_rule": "all other eval rows",
+    "task_split": "existing 798 train / 171 dev; test excluded"
+  },
+  "per_fold_required_fields": [
+    "effective_series_map_sha256",
+    "heldout_member",
+    "heldout_series",
+    "fit_member_ids",
+    "eval_member_ids",
+    "positive_row_sha256",
+    "negative_row_sha256",
+    "train_row_sha256",
+    "eval_task_sha256",
+    "component_specs",
+    "code_commit"
+  ],
+  "alignment_gate": {
+    "row_score_max_abs": 0.001,
+    "metric_abs": 0.001,
+    "all_fold_effective_map_logged": true
+  },
+  "switches": {
+    "training_allowed": true,
+    "test_read_allowed": false,
+    "generation_allowed": false,
+    "weights_downloaded": false,
+    "code_execution": false
+  },
+  "next_step": "run fresh C0 only; C1-C3 require aligned=true"
+}
