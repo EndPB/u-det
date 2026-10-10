@@ -1,0 +1,140 @@
+{
+ "schema": "code_conditioned_v3_scorerow_handoff_v1",
+ "date": "2026-10-10",
+ "guidance_ref": "…指导_2026-10-09.md §14; ACL §56 (本机裁定：cross_side_score_pending，只缺逐行分数数组)",
+ "source_commit_at_handoff": "36b4b4b43fb7e86cd7583d2e381a743f0670588c",
+ "source_run": "code_conditioned_fresh_c0_canonical_2026-10-10 (v3 spec, OMP_NUM_THREADS=8)",
+ "files": {
+  "scores_dev_foldQwen_Qwen2.5-Coder-1.5B-Instruct.npz": {
+   "sha256": "8cf8a20203bfcea2f95b03b0c87235c2703de3af7fb57662aff3d1d51a98afcc",
+   "bytes": 337297
+  },
+  "scores_dev_foldQwen_Qwen2.5-Coder-14B-Instruct.npz": {
+   "sha256": "25c873359c1bcde0a380974ef210bd30bccad95d043158742a71051e6026bb37",
+   "bytes": 337447
+  },
+  "scores_dev_foldQwen_Qwen2.5-Coder-32B-Instruct.npz": {
+   "sha256": "3e9c47b4022c1d154ba219b1adb36ac83cf653bf34d0c47c4fab8743e12474e1",
+   "bytes": 336241
+  },
+  "scores_dev_foldQwen_Qwen2.5-Coder-7B-Instruct.npz": {
+   "sha256": "a2c2a908d83be467d971460895cdc44c354676020e447f1483be8a6559d9e20e",
+   "bytes": 336324
+  },
+  "scores_dev_foldcodellama_CodeLlama-13b-Instruct-hf.npz": {
+   "sha256": "694c507114a028b943756917fb6cfb46170c3e9cd0ee5cbce635cbb5d31b7b6f",
+   "bytes": 337869
+  },
+  "scores_dev_foldcodellama_CodeLlama-34b-Instruct-hf.npz": {
+   "sha256": "49d6665eb1da4f7fc1e3db58392460b7a3655875de5eb06825d7bdb8e7d327b3",
+   "bytes": 337884
+  },
+  "scores_dev_foldcodellama_CodeLlama-70b-Instruct-hf.npz": {
+   "sha256": "6a0bc50d06f04c260a3f38a64749cd7851d1a72cb576933610579ad93fe0cfea",
+   "bytes": 337739
+  },
+  "scores_dev_foldcodellama_CodeLlama-7b-Instruct-hf.npz": {
+   "sha256": "0512ce79d611be42edfa1d6ab121d3f87847af2a490df8f5b7b4748af9e95655",
+   "bytes": 336845
+  },
+  "scores_dev_folddeepseek-ai_deepseek-coder-1.3b-instruct.npz": {
+   "sha256": "563b2557cbbd49f590f234b0f9cf528a5a17c25311dfe45b2d9aa23d9d125a0e",
+   "bytes": 342715
+  },
+  "scores_dev_folddeepseek-ai_deepseek-coder-33b-instruct.npz": {
+   "sha256": "89903f289a09fd792141846a2060df9693d17567f6139fddf6ca4b8360b914e8",
+   "bytes": 343251
+  },
+  "scores_dev_folddeepseek-ai_deepseek-coder-6.7b-instruct.npz": {
+   "sha256": "02480afb1207f55d96288973bf21712289a53f4b5012bbaf7401b230517fc9f6",
+   "bytes": 343500
+  },
+  "scores_inner_foldQwen_Qwen2.5-Coder-1.5B-Instruct.npz": {
+   "sha256": "2cb5baacc20e6636998ef6a43f70f3673c0fc54237e198361d8fd6e4318bfdaa",
+   "bytes": 279664
+  },
+  "scores_inner_foldQwen_Qwen2.5-Coder-14B-Instruct.npz": {
+   "sha256": "d662f8d9e841299a6d3e4bcec9fdeedf747c5bc232e80b149fe05bcc328162ea",
+   "bytes": 279636
+  },
+  "scores_inner_foldQwen_Qwen2.5-Coder-32B-Instruct.npz": {
+   "sha256": "2b18879cf9b38579c740e7671b0166da72856e983081dad5470e0d6168692775",
+   "bytes": 278902
+  },
+  "scores_inner_foldQwen_Qwen2.5-Coder-7B-Instruct.npz": {
+   "sha256": "6af9a4e5d893bc4e627a85abc3b573a4fd76997173d0b78c56c3a660c459ff12",
+   "bytes": 279005
+  },
+  "scores_inner_foldcodellama_CodeLlama-13b-Instruct-hf.npz": {
+   "sha256": "eaa0608e20833859d25dc78c0b1490854eb514068afab4da01b604ccbac4d759",
+   "bytes": 279373
+  },
+  "scores_inner_foldcodellama_CodeLlama-34b-Instruct-hf.npz": {
+   "sha256": "08f460c10062b3e0621f88eb1473e6f01ec57b6307c75b6275965ceca6b0fd3e",
+   "bytes": 279470
+  },
+  "scores_inner_foldcodellama_CodeLlama-70b-Instruct-hf.npz": {
+   "sha256": "5b372b85eef3b3eccad47b9742f73cc2cca27a274434113239369a486184fcfb",
+   "bytes": 279421
+  },
+  "scores_inner_foldcodellama_CodeLlama-7b-Instruct-hf.npz": {
+   "sha256": "fbd0c6d0f65ebd38294ff170c20f826c6aaa06a19495d89cfdd41103146e3d75",
+   "bytes": 278953
+  },
+  "scores_inner_folddeepseek-ai_deepseek-coder-1.3b-instruct.npz": {
+   "sha256": "c6ad6baa89f7d0b0992c9b89ad5aad99f053bce0ad7014d070a3b4ed784cd201",
+   "bytes": 283749
+  },
+  "scores_inner_folddeepseek-ai_deepseek-coder-33b-instruct.npz": {
+   "sha256": "ca7a55a1b1a669f8d1e7a61f911f7d267af61ba6cd572166ebf7eae04b2c8dfd",
+   "bytes": 284037
+  },
+  "scores_inner_folddeepseek-ai_deepseek-coder-6.7b-instruct.npz": {
+   "sha256": "35ab12ca15d0eedbc4cf7fecc50cdf953e9982f1bb2e52ef5e81e3fcbd44ddf9",
+   "bytes": 284162
+  }
+ },
+ "n_files": 22,
+ "arrays_per_file": [
+  "ev_rows",
+  "y",
+  "taskpos",
+  "fused",
+  "s_semantic",
+  "s_char_tfidf",
+  "s_word_tfidf",
+  "s_style_meta",
+  "t_rows",
+  "t_fused",
+  "t_s_semantic",
+  "t_s_char_tfidf",
+  "t_s_word_tfidf",
+  "t_s_style_meta"
+ ],
+ "ordering": {
+  "eval_rows": "taskpos-sorted order (blocks = ASCII-sorted eval member order; rows within block in sorted dev task order); ev_rows are indices into the 10,659-row records_train_dev.jsonl order",
+  "train_arrays": "fit-row index order (t_rows gives the row indices)",
+  "join_key": "ev_rows (unique) — join server/local arrays on ev_rows for element-wise comparison"
+ },
+ "digest_verification": {
+  "convention": "sha256 over C-contiguous float64 bytes",
+  "checked": 286,
+  "passed": 286,
+  "detail": "all fused + s_* + t_s_* digests and fused_stats equal the values in code_conditioned_fresh_c0_canonical_2026-10-10/score_digests.json (dev+inner, 11 folds each)"
+ },
+ "runtime_attestation": {
+  "python": "3.12.14",
+  "numpy": "2.2.6",
+  "sklearn": "1.9.1",
+  "omp_num_threads": "8"
+ },
+ "scope": "train/dev per-row score arrays only; no test data, no weights, no generation assets, no raw corpus",
+ "switches": {
+  "training_allowed": true,
+  "test_read_allowed": false,
+  "generation_allowed": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ },
+ "gate": "compute row_score_max_abs AND metric_abs server-vs-local; both <= 1e-3 closes the gate (guidance §13/§14)"
+}

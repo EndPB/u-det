@@ -289,3 +289,9 @@ row_mapping_sha256 = sha256(model_id + "|" + task_id + "|" + split + "|" + solut
 3. `features/feature_member_order_check.json`。
 
 三者应分别匹配 SHA `d05f8c89…`、`aaef7b47…`、`11428bf8…`。不补传 test、权重、生成资产或原始语料。替换后本机按 v3 重新运行 C0，并同时检查逐行 score max absolute difference 与 metric absolute difference；两者均不超过 `1e-3` 才关闭闸门。
+
+## 14. v3 补交包本机对账结果（2026-10-10）
+
+三件 feature 文件已按补交包 SHA-256 核验并覆盖本机。canonical C0 在本机 OMP=8 下重跑成功；11/11 映射、词表和 fold-fit 审计通过。dev 指标差均小于 `1e-3`，但服务器未提供逐行 score 数组，且本机/服务器 digest 未逐字段相等，因此不得把 `row_score_max_abs <= 1e-3` 写成已验证。状态保持 `cross_side_score_pending`；C1–C3、test、生成和权重操作继续禁止。
+
+本轮审计：`artifacts/code_conditioned_v3_bundle_local_alignment_2026-10-10/`。

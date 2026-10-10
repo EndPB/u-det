@@ -1,0 +1,6 @@
+source handoff: 36b4b4b
+source bundle: 53524e7
+replace local features with the three handoff files
+set OMP_NUM_THREADS=8; MKL_NUM_THREADS=8; OPENBLAS_NUM_THREADS=8
+run .codex-local-runtime/c0-v3/Scripts/python.exe scripts/cc_fresh_c0_canonical_local_omp8.py
+compare metrics.json and score_digests.json to server_reference

@@ -1,0 +1,210 @@
+{
+  "schema": "code_conditioned_v3_bundle_local_alignment_v1",
+  "date": "2026-10-10",
+  "source_handoff_commit": "36b4b4b",
+  "source_bundle_commit": "53524e7",
+  "scope": {
+    "train_dev_only": true,
+    "test_read": false,
+    "generation": false,
+    "weights_downloaded": false,
+    "code_execution": false
+  },
+  "handoff_files": {
+    "bundle.npz": {
+      "sha256": "d05f8c899d771e0572fb3e1756e06810ef5919cd9a2aac5d598e2bbc7caac19a",
+      "bytes": 21477099
+    },
+    "features_manifest.json": {
+      "sha256": "aaef7b4716c1821780719ba18415351abcdb7abbb793ba3c619bfc8a18fae507",
+      "bytes": 3348
+    },
+    "feature_member_order_check.json": {
+      "sha256": "11428bf8f88dea0e44fbdf434f60a074138af70685d17dab8b105ade66d422e2",
+      "bytes": 2445
+    }
+  },
+  "mapping_checks": {
+    "members_order_sha256": "1afd29b6c240095269cb5f498302a0e07143e7b286869a47431872a2b2629175",
+    "row_mapping_sha256": "b38a41e492493d85b84f2d52f0531c4e8d45663ab297d70651b16f0ca00c53fd",
+    "fit_text_equal_folds": 11,
+    "vocab_equal_folds": 11,
+    "heldout_train_eval_hash_equal_folds": 11
+  },
+  "runtime": {
+    "local_python": "3.12.3",
+    "local_numpy": "2.2.6",
+    "local_sklearn": "1.9.1",
+    "local_omp": "8",
+    "server_python": "3.12.14",
+    "server_numpy": "2.2.6",
+    "server_sklearn": "1.9.1",
+    "server_platform": "Linux",
+    "server_omp": "8"
+  },
+  "metrics": {
+    "dev": {
+      "local_row": 0.9442012238641972,
+      "server_row": 0.9441920080193394,
+      "row_abs_diff": 9.215844857801692e-06,
+      "local_task_macro": 0.9585421888053467,
+      "server_task_macro": 0.9585421888053467,
+      "task_abs_diff": 0.0,
+      "local_pooled": 0.9426787885005798,
+      "server_pooled": 0.9426651090778515,
+      "pooled_abs_diff": 1.3679422728340995e-05,
+      "max_fold_row_abs_diff": 5.9847474436547365e-05,
+      "max_fold_task_abs_diff": 0.0,
+      "folds": [
+        {
+          "member": "codellama--CodeLlama-13b-Instruct-hf",
+          "row_abs_diff": 0.0,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "codellama--CodeLlama-34b-Instruct-hf",
+          "row_abs_diff": 1.4656524351841504e-05,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "codellama--CodeLlama-70b-Instruct-hf",
+          "row_abs_diff": 0.0,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "codellama--CodeLlama-7b-Instruct-hf",
+          "row_abs_diff": 1.4656524351841504e-05,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+          "row_abs_diff": 5.3740589289974494e-05,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+          "row_abs_diff": 0.0,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+          "row_abs_diff": 0.0,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+          "row_abs_diff": 3.908406493813299e-05,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+          "row_abs_diff": 1.7099278410426244e-05,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "deepseek-ai--deepseek-coder-33b-instruct",
+          "row_abs_diff": 5.9847474436547365e-05,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+          "row_abs_diff": 5.129783523127873e-05,
+          "task_abs_diff": 0.0
+        }
+      ]
+    },
+    "inner": {
+      "local_row": 0.9491587285633204,
+      "server_row": 0.9491414136721761,
+      "row_abs_diff": 1.7314891144315503e-05,
+      "local_task_macro": 0.9667993297025557,
+      "server_task_macro": 0.9665898617511522,
+      "task_abs_diff": 0.00020946795140341923,
+      "local_pooled": 0.9445454397644499,
+      "server_pooled": 0.9445306587598146,
+      "pooled_abs_diff": 1.4781004635366912e-05,
+      "max_fold_row_abs_diff": 0.00017652742678753164,
+      "max_fold_task_abs_diff": 0.0011520737327188613,
+      "folds": [
+        {
+          "member": "codellama--CodeLlama-13b-Instruct-hf",
+          "row_abs_diff": 4.6454585996724695e-05,
+          "task_abs_diff": 0.0011520737327188613
+        },
+        {
+          "member": "codellama--CodeLlama-34b-Instruct-hf",
+          "row_abs_diff": 9.290917199367144e-06,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "codellama--CodeLlama-70b-Instruct-hf",
+          "row_abs_diff": 3.716366879735755e-05,
+          "task_abs_diff": 0.0011520737327188613
+        },
+        {
+          "member": "codellama--CodeLlama-7b-Instruct-hf",
+          "row_abs_diff": 0.0,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "Qwen--Qwen2.5-Coder-1.5B-Instruct",
+          "row_abs_diff": 1.8581834398734287e-05,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "Qwen--Qwen2.5-Coder-14B-Instruct",
+          "row_abs_diff": 6.503642039545898e-05,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "Qwen--Qwen2.5-Coder-32B-Instruct",
+          "row_abs_diff": 0.00017652742678753164,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "Qwen--Qwen2.5-Coder-7B-Instruct",
+          "row_abs_diff": 1.8581834398734287e-05,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "deepseek-ai--deepseek-coder-1.3b-instruct",
+          "row_abs_diff": 2.4388657648310996e-05,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "deepseek-ai--deepseek-coder-33b-instruct",
+          "row_abs_diff": 2.4388657648310996e-05,
+          "task_abs_diff": 0.0
+        },
+        {
+          "member": "deepseek-ai--deepseek-coder-6.7b-instruct",
+          "row_abs_diff": 3.251821019767398e-05,
+          "task_abs_diff": 0.0
+        }
+      ]
+    }
+  },
+  "score_digest_comparison": {
+    "dev": {
+      "equal_fields": 0,
+      "total_fields": 99,
+      "all_equal": false
+    },
+    "inner": {
+      "equal_fields": 0,
+      "total_fields": 99,
+      "all_equal": false
+    }
+  },
+  "gate": {
+    "mapping": "pass",
+    "dev_metric_abs_le_1e-3": true,
+    "dev_fold_metric_abs_le_1e-3": true,
+    "inner_metric_abs_le_1e-3": false,
+    "row_score_max_abs": "not_observable_server_arrays_not_published",
+    "strict_aligned": false,
+    "status": "cross_side_score_pending",
+    "reason": "server score_digests are not equal to local digests and server-side per-row score arrays are absent; platform/runtime differences prevent a row-level max bound"
+  },
+  "next_minimal_material": "server-side train/dev per-row score arrays for the 11 canonical folds (compressed, no test rows), or a matched-runtime rerun; do not rerun C1-C3 before row gate closes"
+}
