@@ -1,7 +1,7 @@
 {
   "schema": "h3_gpu_diagnostic_batch_manifest_v1",
   "status": "diagnostic_only_formal_h3_gate_remains_revise_data",
-  "code_commit_required": "16147c4",
+  "code_commit_required": "98a9f79",
   "script": "scripts/h3_gpu_diagnostic_batch_2026_10_11.py",
   "data_root": "d-det/data/h3_stacad_revision_v1",
   "data": {
