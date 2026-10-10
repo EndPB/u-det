@@ -8,6 +8,5 @@
   "remote_received_path": "/root/autodl-tmp/handoffs/autodl_h3_v3_hardneg_handoff_2026-10-11_received/",
   "gate": "revise_data",
   "formal_gpu_ready": false,
-  "test_deserialized": false,
-  "server_commit": "2061bd6c8ad5bd995456d7580e0a70ce40967614"
+  "test_deserialized": false
 }
