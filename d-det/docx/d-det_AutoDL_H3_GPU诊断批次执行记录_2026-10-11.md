@@ -54,10 +54,13 @@ CUDA 训练，非文件核验。
 - `metrics.json`（24 runs + 聚合 + 数据/模型哈希 + 设备）、`run_manifest.json`、
   `run.log.txt`、`gpu_utilization.csv`、`commands.txt`、`git_head.txt`；
   回传 tar：`/tmp/h3_gpu_diagnostic_batch_2026-10-11.tar.gz`
-  sha256 `56c5e944b0b9bef91b8306a1c0a79c000e90a2a134e02b6a21b1e3079290bd5a`（7 件）。
+  sha256 `a4cbc1ff85c314ad8e6953b0d4eac025a65b8d9dd6dfea1ecb7e24200811c23b`（7 件；监控进程终止后重打包，csv 与仓库一致）。
 - 仓库提交推送为正式回传；本地另存 tar 供直接下载。
 
 ## 6. 备注
 
 - 执行前工作树中的三份未跟踪草稿与钉版内容一致（清单仅排版差异），已备份 `/tmp/h3_draft_backup/`；
   以仓库钉版为准。
+- GPU 监控进程因复合命令后台化（`mkdir && nvidia-smi &`）延迟停止：kill 命中的是子壳、
+  nvidia-smi 成为孤儿并继续追加 CSV；已按 PID 强制终止并重打包，`gpu_utilization.csv`
+  冻结为 18 行（运行段 + 回归空闲）。
