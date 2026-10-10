@@ -1,15 +1,15 @@
 # AutoDL 当前交接指南
 
-版本：2026-10-10  
+版本：2026-10-10（本轮修订：C0–C3 主线关闭，转 H3 数据修订）  
 项目：`u-det` / `d-det`  
-闸门运行代码：`a65158f83434521acaec3380e5b10a6f94b80b3a`；当前 GitHub/AutoDL HEAD：`e53293ed6a9ed67ad071d75f4e9430228f56d07d`  
+闸门运行代码：`a65158f83434521acaec3380e5b10a6f94b80b3a`；主线批次运行代码 `ba2f2502fcdd137024ccfda81633c25b172c8d27`，结果 HEAD `a679f1433048a20e89e07a7a8f90d044525221d8`  
 当前服务器：SSH 可达，实机有 RTX 3080 Ti。本指南只在需要较大显存或长时间 GPU 批处理时交给 AutoDL；CPU 友好、小显存和数据准备任务由本机直接完成，不需要等待服务器或额外通知。
 
 ## 1. 当前目标
 
-把本地已经准备好的 STACAD 同题 Human/AI 候选数据和可迭代研究文档交给服务器，为 H3 做数据闸门。H3 的 detection head 使用真实 `human_or_ai`；AI 子集才使用 observed source/generator head。BCC 的 complete/instruct、Droid 和 CoDET-M4 不得拼成同题人机检测。
+当前只推进两件事：**H3 数据侧修订（本机）**与**新的有效主线（预注册）**，不重复 C0–C3。H3 的 detection head 使用真实 `human_or_ai`；AI 子集才使用 observed source/generator head。BCC 的 complete/instruct、Droid 和 CoDET-M4 不得拼成同题人机检测。
 
-主线 C0–C3 不再等待微小跨平台对齐差异：按已声明容差视为 aligned，立即进入一次性 GPU 批次。H3 的正式 Human/AI/source 主结果仍受 `revise_data` 闸门约束；在闸门通过前不把 H3 写成正式主结论。两条线都不读旧 test、不执行样本代码，且不下载与当前批次无关的大权重。
+主线 C0–C3 已完成一次性 GPU 批次（运行于 `ba2f250`，结果提交 `a679f14`）并**关闭**：不再重跑，也不再通过增加容量、温度或损失项补救；批次结论 `code_conditioned_increment_not_observed`（canonical 复核，diagnostic）不受 H3 `revise_data` 影响。H3 的正式 Human/AI/source 主结果仍受 `revise_data` 闸门约束；在闸门通过前不把 H3 写成正式主结论。两条线都不读旧 test、不执行样本代码，且不下载与当前批次无关的大权重。
 
 ## 2. 本地优先完成的工作
 
@@ -47,7 +47,7 @@ print('disk_free_bytes', shutil.disk_usage('.').free)
 PY
 ```
 
-确认代码 HEAD 是当前批次声明的提交（当前主线为 `e53293e...`）；闸门历史产物使用 `a65158f...`，不得混用。不要把服务器旧分支当本地最新。检查交接包：
+确认代码 HEAD 是当前批次声明的提交（主线批次运行于 `ba2f250...`、结果提交 `a679f14...`；H3 新批次以届时声明为准）；闸门历史产物使用 `a65158f...`，不得混用。不要把服务器旧分支当本地最新。检查交接包：
 
 ```bash
 python - <<'PY'
@@ -112,7 +112,7 @@ H3 正式训练前必须同时满足：task/project/generator/solution cluster �
 
 `batch_manifest.json` 至少列出 `data_sha256`、`code_commit`、`fold`、`seed`、`model_variant`、`resource_request`、`output_dir` 和 `test_read=false`。AutoDL 按清单执行完全部 job 后再统一回传，不临时增加未预注册配置。
 
-当前 H3 数据仍为 `revise_data`，但这不阻塞 C0–C3 主线批次；长度平衡、七语言 parser/变体和重复裁定由本机并行完成。H3 GPU 配置等闸门通过后再加入后续批次。
+当前 H3 数据仍为 `revise_data`；长度平衡、七语言 parser/变体和重复裁定由本机完成。C0–C3 主线批次已完成关闭（结果提交 `a679f14`），不再重跑；H3 GPU 配置等闸门通过后再加入后续批次。
 
 ## 8. 结果交付格式
 
@@ -142,7 +142,7 @@ SHA256SUMS.txt  logs/       predictions-or-score-digests/
 
 Python 60-task 变体 smoke 的 accepted 样本 AST 保真率为 `1.0`；跨任务仅有两组骨架重复、各 6 行，其中一组跨 train/dev，需先排除或人工裁定。非 Python 语言的 AST/骨架审计和七语言全量变体属于本机直接完成的准备任务，不应拆成 AutoDL 小任务。
 
-下一步分开执行：C0–C3 主线立即批量运行；本地按 `label × generator × language × 长度桶` 平衡，完成七语言 parser/变体并处理两组跨任务重复；H3 仍保留 `.9261` lexical-only 强控制，只有其数据闸门通过且相对 lexical 有预注册增量时才进入 H3 主结果。
+C0–C3 主线批次已完成并关闭（结果提交 `a679f14`；结论 `code_conditioned_increment_not_observed`，证据 `artifacts/mainline_c0c3_batch_2026-10-10/`），**不再重跑**。下一步只推进两件事：本机完成 H3 数据侧修订（按 `label × generator × language × 长度桶` 平衡、七语言 parser/变体、两组跨任务骨架重复裁定）；在修订数据上预注册新的有效主线。H3 仍保留 `.9261` lexical-only 强控制，只有其数据闸门通过且相对 lexical 有预注册增量时才进入 H3 主结果。
 
 ## 9. 明确禁止
 
