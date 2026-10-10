@@ -1,7 +1,7 @@
 # AutoDL H3 v4 hard-negative 接收回执
 
 - package: `autodl_h3_v4_hardneg_handoff_2026-10-11_upload.zip`
-- sha256: `551fa66f2290a67e3f760166274b15996a6d72a6cdd1dbaa559b20f9ac0944a4`
+- sha256: `7a902f9c6f1e14dd23e3c40596a3bfb9355a4d0174c9ab8c9673cfad069a24b7`
 - remote archive: `/root/autodl-tmp/handoffs/autodl_h3_v4_hardneg_handoff_2026-10-11_upload.zip`
 - received directory: `/root/autodl-tmp/handoffs/autodl_h3_v4_hardneg_handoff_2026-10-11_received/`
 - inner SHA256SUMS: 16/16 OK

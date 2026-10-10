@@ -18,6 +18,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 import numpy as np
+import scipy
+import sklearn
 from scipy.optimize import LinearConstraint, Bounds, milp
 from scipy.sparse import lil_matrix
 
@@ -126,7 +128,7 @@ def main() -> None:
     c = metrics["clean_dev_reference"]
     (OUT / "report.md").write_text(f"""# H3 v4 quota-constrained hard-negative CPU revision\n\n`project_provenance=unavailable`; this is a task-heldout diagnostic view.\n\n| view | raw task-macro | masked task-macro | length task-macro |\n|---|---:|---:|---:|\n| untouched clean-dev | {c['raw']['task_macro_auroc']:.4f} | {c['masked']['task_macro_auroc']:.4f} | {c['length']['task_macro_auroc']:.4f} |\n| hard-negative v4 | {m['raw']['task_macro_auroc']:.4f} | {m['masked']['task_macro_auroc']:.4f} | {m['length']['task_macro_auroc']:.4f} |\n\nThe assignment is exact-quota and CPU-only.  A formal GPU manifest remains forbidden unless the project provenance and all pre-registered gates are satisfied.\n""", encoding="utf-8")
     (OUT / "commands.txt").write_text("python scripts/h3_hardneg_revision_v4.py\n", encoding="utf-8")
-    (OUT / "env.json").write_text(json.dumps({"python": sys.version, "platform": platform.platform(), "numpy": np.__version__}, indent=2) + "\n", encoding="utf-8")
+    (OUT / "env.json").write_text(json.dumps({"python": sys.version, "platform": platform.platform(), "numpy": np.__version__, "scipy": scipy.__version__, "scikit_learn": sklearn.__version__}, indent=2) + "\n", encoding="utf-8")
     (OUT / "git_head.txt").write_text(subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip() + "\n", encoding="utf-8")
     write_sums(OUT)
     print(json.dumps(metrics, indent=2, sort_keys=True))
