@@ -1,0 +1,8 @@
+[12:42:18] license: CC BY 4.0=True MIT=True sha=0b19d7f0b820
+[12:42:26] scan: human=3180 ai=22260 py_parsed=3680 exact_inter=0 norm_inter=0 ast_skel_extra=807
+[12:42:28] variant smoke: sample_tasks=60 rows=480 comment_strip: acc 39/101; whitespace: acc 147/157; rename: acc 153/192
+[12:42:28] probe[metadata_only] task_macro=0.5000 CI=0.5000..0.5000 row=0.5000
+[12:42:29] probe[source_only] task_macro=0.5000 CI=0.5000..0.5000 row=0.5000
+[12:42:30] probe[length_only] task_macro=0.8459 CI=0.8287..0.8617 row=0.6069
+[12:43:33] probe[lexical_only] task_macro=0.9261 CI=0.9161..0.9350 row=0.7886
+[12:43:35] probe[ast_shape_only_py] task_macro=0.6486 CI=0.6064..0.6964 row=0.5671

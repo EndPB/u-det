@@ -1,0 +1,55 @@
+{
+ "schema": "h3_datagate_config_v1",
+ "seed": 20261010,
+ "bootstrap_B": 500,
+ "bootstrap_unit": "task",
+ "fit_split": "train",
+ "eval_split": "dev",
+ "test": "sealed for modeling (hash-level integrity use only)",
+ "probes": {
+  "metadata_only": {
+   "features": "language onehot + file_name length/digits/underscores",
+   "model": "LogisticRegression(max_iter=1000,C=1)"
+  },
+  "source_only": {
+   "features": "language onehot + blake2b(file_name)%64 bucket onehot",
+   "model": "LogisticRegression"
+  },
+  "length_only": {
+   "features": "n_chars,n_lines,n_nonblank,n_blank,max_line,mean_line,n_ws_tokens,n_space,n_tab",
+   "model": "LogisticRegression"
+  },
+  "lexical_only": {
+   "features": "char_wb(2,5) min_df=5 max_features=100000 + word(1,2) min_df=5 max_features=100000, sublinear, lowercase=False",
+   "model": "LinearSVC(C=1.0) decision_function"
+  },
+  "ast_shape_only_py": {
+   "features": "AST node-type histogram (normalized), Python rows only",
+   "model": "LogisticRegression"
+  },
+  "transform_only": {
+   "status": "not_run_no_variants"
+  }
+ },
+ "variant_smoke": {
+  "sample_tasks": 60,
+  "p": {
+   "comment_strip": 0.2,
+   "whitespace": 0.3,
+   "rename": 0.4
+  },
+  "languages": [
+   "py"
+  ],
+  "note": "server smoke; full multilang build = local side (tree_sitter absent on server)"
+ },
+ "environment": {
+  "python": "3.12.14",
+  "numpy": "2.2.6",
+  "sklearn": "1.9.1",
+  "scipy": "1.18.1",
+  "torch": "2.9.1+cu128",
+  "tree_sitter": false,
+  "omp_num_threads": 8
+ }
+}

@@ -1,0 +1,63 @@
+{
+ "note": "char-length diagnostics on train (not a model)",
+ "per_language": {
+  "c": {
+   "n_tasks": 300,
+   "human_median_chars": 2027.0,
+   "median_of_task_median_ai_over_human": 1.004,
+   "frac_human_shorter_than_all_ai": 0.137,
+   "frac_human_longer_than_all_ai": 0.083
+  },
+  "cpp": {
+   "n_tasks": 300,
+   "human_median_chars": 2382.5,
+   "median_of_task_median_ai_over_human": 0.993,
+   "frac_human_shorter_than_all_ai": 0.083,
+   "frac_human_longer_than_all_ai": 0.107
+  },
+  "cs": {
+   "n_tasks": 300,
+   "human_median_chars": 1873.5,
+   "median_of_task_median_ai_over_human": 0.98,
+   "frac_human_shorter_than_all_ai": 0.08,
+   "frac_human_longer_than_all_ai": 0.117
+  },
+  "go": {
+   "n_tasks": 300,
+   "human_median_chars": 1711.0,
+   "median_of_task_median_ai_over_human": 1.001,
+   "frac_human_shorter_than_all_ai": 0.083,
+   "frac_human_longer_than_all_ai": 0.073
+  },
+  "java": {
+   "n_tasks": 300,
+   "human_median_chars": 1872.0,
+   "median_of_task_median_ai_over_human": 0.997,
+   "frac_human_shorter_than_all_ai": 0.063,
+   "frac_human_longer_than_all_ai": 0.123
+  },
+  "php": {
+   "n_tasks": 300,
+   "human_median_chars": 1722.5,
+   "median_of_task_median_ai_over_human": 0.972,
+   "frac_human_shorter_than_all_ai": 0.037,
+   "frac_human_longer_than_all_ai": 0.097
+  },
+  "py": {
+   "n_tasks": 300,
+   "human_median_chars": 1814.0,
+   "median_of_task_median_ai_over_human": 1.001,
+   "frac_human_shorter_than_all_ai": 0.107,
+   "frac_human_longer_than_all_ai": 0.08
+  }
+ },
+ "per_generator_median_ratio": {
+  "claude_3_haiku": 1.006,
+  "deepseek_v3_2": 0.975,
+  "devstral_2512": 0.964,
+  "gemini_3_flash": 0.938,
+  "gpt5_nano": 1.003,
+  "grok_4_fast": 1.002,
+  "qwen3_coder_30b": 1.007
+ }
+}

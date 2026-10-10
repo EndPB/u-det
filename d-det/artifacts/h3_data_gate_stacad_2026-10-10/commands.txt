@@ -1,0 +1,20 @@
+# 实际执行命令（2026-10-10，AutoDL）
+cd /root/autodl-tmp/u-det
+# 0. 交接包校验（CRLF 剥离后）与迁移
+(cd handoff_2026-10-10/unpacked && tr -d '\r' < SHA256SUMS.txt | sha256sum -c -)   # 10/10 OK
+(cd handoff_2026-10-10 && tr -d '\r' < autodl_handoff_2026-10-10.zip.sha256 | sha256sum -c -)  # OK
+cp handoff_2026-10-10/unpacked/d-det/docx/*.md d-det/docx/
+cp handoff_2026-10-10/unpacked/scripts/*.py scripts/
+cp handoff_2026-10-10/unpacked/d-det/data/h2_stacad_alignment_v1/h2_stacad_alignment_v1_upload.zip d-det/data/h2_stacad_alignment_v1/
+# 元文件 -> d-det/artifacts/handoff_verify_2026-10-10/；随后移除壳目录
+# 1. 接收核对
+python - <<'PY'  # upload_hashes.json 逐文件 sha256+bytes（7/7 OK）
+PY
+unzip -t d-det/data/h2_stacad_alignment_v1/h2_stacad_alignment_v1_upload.zip   # OK
+unzip -q ... -d d-det/data/h2_stacad_alignment_v1_received/                    # 与 canonical 5 文件 SAME
+# 2. 交付审计脚本重跑（7/7 checks true；audit_index 复现 4c658ae0…）
+OMP_NUM_THREADS=8 /root/miniconda3/envs/udet/bin/python scripts/audit_stacad_alignment_v1.py
+# 3. 本轮数据闸门（去重 + 变体 smoke + probes）
+OMP_NUM_THREADS=8 /root/miniconda3/envs/udet/bin/python scripts/h3_datagate_stacad_2026-10-10.py
+# 4. 补充明细（AST 跨任务组裁定 + 长度诊断）
+OMP_NUM_THREADS=8 /root/miniconda3/envs/udet/bin/python <addendum heredoc>   # 见 python_ast_dedup_detail.json / length_diagnostics.json

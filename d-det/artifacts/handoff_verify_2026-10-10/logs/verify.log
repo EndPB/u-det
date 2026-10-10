@@ -1,0 +1,36 @@
+== handoff SHA256SUMS (CRLF stripped) ==
+sha256sum: d-det/docx/d-det_ACL总研究总结与可迭代路线_2026-10-10.md: No such file or directory
+d-det/docx/d-det_ACL总研究总结与可迭代路线_2026-10-10.md: FAILED open or read
+sha256sum: d-det/docx/d-det_AutoDL_H3数据构建与UIT-AMMC反捷径指导_2026-10-10.md: No such file or directory
+d-det/docx/d-det_AutoDL_H3数据构建与UIT-AMMC反捷径指导_2026-10-10.md: FAILED open or read
+sha256sum: AUTODL_AI_HANDOFF_GUIDE_2026-10-10.md: No such file or directory
+AUTODL_AI_HANDOFF_GUIDE_2026-10-10.md: FAILED open or read
+sha256sum: d-det/data/h2_stacad_alignment_v1/h2_stacad_alignment_v1_upload.zip: No such file or directory
+d-det/data/h2_stacad_alignment_v1/h2_stacad_alignment_v1_upload.zip: FAILED open or read
+sha256sum: d-det/data/h2_stacad_alignment_v1/upload_hashes.json: No such file or directory
+d-det/data/h2_stacad_alignment_v1/upload_hashes.json: FAILED open or read
+sha256sum: d-det/data/h2_stacad_alignment_v1/README.md: No such file or directory
+d-det/data/h2_stacad_alignment_v1/README.md: FAILED open or read
+sha256sum: d-det/data/h2_stacad_alignment_v1/split_manifest.json: No such file or directory
+d-det/data/h2_stacad_alignment_v1/split_manifest.json: FAILED open or read
+sha256sum: d-det/data/h2_stacad_alignment_v1/summary.json: No such file or directory
+d-det/data/h2_stacad_alignment_v1/summary.json: FAILED open or read
+sha256sum: scripts/audit_stacad_alignment_v1.py: No such file or directory
+scripts/audit_stacad_alignment_v1.py: FAILED open or read
+sha256sum: scripts/build_stacad_task_alignment_v1.py: No such file or directory
+scripts/build_stacad_task_alignment_v1.py: FAILED open or read
+sha256sum: WARNING: 10 listed files could not be read
+== outer zip ==
+autodl_handoff_2026-10-10.zip: OK
+
+== unpacked/ full sums check (CRLF stripped, cwd=unpacked) ==
+d-det/docx/d-det_ACL总研究总结与可迭代路线_2026-10-10.md: OK
+d-det/docx/d-det_AutoDL_H3数据构建与UIT-AMMC反捷径指导_2026-10-10.md: OK
+AUTODL_AI_HANDOFF_GUIDE_2026-10-10.md: OK
+d-det/data/h2_stacad_alignment_v1/h2_stacad_alignment_v1_upload.zip: OK
+d-det/data/h2_stacad_alignment_v1/upload_hashes.json: OK
+d-det/data/h2_stacad_alignment_v1/README.md: OK
+d-det/data/h2_stacad_alignment_v1/split_manifest.json: OK
+d-det/data/h2_stacad_alignment_v1/summary.json: OK
+scripts/audit_stacad_alignment_v1.py: OK
+scripts/build_stacad_task_alignment_v1.py: OK

@@ -1,0 +1,87 @@
+{
+ "rows_py": 3680,
+ "skeleton_groups_multi": 435,
+ "extra_copies": 807,
+ "span_histogram": {
+  "train|same_task": 278,
+  "dev|same_task": 95,
+  "test|same_task": 60,
+  "train|cross_task": 1,
+  "dev+train|cross_task": 1
+ },
+ "cross_task_or_cross_split_examples": [
+  {
+   "n_members": 6,
+   "splits": [
+    "train"
+   ],
+   "tasks": [
+    "stacad:py:17895_py6559.py",
+    "stacad:py:30467_py2520.py"
+   ],
+   "members": [
+    [
+     "human",
+     "stacad:py:17895_py6559.py"
+    ],
+    [
+     "human",
+     "stacad:py:30467_py2520.py"
+    ],
+    [
+     "claude_3_haiku",
+     "stacad:py:17895_py6559.py"
+    ],
+    [
+     "gemini_3_flash",
+     "stacad:py:17895_py6559.py"
+    ],
+    [
+     "grok_4_fast",
+     "stacad:py:17895_py6559.py"
+    ],
+    [
+     "claude_3_haiku",
+     "stacad:py:30467_py2520.py"
+    ]
+   ]
+  },
+  {
+   "n_members": 6,
+   "splits": [
+    "dev",
+    "train"
+   ],
+   "tasks": [
+    "stacad:py:53336_py4341.py",
+    "stacad:py:53344_py8939.py"
+   ],
+   "members": [
+    [
+     "human",
+     "stacad:py:53336_py4341.py"
+    ],
+    [
+     "human",
+     "stacad:py:53344_py8939.py"
+    ],
+    [
+     "claude_3_haiku",
+     "stacad:py:53336_py4341.py"
+    ],
+    [
+     "qwen3_coder_30b",
+     "stacad:py:53336_py4341.py"
+    ],
+    [
+     "claude_3_haiku",
+     "stacad:py:53344_py8939.py"
+    ],
+    [
+     "qwen3_coder_30b",
+     "stacad:py:53344_py8939.py"
+    ]
+   ]
+  }
+ ]
+}

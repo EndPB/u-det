@@ -1,0 +1,52 @@
+{
+ "schema": "h3_data_role_v1",
+ "dataset": "h2_stacad_alignment_v1",
+ "received_date": "2026-10-10",
+ "role": "H3 same-task Human/AI candidate + multilingual task control; NOT same-family positive pairs",
+ "counts": {
+  "tasks": 3180,
+  "human_rows": 3180,
+  "ai_rows": 22260,
+  "generators": 7,
+  "languages": 7,
+  "splits": {
+   "train": 2100,
+   "dev": 660,
+   "test": 420
+  }
+ },
+ "split_protocol": "file-level (lang:file_name; STACAD split_v1, val->dev); no task crosses splits (verified)",
+ "labels": {
+  "detection": "human (task_index.human_code) vs AI (core rows)",
+  "source": "generator/family on the AI subset (7 distinct-vendor generators)"
+ },
+ "positives_boundary": "same_task_cross_generator=66780, all cross-family; same_family_pairs=0 -> package cannot serve H2 same-family positives",
+ "license": {
+  "data_docs": "CC BY 4.0",
+  "code": "MIT",
+  "license_file": "d-det/data/stacad_v2/LICENSE",
+  "license_file_sha256": "0b19d7f0b820123bef487bde3f387373414fe12e03fd82c9785ab8eea9a68566",
+  "cc_by_4_0_mentioned": true,
+  "mit_mentioned": true,
+  "source_ref_preserved_all_rows": true
+ },
+ "integrity": {
+  "handoff_sha256sums": "10/10 OK (CRLF-stripped)",
+  "outer_zip_sha256": "fec…(checked) OK",
+  "upload_hashes": "7/7 OK",
+  "unzip_t": "OK",
+  "received_unpacked_equals_canonical": true,
+  "audit_script_rerun": {
+   "shipped_old_sha256": "11f959e5a3b8ec0a1af0b54bb714257c1639c69a4abfbd7a3a8691e45661e1b8",
+   "handoff_new_sha256": "4c658ae0a3c09166e897b67e173a842f9fca7cd57faafadc154ea473857a6ca5",
+   "server_rerun_sha256": "4c658ae0a3c09166e897b67e173a842f9fca7cd57faafadc154ea473857a6ca5",
+   "all_checks_true": true
+  }
+ },
+ "switches": {
+  "test_read_modeling": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ }
+}

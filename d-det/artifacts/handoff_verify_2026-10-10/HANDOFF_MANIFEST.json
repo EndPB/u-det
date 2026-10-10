@@ -1,0 +1,60 @@
+{
+  "schema": "autodl_handoff_2026-10-10",
+  "source_commit": "a65158f83434521acaec3380e5b10a6f94b80b3a",
+  "files": [
+    {
+      "path": "d-det/docx/d-det_ACL总研究总结与可迭代路线_2026-10-10.md",
+      "bytes": 13691,
+      "sha256": "63f5cae919c8d6f43534fa0e104df5b0e65ccaf2075f4568fcd2f3be60bde9cb"
+    },
+    {
+      "path": "d-det/docx/d-det_AutoDL_H3数据构建与UIT-AMMC反捷径指导_2026-10-10.md",
+      "bytes": 817,
+      "sha256": "5418167165a3c957ebe1f21dea1baa3a592e732a048dc0ff42facc6e19c1334b"
+    },
+    {
+      "path": "AUTODL_AI_HANDOFF_GUIDE_2026-10-10.md",
+      "bytes": 7766,
+      "sha256": "999ec792ed49b9f6846e9a4856589af814447474eada5c8d59e22445d109fb5f"
+    },
+    {
+      "path": "d-det/data/h2_stacad_alignment_v1/h2_stacad_alignment_v1_upload.zip",
+      "bytes": 10562139,
+      "sha256": "fec137fefe517e1e8458172169bf7eea2d6babbd8fdb1f18a6de9c053c596f06"
+    },
+    {
+      "path": "d-det/data/h2_stacad_alignment_v1/upload_hashes.json",
+      "bytes": 1059,
+      "sha256": "1313c9ac6e4f79adb9bd7d899c1d4ac4975c85dfa5076e476cb77bac381818ec"
+    },
+    {
+      "path": "d-det/data/h2_stacad_alignment_v1/README.md",
+      "bytes": 744,
+      "sha256": "0c8c854bcbd7724774f6e93416363b926c0fab84cf42b285621ad88b251cb52a"
+    },
+    {
+      "path": "d-det/data/h2_stacad_alignment_v1/split_manifest.json",
+      "bytes": 701,
+      "sha256": "52d7929549fa1333e213b284f22f5cb65e30f88eb771aa2abca0c2da26223be1"
+    },
+    {
+      "path": "d-det/data/h2_stacad_alignment_v1/summary.json",
+      "bytes": 4589,
+      "sha256": "9ba9c18934d3253830360e16e04ebafbebfa2ebb2a564bc8d7fb3a945bef3379"
+    },
+    {
+      "path": "scripts/audit_stacad_alignment_v1.py",
+      "bytes": 3858,
+      "sha256": "0787e39f09a0da16bee5cf2dcef4eb82cdb04c46a760d18693cd5da03e823d24"
+    },
+    {
+      "path": "scripts/build_stacad_task_alignment_v1.py",
+      "bytes": 10028,
+      "sha256": "18cd1f6044d23db3cb0f6af369913d7ac581dd3a2bc2799994e530b897e9e3c0"
+    }
+  ],
+  "test_read": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "code_execution": false
+}
