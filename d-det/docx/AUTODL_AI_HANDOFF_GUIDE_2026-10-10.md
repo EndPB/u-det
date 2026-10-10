@@ -112,7 +112,7 @@ H3 正式训练前必须同时满足：task/project/generator/solution cluster �
 
 `batch_manifest.json` 至少列出 `data_sha256`、`code_commit`、`fold`、`seed`、`model_variant`、`resource_request`、`output_dir` 和 `test_read=false`。AutoDL 按清单执行完全部 job 后再统一回传，不临时增加未预注册配置。
 
-当前 H3 数据仍为 `revise_data`；长度平衡、七语言 parser/变体和重复裁定由本机完成。C0–C3 主线批次已完成关闭（结果提交 `a679f14`），不再重跑；H3 GPU 配置等闸门通过后再加入后续批次。
+当前 H3 正式闸门仍为 `revise_data`；长度平衡、七语言 parser/变体和重复裁定由本机完成。H3 GPU 诊断批次已在 RTX 3080 Ti 上完成 24/24（结果提交 `feeb93d`），同折 lexical 控制复核后关闭，不再重跑或加容量/温度/轮数/损失项。下一次 GPU 只在新的数据包和新的可证伪假设冻结后启动。
 
 H3 闸门通过后的完整执行矩阵见 [H3 修订后新主线批次指导](d-det_AutoDL_H3修订后新主线批次指导_2026-10-10.md)。
 
