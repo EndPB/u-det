@@ -27,3 +27,12 @@
   `d-det/data/h2_stacad_alignment_v1/`（该目录按既有约定被 .gitignore，数据不入库；
   解包验证副本在 `d-det/data/h2_stacad_alignment_v1_received/`，同样不入库）。
 - 接收审计与 probes 结果：`d-det/artifacts/h3_data_gate_stacad_2026-10-10/`。
+
+## 后续更新（2026-10-10 晚）
+
+- 交接指南已更新：本目录封存的 `AUTODL_AI_HANDOFF_GUIDE_2026-10-10.md`（`999ec792…`）
+  为**交付时点版本**；现行为 `d-det/docx/AUTODL_AI_HANDOFF_GUIDE_2026-10-10.md`
+  （`263f42b8…`，含 H3 闸门结果 §8.1 与“完整批次”执行模型 §7）。旧 10-07 指南归档到
+  `d-det/docx/archive/`。
+- 职责边界修订：CPU/小显存任务本机直接完成；AutoDL 待命，闸门通过后按
+  `batch_manifest.json` 一次性执行完整 GPU 批次。
