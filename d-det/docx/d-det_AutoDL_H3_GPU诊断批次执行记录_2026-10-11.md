@@ -55,6 +55,14 @@ CUDA 训练，非文件核验。
 
 另外，`source_only` 在两个 fold 名下使用同一完整 train/dev 与同一三枚 seed，实际是 3 个独立运行的重复展示；`unseen_rows=659` 是 human 行，不代表 unseen generator AI 行。以上两点已纳入正式边界。
 
+## 4.2 服务器侧独立复核（closeout 包，2026-10-11）
+
+- **完整性**：`SHA256SUMS.txt` 7/7 原始口径通过；`server_metrics_snapshot.json` 与批次 `metrics.json`（`feeb93d`）字节一致（sha `72045d13…`，与 `config.json` 的 `source_metrics_sha256` 一致）。
+- **npz 复算**：从 `fold_*_lexical_scores.npz` 重算 fold_0 row `.7848666` / tm `.9175518`、fold_1 row `.7222786` / tm `.8378225`（与 `metrics.json` 一致至 ~1e-7）；折成员核查通过（eval = 659 human + 该折 heldout generators；n=2636/3295），`membership_bad=0`。
+- **GPU 行读数复算**：与快照一致——fold_0 det `.6916` / joint `.6976` / inv `.6983`；fold_1 `.6530/.6546/.6547`。
+- **独立复拟合**（服务器 sklearn 1.9.1/numpy 2.2.6 vs 本机 1.7.1/1.26.4；同协议）：fold_0 row `.784867` / tm `.917552`（与记录一致）；fold_1 row `.722321` / tm `.837064`（差 +0.004pt / −0.08pt，伴随 liblinear 迭代 64/60 vs 65/61，属 sklearn 版本差）；逐行分数 `corr ≥ 0.9999`、`max|Δs| ≤ 0.036`。
+- **结论**：closeout 两点边界修正（`source_only` 两折=同一数据 3 seed 重复；`unseen_rows=659` 为 human 行）与裁定经服务器侧复核**成立**；同折 lexical row 控制高于 detection-only 约 8.1pt，本实例化无有效增量，诊断关闭，不重跑、不加容量/温度/轮数/损失项。
+
 ## 5. 产物与回传
 
 - `metrics.json`（24 runs + 聚合 + 数据/模型哈希 + 设备）、`run_manifest.json`、
