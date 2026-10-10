@@ -1,0 +1,35 @@
+{
+  "schema": "h3_gpu_diagnostic_batch_manifest_v1",
+  "status": "diagnostic_only_formal_h3_gate_remains_revise_data",
+  "code_commit_required": "1704348",
+  "script": "scripts/h3_gpu_diagnostic_batch_2026_10_11.py",
+  "data_root": "d-det/data/h3_stacad_revision_v1",
+  "data": {
+    "train_balanced.jsonl": {"bytes": 21866461, "sha256": "152602c39f6af8268e774d235196a0ee7a4b6485d21e8cf10cd76faba96c6d58"},
+    "dev_clean.jsonl": {"bytes": 13262830, "sha256": "fe7955a5cfb55093274e7da5721d485e213e6e3521d0b31b61ec7a2c8388b9cf"},
+    "train_variants.jsonl": {"bytes": 21975366, "sha256": "e4d38e932015a4933825d5ef09ae05b759822455c2fd0762f166827a7cc33a98c"}
+  },
+  "model": {"path": "d-det/models/codet5-small", "local_only": true, "download": false},
+  "protocol": {
+    "test_read": false,
+    "generation": false,
+    "weights_downloaded": false,
+    "code_execution": true,
+    "encoder": "CodeT5-small frozen mean pooling on CUDA",
+    "max_length": 512,
+    "epochs": 3,
+    "batch_size": 256,
+    "encode_batch_size": 16,
+    "folds": "two deterministic generator-heldout detection folds; source_only is task-heldout because unseen source classes cannot be trained",
+    "seeds": [20261011, 20261012, 20261013]
+  },
+  "jobs": [
+    {"name": "detection_only", "runs": 6, "purpose": "binary detection under generator-heldout evaluation"},
+    {"name": "source_only", "runs": 6, "purpose": "observed generator readout under task-heldout evaluation"},
+    {"name": "joint", "runs": 6, "purpose": "shared body plus detection/source heads"},
+    {"name": "joint_invariance", "runs": 6, "purpose": "joint plus train-only parent/variant consistency"}
+  ],
+  "expected_total_runs": 24,
+  "output": "d-det/artifacts/h3_gpu_diagnostic_batch_2026-10-11/metrics.json",
+  "failure_policy": "Do not tune or replace jobs. Record failed job and return its log; formal H3 result remains revise_data."
+}
