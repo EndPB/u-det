@@ -1,0 +1,46 @@
+{
+ "schema": "autodl_batch_manifest_v1",
+ "batch_id": "mainline_c0c3_batch_2026-10-10",
+ "date": "2026-10-10",
+ "guidance_ref": "d-det/docx/AUTODL_AI_HANDOFF_GUIDE_2026-10-10.md §7; ACL v2.0 §5.5/§9",
+ "code_commit": "ba2f2502fcdd137024ccfda81633c25b172c8d27",
+ "data_sha256": {
+  "d-det/artifacts/code_conditioned_design_2026-10-09/inputs/records_train_dev.jsonl": "76890b22a38931d4a9bc8e2d8f3355f77f5d142c9ff50d758dba91f9b1542bd2",
+  "d-det/artifacts/code_conditioned_design_2026-10-09/inputs/family_series_admission.json": "7fc5e78f948d307ba05a626e10479da171d08dd5e0548ad8579081200bfe8d68",
+  "d-det/artifacts/code_conditioned_design_2026-10-09/features/bundle.npz": "d05f8c899d771e0572fb3e1756e06810ef5919cd9a2aac5d598e2bbc7caac19a",
+  "d-det/artifacts/code_conditioned_design_2026-10-09/features/features_manifest.json": "aaef7b4716c1821780719ba18415351abcdb7abbb793ba3c619bfc8a18fae507"
+ },
+ "fold": "static_preflight/fold_plan.json —— 11 member-heldout 折（未变更）",
+ "seed": "torch/np 头 seeds=(0,1,2)；bootstrap seed=20261009；C3 变换采样 seed=20261009",
+ "jobs": [
+  {
+   "id": "c0_baseline",
+   "model_variant": "reuse code_conditioned_fresh_c0_canonical_2026-10-10（冻结；批次内重验 score digests）",
+   "resource_request": "cpu",
+   "output_dir": "d-det/artifacts/code_conditioned_fresh_c0_canonical_2026-10-10（既有提交产物）"
+  },
+  {
+   "id": "c1_prompt_conditioned",
+   "model_variant": "cc_c1_prompt_conditioned_mainline_2026-10-10.py（5 views × {linear, mlp d256 3seeds 20ep}）",
+   "resource_request": "gpu (RTX 3080 Ti, torch cuda) + cpu",
+   "output_dir": "d-det/artifacts/mainline_c0c3_batch_2026-10-10/c1"
+  },
+  {
+   "id": "c2_static_proxy",
+   "model_variant": "cc_c2_static_proxy_mainline_2026-10-10.py（full-mlp + lambda_v=0.1, 8 proxies）",
+   "resource_request": "gpu + cpu",
+   "output_dir": "d-det/artifacts/mainline_c0c3_batch_2026-10-10/c2"
+  },
+  {
+   "id": "c3_invariance",
+   "model_variant": "cc_c3_invariance_mainline_2026-10-10.py（full-mlp + lambda_inv=0.1; comment/whitespace/rename p=.2/.3/.4）",
+   "resource_request": "gpu + cpu",
+   "output_dir": "d-det/artifacts/mainline_c0c3_batch_2026-10-10/c3"
+  }
+ ],
+ "test_read": false,
+ "generation": false,
+ "weights_downloaded": false,
+ "code_execution": false,
+ "notes": "对齐口径：aligned_under_declared_tolerance（跨平台逐行微小差异不再阻断）；一次批次内完成全部 job 后再统一回传，不临时增加未预注册配置"
+}

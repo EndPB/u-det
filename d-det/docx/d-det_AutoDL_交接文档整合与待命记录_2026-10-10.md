@@ -28,9 +28,14 @@
 - AutoDL **不启动任何 H3 训练/审计**；未来仅在收到“完整批次指导”（含
   `batch_manifest.json`：data_sha256 / code_commit / fold / seed / model_variant /
   resource_request / output_dir / test_read=false）时**一次性**执行并统一回传。
+- 这条待命仅针对 H3；C0–C3 主线按已接受的跨平台容差恢复，不再等待逐行微小差异闭合。
 - 开关保持：`test_read(modeling)=false`、`generation=false`、`weights_downloaded=false`、
   `code_execution=false`；旧 C0–C3 不重跑。
 
 ## 3. 交付物
 
 - 本记录；更新后的指南/入口/ACL；`docx/archive/`；回执更新；随本提交推送。
+
+## 4. 主线恢复（2026-10-10）
+
+后续 AutoDL 批次优先执行 C0 baseline、C1 prompt-conditioned、C2 static-proxy auxiliary、C3 invariance，统一使用冻结输入、既定折和 seed，并一次性回传相对 C0 的比较结果。H3 继续单独遵守 `revise_data` 闸门。

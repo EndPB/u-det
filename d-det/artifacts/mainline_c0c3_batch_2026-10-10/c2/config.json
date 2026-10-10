@@ -1,0 +1,32 @@
+{
+ "schema": "cc_c2_config_v1",
+ "backbone": "同 C1 full-mlp（d->256->1, 3 seeds, 20ep, bs=2048, Adam 1e-3）",
+ "aux": {
+  "loss": "mse(z(proxies))",
+  "lambda_v": 0.1,
+  "targets": [
+   "n_ast_nodes",
+   "n_calls",
+   "n_branches",
+   "n_handlers",
+   "n_returns",
+   "n_import_roots",
+   "required_root_overlap_proxy",
+   "entrypoint_present"
+  ],
+  "excluded": {
+   "parse_ok": "zero variance"
+  }
+ },
+ "bootstrap": {
+  "n": 500,
+  "seed": 20261009,
+  "shared_task_indices": true
+ },
+ "switch": {
+  "test_read": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ }
+}

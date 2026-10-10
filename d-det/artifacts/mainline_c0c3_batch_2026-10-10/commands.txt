@@ -1,0 +1,7 @@
+cd /root/autodl-tmp/u-det
+setsid nohup bash scripts/run_mainline_batch_2026-10-10.sh > d-det/artifacts/mainline_c0c3_batch_2026-10-10/logs/nohup_batch.log 2>&1 < /dev/null &
+# 批次内 python 命令：
+# OMP_NUM_THREADS=8 /root/miniconda3/envs/udet/bin/python scripts/cc_c1_prompt_conditioned_mainline_2026-10-10.py
+# OMP_NUM_THREADS=8 /root/miniconda3/envs/udet/bin/python scripts/cc_c2_static_proxy_mainline_2026-10-10.py
+# OMP_NUM_THREADS=8 /root/miniconda3/envs/udet/bin/python scripts/cc_c3_invariance_mainline_2026-10-10.py
+# C0 冻结验证：重算 canonical score npz 的 198 项 digest 对照 score_digests.json（c0_verification.json）

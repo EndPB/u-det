@@ -1,0 +1,34 @@
+[c1] device=cuda
+[c1] fold Qwen--Qwen2.5-Coder-1.5B-Instruct        done (10s)
+[c1] fold Qwen--Qwen2.5-Coder-14B-Instruct         done (9s)
+[c1] fold Qwen--Qwen2.5-Coder-32B-Instruct         done (9s)
+[c1] fold Qwen--Qwen2.5-Coder-7B-Instruct          done (8s)
+[c1] fold codellama--CodeLlama-13b-Instruct-hf     done (9s)
+[c1] fold codellama--CodeLlama-34b-Instruct-hf     done (8s)
+[c1] fold codellama--CodeLlama-70b-Instruct-hf     done (8s)
+[c1] fold codellama--CodeLlama-7b-Instruct-hf      done (9s)
+[c1] fold deepseek-ai--deepseek-coder-1.3b-instruc done (9s)
+[c1] fold deepseek-ai--deepseek-coder-33b-instruct done (8s)
+[c1] fold deepseek-ai--deepseek-coder-6.7b-instruc done (8s)
+[c1] code_only    linear row=0.9132 tm=0.9282 dTM=-0.0301 pos=1/11
+[c1] code_only    mlp    row=0.9212 tm=0.9315 dTM=-0.0270 pos=1/11
+[c1] prompt_only  linear row=0.5000 tm=0.5000 dTM=-0.4587 pos=0/11
+[c1] prompt_only  mlp    row=0.5000 tm=0.5000 dTM=-0.4587 pos=0/11
+[c1] ht_hy        linear row=0.8759 tm=0.9310 dTM=-0.0275 pos=1/11
+[c1] ht_hy        mlp    row=0.9181 tm=0.9285 dTM=-0.0299 pos=1/11
+[c1] full         linear row=0.8603 tm=0.9142 dTM=-0.0441 pos=0/11
+[c1] full         mlp    row=0.9138 tm=0.9279 dTM=-0.0304 pos=1/11
+[c1] psi_only     linear row=0.5580 tm=0.5993 dTM=-0.3596 pos=0/11
+[c1] psi_only     mlp    row=0.5530 tm=0.5823 dTM=-0.3761 pos=0/11
+Traceback (most recent call last):
+  File "/root/autodl-tmp/u-det/scripts/cc_c1_prompt_conditioned_mainline_2026-10-10.py", line 234, in <module>
+    main()
+  File "/root/autodl-tmp/u-det/scripts/cc_c1_prompt_conditioned_mainline_2026-10-10.py", line 227, in main
+    (OUT / "logs" / "c1_run.log").write_text("\n".join(LOG) + "\n", encoding="utf-8")
+  File "/root/miniconda3/envs/udet/lib/python3.12/pathlib.py", line 1047, in write_text
+    with self.open(mode='w', encoding=encoding, errors=errors, newline=newline) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/miniconda3/envs/udet/lib/python3.12/pathlib.py", line 1013, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/root/autodl-tmp/u-det/d-det/artifacts/mainline_c0c3_batch_2026-10-10/c1/logs/c1_run.log'

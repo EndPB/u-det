@@ -1,0 +1,6 @@
+{
+ "rows": "records_train_dev.jsonl（10,659 行；instruct）",
+ "fit": "折内 train split（排除 heldout 成员），目标=series==F",
+ "eval": "dev split：heldout 成员（正）+ 其它系列（负）",
+ "c0_reference": "C0 冻结逐折分数（同一 eval 行序断言一致）"
+}

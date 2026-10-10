@@ -1,0 +1,14 @@
+{
+ "schema": "mainline_batch_data_role_v1",
+ "rows": "records_train_dev.jsonl（10,659 行；instruct）",
+ "fit": "折内 train split（排除 heldout 成员）；目标=series==F",
+ "eval": "dev split：heldout 成员（正）+ 其它系列（负）",
+ "c0_reference": "冻结 canonical C0（批次内重验 198/198 digest）",
+ "never_used": [
+  "test",
+  "generation",
+  "weights",
+  "样本代码执行"
+ ],
+ "evidence_level": "diagnostic（train/dev only）"
+}

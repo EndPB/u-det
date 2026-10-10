@@ -1,0 +1,12 @@
+ M d-det/docx/AUTODL_AI_HANDOFF_GUIDE_2026-10-10.md
+ M "d-det/docx/d-det_ACL\346\200\273\347\240\224\347\251\266\346\200\273\347\273\223\344\270\216\345\217\257\350\277\255\344\273\243\350\267\257\347\272\277_2026-10-10.md"
+ M "d-det/docx/d-det_AutoDL_\344\272\244\346\216\245\346\226\207\346\241\243\346\225\264\345\220\210\344\270\216\345\276\205\345\221\275\350\256\260\345\275\225_2026-10-10.md"
+?? d-det/artifacts/mainline_c0c3_batch_2026-10-10/
+?? scripts/cc_c1_prompt_conditioned_mainline_2026-10-10.py
+?? scripts/cc_c2_static_proxy_mainline_2026-10-10.py
+?? scripts/cc_c3_invariance_mainline_2026-10-10.py
+?? scripts/run_mainline_batch_2026-10-10.sh
+ d-det/docx/AUTODL_AI_HANDOFF_GUIDE_2026-10-10.md        | 12 ++++++------
+ ...5\344\273\243\350\267\257\347\272\277_2026-10-10.md" | 17 +++++++++++------
+ ...5\345\221\275\350\256\260\345\275\225_2026-10-10.md" |  5 +++++
+ 3 files changed, 22 insertions(+), 12 deletions(-)

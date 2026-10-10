@@ -1,0 +1,41 @@
+{
+ "schema": "mainline_batch_c0_verification_v1",
+ "c0_dir": "d-det/artifacts/code_conditioned_fresh_c0_canonical_2026-10-10",
+ "c0_code_commit": "a65158f83434521acaec3380e5b10a6f94b80b3a",
+ "canonical_dev_row_mean": 0.9441920080193394,
+ "canonical_dev_task_macro": 0.9585421888053467,
+ "canonical_inner_row_mean": 0.9491414136721761,
+ "digest_checks_total": 198,
+ "digest_checks_passed": 198,
+ "all_passed": true,
+ "per_fold_all_passed": true,
+ "per_fold": {
+  "dev": {
+   "codellama--CodeLlama-13b-Instruct-hf": true,
+   "codellama--CodeLlama-34b-Instruct-hf": true,
+   "codellama--CodeLlama-70b-Instruct-hf": true,
+   "codellama--CodeLlama-7b-Instruct-hf": true,
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct": true,
+   "Qwen--Qwen2.5-Coder-14B-Instruct": true,
+   "Qwen--Qwen2.5-Coder-32B-Instruct": true,
+   "Qwen--Qwen2.5-Coder-7B-Instruct": true,
+   "deepseek-ai--deepseek-coder-1.3b-instruct": true,
+   "deepseek-ai--deepseek-coder-33b-instruct": true,
+   "deepseek-ai--deepseek-coder-6.7b-instruct": true
+  },
+  "inner": {
+   "codellama--CodeLlama-13b-Instruct-hf": true,
+   "codellama--CodeLlama-34b-Instruct-hf": true,
+   "codellama--CodeLlama-70b-Instruct-hf": true,
+   "codellama--CodeLlama-7b-Instruct-hf": true,
+   "Qwen--Qwen2.5-Coder-1.5B-Instruct": true,
+   "Qwen--Qwen2.5-Coder-14B-Instruct": true,
+   "Qwen--Qwen2.5-Coder-32B-Instruct": true,
+   "Qwen--Qwen2.5-Coder-7B-Instruct": true,
+   "deepseek-ai--deepseek-coder-1.3b-instruct": true,
+   "deepseek-ai--deepseek-coder-33b-instruct": true,
+   "deepseek-ai--deepseek-coder-6.7b-instruct": true
+  }
+ },
+ "note": "C0 baseline is the frozen canonical run; digests recomputed from its local score npz and matched against score_digests.json within this batch"
+}

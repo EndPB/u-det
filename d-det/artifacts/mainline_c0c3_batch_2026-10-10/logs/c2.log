@@ -1,0 +1,13 @@
+[c2] device=cuda
+[c2] fold Qwen--Qwen2.5-Coder-1.5B-Instruct        done (3s)
+[c2] fold Qwen--Qwen2.5-Coder-14B-Instruct         done (1s)
+[c2] fold Qwen--Qwen2.5-Coder-32B-Instruct         done (1s)
+[c2] fold Qwen--Qwen2.5-Coder-7B-Instruct          done (1s)
+[c2] fold codellama--CodeLlama-13b-Instruct-hf     done (1s)
+[c2] fold codellama--CodeLlama-34b-Instruct-hf     done (1s)
+[c2] fold codellama--CodeLlama-70b-Instruct-hf     done (1s)
+[c2] fold codellama--CodeLlama-7b-Instruct-hf      done (1s)
+[c2] fold deepseek-ai--deepseek-coder-1.3b-instruc done (1s)
+[c2] fold deepseek-ai--deepseek-coder-33b-instruct done (1s)
+[c2] fold deepseek-ai--deepseek-coder-6.7b-instruc done (1s)
+[c2] done in 64.9s tm=0.9290 vs_c0=-0.0295

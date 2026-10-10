@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=8 /root/miniconda3/envs/udet/bin/python -W ignore scripts/cc_c2_static_proxy.py

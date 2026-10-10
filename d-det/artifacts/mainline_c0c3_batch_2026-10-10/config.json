@@ -1,0 +1,115 @@
+{
+ "schema": "mainline_batch_config_v1",
+ "batch_id": "mainline_c0c3_batch_2026-10-10",
+ "jobs": {
+  "c0_baseline": {
+   "impl": "reuse code_conditioned_fresh_c0_canonical_2026-10-10",
+   "in_batch_verification": "c0_verification.json (198/198 digests)"
+  },
+  "c1_prompt_conditioned": {
+   "schema": "cc_c1_config_v1",
+   "views": {
+    "code_only": "h_y(512)",
+    "prompt_only": "h_t(512)",
+    "ht_hy": "[h_t;h_y](1024)",
+    "full": "[h_t;h_y;h_t*h_y;|h_t-h_y|;psi](2057)",
+    "psi_only": "psi(9)"
+   },
+   "heads": {
+    "linear": "LogisticRegression(C=1,max_iter=3000, l2)",
+    "mlp": "torch d->256->1 ReLU, Adam 1e-3, 20 epochs, bs=2048, 3 seeds avg"
+   },
+   "standardization": "train-fold mean/std per fold (zero-std dims scale=1)",
+   "bootstrap": {
+    "n": 500,
+    "seed": 20261009,
+    "shared_task_indices": true,
+    "paired_vs": "C0"
+   },
+   "switches": {
+    "train_dev_only": true,
+    "test_read": false,
+    "generation": false,
+    "weights_downloaded": false,
+    "code_execution": false
+   }
+  },
+  "c2_static_proxy": {
+   "schema": "cc_c2_config_v1",
+   "backbone": "同 C1 full-mlp（d->256->1, 3 seeds, 20ep, bs=2048, Adam 1e-3）",
+   "aux": {
+    "loss": "mse(z(proxies))",
+    "lambda_v": 0.1,
+    "targets": [
+     "n_ast_nodes",
+     "n_calls",
+     "n_branches",
+     "n_handlers",
+     "n_returns",
+     "n_import_roots",
+     "required_root_overlap_proxy",
+     "entrypoint_present"
+    ],
+    "excluded": {
+     "parse_ok": "zero variance"
+    }
+   },
+   "bootstrap": {
+    "n": 500,
+    "seed": 20261009,
+    "shared_task_indices": true
+   },
+   "switch": {
+    "test_read": false,
+    "generation": false,
+    "weights_downloaded": false,
+    "code_execution": false
+   }
+  },
+  "c3_invariance": {
+   "schema": "cc_c3_config_v1",
+   "transforms": {
+    "comment_strip": {
+     "p": 0.2
+    },
+    "whitespace": {
+     "p": 0.3
+    },
+    "rename": {
+     "p": 0.4
+    }
+   },
+   "loss": "mean_BCE({orig}+{trans}) + lambda_inv*mean_JS(p_orig,p_trans)",
+   "lambda_inv": 0.1,
+   "heads": "同 C1 full-mlp（3 seeds, 20ep）",
+   "bootstrap": {
+    "n": 500,
+    "seed": 20261009
+   },
+   "switches": {
+    "train_dev_only": true,
+    "test_read": false,
+    "generation": false,
+    "weights_downloaded": false,
+    "code_execution": false
+   }
+  }
+ },
+ "fold": "11 member-heldout folds (fold_plan.json, unchanged)",
+ "seeds": {
+  "heads": [
+   0,
+   1,
+   2
+  ],
+  "bootstrap": 20261009,
+  "transform_sampling": 20261009
+ },
+ "alignment": "aligned_under_declared_tolerance (cross-platform row diffs accepted; guidance 2026-10-10)",
+ "switches": {
+  "test_read": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ }
+}

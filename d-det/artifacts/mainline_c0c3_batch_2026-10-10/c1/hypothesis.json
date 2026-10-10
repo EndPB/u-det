@@ -1,0 +1,5 @@
+{
+ "schema": "cc_c1_hypothesis_v1",
+ "hypothesis": "题面条件（h_t 及其与 h_y 的交互）相对 code-only/h_t-only 改变任务内排序，并在 task-macro 上相对 C0 强 P0 产生可检验增量（阈值：mean≥1pt、≥8/11 折为正、CI>0）。",
+ "claim_limit": "训练/选择仅用折内 train；dev 仅开发评测；不称后训练因果；family_is_confirmed=false。"
+}

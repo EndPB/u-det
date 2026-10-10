@@ -9,7 +9,7 @@
 
 把本地已经准备好的 STACAD 同题 Human/AI 候选数据和可迭代研究文档交给服务器，为 H3 做数据闸门。H3 的 detection head 使用真实 `human_or_ai`；AI 子集才使用 observed source/generator head。BCC 的 complete/instruct、Droid 和 CoDET-M4 不得拼成同题人机检测。
 
-在 GPU 批次尚未满足数据闸门前，AutoDL 不重跑旧 C0–C3，不下载权重，不读旧 test，不生成模型输出，不执行样本代码。Windows/Linux 重拟合差异已接受；服务器拟合对象若需复用，使用冻结系数包，不把它写成跨平台重新拟合一致。
+主线 C0–C3 不再等待微小跨平台对齐差异：按已声明容差视为 aligned，立即进入一次性 GPU 批次。H3 的正式 Human/AI/source 主结果仍受 `revise_data` 闸门约束；在闸门通过前不把 H3 写成正式主结论。两条线都不读旧 test、不执行样本代码，且不下载与当前批次无关的大权重。
 
 ## 2. 本地优先完成的工作
 
@@ -105,14 +105,14 @@ H3 正式训练前必须同时满足：task/project/generator/solution cluster �
 
 1. 接收一个完整批次包，一次性核对许可、哈希、split、schema、目录和运行环境。
 2. 流式审计 `core.jsonl`、`task_index.jsonl`、`pair_index.jsonl`；本机已经完成的 CPU 准备不在 AutoDL 重复。
-3. 在同一批次内完成必要的最终数据闸门复核；发现支持不足、泄漏、变体破坏或 probe 高时，整批停止，不通过增加模型容量补救。
-4. 闸门通过后，一次启动预先写入 `batch_manifest.json` 的多项 GPU 任务，固定 encoder、batch、epoch、参数量和数据版本。
-5. 同一批次至少覆盖两个 generator-heldout 折、三个 seed，以及 `detection-only`、`family-only`、`joint`、`joint+invariance`；可选 nuisance adversary 必须在批次开始前冻结。
+3. 对主线 C0–C3，只做必要的输入/manifest 核对，不因已接受的跨平台微小差异停机。
+4. 一次启动预先写入 `batch_manifest.json` 的 C0、C1、C2、C3 全部 GPU 任务，固定 encoder、batch、epoch、参数量、折和 seed。
+5. 主线批次至少覆盖既定 generator-heldout 折、固定 seed，以及 `C0 baseline`、`C1 prompt-conditioned`、`C2 static-proxy auxiliary`、`C3 invariance`；完成后统一报告每项相对 C0 的增量。
 6. 所有任务完成后只回传一个汇总目录，包含逐任务日志、指标、预测摘要、环境、commit、配置和 SHA256SUMS；不为每个小实验单独往返指导。
 
 `batch_manifest.json` 至少列出 `data_sha256`、`code_commit`、`fold`、`seed`、`model_variant`、`resource_request`、`output_dir` 和 `test_read=false`。AutoDL 按清单执行完全部 job 后再统一回传，不临时增加未预注册配置。
 
-当前 H3 数据仍为 `revise_data`，因此上述 GPU 批次暂不启动；长度平衡、七语言 parser/变体和重复裁定由本机直接完成。
+当前 H3 数据仍为 `revise_data`，但这不阻塞 C0–C3 主线批次；长度平衡、七语言 parser/变体和重复裁定由本机并行完成。H3 GPU 配置等闸门通过后再加入后续批次。
 
 ## 8. 结果交付格式
 
@@ -142,7 +142,7 @@ SHA256SUMS.txt  logs/       predictions-or-score-digests/
 
 Python 60-task 变体 smoke 的 accepted 样本 AST 保真率为 `1.0`；跨任务仅有两组骨架重复、各 6 行，其中一组跨 train/dev，需先排除或人工裁定。非 Python 语言的 AST/骨架审计和七语言全量变体属于本机直接完成的准备任务，不应拆成 AutoDL 小任务。
 
-下一步固定为：本地按 `label × generator × language × 长度桶` 平衡或匹配；完成七语言 parser/变体；处理两组跨任务重复；保留 `.9261` lexical-only 作为强控制；然后用同一 seed 重跑 probes。只有 length、AST 和其它高风险 probe 过闸，且 H3 在 lexical-only 之上有预注册增量，才恢复训练。
+下一步分开执行：C0–C3 主线立即批量运行；本地按 `label × generator × language × 长度桶` 平衡，完成七语言 parser/变体并处理两组跨任务重复；H3 仍保留 `.9261` lexical-only 强控制，只有其数据闸门通过且相对 lexical 有预注册增量时才进入 H3 主结果。
 
 ## 9. 明确禁止
 

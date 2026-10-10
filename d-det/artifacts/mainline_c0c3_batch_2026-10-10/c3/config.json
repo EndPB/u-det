@@ -1,0 +1,28 @@
+{
+ "schema": "cc_c3_config_v1",
+ "transforms": {
+  "comment_strip": {
+   "p": 0.2
+  },
+  "whitespace": {
+   "p": 0.3
+  },
+  "rename": {
+   "p": 0.4
+  }
+ },
+ "loss": "mean_BCE({orig}+{trans}) + lambda_inv*mean_JS(p_orig,p_trans)",
+ "lambda_inv": 0.1,
+ "heads": "同 C1 full-mlp（3 seeds, 20ep）",
+ "bootstrap": {
+  "n": 500,
+  "seed": 20261009
+ },
+ "switches": {
+  "train_dev_only": true,
+  "test_read": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ }
+}

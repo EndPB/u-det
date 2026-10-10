@@ -1,0 +1,5 @@
+{
+ "schema": "cc_c2_hypothesis_v1",
+ "hypothesis": "带 λv=0.1 静态代理辅助损失的 full 视图 MLP（唯一变化 vs C1 full-mlp）在 task-macro 上相对 C0 出现增量；代理只做辅助/描述，不称正确性或规模。",
+ "claim_limit": "λv 为本轮冻结选择；dev 仅开发评测；parse_ok 零方差已排除；不做测试执行。"
+}
