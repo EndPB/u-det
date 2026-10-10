@@ -295,3 +295,9 @@ row_mapping_sha256 = sha256(model_id + "|" + task_id + "|" + split + "|" + solut
 三件 feature 文件已按补交包 SHA-256 核验并覆盖本机。canonical C0 在本机 OMP=8 下重跑成功；11/11 映射、词表和 fold-fit 审计通过。dev 指标差均小于 `1e-3`，但服务器未提供逐行 score 数组，且本机/服务器 digest 未逐字段相等，因此不得把 `row_score_max_abs <= 1e-3` 写成已验证。状态保持 `cross_side_score_pending`；C1–C3、test、生成和权重操作继续禁止。
 
 本轮审计：`artifacts/code_conditioned_v3_bundle_local_alignment_2026-10-10/`。
+
+## 15. scorerow 补交后的严格闸门裁定（2026-10-10）
+
+22 个 train/dev scorerow 文件已按 `ev_rows` 完成逐行对账，服务器补交包的 286/286 digest 验证通过，说明补交文件确为 canonical C0 的服务器输出。跨侧比较仍未通过：dev fused 最大逐行差 `0.007275`，inner `0.016595`，超过 `1e-3`。差异主要来自 semantic/LogisticRegression 数值路径并传播到 fusion，不归因于成员序、行序或 test 泄漏。
+
+状态为 `not_aligned`。C1–C3 继续停止；不得把服务器结果写成本机逐位复现。需要严格复现时，使用相同 Linux/Python/BLAS/solver 环境或交换拟合系数；不再补传 test、权重或原始语料。

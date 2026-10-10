@@ -1,0 +1,497 @@
+{
+ "schema": "code_conditioned_v3_frozen_coeffs_handoff_v1",
+ "date": "2026-10-10",
+ "guidance_ref": "d-det/docx/d-det_AutoDL_代码条件后训练_已见家族未见生成器指导_2026-10-09.md §15; ACL §57 严格复现路径(b) 冻结并交换拟合系数",
+ "source_run": "code_conditioned_fresh_c0_canonical_2026-10-10 (v3 spec)",
+ "source_commit": "43c5b1e3beaed3453568e9fbcb66eb108b186d47",
+ "generated_utc": "2026-10-10T08:43:45.765978+00:00",
+ "files": {
+  "coeffs_dev_foldcodellama_CodeLlama-13b-Instruct-hf.npz": {
+   "sha256": "da015b51c538be3b8e5c16bf9ad66ca2b5c62fca485db21707efcaed14ffd777",
+   "bytes": 30475
+  },
+  "coeffs_dev_foldcodellama_CodeLlama-34b-Instruct-hf.npz": {
+   "sha256": "28c8e618b55aa19044d4a9a64e7af2496a190203ada0f48a1c70d1da98bc7d39",
+   "bytes": 30498
+  },
+  "coeffs_dev_foldcodellama_CodeLlama-70b-Instruct-hf.npz": {
+   "sha256": "bd8fcf6b3ef6b2e8035a9df38a61efd80fe0168da84e334bb4b8b9346335d9e3",
+   "bytes": 30508
+  },
+  "coeffs_dev_foldcodellama_CodeLlama-7b-Instruct-hf.npz": {
+   "sha256": "b040dc04ffc4a56488ed63d716b7fa6c5c6dd692bae1674dc16ef28aeb738a45",
+   "bytes": 30508
+  },
+  "coeffs_dev_foldQwen_Qwen2.5-Coder-1.5B-Instruct.npz": {
+   "sha256": "6aa8a4f7bea6fd1286e7236bcf3c4cc08a466a741d7aa4224bccc18e79116014",
+   "bytes": 30501
+  },
+  "coeffs_dev_foldQwen_Qwen2.5-Coder-14B-Instruct.npz": {
+   "sha256": "a1998ffa7ed3671d59a4bbd6d893b89f973ffc79a0af239bb84d6b8b1f09445e",
+   "bytes": 30513
+  },
+  "coeffs_dev_foldQwen_Qwen2.5-Coder-32B-Instruct.npz": {
+   "sha256": "4ae52ce96c425755b269f7feaea883e7e0787d5e9cb7ecd4b53ed33fc443de7c",
+   "bytes": 30522
+  },
+  "coeffs_dev_foldQwen_Qwen2.5-Coder-7B-Instruct.npz": {
+   "sha256": "6c46185cbb8190bf1c90f9b67504c79276792f4c4aeb519d445469acf5697a64",
+   "bytes": 30497
+  },
+  "coeffs_dev_folddeepseek-ai_deepseek-coder-1.3b-instruct.npz": {
+   "sha256": "956a6076e91a6f32d7c192c1f03debed9c174e921cac721b6f51b14edab72120",
+   "bytes": 30992
+  },
+  "coeffs_dev_folddeepseek-ai_deepseek-coder-33b-instruct.npz": {
+   "sha256": "9dbfa01944d6eb9d92a51cb569ed1572b839c8416e285ec56c70e3ce1ba49fa5",
+   "bytes": 31017
+  },
+  "coeffs_dev_folddeepseek-ai_deepseek-coder-6.7b-instruct.npz": {
+   "sha256": "05a3a2c768cbf8dcba64d10c180c78b23ea5a94cea17a57517a57c7bde92bab8",
+   "bytes": 31013
+  },
+  "coeffs_inner_foldcodellama_CodeLlama-13b-Instruct-hf.npz": {
+   "sha256": "7e31f983f11ab408118252b639f4fc39329606a9a753dcea4675a404016768f8",
+   "bytes": 27807
+  },
+  "coeffs_inner_foldcodellama_CodeLlama-34b-Instruct-hf.npz": {
+   "sha256": "b31d259cb16b41a097302ca5b5fa693a5c9a0a2fff3bb60dee70c2018983d3f0",
+   "bytes": 27824
+  },
+  "coeffs_inner_foldcodellama_CodeLlama-70b-Instruct-hf.npz": {
+   "sha256": "89f4d2e37613b773950651395a012b279dfd5f7c21efae5f25ee7da15221758b",
+   "bytes": 27821
+  },
+  "coeffs_inner_foldcodellama_CodeLlama-7b-Instruct-hf.npz": {
+   "sha256": "a70827275b33db29719b874a16ba2147dd169c224942d2d918f4c69d6862a153",
+   "bytes": 27809
+  },
+  "coeffs_inner_foldQwen_Qwen2.5-Coder-1.5B-Instruct.npz": {
+   "sha256": "fd53783145e6647e6edaaea0549660374f0ff0f9ee96ff7149a6905c5c153bdd",
+   "bytes": 27836
+  },
+  "coeffs_inner_foldQwen_Qwen2.5-Coder-14B-Instruct.npz": {
+   "sha256": "269a55266d5934f4a2a519bff054985105c54eaab873f128055d99e8a85d04c7",
+   "bytes": 27820
+  },
+  "coeffs_inner_foldQwen_Qwen2.5-Coder-32B-Instruct.npz": {
+   "sha256": "0827d4c96143b6a541cca636c1fd2098a962ecf1736ba1980e3e8d06d83025b2",
+   "bytes": 27829
+  },
+  "coeffs_inner_foldQwen_Qwen2.5-Coder-7B-Instruct.npz": {
+   "sha256": "091e6c96881fb3a39a5d3644170d59dc916df0fabc4825ccdb71b935e00a4d21",
+   "bytes": 27820
+  },
+  "coeffs_inner_folddeepseek-ai_deepseek-coder-1.3b-instruct.npz": {
+   "sha256": "f240e08f574202ae6aad7c86fb10a07d486a0f98b35cbcaec2f560821197b58f",
+   "bytes": 28160
+  },
+  "coeffs_inner_folddeepseek-ai_deepseek-coder-33b-instruct.npz": {
+   "sha256": "b946946defcbaa1ff86728cf6248e58bcfad43107801168288852a0b66b6d376",
+   "bytes": 28189
+  },
+  "coeffs_inner_folddeepseek-ai_deepseek-coder-6.7b-instruct.npz": {
+   "sha256": "b66f7bbbb5950b16af616c0fd654b2650a48ce82ceeadfa5f2c0d7c1643dfaba",
+   "bytes": 28186
+  }
+ },
+ "verification": {
+  "per_fold": {
+   "dev": {
+    "codellama--CodeLlama-13b-Instruct-hf": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "codellama--CodeLlama-34b-Instruct-hf": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "codellama--CodeLlama-70b-Instruct-hf": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "codellama--CodeLlama-7b-Instruct-hf": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "Qwen--Qwen2.5-Coder-14B-Instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "Qwen--Qwen2.5-Coder-32B-Instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "Qwen--Qwen2.5-Coder-7B-Instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "deepseek-ai--deepseek-coder-1.3b-instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "deepseek-ai--deepseek-coder-33b-instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "deepseek-ai--deepseek-coder-6.7b-instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    }
+   },
+   "inner": {
+    "codellama--CodeLlama-13b-Instruct-hf": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "codellama--CodeLlama-34b-Instruct-hf": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "codellama--CodeLlama-70b-Instruct-hf": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "codellama--CodeLlama-7b-Instruct-hf": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "Qwen--Qwen2.5-Coder-1.5B-Instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "Qwen--Qwen2.5-Coder-14B-Instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "Qwen--Qwen2.5-Coder-32B-Instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "Qwen--Qwen2.5-Coder-7B-Instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "deepseek-ai--deepseek-coder-1.3b-instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "deepseek-ai--deepseek-coder-33b-instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    },
+    "deepseek-ai--deepseek-coder-6.7b-instruct": {
+     "sem_eval": 0.0,
+     "sem_train": 0.0,
+     "sm_eval": 0.0,
+     "sm_train": 0.0,
+     "fused_recon": 0.0,
+     "stored_dtypes": {
+      "semantic": "float32",
+      "char_tfidf": "float64",
+      "word_tfidf": "float64",
+      "style_meta": "float64"
+     },
+     "coef_dtypes": {
+      "sem_coef": "float32",
+      "sm_coef": "float64"
+     }
+    }
+   }
+  },
+  "rule": "refit eval/train scores per fold must equal the delivered canonical s_*/t_s_* arrays (<=1e-9, observed 0.0); fused reconstruction from delivered component arrays + frozen z-stats must equal delivered fused (<=1e-12)"
+ },
+ "conventions": {
+  "semantic_score": "z = (hy - sem_mean)/sem_scale ; score = z @ sem_coef + sem_intercept",
+  "style_meta_score": "x = concat(style 92, meta 10, sizelen[:3]) ; z = (x - sm_mean)/sm_scale ; score = z @ sm_coef + sm_intercept",
+  "recommended_apply": "rebuild StandardScaler/LogisticRegression objects by assigning the fitted attributes (mean_, scale_, n_features_in_, coef_, intercept_) and call transform()/decision_function(); this reproduces the canonical dtype chain exactly (semantic scores are float32 because hy is float32)",
+  "z_stats": "mu = mean(train scores), sd = max(std(train scores), 1e-8); computed on the STORED array dtype exactly as the canonical run (semantic: float32 arrays)",
+  "fusion": "fused = mean over the four components of (s_c - mu_c)/sd_c (equal weights)"
+ },
+ "scope": "frozen fitted coefficients of the LR-based components (semantic, style_meta) + z-stats; train/dev only; no test, no weights, no raw corpus, no generation assets",
+ "notes": "char/word SGD ensembles are not exported (dense 195k/345k-dim x 3 seeds ~13 MB per fold/protocol); their cross-side deviation was reported small. If needed, a float32 selective export can be produced on request.",
+ "switches": {
+  "training_allowed": true,
+  "test_read_allowed": false,
+  "generation_allowed": false,
+  "weights_downloaded": false,
+  "code_execution": false
+ }
+}
