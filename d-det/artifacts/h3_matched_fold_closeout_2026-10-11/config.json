@@ -1,0 +1,43 @@
+{
+  "source_results_commit": "feeb93da4084fa374c3ce8170d9a3a35b9662c0b",
+  "source_metrics_sha256": "72045d13c147b1693dec4489669f271a4cdcd54d36f0737d4f0ab35c44701c9b",
+  "data_sha256": {
+    "train_balanced.jsonl": "152602c39f6af8268e774d235196a0ee7a4b6485d21e8cf10cd76faba96c6d58",
+    "dev_clean.jsonl": "fe7955a5cfb55093274e7da5721d485e213e6e3521d0b31b61ec7a2c8388b9cf"
+  },
+  "folds": {
+    "fold_0": [
+      "claude_3_haiku",
+      "deepseek_v3_2",
+      "devstral_2512"
+    ],
+    "fold_1": [
+      "gemini_3_flash",
+      "gpt5_nano",
+      "grok_4_fast",
+      "qwen3_coder_30b"
+    ]
+  },
+  "seed": 20261010,
+  "lexical": {
+    "analyzers": [
+      "char_wb(2,5)",
+      "word(1,2)"
+    ],
+    "min_df": 5,
+    "max_features_each": 100000,
+    "lowercase": false,
+    "sublinear_tf": true,
+    "classifier": "LinearSVC(C=1, max_iter=3000)",
+    "fit_scope": "fold train only"
+  },
+  "estimands": [
+    "row_auroc",
+    "task_macro_auroc"
+  ],
+  "bootstrap_task_repeats": 1000,
+  "test_read": false,
+  "gpu_used": false,
+  "historical_gpu_batch_closed": true,
+  "script_sha256": "1ec11504eb8db4a84fca637ffa06fb1372e97912fff4cabbe536e750d16dd22e"
+}

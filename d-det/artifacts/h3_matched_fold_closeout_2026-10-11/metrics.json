@@ -1,0 +1,55 @@
+{
+  "folds": {
+    "fold_0": {
+      "train_rows": 6480,
+      "eval_rows": 2636,
+      "eval_tasks": 659,
+      "row_auroc": 0.7848666339689433,
+      "task_macro_auroc": 0.9175518462316641,
+      "task_macro_ci95": [
+        0.9033889731917045,
+        0.9312215477996967
+      ],
+      "gpu_row_auroc": {
+        "detection_only": 0.6915649084348613,
+        "joint": 0.6976431542403804,
+        "joint_invariance": 0.6983018419461643
+      },
+      "seconds": 28.91761827468872,
+      "solver_iterations": 65,
+      "convergence_warnings": []
+    },
+    "fold_1": {
+      "train_rows": 4000,
+      "eval_rows": 3295,
+      "eval_tasks": 659,
+      "row_auroc": 0.7222786053269658,
+      "task_macro_auroc": 0.8378224582701063,
+      "task_macro_ci95": [
+        0.822263846737481,
+        0.8543389605462823
+      ],
+      "gpu_row_auroc": {
+        "detection_only": 0.6529549224273378,
+        "joint": 0.654624828164253,
+        "joint_invariance": 0.6546525559871759
+      },
+      "seconds": 24.699037313461304,
+      "solver_iterations": 61,
+      "convergence_warnings": []
+    }
+  },
+  "interpretation": [
+    "Post hoc local controls, not a new preregistered GPU experiment.",
+    "Compare GPU row AUROC only with matched lexical row AUROC; historical .9084 is not matched.",
+    "No GPU per-row scores were saved, so paired neural-control CI cannot be reconstructed.",
+    "Source-only has three unique runs repeated under two fold names, not six independent runs.",
+    "Source unseen_rows=659 counts HUMAN rows, not unseen AI generators.",
+    "No end-to-end encoder learning, convergence curves or evaluation variant scores in this batch."
+  ],
+  "aggregate": {
+    "lexical_row_auroc_fold_mean": 0.7535726196479545,
+    "lexical_task_macro_fold_mean": 0.8776871522508851
+  },
+  "closure": "frozen_codet5_small_three_epoch_head_increment_not_established_closed"
+}

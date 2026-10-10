@@ -49,6 +49,12 @@ CUDA 训练，非文件核验。
 - 开关保持 `test_read=false`、`generation=false`、`weights_downloaded=false`；
   `code_execution` 仅为本批次脚本自身执行（无样本代码执行）。
 
+## 4.1 同折 lexical 控制复核
+
+本机随后按服务器实际两个 detection 折重新拟合原 v1 lexical 控制，避免把全部 generator 拟合的 `.9084` task-macro AUROC 与 generator-heldout GPU row AUROC 直接比较。fold_0 / fold_1 的 lexical row AUROC 为 `.7849/.7223`，折均值 `.7536`；对应 detection-only GPU row AUROC 为 `.6916/.6530`，折均值 `.6723`。joint 与 joint-invariance 仅为 `.6761/.6765`，增量 `.39/.42pt`。复核不是新 GPU 实验，证据目录为 `artifacts/h3_matched_fold_closeout_2026-10-11/`。
+
+另外，`source_only` 在两个 fold 名下使用同一完整 train/dev 与同一三枚 seed，实际是 3 个独立运行的重复展示；`unseen_rows=659` 是 human 行，不代表 unseen generator AI 行。以上两点已纳入正式边界。
+
 ## 5. 产物与回传
 
 - `metrics.json`（24 runs + 聚合 + 数据/模型哈希 + 设备）、`run_manifest.json`、

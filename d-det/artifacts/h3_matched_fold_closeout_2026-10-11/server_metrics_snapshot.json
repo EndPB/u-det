@@ -1,0 +1,456 @@
+{
+  "schema": "h3_gpu_diagnostic_batch_v1",
+  "formal_status": "diagnostic_only_formal_gate_revise_data",
+  "data_sha256": {
+    "train_balanced.jsonl": "152602c39f6af8268e774d235196a0ee7a4b6485d21e8cf10cd76faba96c6d58",
+    "dev_clean.jsonl": "fe7955a5cfb55093274e7da5721d485e213e6e3521d0b31b61ec7a2c8388b9cf",
+    "train_variants.jsonl": "e4d38e932015a4933825d5ef9ae05b759822455c2fd0762f166827a7cc33a98c"
+  },
+  "model_path": "/root/autodl-tmp/u-det/d-det/models/codet5-small",
+  "model_sha256": "968fb0f45e1efc8cf3dd50012d1f82ad82098107cbadde2c0fdd8e61bac02908",
+  "device": "NVIDIA GeForce RTX 3080 Ti",
+  "cuda": "12.8",
+  "torch": "2.9.1+cu128",
+  "protocol": {
+    "test_read": false,
+    "generation": false,
+    "weights_downloaded": false,
+    "max_length": 512,
+    "max_source_chars": 24000,
+    "limit_train": null,
+    "limit_dev": null,
+    "encoder": "frozen CodeT5-small mean pooling",
+    "folds": {
+      "fold_0": [
+        "claude_3_haiku",
+        "deepseek_v3_2",
+        "devstral_2512"
+      ],
+      "fold_1": [
+        "gemini_3_flash",
+        "gpt5_nano",
+        "grok_4_fast",
+        "qwen3_coder_30b"
+      ]
+    },
+    "seeds": [
+      20261011,
+      20261012,
+      20261013
+    ],
+    "jobs": [
+      "detection_only",
+      "source_only",
+      "joint",
+      "joint_invariance"
+    ],
+    "epochs": 3
+  },
+  "encode": {
+    "unique_codes": 22251,
+    "median_tokens": 512,
+    "max_tokens": 512,
+    "seconds": 68.60235285758972
+  },
+  "runs": [
+    {
+      "job": "detection_only",
+      "seed": 20261011,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5,
+        "auroc": 0.6864986801940065
+      }
+    },
+    {
+      "job": "detection_only",
+      "seed": 20261012,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5015174506828528,
+        "auroc": 0.6947176290619822
+      }
+    },
+    {
+      "job": "detection_only",
+      "seed": 20261013,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5,
+        "auroc": 0.6934784160485954
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261011,
+      "fold": "fold_0",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.14285714285714285,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261012,
+      "fold": "fold_0",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.149577281595491,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261013,
+      "fold": "fold_0",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.14936050292651204,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261011,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5007587253414264,
+        "auroc": 0.692426869546062
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261012,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5007587253414264,
+        "auroc": 0.7043335229187246
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261013,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5,
+        "auroc": 0.6961690702563548
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261011,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5,
+        "auroc": 0.6907133092782476
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261012,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5007587253414264,
+        "auroc": 0.7059803061458672
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261013,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5,
+        "auroc": 0.6982119104143784
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "detection_only",
+      "seed": 20261011,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6103945371775418,
+        "auroc": 0.657530492929693
+      }
+    },
+    {
+      "job": "detection_only",
+      "seed": 20261012,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.5756828528072837,
+        "auroc": 0.6490420372984311
+      }
+    },
+    {
+      "job": "detection_only",
+      "seed": 20261013,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6039453717754173,
+        "auroc": 0.6522922370538891
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261011,
+      "fold": "fold_1",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.14285714285714285,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261012,
+      "fold": "fold_1",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.149577281595491,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261013,
+      "fold": "fold_1",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.14936050292651204,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261011,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6191198786039454,
+        "auroc": 0.6568466039269505
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261012,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.5716995447647951,
+        "auroc": 0.6526301519062542
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261013,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6012898330804248,
+        "auroc": 0.6543977286595546
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261011,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6117223065250379,
+        "auroc": 0.6573244051662404
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261012,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6011001517450683,
+        "auroc": 0.6530564312046808
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261013,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.5792867981790591,
+        "auroc": 0.6535768315906062
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    }
+  ],
+  "aggregate": {
+    "detection_only": {
+      "runs": 6,
+      "detection_auroc_mean": 0.6722599154310996,
+      "detection_balanced_accuracy_mean": 0.5485900354071825
+    },
+    "source_only": {
+      "runs": 6,
+      "source_seen_accuracy_mean": 0.14726497579304862
+    },
+    "joint": {
+      "runs": 6,
+      "detection_auroc_mean": 0.6761339912023168,
+      "detection_balanced_accuracy_mean": 0.548937784522003
+    },
+    "joint_invariance": {
+      "runs": 6,
+      "detection_auroc_mean": 0.67647719896667,
+      "detection_balanced_accuracy_mean": 0.5488113302984319
+    }
+  }
+}
