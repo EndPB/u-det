@@ -45,3 +45,8 @@ data/h2_llm_codegen_v2/
 # CodeT5-small 资产（服务器本地，不入库；sha256 见 artifacts/handoff_verify_2026-10-07/）
 models/codet5-small/
 data/h2_stacad_alignment_v1_received/
+
+# 2026-10-11 H3 v2 交接包（服务器本地校验/解压用，不入库；zip sha256 与核验见 artifacts/handoff_verify_autodl_h3_v2_2026-10-11/）
+data/autodl_h3_v2_handoff_2026-10-11_upload.zip
+data/autodl_h3_v2_handoff_2026-10-11_received/
+data/autodl_h3_v2_handoff_2026-10-11_received_v2/

@@ -1,0 +1,8 @@
+{
+  "controlled_dev": "one human plus up to three distinct-generator nearest-log-length AI rows per task",
+  "gpu_run": false,
+  "length_bin_fit": "train-only, per-language quartiles",
+  "seed": 20261011,
+  "source": "h3_stacad_revision_v1",
+  "test_deserialized": false
+}

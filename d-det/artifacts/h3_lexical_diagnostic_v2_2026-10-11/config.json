@@ -1,0 +1,14 @@
+{
+  "train": "v1/train_all",
+  "eval": [
+    "v1/dev_clean",
+    "v2/controlled_dev_v2"
+  ],
+  "test_deserialized": false,
+  "views": [
+    "raw",
+    "no_comments",
+    "normalized_ws",
+    "masked_tokens"
+  ]
+}

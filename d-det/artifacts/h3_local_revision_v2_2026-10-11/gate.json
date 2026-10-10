@@ -1,0 +1,12 @@
+{
+  "decision": "revise_data",
+  "formal_gpu_ready": false,
+  "next_gpu_requires_new_manifest": true,
+  "old_gpu_batch": "closed",
+  "reasons": [
+    "length_probe_above_0.70",
+    "lexical_probe_remains_high",
+    "project_repository_provenance_unavailable"
+  ],
+  "test_deserialized": false
+}

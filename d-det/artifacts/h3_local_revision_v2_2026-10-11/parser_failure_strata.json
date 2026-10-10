@@ -1,0 +1,342 @@
+{
+  "invalid_examples_only": true,
+  "rows": {
+    "cpp|0|human": {
+      "invalid_examples_listed": 51,
+      "invalid_or_missing": 51,
+      "rate": 0.13246753246753246,
+      "rows": 385
+    },
+    "cpp|1|claude_3_haiku": {
+      "invalid_examples_listed": 48,
+      "invalid_or_missing": 48,
+      "rate": 0.12467532467532468,
+      "rows": 385
+    },
+    "cpp|1|deepseek_v3_2": {
+      "invalid_examples_listed": 48,
+      "invalid_or_missing": 48,
+      "rate": 0.12467532467532468,
+      "rows": 385
+    },
+    "cpp|1|devstral_2512": {
+      "invalid_examples_listed": 43,
+      "invalid_or_missing": 43,
+      "rate": 0.11168831168831168,
+      "rows": 385
+    },
+    "cpp|1|gemini_3_flash": {
+      "invalid_examples_listed": 49,
+      "invalid_or_missing": 49,
+      "rate": 0.12727272727272726,
+      "rows": 385
+    },
+    "cpp|1|gpt5_nano": {
+      "invalid_examples_listed": 54,
+      "invalid_or_missing": 54,
+      "rate": 0.14025974025974025,
+      "rows": 385
+    },
+    "cpp|1|grok_4_fast": {
+      "invalid_examples_listed": 47,
+      "invalid_or_missing": 47,
+      "rate": 0.12207792207792208,
+      "rows": 385
+    },
+    "cpp|1|qwen3_coder_30b": {
+      "invalid_examples_listed": 49,
+      "invalid_or_missing": 49,
+      "rate": 0.12727272727272726,
+      "rows": 385
+    },
+    "cs|0|human": {
+      "invalid_examples_listed": 4,
+      "invalid_or_missing": 4,
+      "rate": 0.01,
+      "rows": 400
+    },
+    "cs|1|claude_3_haiku": {
+      "invalid_examples_listed": 4,
+      "invalid_or_missing": 4,
+      "rate": 0.01,
+      "rows": 400
+    },
+    "cs|1|deepseek_v3_2": {
+      "invalid_examples_listed": 4,
+      "invalid_or_missing": 4,
+      "rate": 0.01,
+      "rows": 400
+    },
+    "cs|1|devstral_2512": {
+      "invalid_examples_listed": 4,
+      "invalid_or_missing": 4,
+      "rate": 0.01,
+      "rows": 400
+    },
+    "cs|1|gemini_3_flash": {
+      "invalid_examples_listed": 5,
+      "invalid_or_missing": 5,
+      "rate": 0.0125,
+      "rows": 400
+    },
+    "cs|1|gpt5_nano": {
+      "invalid_examples_listed": 6,
+      "invalid_or_missing": 6,
+      "rate": 0.015,
+      "rows": 400
+    },
+    "cs|1|grok_4_fast": {
+      "invalid_examples_listed": 4,
+      "invalid_or_missing": 4,
+      "rate": 0.01,
+      "rows": 400
+    },
+    "cs|1|qwen3_coder_30b": {
+      "invalid_examples_listed": 4,
+      "invalid_or_missing": 4,
+      "rate": 0.01,
+      "rows": 400
+    },
+    "c|0|human": {
+      "invalid_examples_listed": 66,
+      "invalid_or_missing": 66,
+      "rate": 0.176,
+      "rows": 375
+    },
+    "c|1|claude_3_haiku": {
+      "invalid_examples_listed": 63,
+      "invalid_or_missing": 63,
+      "rate": 0.168,
+      "rows": 375
+    },
+    "c|1|deepseek_v3_2": {
+      "invalid_examples_listed": 64,
+      "invalid_or_missing": 64,
+      "rate": 0.17066666666666666,
+      "rows": 375
+    },
+    "c|1|devstral_2512": {
+      "invalid_examples_listed": 58,
+      "invalid_or_missing": 58,
+      "rate": 0.15466666666666667,
+      "rows": 375
+    },
+    "c|1|gemini_3_flash": {
+      "invalid_examples_listed": 60,
+      "invalid_or_missing": 60,
+      "rate": 0.16,
+      "rows": 375
+    },
+    "c|1|gpt5_nano": {
+      "invalid_examples_listed": 61,
+      "invalid_or_missing": 61,
+      "rate": 0.16266666666666665,
+      "rows": 375
+    },
+    "c|1|grok_4_fast": {
+      "invalid_examples_listed": 60,
+      "invalid_or_missing": 60,
+      "rate": 0.16,
+      "rows": 375
+    },
+    "c|1|qwen3_coder_30b": {
+      "invalid_examples_listed": 64,
+      "invalid_or_missing": 64,
+      "rate": 0.17066666666666666,
+      "rows": 375
+    },
+    "go|0|human": {
+      "invalid_examples_listed": 2,
+      "invalid_or_missing": 2,
+      "rate": 0.005012531328320802,
+      "rows": 399
+    },
+    "go|1|claude_3_haiku": {
+      "invalid_examples_listed": 3,
+      "invalid_or_missing": 3,
+      "rate": 0.007518796992481203,
+      "rows": 399
+    },
+    "go|1|deepseek_v3_2": {
+      "invalid_examples_listed": 3,
+      "invalid_or_missing": 3,
+      "rate": 0.007518796992481203,
+      "rows": 399
+    },
+    "go|1|devstral_2512": {
+      "invalid_examples_listed": 2,
+      "invalid_or_missing": 2,
+      "rate": 0.005012531328320802,
+      "rows": 399
+    },
+    "go|1|gemini_3_flash": {
+      "invalid_examples_listed": 4,
+      "invalid_or_missing": 4,
+      "rate": 0.010025062656641603,
+      "rows": 399
+    },
+    "go|1|gpt5_nano": {
+      "invalid_examples_listed": 2,
+      "invalid_or_missing": 2,
+      "rate": 0.005012531328320802,
+      "rows": 399
+    },
+    "go|1|grok_4_fast": {
+      "invalid_examples_listed": 5,
+      "invalid_or_missing": 5,
+      "rate": 0.012531328320802004,
+      "rows": 399
+    },
+    "go|1|qwen3_coder_30b": {
+      "invalid_examples_listed": 2,
+      "invalid_or_missing": 2,
+      "rate": 0.005012531328320802,
+      "rows": 399
+    },
+    "java|0|human": {
+      "invalid_examples_listed": 8,
+      "invalid_or_missing": 8,
+      "rate": 0.02,
+      "rows": 400
+    },
+    "java|1|claude_3_haiku": {
+      "invalid_examples_listed": 9,
+      "invalid_or_missing": 9,
+      "rate": 0.0225,
+      "rows": 400
+    },
+    "java|1|deepseek_v3_2": {
+      "invalid_examples_listed": 7,
+      "invalid_or_missing": 7,
+      "rate": 0.0175,
+      "rows": 400
+    },
+    "java|1|devstral_2512": {
+      "invalid_examples_listed": 8,
+      "invalid_or_missing": 8,
+      "rate": 0.02,
+      "rows": 400
+    },
+    "java|1|gemini_3_flash": {
+      "invalid_examples_listed": 6,
+      "invalid_or_missing": 6,
+      "rate": 0.015,
+      "rows": 400
+    },
+    "java|1|gpt5_nano": {
+      "invalid_examples_listed": 8,
+      "invalid_or_missing": 8,
+      "rate": 0.02,
+      "rows": 400
+    },
+    "java|1|grok_4_fast": {
+      "invalid_examples_listed": 9,
+      "invalid_or_missing": 9,
+      "rate": 0.0225,
+      "rows": 400
+    },
+    "java|1|qwen3_coder_30b": {
+      "invalid_examples_listed": 8,
+      "invalid_or_missing": 8,
+      "rate": 0.02,
+      "rows": 400
+    },
+    "php|0|human": {
+      "invalid_examples_listed": 14,
+      "invalid_or_missing": 14,
+      "rate": 0.035,
+      "rows": 400
+    },
+    "php|1|claude_3_haiku": {
+      "invalid_examples_listed": 14,
+      "invalid_or_missing": 14,
+      "rate": 0.035,
+      "rows": 400
+    },
+    "php|1|deepseek_v3_2": {
+      "invalid_examples_listed": 15,
+      "invalid_or_missing": 15,
+      "rate": 0.0375,
+      "rows": 400
+    },
+    "php|1|devstral_2512": {
+      "invalid_examples_listed": 14,
+      "invalid_or_missing": 14,
+      "rate": 0.035,
+      "rows": 400
+    },
+    "php|1|gemini_3_flash": {
+      "invalid_examples_listed": 13,
+      "invalid_or_missing": 13,
+      "rate": 0.0325,
+      "rows": 400
+    },
+    "php|1|gpt5_nano": {
+      "invalid_examples_listed": 16,
+      "invalid_or_missing": 16,
+      "rate": 0.04,
+      "rows": 400
+    },
+    "php|1|grok_4_fast": {
+      "invalid_examples_listed": 15,
+      "invalid_or_missing": 15,
+      "rate": 0.0375,
+      "rows": 400
+    },
+    "php|1|qwen3_coder_30b": {
+      "invalid_examples_listed": 15,
+      "invalid_or_missing": 15,
+      "rate": 0.0375,
+      "rows": 400
+    },
+    "py|0|human": {
+      "invalid_examples_listed": 0,
+      "invalid_or_missing": 0,
+      "rate": 0.0,
+      "rows": 396
+    },
+    "py|1|claude_3_haiku": {
+      "invalid_examples_listed": 0,
+      "invalid_or_missing": 0,
+      "rate": 0.0,
+      "rows": 396
+    },
+    "py|1|deepseek_v3_2": {
+      "invalid_examples_listed": 0,
+      "invalid_or_missing": 0,
+      "rate": 0.0,
+      "rows": 396
+    },
+    "py|1|devstral_2512": {
+      "invalid_examples_listed": 0,
+      "invalid_or_missing": 0,
+      "rate": 0.0,
+      "rows": 396
+    },
+    "py|1|gemini_3_flash": {
+      "invalid_examples_listed": 0,
+      "invalid_or_missing": 0,
+      "rate": 0.0,
+      "rows": 396
+    },
+    "py|1|gpt5_nano": {
+      "invalid_examples_listed": 0,
+      "invalid_or_missing": 0,
+      "rate": 0.0,
+      "rows": 396
+    },
+    "py|1|grok_4_fast": {
+      "invalid_examples_listed": 0,
+      "invalid_or_missing": 0,
+      "rate": 0.0,
+      "rows": 396
+    },
+    "py|1|qwen3_coder_30b": {
+      "invalid_examples_listed": 0,
+      "invalid_or_missing": 0,
+      "rate": 0.0,
+      "rows": 396
+    }
+  },
+  "source": "v1 parser_audit.json"
+}

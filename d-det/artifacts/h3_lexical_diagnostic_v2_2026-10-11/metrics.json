@@ -1,0 +1,50 @@
+{
+  "raw": {
+    "clean_dev": {
+      "row_auroc": 0.7661690077556762,
+      "task_macro_auroc": 0.8969217429004985,
+      "rows": 5272
+    },
+    "controlled_dev_v2": {
+      "row_auroc": 0.6914559160236498,
+      "task_macro_auroc": 0.8500252908447143,
+      "rows": 2636
+    }
+  },
+  "no_comments": {
+    "clean_dev": {
+      "row_auroc": 0.7391086811139725,
+      "task_macro_auroc": 0.8853240841101234,
+      "rows": 5272
+    },
+    "controlled_dev_v2": {
+      "row_auroc": 0.6811718679840932,
+      "task_macro_auroc": 0.8543247344461306,
+      "rows": 2636
+    }
+  },
+  "normalized_ws": {
+    "clean_dev": {
+      "row_auroc": 0.7642203023914405,
+      "task_macro_auroc": 0.8902016041621504,
+      "rows": 5272
+    },
+    "controlled_dev_v2": {
+      "row_auroc": 0.6893758495843322,
+      "task_macro_auroc": 0.8373798684876074,
+      "rows": 2636
+    }
+  },
+  "masked_tokens": {
+    "clean_dev": {
+      "row_auroc": 0.7295649919883999,
+      "task_macro_auroc": 0.847062649035335,
+      "rows": 5272
+    },
+    "controlled_dev_v2": {
+      "row_auroc": 0.673045792931305,
+      "task_macro_auroc": 0.7996965098634294,
+      "rows": 2636
+    }
+  }
+}
