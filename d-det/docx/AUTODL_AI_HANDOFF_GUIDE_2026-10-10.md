@@ -206,3 +206,9 @@ artifact_dir=
 - 当前包仍为 `formal_gpu_ready=false`、`revise_data`，服务器只做接收核验，不启动训练
 
 下一轮只有在 clean-dev 和 hard-negative 的长度闸门均通过、project provenance 补齐或正式声明仅作 task-heldout 后，才生成一个新的 `batch_manifest.json`，把 lexical control、detection-only、source-only、joint、joint-invariance（可选 adversary）和至少两折×三 seed 一次性上传执行。
+
+## 2026-10-11 H3 v4 精确配额 hard-negative 接收候选
+
+本机继续完成 v4 CPU 修订：使用精确 generator 配额的最小成本匹配，hard-negative dev 长度 task-macro 从 v3 的 `.7109` 降至 `.6907`，masked lexical 为 `.6343`；train/dev 仍为 8,384/2,636 行，2,096/659 task，七 generator 配额完整。untouched clean-dev 长度仍为 `.7248`，因此 `formal_gpu_ready=false`，不启动 GPU。
+
+v4 只能作为新的接收候选包；AutoDL 收到后一次性做哈希、编译、配额和指标核验，不自行扩展实验。正式 GPU 仍等待 clean-dev 口径与 project provenance 的预注册裁定。

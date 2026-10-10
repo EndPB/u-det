@@ -1,0 +1,11 @@
+{
+  "zip": "d-det/data/autodl_h3_v4_hardneg_handoff_2026-10-11_upload.zip",
+  "sha256": "551fa66f2290a67e3f760166274b15996a6d72a6cdd1dbaa559b20f9ac0944a4",
+  "file_count": 16,
+  "created_utc": "2026-10-10T20:06:59.3463365Z",
+  "remote_host": "codex-gpu",
+  "remote_path": "/root/autodl-tmp/handoffs/autodl_h3_v4_hardneg_handoff_2026-10-11_upload.zip",
+  "gate": "revise_data",
+  "formal_gpu_ready": false,
+  "test_deserialized": false
+}

@@ -1,0 +1,8 @@
+{
+  "gpu_run": false,
+  "objective": "0.70*log_length_delta + 0.30*(1-masked_token_cosine)",
+  "project_provenance": "unavailable",
+  "seed": 20261011,
+  "selection": "exact task sum=3 and exact global generator quotas, minimum-cost MILP",
+  "test_deserialized": false
+}

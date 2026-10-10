@@ -1,0 +1,9 @@
+{
+  "evidence": "all STACAD corpus rows inspected; only source_ref=file/line is available in alignment",
+  "required_fields": [
+    "repository_id",
+    "project_id",
+    "source_url"
+  ],
+  "status": "unavailable"
+}
