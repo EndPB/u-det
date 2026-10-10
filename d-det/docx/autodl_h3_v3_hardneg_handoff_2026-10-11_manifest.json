@@ -9,5 +9,5 @@
   "gate": "revise_data",
   "formal_gpu_ready": false,
   "test_deserialized": false,
-  "server_commit": "ec241eb1b22b1e036e12b127ebd256887f347cf9"
+  "server_commit": "2061bd6c8ad5bd995456d7580e0a70ce40967614"
 }
