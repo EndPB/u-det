@@ -179,3 +179,30 @@ artifact_dir=
 ```
 
 下次更新只需追加本轮日期、commit、输入和输出 hash、闸门结果及一个最小下一步；不要把旧长篇聊天重新复制进指南。
+
+## H3 v2 后续批次边界（2026-10-11）
+
+本机已完成 v2 数据侧审计，结果仍为 `revise_data`：clean-dev / controlled-dev 词法 task-macro AUROC 为 .9694 / .9585，长度为 .7248 / .6679，view probe 为 .5569；project provenance 尚未补齐。AutoDL 不接收旧冻结包的重复运行，也不拆成零散小实验。待本机补齐项目来源并通过 clean-dev + controlled-dev 的词法/长度/变体/重复闸门后，统一上传新的冻结数据包、脚本、环境、`batch_manifest.json`、SHA256SUMS，一次性跑完整折×seed 矩阵。
+
+## 2026-10-11 H3 v2 接收包已上传 AutoDL
+
+本机已将 H3 v2 证据、脚本、controlled-dev 和接收指导打成一次性包并上传：
+
+- 本地包：`d-det/data/autodl_h3_v2_handoff_2026-10-11_upload.zip`
+- SHA256：`d045bcd11ddbfe371f15a061ca61b2c53efd9c552da5717ca8b48bc754817826`
+- AutoDL 接收：22/22 文件哈希通过，脚本编译通过，回执 `d-det/artifacts/autodl_h3_v2_handoff_2026-10-11_receipt.md`
+- AutoDL 当前无可用 GPU（`nvidia-smi` 权限拒绝），因此只做接收核验，没有冒充 GPU 运行。
+- 当前包明确 `formal_gpu_ready=false`；后续新 GPU 包必须等待本机数据闸门通过并另行生成 `batch_manifest.json`。
+
+## 2026-10-11 H3 v3 hard-negative 接收包已上传 AutoDL
+
+本机已完成 generator 配额修正后的 hard-negative v3 CPU 构造，并将完整证据包一次性上传 AutoDL：
+
+- 本地包：`d-det/data/autodl_h3_v3_hardneg_handoff_2026-10-11_upload.zip`
+- SHA256：`1f3f4cf975b0f04856afbe656f95c20e1488ab6b84a294b3c9078d7118e1ef1a`
+- 内容：脚本、8,384 行 train / 2,636 行 dev 配对数据、manifest、provenance audit、metrics、报告、环境和 SHA256SUMS
+- AutoDL 接收：15/15 文件哈希通过，`py_compile` 通过，指标复核通过，回执标记 `BUNDLE_RECEIVED_V3`
+- 读数：hard-negative masked task-macro `.6578`，length `.7109`；clean-dev length `.7248`；项目来源字段仍缺失
+- 当前包仍为 `formal_gpu_ready=false`、`revise_data`，服务器只做接收核验，不启动训练
+
+下一轮只有在 clean-dev 和 hard-negative 的长度闸门均通过、project provenance 补齐或正式声明仅作 task-heldout 后，才生成一个新的 `batch_manifest.json`，把 lexical control、detection-only、source-only、joint、joint-invariance（可选 adversary）和至少两折×三 seed 一次性上传执行。

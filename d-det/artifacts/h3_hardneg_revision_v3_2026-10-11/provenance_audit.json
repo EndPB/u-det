@@ -1,0 +1,26 @@
+{
+  "evidence": "alignment rows contain source_ref to corpus file/line, but no repository/project identity",
+  "observed_fields": [
+    "code",
+    "code_sha256",
+    "family",
+    "file_name",
+    "generator",
+    "label",
+    "language",
+    "record_id",
+    "row_id",
+    "source_ref",
+    "task_id",
+    "task_split"
+  ],
+  "present_candidate_fields": [
+    "source_ref"
+  ],
+  "required_fields": [
+    "repository_id",
+    "project_id",
+    "source_url"
+  ],
+  "status": "unavailable"
+}

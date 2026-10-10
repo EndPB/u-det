@@ -1,0 +1,9 @@
+{
+  "dev_source": "v1/dev_clean",
+  "gpu_run": false,
+  "project_provenance": "unavailable",
+  "seed": 20261011,
+  "selection": "one human plus three distinct-generator AI rows ranked by 0.70*log-length delta + 0.30*(1-masked-token cosine)",
+  "test_deserialized": false,
+  "train_source": "v1/train_all"
+}

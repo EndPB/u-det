@@ -1,0 +1,68 @@
+{
+  "clean_dev_reference": {
+    "length": {
+      "row_auroc": 0.5759174359458508,
+      "rows": 5272,
+      "task_macro_auroc": 0.7247994797311944
+    },
+    "masked": {
+      "row_auroc": 0.5767829058670703,
+      "rows": 5272,
+      "task_macro_auroc": 0.6546715803164969,
+      "view": "masked_tokens"
+    },
+    "raw": {
+      "row_auroc": 0.7623630453883217,
+      "rows": 5272,
+      "task_macro_auroc": 0.8813136787340125,
+      "view": "raw"
+    }
+  },
+  "counts": {
+    "dev_rows": 2636,
+    "dev_tasks": 659,
+    "train_rows": 8384,
+    "train_tasks": 2096
+  },
+  "generator_counts": {
+    "dev": {
+      "claude_3_haiku": 283,
+      "deepseek_v3_2": 283,
+      "devstral_2512": 283,
+      "gemini_3_flash": 282,
+      "gpt5_nano": 282,
+      "grok_4_fast": 282,
+      "human": 659,
+      "qwen3_coder_30b": 282
+    },
+    "train": {
+      "claude_3_haiku": 899,
+      "deepseek_v3_2": 899,
+      "devstral_2512": 898,
+      "gemini_3_flash": 898,
+      "gpt5_nano": 898,
+      "grok_4_fast": 898,
+      "human": 2096,
+      "qwen3_coder_30b": 898
+    }
+  },
+  "hardneg_v3": {
+    "length": {
+      "row_auroc": 0.5711463315226777,
+      "rows": 2636,
+      "task_macro_auroc": 0.7109256449165402
+    },
+    "masked": {
+      "row_auroc": 0.5771451356763632,
+      "rows": 2636,
+      "task_macro_auroc": 0.657814871016692,
+      "view": "masked_tokens"
+    },
+    "raw": {
+      "row_auroc": 0.751982011646837,
+      "rows": 2636,
+      "task_macro_auroc": 0.877845220030349,
+      "view": "raw"
+    }
+  }
+}
