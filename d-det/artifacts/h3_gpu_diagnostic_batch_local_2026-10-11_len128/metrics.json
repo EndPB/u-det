@@ -1,0 +1,454 @@
+{
+  "schema": "h3_gpu_diagnostic_batch_v1",
+  "formal_status": "diagnostic_only_formal_gate_revise_data",
+  "data_sha256": {
+    "train_balanced.jsonl": "152602c39f6af8268e774d235196a0ee7a4b6485d21e8cf10cd76faba96c6d58",
+    "dev_clean.jsonl": "fe7955a5cfb55093274e7da5721d485e213e6e3521d0b31b61ec7a2c8388b9cf",
+    "train_variants.jsonl": "e4d38e932015a4933825d5ef9ae05b759822455c2fd0762f166827a7cc33a98c"
+  },
+  "model_path": "D:\\data\\vscode\\u-det\\d-det\\models\\codet5-small",
+  "model_sha256": "968fb0f45e1efc8cf3dd50012d1f82ad82098107cbadde2c0fdd8e61bac02908",
+  "device": "NVIDIA GeForce RTX 3050 Laptop GPU",
+  "cuda": "12.8",
+  "torch": "2.11.0+cu128",
+  "protocol": {
+    "test_read": false,
+    "generation": false,
+    "weights_downloaded": false,
+    "max_length": 128,
+    "max_source_chars": 24000,
+    "encoder": "frozen CodeT5-small mean pooling",
+    "folds": {
+      "fold_0": [
+        "claude_3_haiku",
+        "deepseek_v3_2",
+        "devstral_2512"
+      ],
+      "fold_1": [
+        "gemini_3_flash",
+        "gpt5_nano",
+        "grok_4_fast",
+        "qwen3_coder_30b"
+      ]
+    },
+    "seeds": [
+      20261011,
+      20261012,
+      20261013
+    ],
+    "jobs": [
+      "detection_only",
+      "source_only",
+      "joint",
+      "joint_invariance"
+    ],
+    "epochs": 3
+  },
+  "encode": {
+    "unique_codes": 22251,
+    "median_tokens": 128,
+    "max_tokens": 128,
+    "seconds": 55.68086886405945
+  },
+  "runs": [
+    {
+      "job": "detection_only",
+      "seed": 20261011,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5022761760242792,
+        "auroc": 0.738589761007274
+      }
+    },
+    {
+      "job": "detection_only",
+      "seed": 20261012,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5151745068285281,
+        "auroc": 0.7419907847683873
+      }
+    },
+    {
+      "job": "detection_only",
+      "seed": 20261013,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5480526049570056,
+        "auroc": 0.7337284692015845
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261011,
+      "fold": "fold_0",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.14827660958161717,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261012,
+      "fold": "fold_0",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.15998265770648168,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261013,
+      "fold": "fold_0",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.15001083893344894,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261011,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5318664643399089,
+        "auroc": 0.7528405187731753
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261012,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5417298937784523,
+        "auroc": 0.749487467024039
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261013,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5007587253414264,
+        "auroc": 0.7422371690219005
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261011,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5144157814871017,
+        "auroc": 0.7515805818506144
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261012,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5242792109256449,
+        "auroc": 0.7540382839682142
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261013,
+      "fold": "fold_0",
+      "train_rows": 6480,
+      "dev_rows": 2636,
+      "detection": {
+        "n": 2636,
+        "positive": 1977,
+        "balanced_accuracy": 0.5015174506828528,
+        "auroc": 0.7441476064268681
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "detection_only",
+      "seed": 20261011,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.622154779969651,
+        "auroc": 0.7254729656604824
+      }
+    },
+    {
+      "job": "detection_only",
+      "seed": 20261012,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6045144157814871,
+        "auroc": 0.6845720282489909
+      }
+    },
+    {
+      "job": "detection_only",
+      "seed": 20261013,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.632587253414264,
+        "auroc": 0.7079923482722017
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261011,
+      "fold": "fold_1",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.14827660958161717,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261012,
+      "fold": "fold_1",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.15998265770648168,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "source_only",
+      "seed": 20261013,
+      "fold": "fold_1",
+      "train_rows": 8384,
+      "dev_rows": 5272,
+      "detection": {
+        "status": "not_trained_source_only"
+      },
+      "source": {
+        "status": "seen_source_only",
+        "n": 4613,
+        "accuracy": 0.15001083893344894,
+        "unseen_rows": 659
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261011,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6270864946889226,
+        "auroc": 0.7272736431020468
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261012,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6439681335356601,
+        "auroc": 0.6927217055316719
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint",
+      "seed": 20261013,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6310698027314112,
+        "auroc": 0.7006002450026596
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261011,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6270864946889225,
+        "auroc": 0.7280507896960723
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261012,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6418816388467374,
+        "auroc": 0.69142243155929
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    },
+    {
+      "job": "joint_invariance",
+      "seed": 20261013,
+      "fold": "fold_1",
+      "train_rows": 4000,
+      "dev_rows": 3295,
+      "detection": {
+        "n": 3295,
+        "positive": 2636,
+        "balanced_accuracy": 0.6394157814871017,
+        "auroc": 0.6986021147597985
+      },
+      "source": {
+        "status": "no_seen_source_in_eval",
+        "n": 0
+      }
+    }
+  ],
+  "aggregate": {
+    "detection_only": {
+      "runs": 6,
+      "detection_auroc_mean": 0.7220577261931534,
+      "detection_balanced_accuracy_mean": 0.5707932894958692
+    },
+    "source_only": {
+      "runs": 6,
+      "source_seen_accuracy_mean": 0.15275670207384925
+    },
+    "joint": {
+      "runs": 6,
+      "detection_auroc_mean": 0.7275267914092488,
+      "detection_balanced_accuracy_mean": 0.5794132524026302
+    },
+    "joint_invariance": {
+      "runs": 6,
+      "detection_auroc_mean": 0.7279736347101428,
+      "detection_balanced_accuracy_mean": 0.5747660596863935
+    }
+  }
+}

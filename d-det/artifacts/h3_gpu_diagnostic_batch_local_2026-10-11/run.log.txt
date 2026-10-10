@@ -1,0 +1,11 @@
+
+Loading weights:   0%|          | 0/52 [00:00<?, ?it/s]
+Loading weights: 100%|��������������������| 52/52 [00:00<00:00, 2735.70it/s]
+T5EncoderModel LOAD REPORT from: D:\data\vscode\u-det\d-det\models\codet5-small
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+ENCODE 8/22251

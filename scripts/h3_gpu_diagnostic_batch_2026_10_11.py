@@ -34,11 +34,21 @@ DATA = ROOT / "d-det/data/h3_stacad_revision_v1"
 MODEL = ROOT / "d-det/models/codet5-small"
 SEEDS = (20261011, 20261012, 20261013)
 JOBS = ("detection_only", "source_only", "joint", "joint_invariance")
+MAX_SOURCE_CHARS = 24000
 
 
 def read_jsonl(path: Path) -> list[dict]:
     with path.open(encoding="utf-8") as fh:
         return [json.loads(line) for line in fh if line.strip()]
+
+
+def deterministic_limit(rows: list[dict], limit: int | None) -> list[dict]:
+    if not limit or len(rows) <= limit:
+        return rows
+    # Evenly spaced selection is deterministic and keeps the original
+    # task-balanced ordering of the v1 materialization.
+    indices = np.linspace(0, len(rows) - 1, num=limit, dtype=int)
+    return [rows[int(i)] for i in indices]
 
 
 def sha256_file(path: Path) -> str:
@@ -78,8 +88,16 @@ def encode_unique(rows: list[dict], tokenizer, encoder, device, batch_size: int,
     started = time.time()
     for start in range(0, len(keys), batch_size):
         batch_keys = keys[start : start + batch_size]
-        encoded = [head_tail(tokenizer.encode(texts[key], add_special_tokens=False), max_length)
-                   for key in batch_keys]
+        # Avoid spending minutes tokenizing pathological multi-hundred-kilobyte
+        # files before the 512-token head/tail cap can take effect.
+        compact = []
+        for key in batch_keys:
+            text = texts[key]
+            if len(text) > MAX_SOURCE_CHARS:
+                text = text[: MAX_SOURCE_CHARS - 6000] + "\n/* ... source_chars_capped ... */\n" + text[-5900:]
+            compact.append(text)
+        encoded = [head_tail(tokenizer.encode(text, add_special_tokens=False), max_length)
+                   for text in compact]
         lengths.extend(len(x) for x in encoded)
         width = max((len(x) for x in encoded), default=1)
         ids = torch.full((len(encoded), width), int(tokenizer.pad_token_id), dtype=torch.long, device=device)
@@ -208,6 +226,8 @@ def main() -> None:
     ap.add_argument("--batch-size", type=int, default=256)
     ap.add_argument("--encode-batch-size", type=int, default=16)
     ap.add_argument("--max-length", type=int, default=512)
+    ap.add_argument("--limit-train", type=int, default=None, help="local smoke cap; omitted for the full batch")
+    ap.add_argument("--limit-dev", type=int, default=None, help="local smoke cap; omitted for the full batch")
     args = ap.parse_args()
     if not torch.cuda.is_available():
         raise SystemExit("CUDA is required for this batch; no CPU fallback is allowed")
@@ -216,9 +236,12 @@ def main() -> None:
     os.environ.setdefault("OMP_NUM_THREADS", "4")
     os.environ.setdefault("MKL_NUM_THREADS", "4")
     args.out.mkdir(parents=True, exist_ok=True)
-    train = read_jsonl(DATA / "train_balanced.jsonl")
-    dev = read_jsonl(DATA / "dev_clean.jsonl")
+    train = deterministic_limit(read_jsonl(DATA / "train_balanced.jsonl"), args.limit_train)
+    dev = deterministic_limit(read_jsonl(DATA / "dev_clean.jsonl"), args.limit_dev)
     variants = read_jsonl(DATA / "train_variants.jsonl")
+    if args.limit_train:
+        parent_ids = {r["row_id"] for r in train}
+        variants = [r for r in variants if r.get("parent_row_id") in parent_ids]
     # Only v1 train/dev files are read.  The test split is not opened.
     all_rows = train + dev + variants
     tokenizer = make_tokenizer()
@@ -237,7 +260,9 @@ def main() -> None:
         "model_path": str(MODEL), "model_sha256": sha256_file(MODEL / "pytorch_model.bin"),
         "device": torch.cuda.get_device_name(0), "cuda": torch.version.cuda, "torch": torch.__version__,
         "protocol": {"test_read": False, "generation": False, "weights_downloaded": False,
-                     "max_length": args.max_length, "encoder": "frozen CodeT5-small mean pooling",
+                     "max_length": args.max_length, "max_source_chars": MAX_SOURCE_CHARS,
+                     "limit_train": args.limit_train, "limit_dev": args.limit_dev,
+                     "encoder": "frozen CodeT5-small mean pooling",
                      "folds": folds, "seeds": list(SEEDS), "jobs": args.jobs, "epochs": args.epochs},
         "encode": encode_info, "runs": [],
     }

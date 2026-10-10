@@ -1,0 +1,33 @@
+{
+  "schema": "h3_gpu_diagnostic_batch_v1",
+  "data_sha256": {
+    "train_balanced.jsonl": "152602c39f6af8268e774d235196a0ee7a4b6485d21e8cf10cd76faba96c6d58",
+    "dev_clean.jsonl": "fe7955a5cfb55093274e7da5721d485e213e6e3521d0b31b61ec7a2c8388b9cf",
+    "train_variants.jsonl": "e4d38e932015a4933825d5ef9ae05b759822455c2fd0762f166827a7cc33a98c"
+  },
+  "model_sha256": "968fb0f45e1efc8cf3dd50012d1f82ad82098107cbadde2c0fdd8e61bac02908",
+  "jobs": [
+    "detection_only",
+    "source_only",
+    "joint",
+    "joint_invariance"
+  ],
+  "folds": {
+    "fold_0": [
+      "claude_3_haiku",
+      "deepseek_v3_2",
+      "devstral_2512"
+    ],
+    "fold_1": [
+      "gemini_3_flash",
+      "gpt5_nano",
+      "grok_4_fast",
+      "qwen3_coder_30b"
+    ]
+  },
+  "seeds": [
+    20261011,
+    20261012,
+    20261013
+  ]
+}
