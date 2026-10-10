@@ -1,0 +1,35 @@
+Loading weights:   0%|          | 0/52 [00:00<?, ?it/s]Loading weights: 100%|██████████| 52/52 [00:00<00:00, 1774.70it/s]
+[transformers] [1mT5EncoderModel LOAD REPORT[0m from: /root/autodl-tmp/u-det/d-det/models/codet5-small
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+ENCODE 16/22251
+ENCODE 22251/22251
+RUN detection_only fold_0 seed=20261011 train=6480 dev=2636
+RUN detection_only fold_0 seed=20261012 train=6480 dev=2636
+RUN detection_only fold_0 seed=20261013 train=6480 dev=2636
+RUN source_only fold_0 seed=20261011 train=8384 dev=5272
+RUN source_only fold_0 seed=20261012 train=8384 dev=5272
+RUN source_only fold_0 seed=20261013 train=8384 dev=5272
+RUN joint fold_0 seed=20261011 train=6480 dev=2636
+RUN joint fold_0 seed=20261012 train=6480 dev=2636
+RUN joint fold_0 seed=20261013 train=6480 dev=2636
+RUN joint_invariance fold_0 seed=20261011 train=6480 dev=2636
+RUN joint_invariance fold_0 seed=20261012 train=6480 dev=2636
+RUN joint_invariance fold_0 seed=20261013 train=6480 dev=2636
+RUN detection_only fold_1 seed=20261011 train=4000 dev=3295
+RUN detection_only fold_1 seed=20261012 train=4000 dev=3295
+RUN detection_only fold_1 seed=20261013 train=4000 dev=3295
+RUN source_only fold_1 seed=20261011 train=8384 dev=5272
+RUN source_only fold_1 seed=20261012 train=8384 dev=5272
+RUN source_only fold_1 seed=20261013 train=8384 dev=5272
+RUN joint fold_1 seed=20261011 train=4000 dev=3295
+RUN joint fold_1 seed=20261012 train=4000 dev=3295
+RUN joint fold_1 seed=20261013 train=4000 dev=3295
+RUN joint_invariance fold_1 seed=20261011 train=4000 dev=3295
+RUN joint_invariance fold_1 seed=20261012 train=4000 dev=3295
+RUN joint_invariance fold_1 seed=20261013 train=4000 dev=3295
+{"detection_only": {"runs": 6, "detection_auroc_mean": 0.6722599154310996, "detection_balanced_accuracy_mean": 0.5485900354071825}, "source_only": {"runs": 6, "source_seen_accuracy_mean": 0.14726497579304862}, "joint": {"runs": 6, "detection_auroc_mean": 0.6761339912023168, "detection_balanced_accuracy_mean": 0.548937784522003}, "joint_invariance": {"runs": 6, "detection_auroc_mean": 0.67647719896667, "detection_balanced_accuracy_mean": 0.5488113302984319}}

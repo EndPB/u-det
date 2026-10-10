@@ -1,0 +1,12 @@
+git_head: fcea025 (Pin H3 GPU batch to diagnostic implementation)
+script: scripts/h3_gpu_diagnostic_batch_2026_10_11.py
+script_sha256: 6707e57fb8906062289e49c84898c3891c1f5034ff0843431ff3a3cd7bed264b
+code_commit_required: 98a9f79 (script identical at fcea025; pin commits 6bc0c55/fcea025 changed manifest+doc only)
+data_sha256_verified:
+  train_balanced.jsonl 152602c39f6af8268e774d235196a0ee7a4b6485d21e8cf10cd76faba96c6d58
+  dev_clean.jsonl      fe7955a5cfb55093274e7da5721d485e213e6e3521d0b31b61ec7a2c8388b9cf
+  train_variants.jsonl e4d38e932015a4933825d5ef9ae05b759822455c2fd0762f166827a7cc33a98c
+model: d-det/models/codet5-small (local only, no download; pytorch_model.bin sha256 in metrics.json)
+device: NVIDIA GeForce RTX 3080 Ti 12288 MiB | torch 2.9.1+cu128 | cuda 12.8
+run_window_local: 2026-10-11 ~02:21 -> 02:23:22 +0800 (first GPU-monitor sample 02:21:57; encode 68.6s)
+result: 24/24 runs completed; BATCH_STATUS=0
