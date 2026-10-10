@@ -1,0 +1,19 @@
+{
+  "additional_train_excluded": [
+    "stacad:go:8673_go6736.go"
+  ],
+  "excluded_count": 4,
+  "excluded_task_ids": [
+    "stacad:py:17895_py6559.py",
+    "stacad:py:30467_py2520.py",
+    "stacad:py:53336_py4341.py",
+    "stacad:py:53344_py8939.py"
+  ],
+  "input_rows": {
+    "ai": 19320,
+    "dev_clean": 5272,
+    "human": 2760,
+    "train_all": 16768
+  },
+  "policy": "remove all previously adjudicated cross-task/cross-split groups from derived train/dev"
+}

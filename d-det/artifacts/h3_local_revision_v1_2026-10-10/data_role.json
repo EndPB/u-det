@@ -1,0 +1,7 @@
+{
+  "dev": "clean_dev primary; matched_dev sensitivity only",
+  "source": "d-det/data/h2_stacad_alignment_v1",
+  "test": "sealed; raw payload skipped before JSON deserialization",
+  "test_streamed_bytes": "container lines necessarily streamed; test JSON/code never deserialized, parsed or modeled",
+  "train": "derived train_all and train_balanced; safe for fitting"
+}

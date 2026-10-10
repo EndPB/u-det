@@ -1,0 +1,5633 @@
+{
+  "counts": {
+    "c:parse_error": 496,
+    "c:rows": 3000,
+    "cpp:parse_error": 389,
+    "cpp:rows": 3080,
+    "cs:parse_error": 35,
+    "cs:rows": 3200,
+    "go:parse_error": 23,
+    "go:rows": 3200,
+    "java:parse_error": 63,
+    "java:rows": 3200,
+    "php:parse_error": 116,
+    "php:rows": 3200,
+    "py:parse_error": 0,
+    "py:rows": 3168
+  },
+  "invalid_examples": [
+    {
+      "errors": 0,
+      "missing": 5,
+      "row_id": "stacad:c:0229_c5118.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:0711_c7389.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11128_c5540.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11660_c5767.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:12433_c5968.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:c:13787_c8210.c:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:1438_c2385.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:17475_c3055.c:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:17700_c1558.c:human"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:19423_c4334.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:19506_c3807.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:20495_c6140.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:22703_c3004.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:23091_c2612.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:2436_c2409.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:24571_c6471.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:2617_c3428.c:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:27945_c6425.c:human"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:28341_c8500.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 9,
+      "row_id": "stacad:c:28995_c5251.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:29407_c6340.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:32102_c3694.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:33421_c2262.c:human"
+    },
+    {
+      "errors": 7,
+      "missing": 0,
+      "row_id": "stacad:c:33448_c1398.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:34018_c9158.c:human"
+    },
+    {
+      "errors": 2,
+      "missing": 1,
+      "row_id": "stacad:c:34485_c2192.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:34871_c3155.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:35514_c9370.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36242_c7626.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36998_c5382.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:37826_c1777.c:human"
+    },
+    {
+      "errors": 6,
+      "missing": 3,
+      "row_id": "stacad:c:38640_c3672.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:39278_c2782.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:40930_c1991.c:human"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:41073_c4232.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:c:42478_c3248.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:42710_c1764.c:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:44505_c5881.c:human"
+    },
+    {
+      "errors": 22,
+      "missing": 0,
+      "row_id": "stacad:c:45357_c6615.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:45970_c8430.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:46317_c3931.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:4761_c4249.c:human"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:c:50181_c4606.c:human"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:c:50564_c3420.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:51948_c8234.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:5410_c8265.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54457_c2325.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54991_c1982.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:55368_c8400.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:56956_c4664.c:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:59647_c5170.c:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:60152_c2449.c:human"
+    },
+    {
+      "errors": 20,
+      "missing": 0,
+      "row_id": "stacad:c:60250_c9196.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:61670_c5675.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:63336_c7962.c:human"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:65682_c6559.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:66803_c3182.c:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:66994_c1225.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:67085_c5351.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:67259_c5207.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:6908_c3263.c:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:71149_c9444.c:human"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:72424_c3851.c:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:72796_c9869.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:74221_c1275.c:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:9158_c6296.c:human"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:11639_cpp8978.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:12356_cpp9027.cpp:human"
+    },
+    {
+      "errors": 10,
+      "missing": 0,
+      "row_id": "stacad:cpp:13805_cpp4886.cpp:human"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:1405_cpp2444.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:15084_cpp4989.cpp:human"
+    },
+    {
+      "errors": 3,
+      "missing": 1,
+      "row_id": "stacad:cpp:15881_cpp7047.cpp:human"
+    },
+    {
+      "errors": 18,
+      "missing": 0,
+      "row_id": "stacad:cpp:16208_cpp1179.cpp:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:18248_cpp6394.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:24059_cpp5840.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 6,
+      "row_id": "stacad:cpp:25926_cpp8845.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:27218_cpp3478.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:29535_cpp2484.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 14,
+      "row_id": "stacad:cpp:32413_cpp6828.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 4,
+      "row_id": "stacad:cpp:3373_cpp3577.cpp:human"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:cpp:3521_cpp2950.cpp:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:35952_cpp2186.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:36132_cpp8975.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 7,
+      "row_id": "stacad:cpp:3673_cpp6873.cpp:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cpp:37807_cpp4906.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:37840_cpp5352.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 18,
+      "row_id": "stacad:cpp:3811_cpp3945.cpp:human"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:39920_cpp6624.cpp:human"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:40896_cpp4353.cpp:human"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:41954_cpp5183.cpp:human"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:cpp:42381_cpp6749.cpp:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:48974_cpp9643.cpp:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:5102_cpp9892.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:53406_cpp2753.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:56183_cpp5505.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57059_cpp3689.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57107_cpp8803.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57128_cpp2273.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:cpp:58680_cpp6367.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:5944_cpp3241.cpp:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59605_cpp8767.cpp:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59875_cpp7564.cpp:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:60468_cpp1100.cpp:human"
+    },
+    {
+      "errors": 12,
+      "missing": 3,
+      "row_id": "stacad:cpp:6072_cpp6400.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:62605_cpp7154.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:62730_cpp1275.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 6,
+      "row_id": "stacad:cpp:63326_cpp1499.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:64659_cpp5065.cpp:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:6466_cpp2765.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:66795_cpp5071.cpp:human"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:66861_cpp9584.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:67836_cpp5252.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 4,
+      "row_id": "stacad:cpp:8926_cpp2431.cpp:human"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:8939_cpp4635.cpp:human"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:cpp:9480_cpp2196.cpp:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cpp:9507_cpp2277.cpp:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:9509_cpp5936.cpp:human"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:cs:20640_cs1845.cs:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cs:21596_cs4437.cs:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cs:25799_cs7850.cs:human"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cs:35848_cs9412.cs:human"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:go:101112_go6752.go:human"
+    },
+    {
+      "errors": 1,
+      "missing": 3,
+      "row_id": "stacad:go:58427_go2775.go:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:117913_java8197.java:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:4631_java4308.java:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:47136_java7908.java:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:70940_java9062.java:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:86767_java8639.java:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:94228_java7537.java:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:java:98514_java3812.java:human"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:98709_java9100.java:human"
+    },
+    {
+      "errors": 73,
+      "missing": 11,
+      "row_id": "stacad:php:22448_php2239.php:human"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:php:27855_php5651.php:human"
+    },
+    {
+      "errors": 48,
+      "missing": 0,
+      "row_id": "stacad:php:3258_php6619.php:human"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:php:34317_php8950.php:human"
+    },
+    {
+      "errors": 81,
+      "missing": 0,
+      "row_id": "stacad:php:35018_php8338.php:human"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:46475_php9725.php:human"
+    },
+    {
+      "errors": 98,
+      "missing": 0,
+      "row_id": "stacad:php:49115_php2346.php:human"
+    },
+    {
+      "errors": 47,
+      "missing": 2,
+      "row_id": "stacad:php:50536_php7913.php:human"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:php:5521_php2089.php:human"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:5547_php1228.php:human"
+    },
+    {
+      "errors": 75,
+      "missing": 0,
+      "row_id": "stacad:php:60413_php3159.php:human"
+    },
+    {
+      "errors": 2,
+      "missing": 1,
+      "row_id": "stacad:php:63772_php3149.php:human"
+    },
+    {
+      "errors": 13,
+      "missing": 0,
+      "row_id": "stacad:php:7958_php7608.php:human"
+    },
+    {
+      "errors": 74,
+      "missing": 0,
+      "row_id": "stacad:php:9173_php5862.php:human"
+    },
+    {
+      "errors": 0,
+      "missing": 5,
+      "row_id": "stacad:c:0229_c5118.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 5,
+      "row_id": "stacad:c:0229_c5118.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 5,
+      "row_id": "stacad:c:0229_c5118.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 5,
+      "row_id": "stacad:c:0229_c5118.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 5,
+      "row_id": "stacad:c:0229_c5118.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 5,
+      "row_id": "stacad:c:0229_c5118.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 5,
+      "row_id": "stacad:c:0229_c5118.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:0711_c7389.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:0711_c7389.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:0711_c7389.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:0711_c7389.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:0711_c7389.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:0711_c7389.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:0711_c7389.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11128_c5540.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11128_c5540.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11128_c5540.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:11128_c5540.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11128_c5540.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11128_c5540.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11128_c5540.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11660_c5767.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11660_c5767.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11660_c5767.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:11660_c5767.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11660_c5767.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:11660_c5767.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:12433_c5968.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:12433_c5968.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:12433_c5968.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:12433_c5968.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:12433_c5968.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:12433_c5968.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:12433_c5968.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:c:13787_c8210.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:c:13787_c8210.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:c:13787_c8210.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:c:13787_c8210.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:c:13787_c8210.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:c:13787_c8210.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:c:13787_c8210.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:1438_c2385.c:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:1438_c2385.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:1438_c2385.c:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:1438_c2385.c:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:1438_c2385.c:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:1438_c2385.c:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:1438_c2385.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:17475_c3055.c:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:17475_c3055.c:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:17475_c3055.c:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:17475_c3055.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:17475_c3055.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:17475_c3055.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:17475_c3055.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:17700_c1558.c:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:17700_c1558.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:17700_c1558.c:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:17700_c1558.c:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:17700_c1558.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:19423_c4334.c:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:19423_c4334.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:19423_c4334.c:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:19423_c4334.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 2,
+      "row_id": "stacad:c:19423_c4334.c:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:19423_c4334.c:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:19423_c4334.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:19506_c3807.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:19506_c3807.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:19506_c3807.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:19506_c3807.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:19506_c3807.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:19506_c3807.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:19506_c3807.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:20495_c6140.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:20495_c6140.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:20495_c6140.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:20495_c6140.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:20495_c6140.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:20495_c6140.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:20495_c6140.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:22703_c3004.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:22703_c3004.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:22703_c3004.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:22703_c3004.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:22703_c3004.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:23091_c2612.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:23091_c2612.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:23091_c2612.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:23091_c2612.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:23091_c2612.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:23091_c2612.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:23091_c2612.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:2436_c2409.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:2436_c2409.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:2436_c2409.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:2436_c2409.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:2436_c2409.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:2436_c2409.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:2436_c2409.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:24571_c6471.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:24571_c6471.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:24571_c6471.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:24571_c6471.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:24571_c6471.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:2617_c3428.c:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:2617_c3428.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:2617_c3428.c:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:2617_c3428.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:2617_c3428.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:2617_c3428.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:2617_c3428.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:26617_c2035.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:27945_c6425.c:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:27945_c6425.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:27945_c6425.c:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:27945_c6425.c:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:27945_c6425.c:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:27945_c6425.c:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:27945_c6425.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:28341_c8500.c:claude_3_haiku"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:28341_c8500.c:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:28341_c8500.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 6,
+      "row_id": "stacad:c:28341_c8500.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 6,
+      "row_id": "stacad:c:28341_c8500.c:gpt5_nano"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:28341_c8500.c:grok_4_fast"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:28341_c8500.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:2841_c7225.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 9,
+      "row_id": "stacad:c:28995_c5251.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 9,
+      "row_id": "stacad:c:28995_c5251.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 9,
+      "row_id": "stacad:c:28995_c5251.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 9,
+      "row_id": "stacad:c:28995_c5251.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 9,
+      "row_id": "stacad:c:28995_c5251.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 9,
+      "row_id": "stacad:c:28995_c5251.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 9,
+      "row_id": "stacad:c:28995_c5251.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:29407_c6340.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:29407_c6340.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:29407_c6340.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:29407_c6340.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:29407_c6340.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:29407_c6340.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:29407_c6340.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:32102_c3694.c:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:32102_c3694.c:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:32102_c3694.c:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:32102_c3694.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:32102_c3694.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:32102_c3694.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:32102_c3694.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:33421_c2262.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:33421_c2262.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:33421_c2262.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:33421_c2262.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:33421_c2262.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:33421_c2262.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:33421_c2262.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:c:33448_c1398.c:claude_3_haiku"
+    },
+    {
+      "errors": 7,
+      "missing": 0,
+      "row_id": "stacad:c:33448_c1398.c:deepseek_v3_2"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:c:33448_c1398.c:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:33448_c1398.c:gemini_3_flash"
+    },
+    {
+      "errors": 7,
+      "missing": 0,
+      "row_id": "stacad:c:33448_c1398.c:gpt5_nano"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:c:33448_c1398.c:grok_4_fast"
+    },
+    {
+      "errors": 7,
+      "missing": 0,
+      "row_id": "stacad:c:33448_c1398.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:34018_c9158.c:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:34018_c9158.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:34018_c9158.c:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:34018_c9158.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:34018_c9158.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:34018_c9158.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:34018_c9158.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:3415_c9103.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:34871_c3155.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:34871_c3155.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:34871_c3155.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:34871_c3155.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:34871_c3155.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:34871_c3155.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:35514_c9370.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:35514_c9370.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:35514_c9370.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:35514_c9370.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:35514_c9370.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:35514_c9370.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:35514_c9370.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36242_c7626.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36242_c7626.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36242_c7626.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36242_c7626.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36242_c7626.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36242_c7626.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36242_c7626.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36998_c5382.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36998_c5382.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36998_c5382.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36998_c5382.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36998_c5382.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36998_c5382.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:36998_c5382.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:37308_c1001.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:37826_c1777.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:37826_c1777.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:37826_c1777.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:37826_c1777.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:37826_c1777.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:37826_c1777.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:37826_c1777.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 6,
+      "missing": 3,
+      "row_id": "stacad:c:38640_c3672.c:claude_3_haiku"
+    },
+    {
+      "errors": 6,
+      "missing": 3,
+      "row_id": "stacad:c:38640_c3672.c:deepseek_v3_2"
+    },
+    {
+      "errors": 6,
+      "missing": 3,
+      "row_id": "stacad:c:38640_c3672.c:devstral_2512"
+    },
+    {
+      "errors": 6,
+      "missing": 3,
+      "row_id": "stacad:c:38640_c3672.c:gemini_3_flash"
+    },
+    {
+      "errors": 6,
+      "missing": 3,
+      "row_id": "stacad:c:38640_c3672.c:gpt5_nano"
+    },
+    {
+      "errors": 6,
+      "missing": 3,
+      "row_id": "stacad:c:38640_c3672.c:grok_4_fast"
+    },
+    {
+      "errors": 6,
+      "missing": 3,
+      "row_id": "stacad:c:38640_c3672.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:39278_c2782.c:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:39278_c2782.c:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:39278_c2782.c:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:39278_c2782.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:39278_c2782.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:39278_c2782.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:39278_c2782.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:40930_c1991.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:40930_c1991.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:40930_c1991.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:40930_c1991.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:40930_c1991.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:40930_c1991.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:40930_c1991.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:41073_c4232.c:claude_3_haiku"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:41073_c4232.c:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:41073_c4232.c:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:41073_c4232.c:gemini_3_flash"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:41073_c4232.c:gpt5_nano"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:41073_c4232.c:grok_4_fast"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:41073_c4232.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:42478_c3248.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:c:42478_c3248.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:42478_c3248.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:c:42478_c3248.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:c:42478_c3248.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:c:42478_c3248.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:c:42478_c3248.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:42710_c1764.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:42710_c1764.c:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:44505_c5881.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:44505_c5881.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 22,
+      "missing": 0,
+      "row_id": "stacad:c:45357_c6615.c:claude_3_haiku"
+    },
+    {
+      "errors": 22,
+      "missing": 0,
+      "row_id": "stacad:c:45357_c6615.c:deepseek_v3_2"
+    },
+    {
+      "errors": 22,
+      "missing": 0,
+      "row_id": "stacad:c:45357_c6615.c:devstral_2512"
+    },
+    {
+      "errors": 22,
+      "missing": 0,
+      "row_id": "stacad:c:45357_c6615.c:gemini_3_flash"
+    },
+    {
+      "errors": 22,
+      "missing": 0,
+      "row_id": "stacad:c:45357_c6615.c:gpt5_nano"
+    },
+    {
+      "errors": 22,
+      "missing": 0,
+      "row_id": "stacad:c:45357_c6615.c:grok_4_fast"
+    },
+    {
+      "errors": 22,
+      "missing": 0,
+      "row_id": "stacad:c:45357_c6615.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:45970_c8430.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:45970_c8430.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:45970_c8430.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:45970_c8430.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:45970_c8430.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:45970_c8430.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:45970_c8430.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:46317_c3931.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:46317_c3931.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:46317_c3931.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:46317_c3931.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:46317_c3931.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:46317_c3931.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:46317_c3931.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:4761_c4249.c:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:4761_c4249.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:4761_c4249.c:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:4761_c4249.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:4761_c4249.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:4761_c4249.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:4761_c4249.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 1,
+      "row_id": "stacad:c:50181_c4606.c:claude_3_haiku"
+    },
+    {
+      "errors": 5,
+      "missing": 1,
+      "row_id": "stacad:c:50181_c4606.c:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:c:50181_c4606.c:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:c:50181_c4606.c:gemini_3_flash"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:c:50181_c4606.c:grok_4_fast"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:c:50181_c4606.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:c:50564_c3420.c:claude_3_haiku"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:c:50564_c3420.c:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:50564_c3420.c:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:c:50564_c3420.c:gemini_3_flash"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:c:50564_c3420.c:gpt5_nano"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:c:50564_c3420.c:grok_4_fast"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:c:50564_c3420.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:51948_c8234.c:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:51948_c8234.c:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:51948_c8234.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:51948_c8234.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:51948_c8234.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:51948_c8234.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:5410_c8265.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:5410_c8265.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:5410_c8265.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:5410_c8265.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:5410_c8265.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:5410_c8265.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:5410_c8265.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54457_c2325.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54457_c2325.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54457_c2325.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54457_c2325.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54457_c2325.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54457_c2325.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54457_c2325.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54991_c1982.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54991_c1982.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54991_c1982.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54991_c1982.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54991_c1982.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54991_c1982.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:54991_c1982.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:55368_c8400.c:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:55368_c8400.c:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:55368_c8400.c:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:55368_c8400.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:55368_c8400.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:55368_c8400.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:55368_c8400.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 13,
+      "missing": 2,
+      "row_id": "stacad:c:55827_c4078.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:56956_c4664.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:56956_c4664.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:56956_c4664.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:56956_c4664.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:56956_c4664.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:56956_c4664.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:56956_c4664.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:59647_c5170.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:59647_c5170.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:59647_c5170.c:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:59647_c5170.c:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:59647_c5170.c:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:59647_c5170.c:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:59647_c5170.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:60152_c2449.c:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:60152_c2449.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:60152_c2449.c:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:60152_c2449.c:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:60152_c2449.c:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:60152_c2449.c:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:60152_c2449.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 20,
+      "missing": 0,
+      "row_id": "stacad:c:60250_c9196.c:claude_3_haiku"
+    },
+    {
+      "errors": 20,
+      "missing": 0,
+      "row_id": "stacad:c:60250_c9196.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:6053_c6579.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:61670_c5675.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:61670_c5675.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:61670_c5675.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:61670_c5675.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:61670_c5675.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:61670_c5675.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:61670_c5675.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:63336_c7962.c:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:63336_c7962.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:63336_c7962.c:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:63336_c7962.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:63336_c7962.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:63336_c7962.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:63336_c7962.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:65682_c6559.c:claude_3_haiku"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:65682_c6559.c:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:65682_c6559.c:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:65682_c6559.c:gpt5_nano"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:65682_c6559.c:grok_4_fast"
+    },
+    {
+      "errors": 4,
+      "missing": 2,
+      "row_id": "stacad:c:65682_c6559.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:66803_c3182.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:66803_c3182.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:66803_c3182.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:66994_c1225.c:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:66994_c1225.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:66994_c1225.c:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:66994_c1225.c:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:66994_c1225.c:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:66994_c1225.c:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:66994_c1225.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:c:67085_c5351.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:67085_c5351.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:67085_c5351.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:67085_c5351.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:67085_c5351.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:67085_c5351.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:c:67085_c5351.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:67259_c5207.c:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:67259_c5207.c:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:67259_c5207.c:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:67259_c5207.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:67259_c5207.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:67259_c5207.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:67259_c5207.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:6908_c3263.c:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:6908_c3263.c:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:6908_c3263.c:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:6908_c3263.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:6908_c3263.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:6908_c3263.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:6908_c3263.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:71149_c9444.c:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:71149_c9444.c:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:71149_c9444.c:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:71149_c9444.c:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:71149_c9444.c:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:71149_c9444.c:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:c:71149_c9444.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:72424_c3851.c:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:72424_c3851.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:72424_c3851.c:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:72424_c3851.c:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:72424_c3851.c:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:72424_c3851.c:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:c:72424_c3851.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:72796_c9869.c:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:72796_c9869.c:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:72796_c9869.c:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:72796_c9869.c:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:72796_c9869.c:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:72796_c9869.c:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:c:72796_c9869.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:7280_c2857.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:74221_c1275.c:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:74221_c1275.c:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:74221_c1275.c:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:74221_c1275.c:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:74221_c1275.c:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:74221_c1275.c:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:c:74221_c1275.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:9158_c6296.c:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:9158_c6296.c:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:9158_c6296.c:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:9158_c6296.c:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:c:9158_c6296.c:qwen3_coder_30b"
+    },
+    {
+      "errors": 12,
+      "missing": 1,
+      "row_id": "stacad:cpp:0551_cpp8328.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:11639_cpp8978.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:11639_cpp8978.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:11639_cpp8978.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:11639_cpp8978.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:11639_cpp8978.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:11639_cpp8978.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:11639_cpp8978.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cpp:12360_cpp5243.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:13368_cpp6363.cpp:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:13519_cpp9902.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 10,
+      "missing": 0,
+      "row_id": "stacad:cpp:13805_cpp4886.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 10,
+      "missing": 0,
+      "row_id": "stacad:cpp:13805_cpp4886.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 10,
+      "missing": 0,
+      "row_id": "stacad:cpp:13805_cpp4886.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 10,
+      "missing": 0,
+      "row_id": "stacad:cpp:13805_cpp4886.cpp:gpt5_nano"
+    },
+    {
+      "errors": 10,
+      "missing": 0,
+      "row_id": "stacad:cpp:13805_cpp4886.cpp:grok_4_fast"
+    },
+    {
+      "errors": 10,
+      "missing": 0,
+      "row_id": "stacad:cpp:13805_cpp4886.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:1405_cpp2444.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:1405_cpp2444.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:1405_cpp2444.cpp:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:1405_cpp2444.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:1405_cpp2444.cpp:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:1405_cpp2444.cpp:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:1405_cpp2444.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:15084_cpp4989.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:15084_cpp4989.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:15084_cpp4989.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:15084_cpp4989.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:15084_cpp4989.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:15084_cpp4989.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:15084_cpp4989.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 1,
+      "row_id": "stacad:cpp:15881_cpp7047.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:cpp:15881_cpp7047.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:15881_cpp7047.cpp:devstral_2512"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:cpp:15881_cpp7047.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 1,
+      "row_id": "stacad:cpp:15881_cpp7047.cpp:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 1,
+      "row_id": "stacad:cpp:15881_cpp7047.cpp:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 1,
+      "row_id": "stacad:cpp:15881_cpp7047.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:16195_cpp1607.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:18248_cpp6394.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:18248_cpp6394.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:18248_cpp6394.cpp:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:18248_cpp6394.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:18248_cpp6394.cpp:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:18248_cpp6394.cpp:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:18248_cpp6394.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:24059_cpp5840.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:24059_cpp5840.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:24059_cpp5840.cpp:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:24059_cpp5840.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:24059_cpp5840.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:24059_cpp5840.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:24059_cpp5840.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 36,
+      "missing": 0,
+      "row_id": "stacad:cpp:2513_cpp4587.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 6,
+      "row_id": "stacad:cpp:25926_cpp8845.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 6,
+      "row_id": "stacad:cpp:25926_cpp8845.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 6,
+      "row_id": "stacad:cpp:25926_cpp8845.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 6,
+      "row_id": "stacad:cpp:25926_cpp8845.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 6,
+      "row_id": "stacad:cpp:25926_cpp8845.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 6,
+      "row_id": "stacad:cpp:25926_cpp8845.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 6,
+      "row_id": "stacad:cpp:25926_cpp8845.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:25968_cpp8304.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:27218_cpp3478.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:27218_cpp3478.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:27218_cpp3478.cpp:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:27218_cpp3478.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:27218_cpp3478.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:27218_cpp3478.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:27218_cpp3478.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:cpp:27748_cpp4831.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:29535_cpp2484.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:29535_cpp2484.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:29535_cpp2484.cpp:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:29535_cpp2484.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:29535_cpp2484.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:29535_cpp2484.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:29535_cpp2484.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:30996_cpp7907.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 14,
+      "row_id": "stacad:cpp:32413_cpp6828.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 14,
+      "row_id": "stacad:cpp:32413_cpp6828.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 14,
+      "row_id": "stacad:cpp:32413_cpp6828.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 14,
+      "row_id": "stacad:cpp:32413_cpp6828.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 14,
+      "row_id": "stacad:cpp:32413_cpp6828.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 14,
+      "row_id": "stacad:cpp:32413_cpp6828.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 4,
+      "row_id": "stacad:cpp:3373_cpp3577.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 4,
+      "row_id": "stacad:cpp:3373_cpp3577.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 4,
+      "row_id": "stacad:cpp:3373_cpp3577.cpp:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 4,
+      "row_id": "stacad:cpp:3373_cpp3577.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 4,
+      "row_id": "stacad:cpp:3373_cpp3577.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 4,
+      "row_id": "stacad:cpp:3373_cpp3577.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 4,
+      "row_id": "stacad:cpp:3373_cpp3577.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:cpp:3521_cpp2950.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:cpp:3521_cpp2950.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:cpp:3521_cpp2950.cpp:devstral_2512"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:cpp:3521_cpp2950.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:cpp:3521_cpp2950.cpp:gpt5_nano"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:cpp:3521_cpp2950.cpp:grok_4_fast"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:cpp:3521_cpp2950.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:35952_cpp2186.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:35952_cpp2186.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:35952_cpp2186.cpp:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:35952_cpp2186.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:35952_cpp2186.cpp:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:35952_cpp2186.cpp:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:35952_cpp2186.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 17,
+      "missing": 1,
+      "row_id": "stacad:cpp:36023_cpp4215.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:36132_cpp8975.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:36132_cpp8975.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:36132_cpp8975.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:36132_cpp8975.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:36132_cpp8975.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:36132_cpp8975.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 7,
+      "row_id": "stacad:cpp:3673_cpp6873.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 7,
+      "row_id": "stacad:cpp:3673_cpp6873.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 7,
+      "row_id": "stacad:cpp:3673_cpp6873.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 7,
+      "row_id": "stacad:cpp:3673_cpp6873.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 7,
+      "row_id": "stacad:cpp:3673_cpp6873.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 7,
+      "row_id": "stacad:cpp:3673_cpp6873.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 7,
+      "row_id": "stacad:cpp:3673_cpp6873.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:36815_cpp7511.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cpp:37807_cpp4906.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:37807_cpp4906.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:37807_cpp4906.cpp:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:37807_cpp4906.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cpp:37807_cpp4906.cpp:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:37807_cpp4906.cpp:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:37807_cpp4906.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:37840_cpp5352.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:37840_cpp5352.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:37840_cpp5352.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:37840_cpp5352.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:37840_cpp5352.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:37840_cpp5352.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 18,
+      "row_id": "stacad:cpp:3811_cpp3945.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 18,
+      "row_id": "stacad:cpp:3811_cpp3945.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 18,
+      "row_id": "stacad:cpp:3811_cpp3945.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 18,
+      "row_id": "stacad:cpp:3811_cpp3945.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 18,
+      "row_id": "stacad:cpp:3811_cpp3945.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 18,
+      "row_id": "stacad:cpp:3811_cpp3945.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 18,
+      "row_id": "stacad:cpp:3811_cpp3945.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 5,
+      "missing": 0,
+      "row_id": "stacad:cpp:39920_cpp6624.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:39920_cpp6624.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:39920_cpp6624.cpp:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:39920_cpp6624.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:39920_cpp6624.cpp:gpt5_nano"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:39920_cpp6624.cpp:grok_4_fast"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:39920_cpp6624.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 42,
+      "missing": 0,
+      "row_id": "stacad:cpp:40110_cpp9673.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:4014_cpp7008.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:40896_cpp4353.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:40896_cpp4353.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:40896_cpp4353.cpp:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:40896_cpp4353.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:40896_cpp4353.cpp:gpt5_nano"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:40896_cpp4353.cpp:grok_4_fast"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:40896_cpp4353.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:41936_cpp4318.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 5,
+      "missing": 2,
+      "row_id": "stacad:cpp:41936_cpp4318.cpp:gpt5_nano"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:41954_cpp5183.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:41954_cpp5183.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:41954_cpp5183.cpp:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:41954_cpp5183.cpp:gpt5_nano"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:cpp:41954_cpp5183.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:cpp:42381_cpp6749.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:cpp:42381_cpp6749.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:cpp:42381_cpp6749.cpp:devstral_2512"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:cpp:42381_cpp6749.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:cpp:42381_cpp6749.cpp:gpt5_nano"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:cpp:42381_cpp6749.cpp:grok_4_fast"
+    },
+    {
+      "errors": 6,
+      "missing": 0,
+      "row_id": "stacad:cpp:42381_cpp6749.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:48974_cpp9643.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:48974_cpp9643.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:48974_cpp9643.cpp:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:48974_cpp9643.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:48974_cpp9643.cpp:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:48974_cpp9643.cpp:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:48974_cpp9643.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:5102_cpp9892.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:5102_cpp9892.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:5102_cpp9892.cpp:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:5102_cpp9892.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:5102_cpp9892.cpp:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:5102_cpp9892.cpp:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:5102_cpp9892.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:53406_cpp2753.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:53406_cpp2753.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:53406_cpp2753.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:53406_cpp2753.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:53406_cpp2753.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:53406_cpp2753.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:53406_cpp2753.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 17,
+      "missing": 1,
+      "row_id": "stacad:cpp:54911_cpp7624.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:56183_cpp5505.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:56183_cpp5505.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:56183_cpp5505.cpp:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:56183_cpp5505.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:56183_cpp5505.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:56183_cpp5505.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:56183_cpp5505.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57059_cpp3689.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57059_cpp3689.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:57059_cpp3689.cpp:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57059_cpp3689.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57059_cpp3689.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57059_cpp3689.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57107_cpp8803.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57107_cpp8803.cpp:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57107_cpp8803.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57107_cpp8803.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57107_cpp8803.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57128_cpp2273.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57128_cpp2273.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57128_cpp2273.cpp:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57128_cpp2273.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57128_cpp2273.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57128_cpp2273.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:57128_cpp2273.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:cpp:58680_cpp6367.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:cpp:58680_cpp6367.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:cpp:58680_cpp6367.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:cpp:58680_cpp6367.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:cpp:58680_cpp6367.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:cpp:58680_cpp6367.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 3,
+      "row_id": "stacad:cpp:58680_cpp6367.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:5944_cpp3241.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:5944_cpp3241.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:5944_cpp3241.cpp:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:5944_cpp3241.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:5944_cpp3241.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:5944_cpp3241.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:5944_cpp3241.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59605_cpp8767.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59605_cpp8767.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59605_cpp8767.cpp:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59605_cpp8767.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59605_cpp8767.cpp:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59605_cpp8767.cpp:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59605_cpp8767.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59875_cpp7564.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59875_cpp7564.cpp:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:59875_cpp7564.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:60468_cpp1100.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:60468_cpp1100.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:60468_cpp1100.cpp:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:60468_cpp1100.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:60468_cpp1100.cpp:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:60468_cpp1100.cpp:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:60468_cpp1100.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 12,
+      "missing": 3,
+      "row_id": "stacad:cpp:6072_cpp6400.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 12,
+      "missing": 3,
+      "row_id": "stacad:cpp:6072_cpp6400.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 12,
+      "missing": 3,
+      "row_id": "stacad:cpp:6072_cpp6400.cpp:devstral_2512"
+    },
+    {
+      "errors": 12,
+      "missing": 3,
+      "row_id": "stacad:cpp:6072_cpp6400.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 12,
+      "missing": 3,
+      "row_id": "stacad:cpp:6072_cpp6400.cpp:gpt5_nano"
+    },
+    {
+      "errors": 12,
+      "missing": 3,
+      "row_id": "stacad:cpp:6072_cpp6400.cpp:grok_4_fast"
+    },
+    {
+      "errors": 12,
+      "missing": 3,
+      "row_id": "stacad:cpp:6072_cpp6400.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:62605_cpp7154.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:62605_cpp7154.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:62605_cpp7154.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:62605_cpp7154.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:62605_cpp7154.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:62605_cpp7154.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cpp:62605_cpp7154.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:62730_cpp1275.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:62730_cpp1275.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:62730_cpp1275.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:62730_cpp1275.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 6,
+      "row_id": "stacad:cpp:63326_cpp1499.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 6,
+      "row_id": "stacad:cpp:63326_cpp1499.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 2,
+      "row_id": "stacad:cpp:63326_cpp1499.cpp:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 5,
+      "row_id": "stacad:cpp:63326_cpp1499.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 6,
+      "row_id": "stacad:cpp:63326_cpp1499.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 6,
+      "row_id": "stacad:cpp:63326_cpp1499.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 6,
+      "row_id": "stacad:cpp:63326_cpp1499.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:64659_cpp5065.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:6466_cpp2765.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:6466_cpp2765.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:6466_cpp2765.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:6466_cpp2765.cpp:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:6466_cpp2765.cpp:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:6466_cpp2765.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:65056_cpp1540.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:65510_cpp6882.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:66795_cpp5071.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:66795_cpp5071.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:66795_cpp5071.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:66795_cpp5071.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:66795_cpp5071.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cpp:66795_cpp5071.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:66861_cpp9584.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:66861_cpp9584.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:66861_cpp9584.cpp:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:66861_cpp9584.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:66861_cpp9584.cpp:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:66861_cpp9584.cpp:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 2,
+      "row_id": "stacad:cpp:66861_cpp9584.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:67836_cpp5252.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:67836_cpp5252.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:67836_cpp5252.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:67836_cpp5252.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:67836_cpp5252.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:67836_cpp5252.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:67836_cpp5252.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:70252_cpp5170.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cpp:8724_cpp6193.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 4,
+      "row_id": "stacad:cpp:8926_cpp2431.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 4,
+      "row_id": "stacad:cpp:8926_cpp2431.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 4,
+      "row_id": "stacad:cpp:8926_cpp2431.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 4,
+      "row_id": "stacad:cpp:8926_cpp2431.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 4,
+      "row_id": "stacad:cpp:8926_cpp2431.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 4,
+      "row_id": "stacad:cpp:8926_cpp2431.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 4,
+      "row_id": "stacad:cpp:8926_cpp2431.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:8939_cpp4635.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:8939_cpp4635.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:8939_cpp4635.cpp:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:8939_cpp4635.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:8939_cpp4635.cpp:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:8939_cpp4635.cpp:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:cpp:8939_cpp4635.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:cpp:9480_cpp2196.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:cpp:9480_cpp2196.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:cpp:9480_cpp2196.cpp:devstral_2512"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:cpp:9480_cpp2196.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:cpp:9480_cpp2196.cpp:gpt5_nano"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:cpp:9480_cpp2196.cpp:grok_4_fast"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:cpp:9480_cpp2196.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cpp:9507_cpp2277.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cpp:9507_cpp2277.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cpp:9507_cpp2277.cpp:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cpp:9507_cpp2277.cpp:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cpp:9507_cpp2277.cpp:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cpp:9507_cpp2277.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:9509_cpp5936.cpp:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:9509_cpp5936.cpp:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:9509_cpp5936.cpp:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:9509_cpp5936.cpp:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:9509_cpp5936.cpp:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:9509_cpp5936.cpp:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:cpp:9509_cpp5936.cpp:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cs:20640_cs1845.cs:claude_3_haiku"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:cs:20640_cs1845.cs:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:cs:20640_cs1845.cs:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:cs:20640_cs1845.cs:gemini_3_flash"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:cs:20640_cs1845.cs:gpt5_nano"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:cs:20640_cs1845.cs:grok_4_fast"
+    },
+    {
+      "errors": 4,
+      "missing": 1,
+      "row_id": "stacad:cs:20640_cs1845.cs:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cs:21596_cs4437.cs:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cs:21596_cs4437.cs:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cs:21596_cs4437.cs:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cs:21596_cs4437.cs:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cs:21596_cs4437.cs:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cs:21596_cs4437.cs:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cs:21596_cs4437.cs:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cs:25799_cs7850.cs:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cs:25799_cs7850.cs:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cs:25799_cs7850.cs:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cs:25799_cs7850.cs:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cs:25799_cs7850.cs:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cs:25799_cs7850.cs:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:cs:25799_cs7850.cs:qwen3_coder_30b"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cs:35848_cs9412.cs:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cs:35848_cs9412.cs:deepseek_v3_2"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cs:35848_cs9412.cs:devstral_2512"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cs:35848_cs9412.cs:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cs:35848_cs9412.cs:gpt5_nano"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cs:35848_cs9412.cs:grok_4_fast"
+    },
+    {
+      "errors": 0,
+      "missing": 2,
+      "row_id": "stacad:cs:35848_cs9412.cs:qwen3_coder_30b"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:cs:74991_cs8413.cs:gpt5_nano"
+    },
+    {
+      "errors": 21,
+      "missing": 2,
+      "row_id": "stacad:cs:83464_cs5745.cs:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:cs:88103_cs9928.cs:gpt5_nano"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:go:101112_go6752.go:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:go:101112_go6752.go:devstral_2512"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:go:101112_go6752.go:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:go:101112_go6752.go:grok_4_fast"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:go:101112_go6752.go:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:go:101124_go3105.go:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:go:18029_go7966.go:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:go:36800_go6772.go:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:go:48139_go3125.go:claude_3_haiku"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:go:51031_go8456.go:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:go:56886_go5772.go:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 3,
+      "row_id": "stacad:go:58427_go2775.go:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 3,
+      "row_id": "stacad:go:58427_go2775.go:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 3,
+      "row_id": "stacad:go:58427_go2775.go:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 3,
+      "row_id": "stacad:go:58427_go2775.go:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 3,
+      "row_id": "stacad:go:58427_go2775.go:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 3,
+      "row_id": "stacad:go:58427_go2775.go:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 3,
+      "row_id": "stacad:go:58427_go2775.go:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:go:73834_go1946.go:grok_4_fast"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:go:96441_go1471.go:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:go:99037_go3159.go:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:java:103589_java7141.java:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:117913_java8197.java:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:117913_java8197.java:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:117913_java8197.java:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:117913_java8197.java:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:117913_java8197.java:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:117913_java8197.java:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:1897_java3066.java:gemini_3_flash"
+    },
+    {
+      "errors": 0,
+      "missing": 1,
+      "row_id": "stacad:java:34457_java8681.java:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:4631_java4308.java:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:4631_java4308.java:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:4631_java4308.java:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:4631_java4308.java:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:4631_java4308.java:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:47136_java7908.java:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:47136_java7908.java:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:47136_java7908.java:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:47136_java7908.java:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:47136_java7908.java:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:47136_java7908.java:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:47136_java7908.java:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:java:61787_java3592.java:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:70940_java9062.java:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:70940_java9062.java:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:70940_java9062.java:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:70940_java9062.java:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:70940_java9062.java:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:70940_java9062.java:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:70940_java9062.java:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:86767_java8639.java:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:86767_java8639.java:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:86767_java8639.java:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:86767_java8639.java:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:86767_java8639.java:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:86767_java8639.java:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:86767_java8639.java:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:94228_java7537.java:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:94228_java7537.java:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:94228_java7537.java:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:94228_java7537.java:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:94228_java7537.java:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:94228_java7537.java:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:java:98514_java3812.java:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:java:98514_java3812.java:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:java:98514_java3812.java:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:java:98514_java3812.java:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:java:98514_java3812.java:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:java:98514_java3812.java:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:98709_java9100.java:claude_3_haiku"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:98709_java9100.java:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:98709_java9100.java:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:98709_java9100.java:gemini_3_flash"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:98709_java9100.java:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:98709_java9100.java:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 1,
+      "row_id": "stacad:java:98709_java9100.java:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:php:0186_php1737.php:deepseek_v3_2"
+    },
+    {
+      "errors": 3,
+      "missing": 0,
+      "row_id": "stacad:php:1471_php2303.php:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:php:2191_php3821.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:php:22274_php7342.php:gpt5_nano"
+    },
+    {
+      "errors": 73,
+      "missing": 11,
+      "row_id": "stacad:php:22448_php2239.php:claude_3_haiku"
+    },
+    {
+      "errors": 58,
+      "missing": 9,
+      "row_id": "stacad:php:22448_php2239.php:deepseek_v3_2"
+    },
+    {
+      "errors": 73,
+      "missing": 11,
+      "row_id": "stacad:php:22448_php2239.php:devstral_2512"
+    },
+    {
+      "errors": 87,
+      "missing": 10,
+      "row_id": "stacad:php:22448_php2239.php:gemini_3_flash"
+    },
+    {
+      "errors": 76,
+      "missing": 11,
+      "row_id": "stacad:php:22448_php2239.php:gpt5_nano"
+    },
+    {
+      "errors": 100,
+      "missing": 4,
+      "row_id": "stacad:php:22448_php2239.php:grok_4_fast"
+    },
+    {
+      "errors": 73,
+      "missing": 11,
+      "row_id": "stacad:php:22448_php2239.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:php:27855_php5651.php:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:php:27855_php5651.php:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:php:27855_php5651.php:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:php:27855_php5651.php:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:php:27855_php5651.php:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:php:27855_php5651.php:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:php:27855_php5651.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 7,
+      "missing": 0,
+      "row_id": "stacad:php:3258_php6619.php:claude_3_haiku"
+    },
+    {
+      "errors": 48,
+      "missing": 0,
+      "row_id": "stacad:php:3258_php6619.php:deepseek_v3_2"
+    },
+    {
+      "errors": 48,
+      "missing": 0,
+      "row_id": "stacad:php:3258_php6619.php:devstral_2512"
+    },
+    {
+      "errors": 70,
+      "missing": 0,
+      "row_id": "stacad:php:3258_php6619.php:gemini_3_flash"
+    },
+    {
+      "errors": 48,
+      "missing": 0,
+      "row_id": "stacad:php:3258_php6619.php:gpt5_nano"
+    },
+    {
+      "errors": 47,
+      "missing": 0,
+      "row_id": "stacad:php:3258_php6619.php:grok_4_fast"
+    },
+    {
+      "errors": 48,
+      "missing": 0,
+      "row_id": "stacad:php:3258_php6619.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:php:34317_php8950.php:deepseek_v3_2"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:php:34317_php8950.php:devstral_2512"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:php:34317_php8950.php:grok_4_fast"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:php:34317_php8950.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:php:34441_php3876.php:grok_4_fast"
+    },
+    {
+      "errors": 76,
+      "missing": 0,
+      "row_id": "stacad:php:35018_php8338.php:claude_3_haiku"
+    },
+    {
+      "errors": 117,
+      "missing": 1,
+      "row_id": "stacad:php:35018_php8338.php:deepseek_v3_2"
+    },
+    {
+      "errors": 81,
+      "missing": 0,
+      "row_id": "stacad:php:35018_php8338.php:devstral_2512"
+    },
+    {
+      "errors": 77,
+      "missing": 0,
+      "row_id": "stacad:php:35018_php8338.php:gemini_3_flash"
+    },
+    {
+      "errors": 79,
+      "missing": 0,
+      "row_id": "stacad:php:35018_php8338.php:gpt5_nano"
+    },
+    {
+      "errors": 77,
+      "missing": 0,
+      "row_id": "stacad:php:35018_php8338.php:grok_4_fast"
+    },
+    {
+      "errors": 81,
+      "missing": 0,
+      "row_id": "stacad:php:35018_php8338.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 7,
+      "missing": 0,
+      "row_id": "stacad:php:35094_php7560.php:gpt5_nano"
+    },
+    {
+      "errors": 1,
+      "missing": 0,
+      "row_id": "stacad:php:36234_php4982.php:gemini_3_flash"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:46475_php9725.php:claude_3_haiku"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:46475_php9725.php:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:46475_php9725.php:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:46475_php9725.php:gemini_3_flash"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:46475_php9725.php:gpt5_nano"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:46475_php9725.php:grok_4_fast"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:46475_php9725.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:4795_php1542.php:gpt5_nano"
+    },
+    {
+      "errors": 72,
+      "missing": 1,
+      "row_id": "stacad:php:49115_php2346.php:claude_3_haiku"
+    },
+    {
+      "errors": 100,
+      "missing": 1,
+      "row_id": "stacad:php:49115_php2346.php:deepseek_v3_2"
+    },
+    {
+      "errors": 102,
+      "missing": 1,
+      "row_id": "stacad:php:49115_php2346.php:devstral_2512"
+    },
+    {
+      "errors": 88,
+      "missing": 1,
+      "row_id": "stacad:php:49115_php2346.php:gemini_3_flash"
+    },
+    {
+      "errors": 96,
+      "missing": 0,
+      "row_id": "stacad:php:49115_php2346.php:gpt5_nano"
+    },
+    {
+      "errors": 95,
+      "missing": 1,
+      "row_id": "stacad:php:49115_php2346.php:grok_4_fast"
+    },
+    {
+      "errors": 98,
+      "missing": 1,
+      "row_id": "stacad:php:49115_php2346.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 46,
+      "missing": 2,
+      "row_id": "stacad:php:50536_php7913.php:claude_3_haiku"
+    },
+    {
+      "errors": 45,
+      "missing": 2,
+      "row_id": "stacad:php:50536_php7913.php:deepseek_v3_2"
+    },
+    {
+      "errors": 55,
+      "missing": 3,
+      "row_id": "stacad:php:50536_php7913.php:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:50536_php7913.php:gemini_3_flash"
+    },
+    {
+      "errors": 47,
+      "missing": 2,
+      "row_id": "stacad:php:50536_php7913.php:gpt5_nano"
+    },
+    {
+      "errors": 50,
+      "missing": 0,
+      "row_id": "stacad:php:50536_php7913.php:grok_4_fast"
+    },
+    {
+      "errors": 46,
+      "missing": 2,
+      "row_id": "stacad:php:50536_php7913.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:php:50860_php4258.php:claude_3_haiku"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:php:5521_php2089.php:claude_3_haiku"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:php:5521_php2089.php:deepseek_v3_2"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:php:5521_php2089.php:devstral_2512"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:php:5521_php2089.php:gemini_3_flash"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:php:5521_php2089.php:gpt5_nano"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:php:5521_php2089.php:grok_4_fast"
+    },
+    {
+      "errors": 10,
+      "missing": 2,
+      "row_id": "stacad:php:5521_php2089.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:5547_php1228.php:claude_3_haiku"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:5547_php1228.php:deepseek_v3_2"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:5547_php1228.php:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:5547_php1228.php:gemini_3_flash"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:5547_php1228.php:gpt5_nano"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:5547_php1228.php:grok_4_fast"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:5547_php1228.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 7,
+      "missing": 0,
+      "row_id": "stacad:php:60413_php3159.php:claude_3_haiku"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:60413_php3159.php:deepseek_v3_2"
+    },
+    {
+      "errors": 7,
+      "missing": 0,
+      "row_id": "stacad:php:60413_php3159.php:devstral_2512"
+    },
+    {
+      "errors": 4,
+      "missing": 0,
+      "row_id": "stacad:php:60413_php3159.php:gemini_3_flash"
+    },
+    {
+      "errors": 75,
+      "missing": 0,
+      "row_id": "stacad:php:60413_php3159.php:gpt5_nano"
+    },
+    {
+      "errors": 71,
+      "missing": 1,
+      "row_id": "stacad:php:60413_php3159.php:grok_4_fast"
+    },
+    {
+      "errors": 78,
+      "missing": 0,
+      "row_id": "stacad:php:60413_php3159.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 1,
+      "row_id": "stacad:php:63772_php3149.php:claude_3_haiku"
+    },
+    {
+      "errors": 2,
+      "missing": 1,
+      "row_id": "stacad:php:63772_php3149.php:deepseek_v3_2"
+    },
+    {
+      "errors": 2,
+      "missing": 1,
+      "row_id": "stacad:php:63772_php3149.php:devstral_2512"
+    },
+    {
+      "errors": 2,
+      "missing": 1,
+      "row_id": "stacad:php:63772_php3149.php:gemini_3_flash"
+    },
+    {
+      "errors": 2,
+      "missing": 1,
+      "row_id": "stacad:php:63772_php3149.php:gpt5_nano"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:php:63772_php3149.php:grok_4_fast"
+    },
+    {
+      "errors": 2,
+      "missing": 1,
+      "row_id": "stacad:php:63772_php3149.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 2,
+      "missing": 0,
+      "row_id": "stacad:php:65108_php6942.php:devstral_2512"
+    },
+    {
+      "errors": 13,
+      "missing": 0,
+      "row_id": "stacad:php:7958_php7608.php:claude_3_haiku"
+    },
+    {
+      "errors": 14,
+      "missing": 0,
+      "row_id": "stacad:php:7958_php7608.php:deepseek_v3_2"
+    },
+    {
+      "errors": 13,
+      "missing": 0,
+      "row_id": "stacad:php:7958_php7608.php:grok_4_fast"
+    },
+    {
+      "errors": 13,
+      "missing": 0,
+      "row_id": "stacad:php:7958_php7608.php:qwen3_coder_30b"
+    },
+    {
+      "errors": 82,
+      "missing": 0,
+      "row_id": "stacad:php:9173_php5862.php:claude_3_haiku"
+    },
+    {
+      "errors": 83,
+      "missing": 0,
+      "row_id": "stacad:php:9173_php5862.php:deepseek_v3_2"
+    },
+    {
+      "errors": 71,
+      "missing": 1,
+      "row_id": "stacad:php:9173_php5862.php:devstral_2512"
+    },
+    {
+      "errors": 77,
+      "missing": 0,
+      "row_id": "stacad:php:9173_php5862.php:gemini_3_flash"
+    },
+    {
+      "errors": 74,
+      "missing": 0,
+      "row_id": "stacad:php:9173_php5862.php:gpt5_nano"
+    },
+    {
+      "errors": 79,
+      "missing": 0,
+      "row_id": "stacad:php:9173_php5862.php:grok_4_fast"
+    },
+    {
+      "errors": 74,
+      "missing": 0,
+      "row_id": "stacad:php:9173_php5862.php:qwen3_coder_30b"
+    }
+  ],
+  "invalid_rows_retained_for_modeling": true,
+  "rows_audited": 22048,
+  "test_deserialized": false
+}

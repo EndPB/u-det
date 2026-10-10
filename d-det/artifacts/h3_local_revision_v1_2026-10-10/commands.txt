@@ -1,0 +1,1 @@
+PYTHONPATH=.codex-local-runtime/h3-parser .codex-local-runtime/c0-v3/Scripts/python.exe scripts/h3_local_revision_v1.py

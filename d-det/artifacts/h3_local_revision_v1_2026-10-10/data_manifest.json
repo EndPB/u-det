@@ -1,0 +1,22 @@
+{
+  "dev_clean.jsonl": {
+    "bytes": 13262830,
+    "sha256": "fe7955a5cfb55093274e7da5721d485e213e6e3521d0b31b61ec7a2c8388b9cf"
+  },
+  "dev_matched_sensitivity.jsonl": {
+    "bytes": 6824507,
+    "sha256": "c30d7a83109ee74c8d7591584088a3430e50b5044db15500170ef909b1f79c27"
+  },
+  "train_all.jsonl": {
+    "bytes": 42372919,
+    "sha256": "57b3a1ac87ae8c27dbd7a29f660f9b55f3c1496998c7395ba85c9d049175c312"
+  },
+  "train_balanced.jsonl": {
+    "bytes": 21866461,
+    "sha256": "152602c39f6af8268e774d235196a0ee7a4b6485d21e8cf10cd76faba96c6d58"
+  },
+  "train_variants.jsonl": {
+    "bytes": 21975366,
+    "sha256": "e4d38e932015a4933825d5ef9ae05b759822455c2fd0762f166827a7cc33a98c"
+  }
+}

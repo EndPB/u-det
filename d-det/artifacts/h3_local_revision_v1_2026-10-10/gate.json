@@ -1,0 +1,22 @@
+{
+  "accepted_variants": 8595,
+  "cross_split_duplicates_retained": {
+    "exact": 0,
+    "normalized_ws": 0,
+    "skeleton": 0,
+    "syntax_tokens": 0
+  },
+  "decision": "revise_data",
+  "formal_gpu_ready": false,
+  "length_shortcut_high": true,
+  "project_provenance": "not available; not certified project-heldout",
+  "test_deserialized": false,
+  "transform_probe": {
+    "ci95": [
+      0.529345238095238,
+      0.5977423618048618
+    ],
+    "high_shortcut": false,
+    "task_macro_auroc": 0.5670412920412922
+  }
+}

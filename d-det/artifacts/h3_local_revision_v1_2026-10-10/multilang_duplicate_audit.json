@@ -1,0 +1,111 @@
+{
+  "cross_split_groups": [
+    {
+      "kind": "skeleton",
+      "members": [
+        {
+          "language": "go",
+          "row_id": "stacad:go:8673_go6736.go:human",
+          "task_id": "stacad:go:8673_go6736.go",
+          "task_split": "train"
+        },
+        {
+          "language": "go",
+          "row_id": "stacad:go:8684_go7943.go:human",
+          "task_id": "stacad:go:8684_go7943.go",
+          "task_split": "dev"
+        },
+        {
+          "language": "go",
+          "row_id": "stacad:go:8673_go6736.go:deepseek_v3_2",
+          "task_id": "stacad:go:8673_go6736.go",
+          "task_split": "train"
+        },
+        {
+          "language": "go",
+          "row_id": "stacad:go:8673_go6736.go:devstral_2512",
+          "task_id": "stacad:go:8673_go6736.go",
+          "task_split": "train"
+        },
+        {
+          "language": "go",
+          "row_id": "stacad:go:8673_go6736.go:gemini_3_flash",
+          "task_id": "stacad:go:8673_go6736.go",
+          "task_split": "train"
+        },
+        {
+          "language": "go",
+          "row_id": "stacad:go:8673_go6736.go:gpt5_nano",
+          "task_id": "stacad:go:8673_go6736.go",
+          "task_split": "train"
+        },
+        {
+          "language": "go",
+          "row_id": "stacad:go:8673_go6736.go:grok_4_fast",
+          "task_id": "stacad:go:8673_go6736.go",
+          "task_split": "train"
+        },
+        {
+          "language": "go",
+          "row_id": "stacad:go:8684_go7943.go:devstral_2512",
+          "task_id": "stacad:go:8684_go7943.go",
+          "task_split": "dev"
+        },
+        {
+          "language": "go",
+          "row_id": "stacad:go:8684_go7943.go:gemini_3_flash",
+          "task_id": "stacad:go:8684_go7943.go",
+          "task_split": "dev"
+        },
+        {
+          "language": "go",
+          "row_id": "stacad:go:8684_go7943.go:gpt5_nano",
+          "task_id": "stacad:go:8684_go7943.go",
+          "task_split": "dev"
+        },
+        {
+          "language": "go",
+          "row_id": "stacad:go:8684_go7943.go:grok_4_fast",
+          "task_id": "stacad:go:8684_go7943.go",
+          "task_split": "dev"
+        },
+        {
+          "language": "go",
+          "row_id": "stacad:go:8684_go7943.go:qwen3_coder_30b",
+          "task_id": "stacad:go:8684_go7943.go",
+          "task_split": "dev"
+        }
+      ]
+    }
+  ],
+  "excluded_train_tasks": [
+    "stacad:go:8673_go6736.go"
+  ],
+  "policy": "exclude all train tasks touching cross-split exact/ws/token/skeleton groups; same-split skeleton matches are diagnostic",
+  "summary": {
+    "exact": {
+      "cross_split_groups_before_exclusion": 0,
+      "cross_split_groups_retained": 0,
+      "cross_task_groups": 0,
+      "duplicate_groups": 0
+    },
+    "normalized_ws": {
+      "cross_split_groups_before_exclusion": 0,
+      "cross_split_groups_retained": 0,
+      "cross_task_groups": 0,
+      "duplicate_groups": 13
+    },
+    "skeleton": {
+      "cross_split_groups_before_exclusion": 1,
+      "cross_split_groups_retained": 0,
+      "cross_task_groups": 3,
+      "duplicate_groups": 2082
+    },
+    "syntax_tokens": {
+      "cross_split_groups_before_exclusion": 0,
+      "cross_split_groups_retained": 0,
+      "cross_task_groups": 0,
+      "duplicate_groups": 270
+    }
+  }
+}

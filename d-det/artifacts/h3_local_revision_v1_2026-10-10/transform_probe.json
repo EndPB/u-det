@@ -1,0 +1,26 @@
+{
+  "ci95": [
+    0.529345238095238,
+    0.5977423618048618
+  ],
+  "eval_rows": 2290,
+  "eval_tasks": 425,
+  "features": [
+    "comment_accepted",
+    "whitespace_accepted",
+    "rename_accepted"
+  ],
+  "fit_rows": 8993,
+  "per_language_task_macro": {
+    "c": 0.4803884711779449,
+    "cpp": 0.5435876623376623,
+    "cs": 0.6541666666666667,
+    "go": 0.5760964912280703,
+    "java": 0.6547008547008547,
+    "php": 0.5189393939393939,
+    "py": 0.5734962406015036
+  },
+  "row_auroc": 0.5651070432678509,
+  "split": "task hash holdout 1/5",
+  "task_macro_auroc": 0.5670412920412922
+}

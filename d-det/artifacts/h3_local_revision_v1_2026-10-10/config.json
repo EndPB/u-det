@@ -1,0 +1,34 @@
+{
+  "bootstrap": 500,
+  "code_execution": false,
+  "excluded_tasks": [
+    "stacad:py:17895_py6559.py",
+    "stacad:py:30467_py2520.py",
+    "stacad:py:53336_py4341.py",
+    "stacad:py:53344_py8939.py"
+  ],
+  "generation": false,
+  "languages": [
+    "c",
+    "cpp",
+    "cs",
+    "go",
+    "java",
+    "php",
+    "py"
+  ],
+  "parser_packages": {
+    "c": "tree_sitter_c",
+    "cpp": "tree_sitter_cpp",
+    "cs": "tree_sitter_c_sharp",
+    "go": "tree_sitter_go",
+    "java": "tree_sitter_java",
+    "php": "tree_sitter_php",
+    "py": "tree_sitter_python"
+  },
+  "primary_clean_dev": true,
+  "script": "scripts/h3_local_revision_v1.py",
+  "seed": 20261010,
+  "test_read_modeling": false,
+  "weights": false
+}

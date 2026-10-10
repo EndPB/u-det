@@ -1,7 +1,7 @@
 # AutoDL H3 修订后新主线批次指导
 
 版本：2026-10-10  
-适用状态：C0–C3 已关闭；H3 当前为 `revise_data`；本文件是下一次大显存批次的预注册执行指导。  
+适用状态：C0–C3 已关闭；H3 本机修订 v1 后仍为 revise_data；本文件是下一次大显存批次的预注册执行指导。
 主线边界：本机完成数据修订和低资源准备；AutoDL 只执行通过数据闸门后的完整 GPU 批次。
 
 ## 1. 本批次要回答的问题
@@ -106,4 +106,5 @@ L_{joint}=L_D+\lambda_F L_F+\lambda_{inv}L_{inv}.
 
 ## 8. 当前状态
 
-本文件暂不触发 AutoDL 运行。等本机 H3 数据修订完成并重新通过闸门后，把冻结数据包、manifest 和脚本一次性上传；AutoDL 按本文件完成整批执行并统一回传。服务器不接收零散小实验指令。
+本文件暂不触发 AutoDL 运行。本机 v1 的 train-balanced clean-dev length=.8231、lexical=.9084，尚未重新通过闸门；等本机 controlled-dev、view-probe 和 provenance 修订完成并明确通过后，把冻结数据包、manifest 和脚本一次性上传；AutoDL 按本文件完成整批执行并统一回传。服务器不接收零散小实验指令。
+
