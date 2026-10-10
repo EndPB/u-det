@@ -4,7 +4,8 @@
   "file_count": 15,
   "created_utc": "2026-10-10T19:53:41.7311793Z",
   "remote_host": "codex-gpu",
-  "remote_path": "/root/autodl-tmp/u-det/d-det/data/autodl_h3_v3_hardneg_handoff_2026-10-11_upload.zip",
+  "remote_path": "/root/autodl-tmp/handoffs/autodl_h3_v3_hardneg_handoff_2026-10-11_upload.zip",
+  "remote_received_path": "/root/autodl-tmp/handoffs/autodl_h3_v3_hardneg_handoff_2026-10-11_received/",
   "gate": "revise_data",
   "formal_gpu_ready": false,
   "test_deserialized": false
