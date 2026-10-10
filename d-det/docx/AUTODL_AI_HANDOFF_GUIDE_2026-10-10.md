@@ -191,7 +191,7 @@ artifact_dir=
 - 本地包：`d-det/data/autodl_h3_v2_handoff_2026-10-11_upload.zip`
 - SHA256：`d045bcd11ddbfe371f15a061ca61b2c53efd9c552da5717ca8b48bc754817826`
 - AutoDL 接收：22/22 文件哈希通过，脚本编译通过，回执 `d-det/artifacts/autodl_h3_v2_handoff_2026-10-11_receipt.md`
-- AutoDL 当前无可用 GPU（`nvidia-smi` 权限拒绝），因此只做接收核验，没有冒充 GPU 运行。
+- 该次 v2 接收复核只做接收核验、没有启动训练；GPU 状态按每次批次实际检查，不能把当时的 `nvidia-smi` 权限问题写成长期无卡。最新服务器侧复核已确认 RTX 3080 Ti 可见，但 v2 仍未授权训练。
 - 当前包明确 `formal_gpu_ready=false`；后续新 GPU 包必须等待本机数据闸门通过并另行生成 `batch_manifest.json`。
 
 ## 2026-10-11 H3 v3 hard-negative 接收包已上传 AutoDL
