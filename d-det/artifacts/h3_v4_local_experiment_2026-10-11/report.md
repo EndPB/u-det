@@ -14,6 +14,6 @@
 结论：`increment_not_observed_close_v4_frozen_candidate`。
 
 所有增量在同折、同一行集合与同一 task-macro 指标下比较，CI 使用 task 成对 bootstrap。
-AMMC-like 训练视图只来自 train parent，按 Human/AI 与 transform 等额采样，并在 AI generator 间轮转；没有把变体加入 dev/clean，也没有把 transform mask 作为输入。
+AMMC-like 训练视图只来自 train parent，按 Human/AI 与 transform 等额采样，并在 AI generator 间轮转；source-only 也使用对应 AI balanced views；没有把变体加入 dev/clean，也没有把 transform mask 作为输入。
 掩码控制仅为次要诊断，不能替代 raw 词法强控制。source-only 只计 3 个独立 seed，human 不计作未知 generator。
 逐行预测、输入审计、变体 accepted 证明、损失历史与环境均保存；test 未读取，未生成代码，未下载模型，未执行数据集代码。

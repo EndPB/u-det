@@ -221,6 +221,6 @@ v4 接收包 SHA256 为 `7a902f9c6f1e14dd23e3c40596a3bfb9355a4d0174c9ab8c9673cfa
 
 ## 2026-10-11 H3 v4 AMMC 类增强本机诊断结论
 
-上述 v4 GPU 候选已被本机增强诊断取代，禁止启动。训练集加入按 Human/AI × comment/whitespace/AST-safe rename 等额采样的 AMMC 类视图后，本机 RTX 3050 完成 18 个检测/联合运行和 3 个独立 source-only 运行；raw lexical task-macro（hard-negative）仍为 `.8838/.8336`，clean-dev 为 `.8993/.8560`，增量没有在两折、两个 eval view 和三 seed 上同时通过预注册 CI。裁定为 `increment_not_observed_close_v4_frozen_candidate`，formal GPU 仍为 false。
+上述 v4 GPU 候选已被本机增强诊断取代，禁止启动。训练集加入按 Human/AI × comment/whitespace/AST-safe rename 等额采样的 AMMC 类视图后，本机 RTX 3050 完成 18 个检测/联合运行和 3 个独立 source-only 运行（source-only 也使用 AI balanced views）；raw lexical task-macro（hard-negative）仍为 `.8838/.8336`，clean-dev 为 `.8993/.8560`，增量没有在两折、两个 eval view 和三 seed 上同时通过预注册 CI。裁定为 `increment_not_observed_close_v4_frozen_candidate`，formal GPU 仍为 false。
 
 AutoDL 服务器只需保留接收证据和文档同步，不运行旧候选脚本。下一批必须先由本机加入组合增强视图并完成 transform-only/view-only probe，再上传新的冻结 manifest；届时仍一次性覆盖 lexical controls、detection-only、joint、joint-invariance（必要时 adversary）和至少两折三 seed。

@@ -2,37 +2,38 @@
   {
     "seed": 20261011,
     "split": "task-heldout-all-seven-generators",
+    "train_rows": 8067,
     "history": [
       {
         "epoch": 1,
-        "mean_batch_loss": 1.9643424606323243
+        "mean_batch_loss": 1.9503666460514069
       },
       {
         "epoch": 2,
-        "mean_batch_loss": 1.8850531435012818
+        "mean_batch_loss": 1.8793971687555313
       },
       {
         "epoch": 3,
-        "mean_batch_loss": 1.862156505584717
+        "mean_batch_loss": 1.86207539960742
       }
     ],
     "eval": {
       "hardneg": {
-        "accuracy": 0.2276176024279211,
+        "accuracy": 0.2407688416793121,
         "rows": 1977,
         "chance": 0.14285714285714285,
         "score_file": {
           "path": "scores/source_only_20261011_hardneg.npz",
-          "sha256": "4388b8cfbd75231ef368aa8005b29f892308f7f83d381a0808ef589b23637edc"
+          "sha256": "b5a386c61c2bbcd4b22896e0ca77d0e1c2086acf1b7d05abf46cdf25429368e9"
         }
       },
       "clean": {
-        "accuracy": 0.20333839150227617,
+        "accuracy": 0.2070236288749187,
         "rows": 4613,
         "chance": 0.14285714285714285,
         "score_file": {
           "path": "scores/source_only_20261011_clean.npz",
-          "sha256": "d10cb41acdce6562b7c8d868c42a9aa7a98b9ff0b0615379749894ce4794faf9"
+          "sha256": "909828327f55f3136a6c4c3eff23473ba8706363b0c3d780563343fc33ca9dfb"
         }
       }
     }
@@ -40,37 +41,38 @@
   {
     "seed": 20261012,
     "split": "task-heldout-all-seven-generators",
+    "train_rows": 8067,
     "history": [
       {
         "epoch": 1,
-        "mean_batch_loss": 1.9605679655075072
+        "mean_batch_loss": 1.9543220847845078
       },
       {
         "epoch": 2,
-        "mean_batch_loss": 1.8875539255142213
+        "mean_batch_loss": 1.8846719302237034
       },
       {
         "epoch": 3,
-        "mean_batch_loss": 1.862401089668274
+        "mean_batch_loss": 1.858034111559391
       }
     ],
     "eval": {
       "hardneg": {
-        "accuracy": 0.2028325746079919,
+        "accuracy": 0.2210419828022256,
         "rows": 1977,
         "chance": 0.14285714285714285,
         "score_file": {
           "path": "scores/source_only_20261012_hardneg.npz",
-          "sha256": "1c0309ae16aed866946abf6231d3b6d49a93aadf50ccce6baa828bc9cd67bdd5"
+          "sha256": "40c67220da8116921ea1b3152686b2c248d12349e93a2a6cd0d925691f951e24"
         }
       },
       "clean": {
-        "accuracy": 0.18946455668762194,
+        "accuracy": 0.20160416215044438,
         "rows": 4613,
         "chance": 0.14285714285714285,
         "score_file": {
           "path": "scores/source_only_20261012_clean.npz",
-          "sha256": "632ed90fffd129d7a937685ee1345f9b0fe1960b651a0ec2671a28603cc68a97"
+          "sha256": "714e12252430aec96867f2577ee91c45ae4736ea98785b776be0ecc365d979dd"
         }
       }
     }
@@ -78,37 +80,38 @@
   {
     "seed": 20261013,
     "split": "task-heldout-all-seven-generators",
+    "train_rows": 8067,
     "history": [
       {
         "epoch": 1,
-        "mean_batch_loss": 1.9587654399871826
+        "mean_batch_loss": 1.9534827210009098
       },
       {
         "epoch": 2,
-        "mean_batch_loss": 1.8924139976501464
+        "mean_batch_loss": 1.885780718177557
       },
       {
         "epoch": 3,
-        "mean_batch_loss": 1.857427215576172
+        "mean_batch_loss": 1.864638578146696
       }
     ],
     "eval": {
       "hardneg": {
-        "accuracy": 0.19119878603945373,
+        "accuracy": 0.19676277187658067,
         "rows": 1977,
         "chance": 0.14285714285714285,
         "score_file": {
           "path": "scores/source_only_20261013_hardneg.npz",
-          "sha256": "b0a7f98121439f56f7829af611fe784ea25c5bd07fff205b586d569748d91081"
+          "sha256": "e132cfb8c6963c6397c15f2d34ac23b2705e80f118ee752f37f4c47d86d2a1ff"
         }
       },
       "clean": {
-        "accuracy": 0.18144374593539997,
+        "accuracy": 0.1818773032733579,
         "rows": 4613,
         "chance": 0.14285714285714285,
         "score_file": {
           "path": "scores/source_only_20261013_clean.npz",
-          "sha256": "e9611b5aaaba840de98d54421988a1540bff597f354fb843bfcd256af122d272"
+          "sha256": "f3cf4ac33eb494b5933a67b5fe0439294950b6ed9e80d7ffab774ff3ebf109da"
         }
       }
     }
