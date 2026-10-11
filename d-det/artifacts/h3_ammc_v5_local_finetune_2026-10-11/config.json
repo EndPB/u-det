@@ -1,0 +1,32 @@
+{
+  "script_sha256": "a4f8c8cb7f21367f5f18a89b1d3d87de9518b012dd186860a1943c82369f7878",
+  "inputs": {
+    "train": "1583a259c0817ce11eb9763d4a3cbd299b306ef4ef66b7deacd1ddfe92e3dbb3",
+    "hardneg": "a4731ae1211d398de80b0e6b390c1380f0b0a7cb44172c3e9766e19f048f00e9",
+    "clean": "fe7955a5cfb55093274e7da5721d485e213e6e3521d0b31b61ec7a2c8388b9cf",
+    "schedule": "844817d4245a8a231341d0e83f31bcd8b997673f3f02af09cd2e3334aebd36d1"
+  },
+  "arms": [
+    "original",
+    "composed"
+  ],
+  "folds": {
+    "fold_0": [
+      "claude_3_haiku",
+      "deepseek_v3_2",
+      "devstral_2512"
+    ],
+    "fold_1": [
+      "gemini_3_flash",
+      "gpt5_nano",
+      "grok_4_fast",
+      "qwen3_coder_30b"
+    ]
+  },
+  "epochs": 2,
+  "batch": 2,
+  "accum": 8,
+  "unfrozen": "last two CodeT5 encoder blocks + final layer norm",
+  "test_read": false,
+  "smoke": false
+}

@@ -1,0 +1,2 @@
+python -u scripts/h3_ammc_v5_finetune_local.py
+python scripts/h3_ammc_v5_finetune_closeout.py

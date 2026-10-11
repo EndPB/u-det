@@ -1,0 +1,80 @@
+{
+  "status": "exploratory_single_seed_feasibility_completed",
+  "saved_score_checks": 24,
+  "comparisons_composed_minus_original": [
+    {
+      "fold": "fold_0",
+      "eval": "clean",
+      "tasks": 659,
+      "mean_seed_task_macro_auroc": 0.9534648457258471,
+      "control_task_macro_auroc": 0.9570055639858372,
+      "delta": -0.0035407182599898833,
+      "task_bootstrap_ci95": [
+        -0.006322711178553363,
+        -0.0010116337885685376
+      ],
+      "bootstrap_repeats": 2000,
+      "seed": 20261011,
+      "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+    },
+    {
+      "fold": "fold_0",
+      "eval": "hardneg",
+      "tasks": 571,
+      "mean_seed_task_macro_auroc": 0.9509632224168126,
+      "control_task_macro_auroc": 0.9562171628721541,
+      "delta": -0.005253940455341506,
+      "task_bootstrap_ci95": [
+        -0.010507880910683012,
+        -0.0008756567425569177
+      ],
+      "bootstrap_repeats": 2000,
+      "seed": 20261011,
+      "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+    },
+    {
+      "fold": "fold_1",
+      "eval": "clean",
+      "tasks": 659,
+      "mean_seed_task_macro_auroc": 0.9250758725341427,
+      "control_task_macro_auroc": 0.9317147192716236,
+      "delta": -0.0066388467374810314,
+      "task_bootstrap_ci95": [
+        -0.011949924127465858,
+        -0.0013277693474962064
+      ],
+      "bootstrap_repeats": 2000,
+      "seed": 20261011,
+      "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+    },
+    {
+      "fold": "fold_1",
+      "eval": "hardneg",
+      "tasks": 635,
+      "mean_seed_task_macro_auroc": 0.9139107611548555,
+      "control_task_macro_auroc": 0.9196850393700787,
+      "delta": -0.005774278215223098,
+      "task_bootstrap_ci95": [
+        -0.014041994750656168,
+        0.002230971128608924
+      ],
+      "bootstrap_repeats": 2000,
+      "seed": 20261011,
+      "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+    }
+  ],
+  "formal_gpu_ready": false,
+  "gate": "revise_data",
+  "scope": "last two blocks of encoder adapted; not full encoder fine tuning; detection only; one seed",
+  "protocol_manifest_timing": "training config reconstructed after pilot; no claim of preregistration",
+  "dropout_behavior": "encoder kept from_pretrained eval mode during adaptation; head dropout active; gradients update unfrozen weights",
+  "corrections_before_full_pilot": [
+    "discard unstable FP16-parameter attempt",
+    "FP32 master weights + autocast + GradScaler + clipping",
+    "filter dev AI to heldout generators before four-run pilot"
+  ],
+  "checkpoint_saved": false,
+  "dev_stress_test": false,
+  "test_read": false,
+  "decision": "feasible_local_encoder_adaptation; augmentation_gain_not_consistent"
+}
