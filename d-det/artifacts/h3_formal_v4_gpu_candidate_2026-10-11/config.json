@@ -1,0 +1,19 @@
+{
+  "encoder": "frozen CodeT5-small mean pooling",
+  "jobs": [
+    "detection_only",
+    "source_only",
+    "joint",
+    "joint_invariance"
+  ],
+  "folds": "two generator-heldout folds: sorted seven AI generators split 3/4",
+  "seeds": [
+    20261011,
+    20261012,
+    20261013
+  ],
+  "max_length": 512,
+  "train": "hardneg_train_v4.jsonl",
+  "dev": "hardneg_dev_v4.jsonl",
+  "variants": "train_variants_v4.jsonl"
+}

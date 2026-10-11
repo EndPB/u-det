@@ -1,0 +1,307 @@
+{
+  "status": "exploratory_completed",
+  "formal_gpu_ready": false,
+  "gate": "revise_data",
+  "detection_runs": 18,
+  "unique_source_runs": 3,
+  "controls": {
+    "fold_0": {
+      "raw": {
+        "hardneg": {
+          "rows": 1508,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 571,
+          "row_auroc": 0.7610059857978055,
+          "task_macro_auroc": 0.8838295388207823,
+          "balanced_accuracy": 0.6692404346093145,
+          "score_file": {
+            "path": "scores/fold_0_lexical_raw_hardneg.npz",
+            "sha256": "051678d88d65ab754178af6d6fe3e02f4cc4ec16913d5751cf14d1d6ac07d2fd"
+          }
+        },
+        "clean": {
+          "rows": 2636,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.7684509952465493,
+          "task_macro_auroc": 0.8993424380374304,
+          "balanced_accuracy": 0.6762771876580678,
+          "score_file": {
+            "path": "scores/fold_0_lexical_raw_clean.npz",
+            "sha256": "4b2acecd918d5b149d0338ba1427e8862e3ac8acb4f8a7c5497c93c71a7bfeba"
+          }
+        },
+        "solver_iterations": 64,
+        "warnings": []
+      },
+      "masked": {
+        "hardneg": {
+          "rows": 1508,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 571,
+          "row_auroc": 0.5795812622544421,
+          "task_macro_auroc": 0.6452130764740222,
+          "balanced_accuracy": 0.5427719123274548,
+          "score_file": {
+            "path": "scores/fold_0_lexical_masked_hardneg.npz",
+            "sha256": "95cb3d453defb6ba54a5b7cc176064e0f69008e777b9e2415e2ce5a48aa5cc6d"
+          }
+        },
+        "clean": {
+          "rows": 2636,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.5782672969805265,
+          "task_macro_auroc": 0.6517450682852808,
+          "balanced_accuracy": 0.5427415275670208,
+          "score_file": {
+            "path": "scores/fold_0_lexical_masked_clean.npz",
+            "sha256": "54be356a85125cdc4eba970cafce2b92182551c2b38d936331fc11de976423ac"
+          }
+        },
+        "solver_iterations": 75,
+        "warnings": []
+      }
+    },
+    "fold_1": {
+      "raw": {
+        "hardneg": {
+          "rows": 1787,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 635,
+          "row_auroc": 0.6692435077863517,
+          "task_macro_auroc": 0.8335958005249343,
+          "balanced_accuracy": 0.6302734101744529,
+          "score_file": {
+            "path": "scores/fold_1_lexical_raw_hardneg.npz",
+            "sha256": "2e42067b53d40a7007655681ac931e3e5e2dff6768dd21db229c56a13d176fd7"
+          }
+        },
+        "clean": {
+          "rows": 3295,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.7219320555124447,
+          "task_macro_auroc": 0.8560318664643399,
+          "balanced_accuracy": 0.6652124430955995,
+          "score_file": {
+            "path": "scores/fold_1_lexical_raw_clean.npz",
+            "sha256": "9a49433a27de78ecac35c8a5ca09cb73f593b4404cdb83306980fa288b757787"
+          }
+        },
+        "solver_iterations": 62,
+        "warnings": []
+      },
+      "masked": {
+        "hardneg": {
+          "rows": 1787,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 635,
+          "row_auroc": 0.5520843422766065,
+          "task_macro_auroc": 0.5939632545931759,
+          "balanced_accuracy": 0.5285766366405149,
+          "score_file": {
+            "path": "scores/fold_1_lexical_masked_hardneg.npz",
+            "sha256": "11927117687fb97a383c60151b674dd2bf5cff22af8c2aacce740f26ea90f5b5"
+          }
+        },
+        "clean": {
+          "rows": 3295,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.5646134069876416,
+          "task_macro_auroc": 0.6117223065250379,
+          "balanced_accuracy": 0.5432473444613051,
+          "score_file": {
+            "path": "scores/fold_1_lexical_masked_clean.npz",
+            "sha256": "7132dbbb1f72e6c3bb3ea794523014e3708cefd0b5b73a009bea0fa22ffa0d67"
+          }
+        },
+        "solver_iterations": 76,
+        "warnings": []
+      }
+    }
+  },
+  "comparisons_vs_raw_lexical": {
+    "fold_0": {
+      "detection_only": {
+        "hardneg": {
+          "tasks": 571,
+          "mean_seed_task_macro_auroc": 0.901634559252773,
+          "control_task_macro_auroc": 0.8838295388207823,
+          "delta": 0.017805020431990656,
+          "task_bootstrap_ci95": [
+            -0.011677855613932675,
+            0.04884461957579293
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        },
+        "clean": {
+          "tasks": 659,
+          "mean_seed_task_macro_auroc": 0.9054122407688417,
+          "control_task_macro_auroc": 0.8993424380374304,
+          "delta": 0.006069802731411227,
+          "task_bootstrap_ci95": [
+            -0.014672905075029514,
+            0.027149721800708116
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        }
+      },
+      "joint": {
+        "hardneg": {
+          "tasks": 571,
+          "mean_seed_task_macro_auroc": 0.9071803852889667,
+          "control_task_macro_auroc": 0.8838295388207823,
+          "delta": 0.02335084646818447,
+          "task_bootstrap_ci95": [
+            -0.006426347538431605,
+            0.05429315041836932
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        },
+        "clean": {
+          "tasks": 659,
+          "mean_seed_task_macro_auroc": 0.9108076209745406,
+          "control_task_macro_auroc": 0.8993424380374304,
+          "delta": 0.011465182937110095,
+          "task_bootstrap_ci95": [
+            -0.009108919237902554,
+            0.03203928511212272
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        }
+      },
+      "joint_invariance": {
+        "hardneg": {
+          "tasks": 571,
+          "mean_seed_task_macro_auroc": 0.9132126872932476,
+          "control_task_macro_auroc": 0.8838295388207823,
+          "delta": 0.02938314847246546,
+          "task_bootstrap_ci95": [
+            9.486281377699912e-05,
+            0.060033566841798
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        },
+        "clean": {
+          "tasks": 659,
+          "mean_seed_task_macro_auroc": 0.9118192547631091,
+          "control_task_macro_auroc": 0.8993424380374304,
+          "delta": 0.012476816725678633,
+          "task_bootstrap_ci95": [
+            -0.007928679817905925,
+            0.033215309391333665
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        }
+      }
+    },
+    "fold_1": {
+      "detection_only": {
+        "hardneg": {
+          "tasks": 635,
+          "mean_seed_task_macro_auroc": 0.8345581802274714,
+          "control_task_macro_auroc": 0.8335958005249343,
+          "delta": 0.0009623797025371774,
+          "task_bootstrap_ci95": [
+            -0.03058398950131234,
+            0.033902012248468935
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        },
+        "clean": {
+          "tasks": 659,
+          "mean_seed_task_macro_auroc": 0.8519221041982803,
+          "control_task_macro_auroc": 0.8560318664643399,
+          "delta": -0.004109762266059686,
+          "task_bootstrap_ci95": [
+            -0.024283952959028833,
+            0.016755184623166414
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        }
+      },
+      "joint": {
+        "hardneg": {
+          "tasks": 635,
+          "mean_seed_task_macro_auroc": 0.8424321959755031,
+          "control_task_macro_auroc": 0.8335958005249343,
+          "delta": 0.008836395450568675,
+          "task_bootstrap_ci95": [
+            -0.022053805774278217,
+            0.03998250218722659
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        },
+        "clean": {
+          "tasks": 659,
+          "mean_seed_task_macro_auroc": 0.8607738998482549,
+          "control_task_macro_auroc": 0.8560318664643399,
+          "delta": 0.004742033383915018,
+          "task_bootstrap_ci95": [
+            -0.015555450177035917,
+            0.024595346484572584
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        }
+      },
+      "joint_invariance": {
+        "hardneg": {
+          "tasks": 635,
+          "mean_seed_task_macro_auroc": 0.8424321959755029,
+          "control_task_macro_auroc": 0.8335958005249343,
+          "delta": 0.008836395450568675,
+          "task_bootstrap_ci95": [
+            -0.022314085739282594,
+            0.040509623797025364
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        },
+        "clean": {
+          "tasks": 659,
+          "mean_seed_task_macro_auroc": 0.859382903388973,
+          "control_task_macro_auroc": 0.8560318664643399,
+          "delta": 0.003351036924633282,
+          "task_bootstrap_ci95": [
+            -0.01700967374810319,
+            0.023458839150227607
+          ],
+          "bootstrap_repeats": 2000,
+          "seed": 20261011,
+          "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+        }
+      }
+    }
+  },
+  "success_by_job": {
+    "detection_only": false,
+    "joint": false,
+    "joint_invariance": false
+  },
+  "decision": "increment_not_observed_close_v4_frozen_candidate",
+  "cuda_peak_allocated_mib": 312.46630859375,
+  "cuda_peak_reserved_mib": 340.0
+}

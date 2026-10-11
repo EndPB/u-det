@@ -1,0 +1,51 @@
+{
+  "schema": "h3_v4_local_exploratory_v1",
+  "claim_scope": "task-heldout diagnostic, NOT formal/project-heldout",
+  "formal_gpu_ready": false,
+  "gate": "revise_data",
+  "post_dev_selection": true,
+  "input_sha256": {
+    "train": "1583a259c0817ce11eb9763d4a3cbd299b306ef4ef66b7deacd1ddfe92e3dbb3",
+    "hardneg": "a4731ae1211d398de80b0e6b390c1380f0b0a7cb44172c3e9766e19f048f00e9",
+    "clean": "fe7955a5cfb55093274e7da5721d485e213e6e3521d0b31b61ec7a2c8388b9cf",
+    "variants": "c435f2f850462e11fa79fc4d7d19457c4e43608077328b045ee96f4835c6a5e9"
+  },
+  "script_sha256": "a61673bc71b48c7bcb279570484ef25213ba8bc388eb17f02740e098e11dc46a",
+  "helper_sha256": {
+    "h3_gpu_diagnostic_batch_2026_10_11.py": "6707e57fb8906062289e49c84898c3891c1f5034ff0843431ff3a3cd7bed264b",
+    "h3_hardneg_revision_v3.py": "2f6c9bf5e367961ad3dc83de47a15b9717c23da58453d61507add18dca205042"
+  },
+  "model_sha256": "968fb0f45e1efc8cf3dd50012d1f82ad82098107cbadde2c0fdd8e61bac02908",
+  "seeds": [
+    20261011,
+    20261012,
+    20261013
+  ],
+  "folds": {
+    "fold_0": [
+      "claude_3_haiku",
+      "deepseek_v3_2",
+      "devstral_2512"
+    ],
+    "fold_1": [
+      "gemini_3_flash",
+      "gpt5_nano",
+      "grok_4_fast",
+      "qwen3_coder_30b"
+    ]
+  },
+  "neural_runs": "18 generator-heldout detection runs + 3 unique all-generator source runs; AMMC-like balanced train views",
+  "encoder": "frozen CodeT5-small; 512 head/tail tokens; mean pooling; existing char cap=24000",
+  "epochs": 3,
+  "learning_rate": 0.002,
+  "batch_size": 256,
+  "encoding_batch_size": 8,
+  "primary_control": "raw char_wb(2,5)+word(1,2), min_df=5, 100k features each, LinearSVC C=1",
+  "secondary_control": "same protocol on regex-masked code (diagnostic, not a syntax-safe transform)",
+  "ammc_like_training": "original train rows plus deterministic label/transform-balanced accepted comment, whitespace, and AST-safe rename views; dev/clean untouched",
+  "success_rule": ">=.01 mean task-AUC delta vs raw lexical, paired CI lower>0, both folds positive, both dev views; otherwise increment_not_observed",
+  "test_read": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "code_execution": false
+}

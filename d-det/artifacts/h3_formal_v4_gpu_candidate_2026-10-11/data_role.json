@@ -1,0 +1,8 @@
+{
+  "train": "hardneg_train_v4.jsonl",
+  "dev": "hardneg_dev_v4.jsonl",
+  "variants": "train_variants_v4.jsonl",
+  "test": "not_read",
+  "project_provenance": "unavailable",
+  "claim_scope": "task-heldout"
+}

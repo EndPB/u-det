@@ -1,0 +1,40 @@
+{
+  "hardneg_v4": {
+    "length": {
+      "row_auroc": 0.5428858273790472,
+      "rows": 2636,
+      "task_macro_auroc": 0.6906929691451694
+    },
+    "masked": {
+      "row_auroc": 0.5672341180019389,
+      "rows": 2636,
+      "task_macro_auroc": 0.6342943854324734,
+      "view": "masked_tokens"
+    },
+    "raw": {
+      "row_auroc": 0.7111301975756097,
+      "rows": 2636,
+      "task_macro_auroc": 0.8426909458775922,
+      "view": "raw"
+    }
+  },
+  "clean_dev_reference": {
+    "length": {
+      "row_auroc": 0.5759174359458508,
+      "rows": 5272,
+      "task_macro_auroc": 0.7247994797311944
+    },
+    "masked": {
+      "row_auroc": 0.5767829058670703,
+      "rows": 5272,
+      "task_macro_auroc": 0.6546715803164969,
+      "view": "masked_tokens"
+    },
+    "raw": {
+      "row_auroc": 0.7623630453883217,
+      "rows": 5272,
+      "task_macro_auroc": 0.8813136787340125,
+      "view": "raw"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "h3_formal_v4_gpu_candidate_manifest_v1",
+  "status": "candidate_task_heldout_clean_dev_negative_control",
+  "claim_scope": "task-heldout on hard-negative v4; project-heldout unavailable",
+  "source_commit": "0fc1b0e0634acd320094294ebfb7361cb86d358f",
+  "data_view": "h3_stacad_revision_v4 hardneg_train_v4/hardneg_dev_v4",
+  "jobs": [
+    "detection_only",
+    "source_only",
+    "joint",
+    "joint_invariance"
+  ],
+  "folds": "two generator-heldout folds: sorted seven AI generators split 3/4",
+  "seeds": [
+    20261011,
+    20261012,
+    20261013
+  ],
+  "epochs": 3,
+  "batch_size": 256,
+  "encode_batch_size": 16,
+  "max_length": 512,
+  "max_source_chars": 24000,
+  "model": "d-det/models/codet5-small",
+  "model_local_only": true,
+  "test_read": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "code_execution": false,
+  "lexical_control_reference": {
+    "row_auroc": 0.5672341180019389,
+    "rows": 2636,
+    "task_macro_auroc": 0.6342943854324734,
+    "view": "masked_tokens"
+  },
+  "clean_dev_negative_control": {
+    "length": {
+      "row_auroc": 0.5759174359458508,
+      "rows": 5272,
+      "task_macro_auroc": 0.7247994797311944
+    },
+    "masked": {
+      "row_auroc": 0.5767829058670703,
+      "rows": 5272,
+      "task_macro_auroc": 0.6546715803164969,
+      "view": "masked_tokens"
+    },
+    "raw": {
+      "row_auroc": 0.7623630453883217,
+      "rows": 5272,
+      "task_macro_auroc": 0.8813136787340125,
+      "view": "raw"
+    }
+  },
+  "formal_gpu_ready": false,
+  "pre_registered_failure": "if detection/joint/invariance has no increment over same-fold lexical control or clean-dev negative control contradicts scope, report increment_not_observed and stop",
+  "resource_request": "one CUDA GPU, approximately 4-8 GiB VRAM, no downloads"
+}

@@ -1,0 +1,866 @@
+[
+  {
+    "fold": "fold_0",
+    "job": "detection_only",
+    "seed": 20261011,
+    "train_rows": 7614,
+    "variant_parent_pairs": 2597,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.6943072338898977
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.6561663071314494
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.6525014638900757
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1508,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 571,
+        "row_auroc": 0.6508165457531934,
+        "task_macro_auroc": 0.9030939871570344,
+        "balanced_accuracy": 0.5402446151948825,
+        "score_file": {
+          "path": "scores/fold_0_detection_only_20261011_hardneg.npz",
+          "sha256": "37cf6b0456b7b51785c390b2aa6d61ca8a6985ee42f51eb3dbafa4c16f812a99"
+        }
+      },
+      "clean": {
+        "rows": 2636,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6791762322858549,
+        "task_macro_auroc": 0.9094587759231157,
+        "balanced_accuracy": 0.5409711684370259,
+        "score_file": {
+          "path": "scores/fold_0_detection_only_20261011_clean.npz",
+          "sha256": "ef0039b24b7237384463c93079af1028ca34da9c95d7a0f1b76842a98ed96cd4"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_0",
+    "job": "detection_only",
+    "seed": 20261012,
+    "train_rows": 7614,
+    "variant_parent_pairs": 2597,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.6832242767016093
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.6513999938964844
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.6425765077273051
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1508,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 571,
+        "row_auroc": 0.6750037087281118,
+        "task_macro_auroc": 0.9124343257443083,
+        "balanced_accuracy": 0.5502885658571809,
+        "score_file": {
+          "path": "scores/fold_0_detection_only_20261012_hardneg.npz",
+          "sha256": "96d265305aef3c200e2ddb82701d1b102df82d7bdd1bb3ece4a2258aae224d20"
+        }
+      },
+      "clean": {
+        "rows": 2636,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6983224379299732,
+        "task_macro_auroc": 0.9084471421345472,
+        "balanced_accuracy": 0.5528578654527061,
+        "score_file": {
+          "path": "scores/fold_0_detection_only_20261012_clean.npz",
+          "sha256": "85fadba1527f7e9b7068913990c20ad5a73ffc547a69e28a8fb250f1cab97acc"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_0",
+    "job": "detection_only",
+    "seed": 20261013,
+    "train_rows": 7614,
+    "variant_parent_pairs": 2597,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.6984714368979136
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.6566089610258738
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.6499406317869822
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1508,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 571,
+        "row_auroc": 0.6536745005728422,
+        "task_macro_auroc": 0.889375364856976,
+        "balanced_accuracy": 0.5060698027314112,
+        "score_file": {
+          "path": "scores/fold_0_detection_only_20261013_hardneg.npz",
+          "sha256": "20bfccb0bd5a923833a1397280f05924260d8ea943abbb1872a8432284afdd91"
+        }
+      },
+      "clean": {
+        "rows": 2636,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6828742987451288,
+        "task_macro_auroc": 0.8983308042488619,
+        "balanced_accuracy": 0.5060698027314112,
+        "score_file": {
+          "path": "scores/fold_0_detection_only_20261013_clean.npz",
+          "sha256": "63ce97d63e08e8e338550d81449c3399e2d3de7e83ec6bd506bf583c9111c9c4"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_0",
+    "job": "joint",
+    "seed": 20261011,
+    "train_rows": 7614,
+    "variant_parent_pairs": 2597,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.9759578267733257
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.9217744410037995
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.9094192028045655
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1508,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 571,
+        "row_auroc": 0.669751613520146,
+        "task_macro_auroc": 0.9048453006421482,
+        "balanced_accuracy": 0.555960685694676,
+        "score_file": {
+          "path": "scores/fold_0_joint_20261011_hardneg.npz",
+          "sha256": "2bd562c70ef87ce4b070b83fb933fe95c36d9c6d1d1fe005cc1b58558bb51096"
+        }
+      },
+      "clean": {
+        "rows": 2636,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.7023163957591205,
+        "task_macro_auroc": 0.9185634800202326,
+        "balanced_accuracy": 0.5627212948912493,
+        "score_file": {
+          "path": "scores/fold_0_joint_20261011_clean.npz",
+          "sha256": "56614870c9bbe36f3b287e220143c2b3e3d9424bea4788639097ae74d0c7106f"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_0",
+    "job": "joint",
+    "seed": 20261012,
+    "train_rows": 7614,
+    "variant_parent_pairs": 2597,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.9565482318401337
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.9148934920628865
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.8994302491346995
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1508,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 571,
+        "row_auroc": 0.682405972571498,
+        "task_macro_auroc": 0.9127262113251605,
+        "balanced_accuracy": 0.5514556981256178,
+        "score_file": {
+          "path": "scores/fold_0_joint_20261012_hardneg.npz",
+          "sha256": "03100103ebbaab0a7d04f4f30b42756d9dc977b9d5d0efcfde68da232a02642c"
+        }
+      },
+      "clean": {
+        "rows": 2636,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.7048692743484826,
+        "task_macro_auroc": 0.9099645928174002,
+        "balanced_accuracy": 0.5538694992412747,
+        "score_file": {
+          "path": "scores/fold_0_joint_20261012_clean.npz",
+          "sha256": "6747ebb2cf9d082de12d5eb55110388b2264e5e2c54d69e9c52967ca1f28de6e"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_0",
+    "job": "joint",
+    "seed": 20261013,
+    "train_rows": 7614,
+    "variant_parent_pairs": 2597,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.9763617575168609
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.9226540863513947
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.9055864751338959
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1508,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 571,
+        "row_auroc": 0.6739339864269487,
+        "task_macro_auroc": 0.9039696438995914,
+        "balanced_accuracy": 0.5666731010865234,
+        "score_file": {
+          "path": "scores/fold_0_joint_20261013_hardneg.npz",
+          "sha256": "12a4ba6693f8f70ffd0c4b4f9ab9811b6776bb397ebe1231b2edb30b35266442"
+        }
+      },
+      "clean": {
+        "rows": 2636,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.7005395124354968,
+        "task_macro_auroc": 0.9038947900859888,
+        "balanced_accuracy": 0.5723318158826505,
+        "score_file": {
+          "path": "scores/fold_0_joint_20261013_clean.npz",
+          "sha256": "da2dab3797382c206dd724bae44a79101103df31bfe5b0aa198dc479e1d89bab"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_0",
+    "job": "joint_invariance",
+    "seed": 20261011,
+    "train_rows": 7614,
+    "variant_parent_pairs": 2597,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.9770047307014466
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.9209944605827332
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.9094514886538188
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1508,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 571,
+        "row_auroc": 0.6696962060158251,
+        "task_macro_auroc": 0.9098073555166375,
+        "balanced_accuracy": 0.5615210968541049,
+        "score_file": {
+          "path": "scores/fold_0_joint_invariance_20261011_hardneg.npz",
+          "sha256": "23663a130427fab749c4088aceaf45e314a055c83974d2414164a1c284ba1770"
+        }
+      },
+      "clean": {
+        "rows": 2636,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6950737732788985,
+        "task_macro_auroc": 0.9104704097116844,
+        "balanced_accuracy": 0.5655032878098128,
+        "score_file": {
+          "path": "scores/fold_0_joint_invariance_20261011_clean.npz",
+          "sha256": "2ba20e365d91bb4de8626fbc661d89ae6b9798d9f6db3039179f8a0018fcdea4"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_0",
+    "job": "joint_invariance",
+    "seed": 20261012,
+    "train_rows": 7614,
+    "variant_parent_pairs": 2597,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.9574756503105164
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.9148354331652323
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.9016528964042664
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1508,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 571,
+        "row_auroc": 0.6826865847708007,
+        "task_macro_auroc": 0.9197314652656158,
+        "balanced_accuracy": 0.5291818813886193,
+        "score_file": {
+          "path": "scores/fold_0_joint_invariance_20261012_hardneg.npz",
+          "sha256": "6ab695d2648d35d086c0b518fc0441523c02d73d6a709ea77de2a141ee504654"
+        }
+      },
+      "clean": {
+        "rows": 2636,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.7057995476047383,
+        "task_macro_auroc": 0.9160343955488115,
+        "balanced_accuracy": 0.5306019221041983,
+        "score_file": {
+          "path": "scores/fold_0_joint_invariance_20261012_clean.npz",
+          "sha256": "488baddbbd33126d1ab6926d6a9f427663780fbbcdfdba1e5ed7a86d620dfe29"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_0",
+    "job": "joint_invariance",
+    "seed": 20261013,
+    "train_rows": 7614,
+    "variant_parent_pairs": 2597,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.9753390987714131
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.9211410840352376
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.9050030946731568
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1508,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 571,
+        "row_auroc": 0.6778464711675434,
+        "task_macro_auroc": 0.91009924109749,
+        "balanced_accuracy": 0.590889755152451,
+        "score_file": {
+          "path": "scores/fold_0_joint_invariance_20261013_hardneg.npz",
+          "sha256": "9c1a339069211cca8ea16b4c107bdafff6e721bad4674a2cb445de3719770329"
+        }
+      },
+      "clean": {
+        "rows": 2636,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.7034684915987575,
+        "task_macro_auroc": 0.9089529590288316,
+        "balanced_accuracy": 0.6057157309054122,
+        "score_file": {
+          "path": "scores/fold_0_joint_invariance_20261013_clean.npz",
+          "sha256": "57a8b817e1dc571e08c67a59c345bc63ba24caf32daae1886ebcb7ad5b013a1e"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_1",
+    "job": "detection_only",
+    "seed": 20261011,
+    "train_rows": 6163,
+    "variant_parent_pairs": 2143,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.7364497828483582
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.6740882468223571
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.65398690700531
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1787,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 635,
+        "row_auroc": 0.589018392363241,
+        "task_macro_auroc": 0.8349081364829396,
+        "balanced_accuracy": 0.5514789763127024,
+        "score_file": {
+          "path": "scores/fold_1_detection_only_20261011_hardneg.npz",
+          "sha256": "d16adfbe037974521981466efb909a6041b73b4feaa1384dc9c9d0c765fdb63e"
+        }
+      },
+      "clean": {
+        "rows": 3295,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6529010018858757,
+        "task_macro_auroc": 0.8528072837632777,
+        "balanced_accuracy": 0.5957890743550834,
+        "score_file": {
+          "path": "scores/fold_1_detection_only_20261011_clean.npz",
+          "sha256": "7b969eb8dff1a22fed5442711245be8c241ab060c6e510f834d2cac122fb7879"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_1",
+    "job": "detection_only",
+    "seed": 20261012,
+    "train_rows": 6163,
+    "variant_parent_pairs": 2143,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.7310982608795166
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.6751181721687317
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.6512058329582214
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1787,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 635,
+        "row_auroc": 0.5901134321290586,
+        "task_macro_auroc": 0.8291338582677166,
+        "balanced_accuracy": 0.551335033739063,
+        "score_file": {
+          "path": "scores/fold_1_detection_only_20261012_hardneg.npz",
+          "sha256": "0e92ab0c85d630b6c7ccd9d4e36511c7a610bb537dda98b471a8a156aa8b152a"
+        }
+      },
+      "clean": {
+        "rows": 3295,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6520340516854295,
+        "task_macro_auroc": 0.849772382397572,
+        "balanced_accuracy": 0.5961684370257967,
+        "score_file": {
+          "path": "scores/fold_1_detection_only_20261012_clean.npz",
+          "sha256": "4cba1b3fc4bc601da077ee7923515b1faced83ec886a6939f36dda2ac4ad0080"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_1",
+    "job": "detection_only",
+    "seed": 20261013,
+    "train_rows": 6163,
+    "variant_parent_pairs": 2143,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.7160505986213684
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.6651409196853638
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.6529593896865845
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1787,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 635,
+        "row_auroc": 0.592892734532227,
+        "task_macro_auroc": 0.8396325459317586,
+        "balanced_accuracy": 0.5618085375434518,
+        "score_file": {
+          "path": "scores/fold_1_detection_only_20261013_hardneg.npz",
+          "sha256": "3314da0144c22c65c9a80280b2461a3722ed92d18087ecdb49cd2dacbd077b95"
+        }
+      },
+      "clean": {
+        "rows": 3295,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6511446505833781,
+        "task_macro_auroc": 0.8531866464339909,
+        "balanced_accuracy": 0.6054628224582701,
+        "score_file": {
+          "path": "scores/fold_1_detection_only_20261013_clean.npz",
+          "sha256": "493db9cca640c1e21f57b0b43cc75c9014c2f66a8dfcaa3c3978b0037e36d2d3"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_1",
+    "job": "joint",
+    "seed": 20261011,
+    "train_rows": 6163,
+    "variant_parent_pairs": 2143,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.9518665647506714
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.8839984107017517
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.8620377779006958
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1787,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 635,
+        "row_auroc": 0.5921219018715225,
+        "task_macro_auroc": 0.8341207349081367,
+        "balanced_accuracy": 0.5632190402393482,
+        "score_file": {
+          "path": "scores/fold_1_joint_20261011_hardneg.npz",
+          "sha256": "f0f6f4814cdc286f4450b34bb170a8bf1cbec76e28c8809321af2700918832e2"
+        }
+      },
+      "clean": {
+        "rows": 3295,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6536703770139609,
+        "task_macro_auroc": 0.8577389984825493,
+        "balanced_accuracy": 0.6028072837632776,
+        "score_file": {
+          "path": "scores/fold_1_joint_20261011_clean.npz",
+          "sha256": "9b6999c93b388e0ad304edea3c64fc4e30dba2722520045c8a494f405dbeef64"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_1",
+    "job": "joint",
+    "seed": 20261012,
+    "train_rows": 6163,
+    "variant_parent_pairs": 2143,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.943053925037384
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.8852325701713561
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.8584044623374939
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1787,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 635,
+        "row_auroc": 0.597804943014884,
+        "task_macro_auroc": 0.8503937007874016,
+        "balanced_accuracy": 0.5515630549188002,
+        "score_file": {
+          "path": "scores/fold_1_joint_20261012_hardneg.npz",
+          "sha256": "c4e5d568fb7bcf49cbce658763e1e5047398aae7b792b898425b775d8ae1ffc8"
+        }
+      },
+      "clean": {
+        "rows": 3295,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6584305438184033,
+        "task_macro_auroc": 0.8668437025796661,
+        "balanced_accuracy": 0.5904779969650986,
+        "score_file": {
+          "path": "scores/fold_1_joint_20261012_clean.npz",
+          "sha256": "a1c293c1f8cdc7d4603f49f1514eb70db59477d705dbcc5ab69342e2798109c6"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_1",
+    "job": "joint",
+    "seed": 20261013,
+    "train_rows": 6163,
+    "variant_parent_pairs": 2143,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.9348201847076416
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.8745286583900451
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.8660353279113769
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1787,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 635,
+        "row_auroc": 0.598984734015648,
+        "task_macro_auroc": 0.8427821522309711,
+        "balanced_accuracy": 0.5654985794078714,
+        "score_file": {
+          "path": "scores/fold_1_joint_20261013_hardneg.npz",
+          "sha256": "5a01c54d45f07c2b9df2abbb518fc87a6f41ebc0929a686169eddc2a7db0d098"
+        }
+      },
+      "clean": {
+        "rows": 3295,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6555522230997903,
+        "task_macro_auroc": 0.8577389984825493,
+        "balanced_accuracy": 0.6066009104704098,
+        "score_file": {
+          "path": "scores/fold_1_joint_20261013_clean.npz",
+          "sha256": "9b9c02f7d03d49dd0f7ee8279458c00962a3b8a35c223824af0c3f97a8770a1e"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_1",
+    "job": "joint_invariance",
+    "seed": 20261011,
+    "train_rows": 6163,
+    "variant_parent_pairs": 2143,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.953367874622345
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.8873420572280883
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.8696953439712525
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1787,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 635,
+        "row_auroc": 0.5940092984212055,
+        "task_macro_auroc": 0.8406824146981627,
+        "balanced_accuracy": 0.5467867174635973,
+        "score_file": {
+          "path": "scores/fold_1_joint_invariance_20261011_hardneg.npz",
+          "sha256": "45aea306d35316e62437869b5285726d311dd4215cc77958b8a9b440f009a032"
+        }
+      },
+      "clean": {
+        "rows": 3295,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6567527706715237,
+        "task_macro_auroc": 0.8581183611532626,
+        "balanced_accuracy": 0.5707511380880121,
+        "score_file": {
+          "path": "scores/fold_1_joint_invariance_20261011_clean.npz",
+          "sha256": "66e482c60316e3d08a9609103ba9126b46e16b2012bf2dcb1993e13fee1dabcb"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_1",
+    "job": "joint_invariance",
+    "seed": 20261012,
+    "train_rows": 6163,
+    "variant_parent_pairs": 2143,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.9416897511482238
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.8894418740272522
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.8607426595687866
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1787,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 635,
+        "row_auroc": 0.5964347980499145,
+        "task_macro_auroc": 0.8404199475065618,
+        "balanced_accuracy": 0.5760595249626018,
+        "score_file": {
+          "path": "scores/fold_1_joint_invariance_20261012_hardneg.npz",
+          "sha256": "838db1138cf1674dc498bcdb7bc0a4c9d227bec5b2dcf849f2d48ee827c96a69"
+        }
+      },
+      "clean": {
+        "rows": 3295,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.655434499782399,
+        "task_macro_auroc": 0.8581183611532626,
+        "balanced_accuracy": 0.6145675265553869,
+        "score_file": {
+          "path": "scores/fold_1_joint_invariance_20261012_clean.npz",
+          "sha256": "bdc3a6267e05497980df2741292ca1fe09505be3b4e55042867a8700aea48c51"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  },
+  {
+    "fold": "fold_1",
+    "job": "joint_invariance",
+    "seed": 20261013,
+    "train_rows": 6163,
+    "variant_parent_pairs": 2143,
+    "history": [
+      {
+        "epoch": 1,
+        "mean_batch_loss": 0.9362539100646973
+      },
+      {
+        "epoch": 2,
+        "mean_batch_loss": 0.875611596107483
+      },
+      {
+        "epoch": 3,
+        "mean_batch_loss": 0.8528921175003051
+      }
+    ],
+    "eval": {
+      "hardneg": {
+        "rows": 1787,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 635,
+        "row_auroc": 0.6016490168856746,
+        "task_macro_auroc": 0.8461942257217847,
+        "balanced_accuracy": 0.5537517891927377,
+        "score_file": {
+          "path": "scores/fold_1_joint_invariance_20261013_hardneg.npz",
+          "sha256": "08484b01913fd00741067eaa08f5910cfeb7324e5fda5e41e9414635fa012979"
+        }
+      },
+      "clean": {
+        "rows": 3295,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.6583456333572042,
+        "task_macro_auroc": 0.8619119878603946,
+        "balanced_accuracy": 0.5857359635811836,
+        "score_file": {
+          "path": "scores/fold_1_joint_invariance_20261013_clean.npz",
+          "sha256": "4c2e6424f1ec53c93c92b2e70f8bbb2122ec08b5001426ae3f037181eb9337b3"
+        }
+      }
+    },
+    "source_eval": "heldout generator classes unsupported; see unique source_only task-heldout runs"
+  }
+]

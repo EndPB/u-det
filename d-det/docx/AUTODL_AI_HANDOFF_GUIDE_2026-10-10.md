@@ -212,3 +212,15 @@ artifact_dir=
 本机继续完成 v4 CPU 修订：使用精确 generator 配额的最小成本匹配，hard-negative dev 长度 task-macro 从 v3 的 `.7109` 降至 `.6907`，masked lexical 为 `.6343`；train/dev 仍为 8,384/2,636 行，2,096/659 task，七 generator 配额完整。untouched clean-dev 长度仍为 `.7248`，因此 `formal_gpu_ready=false`，不启动 GPU。
 
 v4 接收包 SHA256 为 `7a902f9c6f1e14dd23e3c40596a3bfb9355a4d0174c9ab8c9673cfad069a24b7`；AutoDL 已完成哈希、编译、配额和指标核验，不自行扩展实验。正式 GPU 仍等待 clean-dev 口径与 project provenance 的预注册裁定。
+
+## 2026-10-11 H3 v4 task-heldout GPU 候选批次
+
+为推动新的有效主线，本机已冻结一个边界明确的 v4 task-heldout 候选：2 个 generator-heldout 折 × 3 seed × `detection_only/source_only/joint/joint_invariance`，共 24 jobs。候选包 SHA256 为 `e48effcdcd6ecaac85a9d376f969a076c2ab05c452c509bbbb077548a9e72583`，AutoDL 已完成 24/24 文件校验、编译和 manifest 复核。
+
+该候选继续把 clean-dev `.7248` 作为负控制，project provenance 缺失时只允许 task-heldout 表述。当前 SSH 会话的实际 CUDA 检查为 `False`，所以没有启动训练；CUDA 可见后只执行 `d-det_AutoDL_H3v4_task-heldout候选GPU批次指导_2026-10-11.md` 中的一条命令，整批统一回传，不拆小实验。
+
+## 2026-10-11 H3 v4 AMMC 类增强本机诊断结论
+
+上述 v4 GPU 候选已被本机增强诊断取代，禁止启动。训练集加入按 Human/AI × comment/whitespace/AST-safe rename 等额采样的 AMMC 类视图后，本机 RTX 3050 完成 18 个检测/联合运行和 3 个独立 source-only 运行；raw lexical task-macro（hard-negative）仍为 `.8838/.8336`，clean-dev 为 `.8993/.8560`，增量没有在两折、两个 eval view 和三 seed 上同时通过预注册 CI。裁定为 `increment_not_observed_close_v4_frozen_candidate`，formal GPU 仍为 false。
+
+AutoDL 服务器只需保留接收证据和文档同步，不运行旧候选脚本。下一批必须先由本机加入组合增强视图并完成 transform-only/view-only probe，再上传新的冻结 manifest；届时仍一次性覆盖 lexical controls、detection-only、joint、joint-invariance（必要时 adversary）和至少两折三 seed。

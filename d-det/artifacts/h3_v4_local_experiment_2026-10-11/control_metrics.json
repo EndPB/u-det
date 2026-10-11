@@ -1,0 +1,118 @@
+{
+  "fold_0": {
+    "raw": {
+      "hardneg": {
+        "rows": 1508,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 571,
+        "row_auroc": 0.7610059857978055,
+        "task_macro_auroc": 0.8838295388207823,
+        "balanced_accuracy": 0.6692404346093145,
+        "score_file": {
+          "path": "scores/fold_0_lexical_raw_hardneg.npz",
+          "sha256": "051678d88d65ab754178af6d6fe3e02f4cc4ec16913d5751cf14d1d6ac07d2fd"
+        }
+      },
+      "clean": {
+        "rows": 2636,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.7684509952465493,
+        "task_macro_auroc": 0.8993424380374304,
+        "balanced_accuracy": 0.6762771876580678,
+        "score_file": {
+          "path": "scores/fold_0_lexical_raw_clean.npz",
+          "sha256": "4b2acecd918d5b149d0338ba1427e8862e3ac8acb4f8a7c5497c93c71a7bfeba"
+        }
+      },
+      "solver_iterations": 64,
+      "warnings": []
+    },
+    "masked": {
+      "hardneg": {
+        "rows": 1508,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 571,
+        "row_auroc": 0.5795812622544421,
+        "task_macro_auroc": 0.6452130764740222,
+        "balanced_accuracy": 0.5427719123274548,
+        "score_file": {
+          "path": "scores/fold_0_lexical_masked_hardneg.npz",
+          "sha256": "95cb3d453defb6ba54a5b7cc176064e0f69008e777b9e2415e2ce5a48aa5cc6d"
+        }
+      },
+      "clean": {
+        "rows": 2636,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.5782672969805265,
+        "task_macro_auroc": 0.6517450682852808,
+        "balanced_accuracy": 0.5427415275670208,
+        "score_file": {
+          "path": "scores/fold_0_lexical_masked_clean.npz",
+          "sha256": "54be356a85125cdc4eba970cafce2b92182551c2b38d936331fc11de976423ac"
+        }
+      },
+      "solver_iterations": 75,
+      "warnings": []
+    }
+  },
+  "fold_1": {
+    "raw": {
+      "hardneg": {
+        "rows": 1787,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 635,
+        "row_auroc": 0.6692435077863517,
+        "task_macro_auroc": 0.8335958005249343,
+        "balanced_accuracy": 0.6302734101744529,
+        "score_file": {
+          "path": "scores/fold_1_lexical_raw_hardneg.npz",
+          "sha256": "2e42067b53d40a7007655681ac931e3e5e2dff6768dd21db229c56a13d176fd7"
+        }
+      },
+      "clean": {
+        "rows": 3295,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.7219320555124447,
+        "task_macro_auroc": 0.8560318664643399,
+        "balanced_accuracy": 0.6652124430955995,
+        "score_file": {
+          "path": "scores/fold_1_lexical_raw_clean.npz",
+          "sha256": "9a49433a27de78ecac35c8a5ca09cb73f593b4404cdb83306980fa288b757787"
+        }
+      },
+      "solver_iterations": 62,
+      "warnings": []
+    },
+    "masked": {
+      "hardneg": {
+        "rows": 1787,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 635,
+        "row_auroc": 0.5520843422766065,
+        "task_macro_auroc": 0.5939632545931759,
+        "balanced_accuracy": 0.5285766366405149,
+        "score_file": {
+          "path": "scores/fold_1_lexical_masked_hardneg.npz",
+          "sha256": "11927117687fb97a383c60151b674dd2bf5cff22af8c2aacce740f26ea90f5b5"
+        }
+      },
+      "clean": {
+        "rows": 3295,
+        "all_tasks": 659,
+        "tasks_with_both_labels": 659,
+        "row_auroc": 0.5646134069876416,
+        "task_macro_auroc": 0.6117223065250379,
+        "balanced_accuracy": 0.5432473444613051,
+        "score_file": {
+          "path": "scores/fold_1_lexical_masked_clean.npz",
+          "sha256": "7132dbbb1f72e6c3bb3ea794523014e3708cefd0b5b73a009bea0fa22ffa0d67"
+        }
+      },
+      "solver_iterations": 76,
+      "warnings": []
+    }
+  }
+}

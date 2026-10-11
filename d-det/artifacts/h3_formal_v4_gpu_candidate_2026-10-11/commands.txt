@@ -1,0 +1,1 @@
+python scripts/h3_formal_v4_gpu_batch_2026_10_11.py --out d-det/artifacts/h3_formal_v4_gpu_batch_2026-10-11

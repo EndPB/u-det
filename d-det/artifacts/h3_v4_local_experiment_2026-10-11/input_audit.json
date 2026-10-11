@@ -1,0 +1,9 @@
+{
+  "passed": true,
+  "train_rows": 8384,
+  "challenge_rows": 2636,
+  "clean_rows": 5272,
+  "verified_train_variants": 4403,
+  "test_opened": false,
+  "variant_proof_file_sha256": "015b3f6478e1ebe5c0d633c378db8734618d1b6cec5ab8c988c6ccaf6768adff"
+}

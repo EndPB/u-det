@@ -1,0 +1,14 @@
+{
+  "zip": "d-det/data/autodl_h3_v4_gpu_candidate_2026-10-11_upload.zip",
+  "sha256": "e48effcdcd6ecaac85a9d376f969a076c2ab05c452c509bbbb077548a9e72583",
+  "file_count": 24,
+  "created_utc": "2026-10-10T20:20:06.4257225Z",
+  "remote_host": "codex-gpu",
+  "remote_path": "/root/autodl-tmp/handoffs/autodl_h3_v4_gpu_candidate_2026-10-11_upload.zip",
+  "candidate_status": "task_heldout_v4",
+  "test_read": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "code_execution": false,
+  "jobs": 24
+}

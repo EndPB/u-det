@@ -1,0 +1,27 @@
+{
+  "base_rows": 4792,
+  "candidate_variants": 2505,
+  "selected_by_label_transform": {
+    "0:comment": 253,
+    "0:whitespace": 253,
+    "0:rename": 253,
+    "1:comment": 204,
+    "1:whitespace": 204,
+    "1:rename": 204
+  },
+  "selected_by_label_generator_transform": {
+    "0:human:comment": 253,
+    "0:human:whitespace": 253,
+    "0:human:rename": 253,
+    "1:claude_3_haiku:comment": 100,
+    "1:deepseek_v3_2:comment": 49,
+    "1:devstral_2512:comment": 55,
+    "1:claude_3_haiku:whitespace": 68,
+    "1:deepseek_v3_2:whitespace": 68,
+    "1:devstral_2512:whitespace": 68,
+    "1:claude_3_haiku:rename": 68,
+    "1:deepseek_v3_2:rename": 68,
+    "1:devstral_2512:rename": 68
+  },
+  "policy": "equal transform quota; AI generator round-robin"
+}
