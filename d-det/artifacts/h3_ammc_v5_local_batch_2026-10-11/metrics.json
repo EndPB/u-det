@@ -1,0 +1,1126 @@
+{
+  "status": "exploratory_completed",
+  "gate": "revise_data",
+  "decision": "augmentation_increment_not_established",
+  "detection_runs": 54,
+  "unique_source_runs": 9,
+  "comparisons": {
+    "original": {
+      "detection_only": [
+        {
+          "fold": "fold_0",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.913673916708818,
+            "control_task_macro_auroc": 0.911482043500253,
+            "delta": 0.0021918732085651617,
+            "task_bootstrap_ci95": [
+              -0.017370595177878947,
+              0.02192294722643734
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.913673916708818,
+            "control_task_macro_auroc": 0.913673916708818,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_0",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.8996886553804241,
+            "control_task_macro_auroc": 0.8928779918272037,
+            "delta": 0.0068106635532204675,
+            "task_bootstrap_ci95": [
+              -0.02316112084063048,
+              0.03697947071414668
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.8996886553804241,
+            "control_task_macro_auroc": 0.8996886553804241,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8563480020232677,
+            "control_task_macro_auroc": 0.8624810318664643,
+            "delta": -0.0061330298431967615,
+            "task_bootstrap_ci95": [
+              -0.024977870510875064,
+              0.012710230146686895
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8563480020232677,
+            "control_task_macro_auroc": 0.8563480020232677,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8397200349956254,
+            "control_task_macro_auroc": 0.8328083989501313,
+            "delta": 0.0069116360454943085,
+            "task_bootstrap_ci95": [
+              -0.023406605424321963,
+              0.039548337707786506
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8397200349956254,
+            "control_task_macro_auroc": 0.8397200349956254,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        }
+      ],
+      "joint": [
+        {
+          "fold": "fold_0",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9183948743888045,
+            "control_task_macro_auroc": 0.911482043500253,
+            "delta": 0.006912830888551675,
+            "task_bootstrap_ci95": [
+              -0.01281402798853482,
+              0.0261338728713539
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9183948743888045,
+            "control_task_macro_auroc": 0.9183948743888045,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_0",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9058182525783225,
+            "control_task_macro_auroc": 0.8928779918272037,
+            "delta": 0.012940260751118893,
+            "task_bootstrap_ci95": [
+              -0.01663747810858144,
+              0.04291204514496981
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9058182525783225,
+            "control_task_macro_auroc": 0.9058182525783225,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.860647445624684,
+            "control_task_macro_auroc": 0.8624810318664643,
+            "delta": -0.001833586241780477,
+            "task_bootstrap_ci95": [
+              -0.020740073343449673,
+              0.01719777440566515
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.860647445624684,
+            "control_task_macro_auroc": 0.860647445624684,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8407699037620298,
+            "control_task_macro_auroc": 0.8328083989501313,
+            "delta": 0.00796150481189851,
+            "task_bootstrap_ci95": [
+              -0.022708880139982505,
+              0.04069116360454938
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8407699037620298,
+            "control_task_macro_auroc": 0.8407699037620298,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        }
+      ],
+      "joint_invariance": [
+        {
+          "fold": "fold_0",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9183948743888045,
+            "control_task_macro_auroc": 0.911482043500253,
+            "delta": 0.006912830888551675,
+            "task_bootstrap_ci95": [
+              -0.01281402798853482,
+              0.0261338728713539
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9183948743888045,
+            "control_task_macro_auroc": 0.9183948743888045,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_0",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9058182525783225,
+            "control_task_macro_auroc": 0.8928779918272037,
+            "delta": 0.012940260751118893,
+            "task_bootstrap_ci95": [
+              -0.01663747810858144,
+              0.04291204514496981
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9058182525783225,
+            "control_task_macro_auroc": 0.9058182525783225,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.860647445624684,
+            "control_task_macro_auroc": 0.8624810318664643,
+            "delta": -0.001833586241780477,
+            "task_bootstrap_ci95": [
+              -0.020740073343449673,
+              0.01719777440566515
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.860647445624684,
+            "control_task_macro_auroc": 0.860647445624684,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8407699037620298,
+            "control_task_macro_auroc": 0.8328083989501313,
+            "delta": 0.00796150481189851,
+            "task_bootstrap_ci95": [
+              -0.022708880139982505,
+              0.04069116360454938
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8407699037620298,
+            "control_task_macro_auroc": 0.8407699037620298,
+            "delta": 0.0,
+            "task_bootstrap_ci95": [
+              0.0,
+              0.0
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        }
+      ]
+    },
+    "single": {
+      "detection_only": [
+        {
+          "fold": "fold_0",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9114820435002529,
+            "control_task_macro_auroc": 0.8978249873545777,
+            "delta": 0.013657056145675266,
+            "task_bootstrap_ci95": [
+              -0.006752655538694997,
+              0.03574439386275502
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9114820435002529,
+            "control_task_macro_auroc": 0.913673916708818,
+            "delta": -0.0021918732085651656,
+            "task_bootstrap_ci95": [
+              -0.00539538020569887,
+              0.0008430281571404486
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_0",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.8973535707336056,
+            "control_task_macro_auroc": 0.8955049620548745,
+            "delta": 0.0018486086787312657,
+            "task_bootstrap_ci95": [
+              -0.02850992410974898,
+              0.03357170655769602
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.8973535707336056,
+            "control_task_macro_auroc": 0.8996886553804241,
+            "delta": -0.0023350846468184468,
+            "task_bootstrap_ci95": [
+              -0.007299571901148084,
+              0.0025296750340533182
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8554628224582701,
+            "control_task_macro_auroc": 0.8567905918057663,
+            "delta": -0.0013277693474962073,
+            "task_bootstrap_ci95": [
+              -0.0206752655538695,
+              0.01840225088517955
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8554628224582701,
+            "control_task_macro_auroc": 0.8563480020232677,
+            "delta": -0.0008851795649974706,
+            "task_bootstrap_ci95": [
+              -0.0048052604957005566,
+              0.003161355589276683
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8356080489938758,
+            "control_task_macro_auroc": 0.8375328083989501,
+            "delta": -0.0019247594050743721,
+            "task_bootstrap_ci95": [
+              -0.032241907261592304,
+              0.029312117235345558
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8356080489938758,
+            "control_task_macro_auroc": 0.8397200349956254,
+            "delta": -0.004111986001749782,
+            "task_bootstrap_ci95": [
+              -0.009448818897637797,
+              0.0013123359580052482
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        }
+      ],
+      "joint": [
+        {
+          "fold": "fold_0",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9192379025459451,
+            "control_task_macro_auroc": 0.8978249873545777,
+            "delta": 0.021412915191367392,
+            "task_bootstrap_ci95": [
+              0.0010074186477828312,
+              0.04181419659416624
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9192379025459451,
+            "control_task_macro_auroc": 0.9183948743888045,
+            "delta": 0.0008430281571404479,
+            "task_bootstrap_ci95": [
+              -0.0021918732085651673,
+              0.004046535154274152
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_0",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9075695660634364,
+            "control_task_macro_auroc": 0.8955049620548745,
+            "delta": 0.012064604008561975,
+            "task_bootstrap_ci95": [
+              -0.01723341116948823,
+              0.04261529480443666
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9075695660634364,
+            "control_task_macro_auroc": 0.9058182525783225,
+            "delta": 0.0017513134851138354,
+            "task_bootstrap_ci95": [
+              -0.003405331776610235,
+              0.006521210352208587
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8624178047546789,
+            "control_task_macro_auroc": 0.8567905918057663,
+            "delta": 0.005627212948912494,
+            "task_bootstrap_ci95": [
+              -0.01328085483055134,
+              0.02491306272129488
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8624178047546789,
+            "control_task_macro_auroc": 0.860647445624684,
+            "delta": 0.0017703591299949417,
+            "task_bootstrap_ci95": [
+              -0.0020232675771370747,
+              0.005690440060698028
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8435695538057743,
+            "control_task_macro_auroc": 0.8375328083989501,
+            "delta": 0.006036745406824146,
+            "task_bootstrap_ci95": [
+              -0.025285433070866142,
+              0.0368766404199475
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8435695538057743,
+            "control_task_macro_auroc": 0.8407699037620298,
+            "delta": 0.002799650043744532,
+            "task_bootstrap_ci95": [
+              -0.0032370953630796147,
+              0.008838582677165344
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        }
+      ],
+      "joint_invariance": [
+        {
+          "fold": "fold_0",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9185634800202326,
+            "control_task_macro_auroc": 0.8978249873545777,
+            "delta": 0.020738492665655032,
+            "task_bootstrap_ci95": [
+              0.0003372112628561768,
+              0.04130837969988198
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9185634800202326,
+            "control_task_macro_auroc": 0.9183948743888045,
+            "delta": 0.00016860563142808885,
+            "task_bootstrap_ci95": [
+              -0.002866295734277527,
+              0.003203506997133704
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_0",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9069857949017319,
+            "control_task_macro_auroc": 0.8955049620548745,
+            "delta": 0.011480832846857364,
+            "task_bootstrap_ci95": [
+              -0.017907180385288966,
+              0.04184179801517801
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9069857949017319,
+            "control_task_macro_auroc": 0.9058182525783225,
+            "delta": 0.0011675423234092238,
+            "task_bootstrap_ci95": [
+              -0.0038942401245378477,
+              0.005935006810663553
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8616590794132523,
+            "control_task_macro_auroc": 0.8567905918057663,
+            "delta": 0.004868487607486091,
+            "task_bootstrap_ci95": [
+              -0.014099645928174002,
+              0.02403104451188667
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8616590794132523,
+            "control_task_macro_auroc": 0.860647445624684,
+            "delta": 0.0010116337885685382,
+            "task_bootstrap_ci95": [
+              -0.002908447142134547,
+              0.005058168942842691
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8437445319335084,
+            "control_task_macro_auroc": 0.8375328083989501,
+            "delta": 0.006211723534558179,
+            "task_bootstrap_ci95": [
+              -0.025113735783027124,
+              0.03696522309711285
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8437445319335084,
+            "control_task_macro_auroc": 0.8407699037620298,
+            "delta": 0.0029746281714785653,
+            "task_bootstrap_ci95": [
+              -0.0030621172353455816,
+              0.009011373578302713
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        }
+      ]
+    },
+    "composed": {
+      "detection_only": [
+        {
+          "fold": "fold_0",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9086157477659753,
+            "control_task_macro_auroc": 0.8902377339403137,
+            "delta": 0.018378013825661774,
+            "task_bootstrap_ci95": [
+              -0.002697690102849439,
+              0.04063395717416962
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9086157477659753,
+            "control_task_macro_auroc": 0.913673916708818,
+            "delta": -0.005058168942842691,
+            "task_bootstrap_ci95": [
+              -0.009273309728544933,
+              -0.0010116337885685374
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_0",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.8976454563144578,
+            "control_task_macro_auroc": 0.8914185639229422,
+            "delta": 0.006226892391515859,
+            "task_bootstrap_ci95": [
+              -0.025004864759680875,
+              0.0368773107608484
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.8976454563144578,
+            "control_task_macro_auroc": 0.8996886553804241,
+            "delta": -0.002043199065966141,
+            "task_bootstrap_ci95": [
+              -0.00846468184471687,
+              0.003794512551079977
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.85900354071826,
+            "control_task_macro_auroc": 0.8526176024279211,
+            "delta": 0.006385938290338895,
+            "task_bootstrap_ci95": [
+              -0.013721863935255436,
+              0.02605431208902375
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.85900354071826,
+            "control_task_macro_auroc": 0.8563480020232677,
+            "delta": 0.0026555386949924124,
+            "task_bootstrap_ci95": [
+              -0.0020232675771370773,
+              0.007211052099140094
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8390201224846895,
+            "control_task_macro_auroc": 0.8333333333333333,
+            "delta": 0.005686789151356075,
+            "task_bootstrap_ci95": [
+              -0.02498687664041995,
+              0.037317366579177585
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8390201224846895,
+            "control_task_macro_auroc": 0.8397200349956254,
+            "delta": -0.000699912510936134,
+            "task_bootstrap_ci95": [
+              -0.006913823272090991,
+              0.005861767279090113
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        }
+      ],
+      "joint": [
+        {
+          "fold": "fold_0",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9178890574945203,
+            "control_task_macro_auroc": 0.8902377339403137,
+            "delta": 0.02765132355420671,
+            "task_bootstrap_ci95": [
+              0.007081436519979767,
+              0.04906845388635978
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9178890574945203,
+            "control_task_macro_auroc": 0.9183948743888045,
+            "delta": -0.0005058168942842699,
+            "task_bootstrap_ci95": [
+              -0.004215140785702244,
+              0.003372112628561793
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_0",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9043588246740611,
+            "control_task_macro_auroc": 0.8914185639229422,
+            "delta": 0.012940260751118893,
+            "task_bootstrap_ci95": [
+              -0.017715022377894536,
+              0.043211227865343385
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9043588246740611,
+            "control_task_macro_auroc": 0.9058182525783225,
+            "delta": -0.0014594279042615282,
+            "task_bootstrap_ci95": [
+              -0.007688752675617823,
+              0.004670169293636895
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8612797167425391,
+            "control_task_macro_auroc": 0.8526176024279211,
+            "delta": 0.008662114314618106,
+            "task_bootstrap_ci95": [
+              -0.011382460799190692,
+              0.02876833586241781
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8612797167425391,
+            "control_task_macro_auroc": 0.860647445624684,
+            "delta": 0.0006322711178553366,
+            "task_bootstrap_ci95": [
+              -0.004176150733434496,
+              0.005437531613555893
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8431321084864393,
+            "control_task_macro_auroc": 0.8333333333333333,
+            "delta": 0.009798775153105855,
+            "task_bootstrap_ci95": [
+              -0.02204724409448819,
+              0.04068241469816272
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8431321084864393,
+            "control_task_macro_auroc": 0.8407699037620298,
+            "delta": 0.0023622047244094492,
+            "task_bootstrap_ci95": [
+              -0.00455161854768154,
+              0.009186351706036745
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        }
+      ],
+      "joint_invariance": [
+        {
+          "fold": "fold_0",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9173832406002359,
+            "control_task_macro_auroc": 0.8902377339403137,
+            "delta": 0.027145506659922436,
+            "task_bootstrap_ci95": [
+              0.006398583712696001,
+              0.048731242623503604
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.9173832406002359,
+            "control_task_macro_auroc": 0.9183948743888045,
+            "delta": -0.001011633788568539,
+            "task_bootstrap_ci95": [
+              -0.004720957679986514,
+              0.0028662957342775242
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_0",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9041642342868264,
+            "control_task_macro_auroc": 0.8914185639229422,
+            "delta": 0.012745670363884022,
+            "task_bootstrap_ci95": [
+              -0.018009340338587275,
+              0.04310663553220468
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 571,
+            "mean_seed_task_macro_auroc": 0.9041642342868264,
+            "control_task_macro_auroc": 0.9058182525783225,
+            "delta": -0.0016540182914963988,
+            "task_bootstrap_ci95": [
+              -0.007880910683012258,
+              0.004475578906402024
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "clean",
+          "vs_raw_lexical": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8611532625189682,
+            "control_task_macro_auroc": 0.8526176024279211,
+            "delta": 0.00853566009104704,
+            "task_bootstrap_ci95": [
+              -0.011823469903894792,
+              0.028452200303490136
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 659,
+            "mean_seed_task_macro_auroc": 0.8611532625189682,
+            "control_task_macro_auroc": 0.860647445624684,
+            "delta": 0.0005058168942842693,
+            "task_bootstrap_ci95": [
+              -0.004299443601416287,
+              0.005437531613555893
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        },
+        {
+          "fold": "fold_1",
+          "view": "hardneg",
+          "vs_raw_lexical": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8428696412948381,
+            "control_task_macro_auroc": 0.8333333333333333,
+            "delta": 0.009536307961504805,
+            "task_bootstrap_ci95": [
+              -0.022309711286089242,
+              0.04042104111986001
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          },
+          "vs_original": {
+            "tasks": 635,
+            "mean_seed_task_macro_auroc": 0.8428696412948381,
+            "control_task_macro_auroc": 0.8407699037620298,
+            "delta": 0.0020997375328083985,
+            "task_bootstrap_ci95": [
+              -0.004726596675415574,
+              0.00909886264216973
+            ],
+            "bootstrap_repeats": 2000,
+            "seed": 20261011,
+            "interpretation": "exploratory paired task bootstrap conditional on these seeds; not seed-population CI"
+          }
+        }
+      ]
+    }
+  },
+  "success": {
+    "single": {
+      "detection_only": false,
+      "joint": false,
+      "joint_invariance": false
+    },
+    "composed": {
+      "detection_only": false,
+      "joint": false,
+      "joint_invariance": false
+    }
+  },
+  "peak_cuda_mib": 312.87255859375
+}

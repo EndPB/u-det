@@ -1,0 +1,6 @@
+{
+  "checks": 390,
+  "failures": [],
+  "passed": true,
+  "scope": "saved logits -> row/task metrics; no training or encoder rerun"
+}

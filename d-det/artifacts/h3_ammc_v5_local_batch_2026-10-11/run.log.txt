@@ -1,0 +1,101 @@
+CONTROL fold_0 original raw 17064
+D:\app\anaconda3\Lib\site-packages\sklearn\feature_extraction\text.py:547: UserWarning: The parameter 'token_pattern' will not be used since 'analyzer' != 'word'
+  warnings.warn(
+CONTROL fold_0 single raw 17064
+D:\app\anaconda3\Lib\site-packages\sklearn\feature_extraction\text.py:547: UserWarning: The parameter 'token_pattern' will not be used since 'analyzer' != 'word'
+  warnings.warn(
+CONTROL fold_0 composed raw 17064
+D:\app\anaconda3\Lib\site-packages\sklearn\feature_extraction\text.py:547: UserWarning: The parameter 'token_pattern' will not be used since 'analyzer' != 'word'
+  warnings.warn(
+CONTROL fold_0 composed masked 17064
+D:\app\anaconda3\Lib\site-packages\sklearn\feature_extraction\text.py:547: UserWarning: The parameter 'token_pattern' will not be used since 'analyzer' != 'word'
+  warnings.warn(
+CONTROL fold_1 original raw 14376
+D:\app\anaconda3\Lib\site-packages\sklearn\feature_extraction\text.py:547: UserWarning: The parameter 'token_pattern' will not be used since 'analyzer' != 'word'
+  warnings.warn(
+CONTROL fold_1 single raw 14376
+D:\app\anaconda3\Lib\site-packages\sklearn\feature_extraction\text.py:547: UserWarning: The parameter 'token_pattern' will not be used since 'analyzer' != 'word'
+  warnings.warn(
+CONTROL fold_1 composed raw 14376
+D:\app\anaconda3\Lib\site-packages\sklearn\feature_extraction\text.py:547: UserWarning: The parameter 'token_pattern' will not be used since 'analyzer' != 'word'
+  warnings.warn(
+CONTROL fold_1 composed masked 14376
+D:\app\anaconda3\Lib\site-packages\sklearn\feature_extraction\text.py:547: UserWarning: The parameter 'token_pattern' will not be used since 'analyzer' != 'word'
+  warnings.warn(
+
+Loading weights:   0%|          | 0/52 [00:00<?, ?it/s]
+Loading weights:  96%|��������������������| 50/52 [00:00<00:00, 324.07it/s]
+Loading weights: 100%|��������������������| 52/52 [00:00<00:00, 334.86it/s]
+T5EncoderModel LOAD REPORT from: D:\data\vscode\u-det\d-det\models\codet5-small
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+ENCODE 8/23899
+ENCODE 23899/23899
+RUN fold_0 original detection_only 20261011
+RUN fold_0 original detection_only 20261012
+RUN fold_0 original detection_only 20261013
+RUN fold_0 original joint 20261011
+RUN fold_0 original joint 20261012
+RUN fold_0 original joint 20261013
+RUN fold_0 original joint_invariance 20261011
+RUN fold_0 original joint_invariance 20261012
+RUN fold_0 original joint_invariance 20261013
+RUN fold_0 single detection_only 20261011
+RUN fold_0 single detection_only 20261012
+RUN fold_0 single detection_only 20261013
+RUN fold_0 single joint 20261011
+RUN fold_0 single joint 20261012
+RUN fold_0 single joint 20261013
+RUN fold_0 single joint_invariance 20261011
+RUN fold_0 single joint_invariance 20261012
+RUN fold_0 single joint_invariance 20261013
+RUN fold_0 composed detection_only 20261011
+RUN fold_0 composed detection_only 20261012
+RUN fold_0 composed detection_only 20261013
+RUN fold_0 composed joint 20261011
+RUN fold_0 composed joint 20261012
+RUN fold_0 composed joint 20261013
+RUN fold_0 composed joint_invariance 20261011
+RUN fold_0 composed joint_invariance 20261012
+RUN fold_0 composed joint_invariance 20261013
+RUN fold_1 original detection_only 20261011
+RUN fold_1 original detection_only 20261012
+RUN fold_1 original detection_only 20261013
+RUN fold_1 original joint 20261011
+RUN fold_1 original joint 20261012
+RUN fold_1 original joint 20261013
+RUN fold_1 original joint_invariance 20261011
+RUN fold_1 original joint_invariance 20261012
+RUN fold_1 original joint_invariance 20261013
+RUN fold_1 single detection_only 20261011
+RUN fold_1 single detection_only 20261012
+RUN fold_1 single detection_only 20261013
+RUN fold_1 single joint 20261011
+RUN fold_1 single joint 20261012
+RUN fold_1 single joint 20261013
+RUN fold_1 single joint_invariance 20261011
+RUN fold_1 single joint_invariance 20261012
+RUN fold_1 single joint_invariance 20261013
+RUN fold_1 composed detection_only 20261011
+RUN fold_1 composed detection_only 20261012
+RUN fold_1 composed detection_only 20261013
+RUN fold_1 composed joint 20261011
+RUN fold_1 composed joint 20261012
+RUN fold_1 composed joint 20261013
+RUN fold_1 composed joint_invariance 20261011
+RUN fold_1 composed joint_invariance 20261012
+RUN fold_1 composed joint_invariance 20261013
+SOURCE original 20261011
+SOURCE original 20261012
+SOURCE original 20261013
+SOURCE single 20261011
+SOURCE single 20261012
+SOURCE single 20261013
+SOURCE composed 20261011
+SOURCE composed 20261012
+SOURCE composed 20261013
+{"decision": "augmentation_increment_not_established", "runs": 63, "peak_cuda_mib": 312.87255859375}

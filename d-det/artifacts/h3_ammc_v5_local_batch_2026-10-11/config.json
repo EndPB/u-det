@@ -1,0 +1,64 @@
+{
+  "schema": "h3_ammc_v5_fixed_parent_budget",
+  "arms": [
+    "original",
+    "single",
+    "composed"
+  ],
+  "jobs": [
+    "detection_only",
+    "joint",
+    "joint_invariance"
+  ],
+  "folds": {
+    "fold_0": [
+      "claude_3_haiku",
+      "deepseek_v3_2",
+      "devstral_2512"
+    ],
+    "fold_1": [
+      "gemini_3_flash",
+      "gpt5_nano",
+      "grok_4_fast",
+      "qwen3_coder_30b"
+    ]
+  },
+  "seeds": [
+    20261011,
+    20261012,
+    20261013
+  ],
+  "epochs": 3,
+  "learning_rate": 0.002,
+  "batch_size": 256,
+  "lambda_source": 0.2,
+  "lambda_invariance": 0.1,
+  "train_budget": "exactly one scheduled view per parent per epoch in every arm; fixed parent order/optimizer steps",
+  "lexical_budget": "three scheduled views per parent; original repeats three times to equalize document frequency/exposure",
+  "frozen_encoder": "CodeT5-small; 512 head/tail tokens; mean pooling; source char cap 24000",
+  "criterion": "exploratory only; improvement >=.01 with paired task CI lower>0 in both folds and both eval views against raw lexical and original same job",
+  "no_causal_claim": "augmentation arms differ in accepted transforms; safety proxy does not establish correctness; no augmentation stress evaluation yet",
+  "gate": "revise_data",
+  "formal_gpu_ready": false,
+  "post_dev_selection": true,
+  "project_provenance": "unavailable",
+  "test_read": false,
+  "generation": false,
+  "weights_downloaded": false,
+  "code_execution": false,
+  "input_sha256": {
+    "parents": "1583a259c0817ce11eb9763d4a3cbd299b306ef4ef66b7deacd1ddfe92e3dbb3",
+    "hardneg": "a4731ae1211d398de80b0e6b390c1380f0b0a7cb44172c3e9766e19f048f00e9",
+    "clean": "fe7955a5cfb55093274e7da5721d485e213e6e3521d0b31b61ec7a2c8388b9cf",
+    "schedule": "844817d4245a8a231341d0e83f31bcd8b997673f3f02af09cd2e3334aebd36d1",
+    "views": "718246967603db33f03af27a7b30f6a5c4bf2b44e44461986ad131d91a5c0580"
+  },
+  "script_sha256": "e0d6d35a007d707b5cf087375b4d8bd1c18c989da656ef99d909261ec5ea2b1a",
+  "helpers": {
+    "h3_v4_local_experiment.py": "e72cbb2bf846602d953f391c8c13f2c31023764641c84e511dd12e37ed1d4585",
+    "h3_ammc_mix_v5.py": "b03178afdf92c4434955e5558363ef98fc153c3c2b666b847779657a569ab08c",
+    "h3_local_revision_v1.py": "22fe15237f018faae77e786efd2abd62bb3712aa87c3bc6c2c2dbcfbce3345f3",
+    "h3_gpu_diagnostic_batch_2026_10_11.py": "6707e57fb8906062289e49c84898c3891c1f5034ff0843431ff3a3cd7bed264b"
+  },
+  "model_sha256": "968fb0f45e1efc8cf3dd50012d1f82ad82098107cbadde2c0fdd8e61bac02908"
+}

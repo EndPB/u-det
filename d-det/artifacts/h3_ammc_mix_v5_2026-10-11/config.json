@@ -1,0 +1,25 @@
+{
+  "seed": 2026101105,
+  "epochs": 3,
+  "probabilities": {
+    "comment": 0.2,
+    "whitespace": 0.3,
+    "rename": 0.4
+  },
+  "arms": [
+    "original",
+    "single",
+    "composed"
+  ],
+  "selection": "independent Bernoulli per parent/epoch; single chooses one triggered transform; composed applies all in fixed order",
+  "exposures": "exactly one row per parent per epoch in each arm; rejection falls back to current/original view",
+  "original_sha256": "1583a259c0817ce11eb9763d4a3cbd299b306ef4ef66b7deacd1ddfe92e3dbb3",
+  "script_sha256": "b03178afdf92c4434955e5558363ef98fc153c3c2b666b847779657a569ab08c",
+  "transform_helper_sha256": "22fe15237f018faae77e786efd2abd62bb3712aa87c3bc6c2c2dbcfbce3345f3",
+  "test_read": false,
+  "generation": false,
+  "code_execution": false,
+  "gate": "revise_data",
+  "scope": "exploratory; v4 selected with dev information; not project heldout",
+  "safety": "parser/tree/token alignment and Python AST where applicable; proxy only"
+}

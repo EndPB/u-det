@@ -1,0 +1,72 @@
+{
+  "single": {
+    "requested": {
+      "row_auroc": 0.50470491654497,
+      "task_macro_auroc": 0.49046434494195695,
+      "task_bootstrap_ci95": [
+        0.4547989220563847,
+        0.5269485903814262
+      ],
+      "tasks": 402,
+      "bootstrap": 2000,
+      "interpretation": "train-only heldout tasks; CI conditional on fitted probe; no model/tuning selection"
+    },
+    "accepted": {
+      "row_auroc": 0.5342184186860062,
+      "task_macro_auroc": 0.5240464344941956,
+      "task_bootstrap_ci95": [
+        0.4908789386401326,
+        0.5584577114427861
+      ],
+      "tasks": 402,
+      "bootstrap": 2000,
+      "interpretation": "train-only heldout tasks; CI conditional on fitted probe; no model/tuning selection"
+    },
+    "view_delta": {
+      "row_auroc": 0.5423700320949152,
+      "task_macro_auroc": 0.536898839137645,
+      "task_bootstrap_ci95": [
+        0.5016583747927031,
+        0.5717247097844113
+      ],
+      "tasks": 402,
+      "bootstrap": 2000,
+      "interpretation": "train-only heldout tasks; CI conditional on fitted probe; no model/tuning selection"
+    }
+  },
+  "composed": {
+    "requested": {
+      "row_auroc": 0.50470491654497,
+      "task_macro_auroc": 0.49046434494195695,
+      "task_bootstrap_ci95": [
+        0.4547989220563847,
+        0.5269485903814262
+      ],
+      "tasks": 402,
+      "bootstrap": 2000,
+      "interpretation": "train-only heldout tasks; CI conditional on fitted probe; no model/tuning selection"
+    },
+    "accepted": {
+      "row_auroc": 0.5586876974992369,
+      "task_macro_auroc": 0.5543117744610282,
+      "task_bootstrap_ci95": [
+        0.5203150912106137,
+        0.5874792703150912
+      ],
+      "tasks": 402,
+      "bootstrap": 2000,
+      "interpretation": "train-only heldout tasks; CI conditional on fitted probe; no model/tuning selection"
+    },
+    "view_delta": {
+      "row_auroc": 0.5421544846249681,
+      "task_macro_auroc": 0.5339966832504146,
+      "task_bootstrap_ci95": [
+        0.4970978441127695,
+        0.5696517412935324
+      ],
+      "tasks": 402,
+      "bootstrap": 2000,
+      "interpretation": "train-only heldout tasks; CI conditional on fitted probe; no model/tuning selection"
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parents": "train-only",
+  "hardneg": "dev-only, unchanged, exploratory",
+  "clean": "dev-only, unchanged, exploratory",
+  "schedule": "train-only",
+  "views": "train-only"
+}

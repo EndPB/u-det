@@ -1,0 +1,1 @@
+python -u scripts/h3_ammc_v5_local_batch.py

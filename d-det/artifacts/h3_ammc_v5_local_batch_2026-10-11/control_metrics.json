@@ -1,0 +1,242 @@
+{
+  "fold_0": {
+    "original": {
+      "raw": {
+        "clean": {
+          "rows": 2636,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.7803987126614642,
+          "task_macro_auroc": 0.911482043500253,
+          "balanced_accuracy": 0.6982802225594336,
+          "score_file": {
+            "path": "scores/fold_0_original_lexical_raw_clean.npz",
+            "sha256": "ec31f5869592a9a4987479d641dd23c7a6631cbaefb7cb436c8d537724fff03d"
+          }
+        },
+        "hardneg": {
+          "rows": 1508,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 571,
+          "row_auroc": 0.7663358302457055,
+          "task_macro_auroc": 0.8928779918272037,
+          "balanced_accuracy": 0.6855025371274963,
+          "score_file": {
+            "path": "scores/fold_0_original_lexical_raw_hardneg.npz",
+            "sha256": "3e5fed9afeec17029d017ac66b77bfcff4da525cb62e1c25e7d21e078e629f02"
+          }
+        },
+        "solver_iterations": 68,
+        "warnings": []
+      }
+    },
+    "single": {
+      "raw": {
+        "clean": {
+          "rows": 2636,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.7645288035473192,
+          "task_macro_auroc": 0.8978249873545777,
+          "balanced_accuracy": 0.6810824481537683,
+          "score_file": {
+            "path": "scores/fold_0_single_lexical_raw_clean.npz",
+            "sha256": "a972e3d05e5283d2468dc09103ceace13f44b05ac24f134cbfcd78693e177129"
+          }
+        },
+        "hardneg": {
+          "rows": 1508,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 571,
+          "row_auroc": 0.7604840828538797,
+          "task_macro_auroc": 0.8955049620548745,
+          "balanced_accuracy": 0.6785042118639979,
+          "score_file": {
+            "path": "scores/fold_0_single_lexical_raw_hardneg.npz",
+            "sha256": "fa529589b423da6f0a691364b2457c7db2f9014b7e19c9e15ecdae3f06fd3a67"
+          }
+        },
+        "solver_iterations": 68,
+        "warnings": []
+      }
+    },
+    "composed": {
+      "raw": {
+        "clean": {
+          "rows": 2636,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.7617410539873186,
+          "task_macro_auroc": 0.8902377339403137,
+          "balanced_accuracy": 0.6808295397066262,
+          "score_file": {
+            "path": "scores/fold_0_composed_lexical_raw_clean.npz",
+            "sha256": "0559d421955455e8d450e8764fcb96920e9da19ad79f24dd3617cd6781671f82"
+          }
+        },
+        "hardneg": {
+          "rows": 1508,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 571,
+          "row_auroc": 0.7589970169314609,
+          "task_macro_auroc": 0.8914185639229422,
+          "balanced_accuracy": 0.6809394610458435,
+          "score_file": {
+            "path": "scores/fold_0_composed_lexical_raw_hardneg.npz",
+            "sha256": "3e172fd12d89566aac9f5090e624c3cf85e96f24a8a5b76e4c199747819ed2e2"
+          }
+        },
+        "solver_iterations": 69,
+        "warnings": []
+      },
+      "masked": {
+        "clean": {
+          "rows": 2636,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.5810427657054611,
+          "task_macro_auroc": 0.6623672230652504,
+          "balanced_accuracy": 0.5442589782498735,
+          "score_file": {
+            "path": "scores/fold_0_composed_lexical_masked_clean.npz",
+            "sha256": "1e17e829d2af1d493ec39755cad25ce5483d9d1719dd2232651cb1b388e920c9"
+          }
+        },
+        "hardneg": {
+          "rows": 1508,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 571,
+          "row_auroc": 0.58573328257291,
+          "task_macro_auroc": 0.6522183304144775,
+          "balanced_accuracy": 0.5442312744977131,
+          "score_file": {
+            "path": "scores/fold_0_composed_lexical_masked_hardneg.npz",
+            "sha256": "105ea1232805ef9a9ea199c0a6c267367566f729bbc71744b7c007a00b8ada34"
+          }
+        },
+        "solver_iterations": 78,
+        "warnings": []
+      }
+    }
+  },
+  "fold_1": {
+    "original": {
+      "raw": {
+        "clean": {
+          "rows": 3295,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.7284986563998885,
+          "task_macro_auroc": 0.8624810318664643,
+          "balanced_accuracy": 0.6614188163884673,
+          "score_file": {
+            "path": "scores/fold_1_original_lexical_raw_clean.npz",
+            "sha256": "c314eeac25cb555864c5a2e94eef8679f5e1fe1be6b3550626e1d7a34b9d2a6a"
+          }
+        },
+        "hardneg": {
+          "rows": 1787,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 635,
+          "row_auroc": 0.6704959427027841,
+          "task_macro_auroc": 0.8328083989501313,
+          "balanced_accuracy": 0.62343681055543,
+          "score_file": {
+            "path": "scores/fold_1_original_lexical_raw_hardneg.npz",
+            "sha256": "7ebc2899c2cba7f58ccae705387a4bd7d49190513b1e4cb3d543dca7c4f85d67"
+          }
+        },
+        "solver_iterations": 66,
+        "warnings": []
+      }
+    },
+    "single": {
+      "raw": {
+        "clean": {
+          "rows": 3295,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.7167850424034208,
+          "task_macro_auroc": 0.8567905918057663,
+          "balanced_accuracy": 0.6477617602427921,
+          "score_file": {
+            "path": "scores/fold_1_single_lexical_raw_clean.npz",
+            "sha256": "f6c92f0a24f6521887d5c5c9ff6d7fb48f82a8466c4b173c6f73a89c27a59100"
+          }
+        },
+        "hardneg": {
+          "rows": 1787,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 635,
+          "row_auroc": 0.6709533303199562,
+          "task_macro_auroc": 0.8375328083989501,
+          "balanced_accuracy": 0.6214599543688588,
+          "score_file": {
+            "path": "scores/fold_1_single_lexical_raw_hardneg.npz",
+            "sha256": "d11c1b8aa244b868c2b64ce2f8853a2473b2a84172db425fa14f9d6508975d77"
+          }
+        },
+        "solver_iterations": 66,
+        "warnings": []
+      }
+    },
+    "composed": {
+      "raw": {
+        "clean": {
+          "rows": 3295,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.7130155935903251,
+          "task_macro_auroc": 0.8526176024279211,
+          "balanced_accuracy": 0.6466236722306524,
+          "score_file": {
+            "path": "scores/fold_1_composed_lexical_raw_clean.npz",
+            "sha256": "8cf946f810f308f1124d956ba46045f0c74290379fa340b4d3eb9191944bbbeb"
+          }
+        },
+        "hardneg": {
+          "rows": 1787,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 635,
+          "row_auroc": 0.6697439436498455,
+          "task_macro_auroc": 0.8333333333333333,
+          "balanced_accuracy": 0.6234206674630591,
+          "score_file": {
+            "path": "scores/fold_1_composed_lexical_raw_hardneg.npz",
+            "sha256": "28639b2bb2290df27a5ce7fe82bb4053a18735c3e7808a31f793f762a0593c55"
+          }
+        },
+        "solver_iterations": 66,
+        "warnings": []
+      },
+      "masked": {
+        "clean": {
+          "rows": 3295,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 659,
+          "row_auroc": 0.5668993693023642,
+          "task_macro_auroc": 0.6223444613050075,
+          "balanced_accuracy": 0.5459028831562974,
+          "score_file": {
+            "path": "scores/fold_1_composed_lexical_masked_clean.npz",
+            "sha256": "215ff4317cae487c991a8232a2ab53467fd13bad0b3a1d75b4f1a586ebd7fb74"
+          }
+        },
+        "hardneg": {
+          "rows": 1787,
+          "all_tasks": 659,
+          "tasks_with_both_labels": 635,
+          "row_auroc": 0.5530905950343847,
+          "task_macro_auroc": 0.6020997375328084,
+          "balanced_accuracy": 0.5312442826547853,
+          "score_file": {
+            "path": "scores/fold_1_composed_lexical_masked_hardneg.npz",
+            "sha256": "b632fb2706e2b58cda9fc88c93a8628b0bb685271e30f1c3e311ac8e5aca1075"
+          }
+        },
+        "solver_iterations": 78,
+        "warnings": []
+      }
+    }
+  }
+}

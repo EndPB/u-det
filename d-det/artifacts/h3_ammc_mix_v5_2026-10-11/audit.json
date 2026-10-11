@@ -1,0 +1,65 @@
+{
+  "parents": 8384,
+  "epochs": 3,
+  "exposures_per_arm": 25152,
+  "unique_changed_codes": 10243,
+  "attempt_status": {
+    "single:rename:parent_parse_error": 380,
+    "composed:rename:parent_parse_error": 495,
+    "composed:whitespace:parent_parse_error": 377,
+    "single:whitespace:parent_parse_error": 282,
+    "single:comment:no_safe_candidate": 1422,
+    "composed:comment:no_safe_candidate": 2088,
+    "single:rename:unsafe_dynamic_or_macro": 2395,
+    "composed:whitespace:accepted": 7053,
+    "composed:rename:unsafe_dynamic_or_macro": 3116,
+    "single:whitespace:accepted": 5125,
+    "single:comment:parent_parse_error": 143,
+    "composed:comment:parent_parse_error": 232,
+    "single:comment:accepted": 1843,
+    "composed:comment:accepted": 2644,
+    "single:comment:ast_mismatch": 1,
+    "composed:comment:ast_mismatch": 1,
+    "single:whitespace:token_mismatch": 63,
+    "composed:whitespace:token_mismatch": 76,
+    "single:rename:accepted": 2621,
+    "composed:rename:accepted": 3452,
+    "single:rename:no_scope_safe_candidate": 2391,
+    "composed:rename:no_scope_safe_candidate": 3102,
+    "single:comment:token_mismatch": 3,
+    "composed:comment:token_mismatch": 3
+  },
+  "test_read": false,
+  "no_eval_views_generated": true,
+  "original": {
+    "changed_exposures": 0,
+    "composed_ge2": 0,
+    "effective_mask_counts": {
+      "identity": 25152
+    }
+  },
+  "single": {
+    "changed_exposures": 9589,
+    "composed_ge2": 0,
+    "effective_mask_counts": {
+      "identity": 15563,
+      "whitespace": 5125,
+      "comment": 1843,
+      "rename": 2621
+    }
+  },
+  "composed": {
+    "changed_exposures": 11097,
+    "composed_ge2": 1929,
+    "effective_mask_counts": {
+      "identity": 14055,
+      "whitespace": 5403,
+      "comment": 1606,
+      "comment+whitespace": 636,
+      "rename": 2159,
+      "comment+rename": 279,
+      "comment+whitespace+rename": 123,
+      "whitespace+rename": 891
+    }
+  }
+}

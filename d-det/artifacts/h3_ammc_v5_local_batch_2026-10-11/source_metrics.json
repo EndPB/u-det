@@ -1,0 +1,398 @@
+[
+  {
+    "arm": "original",
+    "seed": 20261011,
+    "history": [
+      {
+        "epoch": 1,
+        "loss": 1.964342474937439,
+        "parent_exposures": 6288,
+        "changed_exposures": 0
+      },
+      {
+        "epoch": 2,
+        "loss": 1.885053129196167,
+        "parent_exposures": 6288,
+        "changed_exposures": 0
+      },
+      {
+        "epoch": 3,
+        "loss": 1.8621565675735474,
+        "parent_exposures": 6288,
+        "changed_exposures": 0
+      }
+    ],
+    "eval": {
+      "clean": {
+        "accuracy": 0.20333839150227617,
+        "chance": 0.14285714285714285,
+        "rows": 4613,
+        "score_file": {
+          "path": "scores/source_original_20261011_clean.npz",
+          "sha256": "ab660c2561c0a5a569afecca0264eafd8eddaf33185fa611e0096ad0b5955fbf"
+        }
+      },
+      "hardneg": {
+        "accuracy": 0.2276176024279211,
+        "chance": 0.14285714285714285,
+        "rows": 1977,
+        "score_file": {
+          "path": "scores/source_original_20261011_hardneg.npz",
+          "sha256": "6f0aa9acdb448f1667b9d9331ad7089715a918df429e26f190359e1b1c33dd6c"
+        }
+      }
+    }
+  },
+  {
+    "arm": "original",
+    "seed": 20261012,
+    "history": [
+      {
+        "epoch": 1,
+        "loss": 1.9605679082870484,
+        "parent_exposures": 6288,
+        "changed_exposures": 0
+      },
+      {
+        "epoch": 2,
+        "loss": 1.8875538063049317,
+        "parent_exposures": 6288,
+        "changed_exposures": 0
+      },
+      {
+        "epoch": 3,
+        "loss": 1.8624008226394653,
+        "parent_exposures": 6288,
+        "changed_exposures": 0
+      }
+    ],
+    "eval": {
+      "clean": {
+        "accuracy": 0.18946455668762194,
+        "chance": 0.14285714285714285,
+        "rows": 4613,
+        "score_file": {
+          "path": "scores/source_original_20261012_clean.npz",
+          "sha256": "d082b05f242b5ae2668de80d616341b3345727dd5b0bfcab60707a87a30744b8"
+        }
+      },
+      "hardneg": {
+        "accuracy": 0.2028325746079919,
+        "chance": 0.14285714285714285,
+        "rows": 1977,
+        "score_file": {
+          "path": "scores/source_original_20261012_hardneg.npz",
+          "sha256": "9fbfcdd6384c62fdaacb968eba7202a75b0ab8684bf8c1930a1f56c63643d259"
+        }
+      }
+    }
+  },
+  {
+    "arm": "original",
+    "seed": 20261013,
+    "history": [
+      {
+        "epoch": 1,
+        "loss": 1.9587653350830079,
+        "parent_exposures": 6288,
+        "changed_exposures": 0
+      },
+      {
+        "epoch": 2,
+        "loss": 1.8924137496948241,
+        "parent_exposures": 6288,
+        "changed_exposures": 0
+      },
+      {
+        "epoch": 3,
+        "loss": 1.857426085472107,
+        "parent_exposures": 6288,
+        "changed_exposures": 0
+      }
+    ],
+    "eval": {
+      "clean": {
+        "accuracy": 0.18144374593539997,
+        "chance": 0.14285714285714285,
+        "rows": 4613,
+        "score_file": {
+          "path": "scores/source_original_20261013_clean.npz",
+          "sha256": "baac5728e6b6c7860e203e89cdefd9f6f66a96c808d7a80b48904424b7caae77"
+        }
+      },
+      "hardneg": {
+        "accuracy": 0.19119878603945373,
+        "chance": 0.14285714285714285,
+        "rows": 1977,
+        "score_file": {
+          "path": "scores/source_original_20261013_hardneg.npz",
+          "sha256": "c37f6fdaef46ece8b8cfd4a74c906626ef2e3ddeaa08927cd079153381a00a79"
+        }
+      }
+    }
+  },
+  {
+    "arm": "single",
+    "seed": 20261011,
+    "history": [
+      {
+        "epoch": 1,
+        "loss": 1.9667192268371583,
+        "parent_exposures": 6288,
+        "changed_exposures": 2389
+      },
+      {
+        "epoch": 2,
+        "loss": 1.8935559701919555,
+        "parent_exposures": 6288,
+        "changed_exposures": 2311
+      },
+      {
+        "epoch": 3,
+        "loss": 1.872476658821106,
+        "parent_exposures": 6288,
+        "changed_exposures": 2402
+      }
+    ],
+    "eval": {
+      "clean": {
+        "accuracy": 0.19965315412963364,
+        "chance": 0.14285714285714285,
+        "rows": 4613,
+        "score_file": {
+          "path": "scores/source_single_20261011_clean.npz",
+          "sha256": "117629c2c35a1aba2f43d3f226b9eca9b99186c187e0c9cb256302c9568cb2b0"
+        }
+      },
+      "hardneg": {
+        "accuracy": 0.2291350531107739,
+        "chance": 0.14285714285714285,
+        "rows": 1977,
+        "score_file": {
+          "path": "scores/source_single_20261011_hardneg.npz",
+          "sha256": "cfa540e65d71524e7d36622126491fb7b458afd46c44ec511d2570d5de6d9385"
+        }
+      }
+    }
+  },
+  {
+    "arm": "single",
+    "seed": 20261012,
+    "history": [
+      {
+        "epoch": 1,
+        "loss": 1.9629030513763428,
+        "parent_exposures": 6288,
+        "changed_exposures": 2389
+      },
+      {
+        "epoch": 2,
+        "loss": 1.8933038759231566,
+        "parent_exposures": 6288,
+        "changed_exposures": 2311
+      },
+      {
+        "epoch": 3,
+        "loss": 1.8695031309127808,
+        "parent_exposures": 6288,
+        "changed_exposures": 2402
+      }
+    ],
+    "eval": {
+      "clean": {
+        "accuracy": 0.1803598525905051,
+        "chance": 0.14285714285714285,
+        "rows": 4613,
+        "score_file": {
+          "path": "scores/source_single_20261012_clean.npz",
+          "sha256": "72e2b071f2cd1c8d8e2f75dd235b76b187df3e7e051631a5fdeeec0e9ab65c60"
+        }
+      },
+      "hardneg": {
+        "accuracy": 0.19119878603945373,
+        "chance": 0.14285714285714285,
+        "rows": 1977,
+        "score_file": {
+          "path": "scores/source_single_20261012_hardneg.npz",
+          "sha256": "ed1641ec9de42473cb8d84ec76de2489ec08fa8d7ecdc0bf86bf86ac7b2f7062"
+        }
+      }
+    }
+  },
+  {
+    "arm": "single",
+    "seed": 20261013,
+    "history": [
+      {
+        "epoch": 1,
+        "loss": 1.9620256948471069,
+        "parent_exposures": 6288,
+        "changed_exposures": 2389
+      },
+      {
+        "epoch": 2,
+        "loss": 1.9001858520507813,
+        "parent_exposures": 6288,
+        "changed_exposures": 2311
+      },
+      {
+        "epoch": 3,
+        "loss": 1.8696246290206908,
+        "parent_exposures": 6288,
+        "changed_exposures": 2402
+      }
+    ],
+    "eval": {
+      "clean": {
+        "accuracy": 0.18686321265987427,
+        "chance": 0.14285714285714285,
+        "rows": 4613,
+        "score_file": {
+          "path": "scores/source_single_20261013_clean.npz",
+          "sha256": "e1371ffa24293f8dff254ac8cee58a8c78060a85a74f7df22d9ab7bbc8016a27"
+        }
+      },
+      "hardneg": {
+        "accuracy": 0.19878603945371776,
+        "chance": 0.14285714285714285,
+        "rows": 1977,
+        "score_file": {
+          "path": "scores/source_single_20261013_hardneg.npz",
+          "sha256": "5437d2af68783d5d0dd21b2f57a5c3baf1468619c8891e8ada323d524f6a266c"
+        }
+      }
+    }
+  },
+  {
+    "arm": "composed",
+    "seed": 20261011,
+    "history": [
+      {
+        "epoch": 1,
+        "loss": 1.9683942222595214,
+        "parent_exposures": 6288,
+        "changed_exposures": 2746
+      },
+      {
+        "epoch": 2,
+        "loss": 1.8952812194824218,
+        "parent_exposures": 6288,
+        "changed_exposures": 2686
+      },
+      {
+        "epoch": 3,
+        "loss": 1.8776829051971435,
+        "parent_exposures": 6288,
+        "changed_exposures": 2792
+      }
+    ],
+    "eval": {
+      "clean": {
+        "accuracy": 0.19943637546065468,
+        "chance": 0.14285714285714285,
+        "rows": 4613,
+        "score_file": {
+          "path": "scores/source_composed_20261011_clean.npz",
+          "sha256": "f5c3fc4c1c2426006e8161487e1c7ee951bf96d43b364af09e958dc04ee901a2"
+        }
+      },
+      "hardneg": {
+        "accuracy": 0.2225594334850784,
+        "chance": 0.14285714285714285,
+        "rows": 1977,
+        "score_file": {
+          "path": "scores/source_composed_20261011_hardneg.npz",
+          "sha256": "c46ea573f17be60b5049314c959d0f44612e01ecc88a1d056fcdbc4d8e402fce"
+        }
+      }
+    }
+  },
+  {
+    "arm": "composed",
+    "seed": 20261012,
+    "history": [
+      {
+        "epoch": 1,
+        "loss": 1.9640809106826782,
+        "parent_exposures": 6288,
+        "changed_exposures": 2746
+      },
+      {
+        "epoch": 2,
+        "loss": 1.899404993057251,
+        "parent_exposures": 6288,
+        "changed_exposures": 2686
+      },
+      {
+        "epoch": 3,
+        "loss": 1.8744816160202027,
+        "parent_exposures": 6288,
+        "changed_exposures": 2792
+      }
+    ],
+    "eval": {
+      "clean": {
+        "accuracy": 0.18469542597008454,
+        "chance": 0.14285714285714285,
+        "rows": 4613,
+        "score_file": {
+          "path": "scores/source_composed_20261012_clean.npz",
+          "sha256": "a1df6d4f21c37df037632a7f3cab5e5c72195d0db2c3d07a236aa6b3cbae1c05"
+        }
+      },
+      "hardneg": {
+        "accuracy": 0.19878603945371776,
+        "chance": 0.14285714285714285,
+        "rows": 1977,
+        "score_file": {
+          "path": "scores/source_composed_20261012_hardneg.npz",
+          "sha256": "e466c031c7585f324fb58f1d9022d2de1e1b0c5e690c2e5d20e0dbfbcfa86426"
+        }
+      }
+    }
+  },
+  {
+    "arm": "composed",
+    "seed": 20261013,
+    "history": [
+      {
+        "epoch": 1,
+        "loss": 1.963218936920166,
+        "parent_exposures": 6288,
+        "changed_exposures": 2746
+      },
+      {
+        "epoch": 2,
+        "loss": 1.903058695793152,
+        "parent_exposures": 6288,
+        "changed_exposures": 2686
+      },
+      {
+        "epoch": 3,
+        "loss": 1.8729759120941163,
+        "parent_exposures": 6288,
+        "changed_exposures": 2792
+      }
+    ],
+    "eval": {
+      "clean": {
+        "accuracy": 0.18794710600476913,
+        "chance": 0.14285714285714285,
+        "rows": 4613,
+        "score_file": {
+          "path": "scores/source_composed_20261013_clean.npz",
+          "sha256": "359ae8c822f20626790b27b3151227d979566521754f55cad95e7754f231af4e"
+        }
+      },
+      "hardneg": {
+        "accuracy": 0.2028325746079919,
+        "chance": 0.14285714285714285,
+        "rows": 1977,
+        "score_file": {
+          "path": "scores/source_composed_20261013_hardneg.npz",
+          "sha256": "446c16b1ac60e8bac3fae67151a3cf7079a138783faef7987fe72dd098b0f870"
+        }
+      }
+    }
+  }
+]

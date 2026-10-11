@@ -1,0 +1,7 @@
+{
+  "script_sha256": "37e430c80953eb2d52d67eb420d69de0bc647a254302438dd4beeddda05a93b3",
+  "score_checks": 390,
+  "probe_bootstrap": 2000,
+  "probe_seed": 2026101105,
+  "test_read": false
+}
