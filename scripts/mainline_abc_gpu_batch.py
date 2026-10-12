@@ -39,7 +39,7 @@ class Head(nn.Module):
         super().__init__(); self.net=nn.Sequential(nn.LayerNorm(d),nn.Linear(d,256),nn.GELU(),nn.Dropout(.1),nn.Linear(256,n))
     def forward(self,x): return self.net(x)
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument('--epochs',type=int,default=2); ap.add_argument('--batch',type=int,default=32); ap.add_argument('--max-rows',type=int,default=0); args=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument('--epochs',type=int,default=2); ap.add_argument('--batch',type=int,default=32); ap.add_argument('--max-rows',type=int,default=0); ap.add_argument('--stratified',action='store_true'); args=ap.parse_args()
     if not torch.cuda.is_available(): raise RuntimeError('GPU required for this batch')
     torch.manual_seed(SEED); device=torch.device('cuda'); OUT.mkdir(parents=True,exist_ok=True)
     from transformers import T5EncoderModel,RobertaTokenizer
@@ -50,7 +50,16 @@ def main():
     write(OUT/'metrics.json',summary)
     for task,nclasses in TASKS.items():
         train=read_rows(task,'train'); val=read_rows(task,'validation')
-        if args.max_rows: train=train[:args.max_rows]; val=val[:min(len(val),max(1000,args.max_rows//10))]
+        if args.max_rows:
+            def take(rows, limit):
+                if not args.stratified: return rows[:limit]
+                by={k:[] for k in sorted({r['label'] for r in rows})}
+                for r in rows: by[r['label']].append(r)
+                per=max(1,limit//max(1,len(by)))
+                out=[]
+                for k in by: out.extend(by[k][:per])
+                return out[:limit]
+            train=take(train,args.max_rows); val=take(val,min(len(val),max(1000,args.max_rows//10)))
         def encode(rows):
             feats=[]
             with torch.inference_mode():

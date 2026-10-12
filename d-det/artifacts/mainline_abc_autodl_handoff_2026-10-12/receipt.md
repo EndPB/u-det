@@ -17,7 +17,7 @@
 | 文件 | SHA-256 |
 |---|---|
 | `d-det/data/mainline_abc_200k_2026-10-12/manifest.json` | `a5328bf3a082d262fa65e300f6f77dcd5e86405827b7d89296d65a7ee361c7bc` |
-| `scripts/mainline_abc_gpu_batch.py` | `c128f262e7ed7621d966c04a3b2142091d8079e0f7a99d1fe9f3e0a8a1a59a55` |
+| `scripts/mainline_abc_gpu_batch.py` | `80c8ce18ca32082be8a9add36b71330e4d724a4ed7a493c92a2340c072b1eeb4` |
 | `scripts/verify_mainline_abc_bundle.py` | `16b5be0b9e07aa1ec20aff9aa07fd83423767d29fb4412a436a4fa68131bfb8d` |
 | `d-det/docx/d-det_AutoDL_ABC三任务快速主线批次指导_2026-10-12.md` | `abc4d405c4eb9a7331292e1f7e47f350e638d0026812f799acb7b06f8f0685fe` |
 
