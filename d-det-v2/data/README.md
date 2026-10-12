@@ -6,7 +6,7 @@
 
 - 本机绝对路径：`/root/autodl-tmp/u-det/d-det/data/`
 - 相对 `d-det-v2/` 根：`../d-det/data/`
-- 脚本内（`d-det-v2/scripts/`）：`../../d-det/data/`
+- 脚本内（`d-det-v2/src/vX.Y/`）：`../../../d-det/data/`
 
 ## 常用包（按 AB 角色）
 
@@ -16,10 +16,12 @@
 
 ## 模型与权重
 
-- `../../d-det/models/`（如 `codet5-small/`）；`../../d-det/checkpoints/` 同理
+- 本机绝对路径：`/root/autodl-tmp/u-det/d-det/models/`（如 `codet5-small/`）、`/root/autodl-tmp/u-det/d-det/checkpoints/`
+- 相对 `d-det-v2/` 根：`../d-det/models/`、`../d-det/checkpoints/`
+- 脚本内（`d-det-v2/src/vX.Y/`）：`../../../d-det/models/`、`../../../d-det/checkpoints/`
 
 ## 规则
 
-1. 不复制、不移动、不改写原数据；只读引用；
+1. 不复制、不移动、不改写原数据，**不修改原代码**；一律只读引用；
 2. 冻结包（manifest 所需的 sha256/字节数）在 d-det-v2 自己的 `artifacts/` 中登记；
 3. 如需本机快捷访问，可自行软链（`ln -s ../d-det/data data`），但仓库内保持本 README 指针形态（避免 Windows 端 symlink 问题）。
