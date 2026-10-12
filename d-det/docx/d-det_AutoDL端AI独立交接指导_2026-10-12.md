@@ -114,6 +114,44 @@ L = L_A + lambda_B L_B + lambda_C L_C
 
 `L_semantic_center` 只作用于已冻结任务簇和合法配对；`L_selective_AMMC` 只约束预注册的检测/控制头，不强迫 B 抹去真实 family style；没有 parent 配对或 provenance 时，不构造伪造的 post-training delta loss。
 
+## 5.1 `L_diff` 的可行性裁定：不观测就不命名为因果差分
+
+理想的后训练差分是同一 base、同一代码任务和同一接口下的 token-level 行为变化：
+
+```text
+L_diff*(c | t) = log p_post(c | t) - log p_base(c | t)
+```
+
+这个量需要同时拿到匹配的 base 与 post checkpoint（或至少可比的 token log-prob），并保持任务、采样、系统提示和解码条件一致。闭源旗舰通常只提供最终 agent/API，不提供对应 base checkpoint、同接口 base 版本或稳定的 token log-prob。因此，**旗舰模型不是“压根不能研究”，而是通常不能直接观测真实的 `L_diff*`**。
+
+“没有谱系/配对时不伪造 `L_diff`”的含义是：不能把 Human/AI 标签、AICD 数字标签、某个来源分类器的 logit、`generation_mode` 或格式特征直接改名为 `L_diff`，也不能把没有同题配对的两批样本相减后宣称得到了后训练因果量。这样做会把数据来源差异、题目差异和格式捷径冒充为机制证据。
+
+在闭源旗舰场景，允许使用一个明确降级命名的黑盒行为对比量：
+
+```text
+Delta_beh(c, t; f, g) = score_f(c | t) - score_g(c | t)
+```
+
+其中 `score` 可以来自匹配任务上的输出概率、候选排序、拒答/修复行为或校准后的行为得分；`f/g` 必须有同题、同语言、同接口和可追溯来源。它应标为 `source_behavior_contrast` 或 `Delta_beh`，而不是 `L_diff`。在“旗舰 base 差异可忽略”的工作假设下，`Delta_beh` 可以作为后训练相关最终行为的条件性代理；若在任务、长度、格式和来源控制后不稳定，论文主张必须退回“最终来源行为差异”，不能继续声称纯后训练因果。
+
+因此 d-det 主线不依赖伪造的 `L_diff`：A/B/C 的监督、任务中心化残差、可解释布局流、AMMC 视图一致性和硬负例是主方法；只有在存在真实同题配对和 provenance 的子集上，才增加 `Delta_beh` 对比模块，并把“有配对/无配对”作为预注册分层结果。没有配对时仍可正常训练和评估 A/B/C，但只报告可观测的检测/家族归因效果及其控制实验。
+
+## 5.2 旧数据并未作废：按任务角色复用并禁止跨角色拼接
+
+之前的数据集和结果继续使用，改变的是它们在 A/B/C 中的证据角色：
+
+| 数据/结果 | 可复用主角色 | 不应承担的主张 |
+|---|---|---|
+| STACAD alignment（Human anchor、同题、多生成器、多语言） | A 主数据；Human-inclusive B 的任务/人类控制；语义中心与 AMMC 安全验证 | 同家族正例；真实 `L_diff` |
+| AuthorBench/DCAN、LLM-CodeGen | B 的同题跨来源/跨家族控制；任务中心化、semantic/source 分离 | 自动拼成统一 family label；把 fingerprint 当因果差分 |
+| E28/E29/E30 flagship 结果 | B 的历史基线、类别/来源诊断和主表候选（逐条按 manifest 复核） | 在 provenance 不完整时宣称稳定家族因果 |
+| Droid full selected | A/B 的 generator-rich 外部控制和规模压力测试 | 缺少公开 task/prompt 时的同题因果证据 |
+| H2 same-task same-family pairs | B 的配对/硬负例和 `Delta_beh` 可行性验证 | 直接当作四类 C 标签 |
+| AICD T1/T2/T3 | 数值规模、工程链路和外部控制 | d-det ABC 主表、任务中心化或后训练差分监督 |
+| H3/AMMC 变体包与旧 C0–C3 | 反捷径闸门、历史负结果、模型选择约束 | 重新包装成新的创建类别或重跑已关闭主线 |
+
+复用规则是“保留原始标签与 provenance，按角色单独建 `label_map` 和 manifest”；不把不同来源的数字标签直接拼成一个 B 类别空间，也不因为某一数据集无法提供 `L_diff` 就丢弃它。需要扩大样本量时，优先补齐任务、语言、来源和 Human 类的覆盖，再做 train-only AMMC 和 hard-negative 增强；增强样本继承 parent 标签，不能伪造新的来源或机制标签。
+
 ## 6. GPU 启动闸门
 
 AutoDL 端收到新包后，按以下顺序执行：
