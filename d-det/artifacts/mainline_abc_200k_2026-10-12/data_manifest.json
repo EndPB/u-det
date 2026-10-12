@@ -287,6 +287,10 @@
     "C/validation_format.npz": {
       "sha256": "fe525a503ff0b3e6250d6bc0809cb1610aed64194729efddd18363e66149d5c5",
       "bytes": 555373
+    },
+    "ROLE_EXTERNAL_CONTROL.md": {
+      "sha256": "a7db2293aa03511bb532db75f060f4403324ba36ff74740614aa3be3c10ffe38",
+      "bytes": 419
     }
   },
   "standard_library_bundle": {
@@ -301,5 +305,6 @@
       "C/validation.jsonl.gz"
     ]
   },
-  "manifest_revision": "jsonl_gzip_fallback_2026-10-12"
+  "manifest_revision": "jsonl_gzip_fallback_2026-10-12",
+  "role": "AICD numeric external control only; forbidden as d-det ABC mainline"
 }

@@ -1,14 +1,17 @@
-"""Fast CodeT5 screening for A/B/C on the frozen large package.
+"""Historical AICD numeric external-control screening.
 
-This is a GPU screening batch, not a final ACL result. It evaluates two
-pre-registered views for each task: CodeT5 pooled code and CodeT5 pooled code
-plus raw layout statistics. It never opens test. A later full fine-tuning batch
-uses the same frozen rows and manifest if a screening arm is useful.
+This script is retained for reproducibility only and is blocked from the d-det
+ABC mainline. It evaluates AICD T1/T2/T3 numeric labels, which are not the
+project's A/B/C task semantics and contain no task/family provenance. The real
+mainline must use task-centred semantic residuals, AMMC train-only views, and
+Human-inclusive family labels.
 """
 from __future__ import annotations
 import argparse, hashlib, json, os, platform, sys, time
 os.environ.setdefault('TOKENIZERS_PARALLELISM','false')
 from pathlib import Path
+if __name__ == '__main__' and (Path(__file__).resolve().parents[1]/'d-det/data/mainline_abc_200k_2026-10-12/ROLE_EXTERNAL_CONTROL.md').exists():
+    raise SystemExit('WITHDRAWN_EXTERNAL_CONTROL: no training started; see d-det ABC route correction document.')
 import numpy as np
 import torch
 import torch.nn as nn
@@ -40,6 +43,8 @@ class Head(nn.Module):
     def forward(self,x): return self.net(x)
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--epochs',type=int,default=2); ap.add_argument('--batch',type=int,default=32); ap.add_argument('--max-rows',type=int,default=0); ap.add_argument('--stratified',action='store_true'); args=ap.parse_args()
+    if (DATA/'ROLE_EXTERNAL_CONTROL.md').exists():
+        raise RuntimeError('AICD external-control batch withdrawn from d-det ABC mainline; see route correction document. No training started.')
     if not torch.cuda.is_available(): raise RuntimeError('GPU required for this batch')
     torch.manual_seed(SEED); device=torch.device('cuda'); OUT.mkdir(parents=True,exist_ok=True)
     from transformers import T5EncoderModel,RobertaTokenizer
