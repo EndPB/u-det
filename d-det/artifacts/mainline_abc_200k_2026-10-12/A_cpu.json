@@ -1,0 +1,67 @@
+{
+  "train_rows": 200000,
+  "validation_rows": 12000,
+  "epochs": 2,
+  "arms": {
+    "lexical": {
+      "macro_f1": 0.9003099131577446,
+      "balanced_accuracy": 0.9005000000000001,
+      "per_id_recall": {
+        "0": 0.9441666666666667,
+        "1": 0.8568333333333333
+      },
+      "confusion_matrix_numeric": [
+        [
+          5665,
+          335
+        ],
+        [
+          859,
+          5141
+        ]
+      ],
+      "auroc_numeric_label_1": 0.9605443888888889
+    },
+    "lexical_format": {
+      "macro_f1": 0.9566665462959619,
+      "balanced_accuracy": 0.9566666666666667,
+      "per_id_recall": {
+        "0": 0.9583333333333334,
+        "1": 0.955
+      },
+      "confusion_matrix_numeric": [
+        [
+          5750,
+          250
+        ],
+        [
+          270,
+          5730
+        ]
+      ],
+      "auroc_numeric_label_1": 0.9858617222222222
+    },
+    "format": {
+      "macro_f1": 0.9218229944243459,
+      "balanced_accuracy": 0.9218333333333333,
+      "per_id_recall": {
+        "0": 0.9103333333333333,
+        "1": 0.9333333333333333
+      },
+      "confusion_matrix_numeric": [
+        [
+          5462,
+          538
+        ],
+        [
+          400,
+          5600
+        ]
+      ],
+      "auroc_numeric_label_1": 0.9546726666666666
+    }
+  },
+  "train_seconds": 105.2023093700409,
+  "test_opened": false,
+  "model": "streaming hashing SGD log-loss; not CodeT5"
+}
