@@ -1,0 +1,22 @@
+[log] /root/autodl-tmp/u-det/d-det-v2/work/v0.1/runs/prep_s0.log.txt
+[prep] 变换接受 c: comment=1103/2400 ws=2257/2400 rename=0/2400
+[prep] 变换接受 cpp: comment=1341/2400 ws=2255/2400 rename=0/2400
+[prep] 变换接受 cs: comment=701/2400 ws=2283/2400 rename=0/2400
+[prep] 变换接受 go: comment=1082/2400 ws=2110/2400 rename=0/2400
+[prep] 变换接受 java: comment=890/2400 ws=2222/2400 rename=0/2400
+[prep] 变换接受 php: comment=1463/2400 ws=2203/2400 rename=0/2400
+[prep] 变换接受 py: comment=1088/2400 ws=2380/2400 rename=2067/2400
+[prep] records=25440 splits={'train': 16800, 'dev': 5280, 'test': 3360} calib_tasks=210 main_tasks=1890 folds={0: 378, 1: 378, 2: 378, 3: 378, 4: 378}
+[prep] 去重：exact=0 norm=0（保留先序）
+[done] prep 用时 29s
+[log] /root/autodl-tmp/u-det/d-det-v2/work/v0.1/runs/prep_s0.log.txt
+[prep] 变换接受 c: comment=1103/2400 ws=2257/2400 rename=0/2400
+[prep] 变换接受 cpp: comment=1341/2400 ws=2255/2400 rename=0/2400
+[prep] 变换接受 cs: comment=701/2400 ws=2283/2400 rename=0/2400
+[prep] 变换接受 go: comment=1082/2400 ws=2110/2400 rename=0/2400
+[prep] 变换接受 java: comment=890/2400 ws=2222/2400 rename=0/2400
+[prep] 变换接受 php: comment=1463/2400 ws=2203/2400 rename=0/2400
+[prep] 变换接受 py: comment=1088/2400 ws=2380/2400 rename=2067/2400
+[prep] records=25440 splits={'train': 16800, 'dev': 5280, 'test': 3360} calib_tasks=210 main_tasks=1890 folds={0: 378, 1: 378, 2: 378, 3: 378, 4: 378}
+[prep] 去重：exact=0 norm=0（保留先序）
+[done] prep 用时 29s

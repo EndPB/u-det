@@ -1,0 +1,62 @@
+# d-det-v2 v0.1 首批配置
+# 依据《d-det_家族归因与二分类检测_设计及执行指导_2026-10-13.md》§10.2 首批默认值。
+# 相对路径均以 src/v0.1/ 为基准（load_cfg / resolve）；数据与权重只读复用原 d-det。
+
+paths:
+  stacad: ../../../d-det/data/h2_stacad_alignment_v1   # 只读
+  encoder: ../../../d-det/checkpoints/codet5-base      # 只读
+  work: ../../work/v0.1                                # 重型产物（gitignore）
+  artifacts: ../../artifacts/v0.1                      # 记录（提交）
+
+data:
+  calib_frac: 0.10        # 训练内 task 校准子集占比（语言分层；首批实现参数）
+  calib_seed: 20261013
+  fold_seed: 20261013
+  folds: 5                # 参考器 OOF 折数（按 task 分组）
+  limit_tasks: null       # 冒烟用：每 split 保留前 N 个 task（null=全量）
+  test_read: false        # 测试集读取开关（除授权单读）
+
+model:
+  encoder: codet5-base
+  chunk_len: 512          # 每块 token 数
+  max_chunks: 4           # 最多 4 块（超限首 2 + 尾 2）
+  rank: 8                 # 低秩维（首批设计选择）
+  head_hidden: 64         # D 头内部宽度
+
+stage1:
+  epochs: 2
+  lr: 2.0e-5
+  micro_batch: 4          # 每微批样本数
+  grad_accum: 8           # 有效 batch = 32
+  weight_decay: 0.01
+  warmup_frac: 0.05
+  grad_checkpointing: true
+  num_workers: 3
+  log_every: 50
+
+stage2:
+  epochs: 5
+  head_lr: 3.0e-4
+  weight_decay: 0.01
+  warmup_frac: 0.05
+  batch: 4096
+  ridge_alphas: [0.3, 1.0, 3.0, 10.0, 30.0, 100.0, 300.0, 1000.0]
+  ridge_inner_folds: 3
+
+ammc:
+  p_aug: 0.5              # 每曝光进入增强的概率
+  p_comment: 0.2          # 进入增强后各变换独立触发
+  p_ws: 0.3
+  p_rename: 0.4
+
+eval:
+  bootstrap: 2000
+  ci: 0.95
+  buckets: [512, 1024, 2048]
+
+p0:
+  max_features: 200000
+  min_df: 2
+  C: 2.0
+
+seeds: [0, 1, 2]

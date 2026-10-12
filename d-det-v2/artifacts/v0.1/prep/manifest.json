@@ -1,0 +1,522 @@
+{
+ "dataset": "h2_stacad_alignment_v1",
+ "source_hashes": {
+  "core.jsonl": "fa0652ae980ab3d31a9176194961603611c5af729c02a786e3651151f1661394",
+  "task_index.jsonl": "ffd1ed4768bb2171903ced16a9fb54b6e1309869e52f795202cc59949f9a4c4d",
+  "split_manifest.json": "52d7929549fa1333e213b284f22f5cb65e30f88eb771aa2abca0c2da26223be1",
+  "summary.json": "9ba9c18934d3253830360e16e04ebafbebfa2ebb2a564bc8d7fb3a945bef3379"
+ },
+ "records": {
+  "raw": 25440,
+  "kept": 25440,
+  "dup_exact_sha": 0,
+  "dup_norm": 0,
+  "dropped": [],
+  "by_split": {
+   "train": 16800,
+   "dev": 5280,
+   "test": 3360
+  },
+  "by_family": {
+   "Human": 3180,
+   "claude": 3180,
+   "deepseek": 3180,
+   "gemini": 3180,
+   "grok": 3180,
+   "mistral": 3180,
+   "openai": 3180,
+   "qwen": 3180
+  }
+ },
+ "splits": {
+  "calib_tasks": 210,
+  "main_tasks": 1890,
+  "fold_sizes": {
+   "0": 378,
+   "1": 378,
+   "2": 378,
+   "3": 378,
+   "4": 378
+  },
+  "calib_by_lang": {
+   "c": 30,
+   "cpp": 30,
+   "cs": 30,
+   "go": 30,
+   "java": 30,
+   "php": 30,
+   "py": 30
+  }
+ },
+ "limit_tasks": null,
+ "label_space": [
+  "Human",
+  "claude",
+  "deepseek",
+  "gemini",
+  "grok",
+  "mistral",
+  "openai",
+  "qwen"
+ ],
+ "folds": 5,
+ "calib_frac": 0.1,
+ "calib_seed": 20261013,
+ "calib_tasks": [
+  "stacad:c:1423_c7310.c",
+  "stacad:c:15069_c8606.c",
+  "stacad:c:15640_c7371.c",
+  "stacad:c:19423_c4334.c",
+  "stacad:c:19506_c3807.c",
+  "stacad:c:23077_c9113.c",
+  "stacad:c:25655_c6292.c",
+  "stacad:c:2617_c3428.c",
+  "stacad:c:2947_c2052.c",
+  "stacad:c:33551_c4644.c",
+  "stacad:c:34485_c2192.c",
+  "stacad:c:36910_c8355.c",
+  "stacad:c:37002_c4988.c",
+  "stacad:c:3715_c4314.c",
+  "stacad:c:38427_c9235.c",
+  "stacad:c:40201_c7952.c",
+  "stacad:c:41709_c1349.c",
+  "stacad:c:42478_c3248.c",
+  "stacad:c:45645_c7186.c",
+  "stacad:c:50523_c2980.c",
+  "stacad:c:54038_c5902.c",
+  "stacad:c:56956_c4664.c",
+  "stacad:c:59674_c5953.c",
+  "stacad:c:63207_c7489.c",
+  "stacad:c:63336_c7962.c",
+  "stacad:c:64561_c5129.c",
+  "stacad:c:70572_c5801.c",
+  "stacad:c:74221_c1275.c",
+  "stacad:c:7764_c9285.c",
+  "stacad:c:7773_c3230.c",
+  "stacad:cpp:0692_cpp7844.cpp",
+  "stacad:cpp:11016_cpp2771.cpp",
+  "stacad:cpp:11726_cpp4521.cpp",
+  "stacad:cpp:13368_cpp6363.cpp",
+  "stacad:cpp:16195_cpp1607.cpp",
+  "stacad:cpp:17101_cpp5336.cpp",
+  "stacad:cpp:17111_cpp4839.cpp",
+  "stacad:cpp:19753_cpp8676.cpp",
+  "stacad:cpp:21348_cpp9322.cpp",
+  "stacad:cpp:21406_cpp1249.cpp",
+  "stacad:cpp:22464_cpp7412.cpp",
+  "stacad:cpp:24855_cpp6054.cpp",
+  "stacad:cpp:32018_cpp8868.cpp",
+  "stacad:cpp:34380_cpp2536.cpp",
+  "stacad:cpp:3673_cpp6873.cpp",
+  "stacad:cpp:3811_cpp3945.cpp",
+  "stacad:cpp:38960_cpp3481.cpp",
+  "stacad:cpp:40185_cpp8791.cpp",
+  "stacad:cpp:41954_cpp5183.cpp",
+  "stacad:cpp:42960_cpp8495.cpp",
+  "stacad:cpp:46272_cpp7343.cpp",
+  "stacad:cpp:46828_cpp1890.cpp",
+  "stacad:cpp:54514_cpp5168.cpp",
+  "stacad:cpp:54705_cpp4370.cpp",
+  "stacad:cpp:64488_cpp8306.cpp",
+  "stacad:cpp:65056_cpp1540.cpp",
+  "stacad:cpp:69066_cpp7721.cpp",
+  "stacad:cpp:69068_cpp6612.cpp",
+  "stacad:cpp:69170_cpp7573.cpp",
+  "stacad:cpp:69914_cpp9101.cpp",
+  "stacad:cs:11223_cs7591.cs",
+  "stacad:cs:19627_cs4619.cs",
+  "stacad:cs:23653_cs8835.cs",
+  "stacad:cs:28997_cs4423.cs",
+  "stacad:cs:31837_cs3347.cs",
+  "stacad:cs:36072_cs2209.cs",
+  "stacad:cs:36290_cs9528.cs",
+  "stacad:cs:3744_cs7457.cs",
+  "stacad:cs:41866_cs3100.cs",
+  "stacad:cs:49423_cs8457.cs",
+  "stacad:cs:52828_cs4852.cs",
+  "stacad:cs:53245_cs4658.cs",
+  "stacad:cs:5637_cs4243.cs",
+  "stacad:cs:57983_cs8922.cs",
+  "stacad:cs:62444_cs4318.cs",
+  "stacad:cs:65109_cs7716.cs",
+  "stacad:cs:73720_cs9038.cs",
+  "stacad:cs:73993_cs9115.cs",
+  "stacad:cs:74203_cs4598.cs",
+  "stacad:cs:74463_cs2445.cs",
+  "stacad:cs:7546_cs6385.cs",
+  "stacad:cs:75828_cs6818.cs",
+  "stacad:cs:80117_cs8584.cs",
+  "stacad:cs:82270_cs1268.cs",
+  "stacad:cs:8352_cs4748.cs",
+  "stacad:cs:85368_cs4152.cs",
+  "stacad:cs:8742_cs6068.cs",
+  "stacad:cs:87952_cs2051.cs",
+  "stacad:cs:97760_cs6832.cs",
+  "stacad:cs:99404_cs7584.cs",
+  "stacad:go:101124_go3105.go",
+  "stacad:go:1427_go8729.go",
+  "stacad:go:20254_go8214.go",
+  "stacad:go:23414_go1140.go",
+  "stacad:go:28704_go4537.go",
+  "stacad:go:30204_go1276.go",
+  "stacad:go:31934_go6443.go",
+  "stacad:go:32847_go4522.go",
+  "stacad:go:36800_go6772.go",
+  "stacad:go:49083_go2797.go",
+  "stacad:go:51681_go9108.go",
+  "stacad:go:51821_go7908.go",
+  "stacad:go:56685_go5850.go",
+  "stacad:go:58138_go6431.go",
+  "stacad:go:64643_go2366.go",
+  "stacad:go:66450_go8772.go",
+  "stacad:go:73262_go5588.go",
+  "stacad:go:73725_go2127.go",
+  "stacad:go:73998_go9611.go",
+  "stacad:go:75166_go5047.go",
+  "stacad:go:76317_go9411.go",
+  "stacad:go:77439_go5179.go",
+  "stacad:go:81582_go3608.go",
+  "stacad:go:83719_go6780.go",
+  "stacad:go:84243_go1571.go",
+  "stacad:go:87636_go4652.go",
+  "stacad:go:88730_go9829.go",
+  "stacad:go:89513_go6763.go",
+  "stacad:go:9693_go6103.go",
+  "stacad:go:99074_go4788.go",
+  "stacad:java:102287_java5700.java",
+  "stacad:java:111374_java7714.java",
+  "stacad:java:116158_java5805.java",
+  "stacad:java:13906_java7925.java",
+  "stacad:java:17058_java1646.java",
+  "stacad:java:17581_java1052.java",
+  "stacad:java:21531_java1623.java",
+  "stacad:java:22543_java5751.java",
+  "stacad:java:35422_java9235.java",
+  "stacad:java:39404_java1818.java",
+  "stacad:java:40342_java7497.java",
+  "stacad:java:40956_java3564.java",
+  "stacad:java:42192_java6861.java",
+  "stacad:java:42519_java3659.java",
+  "stacad:java:43836_java5473.java",
+  "stacad:java:4631_java4308.java",
+  "stacad:java:4950_java4189.java",
+  "stacad:java:50557_java6545.java",
+  "stacad:java:53777_java8329.java",
+  "stacad:java:58769_java4907.java",
+  "stacad:java:65539_java4427.java",
+  "stacad:java:6870_java7477.java",
+  "stacad:java:69960_java8734.java",
+  "stacad:java:72418_java4601.java",
+  "stacad:java:73556_java8608.java",
+  "stacad:java:74561_java3337.java",
+  "stacad:java:7573_java5634.java",
+  "stacad:java:8180_java3175.java",
+  "stacad:java:87955_java9385.java",
+  "stacad:java:8985_java3765.java",
+  "stacad:php:11280_php2170.php",
+  "stacad:php:16657_php3975.php",
+  "stacad:php:17671_php8367.php",
+  "stacad:php:18845_php1271.php",
+  "stacad:php:21823_php8912.php",
+  "stacad:php:22717_php9171.php",
+  "stacad:php:22789_php7862.php",
+  "stacad:php:23660_php7221.php",
+  "stacad:php:24455_php8361.php",
+  "stacad:php:33693_php7659.php",
+  "stacad:php:35094_php7560.php",
+  "stacad:php:37151_php8146.php",
+  "stacad:php:38267_php8467.php",
+  "stacad:php:38988_php8224.php",
+  "stacad:php:40189_php3315.php",
+  "stacad:php:41036_php9526.php",
+  "stacad:php:41105_php7609.php",
+  "stacad:php:41889_php7432.php",
+  "stacad:php:47842_php7461.php",
+  "stacad:php:50733_php8251.php",
+  "stacad:php:62275_php4295.php",
+  "stacad:php:64253_php9241.php",
+  "stacad:php:64302_php1785.php",
+  "stacad:php:64831_php7192.php",
+  "stacad:php:76945_php9072.php",
+  "stacad:php:78503_php2772.php",
+  "stacad:php:78640_php2120.php",
+  "stacad:php:8225_php2706.php",
+  "stacad:php:84539_php4248.php",
+  "stacad:php:84595_php5588.php",
+  "stacad:py:0906_py8756.py",
+  "stacad:py:11870_py4245.py",
+  "stacad:py:16041_py2056.py",
+  "stacad:py:16485_py5846.py",
+  "stacad:py:19670_py2519.py",
+  "stacad:py:1984_py7392.py",
+  "stacad:py:22629_py2278.py",
+  "stacad:py:25408_py3144.py",
+  "stacad:py:32290_py5700.py",
+  "stacad:py:3331_py1520.py",
+  "stacad:py:36297_py2376.py",
+  "stacad:py:39337_py3715.py",
+  "stacad:py:42385_py6356.py",
+  "stacad:py:42910_py8594.py",
+  "stacad:py:46780_py6892.py",
+  "stacad:py:48839_py3276.py",
+  "stacad:py:51534_py3229.py",
+  "stacad:py:51870_py4878.py",
+  "stacad:py:55754_py1785.py",
+  "stacad:py:5598_py4466.py",
+  "stacad:py:56108_py8591.py",
+  "stacad:py:58834_py2387.py",
+  "stacad:py:70768_py9996.py",
+  "stacad:py:7238_py2926.py",
+  "stacad:py:74027_py9413.py",
+  "stacad:py:78319_py8886.py",
+  "stacad:py:79592_py3370.py",
+  "stacad:py:82523_py5692.py",
+  "stacad:py:86853_py3959.py",
+  "stacad:py:89980_py5850.py"
+ ],
+ "transform_acceptance": {
+  "ammc_single": {
+   "c": {
+    "comment": {
+     "n": 2400,
+     "applied": 1103
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2257
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "cpp": {
+    "comment": {
+     "n": 2400,
+     "applied": 1341
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2255
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "cs": {
+    "comment": {
+     "n": 2400,
+     "applied": 701
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2283
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "go": {
+    "comment": {
+     "n": 2400,
+     "applied": 1082
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2110
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "java": {
+    "comment": {
+     "n": 2400,
+     "applied": 890
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2222
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "php": {
+    "comment": {
+     "n": 2400,
+     "applied": 1463
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2203
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "py": {
+    "comment": {
+     "n": 2400,
+     "applied": 1088
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2380
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 2067
+    }
+   }
+  },
+  "content_proxy": {
+   "c": {
+    "comment": {
+     "n": 2400,
+     "applied": 1103
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2352
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "cpp": {
+    "comment": {
+     "n": 2400,
+     "applied": 1341
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2381
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "cs": {
+    "comment": {
+     "n": 2400,
+     "applied": 701
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2349
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "go": {
+    "comment": {
+     "n": 2400,
+     "applied": 1082
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2308
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "java": {
+    "comment": {
+     "n": 2400,
+     "applied": 890
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2355
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "php": {
+    "comment": {
+     "n": 2400,
+     "applied": 1463
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2383
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 0
+    }
+   },
+   "py": {
+    "comment": {
+     "n": 2400,
+     "applied": 1088
+    },
+    "ws": {
+     "n": 2400,
+     "applied": 2016
+    },
+    "rename": {
+     "n": 2400,
+     "applied": 2067
+    }
+   }
+  },
+  "rename_by_family": {
+   "Human": {
+    "n": 2100,
+    "applied": 249
+   },
+   "claude": {
+    "n": 2100,
+    "applied": 251
+   },
+   "deepseek": {
+    "n": 2100,
+    "applied": 262
+   },
+   "gemini": {
+    "n": 2100,
+    "applied": 274
+   },
+   "grok": {
+    "n": 2100,
+    "applied": 259
+   },
+   "mistral": {
+    "n": 2100,
+    "applied": 259
+   },
+   "openai": {
+    "n": 2100,
+    "applied": 258
+   },
+   "qwen": {
+    "n": 2100,
+    "applied": 255
+   }
+  }
+ },
+ "git": "c03ad7e35c65b2f148f6fcf5598f7fe4cff36d7a",
+ "configs_sha16": "e27803b668b2f78e",
+ "env": {
+  "python": "3.12.14",
+  "torch": "2.9.1+cu128",
+  "transformers": "5.17.0",
+  "gpu": "NVIDIA GeForce RTX 3080 Ti"
+ },
+ "generated": "2026-10-13 02:36:04"
+}

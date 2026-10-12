@@ -1,0 +1,124 @@
+[log] /root/autodl-tmp/u-det/d-det-v2/work/v0.1/runs/smoke_s0.log.txt
+[smoke] prep (limit_tasks=8)
+[prep] records=192 splits={'train': 64, 'dev': 64, 'test': 64} calib_tasks=2 main_tasks=6 folds={0: 2, 1: 1, 2: 1, 3: 1, 4: 1}
+[prep] 去重：exact=0 norm=0（保留先序）
+[log] /root/autodl-tmp/u-det/d-det-v2/work/v0.1/runs/smoke_s0.log.txt
+[smoke] prep (limit_tasks=8)
+[prep] records=192 splits={'train': 64, 'dev': 64, 'test': 64} calib_tasks=2 main_tasks=6 folds={0: 2, 1: 1, 2: 1, 3: 1, 4: 1}
+[prep] 去重：exact=0 norm=0（保留先序）
+[tokens] 192 条已缓存 → /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/cache/tokens.pt
+[tokens] all={'≤512': 57, '513-1024': 77, '1025-2048': 58, '>2048': 0}
+[smoke] s1 F B1
+[s1 F/B1/s0] epoch 0: loss=2.1165 calib=0.0278
+[smoke] feat F
+[s] 0/192 (0s)
+[s] 完成 torch.Size([192, 768])，3s → /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/cache/s.pt
+[feat] F/s0 main: htorch.Size([48, 768]) logits(48, 8)
+[feat] F/s0 calib: htorch.Size([16, 768]) logits(16, 8)
+[feat] F/s0 dev: htorch.Size([64, 768]) logits(64, 8)
+[log] /root/autodl-tmp/u-det/d-det-v2/work/v0.1/runs/smoke_s0.log.txt
+[smoke] prep (limit_tasks=8)
+[prep] records=192 splits={'train': 64, 'dev': 64, 'test': 64} calib_tasks=2 main_tasks=6 folds={0: 2, 1: 1, 2: 1, 3: 1, 4: 1}
+[prep] 去重：exact=0 norm=0（保留先序）
+[tokens] 192 条已缓存 → /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/cache/tokens.pt
+[tokens] all={'≤512': 57, '513-1024': 77, '1025-2048': 58, '>2048': 0}
+[smoke] s1 F B1
+[s1 F/B1/s0] epoch 0: loss=2.1165 calib=0.0278
+[smoke] feat F
+[s] 0/192 (0s)
+[s] 完成 torch.Size([192, 768])，3s → /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/cache/s.pt
+[feat] F/s0 main: htorch.Size([48, 768]) logits(48, 8)
+[feat] F/s0 calib: htorch.Size([16, 768]) logits(16, 8)
+[feat] F/s0 dev: htorch.Size([64, 768]) logits(64, 8)
+[feat] calib m5 (16, 5, 768)
+[feat] dev m5 (64, 5, 768)
+[feat] 完成 /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/features/F_s0；refs=[0, 1, 2, 3, 4] alphas={'0': 10.0, '1': 0.3, '2': 0.3, '3': 0.3, '4': 30.0}
+[smoke] s2 F ['ours', 'b2', 'b3', 'mech_r', 'mech_ref']
+[log] /root/autodl-tmp/u-det/d-det-v2/work/v0.1/runs/smoke_s0.log.txt
+[smoke] prep (limit_tasks=8)
+[prep] records=192 splits={'train': 64, 'dev': 64, 'test': 64} calib_tasks=2 main_tasks=6 folds={0: 2, 1: 1, 2: 1, 3: 1, 4: 1}
+[prep] 去重：exact=0 norm=0（保留先序）
+[tokens] 192 条已缓存 → /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/cache/tokens.pt
+[tokens] all={'≤512': 57, '513-1024': 77, '1025-2048': 58, '>2048': 0}
+[smoke] s1 F B1
+[s1 F/B1/s0] epoch 0: loss=2.1165 calib=0.0278
+[smoke] feat F
+[s] 0/192 (0s)
+[s] 完成 torch.Size([192, 768])，3s → /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/cache/s.pt
+[feat] F/s0 main: htorch.Size([48, 768]) logits(48, 8)
+[feat] F/s0 calib: htorch.Size([16, 768]) logits(16, 8)
+[feat] F/s0 dev: htorch.Size([64, 768]) logits(64, 8)
+[feat] calib m5 (16, 5, 768)
+[feat] dev m5 (64, 5, 768)
+[feat] 完成 /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/features/F_s0；refs=[0, 1, 2, 3, 4] alphas={'0': 10.0, '1': 0.3, '2': 0.3, '3': 0.3, '4': 30.0}
+[smoke] s2 F ['ours', 'b2', 'b3', 'mech_r', 'mech_ref']
+[s2 F/ours/s0] epoch 0: loss=2.0865 calib=0.0278
+[s2 F/ours/s0] best epoch 0 calib 0.0278
+[s2 F/b2/s0] epoch 0: loss=2.0865 calib=0.0278
+[s2 F/b2/s0] best epoch 0 calib 0.0278
+[s2 F/b3/s0] epoch 0: loss=2.0865 calib=0.0278
+[s2 F/b3/s0] best epoch 0 calib 0.0278
+[s2 F/mech_r/s0] epoch 0: loss=2.0865 calib=0.0278
+[s2 F/mech_r/s0] best epoch 0 calib 0.0278
+[s2 F/mech_ref/s0] epoch 0: loss=2.0865 calib=0.0278
+[s2 F/mech_ref/s0] best epoch 0 calib 0.0278
+[smoke] s1 D B1
+[s1 D/B1/s0] epoch 0: loss=0.7275 calib=0.3036
+[smoke] feat D
+[s] 0/192 (0s)
+[s] 完成 torch.Size([192, 768])，3s → /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/cache/s.pt
+[feat] D/s0 main: htorch.Size([48, 768]) logits(48, 1)
+[feat] D/s0 calib: htorch.Size([16, 768]) logits(16, 1)
+[feat] D/s0 dev: htorch.Size([64, 768]) logits(64, 1)
+[feat] calib m5 (16, 5, 768)
+[feat] dev m5 (64, 5, 768)
+[feat] 完成 /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/features/D_s0；refs=[0, 1, 2, 3, 4] alphas={'0': 10.0, '1': 0.3, '2': 0.3, '3': 0.3, '4': 30.0}
+[smoke] s2 D ['ours', 'mech_signed', 'mech_mag']
+[log] /root/autodl-tmp/u-det/d-det-v2/work/v0.1/runs/smoke_s0.log.txt
+[smoke] prep (limit_tasks=8)
+[prep] records=192 splits={'train': 64, 'dev': 64, 'test': 64} calib_tasks=2 main_tasks=6 folds={0: 2, 1: 1, 2: 1, 3: 1, 4: 1}
+[prep] 去重：exact=0 norm=0（保留先序）
+[tokens] 192 条已缓存 → /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/cache/tokens.pt
+[tokens] all={'≤512': 57, '513-1024': 77, '1025-2048': 58, '>2048': 0}
+[smoke] s1 F B1
+[s1 F/B1/s0] epoch 0: loss=2.1165 calib=0.0278
+[smoke] feat F
+[s] 0/192 (0s)
+[s] 完成 torch.Size([192, 768])，3s → /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/cache/s.pt
+[feat] F/s0 main: htorch.Size([48, 768]) logits(48, 8)
+[feat] F/s0 calib: htorch.Size([16, 768]) logits(16, 8)
+[feat] F/s0 dev: htorch.Size([64, 768]) logits(64, 8)
+[feat] calib m5 (16, 5, 768)
+[feat] dev m5 (64, 5, 768)
+[feat] 完成 /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/features/F_s0；refs=[0, 1, 2, 3, 4] alphas={'0': 10.0, '1': 0.3, '2': 0.3, '3': 0.3, '4': 30.0}
+[smoke] s2 F ['ours', 'b2', 'b3', 'mech_r', 'mech_ref']
+[s2 F/ours/s0] epoch 0: loss=2.0865 calib=0.0278
+[s2 F/ours/s0] best epoch 0 calib 0.0278
+[s2 F/b2/s0] epoch 0: loss=2.0865 calib=0.0278
+[s2 F/b2/s0] best epoch 0 calib 0.0278
+[s2 F/b3/s0] epoch 0: loss=2.0865 calib=0.0278
+[s2 F/b3/s0] best epoch 0 calib 0.0278
+[s2 F/mech_r/s0] epoch 0: loss=2.0865 calib=0.0278
+[s2 F/mech_r/s0] best epoch 0 calib 0.0278
+[s2 F/mech_ref/s0] epoch 0: loss=2.0865 calib=0.0278
+[s2 F/mech_ref/s0] best epoch 0 calib 0.0278
+[smoke] s1 D B1
+[s1 D/B1/s0] epoch 0: loss=0.7275 calib=0.3036
+[smoke] feat D
+[s] 0/192 (0s)
+[s] 完成 torch.Size([192, 768])，3s → /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/cache/s.pt
+[feat] D/s0 main: htorch.Size([48, 768]) logits(48, 1)
+[feat] D/s0 calib: htorch.Size([16, 768]) logits(16, 1)
+[feat] D/s0 dev: htorch.Size([64, 768]) logits(64, 1)
+[feat] calib m5 (16, 5, 768)
+[feat] dev m5 (64, 5, 768)
+[feat] 完成 /root/autodl-tmp/u-det/d-det-v2/work/v0.1/smoke/features/D_s0；refs=[0, 1, 2, 3, 4] alphas={'0': 10.0, '1': 0.3, '2': 0.3, '3': 0.3, '4': 30.0}
+[smoke] s2 D ['ours', 'mech_signed', 'mech_mag']
+[s2 D/ours/s0] epoch 0: loss=0.6961 calib=0.2857
+[s2 D/ours/s0] best epoch 0 calib 0.2857
+[s2 D/mech_signed/s0] epoch 0: loss=0.6961 calib=0.2857
+[s2 D/mech_signed/s0] best epoch 0 calib 0.2857
+[s2 D/mech_mag/s0] epoch 0: loss=0.6961 calib=0.3214
+[s2 D/mech_mag/s0] best epoch 0 calib 0.3214
+[smoke] 全链路通过
+[done] smoke 用时 28s

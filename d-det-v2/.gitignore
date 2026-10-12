@@ -1,0 +1,8 @@
+# 重型工作目录（数据/特征缓存/checkpoint/逐样本预测）不进 git
+work/
+
+# 二元权重与缓存
+*.pt
+*.npz
+
+__pycache__/
