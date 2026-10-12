@@ -1,0 +1,305 @@
+{
+  "schema": "mainline_abc_large_v1",
+  "seed": 20261012,
+  "source_revision": "b7dc6d82257de6e0146d1e7b0831abd7088633af",
+  "tasks": {
+    "A": {
+      "config": "T1",
+      "nclasses": 2,
+      "train": {
+        "raw_labels": {
+          "0": 238475,
+          "1": 261525
+        },
+        "requested_quotas": {
+          "0": 100000,
+          "1": 100000
+        },
+        "selected_labels": {
+          "1": 100000,
+          "0": 100000
+        },
+        "dropped": {
+          "empty": 1
+        }
+      },
+      "validation": {
+        "raw_labels": {
+          "0": 47695,
+          "1": 52305
+        },
+        "requested_quotas": {
+          "0": 6000,
+          "1": 6000
+        },
+        "selected_labels": {
+          "0": 6000,
+          "1": 6000
+        },
+        "dropped": {}
+      },
+      "raw_train_rows": 500000,
+      "source_files": {
+        "d-det/data/acl_attribution_collection_v1/raw/aicd/T1/train-00000-of-00001.parquet": "be70ca1129236ab9c3a997aa62ad62cbb9a43a4aa68497be1d317618615ce58e",
+        "d-det/data/acl_attribution_collection_v1/raw/aicd/T1/validation-00000-of-00001.parquet": "f9fa5a44a44f262fd4639efe6d16f4f40372c72720ac4c6fe7983644f434c2aa"
+      }
+    },
+    "B": {
+      "config": "T2",
+      "nclasses": 12,
+      "train": {
+        "raw_labels": {
+          "0": 442096,
+          "10": 10810,
+          "2": 8993,
+          "1": 4162,
+          "7": 8197,
+          "5": 1968,
+          "6": 5783,
+          "9": 4608,
+          "3": 3029,
+          "8": 8127,
+          "4": 2227,
+          "11": 2149
+        },
+        "requested_quotas": {
+          "0": 139947,
+          "10": 10810,
+          "2": 8993,
+          "1": 4162,
+          "7": 8197,
+          "5": 1968,
+          "6": 5783,
+          "9": 4608,
+          "3": 3029,
+          "8": 8127,
+          "4": 2227,
+          "11": 2149
+        },
+        "selected_labels": {
+          "0": 139947,
+          "2": 8993,
+          "4": 2227,
+          "8": 8127,
+          "1": 4162,
+          "11": 2149,
+          "7": 8197,
+          "10": 10810,
+          "6": 5783,
+          "9": 4608,
+          "3": 3029,
+          "5": 1968
+        },
+        "dropped": {}
+      },
+      "validation": {
+        "raw_labels": {
+          "0": 88490,
+          "1": 847,
+          "4": 445,
+          "8": 1579,
+          "7": 1695,
+          "6": 1118,
+          "9": 895,
+          "5": 372,
+          "10": 2154,
+          "2": 1755,
+          "3": 650,
+          "11": 1176
+        },
+        "requested_quotas": {
+          "0": 1300,
+          "1": 847,
+          "4": 445,
+          "8": 1299,
+          "7": 1299,
+          "6": 1118,
+          "9": 895,
+          "5": 372,
+          "10": 1299,
+          "2": 1300,
+          "3": 650,
+          "11": 1176
+        },
+        "selected_labels": {
+          "0": 1300,
+          "11": 1176,
+          "8": 1299,
+          "10": 1299,
+          "3": 650,
+          "4": 445,
+          "7": 1299,
+          "2": 1300,
+          "9": 895,
+          "1": 847,
+          "6": 1118,
+          "5": 372
+        },
+        "dropped": {}
+      },
+      "raw_train_rows": 502149,
+      "source_files": {
+        "d-det/data/acl_attribution_collection_v1/raw/aicd/T2/train-00000-of-00002.parquet": "a1fc8230a922a6343a9502a8357f6c91ea4727c4230306610055768e8b65a6e0",
+        "d-det/data/acl_attribution_collection_v1/raw/aicd/T2/train-00001-of-00002.parquet": "cac55e64811df9c40785f554b37aba24714bacd09abc939012d4b61b58106655",
+        "d-det/data/acl_attribution_collection_v1/raw/aicd/T2/validation-00000-of-00001.parquet": "c44b3555441f1415f582db7bd252f0e8251abd82c17a1887a1e5a3f03ddff170"
+      }
+    },
+    "C": {
+      "config": "T3",
+      "nclasses": 4,
+      "train": {
+        "raw_labels": {
+          "1": 210471,
+          "0": 485483,
+          "2": 85520,
+          "3": 118526
+        },
+        "requested_quotas": {
+          "1": 50000,
+          "0": 50000,
+          "2": 50000,
+          "3": 50000
+        },
+        "selected_labels": {
+          "0": 50000,
+          "1": 50000,
+          "3": 50000,
+          "2": 50000
+        },
+        "dropped": {}
+      },
+      "validation": {
+        "raw_labels": {
+          "3": 26339,
+          "0": 107885,
+          "1": 46770,
+          "2": 19006
+        },
+        "requested_quotas": {
+          "3": 3000,
+          "0": 3000,
+          "1": 3000,
+          "2": 3000
+        },
+        "selected_labels": {
+          "0": 3000,
+          "1": 3000,
+          "3": 3000,
+          "2": 3000
+        },
+        "dropped": {}
+      },
+      "raw_train_rows": 900000,
+      "source_files": {
+        "d-det/data/acl_attribution_collection_v1/raw/aicd/T3/train-00000-of-00003.parquet": "854c0a10e4ae5736819c86a1dfed3c6f0f41ee4b567607e02f233d93c0f2a0e1",
+        "d-det/data/acl_attribution_collection_v1/raw/aicd/T3/train-00001-of-00003.parquet": "310caf41297cb9dff23ab7ed34850bbe709c976a6186d02874186f62341ccf90",
+        "d-det/data/acl_attribution_collection_v1/raw/aicd/T3/train-00002-of-00003.parquet": "d03cf961df9c436ced48cfa7ea0fb6c3d972f4443743850834459b18a94c13a9",
+        "d-det/data/acl_attribution_collection_v1/raw/aicd/T3/validation-00000-of-00001.parquet": "ca14b072ef351768bd6d0fbfe405e1a7e02ac724822c889398b9aa886042e608"
+      }
+    }
+  },
+  "requested_train_per_task": 200000,
+  "requested_validation_per_task": 12000,
+  "base_assumption": "flagship effective base differences negligible; working assumption, mechanism checks deferred",
+  "label_names": {
+    "A": "released T1 numeric 0/1",
+    "B": "released T2 IDs 0..11; family set includes Human; exact ID-to-family map pending",
+    "C": "released T3 IDs 0..3; Human/Machine/Hybrid/Adversarial; ID naming pending"
+  },
+  "limits": [
+    "AICD releases only code and label: no task/project/generator IDs",
+    "official train/validation preserved; exact validation matches to any raw train code removed",
+    "three task configurations overlap; do not add rows as unique examples",
+    "pilot pool selection does not use model scores; within-label duplicates keep first occurrence",
+    "rows with conflicting released labels are counted, not causally adjudicated"
+  ],
+  "test_opened": false,
+  "script_sha256": "4f9ad6eb31d681a3fb03df8c73893def013ce0fea3d240657d1c7cb70545f2cf",
+  "files": {
+    "A/train.jsonl.gz": {
+      "sha256": "e67f5bf04ff685b3f65c4906d365fd0685d626808e998808adb205369db1b438",
+      "bytes": 62155061
+    },
+    "A/train.parquet": {
+      "sha256": "e0d2a48b400dcadc88d4af1ff0f19f0b43fb87c984fabccedcd245fc9ced4eb8",
+      "bytes": 66494302
+    },
+    "A/train_format.npz": {
+      "sha256": "b66e721695b029ee20b44b925f8bbf0a9b4aadd9649f3b3e65472553fc3b4fd7",
+      "bytes": 8822374
+    },
+    "A/validation.jsonl.gz": {
+      "sha256": "f4f2dc4f4d1be64bc4c3ebfd73387b5af3a9ec75f063e4dafe57693d7c3deb4b",
+      "bytes": 3795003
+    },
+    "A/validation.parquet": {
+      "sha256": "213bc0014a86863511ef82abd785baf1a9ee9af2a4aab5bbb909a83a5e15e3d1",
+      "bytes": 4085720
+    },
+    "A/validation_format.npz": {
+      "sha256": "a780dd67eb566a08f01ab4aafa5b934e80616807d9b94a765af3b2fb09313f4b",
+      "bytes": 530769
+    },
+    "B/train.jsonl.gz": {
+      "sha256": "3c336f8b3ebe00aea40b63396df85628649782e55e45e32d37f72ffaddffa9f1",
+      "bytes": 88104758
+    },
+    "B/train.parquet": {
+      "sha256": "cb2861bf1b44f66bef2a10fe579858e09115018f45cca029af62023e99144f67",
+      "bytes": 95908812
+    },
+    "B/train_format.npz": {
+      "sha256": "41fac302a8778a70f6e35c9f55d65e974b196b5b6fb70a46de82fb6ede9413f0",
+      "bytes": 9047896
+    },
+    "B/validation.jsonl.gz": {
+      "sha256": "3683d1b470f9c0a45507d5229a61ac177ab9076a2659401783e72f5bf17f7c3f",
+      "bytes": 4926311
+    },
+    "B/validation.parquet": {
+      "sha256": "a5d6e83ce547287e731dde265fe81d7fd9f576e08e4ecf8049c45f34a8334162",
+      "bytes": 5344422
+    },
+    "B/validation_format.npz": {
+      "sha256": "403f3611ea706b83df85d8b9ab9aa666c41a43fdb1a63c20e0e4e458e6c1e5ac",
+      "bytes": 546109
+    },
+    "C/train.jsonl.gz": {
+      "sha256": "1ea2c08bca0dfdfff07b6564a167018bd26f974f9a87a22d771639eb78e53018",
+      "bytes": 87737359
+    },
+    "C/train.parquet": {
+      "sha256": "1415ef3aa07367a69379bed1a223c9298275d1813f76c53011c3f1f0e0cc7e92",
+      "bytes": 94995190
+    },
+    "C/train_format.npz": {
+      "sha256": "ce91af1c19845b4b5f89bd9d0d1d020f465b90dc5fc455c2a6bdc3a1e9a0e60a",
+      "bytes": 9212590
+    },
+    "C/validation.jsonl.gz": {
+      "sha256": "dd74358fb8f0f6f2aed0be3920c629bdce029f3954812664bf34391f686645d3",
+      "bytes": 5284490
+    },
+    "C/validation.parquet": {
+      "sha256": "530f0ee60ec510f717c7fec50ea20bac8863a53c097b82721e6e8f35bbfb72ab",
+      "bytes": 5749678
+    },
+    "C/validation_format.npz": {
+      "sha256": "fe525a503ff0b3e6250d6bc0809cb1610aed64194729efddd18363e66149d5c5",
+      "bytes": 555373
+    }
+  },
+  "standard_library_bundle": {
+    "format": "jsonl.gz",
+    "reader": "gzip + json; no pyarrow required",
+    "files": [
+      "A/train.jsonl.gz",
+      "A/validation.jsonl.gz",
+      "B/train.jsonl.gz",
+      "B/validation.jsonl.gz",
+      "C/train.jsonl.gz",
+      "C/validation.jsonl.gz"
+    ]
+  },
+  "manifest_revision": "jsonl_gzip_fallback_2026-10-12"
+}
