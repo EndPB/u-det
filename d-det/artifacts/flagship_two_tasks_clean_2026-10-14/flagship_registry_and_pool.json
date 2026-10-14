@@ -1,0 +1,89 @@
+{
+  "allowed": {
+    "OpenAI": [
+      "chatgpt-4o-latest--main",
+      "gpt-4",
+      "gpt-4-0613",
+      "gpt-4-turbo-2024-04-09",
+      "gpt-4.5-preview--main",
+      "gpt-4o",
+      "gpt-4o-2024-08-06",
+      "gpt-4o-2024-11-20--main",
+      "gpt-5.4",
+      "o1-2024-12-17--high--main",
+      "o1-2024-12-17--low--main",
+      "o1-2024-12-17--main",
+      "o1-preview-2024-09-12"
+    ],
+    "Claude": [
+      "claude-3-5-sonnet-20240620",
+      "claude-3-5-sonnet-20241022",
+      "claude-3-7-sonnet-20250219--3200-output-128k-2025-02-19--main",
+      "claude-3-7-sonnet-20250219--main",
+      "claude-3-opus-20240229",
+      "claude-opus-4-6"
+    ],
+    "Gemini": [
+      "Gemini-Pro-1.5",
+      "gemini-1.5-pro",
+      "gemini-1.5-pro-002",
+      "gemini-1.5-pro-exp-0801",
+      "gemini-1.5-pro-exp-0827",
+      "gemini-2.0-pro-exp-02-05--main",
+      "gemini-3.1-pro-preview"
+    ],
+    "DeepSeek": [
+      "deepseek-ai--DeepSeek-R1",
+      "deepseek-ai--DeepSeek-V3",
+      "deepseek-v3-2-251201"
+    ],
+    "Qwen": [
+      "qwen-max-latest--main"
+    ],
+    "Grok": [
+      "grok-beta--main"
+    ]
+  },
+  "heldout_model_ids": [
+    "claude-3-5-sonnet-20241022",
+    "deepseek-ai--DeepSeek-R1",
+    "gpt-4o-2024-11-20--main"
+  ],
+  "excluded": "Qwen dense 72B/110B, CodeLlama, Coder small models, Mini/Haiku/Flash, ambiguous aliases",
+  "historical_flagship_not_claimed_latest_2026": true,
+  "qwen_max_exact_snapshot_unknown": true,
+  "MoE_rule": "do not confuse active parameter count with total model size",
+  "source_alias_audit": {
+    "CoderEval gpt": "source gpt_model.py uses gpt-4o-mini: excluded",
+    "CoderEval deepseek": "deepseek-chat exact snapshot not pinned: excluded",
+    "CoderEval claude": "generic identifier excluded despite source script evidence, avoid silent row re-labeling"
+  },
+  "primary_sources": [
+    "https://qwenlm.github.io/blog/qwen2.5-max/",
+    "https://huggingface.co/deepseek-ai/DeepSeek-V3",
+    "https://huggingface.co/deepseek-ai/DeepSeek-R1",
+    "https://www.anthropic.com/news/3-5-models-and-computer-use",
+    "https://ai.google.dev/gemini-api/docs/changelog"
+  ],
+  "eligible_rows": 87005,
+  "family_counts": {
+    "Human": 58633,
+    "OpenAI": 12156,
+    "DeepSeek": 3218,
+    "Gemini": 5749,
+    "Claude": 6657,
+    "Grok": 296,
+    "Qwen": 296
+  },
+  "eligible_tasks": 21415,
+  "rejections": {
+    "not_explicit_flagship_registry": 63077,
+    "family_outside_seven_class_pilot": 12013,
+    "raw_content_ambiguity": 392,
+    "not_parseable_python_implementation": 633,
+    "human_assistance_possible": 870,
+    "patch_not_complete_code": 18524
+  },
+  "source_main_sha256": "154f17569f98ff9f0241b15a35a46d11603cab71a155d8d1f80029233f704fef",
+  "pool_sha256": "f585ce5b27b82bf5725ef49f99dae49e622805da8f8db70055ed850003af294f"
+}

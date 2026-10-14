@@ -1,0 +1,16 @@
+{
+  "scripts/ddet_two_tasks_local_2026_10_14.py": "c45a12cad6d6251a91b85fc8389403e8c77650a2417bdfc43e2b9ff3d13d646a",
+  "scripts/ddet_flagship_local_2026_10_14.py": "e9997b08a8605cd74a38ded2d5d0db46b3ddc5f6483fb17c12aa8c7cfb320336",
+  "scripts/ddet_flagship_clean_local_2026_10_14.py": "8d8109f95cd68d32f9a7b91d2cece307f3254a6ad71a29debba37151a94f9a86",
+  "scripts/ddet_t5_local_fast_2026_10_14.py": "5bf1eea0ec4c41cec2eb058101d4a2216d1fccff0ec001f72ffaa0aa50bbee46",
+  "scripts/ddet_sufficient_local_2026_10_14.py": "e56a42dc653dc33493661240ad3c41d849fc7b12124968b8ddf898f28580c764",
+  "scripts/ddet_sufficient_remote_2026_10_14.py": "2bbcb41dc4096e9c4b0a25c0fc0f6768ac8a3ed8de27c7a8a64171ee64c1e730",
+  "d-det/data/flagship_sufficient_2026-10-14/pilot.jsonl.gz": "1ab04723ee7332dbdf3af6bd4498e67a2abaa02a1bc320f4a4da62a49244349f",
+  "d-det/data/flagship_sufficient_2026-10-14/F_B0_resume.pt": "4e659a437a900820f71e814156de529ad93863a3d303dca5b1d961a20fb6176f",
+  "d-det/artifacts/flagship_sufficient_2026-10-14/protocol.json": "1a0cc80091882e8b555845b73e15b0946f7c625448ba470be2a2540974fb6440",
+  "d-det/artifacts/flagship_sufficient_2026-10-14/F_B0_training.json": "97d3fd40cf8f3154c1d05ac05b12d430a40436540a92eb5b8e3912c7bbc8ebea",
+  "d-det/artifacts/flagship_sufficient_2026-10-14/attention_equivalence_and_benchmark.json": "369f0c02c254a8d8e528027f632f8b7af3cd667479dfcc2214da15d70c8ffa47",
+  "d-det/artifacts/flagship_sufficient_2026-10-14/interpretation_plan.json": "6bbfea268dd5a748f65119d26f0517274c1041782293cdc48f01f11a63a087cb",
+  "d-det/artifacts/flagship_sufficient_2026-10-14/reserved_and_excluded.json": "ea86bb292046fce1ab2ad23f310ef90cb1c2b0064f14eec8794483c1c8272548",
+  "d-det/artifacts/flagship_two_tasks_clean_2026-10-14/broad/protocol.json": "4ceb789dbef3b17094691507aa0eb7e0fe8488b220a3070401a69ed43a46feca"
+}

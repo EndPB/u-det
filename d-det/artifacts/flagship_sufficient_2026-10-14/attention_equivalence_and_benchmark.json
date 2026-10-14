@@ -1,0 +1,26 @@
+{
+  "fp32_forward_max_abs_error": 0.0,
+  "fp32_gradient_max_abs_error": 0.0,
+  "encoder_only_scale": 1.0,
+  "modern_native_attention": true,
+  "benchmark": [
+    {
+      "micro_batch": 4,
+      "seconds_per_step": 0.04160277250533303,
+      "rows_per_second": 96.14743823833479,
+      "peak_allocated_mib": 399.041015625
+    },
+    {
+      "micro_batch": 8,
+      "seconds_per_step": 0.05931109997133414,
+      "rows_per_second": 134.88200360247086,
+      "peak_allocated_mib": 836.53173828125
+    },
+    {
+      "micro_batch": 16,
+      "seconds_per_step": 0.15409501005584994,
+      "rows_per_second": 103.83204488062908,
+      "peak_allocated_mib": 1183.08056640625
+    }
+  ]
+}

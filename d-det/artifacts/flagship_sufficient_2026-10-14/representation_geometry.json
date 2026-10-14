@@ -1,0 +1,391 @@
+{
+  "projection": "label-blind joint PCA fitted only to fixed training anchors after per-space train scaling",
+  "pca_explained_variance_ratio": [
+    0.35510336459094155,
+    0.09738349882043469
+  ],
+  "cohorts": {
+    "same_task_seven": {
+      "Before training": {
+        "n": 203,
+        "classes": {
+          "Human": 29,
+          "OpenAI": 29,
+          "Claude": 29,
+          "Gemini": 29,
+          "Grok": 29,
+          "Qwen": 29,
+          "DeepSeek": 29
+        },
+        "family_cosine_silhouette": -0.057274091988801956,
+        "leave_task_out_knn_macro_recall": 0.25123152709359603,
+        "ai_only": {
+          "family_cosine_silhouette": -0.05146474391222,
+          "leave_task_out_knn_macro_recall": 0.25862068965517243
+        },
+        "balanced_variance_fractions": {
+          "family": 0.042339598730172116,
+          "task": 0.7236186216573571,
+          "interaction": 0.23404177961247075
+        }
+      },
+      "Vanilla fine-tuning": {
+        "n": 203,
+        "classes": {
+          "Human": 29,
+          "OpenAI": 29,
+          "Claude": 29,
+          "Gemini": 29,
+          "Grok": 29,
+          "Qwen": 29,
+          "DeepSeek": 29
+        },
+        "family_cosine_silhouette": -0.047778818756341934,
+        "leave_task_out_knn_macro_recall": 0.3793103448275862,
+        "ai_only": {
+          "family_cosine_silhouette": -0.03306949883699417,
+          "leave_task_out_knn_macro_recall": 0.41379310344827586
+        },
+        "balanced_variance_fractions": {
+          "family": 0.14575946688418753,
+          "task": 0.3403050756474766,
+          "interaction": 0.5139354574683359
+        }
+      },
+      "AMMC fine-tuning": {
+        "n": 203,
+        "classes": {
+          "Human": 29,
+          "OpenAI": 29,
+          "Claude": 29,
+          "Gemini": 29,
+          "Grok": 29,
+          "Qwen": 29,
+          "DeepSeek": 29
+        },
+        "family_cosine_silhouette": -0.04370035603642464,
+        "leave_task_out_knn_macro_recall": 0.42857142857142855,
+        "ai_only": {
+          "family_cosine_silhouette": -0.02962973713874817,
+          "leave_task_out_knn_macro_recall": 0.4827586206896552
+        },
+        "balanced_variance_fractions": {
+          "family": 0.15423164517693366,
+          "task": 0.32820088658680463,
+          "interaction": 0.5175674682362618
+        }
+      },
+      "Conditional residual": {
+        "n": 203,
+        "classes": {
+          "Human": 29,
+          "OpenAI": 29,
+          "Claude": 29,
+          "Gemini": 29,
+          "Grok": 29,
+          "Qwen": 29,
+          "DeepSeek": 29
+        },
+        "family_cosine_silhouette": -0.04723522831941206,
+        "leave_task_out_knn_macro_recall": 0.37438423645320196,
+        "ai_only": {
+          "family_cosine_silhouette": -0.03379472891710513,
+          "leave_task_out_knn_macro_recall": 0.41379310344827586
+        },
+        "balanced_variance_fractions": {
+          "family": 0.16429060212398197,
+          "task": 0.27371984245844033,
+          "interaction": 0.5619895554175778
+        }
+      }
+    },
+    "same_task_five": {
+      "Before training": {
+        "n": 1190,
+        "classes": {
+          "Human": 238,
+          "OpenAI": 238,
+          "Claude": 238,
+          "Gemini": 238,
+          "DeepSeek": 238
+        },
+        "family_cosine_silhouette": -0.03431004285812378,
+        "leave_task_out_knn_macro_recall": 0.3638655462184874,
+        "ai_only": {
+          "family_cosine_silhouette": -0.020075134932994843,
+          "leave_task_out_knn_macro_recall": 0.4317226890756303
+        },
+        "balanced_variance_fractions": {
+          "family": 0.049287622501859134,
+          "task": 0.6925149908230742,
+          "interaction": 0.2581973866750667
+        }
+      },
+      "Vanilla fine-tuning": {
+        "n": 1190,
+        "classes": {
+          "Human": 238,
+          "OpenAI": 238,
+          "Claude": 238,
+          "Gemini": 238,
+          "DeepSeek": 238
+        },
+        "family_cosine_silhouette": -0.008725509978830814,
+        "leave_task_out_knn_macro_recall": 0.5294117647058824,
+        "ai_only": {
+          "family_cosine_silhouette": 0.037190381437540054,
+          "leave_task_out_knn_macro_recall": 0.5997899159663865
+        },
+        "balanced_variance_fractions": {
+          "family": 0.14313284335616405,
+          "task": 0.36960855786217245,
+          "interaction": 0.48725859878166344
+        }
+      },
+      "AMMC fine-tuning": {
+        "n": 1190,
+        "classes": {
+          "Human": 238,
+          "OpenAI": 238,
+          "Claude": 238,
+          "Gemini": 238,
+          "DeepSeek": 238
+        },
+        "family_cosine_silhouette": -0.001137728220783174,
+        "leave_task_out_knn_macro_recall": 0.5336134453781513,
+        "ai_only": {
+          "family_cosine_silhouette": 0.04999173432588577,
+          "leave_task_out_knn_macro_recall": 0.6176470588235294
+        },
+        "balanced_variance_fractions": {
+          "family": 0.16247297708705247,
+          "task": 0.3418494406180282,
+          "interaction": 0.49567758229491937
+        }
+      },
+      "Conditional residual": {
+        "n": 1190,
+        "classes": {
+          "Human": 238,
+          "OpenAI": 238,
+          "Claude": 238,
+          "Gemini": 238,
+          "DeepSeek": 238
+        },
+        "family_cosine_silhouette": -0.0005291601370713346,
+        "leave_task_out_knn_macro_recall": 0.5378151260504203,
+        "ai_only": {
+          "family_cosine_silhouette": 0.052687783897112074,
+          "leave_task_out_knn_macro_recall": 0.6113445378151261
+        },
+        "balanced_variance_fractions": {
+          "family": 0.17986697617144334,
+          "task": 0.2674606458628637,
+          "interaction": 0.552672377965693
+        }
+      }
+    },
+    "balanced_dev": {
+      "Before training": {
+        "n": 406,
+        "classes": {
+          "Claude": 58,
+          "DeepSeek": 58,
+          "Gemini": 58,
+          "Grok": 58,
+          "Human": 58,
+          "OpenAI": 58,
+          "Qwen": 58
+        },
+        "family_cosine_silhouette": -0.031097518280148506,
+        "leave_task_out_knn_macro_recall": 0.3669950738916256,
+        "ai_only": {
+          "family_cosine_silhouette": -0.05531339719891548,
+          "leave_task_out_knn_macro_recall": 0.2873563218390805
+        }
+      },
+      "Vanilla fine-tuning": {
+        "n": 406,
+        "classes": {
+          "Claude": 58,
+          "DeepSeek": 58,
+          "Gemini": 58,
+          "Grok": 58,
+          "Human": 58,
+          "OpenAI": 58,
+          "Qwen": 58
+        },
+        "family_cosine_silhouette": 0.09379299730062485,
+        "leave_task_out_knn_macro_recall": 0.5591133004926109,
+        "ai_only": {
+          "family_cosine_silhouette": 0.002071232534945011,
+          "leave_task_out_knn_macro_recall": 0.4913793103448276
+        }
+      },
+      "AMMC fine-tuning": {
+        "n": 406,
+        "classes": {
+          "Claude": 58,
+          "DeepSeek": 58,
+          "Gemini": 58,
+          "Grok": 58,
+          "Human": 58,
+          "OpenAI": 58,
+          "Qwen": 58
+        },
+        "family_cosine_silhouette": 0.09202200174331665,
+        "leave_task_out_knn_macro_recall": 0.5073891625615764,
+        "ai_only": {
+          "family_cosine_silhouette": -0.007838361896574497,
+          "leave_task_out_knn_macro_recall": 0.4310344827586207
+        }
+      },
+      "Conditional residual": {
+        "n": 406,
+        "classes": {
+          "Claude": 58,
+          "DeepSeek": 58,
+          "Gemini": 58,
+          "Grok": 58,
+          "Human": 58,
+          "OpenAI": 58,
+          "Qwen": 58
+        },
+        "family_cosine_silhouette": 0.06128511186198625,
+        "leave_task_out_knn_macro_recall": 0.4975369458128079,
+        "ai_only": {
+          "family_cosine_silhouette": -0.02118822360898308,
+          "leave_task_out_knn_macro_recall": 0.41954022988505746
+        }
+      }
+    },
+    "unseen_versions": {
+      "Before training": {
+        "n": 232,
+        "classes": {
+          "Claude": 58,
+          "DeepSeek": 58,
+          "Human": 58,
+          "OpenAI": 58
+        },
+        "family_cosine_silhouette": -0.005610078573226929,
+        "leave_task_out_knn_macro_recall": 0.4956896551724138,
+        "ai_only": {
+          "family_cosine_silhouette": 0.00867168977856636,
+          "leave_task_out_knn_macro_recall": 0.557471264367816
+        }
+      },
+      "Vanilla fine-tuning": {
+        "n": 232,
+        "classes": {
+          "Claude": 58,
+          "DeepSeek": 58,
+          "Human": 58,
+          "OpenAI": 58
+        },
+        "family_cosine_silhouette": 0.06552883237600327,
+        "leave_task_out_knn_macro_recall": 0.6637931034482758,
+        "ai_only": {
+          "family_cosine_silhouette": 0.15404516458511353,
+          "leave_task_out_knn_macro_recall": 0.7931034482758621
+        }
+      },
+      "AMMC fine-tuning": {
+        "n": 232,
+        "classes": {
+          "Claude": 58,
+          "DeepSeek": 58,
+          "Human": 58,
+          "OpenAI": 58
+        },
+        "family_cosine_silhouette": 0.06029197946190834,
+        "leave_task_out_knn_macro_recall": 0.7068965517241379,
+        "ai_only": {
+          "family_cosine_silhouette": 0.13391126692295074,
+          "leave_task_out_knn_macro_recall": 0.8103448275862069
+        }
+      },
+      "Conditional residual": {
+        "n": 232,
+        "classes": {
+          "Claude": 58,
+          "DeepSeek": 58,
+          "Human": 58,
+          "OpenAI": 58
+        },
+        "family_cosine_silhouette": 0.06175501072224883,
+        "leave_task_out_knn_macro_recall": 0.6551724137931035,
+        "ai_only": {
+          "family_cosine_silhouette": 0.14715112211691667,
+          "leave_task_out_knn_macro_recall": 0.7931034482758621
+        }
+      }
+    },
+    "external": {
+      "Before training": {
+        "n": 500,
+        "classes": {
+          "Claude": 100,
+          "DeepSeek": 100,
+          "Gemini": 100,
+          "Human": 100,
+          "OpenAI": 100
+        },
+        "family_cosine_silhouette": -0.01256934180855751,
+        "leave_task_out_knn_macro_recall": 0.438,
+        "ai_only": {
+          "family_cosine_silhouette": -0.009444947354495525,
+          "leave_task_out_knn_macro_recall": 0.4125
+        }
+      },
+      "Vanilla fine-tuning": {
+        "n": 500,
+        "classes": {
+          "Claude": 100,
+          "DeepSeek": 100,
+          "Gemini": 100,
+          "Human": 100,
+          "OpenAI": 100
+        },
+        "family_cosine_silhouette": -0.059187859296798706,
+        "leave_task_out_knn_macro_recall": 0.40599999999999997,
+        "ai_only": {
+          "family_cosine_silhouette": -0.04129260405898094,
+          "leave_task_out_knn_macro_recall": 0.4
+        }
+      },
+      "AMMC fine-tuning": {
+        "n": 500,
+        "classes": {
+          "Claude": 100,
+          "DeepSeek": 100,
+          "Gemini": 100,
+          "Human": 100,
+          "OpenAI": 100
+        },
+        "family_cosine_silhouette": -0.025894461199641228,
+        "leave_task_out_knn_macro_recall": 0.406,
+        "ai_only": {
+          "family_cosine_silhouette": -0.015534455887973309,
+          "leave_task_out_knn_macro_recall": 0.37750000000000006
+        }
+      },
+      "Conditional residual": {
+        "n": 500,
+        "classes": {
+          "Claude": 100,
+          "DeepSeek": 100,
+          "Gemini": 100,
+          "Human": 100,
+          "OpenAI": 100
+        },
+        "family_cosine_silhouette": -0.030074607030508526,
+        "leave_task_out_knn_macro_recall": 0.414,
+        "ai_only": {
+          "family_cosine_silhouette": -0.020371410203547987,
+          "leave_task_out_knn_macro_recall": 0.38
+        }
+      }
+    }
+  }
+}

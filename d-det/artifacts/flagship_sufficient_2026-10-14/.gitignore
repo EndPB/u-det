@@ -1,0 +1,4 @@
+*_features.npz
+*_reference.npz
+*.receiving
+WORK_STATE.md

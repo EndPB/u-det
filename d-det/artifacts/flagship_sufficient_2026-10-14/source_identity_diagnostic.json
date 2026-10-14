@@ -1,0 +1,4 @@
+{
+  "purpose": "diagnostic only, forbidden as classifier input",
+  "dev_auroc": 0.9907617426022404
+}

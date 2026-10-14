@@ -1,0 +1,109 @@
+{
+  "completed": true,
+  "task": "D",
+  "arm": "B1",
+  "history": [
+    {
+      "epoch": 1,
+      "weighted_train_loss": 0.053676731535432204,
+      "calibration_metric": 0.9974805924889455,
+      "seconds": 224.79571533203125,
+      "optimizer_steps": 1676,
+      "augmentation": {
+        "whitespace:accepted": 8165,
+        "rename:accepted": 3112,
+        "comment:no_change": 4285,
+        "rename:no_safe_candidate": 7394,
+        "comment:accepted": 1150,
+        "rename:unsafe_reflection": 251
+      },
+      "selected_epoch_so_far": 1
+    },
+    {
+      "epoch": 2,
+      "weighted_train_loss": 0.03338247107789254,
+      "calibration_metric": 0.9979062300553337,
+      "seconds": 230.50292706489563,
+      "optimizer_steps": 1676,
+      "augmentation": {
+        "rename:accepted": 3099,
+        "comment:accepted": 1204,
+        "rename:no_safe_candidate": 7482,
+        "whitespace:accepted": 8063,
+        "comment:no_change": 4124,
+        "rename:unsafe_reflection": 252
+      },
+      "selected_epoch_so_far": 2
+    },
+    {
+      "epoch": 3,
+      "weighted_train_loss": 0.029507764183100683,
+      "calibration_metric": 0.998179893124741,
+      "seconds": 229.76895999908447,
+      "optimizer_steps": 1676,
+      "augmentation": {
+        "comment:accepted": 1100,
+        "rename:no_safe_candidate": 7354,
+        "whitespace:accepted": 8126,
+        "rename:accepted": 3089,
+        "comment:no_change": 4150,
+        "rename:unsafe_reflection": 251
+      },
+      "selected_epoch_so_far": 3
+    },
+    {
+      "epoch": 4,
+      "weighted_train_loss": 0.025213038273012175,
+      "calibration_metric": 0.9982799683537062,
+      "seconds": 224.30360174179077,
+      "optimizer_steps": 1676,
+      "augmentation": {
+        "whitespace:accepted": 7937,
+        "rename:accepted": 3058,
+        "rename:no_safe_candidate": 7357,
+        "comment:no_change": 4215,
+        "comment:accepted": 1154,
+        "rename:unsafe_reflection": 249
+      },
+      "selected_epoch_so_far": 4
+    },
+    {
+      "epoch": 5,
+      "weighted_train_loss": 0.02172192740455221,
+      "calibration_metric": 0.9984214540222432,
+      "seconds": 221.59763765335083,
+      "optimizer_steps": 1676,
+      "augmentation": {
+        "rename:accepted": 3050,
+        "rename:no_safe_candidate": 7344,
+        "whitespace:accepted": 8069,
+        "comment:accepted": 1139,
+        "comment:no_change": 4291,
+        "rename:unsafe_reflection": 245
+      },
+      "selected_epoch_so_far": 5
+    },
+    {
+      "epoch": 6,
+      "weighted_train_loss": 0.020317233117964108,
+      "calibration_metric": 0.9985344246073911,
+      "seconds": 220.9673159122467,
+      "optimizer_steps": 1676,
+      "augmentation": {
+        "comment:no_change": 4242,
+        "rename:accepted": 3028,
+        "comment:accepted": 1180,
+        "whitespace:accepted": 7994,
+        "rename:no_safe_candidate": 7421,
+        "rename:unsafe_reflection": 257
+      },
+      "selected_epoch_so_far": 6
+    }
+  ],
+  "selected_epoch": 6,
+  "best_calibration_metric": 0.9985344246073911,
+  "validation_saturated": true,
+  "stop_reason": "calibration_plateau",
+  "seconds_this_invocation": 1355.8335118293762,
+  "peak_cuda_mib": 2945.67724609375
+}

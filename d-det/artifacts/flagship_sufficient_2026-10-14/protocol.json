@@ -1,0 +1,85 @@
+{
+  "status": "frozen_before_training",
+  "eligible_pool": 87005,
+  "rows": 80751,
+  "counts": {
+    "train": {
+      "Claude": 2714,
+      "DeepSeek": 1698,
+      "Gemini": 3804,
+      "Human": 40890,
+      "OpenAI": 4100,
+      "Grok": 208,
+      "Qwen": 208
+    },
+    "calibration": {
+      "Claude": 425,
+      "DeepSeek": 271,
+      "Gemini": 502,
+      "Human": 5814,
+      "OpenAI": 636,
+      "Grok": 30,
+      "Qwen": 30
+    },
+    "dev": {
+      "Claude": 833,
+      "DeepSeek": 524,
+      "Gemini": 1080,
+      "Human": 11658,
+      "OpenAI": 1242,
+      "Grok": 58,
+      "Qwen": 58
+    },
+    "unseen_generator": {
+      "Claude": 485,
+      "OpenAI": 1072,
+      "DeepSeek": 58
+    },
+    "external": {
+      "DeepSeek": 411,
+      "Human": 263,
+      "OpenAI": 1026,
+      "Claude": 345,
+      "Gemini": 308
+    }
+  },
+  "heldout_model_ids": [
+    "chatgpt-4o-latest--main",
+    "claude-3-5-sonnet-20241022",
+    "deepseek-ai--DeepSeek-R1",
+    "gpt-4o",
+    "gpt-4o-2024-08-06",
+    "gpt-4o-2024-11-20--main"
+  ],
+  "parent_protocol_sha256": "4ceb789dbef3b17094691507aa0eb7e0fe8488b220a3070401a69ed43a46feca",
+  "source_main_sha256": "154f17569f98ff9f0241b15a35a46d11603cab71a155d8d1f80029233f704fef",
+  "data_sha256": "1ab04723ee7332dbdf3af6bd4498e67a2abaa02a1bc320f4a4da62a49244349f",
+  "max_epochs": 12,
+  "min_epochs": 4,
+  "patience": 3,
+  "meaningful_calibration_delta": {
+    "F": 0.002,
+    "D": 0.0005
+  },
+  "encoder_lr": 3e-05,
+  "head_lr": 0.001,
+  "effective_batch": 32,
+  "micro_batch": 16,
+  "length": 512,
+  "truncation": "head384+tail128",
+  "augmentation": "B1 original .5, otherwise comment .2/whitespace .3/safe rename .4, refreshed per epoch",
+  "selection": "calibration only; maximum score checkpoint; plateau tracked separately; no evaluation-set model selection",
+  "early_stop_scope": "validation saturation, not proof of global optimum",
+  "seed": 20261014,
+  "encoder": "CodeT5-small full encoder",
+  "historical_test_read": false,
+  "api_generation": false,
+  "reference_teacher": "train tasks with Human and >=2 AI families; all other train codes still used for classification",
+  "base_similarity": "working hypothesis; no causal base-to-post labels claimed",
+  "source_code_sha256": "e56a42dc653dc33493661240ad3c41d849fc7b12124968b8ddf898f28580c764",
+  "objectives": [
+    "Human_AI_detection",
+    "Human_inclusive_family_attribution"
+  ],
+  "task_count": 21413
+}

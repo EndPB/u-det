@@ -1,0 +1,43 @@
+
+Loading weights:   0%|          | 0/52 [00:00<?, ?it/s]
+Loading weights: 100%|��������������������| 52/52 [00:00<00:00, 10785.47it/s]
+T5EncoderModel LOAD REPORT from: D:\data\vscode\u-det\d-det\models\codet5-small
+Key            | Status     |  | 
+---------------+------------+--+-
+lm_head.weight | UNEXPECTED |  | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+14:32:46 TRAIN F B0 epoch 1 0 / 53622 sec 2
+14:33:36 TRAIN F B0 epoch 1 3200 / 53622 sec 51
+14:34:26 TRAIN F B0 epoch 1 6400 / 53622 sec 102
+14:35:18 TRAIN F B0 epoch 1 9600 / 53622 sec 154
+14:36:13 TRAIN F B0 epoch 1 12800 / 53622 sec 209
+14:37:10 TRAIN F B0 epoch 1 16000 / 53622 sec 266
+14:38:12 TRAIN F B0 epoch 1 19200 / 53622 sec 328
+14:39:13 TRAIN F B0 epoch 1 22400 / 53622 sec 389
+14:40:17 TRAIN F B0 epoch 1 25600 / 53622 sec 453
+14:41:23 TRAIN F B0 epoch 1 28800 / 53622 sec 519
+14:42:34 TRAIN F B0 epoch 1 32000 / 53622 sec 590
+14:43:42 TRAIN F B0 epoch 1 35200 / 53622 sec 658
+14:44:54 TRAIN F B0 epoch 1 38400 / 53622 sec 730
+14:46:03 TRAIN F B0 epoch 1 41600 / 53622 sec 799
+14:47:16 TRAIN F B0 epoch 1 44800 / 53622 sec 871
+14:48:24 TRAIN F B0 epoch 1 48000 / 53622 sec 940
+14:49:35 TRAIN F B0 epoch 1 51200 / 53622 sec 1011
+14:52:14 EPOCH_DONE F B0 1 cal 0.40527 best_epoch 1 stale 0
+14:52:16 TRAIN F B0 epoch 2 0 / 53622 sec 2
+14:54:56 TRAIN F B0 epoch 2 3200 / 53622 sec 162
+14:57:50 TRAIN F B0 epoch 2 6400 / 53622 sec 336
+15:00:27 TRAIN F B0 epoch 2 9600 / 53622 sec 493
+15:03:12 TRAIN F B0 epoch 2 12800 / 53622 sec 658
+15:05:42 TRAIN F B0 epoch 2 16000 / 53622 sec 808
+15:08:26 TRAIN F B0 epoch 2 19200 / 53622 sec 972
+15:11:06 TRAIN F B0 epoch 2 22400 / 53622 sec 1132
+15:14:01 TRAIN F B0 epoch 2 25600 / 53622 sec 1307
+15:16:35 TRAIN F B0 epoch 2 28800 / 53622 sec 1461
+15:19:24 TRAIN F B0 epoch 2 32000 / 53622 sec 1631
+15:22:07 TRAIN F B0 epoch 2 35200 / 53622 sec 1793
+15:24:51 TRAIN F B0 epoch 2 38400 / 53622 sec 1957
+15:27:33 TRAIN F B0 epoch 2 41600 / 53622 sec 2119
+15:30:05 TRAIN F B0 epoch 2 44800 / 53622 sec 2271

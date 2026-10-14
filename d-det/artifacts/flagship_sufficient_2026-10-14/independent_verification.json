@@ -1,0 +1,52 @@
+{
+  "rows": 80751,
+  "prediction_files_independently_recomputed": 84,
+  "focused_same_task_metrics_recomputed": 112,
+  "supplementary_paired_aurocs_recomputed": 104,
+  "supplementary_families_absent_from_training": true,
+  "supplementary_paired_tasks_absent_from_learning": true,
+  "source_main_unchanged": true,
+  "train_calibration_eval_group_overlap": 0,
+  "heldout_versions_absent_from_learning": true,
+  "fixed_visual_cohorts_heldout": true,
+  "projection_fit_train_only": true,
+  "images": {
+    "correction_space_controls.png": [
+      2141,
+      729
+    ],
+    "family_space_balanced_dev.png": [
+      2680,
+      739
+    ],
+    "family_space_external.png": [
+      2678,
+      739
+    ],
+    "family_space_same_task_five.png": [
+      2680,
+      739
+    ],
+    "family_space_same_task_seven.png": [
+      2680,
+      739
+    ],
+    "family_space_tsne_supplement.png": [
+      2681,
+      729
+    ],
+    "family_space_unseen_versions.png": [
+      2680,
+      739
+    ],
+    "source_space.png": [
+      2681,
+      786
+    ],
+    "training_curves.png": [
+      1980,
+      1260
+    ]
+  },
+  "document_sha256_verified": true
+}

@@ -1,0 +1,219 @@
+{
+  "status": "frozen_before_training",
+  "slice": "broad",
+  "classes": [
+    "Human",
+    "OpenAI",
+    "Claude",
+    "Gemini",
+    "Grok",
+    "Qwen",
+    "DeepSeek"
+  ],
+  "source_main_sha256": "154f17569f98ff9f0241b15a35a46d11603cab71a155d8d1f80029233f704fef",
+  "rows": 20932,
+  "tasks": 4801,
+  "counts": {
+    "train": {
+      "Claude": 2724,
+      "DeepSeek": 1705,
+      "Gemini": 2827,
+      "Human": 2789,
+      "OpenAI": 1859,
+      "Grok": 208,
+      "Qwen": 208
+    },
+    "calibration": {
+      "Claude": 426,
+      "DeepSeek": 271,
+      "Gemini": 392,
+      "Human": 406,
+      "OpenAI": 287,
+      "Grok": 30,
+      "Qwen": 30
+    },
+    "dev": {
+      "Claude": 836,
+      "DeepSeek": 528,
+      "Gemini": 781,
+      "Human": 805,
+      "OpenAI": 572,
+      "Grok": 58,
+      "Qwen": 58
+    },
+    "unseen_generator": {
+      "OpenAI": 757,
+      "Claude": 486,
+      "DeepSeek": 58
+    },
+    "external": {
+      "Claude": 391,
+      "DeepSeek": 418,
+      "Gemini": 340,
+      "Human": 261,
+      "OpenAI": 421
+    }
+  },
+  "training_models": {
+    "claude-3-5-sonnet-20240620": 771,
+    "claude-3-opus-20240229": 1537,
+    "deepseek-ai--DeepSeek-V3": 1705,
+    "gemini-1.5-pro": 1281,
+    "Human_reference": 2789,
+    "gpt-4-turbo-2024-04-09": 719,
+    "gpt-4-0613": 731,
+    "claude-3-7-sonnet-20250219--3200-output-128k-2025-02-19--main": 208,
+    "claude-3-7-sonnet-20250219--main": 208,
+    "gemini-1.5-pro-002": 153,
+    "gemini-1.5-pro-exp-0801": 152,
+    "gemini-2.0-pro-exp-02-05--main": 135,
+    "gemini-1.5-pro-exp-0827": 144,
+    "grok-beta--main": 208,
+    "o1-2024-12-17--low--main": 87,
+    "o1-preview-2024-09-12": 90,
+    "o1-2024-12-17--high--main": 79,
+    "qwen-max-latest--main": 208,
+    "o1-2024-12-17--main": 76,
+    "gpt-4.5-preview--main": 77,
+    "Gemini-Pro-1.5": 962
+  },
+  "heldout_model_ids": [
+    "chatgpt-4o-latest--main",
+    "claude-3-5-sonnet-20241022",
+    "deepseek-ai--DeepSeek-R1",
+    "gpt-4o",
+    "gpt-4o-2024-08-06",
+    "gpt-4o-2024-11-20--main"
+  ],
+  "registry_sha256": "fc4f0cab13e381f0610b7755cb3f688e0e92274b2ac0e35d6ed6cc0d4ceb74a8",
+  "script_sha256": "50d2784045761f55cd5014f327139fe3153dcea12a2dd2204f095930de710f23",
+  "helper_sha256": "dd5f9bf35f096c9aa8c75c8bf32540aa8690b4b1095fe938c6826cbbb80461c2",
+  "data_sha256": "8a1979efed554bd515338c313549269cc21c1cb0cf4d6b08bc003550ecf32850",
+  "encoder": "CodeT5-small full encoder fine-tuning, 1 epoch",
+  "encoder_lr": 3e-05,
+  "classifier_lr": 0.001,
+  "effective_batch": 16,
+  "maximum_tokens": 512,
+  "coverage": "head384+tail128",
+  "main_length_bins": [
+    "<=512",
+    "513-1024",
+    "1025-2048",
+    ">2048"
+  ],
+  "encoder_seed": 20261014,
+  "head_seeds": [
+    0,
+    1,
+    2
+  ],
+  "reference_folds": 5,
+  "ridge_alpha": 100,
+  "reference_teacher": "train tasks containing Human plus >=2 AI families only; inference predicts reference from code alone",
+  "broad_sampling": "up to 4000 per class plus all eligible external and dev heldout-model rows; paired core retained; Human-only allowed",
+  "ammc": {
+    "original": 0.5,
+    "comment": 0.2,
+    "whitespace": 0.3,
+    "safe_local_rename": 0.4,
+    "train_attempt_status": {
+      "comment:no_change": 413,
+      "whitespace:accepted": 1852,
+      "comment:accepted": 821,
+      "rename:no_safe_candidate": 1202,
+      "rename:accepted": 1285,
+      "rename:unsafe_reflection": 26
+    }
+  },
+  "formal_test": false,
+  "historical_test_read": false,
+  "api_generation": false,
+  "domain_used": false,
+  "independent_test_claim": false,
+  "limitations": [
+    "historically exposed public benchmarks",
+    "legacy prompt modes not fully aligned",
+    "reference labels not independently certified unaided Human",
+    "Qwen/Grok have only one flagship model ID; their member-heldout is unsupported",
+    "source and length shortcuts can remain, especially broad pool",
+    "512 token pilot does not claim full long-code coverage",
+    "heldout exact API/model identifiers do not prove distinct base weights"
+  ],
+  "heldout_alias_policy": {
+    "exclude_entire_GPT4o_product_line_from_train_and_calibration": true,
+    "reason": "floating GPT4o aliases may identify the same snapshot as heldout dated versions",
+    "removed": {
+      "calibration": 136,
+      "train": 874
+    },
+    "dev_moved_to_heldout": 272
+  },
+  "family_task_counts": {
+    "train": {
+      "Human": 2789,
+      "OpenAI": 734,
+      "Claude": 774,
+      "Gemini": 1050,
+      "Grok": 104,
+      "Qwen": 104,
+      "DeepSeek": 774
+    },
+    "calibration": {
+      "Human": 406,
+      "OpenAI": 118,
+      "Claude": 123,
+      "Gemini": 155,
+      "Grok": 15,
+      "Qwen": 15,
+      "DeepSeek": 123
+    },
+    "dev": {
+      "Human": 805,
+      "OpenAI": 234,
+      "Claude": 243,
+      "Gemini": 311,
+      "Grok": 29,
+      "Qwen": 29,
+      "DeepSeek": 242
+    },
+    "unseen_generator": {
+      "Human": 0,
+      "OpenAI": 243,
+      "Claude": 243,
+      "Gemini": 0,
+      "Grok": 0,
+      "Qwen": 0,
+      "DeepSeek": 29
+    },
+    "external": {
+      "Human": 261,
+      "OpenAI": 421,
+      "Claude": 391,
+      "Gemini": 340,
+      "Grok": 0,
+      "Qwen": 0,
+      "DeepSeek": 418
+    }
+  },
+  "alias_policy_script_sha256": "8dbfac4bb6c27832138f268b3df418827ad7114d4a1afc061a83f62b727e8a69",
+  "execution_source_sha256": {
+    "ddet_flagship_local_2026_10_14.py": "e9997b08a8605cd74a38ded2d5d0db46b3ddc5f6483fb17c12aa8c7cfb320336",
+    "ddet_two_tasks_local_2026_10_14.py": "c45a12cad6d6251a91b85fc8389403e8c77650a2417bdfc43e2b9ff3d13d646a"
+  },
+  "reference_center_balance": "families equally weighted, generators equally weighted inside each family; only real train multi-source tasks",
+  "parent_diagnostic_data_sha256": "040037f35f7325e3678184a22abab3e6706f1740c9325bec19022949eaa4d12c",
+  "input_view": "remove non-string blank lines consistently for all classes; preserve AST; no artificial docstring placeholders",
+  "blank_view_proof": {
+    "rows": 20932,
+    "changed": 18267,
+    "ast_preserved": 20932,
+    "semantic_proxy_text_identical": 20932
+  },
+  "train_arms": [
+    "B1"
+  ],
+  "retrain_encoder_from_pretrained": true,
+  "semantic_cache_reused_only_after_exact_proxy_text_identity": true,
+  "clean_script_sha256": "8d8109f95cd68d32f9a7b91d2cece307f3254a6ad71a29debba37151a94f9a86",
+  "no_new_split_or_sample_selection": true
+}

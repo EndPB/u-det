@@ -1,0 +1,96 @@
+{
+  "families": {
+    "Human": {
+      "samples": 58625,
+      "tasks": 20848,
+      "model_identifiers": [],
+      "same_task_human_tasks": 20848
+    },
+    "OpenAI": {
+      "samples": 8076,
+      "tasks": 1550,
+      "model_identifiers": [
+        "chatgpt-4o-latest--main",
+        "gpt-4",
+        "gpt-4-0613",
+        "gpt-4-turbo-2024-04-09",
+        "gpt-4.5-preview--main",
+        "gpt-4o",
+        "gpt-4o-2024-08-06",
+        "gpt-4o-2024-11-20--main",
+        "gpt-5.4",
+        "o1-2024-12-17--high--main",
+        "o1-2024-12-17--low--main",
+        "o1-2024-12-17--main",
+        "o1-preview-2024-09-12"
+      ],
+      "same_task_human_tasks": 1386
+    },
+    "Claude": {
+      "samples": 4802,
+      "tasks": 1485,
+      "model_identifiers": [
+        "claude-3-5-sonnet-20240620",
+        "claude-3-5-sonnet-20241022",
+        "claude-3-7-sonnet-20250219--3200-output-128k-2025-02-19--main",
+        "claude-3-7-sonnet-20250219--main",
+        "claude-3-opus-20240229",
+        "claude-opus-4-6"
+      ],
+      "same_task_human_tasks": 1364
+    },
+    "Gemini": {
+      "samples": 5694,
+      "tasks": 1840,
+      "model_identifiers": [
+        "Gemini-Pro-1.5",
+        "gemini-1.5-pro",
+        "gemini-1.5-pro-002",
+        "gemini-1.5-pro-exp-0801",
+        "gemini-1.5-pro-exp-0827",
+        "gemini-2.0-pro-exp-02-05--main",
+        "gemini-3.1-pro-preview"
+      ],
+      "same_task_human_tasks": 1325
+    },
+    "Grok": {
+      "samples": 296,
+      "tasks": 148,
+      "model_identifiers": [
+        "grok-beta--main"
+      ],
+      "same_task_human_tasks": 148
+    },
+    "Qwen": {
+      "samples": 296,
+      "tasks": 148,
+      "model_identifiers": [
+        "qwen-max-latest--main"
+      ],
+      "same_task_human_tasks": 148
+    },
+    "DeepSeek": {
+      "samples": 2962,
+      "tasks": 1548,
+      "model_identifiers": [
+        "deepseek-ai--DeepSeek-R1",
+        "deepseek-ai--DeepSeek-V3",
+        "deepseek-v3-2-251201"
+      ],
+      "same_task_human_tasks": 1386
+    }
+  },
+  "sources": {
+    "public_same_task_full_2026-10-07": 19170,
+    "BAAI/TACO": 54071,
+    "MatrixStudio/Codeforces-Python-Submissions": 2373,
+    "codeparrot/apps": 789,
+    "livecodebench/submissions": 1998,
+    "Zenodo:20823175": 1728,
+    "GitHub:jamesmurdza/humaneval-results": 622
+  },
+  "scope": "parseable complete Python; explicit flagship whitelist; no patches or small generators",
+  "reserved_and_excluded": {
+    "identical_clean_code_multiple_families": 192
+  }
+}

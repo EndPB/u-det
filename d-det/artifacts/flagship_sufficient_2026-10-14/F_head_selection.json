@@ -1,0 +1,38 @@
+{
+  "B2_seed0": {
+    "epoch": 24,
+    "calibration_metric": 0.6143969528187021
+  },
+  "B2_seed1": {
+    "epoch": 1,
+    "calibration_metric": 0.6122098833385143
+  },
+  "B2_seed2": {
+    "epoch": 10,
+    "calibration_metric": 0.6088360012213688
+  },
+  "B3_seed0": {
+    "epoch": 14,
+    "calibration_metric": 0.6114232786623816
+  },
+  "B3_seed1": {
+    "epoch": 21,
+    "calibration_metric": 0.6136309058339146
+  },
+  "B3_seed2": {
+    "epoch": 1,
+    "calibration_metric": 0.609275422612811
+  },
+  "Ours_seed0": {
+    "epoch": 25,
+    "calibration_metric": 0.6144448334631107
+  },
+  "Ours_seed1": {
+    "epoch": 22,
+    "calibration_metric": 0.6203855520800872
+  },
+  "Ours_seed2": {
+    "epoch": 19,
+    "calibration_metric": 0.614241879258364
+  }
+}

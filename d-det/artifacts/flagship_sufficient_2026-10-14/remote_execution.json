@@ -1,0 +1,11 @@
+{
+  "torch": "2.9.1+cu128",
+  "transformers": "5.17.0",
+  "gpu": "NVIDIA GeForce RTX 3080 Ti",
+  "micro_batch": 32,
+  "effective_batch": 32,
+  "inference_batch": 64,
+  "resume_checkpoint_sha256": "4e659a437a900820f71e814156de529ad93863a3d303dca5b1d961a20fb6176f",
+  "local_first_epoch_then_remote_resume": true,
+  "runtime": "/root/autodl-tmp/u-det/.codex-runs/flagship_sufficient_2026-10-14"
+}

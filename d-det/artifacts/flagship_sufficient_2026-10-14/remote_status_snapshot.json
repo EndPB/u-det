@@ -1,0 +1,423 @@
+{
+  "fits": {
+    "F_B0": {
+      "completed": true,
+      "task": "F",
+      "arm": "B0",
+      "history": [
+        {
+          "epoch": 1,
+          "weighted_train_loss": 1.610444532517425,
+          "calibration_metric": 0.4052701492280862,
+          "seconds": 1168.5316722393036,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 1
+        },
+        {
+          "epoch": 2,
+          "weighted_train_loss": 1.3050765563142233,
+          "calibration_metric": 0.4876614845370294,
+          "seconds": 193.69323635101318,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 2
+        },
+        {
+          "epoch": 3,
+          "weighted_train_loss": 1.1409046331023824,
+          "calibration_metric": 0.506913783296287,
+          "seconds": 192.9694540500641,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 3
+        },
+        {
+          "epoch": 4,
+          "weighted_train_loss": 1.0092663338782457,
+          "calibration_metric": 0.537404138288954,
+          "seconds": 197.83006739616394,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 4
+        },
+        {
+          "epoch": 5,
+          "weighted_train_loss": 0.8489429835589788,
+          "calibration_metric": 0.5990979375145445,
+          "seconds": 192.1480495929718,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 5
+        },
+        {
+          "epoch": 6,
+          "weighted_train_loss": 0.7082038755327936,
+          "calibration_metric": 0.5732401917971347,
+          "seconds": 191.36278176307678,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 5
+        },
+        {
+          "epoch": 7,
+          "weighted_train_loss": 0.5976569625313986,
+          "calibration_metric": 0.5783876658622867,
+          "seconds": 191.90890288352966,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 5
+        },
+        {
+          "epoch": 8,
+          "weighted_train_loss": 0.5046858052929195,
+          "calibration_metric": 0.585350931160293,
+          "seconds": 191.54130959510803,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 5
+        }
+      ],
+      "selected_epoch": 5,
+      "best_calibration_metric": 0.5990979375145445,
+      "validation_saturated": true,
+      "stop_reason": "calibration_plateau",
+      "seconds_this_invocation": 1356.86212849617,
+      "peak_cuda_mib": 2942.04833984375
+    },
+    "F_B1": {
+      "completed": true,
+      "task": "F",
+      "arm": "B1",
+      "history": [
+        {
+          "epoch": 1,
+          "weighted_train_loss": 1.6447567818786546,
+          "calibration_metric": 0.3518192214492143,
+          "seconds": 229.43424034118652,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "whitespace:accepted": 8165,
+            "rename:accepted": 3112,
+            "comment:no_change": 4285,
+            "rename:no_safe_candidate": 7394,
+            "comment:accepted": 1150,
+            "rename:unsafe_reflection": 251
+          },
+          "selected_epoch_so_far": 1
+        },
+        {
+          "epoch": 2,
+          "weighted_train_loss": 1.3765389670844592,
+          "calibration_metric": 0.4774720387245339,
+          "seconds": 229.4381582736969,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "rename:accepted": 3099,
+            "comment:accepted": 1204,
+            "rename:no_safe_candidate": 7482,
+            "whitespace:accepted": 8063,
+            "comment:no_change": 4124,
+            "rename:unsafe_reflection": 252
+          },
+          "selected_epoch_so_far": 2
+        },
+        {
+          "epoch": 3,
+          "weighted_train_loss": 1.2115338467319083,
+          "calibration_metric": 0.48020558330791013,
+          "seconds": 228.20545530319214,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "comment:accepted": 1100,
+            "rename:no_safe_candidate": 7354,
+            "whitespace:accepted": 8126,
+            "rename:accepted": 3089,
+            "comment:no_change": 4150,
+            "rename:unsafe_reflection": 251
+          },
+          "selected_epoch_so_far": 3
+        },
+        {
+          "epoch": 4,
+          "weighted_train_loss": 1.0749435367251732,
+          "calibration_metric": 0.5280000762409255,
+          "seconds": 226.92677354812622,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "whitespace:accepted": 7937,
+            "rename:accepted": 3058,
+            "rename:no_safe_candidate": 7357,
+            "comment:no_change": 4215,
+            "comment:accepted": 1154,
+            "rename:unsafe_reflection": 249
+          },
+          "selected_epoch_so_far": 4
+        },
+        {
+          "epoch": 5,
+          "weighted_train_loss": 0.9468790624735475,
+          "calibration_metric": 0.5956210625067035,
+          "seconds": 226.226557970047,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "rename:accepted": 3050,
+            "rename:no_safe_candidate": 7344,
+            "whitespace:accepted": 8069,
+            "comment:accepted": 1139,
+            "comment:no_change": 4291,
+            "rename:unsafe_reflection": 245
+          },
+          "selected_epoch_so_far": 5
+        },
+        {
+          "epoch": 6,
+          "weighted_train_loss": 0.8096836666149668,
+          "calibration_metric": 0.5555054004331251,
+          "seconds": 225.67731380462646,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "comment:no_change": 4242,
+            "rename:accepted": 3028,
+            "comment:accepted": 1180,
+            "whitespace:accepted": 7994,
+            "rename:no_safe_candidate": 7421,
+            "rename:unsafe_reflection": 257
+          },
+          "selected_epoch_so_far": 5
+        },
+        {
+          "epoch": 7,
+          "weighted_train_loss": 0.6993440716661273,
+          "calibration_metric": 0.5991009811336918,
+          "seconds": 229.02880430221558,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "comment:no_change": 4306,
+            "whitespace:accepted": 8086,
+            "rename:no_safe_candidate": 7433,
+            "rename:accepted": 2976,
+            "comment:accepted": 1122,
+            "rename:unsafe_reflection": 258
+          },
+          "selected_epoch_so_far": 7
+        },
+        {
+          "epoch": 8,
+          "weighted_train_loss": 0.6356198593963592,
+          "calibration_metric": 0.5971428554581831,
+          "seconds": 222.03668856620789,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "whitespace:accepted": 8088,
+            "rename:no_safe_candidate": 7527,
+            "comment:accepted": 1098,
+            "comment:no_change": 4234,
+            "rename:accepted": 3028,
+            "rename:unsafe_reflection": 273
+          },
+          "selected_epoch_so_far": 7
+        },
+        {
+          "epoch": 9,
+          "weighted_train_loss": 0.5727185087269392,
+          "calibration_metric": 0.5895685449021668,
+          "seconds": 226.0144443511963,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "rename:no_safe_candidate": 7460,
+            "rename:accepted": 3018,
+            "whitespace:accepted": 8111,
+            "comment:no_change": 4328,
+            "comment:accepted": 1174,
+            "rename:unsafe_reflection": 233
+          },
+          "selected_epoch_so_far": 7
+        },
+        {
+          "epoch": 10,
+          "weighted_train_loss": 0.4824197849370526,
+          "calibration_metric": 0.5962605556552424,
+          "seconds": 225.32709169387817,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "whitespace:accepted": 7951,
+            "comment:accepted": 1121,
+            "rename:no_safe_candidate": 7495,
+            "rename:accepted": 3091,
+            "comment:no_change": 4174,
+            "rename:unsafe_reflection": 245
+          },
+          "selected_epoch_so_far": 7
+        }
+      ],
+      "selected_epoch": 7,
+      "best_calibration_metric": 0.5991009811336918,
+      "validation_saturated": true,
+      "stop_reason": "calibration_plateau",
+      "seconds_this_invocation": 2275.060839176178,
+      "peak_cuda_mib": 2943.9208984375
+    },
+    "D_B0": {
+      "completed": true,
+      "task": "D",
+      "arm": "B0",
+      "history": [
+        {
+          "epoch": 1,
+          "weighted_train_loss": 0.04848869396055203,
+          "calibration_metric": 0.9976660767495276,
+          "seconds": 194.26996541023254,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 1
+        },
+        {
+          "epoch": 2,
+          "weighted_train_loss": 0.029399706068545237,
+          "calibration_metric": 0.9978522875090494,
+          "seconds": 190.8589653968811,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 2
+        },
+        {
+          "epoch": 3,
+          "weighted_train_loss": 0.02634691992810621,
+          "calibration_metric": 0.9980448551342951,
+          "seconds": 189.5906322002411,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 3
+        },
+        {
+          "epoch": 4,
+          "weighted_train_loss": 0.022543936691430372,
+          "calibration_metric": 0.9980596575501949,
+          "seconds": 191.51544189453125,
+          "optimizer_steps": 1676,
+          "augmentation": {},
+          "selected_epoch_so_far": 4
+        }
+      ],
+      "selected_epoch": 4,
+      "best_calibration_metric": 0.9980596575501949,
+      "validation_saturated": true,
+      "stop_reason": "calibration_plateau",
+      "seconds_this_invocation": 768.7654430866241,
+      "peak_cuda_mib": 2944.59033203125
+    },
+    "D_B1": {
+      "completed": true,
+      "task": "D",
+      "arm": "B1",
+      "history": [
+        {
+          "epoch": 1,
+          "weighted_train_loss": 0.053676731535432204,
+          "calibration_metric": 0.9974805924889455,
+          "seconds": 224.79571533203125,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "whitespace:accepted": 8165,
+            "rename:accepted": 3112,
+            "comment:no_change": 4285,
+            "rename:no_safe_candidate": 7394,
+            "comment:accepted": 1150,
+            "rename:unsafe_reflection": 251
+          },
+          "selected_epoch_so_far": 1
+        },
+        {
+          "epoch": 2,
+          "weighted_train_loss": 0.03338247107789254,
+          "calibration_metric": 0.9979062300553337,
+          "seconds": 230.50292706489563,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "rename:accepted": 3099,
+            "comment:accepted": 1204,
+            "rename:no_safe_candidate": 7482,
+            "whitespace:accepted": 8063,
+            "comment:no_change": 4124,
+            "rename:unsafe_reflection": 252
+          },
+          "selected_epoch_so_far": 2
+        },
+        {
+          "epoch": 3,
+          "weighted_train_loss": 0.029507764183100683,
+          "calibration_metric": 0.998179893124741,
+          "seconds": 229.76895999908447,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "comment:accepted": 1100,
+            "rename:no_safe_candidate": 7354,
+            "whitespace:accepted": 8126,
+            "rename:accepted": 3089,
+            "comment:no_change": 4150,
+            "rename:unsafe_reflection": 251
+          },
+          "selected_epoch_so_far": 3
+        },
+        {
+          "epoch": 4,
+          "weighted_train_loss": 0.025213038273012175,
+          "calibration_metric": 0.9982799683537062,
+          "seconds": 224.30360174179077,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "whitespace:accepted": 7937,
+            "rename:accepted": 3058,
+            "rename:no_safe_candidate": 7357,
+            "comment:no_change": 4215,
+            "comment:accepted": 1154,
+            "rename:unsafe_reflection": 249
+          },
+          "selected_epoch_so_far": 4
+        },
+        {
+          "epoch": 5,
+          "weighted_train_loss": 0.02172192740455221,
+          "calibration_metric": 0.9984214540222432,
+          "seconds": 221.59763765335083,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "rename:accepted": 3050,
+            "rename:no_safe_candidate": 7344,
+            "whitespace:accepted": 8069,
+            "comment:accepted": 1139,
+            "comment:no_change": 4291,
+            "rename:unsafe_reflection": 245
+          },
+          "selected_epoch_so_far": 5
+        },
+        {
+          "epoch": 6,
+          "weighted_train_loss": 0.020317233117964108,
+          "calibration_metric": 0.9985344246073911,
+          "seconds": 220.9673159122467,
+          "optimizer_steps": 1676,
+          "augmentation": {
+            "comment:no_change": 4242,
+            "rename:accepted": 3028,
+            "comment:accepted": 1180,
+            "whitespace:accepted": 7994,
+            "rename:no_safe_candidate": 7421,
+            "rename:unsafe_reflection": 257
+          },
+          "selected_epoch_so_far": 6
+        }
+      ],
+      "selected_epoch": 6,
+      "best_calibration_metric": 0.9985344246073911,
+      "validation_saturated": true,
+      "stop_reason": "calibration_plateau",
+      "seconds_this_invocation": 1355.8335118293762,
+      "peak_cuda_mib": 2945.67724609375
+    }
+  },
+  "last_encoder_log": "taxWarning: invalid escape sequence '\\.'\n<unknown>:3: SyntaxWarning: invalid escape sequence '\\|'\n<unknown>:3: SyntaxWarning: invalid escape sequence '\\|'\n<unknown>:4: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:4: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:3: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:3: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:9: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:9: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:3: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:3: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:12: SyntaxWarning: invalid decimal literal\n<unknown>:12: SyntaxWarning: invalid decimal literal\n<unknown>:11: SyntaxWarning: invalid escape sequence '\\s'\n<unknown>:11: SyntaxWarning: invalid escape sequence '\\s'\n\nLoading weights:   0%|          | 0/52 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 52/52 [00:00<00:00, 26598.03it/s]\n[transformers] \u001b[1mT5EncoderModel LOAD REPORT\u001b[0m from: /root/autodl-tmp/u-det/.codex-runs/flagship_sufficient_2026-10-14/d-det/models/codet5-small\nKey            | Status     |  | \n---------------+------------+--+-\nlm_head.weight | UNEXPECTED |  | \n\nNotes:\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n17:09:28 FEATURES_DONE F B0 80751\n\nLoading weights:   0%|          | 0/52 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 52/52 [00:00<00:00, 23815.66it/s]\n[transformers] \u001b[1mT5EncoderModel LOAD REPORT\u001b[0m from: /root/autodl-tmp/u-det/.codex-runs/flagship_sufficient_2026-10-14/d-det/models/codet5-small\nKey            | Status     |  | \n---------------+------------+--+-\nlm_head.weight | UNEXPECTED |  | \n\nNotes:\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n17:11:01 FEATURES_DONE F B1 80751\n\nLoading weights:   0%|          | 0/52 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 52/52 [00:00<00:00, 25587.03it/s]\n[transformers] \u001b[1mT5EncoderModel LOAD REPORT\u001b[0m from: /root/autodl-tmp/u-det/.codex-runs/flagship_sufficient_2026-10-14/d-det/models/codet5-small\nKey            | Status     |  | \n---------------+------------+--+-\nlm_head.weight | UNEXPECTED |  | \n\nNotes:\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n17:12:32 FEATURES_DONE D B0 80751\n\nLoading weights:   0%|          | 0/52 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 52/52 [00:00<00:00, 24190.75it/s]\n[transformers] \u001b[1mT5EncoderModel LOAD REPORT\u001b[0m from: /root/autodl-tmp/u-det/.codex-runs/flagship_sufficient_2026-10-14/d-det/models/codet5-small\nKey            | Status     |  | \n---------------+------------+--+-\nlm_head.weight | UNEXPECTED |  | \n\nNotes:\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n17:14:03 FEATURES_DONE D B1 80751\n17:14:03 SUFFICIENT_ENCODERS_AND_FEATURES_DONE\n",
+  "last_views_log": ": SyntaxWarning: invalid escape sequence '\\s'\n<unknown>:16: SyntaxWarning: invalid escape sequence '\\s'\n<unknown>:19: SyntaxWarning: invalid escape sequence '\\s'\n<unknown>:19: SyntaxWarning: invalid escape sequence '\\s'\n<unknown>:6: SyntaxWarning: invalid escape sequence '\\W'\n<unknown>:6: SyntaxWarning: invalid escape sequence '\\W'\n<unknown>:6: SyntaxWarning: invalid escape sequence '\\W'\n<unknown>:6: SyntaxWarning: invalid escape sequence '\\W'\n<unknown>:5: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:5: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:4: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:4: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:5: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:5: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:5: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:5: SyntaxWarning: invalid escape sequence '\\d'\n<unknown>:11: SyntaxWarning: invalid escape sequence '\\s'\n<unknown>:11: SyntaxWarning: invalid escape sequence '\\s'\n<unknown>:12: SyntaxWarning: invalid escape sequence '\\['\n<unknown>:12: SyntaxWarning: invalid escape sequence '\\['\n<unknown>:6: SyntaxWarning: invalid escape sequence '\\s'\n<unknown>:6: SyntaxWarning: invalid escape sequence '\\s'\n<unknown>:5: SyntaxWarning: invalid escape sequence '\\w'\n<unknown>:5: SyntaxWarning: invalid escape sequence '\\w'\n<unknown>:4: SyntaxWarning: invalid escape sequence '\\w'\n<unknown>:4: SyntaxWarning: invalid escape sequence '\\w'\n\nLoading weights:   0%|          | 0/52 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 52/52 [00:00<00:00, 24714.31it/s]\n[transformers] \u001b[1mT5EncoderModel LOAD REPORT\u001b[0m from: /root/autodl-tmp/u-det/.codex-runs/flagship_sufficient_2026-10-14/d-det/models/codet5-small\nKey            | Status     |  | \n---------------+------------+--+-\nlm_head.weight | UNEXPECTED |  | \n\nNotes:\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n\nLoading weights:   0%|          | 0/52 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 52/52 [00:00<00:00, 26860.07it/s]\n[transformers] \u001b[1mT5EncoderModel LOAD REPORT\u001b[0m from: /root/autodl-tmp/u-det/.codex-runs/flagship_sufficient_2026-10-14/d-det/models/codet5-small\nKey            | Status     |  | \n---------------+------------+--+-\nlm_head.weight | UNEXPECTED |  | \n\nNotes:\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n\nLoading weights:   0%|          | 0/52 [00:00<?, ?it/s]\nLoading weights: 100%|██████████| 52/52 [00:00<00:00, 25046.37it/s]\n[transformers] \u001b[1mT5EncoderModel LOAD REPORT\u001b[0m from: /root/autodl-tmp/u-det/.codex-runs/flagship_sufficient_2026-10-14/d-det/models/codet5-small\nKey            | Status     |  | \n---------------+------------+--+-\nlm_head.weight | UNEXPECTED |  | \n\nNotes:\n- UNEXPECTED:\tcan be ignored when loading from different task/architecture; not ok if you expect identical arch.\n17:14:43 REMOTE_GPU_VIEWS_DONE 21\n",
+  "inventory_ready": true
+}

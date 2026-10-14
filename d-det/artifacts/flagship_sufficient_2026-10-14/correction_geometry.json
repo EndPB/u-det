@@ -1,0 +1,71 @@
+{
+  "B2": {
+    "n": 203,
+    "classes": {
+      "Human": 29,
+      "OpenAI": 29,
+      "Claude": 29,
+      "Gemini": 29,
+      "Grok": 29,
+      "Qwen": 29,
+      "DeepSeek": 29
+    },
+    "family_cosine_silhouette": -0.1384629461847109,
+    "leave_task_out_knn_macro_recall": 0.29064039408867,
+    "ai_only": {
+      "family_cosine_silhouette": -0.09337648739669509,
+      "leave_task_out_knn_macro_recall": 0.3620689655172414
+    },
+    "balanced_variance_fractions": {
+      "family": 0.21110495274405786,
+      "task": 0.24218921989758457,
+      "interaction": 0.5467058273583576
+    }
+  },
+  "B3": {
+    "n": 203,
+    "classes": {
+      "Human": 29,
+      "OpenAI": 29,
+      "Claude": 29,
+      "Gemini": 29,
+      "Grok": 29,
+      "Qwen": 29,
+      "DeepSeek": 29
+    },
+    "family_cosine_silhouette": -0.17160540702558044,
+    "leave_task_out_knn_macro_recall": 0.27586206896551724,
+    "ai_only": {
+      "family_cosine_silhouette": -0.13465482473475837,
+      "leave_task_out_knn_macro_recall": 0.3505747126436782
+    },
+    "balanced_variance_fractions": {
+      "family": 0.08925448218401934,
+      "task": 0.4247805963395312,
+      "interaction": 0.48596492147644943
+    }
+  },
+  "Ours": {
+    "n": 203,
+    "classes": {
+      "Human": 29,
+      "OpenAI": 29,
+      "Claude": 29,
+      "Gemini": 29,
+      "Grok": 29,
+      "Qwen": 29,
+      "DeepSeek": 29
+    },
+    "family_cosine_silhouette": -0.15879318609232776,
+    "leave_task_out_knn_macro_recall": 0.270935960591133,
+    "ai_only": {
+      "family_cosine_silhouette": -0.120175958238703,
+      "leave_task_out_knn_macro_recall": 0.3103448275862069
+    },
+    "balanced_variance_fractions": {
+      "family": 0.20982250501246855,
+      "task": 0.30299740849622914,
+      "interaction": 0.4871800864913024
+    }
+  }
+}

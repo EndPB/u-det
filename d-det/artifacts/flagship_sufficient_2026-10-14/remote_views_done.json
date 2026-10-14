@@ -1,0 +1,163 @@
+{
+  "files": [
+    {
+      "kind": "artifact",
+      "name": "protocol.json",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/protocol.json",
+      "bytes": 2499,
+      "sha256": "1a0cc80091882e8b555845b73e15b0946f7c625448ba470be2a2540974fb6440"
+    },
+    {
+      "kind": "artifact",
+      "name": "remote_execution.json",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/remote_execution.json",
+      "bytes": 395,
+      "sha256": "3c2c93e809eae61358ef54e39e571fe0fb9817e949d2adb561ad158b40902a69"
+    },
+    {
+      "kind": "artifact",
+      "name": "remote_train.log.txt",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/remote_train.log.txt",
+      "bytes": 210673,
+      "sha256": "5f43ccae80dcbdd7c930e33ec24e804696b4137062001fa36f9434dcd3e1d31c"
+    },
+    {
+      "kind": "artifact",
+      "name": "attention_equivalence_and_benchmark.json",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/attention_equivalence_and_benchmark.json",
+      "bytes": 681,
+      "sha256": "88765c4a90e93106858c3fb430b54d660681cf012a8f7887509c15ba61bbeec6"
+    },
+    {
+      "kind": "artifact",
+      "name": "semantic_features.npz",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/semantic_features.npz",
+      "bytes": 305202712,
+      "sha256": "632cd787173e66f8b043090d19165b2692fd0894afaefb030d718667c7093c45"
+    },
+    {
+      "kind": "artifact",
+      "name": "pretraining_visual_features.npz",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/pretraining_visual_features.npz",
+      "bytes": 8085597,
+      "sha256": "46e2b5bea02afd79e49f7171381a62e977c4fe9a4b47ddc031a665070433fde8"
+    },
+    {
+      "kind": "artifact",
+      "name": "unseen_families_D_B0_features.npz",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/unseen_families_D_B0_features.npz",
+      "bytes": 15977619,
+      "sha256": "43ae4caa51f9895b399dfa0624eb72e43032d09772bec43a22b259ee892e9109"
+    },
+    {
+      "kind": "artifact",
+      "name": "unseen_families_D_B1_features.npz",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/unseen_families_D_B1_features.npz",
+      "bytes": 15950360,
+      "sha256": "365e99807692484445ca11092de28d87bf863ae1df43a8837302ee7a80622bf7"
+    },
+    {
+      "kind": "artifact",
+      "name": "unseen_families_semantic_features.npz",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/unseen_families_semantic_features.npz",
+      "bytes": 15739693,
+      "sha256": "fbc897a224a3209df5e512733c49734929d34f12fc2039214e31d055d190abd4"
+    },
+    {
+      "kind": "artifact",
+      "name": "F_B0_features.npz",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/F_B0_features.npz",
+      "bytes": 313554250,
+      "sha256": "cb88e0b65ae7ba15fb7deaca21bfb8468bf2a35acc23025ef7edb2640dbcef0c"
+    },
+    {
+      "kind": "artifact",
+      "name": "F_B0_training.json",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/F_B0_training.json",
+      "bytes": 2335,
+      "sha256": "5b323a736997b958e7cbe4720939e36eb2afa40af3338d204773b72cef1df215"
+    },
+    {
+      "kind": "artifact",
+      "name": "F_B1_features.npz",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/F_B1_features.npz",
+      "bytes": 313413843,
+      "sha256": "2a3af51d904dedb24271797182413008b40e929b18d0339a5f6834b42d1e9d3c"
+    },
+    {
+      "kind": "artifact",
+      "name": "F_B1_training.json",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/F_B1_training.json",
+      "bytes": 5129,
+      "sha256": "e898c1c395b8b1bec434c908427ec7d907f254a6e7774a1b8d6ae820f9759e8a"
+    },
+    {
+      "kind": "artifact",
+      "name": "D_B0_features.npz",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/D_B0_features.npz",
+      "bytes": 311618467,
+      "sha256": "b831ebaa99b70d5d50115eeeffe0e4a111186a2d00c3a6ffd78beca56028fcc7"
+    },
+    {
+      "kind": "artifact",
+      "name": "D_B0_training.json",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/D_B0_training.json",
+      "bytes": 1326,
+      "sha256": "5a3b341731545256e4f6584eb82b2342858cb197ed6b066319c3f7803b53a54a"
+    },
+    {
+      "kind": "artifact",
+      "name": "D_B1_features.npz",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/D_B1_features.npz",
+      "bytes": 311561292,
+      "sha256": "8c636686aaa6c074053e496018cb869d19295b82fcccbab1e42f3be3fbf4bf49"
+    },
+    {
+      "kind": "artifact",
+      "name": "D_B1_training.json",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/artifacts/flagship_sufficient_2026-10-14/D_B1_training.json",
+      "bytes": 3209,
+      "sha256": "8ad4ef82760409fe92f84662c7ed20759121ee8f5e48f7a8784c4a5afbb70787"
+    },
+    {
+      "kind": "best_checkpoint",
+      "name": "F_B0_best.pt",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/data/flagship_sufficient_2026-10-14/F_B0_best.pt",
+      "bytes": 141310328,
+      "sha256": "e01cd3ebbf67f106783f60db295a1094681dac76d139065570bc6d769d95fe48"
+    },
+    {
+      "kind": "best_checkpoint",
+      "name": "F_B1_best.pt",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/data/flagship_sufficient_2026-10-14/F_B1_best.pt",
+      "bytes": 141310328,
+      "sha256": "654ccc2adeaed7a683ead8dac6245aa7a844e0e89ff9137a17549629ad98b43a"
+    },
+    {
+      "kind": "best_checkpoint",
+      "name": "D_B0_best.pt",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/data/flagship_sufficient_2026-10-14/D_B0_best.pt",
+      "bytes": 141298040,
+      "sha256": "67b03a7e9d67332415cd7568827452088fe7e735663c224229ef55ba32a8ed01"
+    },
+    {
+      "kind": "best_checkpoint",
+      "name": "D_B1_best.pt",
+      "remote_path": "/root/autodl-tmp/u-det/d-det/data/flagship_sufficient_2026-10-14/D_B1_best.pt",
+      "bytes": 141298040,
+      "sha256": "e243b6127ced05b26229b01c6608a2f8a0133158c5812e54701151fc9caafb15"
+    }
+  ],
+  "all_visual_and_extra_encodings_same_remote_backend": true,
+  "raw_source_main_remains_local": true,
+  "runtime_source_sha256": {
+    "ddet_two_tasks_local_2026_10_14.py": "c45a12cad6d6251a91b85fc8389403e8c77650a2417bdfc43e2b9ff3d13d646a",
+    "ddet_flagship_local_2026_10_14.py": "e9997b08a8605cd74a38ded2d5d0db46b3ddc5f6483fb17c12aa8c7cfb320336",
+    "ddet_flagship_clean_local_2026_10_14.py": "8d8109f95cd68d32f9a7b91d2cece307f3254a6ad71a29debba37151a94f9a86",
+    "ddet_t5_local_fast_2026_10_14.py": "a9f4fb7190e044527112cc8c1b10cd13308a06d8d218eb93e42705a3c3acc7b1",
+    "ddet_sufficient_local_2026_10_14.py": "e56a42dc653dc33493661240ad3c41d849fc7b12124968b8ddf898f28580c764",
+    "ddet_sufficient_remote_2026_10_14.py": "2bbcb41dc4096e9c4b0a25c0fc0f6768ac8a3ed8de27c7a8a64171ee64c1e730",
+    "ddet_sufficient_analysis_2026_10_14.py": "fd11baaf95a292b273f0392e67ad38bc6efc666a765603f2f88d776b5488ce69",
+    "ddet_sufficient_remote_views_2026_10_14.py": "59fb98a5af9fe1e307eba4a2d9260123e85511fba49ee73ed125b708b7e3a32c"
+  }
+}

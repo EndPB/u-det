@@ -1,0 +1,124 @@
+{
+  "scope": "fixed heldout stress views; not exact dynamic training acceptance rates",
+  "diagnostic": "same trigger probability does not guarantee same safety-acceptance rate; fixed rename marker may be an artifact",
+  "by_split": {
+    "calibration": {
+      "Human": {
+        "n": 5814,
+        "fixed_stress_rename_marker_added": 1168,
+        "rate": 0.20089439284485724
+      },
+      "OpenAI": {
+        "n": 636,
+        "fixed_stress_rename_marker_added": 410,
+        "rate": 0.6446540880503144
+      },
+      "Claude": {
+        "n": 425,
+        "fixed_stress_rename_marker_added": 272,
+        "rate": 0.64
+      },
+      "Gemini": {
+        "n": 502,
+        "fixed_stress_rename_marker_added": 253,
+        "rate": 0.5039840637450199
+      },
+      "Grok": {
+        "n": 30,
+        "fixed_stress_rename_marker_added": 19,
+        "rate": 0.6333333333333333
+      },
+      "Qwen": {
+        "n": 30,
+        "fixed_stress_rename_marker_added": 19,
+        "rate": 0.6333333333333333
+      },
+      "DeepSeek": {
+        "n": 271,
+        "fixed_stress_rename_marker_added": 170,
+        "rate": 0.6273062730627307
+      }
+    },
+    "dev": {
+      "Human": {
+        "n": 11658,
+        "fixed_stress_rename_marker_added": 2280,
+        "rate": 0.19557385486361298
+      },
+      "OpenAI": {
+        "n": 1242,
+        "fixed_stress_rename_marker_added": 806,
+        "rate": 0.6489533011272142
+      },
+      "Claude": {
+        "n": 833,
+        "fixed_stress_rename_marker_added": 527,
+        "rate": 0.6326530612244898
+      },
+      "Gemini": {
+        "n": 1080,
+        "fixed_stress_rename_marker_added": 509,
+        "rate": 0.47129629629629627
+      },
+      "Grok": {
+        "n": 58,
+        "fixed_stress_rename_marker_added": 34,
+        "rate": 0.5862068965517241
+      },
+      "Qwen": {
+        "n": 58,
+        "fixed_stress_rename_marker_added": 37,
+        "rate": 0.6379310344827587
+      },
+      "DeepSeek": {
+        "n": 524,
+        "fixed_stress_rename_marker_added": 335,
+        "rate": 0.6393129770992366
+      }
+    },
+    "unseen_generator": {
+      "OpenAI": {
+        "n": 1072,
+        "fixed_stress_rename_marker_added": 656,
+        "rate": 0.6119402985074627
+      },
+      "Claude": {
+        "n": 485,
+        "fixed_stress_rename_marker_added": 272,
+        "rate": 0.5608247422680412
+      },
+      "DeepSeek": {
+        "n": 58,
+        "fixed_stress_rename_marker_added": 36,
+        "rate": 0.6206896551724138
+      }
+    },
+    "external": {
+      "Human": {
+        "n": 263,
+        "fixed_stress_rename_marker_added": 144,
+        "rate": 0.5475285171102662
+      },
+      "OpenAI": {
+        "n": 1026,
+        "fixed_stress_rename_marker_added": 458,
+        "rate": 0.44639376218323584
+      },
+      "Claude": {
+        "n": 345,
+        "fixed_stress_rename_marker_added": 155,
+        "rate": 0.4492753623188406
+      },
+      "Gemini": {
+        "n": 308,
+        "fixed_stress_rename_marker_added": 120,
+        "rate": 0.38961038961038963
+      },
+      "DeepSeek": {
+        "n": 411,
+        "fixed_stress_rename_marker_added": 294,
+        "rate": 0.7153284671532847
+      }
+    }
+  }
+}

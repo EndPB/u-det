@@ -1,0 +1,85 @@
+{
+  "completed": true,
+  "task": "F",
+  "arm": "B0",
+  "history": [
+    {
+      "epoch": 1,
+      "weighted_train_loss": 1.610444532517425,
+      "calibration_metric": 0.4052701492280862,
+      "seconds": 1168.5316722393036,
+      "optimizer_steps": 1676,
+      "augmentation": {},
+      "selected_epoch_so_far": 1
+    },
+    {
+      "epoch": 2,
+      "weighted_train_loss": 1.3050765563142233,
+      "calibration_metric": 0.4876614845370294,
+      "seconds": 193.69323635101318,
+      "optimizer_steps": 1676,
+      "augmentation": {},
+      "selected_epoch_so_far": 2
+    },
+    {
+      "epoch": 3,
+      "weighted_train_loss": 1.1409046331023824,
+      "calibration_metric": 0.506913783296287,
+      "seconds": 192.9694540500641,
+      "optimizer_steps": 1676,
+      "augmentation": {},
+      "selected_epoch_so_far": 3
+    },
+    {
+      "epoch": 4,
+      "weighted_train_loss": 1.0092663338782457,
+      "calibration_metric": 0.537404138288954,
+      "seconds": 197.83006739616394,
+      "optimizer_steps": 1676,
+      "augmentation": {},
+      "selected_epoch_so_far": 4
+    },
+    {
+      "epoch": 5,
+      "weighted_train_loss": 0.8489429835589788,
+      "calibration_metric": 0.5990979375145445,
+      "seconds": 192.1480495929718,
+      "optimizer_steps": 1676,
+      "augmentation": {},
+      "selected_epoch_so_far": 5
+    },
+    {
+      "epoch": 6,
+      "weighted_train_loss": 0.7082038755327936,
+      "calibration_metric": 0.5732401917971347,
+      "seconds": 191.36278176307678,
+      "optimizer_steps": 1676,
+      "augmentation": {},
+      "selected_epoch_so_far": 5
+    },
+    {
+      "epoch": 7,
+      "weighted_train_loss": 0.5976569625313986,
+      "calibration_metric": 0.5783876658622867,
+      "seconds": 191.90890288352966,
+      "optimizer_steps": 1676,
+      "augmentation": {},
+      "selected_epoch_so_far": 5
+    },
+    {
+      "epoch": 8,
+      "weighted_train_loss": 0.5046858052929195,
+      "calibration_metric": 0.585350931160293,
+      "seconds": 191.54130959510803,
+      "optimizer_steps": 1676,
+      "augmentation": {},
+      "selected_epoch_so_far": 5
+    }
+  ],
+  "selected_epoch": 5,
+  "best_calibration_metric": 0.5990979375145445,
+  "validation_saturated": true,
+  "stop_reason": "calibration_plateau",
+  "seconds_this_invocation": 1356.86212849617,
+  "peak_cuda_mib": 2942.04833984375
+}

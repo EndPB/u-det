@@ -1,0 +1,8 @@
+{
+  "frozen_before_eval": true,
+  "same_task_cohort_cap": 300,
+  "balanced_visual_family_cap": 100,
+  "projection": "label-blind train-anchor shared PCA, supplementary independently fitted t-SNE",
+  "seed": 20261014,
+  "posttraining_interpretation": "working common-base assumption; require same-task AI-internal and heldout/augmentation evidence, plus matched-head controls; clustering alone is not proof"
+}

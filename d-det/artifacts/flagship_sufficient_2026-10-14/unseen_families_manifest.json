@@ -1,0 +1,41 @@
+{
+  "new_ai_rows": 3740,
+  "heldout_human_references": 499,
+  "roles": {
+    "Mistral": {
+      "seen_training_task_ai_only": 1737,
+      "unseen_task": 534,
+      "seen_calibration_task_ai_only": 270
+    },
+    "GLM": {
+      "unseen_task": 419
+    },
+    "Kimi": {
+      "unseen_task": 421
+    },
+    "MiniMax": {
+      "unseen_task": 359
+    }
+  },
+  "rejected": {
+    "not_parseable_complete_python": 31
+  },
+  "data_sha256": "f130148dcebc22a2ddb052ad9a5611f41eef7fd29dd9683c571334fd4276c27e",
+  "classifier_training_contains_none_of_these_families": true,
+  "family_attribution_scope_unchanged": true,
+  "unseen_task_auroc_requires_matching_heldout_human": true,
+  "seen_training_or_calibration_tasks": "AI-only diagnostic, no independent AUROC claim",
+  "official_model_sources": {
+    "Mistral": "https://docs.mistral.ai/resources/changelogs",
+    "GLM": "https://z.ai/blog/glm-5.1",
+    "Kimi": "https://www.kimi.com/en/blog/kimi-k2-5",
+    "MiniMax": "https://www.minimax.io/models/text/m27"
+  },
+  "unique_ai_samples": {
+    "Mistral": 2537,
+    "MiniMax": 359,
+    "GLM": 419,
+    "Kimi": 421
+  },
+  "duplicate_publication_rows_not_counted": 4
+}

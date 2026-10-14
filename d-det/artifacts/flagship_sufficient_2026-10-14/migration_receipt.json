@@ -1,0 +1,14 @@
+{
+  "migration_completed": true,
+  "local_completed_epochs_before_migration": 1,
+  "local_partial_second_epoch_discarded": true,
+  "remote_resume_epoch": 2,
+  "effective_batch_unchanged": 32,
+  "local_micro_batch": 16,
+  "remote_micro_batch": 32,
+  "remote_encoder_pid": 4959,
+  "remote_views_pid": 6918,
+  "remote_gpu": "RTX 3080 Ti 12GB",
+  "pre_and_post_visual_encodings_share_remote_backend": true,
+  "compatibility_repair": "Transformers 5.17 uses native T5 attention; legacy adapter not applied; early failures occurred before remote training"
+}

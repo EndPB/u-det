@@ -1,0 +1,6 @@
+{
+  "sampled_at_local": "2026-10-14 16:15:50",
+  "query": "timestamp,name,memory.used_mib,memory.total_mib,gpu_percent,power_w",
+  "observation": "2026/10/14 16:15:50.461, NVIDIA GeForce RTX 3080 Ti, 6318, 12288, 92, 333.80",
+  "purpose": "Single live GPU observation during full-data training; not a continuous utilization average"
+}
